@@ -25,6 +25,7 @@ package com.softwaremagico.tm.character.blessings;
  */
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.softwaremagico.tm.Element;
@@ -44,6 +45,7 @@ public class Blessing extends Element<Blessing> implements IElementWithBonificat
     private final Integer cost;
     private final Set<Bonification> bonifications;
     private final BlessingClassification blessingClassification;
+    @JsonProperty("group")
     private final BlessingGroup blessingGroup;
 
     /**

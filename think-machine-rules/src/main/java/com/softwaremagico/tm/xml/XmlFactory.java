@@ -35,6 +35,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.file.PathManager;
 import com.softwaremagico.tm.file.modules.ModuleManager;
+import com.softwaremagico.tm.log.MachineLog;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -43,13 +44,14 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public abstract class XmlFactory<T extends Element<T>> {
 
     private static XmlMapper objectMapper;
 
     //Id -> Element
-    private Map<String, T> elements = new HashMap<>();
+    private Map<String, T> elements = null;
 
     public XmlFactory() {
 
@@ -59,18 +61,24 @@ public abstract class XmlFactory<T extends Element<T>> {
 
     public static ObjectMapper getObjectMapper() {
         if (objectMapper == null) {
-            objectMapper = new XmlMapper();
-            objectMapper.configure(ToXmlGenerator.Feature.WRITE_XML_DECLARATION, true);
-            objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
-            objectMapper.enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS);
-            final JavaTimeModule module = new JavaTimeModule();
-            objectMapper.registerModule(module);
-            objectMapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
+            objectMapper = XmlMapper.builder()
+                    .configure(ToXmlGenerator.Feature.WRITE_XML_DECLARATION, true)
+                    .enable(SerializationFeature.INDENT_OUTPUT)
+                    .enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS).serializationInclusion(JsonInclude.Include.NON_EMPTY)
+                    .addModule(new JavaTimeModule())
+                    .build();
         }
         return objectMapper;
     }
 
     public T getElement(String id) {
+        if (elements == null) {
+            try {
+                getElements();
+            } catch (IOException e) {
+                MachineLog.errorMessage(this.getClass(), e);
+            }
+        }
         return elements.get(id);
     }
 
@@ -87,6 +95,8 @@ public abstract class XmlFactory<T extends Element<T>> {
 
     public List<T> readXml(String xmlContent, Class<T> entityClass) throws JsonProcessingException {
         final List<T> elements = getObjectMapper().readerForListOf(entityClass).readValue(xmlContent);
+        final AtomicInteger order = new AtomicInteger();
+        elements.forEach(element -> element.setOrder(order.getAndIncrement()));
         this.elements = new HashMap<>();
         elements.forEach(element -> this.elements.put(element.getId(), element));
         return elements;

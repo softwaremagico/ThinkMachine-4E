@@ -54,8 +54,7 @@
             <!--            <class name="com.softwaremagico.tm.factory.RaceFactoryTests"/>-->
             <!--            <class name="com.softwaremagico.tm.factory.DamageTypeFactoryTests"/>-->
             <!--            <class name="com.softwaremagico.tm.factory.FactionsFactoryTests"/>-->
-            <!--            <class-->
-            <!--                    name="com.softwaremagico.tm.factory.CharacteristicsDefinitionFactoryTests"/>-->
+            <class name="com.softwaremagico.tm.factory.CharacteristicsDefinitionFactoryTests"/>
             <!--            <class name="com.softwaremagico.tm.factory.WeaponsFactoryTests"/>-->
             <!--            <class name="com.softwaremagico.tm.factory.BeneficeFactoryTests"/>-->
             <class name="com.softwaremagico.tm.factory.BlessingFactoryTests"/>

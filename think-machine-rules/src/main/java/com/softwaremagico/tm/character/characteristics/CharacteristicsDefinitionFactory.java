@@ -1,12 +1,10 @@
 package com.softwaremagico.tm.character.characteristics;
 
-import java.util.Objects;
-
 /*-
  * #%L
- * Think Machine (Core)
+ * Think Machine 4E (Rules)
  * %%
- * Copyright (C) 2017 Softwaremagico
+ * Copyright (C) 2017 - 2024 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -26,26 +24,30 @@ import java.util.Objects;
  * #L%
  */
 
-public enum CharacteristicType {
+import com.softwaremagico.tm.xml.XmlFactory;
 
-    BODY,
+import java.io.IOException;
+import java.util.List;
 
-    MIND,
+public class CharacteristicsDefinitionFactory extends XmlFactory<CharacteristicDefinition> {
+    private static final String XML_FILE = "characteristics.xml";
 
-    SPIRIT,
-
-    OTHERS;
-
-    CharacteristicType() {
+    private static final class CharacteristicDefinitionInit {
+        public static final CharacteristicsDefinitionFactory INSTANCE = new CharacteristicsDefinitionFactory();
     }
 
-    public static CharacteristicType getType(String name) {
-        for (final CharacteristicType type : CharacteristicType.values()) {
-            if (Objects.equals(type.name().toLowerCase(), name.toLowerCase())) {
-                return type;
-            }
-        }
-        return null;
+    public static CharacteristicsDefinitionFactory getInstance() {
+        return CharacteristicDefinitionInit.INSTANCE;
     }
 
+
+    @Override
+    public String getXmlFile() {
+        return XML_FILE;
+    }
+
+    @Override
+    public List<CharacteristicDefinition> getElements() throws IOException {
+        return readXml(CharacteristicDefinition.class);
+    }
 }

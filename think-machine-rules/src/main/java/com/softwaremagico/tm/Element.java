@@ -1,5 +1,6 @@
 package com.softwaremagico.tm;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.factions.Faction;
@@ -62,6 +63,10 @@ public class Element<T extends Element<?>> implements Comparable<T> {
     private FactionGroup restrictedToFactionGroup = null;
 
     private Set<Faction> restrictedToFactions = new HashSet<>();
+
+    //Only fort sheet representation.
+    @JsonIgnore
+    private Integer order;
 
     /**
      * For creating empty elements.
@@ -128,6 +133,14 @@ public class Element<T extends Element<?>> implements Comparable<T> {
 
     public void setRandomDefinition(RandomElementDefinition randomDefinition) {
         this.randomDefinition = randomDefinition;
+    }
+
+    public Integer getOrder() {
+        return order;
+    }
+
+    public void setOrder(Integer order) {
+        this.order = order;
     }
 
     @Override

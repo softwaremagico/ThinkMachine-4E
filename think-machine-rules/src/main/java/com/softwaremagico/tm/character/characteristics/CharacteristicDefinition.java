@@ -1,17 +1,10 @@
 package com.softwaremagico.tm.character.characteristics;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.softwaremagico.tm.Element;
-import com.softwaremagico.tm.TranslatedText;
-import com.softwaremagico.tm.character.values.IValue;
-
-import java.util.Objects;
-
 /*-
  * #%L
- * Think Machine (Core)
+ * Think Machine 4E (Rules)
  * %%
- * Copyright (C) 2017 Softwaremagico
+ * Copyright (C) 2017 - 2024 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -31,19 +24,33 @@ import java.util.Objects;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.softwaremagico.tm.Element;
+import com.softwaremagico.tm.TranslatedText;
+import com.softwaremagico.tm.character.values.IValue;
+
+import java.util.Objects;
+
+@JacksonXmlRootElement(localName = "characteristicDefinition")
+@JsonPropertyOrder(alphabetic = true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CharacteristicDefinition extends Element<CharacteristicDefinition>
         implements Comparable<CharacteristicDefinition>, IValue {
-    @JsonIgnore
-    private String abbreviature;
-    @JsonIgnore
-    private CharacteristicType type;
-    //Only fort sheet representation.
-    @JsonIgnore
-    private final int order;
 
-    public CharacteristicDefinition(String id, TranslatedText name, TranslatedText description, int order, String language, String moduleName) {
+    private String abbreviation;
+
+    @JsonProperty("characteristicType")
+    private CharacteristicType type;
+
+    public CharacteristicDefinition() {
+        super();
+    }
+
+    public CharacteristicDefinition(String id, TranslatedText name, TranslatedText description, String language, String moduleName) {
         super(id, name, description, language, moduleName);
-        this.order = order;
     }
 
     @Override
@@ -51,12 +58,12 @@ public class CharacteristicDefinition extends Element<CharacteristicDefinition>
         return getName().toString();
     }
 
-    public String getAbbreviature() {
-        return abbreviature;
+    public String getAbbreviation() {
+        return abbreviation;
     }
 
-    protected void setAbbreviature(String abbreviature) {
-        this.abbreviature = abbreviature;
+    protected void setAbbreviation(String abbreviation) {
+        this.abbreviation = abbreviation;
     }
 
     public CharacteristicType getType() {
@@ -76,11 +83,6 @@ public class CharacteristicDefinition extends Element<CharacteristicDefinition>
         return null;
     }
 
-    public Integer getOrder() {
-        return Integer.valueOf(order);
-    }
-
-
     @Override
     public int compareTo(CharacteristicDefinition characteristic) {
         return getCharacteristicName().compareTo(characteristic.getCharacteristicName());
@@ -90,7 +92,7 @@ public class CharacteristicDefinition extends Element<CharacteristicDefinition>
     public int hashCode() {
         final int prime = 31;
         int result = super.hashCode();
-        result = prime * result + ((abbreviature == null) ? 0 : abbreviature.hashCode());
+        result = prime * result + ((abbreviation == null) ? 0 : abbreviation.hashCode());
         return result;
     }
 
@@ -106,11 +108,11 @@ public class CharacteristicDefinition extends Element<CharacteristicDefinition>
             return false;
         }
         final CharacteristicDefinition other = (CharacteristicDefinition) obj;
-        if (abbreviature == null) {
-            if (other.abbreviature != null) {
+        if (abbreviation == null) {
+            if (other.abbreviation != null) {
                 return false;
             }
-        } else if (!abbreviature.equals(other.abbreviature)) {
+        } else if (!abbreviation.equals(other.abbreviation)) {
             return false;
         }
         return true;
