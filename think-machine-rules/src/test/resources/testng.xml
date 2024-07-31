@@ -1,0 +1,84 @@
+<!-- #%L Think Machine (Core) %% Copyright (C) 2017 Softwaremagico %% This 
+	software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero <softwaremagico@gmail.com> 
+	Valencia (Spain). This program is free software; you can redistribute it 
+	and/or modify it under the terms of the GNU General Public License as published 
+	by the Free Software Foundation; either version 2 of the License, or (at 
+	your option) any later version. This program is distributed in the hope that 
+	it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty 
+	of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General 
+	Public License for more details. You should have received a copy of the GNU 
+	General Public License along with this program; If not, see <http://www.gnu.org/licenses/gpl-3.0.html>. 
+	#L% -->
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" verbose="1" name="ThinkingMachineCore">
+    <test name="CharacterCrud" enabled="true" preserve-order="true">
+        <groups>
+            <run>
+                <include name="moduleManager"/>
+                <include name="configurationReader"/>
+                <include name="skillFactory"/>
+                <include name="raceFactory"/>
+                <include name="damageFactory"/>
+                <include name="characteristicsFactory"/>
+                <include name="weaponsFactory"/>
+                <include name="beneficeFactory"/>
+                <include name="blessingFactory"/>
+                <include name="factionsFactory"/>
+                <include name="occultismFactory"/>
+                <include name="planetsFactory"/>
+                <include name="shieldFactory"/>
+                <include name="armourFactory"/>
+                <include name="combatStyleFactory"/>
+                <include name="cyberneticFactory"/>
+                <include name="randomDefinition"/>
+                <include name="randomCharacter"/>
+                <include name="cybernetics"/>
+                <include name="jsonExporter"/>
+                <include name="blessings"/>
+                <include name="benefices"/>
+                <include name="occultism"/>
+                <include name="exportTxt"/>
+                <include name="experience"/>
+                <include name="costCalculator"/>
+                <exclude name="jsonCache"/>
+                <include name="moduleEnforcer"/>
+                <include name="faction"/>
+                <include name="race"/>
+                <include name="skills"/>
+            </run>
+        </groups>
+        <classes>
+<!--            <class name="com.softwaremagico.tm.file.ModuleManagerTests"/>-->
+<!--            <class name="com.softwaremagico.tm.file.configurator.ConfigurationTests"/>-->
+<!--            <class name="com.softwaremagico.tm.factory.SkillFactoryTests"/>-->
+<!--            <class name="com.softwaremagico.tm.factory.RaceFactoryTests"/>-->
+<!--            <class name="com.softwaremagico.tm.factory.DamageTypeFactoryTests"/>-->
+<!--            <class name="com.softwaremagico.tm.factory.FactionsFactoryTests"/>-->
+<!--            <class-->
+<!--                    name="com.softwaremagico.tm.factory.CharacteristicsDefinitionFactoryTests"/>-->
+<!--            <class name="com.softwaremagico.tm.factory.WeaponsFactoryTests"/>-->
+<!--            <class name="com.softwaremagico.tm.factory.BeneficeFactoryTests"/>-->
+<!--            <class name="com.softwaremagico.tm.factory.BlessingFactoryTests"/>-->
+<!--            <class name="com.softwaremagico.tm.factory.OccultismFactoryTests"/>-->
+<!--            <class name="com.softwaremagico.tm.factory.PlanetsFactoryTests"/>-->
+<!--            <class name="com.softwaremagico.tm.factory.ShieldFactoryTests"/>-->
+<!--            <class name="com.softwaremagico.tm.factory.ArmourFactoryTests"/>-->
+<!--            <class name="com.softwaremagico.tm.factory.CombatStylesFactoryTests"/>-->
+<!--            <class name="com.softwaremagico.tm.factory.CyberneticDeviceTraitFactoryTests"/>-->
+<!--            <class name="com.softwaremagico.tm.rules.BlessingTests"/>-->
+<!--            <class name="com.softwaremagico.tm.rules.BeneficeTests"/>-->
+<!--            <class name="com.softwaremagico.tm.rules.OccultismTests"/>-->
+<!--            <class name="com.softwaremagico.tm.rules.CyberneticsTests"/>-->
+<!--            <class name="com.softwaremagico.tm.rules.ExperienceTests"/>-->
+<!--            <class name="com.softwaremagico.tm.txt.ExportTxtTests"/>-->
+<!--            <class name="com.softwaremagico.tm.txt.ExportTxtTests"/>-->
+<!--            <class name="com.softwaremagico.tm.json.JsonTests"/>-->
+<!--            <class name="com.softwaremagico.tm.rules.CostCalculatorTests"/>-->
+<!--            <class name="com.softwaremagico.tm.json.JsonCacheLoaderTests"/>-->
+<!--            <class name="com.softwaremagico.tm.file.ModuleManagerTests"/>-->
+<!--            <class name="com.softwaremagico.tm.rules.FactionTests"/>-->
+<!--            <class name="com.softwaremagico.tm.rules.RaceTests"/>-->
+<!--            <class name="com.softwaremagico.tm.rules.SkillTests"/>-->
+        </classes>
+    </test>
+</suite>
