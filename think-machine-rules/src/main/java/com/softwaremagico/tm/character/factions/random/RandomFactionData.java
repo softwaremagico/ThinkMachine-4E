@@ -57,14 +57,6 @@ public class RandomFactionData {
     }
 
     @JsonIgnore
-    public List<Name> getNames(Gender gender) {
-        if (gender == Gender.MALE) {
-            return getMaleNames();
-        }
-        return getFemaleNames();
-    }
-
-    @JsonIgnore
     public List<Name> getMaleNames() {
         if (maleNames == null) {
             maleNames = new ArrayList<>();

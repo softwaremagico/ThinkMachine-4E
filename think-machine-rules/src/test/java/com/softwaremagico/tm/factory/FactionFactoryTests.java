@@ -32,9 +32,9 @@ public class FactionFactoryTests {
     public void readNames() throws InvalidXmlElementException {
         final Faction hazat = FactionFactory.getInstance().getElement("hazat");
         Assert.assertNotNull(hazat);
-        Assert.assertTrue(RandomFactionFactory.getInstance().getElement("hazat").getData().getNames(Gender.MALE).size() >= DEFINED_MALE_NAMES);
+        Assert.assertTrue(RandomFactionFactory.getInstance().getElement("hazat").getNames(Gender.MALE).size() >= DEFINED_MALE_NAMES);
         Assert.assertTrue(
-                RandomFactionFactory.getInstance().getElement("hazat").getData().getNames(Gender.FEMALE).size() >= DEFINED_FEMALE_NAMES);
+                RandomFactionFactory.getInstance().getElement("hazat").getNames(Gender.FEMALE).size() >= DEFINED_FEMALE_NAMES);
         Assert.assertTrue(RandomFactionFactory.getInstance().getElement("hazat").getData().getSurnames().size() >= DEFINED_SURNAMES);
     }
 

@@ -42,6 +42,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -83,6 +84,10 @@ public abstract class XmlFactory<T extends Element<T>> {
             }
         }
         return elements.get(id);
+    }
+
+    public List<T> getElements(Collection<String> ids) throws IOException {
+        return getElements().stream().filter(t -> ids.contains(t.getId())).toList();
     }
 
     public abstract List<T> getElements() throws IOException;

@@ -59,7 +59,7 @@
             <!--            <class name="com.softwaremagico.tm.factory.BeneficeFactoryTests"/>-->
             <class name="com.softwaremagico.tm.factory.BlessingFactoryTests"/>
             <!--            <class name="com.softwaremagico.tm.factory.OccultismFactoryTests"/>-->
-            <!--            <class name="com.softwaremagico.tm.factory.PlanetsFactoryTests"/>-->
+            <class name="com.softwaremagico.tm.factory.PlanetsFactoryTests"/>
             <!--            <class name="com.softwaremagico.tm.factory.ShieldFactoryTests"/>-->
             <!--            <class name="com.softwaremagico.tm.factory.ArmourFactoryTests"/>-->
             <!--            <class name="com.softwaremagico.tm.factory.CombatStylesFactoryTests"/>-->
