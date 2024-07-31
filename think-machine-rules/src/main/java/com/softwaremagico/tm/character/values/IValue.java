@@ -24,11 +24,32 @@ package com.softwaremagico.tm.character.values;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.softwaremagico.tm.TranslatedText;
+import com.softwaremagico.tm.character.characteristics.Characteristic;
+import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
 
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        property = "type",
+        defaultImpl = Characteristic.class
+)
+@JsonSubTypes({
+//        @JsonSubTypes.Type(value = AvailableSkill.class, name = "skill"),
+        @JsonSubTypes.Type(value = Characteristic.class, name = "characteristic"),
+        @JsonSubTypes.Type(value = CharacteristicDefinition.class, name = "characteristicDefinition")
+//        @JsonSubTypes.Type(value = OccultismType.class, name = "occultismType"),
+//        @JsonSubTypes.Type(value = SkillDefinition.class, name = "skillDefinition"),
+//        @JsonSubTypes.Type(value = SpecialValue.class, name = "specialValue"),
+})
 public interface IValue {
 
     String getId();
 
     TranslatedText getName();
+
+    void setId(String id);
+
+    void setName(TranslatedText name);
 }

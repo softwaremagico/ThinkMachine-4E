@@ -40,11 +40,16 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public abstract class XmlFactory<T extends Element<T>> {
 
     private static XmlMapper objectMapper;
+
+    //Id -> Element
+    private Map<String, T> elements = new HashMap<>();
 
     public XmlFactory() {
 
@@ -65,6 +70,10 @@ public abstract class XmlFactory<T extends Element<T>> {
         return objectMapper;
     }
 
+    public T getElement(String id) {
+        return elements.get(id);
+    }
+
     public abstract List<T> getElements() throws IOException;
 
     public List<T> readXml(Class<T> entityClass) throws IOException {
@@ -77,6 +86,9 @@ public abstract class XmlFactory<T extends Element<T>> {
     }
 
     public List<T> readXml(String xmlContent, Class<T> entityClass) throws JsonProcessingException {
-        return getObjectMapper().readerForListOf(entityClass).readValue(xmlContent);
+        final List<T> elements = getObjectMapper().readerForListOf(entityClass).readValue(xmlContent);
+        this.elements = new HashMap<>();
+        elements.forEach(element -> this.elements.put(element.getId(), element));
+        return elements;
     }
 }

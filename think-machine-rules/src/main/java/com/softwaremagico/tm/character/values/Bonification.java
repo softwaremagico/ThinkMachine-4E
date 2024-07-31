@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.cybernetics;
+package com.softwaremagico.tm.character.values;
 
 /*-
  * #%L
@@ -24,30 +24,47 @@ package com.softwaremagico.tm.character.cybernetics;
  * #L%
  */
 
-import com.softwaremagico.tm.xml.XmlFactory;
 
-import java.io.IOException;
-import java.util.List;
+public class Bonification {
+    private Integer value;
+    private IValue affects;
+    private String situation;
 
-public final class CyberneticDeviceTraitFactory extends XmlFactory<CyberneticDeviceTrait> {
-    private static final String XML_FILE = "cybernetics_traits.xml";
-
-    private static final class CyberneticDeviceTraitFactoryInit {
-        public static final CyberneticDeviceTraitFactory INSTANCE = new CyberneticDeviceTraitFactory();
+    public Bonification() {
     }
 
-    public static CyberneticDeviceTraitFactory getInstance() {
-        return CyberneticDeviceTraitFactoryInit.INSTANCE;
+    public Bonification(Integer value, IValue affects, String situation) {
+        this.value = value;
+        this.affects = affects;
+        this.situation = situation;
     }
 
+    public Integer getValue() {
+        return value;
+    }
+
+    public String getSituation() {
+        return situation;
+    }
+
+    public IValue getAffects() {
+        return affects;
+    }
+
+    public void setValue(Integer value) {
+        this.value = value;
+    }
+
+    public void setAffects(IValue affects) {
+        this.affects = affects;
+    }
+
+    public void setSituation(String situation) {
+        this.situation = situation;
+    }
 
     @Override
-    public String getXmlFile() {
-        return XML_FILE;
-    }
-
-    @Override
-    public List<CyberneticDeviceTrait> getElements() throws IOException {
-        return readXml(CyberneticDeviceTrait.class);
+    public String toString() {
+        return value + " " + affects + ": " + situation;
     }
 }

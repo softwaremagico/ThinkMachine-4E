@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.cybernetics;
+package com.softwaremagico.tm.character.blessings;
 
 /*-
  * #%L
@@ -24,30 +24,6 @@ package com.softwaremagico.tm.character.cybernetics;
  * #L%
  */
 
-import com.softwaremagico.tm.xml.XmlFactory;
-
-import java.io.IOException;
-import java.util.List;
-
-public final class CyberneticDeviceTraitFactory extends XmlFactory<CyberneticDeviceTrait> {
-    private static final String XML_FILE = "cybernetics_traits.xml";
-
-    private static final class CyberneticDeviceTraitFactoryInit {
-        public static final CyberneticDeviceTraitFactory INSTANCE = new CyberneticDeviceTraitFactory();
-    }
-
-    public static CyberneticDeviceTraitFactory getInstance() {
-        return CyberneticDeviceTraitFactoryInit.INSTANCE;
-    }
-
-
-    @Override
-    public String getXmlFile() {
-        return XML_FILE;
-    }
-
-    @Override
-    public List<CyberneticDeviceTrait> getElements() throws IOException {
-        return readXml(CyberneticDeviceTrait.class);
-    }
+public enum BlessingClassification {
+    BLESSING, CURSE;
 }

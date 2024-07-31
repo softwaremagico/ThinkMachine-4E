@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.cybernetics;
+package com.softwaremagico.tm.character.values;
 
 /*-
  * #%L
@@ -24,30 +24,11 @@ package com.softwaremagico.tm.character.cybernetics;
  * #L%
  */
 
-import com.softwaremagico.tm.xml.XmlFactory;
 
-import java.io.IOException;
-import java.util.List;
+import java.util.Set;
 
-public final class CyberneticDeviceTraitFactory extends XmlFactory<CyberneticDeviceTrait> {
-    private static final String XML_FILE = "cybernetics_traits.xml";
+public interface IElementWithBonification {
 
-    private static final class CyberneticDeviceTraitFactoryInit {
-        public static final CyberneticDeviceTraitFactory INSTANCE = new CyberneticDeviceTraitFactory();
-    }
+    Set<Bonification> getBonifications();
 
-    public static CyberneticDeviceTraitFactory getInstance() {
-        return CyberneticDeviceTraitFactoryInit.INSTANCE;
-    }
-
-
-    @Override
-    public String getXmlFile() {
-        return XML_FILE;
-    }
-
-    @Override
-    public List<CyberneticDeviceTrait> getElements() throws IOException {
-        return readXml(CyberneticDeviceTrait.class);
-    }
 }

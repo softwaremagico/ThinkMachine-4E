@@ -39,19 +39,19 @@ public class Element<T extends Element<?>> implements Comparable<T> {
     public static final String DEFAULT_NULL_ID = "null";
 
     @JsonProperty("id")
-    private final String id;
+    private String id;
 
     @JsonProperty("name")
-    private final TranslatedText name;
+    private TranslatedText name;
 
     @JsonProperty("description")
-    private final TranslatedText description;
+    private TranslatedText description;
 
-    private final String moduleName;
+    private String moduleName;
 
-    private final String language;
+    private String language;
 
-    private final RandomElementDefinition randomDefinition;
+    private RandomElementDefinition randomDefinition;
 
     private boolean restricted = false;
 
@@ -94,6 +94,14 @@ public class Element<T extends Element<?>> implements Comparable<T> {
         return name;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setName(TranslatedText name) {
+        this.name = name;
+    }
+
     public TranslatedText getDescription() {
         return description;
     }
@@ -104,6 +112,22 @@ public class Element<T extends Element<?>> implements Comparable<T> {
 
     public String getId() {
         return id;
+    }
+
+    public void setDescription(TranslatedText description) {
+        this.description = description;
+    }
+
+    public void setModuleName(String moduleName) {
+        this.moduleName = moduleName;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public void setRandomDefinition(RandomElementDefinition randomDefinition) {
+        this.randomDefinition = randomDefinition;
     }
 
     @Override

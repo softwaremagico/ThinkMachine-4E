@@ -37,7 +37,11 @@ public class Characteristic extends Element<Characteristic> implements IValue {
     private int value = DEFAULT_INITIAL_VALUE;
 
     @JsonIgnore
-    private final CharacteristicDefinition characteristicDefinition;
+    private CharacteristicDefinition characteristicDefinition;
+
+    public Characteristic() {
+        super();
+    }
 
     public Characteristic(CharacteristicDefinition characteristicDefinition) {
         super(characteristicDefinition.getId(), characteristicDefinition.getName(), characteristicDefinition.getDescription(),
