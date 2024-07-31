@@ -24,9 +24,7 @@ package com.softwaremagico.tm.character.blessings;
  * #L%
  */
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
@@ -39,8 +37,6 @@ import java.util.Iterator;
 import java.util.Set;
 
 @JacksonXmlRootElement(localName = "blessing")
-@JsonPropertyOrder(alphabetic = true)
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Blessing extends Element<Blessing> implements IElementWithBonification {
     private final Integer cost;
     private final Set<Bonification> bonifications;

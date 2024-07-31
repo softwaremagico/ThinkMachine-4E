@@ -40,6 +40,11 @@ public class TranslatedText implements Comparable<TranslatedText> {
         english = "";
     }
 
+    public TranslatedText(String value) {
+        spanish = value;
+        english = value;
+    }
+
     public String getSpanish() {
         return spanish;
     }

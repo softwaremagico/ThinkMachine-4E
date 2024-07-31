@@ -24,15 +24,11 @@ package com.softwaremagico.tm.character.cybernetics;
  * #L%
  */
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
 
 @JacksonXmlRootElement(localName = "cyberneticsTrait")
-@JsonPropertyOrder(alphabetic = true)
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class CyberneticDeviceTrait extends Element<CyberneticDeviceTrait> {
 
     private CyberneticDeviceTraitCategory category;

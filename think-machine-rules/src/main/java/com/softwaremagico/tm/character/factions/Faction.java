@@ -24,12 +24,121 @@ package com.softwaremagico.tm.character.factions;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.softwaremagico.tm.Element;
+import com.softwaremagico.tm.TranslatedText;
 
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
+
+@JacksonXmlRootElement(localName = "faction")
 public class Faction extends Element<Faction> {
     private FactionGroup factionGroup;
+    private final Set<FactionRankTranslation> ranksTranslations = new HashSet<>();
+    private Set<String> blessings = null;
+    private Set<String> benefices = null;
+    @JsonProperty("suggestedBenefices")
+    private List<BeneficeOption> suggestedBenefices = null;
+    @JsonProperty("restrictedBenefices")
+    private List<BeneficeOption> restrictedBenefices = null;
+    private Boolean isOnlyForHuman;
+
+    public Faction() {
+    }
+
+    public Faction(String id, TranslatedText name, TranslatedText description, FactionGroup factionGroup, String language,
+                   String moduleName) {
+        super(id, name, description, language, moduleName);
+        this.factionGroup = factionGroup;
+    }
 
     public FactionGroup getFactionGroup() {
         return factionGroup;
+    }
+
+    public void setFactionGroup(FactionGroup factionGroup) {
+        this.factionGroup = factionGroup;
+    }
+
+    public void addRankTranslation(FactionRankTranslation factionRank) {
+        ranksTranslations.add(factionRank);
+    }
+
+    public Set<FactionRankTranslation> getRanksTranslations() {
+        return ranksTranslations;
+    }
+
+    public FactionRankTranslation getRankTranslation(String rankId) {
+        for (final FactionRankTranslation factionRankTranslation : getRanksTranslations()) {
+            if (Objects.equals(factionRankTranslation.getId(), rankId)) {
+                return factionRankTranslation;
+            }
+        }
+        return null;
+    }
+
+    public Set<String> getBlessings() {
+        return this.blessings;
+    }
+
+
+    public Set<String> getBenefices() {
+        return this.benefices;
+    }
+
+    public List<BeneficeOption> getSuggestedBenefices() {
+        return this.suggestedBenefices;
+    }
+
+    public List<BeneficeOption> getRestrictedBenefices() {
+        return this.restrictedBenefices;
+    }
+
+    public void setBlessings(String blessings) {
+        this.blessings =  Collections.singleton(blessings);
+    }
+
+    public void setBlessings(Set<String> blessings) {
+        this.blessings = blessings;
+    }
+
+    public void setBenefices(String benefices) {
+        this.benefices =  Collections.singleton(benefices);
+    }
+
+    public void setBenefices(Set<String> benefices) {
+        this.benefices = benefices;
+    }
+
+    public void setSuggestedBenefices(List<BeneficeOption> suggestedBenefices) {
+        this.suggestedBenefices = suggestedBenefices;
+    }
+
+
+    public void setRestrictedBenefices(List<BeneficeOption> restrictedBenefices) {
+        this.restrictedBenefices = restrictedBenefices;
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    public boolean isOnlyForHuman() {
+        if (isOnlyForHuman == null) {
+            isOnlyForHuman = getRestrictedToRaces().size() == 1
+                    && getRestrictedToRaces().contains("human");
+
+        }
+        return isOnlyForHuman;
     }
 }

@@ -24,9 +24,7 @@ package com.softwaremagico.tm.character.characteristics;
  * #L%
  */
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
@@ -35,8 +33,6 @@ import com.softwaremagico.tm.character.values.IValue;
 import java.util.Objects;
 
 @JacksonXmlRootElement(localName = "characteristicDefinition")
-@JsonPropertyOrder(alphabetic = true)
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class CharacteristicDefinition extends Element<CharacteristicDefinition>
         implements Comparable<CharacteristicDefinition>, IValue {
 

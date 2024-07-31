@@ -26,6 +26,7 @@ package com.softwaremagico.tm.xml;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -63,6 +64,8 @@ public abstract class XmlFactory<T extends Element<T>> {
         if (objectMapper == null) {
             objectMapper = XmlMapper.builder()
                     .configure(ToXmlGenerator.Feature.WRITE_XML_DECLARATION, true)
+                    .configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true)
+                    .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
                     .enable(SerializationFeature.INDENT_OUTPUT)
                     .enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS).serializationInclusion(JsonInclude.Include.NON_EMPTY)
                     .addModule(new JavaTimeModule())

@@ -3,11 +3,10 @@ package com.softwaremagico.tm;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.character.CharacterPlayer;
-import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionGroup;
-import com.softwaremagico.tm.character.races.Race;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -58,11 +57,11 @@ public class Element<T extends Element<?>> implements Comparable<T> {
 
     private boolean official = true;
 
-    private Set<Race> restrictedToRaces = new HashSet<>();
+    private Set<String> restrictedToRaces = new HashSet<>();
 
     private FactionGroup restrictedToFactionGroup = null;
 
-    private Set<Faction> restrictedToFactions = new HashSet<>();
+    private Set<String> restrictedToFactions = new HashSet<>();
 
     //Only fort sheet representation.
     @JsonIgnore
@@ -233,19 +232,27 @@ public class Element<T extends Element<?>> implements Comparable<T> {
         this.official = official;
     }
 
-    public Set<Race> getRestrictedToRaces() {
+    public Set<String> getRestrictedToRaces() {
         return restrictedToRaces;
     }
 
-    public Set<Faction> getRestrictedToFactions() {
+    public Set<String> getRestrictedToFactions() {
         return restrictedToFactions;
     }
 
-    public void setRestrictedToRaces(Set<Race> restrictedToRaces) {
+    public void setRestrictedToRaces(String restrictedToRaces) {
+        this.restrictedToRaces = Collections.singleton(restrictedToRaces);
+    }
+
+    public void setRestrictedToRaces(Set<String> restrictedToRaces) {
         this.restrictedToRaces = restrictedToRaces;
     }
 
-    public void setRestrictedToFactions(Set<Faction> restrictedToFactions) {
+    public void setRestrictedToFactions(String restrictedToFactions) {
+        this.restrictedToFactions = Collections.singleton(restrictedToFactions);
+    }
+
+    public void setRestrictedToFactions(Set<String> restrictedToFactions) {
         this.restrictedToFactions = restrictedToFactions;
     }
 
