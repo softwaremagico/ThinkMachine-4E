@@ -61,7 +61,8 @@
             <!--            <class name="com.softwaremagico.tm.factory.OccultismFactoryTests"/>-->
             <class name="com.softwaremagico.tm.factory.PlanetsFactoryTests"/>
             <!--            <class name="com.softwaremagico.tm.factory.ShieldFactoryTests"/>-->
-            <!--            <class name="com.softwaremagico.tm.factory.ArmourFactoryTests"/>-->
+            <class name="com.softwaremagico.tm.factory.ArmourFactoryTests"/>
+            <class name="com.softwaremagico.tm.factory.ArmourSpecificationsFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.CombatStylesFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.CyberneticDeviceTraitFactoryTests"/>
             <!--            <class name="com.softwaremagico.tm.rules.BlessingTests"/>-->
