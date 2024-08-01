@@ -24,6 +24,7 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
+import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.combat.CombatActionRequirement;
 import com.softwaremagico.tm.character.skills.AvailableSkill;
 
@@ -65,5 +66,9 @@ public class CharacterPlayer {
 
     public CombatActionRequirement getCharacteristic(String id) {
         return null;
+    }
+
+    public int getCharacteristicValue(CharacteristicName characteristicName) {
+        return 0;
     }
 }

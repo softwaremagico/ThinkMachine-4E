@@ -25,6 +25,12 @@ package com.softwaremagico.tm.character.values;
  */
 
 
+import com.softwaremagico.tm.InvalidXmlElementException;
+import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
+import com.softwaremagico.tm.character.skills.AvailableSkillsFactory;
+import com.softwaremagico.tm.character.skills.SkillDefinitionFactory;
+import com.softwaremagico.tm.log.MachineLog;
+
 public class Bonification {
     private Integer value;
     private IValue affects;
@@ -53,6 +59,21 @@ public class Bonification {
 
     public void setValue(Integer value) {
         this.value = value;
+    }
+
+    public void setAffects(String affectsContent) {
+        try {
+            if (AvailableSkillsFactory.getInstance().getElement(affectsContent) != null) {
+                this.affects = AvailableSkillsFactory.getInstance().getElement(affectsContent);
+            } else if (SkillDefinitionFactory.getInstance().getElement(affectsContent) != null) {
+                this.affects = SkillDefinitionFactory.getInstance().getElement(affectsContent);
+            } else if (CharacteristicsDefinitionFactory.getInstance().getElement(affectsContent) != null) {
+                this.affects = CharacteristicsDefinitionFactory.getInstance().getElement(affectsContent);
+            }
+            //TODO(softwaremagico): add new IValues types when implemented.
+        } catch (InvalidXmlElementException e) {
+            MachineLog.errorMessage(this.getClass().getName(), e.getMessage());
+        }
     }
 
     public void setAffects(IValue affects) {
