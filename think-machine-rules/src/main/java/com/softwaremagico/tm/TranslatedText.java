@@ -86,4 +86,9 @@ public class TranslatedText implements Comparable<TranslatedText> {
         }
         return getTranslatedText().compareTo(translatedText.getTranslatedText());
     }
+
+    @Override
+    public String toString() {
+        return getTranslatedText();
+    }
 }

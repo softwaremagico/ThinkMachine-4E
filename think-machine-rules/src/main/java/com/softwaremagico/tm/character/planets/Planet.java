@@ -37,6 +37,7 @@ import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.factions.random.RandomFactionFactory;
 import com.softwaremagico.tm.log.MachineLog;
+import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -89,7 +90,7 @@ public class Planet extends Element<Planet> {
                 this.humanFactions = FactionFactory.getInstance().getElements(factions).stream().filter(Faction::isOnlyForHuman).
                         collect(Collectors.toSet());
             } catch (InvalidXmlElementException e) {
-                MachineLog.errorMessage(this.getClass(), e);
+                MachineXmlReaderLog.errorMessage(this.getClass(), e);
             }
         }
         return humanFactions;
@@ -104,7 +105,7 @@ public class Planet extends Element<Planet> {
                         names.addAll(RandomFactionFactory.getInstance().getElement(faction.getId()).getAllNames());
                     }
                 } catch (InvalidXmlElementException e) {
-                    MachineLog.errorMessage(this.getName(), e);
+                    MachineXmlReaderLog.errorMessage(this.getName(), e);
                 }
             }
         }
@@ -120,7 +121,7 @@ public class Planet extends Element<Planet> {
                         surnames.addAll(RandomFactionFactory.getInstance().getElement(faction.getId()).getSurnames());
                     }
                 } catch (InvalidXmlElementException e) {
-                    MachineLog.errorMessage(this.getName(), e);
+                    MachineXmlReaderLog.errorMessage(this.getName(), e);
                 }
             }
         }

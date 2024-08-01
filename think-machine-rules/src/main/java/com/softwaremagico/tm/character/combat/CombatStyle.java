@@ -31,6 +31,7 @@ import com.softwaremagico.tm.InvalidXmlElementException;
 import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.benefices.BeneficeDefinition;
+import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -123,6 +124,7 @@ public class CombatStyle extends Element<CombatStyle> {
         try {
             return CombatStyleFactory.getInstance().getElement(beneficeDefinition.getId());
         } catch (InvalidXmlElementException e) {
+            MachineXmlReaderLog.errorMessage(CombatStyle.class, e);
             return null;
         }
     }

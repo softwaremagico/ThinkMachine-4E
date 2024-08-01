@@ -29,6 +29,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.characteristics.Characteristic;
 import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
+import com.softwaremagico.tm.character.occultism.OccultismType;
 import com.softwaremagico.tm.character.skills.AvailableSkill;
 import com.softwaremagico.tm.character.skills.SkillDefinition;
 
@@ -41,9 +42,9 @@ import com.softwaremagico.tm.character.skills.SkillDefinition;
         @JsonSubTypes.Type(value = AvailableSkill.class, name = "skill"),
         @JsonSubTypes.Type(value = Characteristic.class, name = "characteristic"),
         @JsonSubTypes.Type(value = CharacteristicDefinition.class, name = "characteristicDefinition"),
-//        @JsonSubTypes.Type(value = OccultismType.class, name = "occultismType"),
+        @JsonSubTypes.Type(value = OccultismType.class, name = "occultismType"),
         @JsonSubTypes.Type(value = SkillDefinition.class, name = "skillDefinition"),
-//        @JsonSubTypes.Type(value = SpecialValue.class, name = "specialValue"),
+        @JsonSubTypes.Type(value = SpecialValue.class, name = "specialValue"),
 })
 public interface IValue {
 

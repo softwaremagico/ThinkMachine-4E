@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.factions.FactionGroup;
-import com.softwaremagico.tm.log.MachineLog;
+import com.softwaremagico.tm.log.MachineXmlReaderLog;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 
 import java.util.Collections;
@@ -225,7 +225,7 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
                     || (!getRestrictedToFactions().isEmpty() && (characterPlayer.getFaction() == null
                     || !getRestrictedToFactions().contains(characterPlayer.getFaction()))));
         } catch (InvalidXmlElementException e) {
-            MachineLog.errorMessage(this.getName(), e);
+            MachineXmlReaderLog.errorMessage(this.getName(), e);
         }
         return true;
     }

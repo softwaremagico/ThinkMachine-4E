@@ -31,6 +31,7 @@ import com.softwaremagico.tm.character.values.Bonification;
 import com.softwaremagico.tm.character.values.IElementWithBonification;
 import com.softwaremagico.tm.character.values.StaticValue;
 import com.softwaremagico.tm.log.MachineLog;
+import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -58,7 +59,7 @@ public class SelectedCyberneticDevice extends Element<SelectedCyberneticDevice> 
                 final CyberneticDeviceTrait cyberneticDeviceTrait = CyberneticDeviceTraitFactory.getInstance().getElement(customization);
                 basicPoints += cyberneticDeviceTrait.getExtraPoints();
             } catch (InvalidXmlElementException e) {
-                MachineLog.errorMessage(this.getClass(), e);
+                MachineXmlReaderLog.errorMessage(this.getClass(), e);
             }
         }
         return basicPoints;
@@ -72,7 +73,7 @@ public class SelectedCyberneticDevice extends Element<SelectedCyberneticDevice> 
                 final CyberneticDeviceTrait cyberneticDeviceTrait = CyberneticDeviceTraitFactory.getInstance().getElement(customization);
                 basicIncompatibility += cyberneticDeviceTrait.getExtraIncompatibility();
             } catch (InvalidXmlElementException e) {
-                MachineLog.errorMessage(this.getClass(), e);
+                MachineXmlReaderLog.errorMessage(this.getClass(), e);
             }
         }
         return basicIncompatibility;
@@ -87,7 +88,7 @@ public class SelectedCyberneticDevice extends Element<SelectedCyberneticDevice> 
                     return customization;
                 }
             } catch (InvalidXmlElementException e) {
-                MachineLog.errorMessage(this.getClass(), e);
+                MachineXmlReaderLog.errorMessage(this.getClass(), e);
             }
         }
         return getCyberneticDevice().getTrait(category);
@@ -106,7 +107,7 @@ public class SelectedCyberneticDevice extends Element<SelectedCyberneticDevice> 
                 basicCost *= (int) cyberneticDeviceTrait.getExtraCostMultiplier();
                 basicCost += cyberneticDeviceTrait.getExtraCost();
             } catch (InvalidXmlElementException e) {
-                MachineLog.errorMessage(this.getClass(), e);
+                MachineXmlReaderLog.errorMessage(this.getClass(), e);
             }
         }
         return basicCost;
@@ -119,7 +120,7 @@ public class SelectedCyberneticDevice extends Element<SelectedCyberneticDevice> 
             try {
                 techLevel = Math.max(techLevel, CyberneticDeviceTraitFactory.getInstance().getElement(customization).getMinimumTechLevel());
             } catch (InvalidXmlElementException e) {
-                MachineLog.errorMessage(this.getClass(), e);
+                MachineXmlReaderLog.errorMessage(this.getClass(), e);
             }
         }
         return techLevel;
@@ -150,7 +151,7 @@ public class SelectedCyberneticDevice extends Element<SelectedCyberneticDevice> 
                         traits.remove(trait);
                     }
                 } catch (InvalidXmlElementException e) {
-                    MachineLog.errorMessage(this.getClass(), e);
+                    MachineXmlReaderLog.errorMessage(this.getClass(), e);
                 }
             }
         }
@@ -191,7 +192,7 @@ public class SelectedCyberneticDevice extends Element<SelectedCyberneticDevice> 
             try {
                 return CyberneticDeviceTraitFactory.getInstance().getElement(customization).isOfficial();
             } catch (InvalidXmlElementException e) {
-                MachineLog.errorMessage(this.getClass(), e);
+                MachineXmlReaderLog.errorMessage(this.getClass(), e);
             }
             return false;
         });

@@ -27,6 +27,7 @@ package com.softwaremagico.tm.character.skills;
 
 import com.softwaremagico.tm.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineLog;
+import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -127,7 +128,7 @@ public class AvailableSkillsFactory {
         try {
             return getSkills();
         } catch (InvalidXmlElementException e) {
-            MachineLog.errorMessage(this.getClass(), e);
+            MachineXmlReaderLog.errorMessage(this.getClass(), e);
         }
         return new ArrayList<>();
     }

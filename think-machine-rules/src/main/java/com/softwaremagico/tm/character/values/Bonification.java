@@ -30,6 +30,7 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinition
 import com.softwaremagico.tm.character.skills.AvailableSkillsFactory;
 import com.softwaremagico.tm.character.skills.SkillDefinitionFactory;
 import com.softwaremagico.tm.log.MachineLog;
+import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
 public class Bonification {
     private Integer value;
@@ -72,7 +73,7 @@ public class Bonification {
             }
             //TODO(softwaremagico): add new IValues types when implemented.
         } catch (InvalidXmlElementException e) {
-            MachineLog.errorMessage(this.getClass().getName(), e.getMessage());
+            MachineXmlReaderLog.errorMessage(this.getClass().getName(), e.getMessage());
         }
     }
 

@@ -35,6 +35,7 @@ import com.softwaremagico.tm.character.values.Bonification;
 import com.softwaremagico.tm.character.values.IElementWithBonification;
 import com.softwaremagico.tm.character.values.StaticValue;
 import com.softwaremagico.tm.log.MachineLog;
+import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -109,7 +110,7 @@ public class CyberneticDevice extends Element<CyberneticDevice> implements IElem
                     return trait;
                 }
             } catch (InvalidXmlElementException e) {
-                MachineLog.errorMessage(this.getClass(), e);
+                MachineXmlReaderLog.errorMessage(this.getClass(), e);
             }
         }
         return null;

@@ -7,6 +7,7 @@ import com.softwaremagico.tm.character.equipment.DamageTypeFactory;
 import com.softwaremagico.tm.character.equipment.Equipment;
 import com.softwaremagico.tm.character.equipment.Size;
 import com.softwaremagico.tm.log.MachineLog;
+import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -189,7 +190,7 @@ public class Weapon extends Equipment<Weapon> {
             try {
                 stringBuilder.append(DamageTypeFactory.getInstance().getElement(damageType).getName().getTranslatedText());
             } catch (InvalidXmlElementException e) {
-                MachineLog.errorMessage(this.getClass(), e);
+                MachineXmlReaderLog.errorMessage(this.getClass(), e);
             }
         }
 
