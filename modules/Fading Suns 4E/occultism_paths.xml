@@ -10,6 +10,7 @@
         <classification>combat</classification>
         <powers>
             <liftingHand>
+                <id>liftingHand</id>
                 <name>
                     <en>Lifting Hand</en>
                     <es>Mano Levitante</es>
@@ -43,6 +44,7 @@
                 <wyrd>1</wyrd>
             </liftingHand>
             <throwingHand>
+                <id>throwingHand</id>
                 <name>
                     <en>Throwing Hand</en>
                     <es>Mano Lanzadora</es>
@@ -79,6 +81,7 @@
                 <wyrd>1</wyrd>
             </throwingHand>
             <crushingHand>
+                <id>crushingHand</id>
                 <name>
                     <en>Crushing Hand</en>
                     <es>Mano Aplastante</es>
@@ -113,6 +116,7 @@
                 <wyrd>1</wyrd>
             </crushingHand>
             <duelingHand>
+                <id>duelingHand</id>
                 <name>
                     <en>Dueling Hand</en>
                     <es>Mano Duelista</es>
@@ -153,6 +157,7 @@
                 <wyrd>1</wyrd>
             </duelingHand>
             <farWall>
+                <id>farWall</id>
                 <name>
                     <en>Far Wall</en>
                     <es>Muro Invisible</es>
@@ -192,6 +197,7 @@
                 <wyrd>1</wyrd>
             </farWall>
             <airStride>
+                <id>airStride</id>
                 <name>
                     <en>Air Stride</en>
                     <es>Levitación</es>
@@ -215,6 +221,7 @@
                 <wyrd>1</wyrd>
             </airStride>
             <demolishingHand>
+                <id>demolishingHand</id>
                 <name>
                     <en>Demolishing Hand</en>
                     <es>Mano Demoledora</es>
@@ -247,6 +254,7 @@
                 <wyrd>1</wyrd>
             </demolishingHand>
             <airDance>
+                <id>airDance</id>
                 <name>
                     <en>Air Dance</en>
                     <es>Levitación Mayor</es>
@@ -285,6 +293,7 @@
         <classification>others</classification>
         <powers>
             <shadowsGoneBy>
+                <id>shadowsGoneBy</id>
                 <name>
                     <en>Shadows Gone By</en>
                     <es>Sombras del Pasado</es>
@@ -324,6 +333,7 @@
                 <wyrd>1</wyrd>
             </shadowsGoneBy>
             <shadowsToCome>
+                <id>shadowsToCome</id>
                 <name>
                     <en>Shadows to Come</en>
                     <es>Sombras del Porvenir</es>
@@ -363,6 +373,7 @@
                 <wyrd>1</wyrd>
             </shadowsToCome>
             <voiceFromThePast>
+                <id>voiceFromThePast</id>
                 <name>
                     <en>Voice from the Past</en>
                     <es>Voz del Pasado</es>
@@ -393,6 +404,7 @@
                 <wyrd>1</wyrd>
             </voiceFromThePast>
             <oracle>
+                <id>oracle</id>
                 <name>
                     <en>Oracle</en>
                     <es>Oráculo</es>
@@ -438,6 +450,7 @@
         <classification>others</classification>
         <powers>
             <intuit>
+                <id>intuit</id>
                 <name>
                     <en>Intuit</en>
                     <es>Intuir</es>
@@ -460,6 +473,7 @@
                 <wyrd>1</wyrd>
             </intuit>
             <emote>
+                <id>emote</id>
                 <name>
                     <en>Emote</en>
                     <es>Emocionar</es>
@@ -485,6 +499,7 @@
                 <wyrd>1</wyrd>
             </emote>
             <mindSight>
+                <id>mindSight</id>
                 <name>
                     <en>MindSight</en>
                     <es>Visión Mental</es>
@@ -510,6 +525,7 @@
                 <wyrd>1</wyrd>
             </mindSight>
             <mindSpeech>
+                <id>mindSpeech</id>
                 <name>
                     <en>MindSpeech</en>
                     <es>Diálogo Mental</es>
@@ -534,6 +550,7 @@
                 <wyrd>1</wyrd>
             </mindSpeech>
             <heartsCommand>
+                <id>heartsCommand</id>
                 <name>
                     <en>Heart's Command</en>
                     <es>Dictamen del Corazón</es>
@@ -561,6 +578,7 @@
                 <wyrd>1</wyrd>
             </heartsCommand>
             <mindSearch>
+                <id>mindSearch</id>
                 <name>
                     <en>MindSearch</en>
                     <es>Escrutinio Mental</es>
@@ -590,6 +608,7 @@
                 <wyrd>1</wyrd>
             </mindSearch>
             <headShackle>
+                <id>headShackle</id>
                 <name>
                     <en>HeadShackle</en>
                     <es>Dominar Persona</es>
@@ -619,6 +638,7 @@
                 <wyrd>1</wyrd>
             </headShackle>
             <brainBlast>
+                <id>brainBlast</id>
                 <name>
                     <en>BrainBlast</en>
                     <es>Explosión Cerebral</es>
@@ -646,6 +666,7 @@
                 <wyrd>1</wyrd>
             </brainBlast>
             <sympaticus>
+                <id>sympaticus</id>
                 <name>
                     <en>Sympaticus</en>
                     <es>Red Telepática</es>
@@ -673,6 +694,7 @@
                 <wyrd>1</wyrd>
             </sympaticus>
             <puppetry>
+                <id>puppetry</id>
                 <name>
                     <en>Puppetry</en>
                     <es>Posesión</es>
@@ -708,6 +730,7 @@
         <classification>enhancement</classification>
         <powers>
             <sensitivity>
+                <id>sensitivity</id>
                 <name>
                     <en>Sensitivity</en>
                     <es>Sensibilidad</es>
@@ -739,6 +762,7 @@
                 <wyrd>1</wyrd>
             </sensitivity>
             <darkSense>
+                <id>darkSense</id>
                 <name>
                     <en>Darksense</en>
                     <es>Visión en la Oscuridad</es>
@@ -769,6 +793,7 @@
                 <wyrd>1</wyrd>
             </darkSense>
             <subtleSight>
+                <id>subtleSight</id>
                 <name>
                     <en>Subtle Sight</en>
                     <es>Visión Sutil</es>
@@ -798,6 +823,7 @@
                 <wyrd>1</wyrd>
             </subtleSight>
             <premonition>
+                <id>premonition</id>
                 <name>
                     <en>Premonition</en>
                     <es>Premonición</es>
@@ -836,6 +862,7 @@
                 <wyrd>1</wyrd>
             </premonition>
             <farSight>
+                <id>farSight</id>
                 <name>
                     <en>Far Sight</en>
                     <es>Visión Lejana</es>
@@ -858,6 +885,7 @@
                 <wyrd>1</wyrd>
             </farSight>
             <farSound>
+                <id>farSight</id>
                 <name>
                     <en>FarSound</en>
                     <es>Sonido Lejano</es>
@@ -881,6 +909,7 @@
                 <wyrd>1</wyrd>
             </farSound>
             <sharedSense>
+                <id>sharedSense</id>
                 <name>
                     <en>Shared Sense</en>
                     <es>Sentido Compartido</es>
@@ -908,6 +937,7 @@
                 <wyrd>1</wyrd>
             </sharedSense>
             <wyrdSight>
+                <id>wyrdSight</id>
                 <name>
                     <en>Wyrd Sense</en>
                     <es>Visión Wyrd</es>
@@ -947,6 +977,7 @@
                 <wyrd>1</wyrd>
             </wyrdSight>
             <sensesShock>
+                <id>sensesShock</id>
                 <name>
                     <en>Senses Shock</en>
                     <es>Descarga</es>
@@ -989,6 +1020,7 @@
         <classification>combat</classification>
         <powers>
             <toughening>
+                <id>toughening</id>
                 <name>
                     <en>Toughening</en>
                     <es>Fortalecer</es>
@@ -1011,6 +1043,7 @@
                 <wyrd>1</wyrd>
             </toughening>
             <strengthening>
+                <id>strengthening</id>
                 <name>
                     <en>Strengthening</en>
                     <es>Vigorizar</es>
@@ -1030,6 +1063,7 @@
                 <wyrd>1</wyrd>
             </strengthening>
             <quickening>
+                <id>quickening</id>
                 <name>
                     <en>Quickening</en>
                     <es>Agilizar</es>
@@ -1047,6 +1081,7 @@
                 <wyrd>1</wyrd>
             </quickening>
             <hardening>
+                <id>hardening</id>
                 <name>
                     <en>Hardening</en>
                     <es>Endurecer</es>
@@ -1075,6 +1110,7 @@
                 <wyrd>1</wyrd>
             </hardening>
             <sizing>
+                <id>sizing</id>
                 <name>
                     <en>Sizing</en>
                     <es>Dimensionamiento</es>
@@ -1097,6 +1133,7 @@
                 <wyrd>1</wyrd>
             </sizing>
             <masking>
+                <id>masking</id>
                 <name>
                     <en>Masking</en>
                     <es>Enmascarar</es>
@@ -1119,6 +1156,7 @@
                 <wyrd>1</wyrd>
             </masking>
             <recovering>
+                <id>recovering</id>
                 <name>
                     <en>Recovering</en>
                     <es>Recuperarse</es>
@@ -1142,6 +1180,7 @@
                 <wyrd>1</wyrd>
             </recovering>
             <slowing>
+                <id>slowing</id>
                 <name>
                     <en>Slowing</en>
                     <es>Ralentizar</es>
@@ -1163,6 +1202,7 @@
                 <wyrd>1</wyrd>
             </slowing>
             <closing>
+                <id>closing</id>
                 <name>
                     <en>Closing</en>
                     <es>Inmunizar</es>
@@ -1198,6 +1238,7 @@
         <classification>others</classification>
         <powers>
             <bond>
+                <id>bond</id>
                 <name>
                     <en>Bond</en>
                     <es>Vínculo</es>
@@ -1235,6 +1276,7 @@
                 <wyrd>variable</wyrd>
             </bond>
             <sanctum>
+                <id>sanctum</id>
                 <name>
                     <en>Sanctum</en>
                     <es>Santuario</es>
@@ -1269,6 +1311,7 @@
                 <wyrd>1</wyrd>
             </sanctum>
             <totem>
+                <id>totem</id>
                 <name>
                     <en>Totem</en>
                     <es>Tótem</es>
@@ -1312,6 +1355,7 @@
                 <wyrd>variable</wyrd>
             </totem>
             <coverBrand>
+                <id>coverBrand</id>
                 <name>
                     <en>Cover Brand</en>
                     <es>Marca de Aquelarre</es>
@@ -1352,6 +1396,7 @@
                 <wyrd>variable</wyrd>
             </coverBrand>
             <mojoBond>
+                <id>mojoBond</id>
                 <name>
                     <en>Mojo Bond</en>
                     <es>Vínculo Mágico</es>
@@ -1390,6 +1435,7 @@
                 <wyrd>1</wyrd>
             </mojoBond>
             <severBond>
+                <id>severBond</id>
                 <name>
                     <en>Sever Bond</en>
                     <es>Cortar Vínculo</es>
@@ -1413,6 +1459,7 @@
                 <wyrd>2</wyrd>
             </severBond>
             <coverBond>
+                <id>coverBond</id>
                 <name>
                     <en>Cover Bond</en>
                     <es>Vínculo de Aquelarre</es>
@@ -1463,6 +1510,7 @@
         <classification>combat</classification>
         <powers>
             <visEye>
+                <id>visEye</id>
                 <name>
                     <en>Vis Eye</en>
                     <es>Ver Vis</es>
@@ -1487,6 +1535,7 @@
                 <wyrd>1</wyrd>
             </visEye>
             <visDrain>
+                <id>visDrain</id>
                 <name>
                     <en>Vis Drain</en>
                     <es>Drenar Vis</es>
@@ -1518,6 +1567,7 @@
                 <wyrd>variable</wyrd>
             </visDrain>
             <visChakra>
+                <id>visChakra</id>
                 <name>
                     <en>Vis Chakra</en>
                     <es>Chakra de Vis</es>
@@ -1540,6 +1590,7 @@
                 <wyrd>1</wyrd>
             </visChakra>
             <visFlow>
+                <id>visFlow</id>
                 <name>
                     <en>Vis Flow</en>
                     <es>Flujo de Vis</es>
@@ -1594,6 +1645,7 @@
                 <wyrd>1</wyrd>
             </visFlow>
             <visSiphon>
+                <id>visSiphon</id>
                 <name>
                     <en>Vis Siphon</en>
                     <es>Sifón de Vis</es>
@@ -1611,6 +1663,7 @@
                 <wyrd>1</wyrd>
             </visSiphon>
             <visShock>
+                <id>visShock</id>
                 <name>
                     <en>Vis Shock</en>
                     <es>Estallido de Vis</es>
@@ -1638,6 +1691,7 @@
                 <wyrd>1</wyrd>
             </visShock>
             <visFlux>
+                <id>visFlux</id>
                 <name>
                     <en>Vis Flux</en>
                     <es>Flujo mayor de Vis</es>
@@ -1660,6 +1714,7 @@
                 <wyrd>1</wyrd>
             </visFlux>
             <visShield>
+                <id>visShield</id>
                 <name>
                     <en>Vis Shield</en>
                     <es>Escudo de Vis</es>
@@ -1689,6 +1744,7 @@
                 <wyrd>1</wyrd>
             </visShield>
             <visBolt>
+                <id>visBolt</id>
                 <name>
                     <en>Vis Bolt</en>
                     <es>Descarga de Vis</es>
@@ -1721,6 +1777,7 @@
                 <wyrd>1</wyrd>
             </visBolt>
             <visVortex>
+                <id>visVortex</id>
                 <name>
                     <en>Vis Vortex</en>
                     <es>Vórtice de Vis</es>
@@ -1746,6 +1803,7 @@
                 <wyrd>variable</wyrd>
             </visVortex>
             <visStorm>
+                <id>visStorm</id>
                 <name>
                     <en>Vis Storm</en>
                     <es>Tormenta de Vis</es>
@@ -1772,6 +1830,7 @@
                 <wyrd>1</wyrd>
             </visStorm>
             <primalVis>
+                <id>primalVis</id>
                 <name>
                     <en>Primal Vis</en>
                     <es>Vis Primigenio</es>
@@ -1825,6 +1884,7 @@
         <factions>orthodox, brotherBattle, eskatonic, avestites, amaltheans, mendicantMonks, chorali</factions>
         <powers>
             <prophetsHolyBlessing>
+                <id>prophetsHolyBlessing</id>
                 <name>
                     <en>The Prophet's Holy Blessing</en>
                     <es>Bendición Sagrada del Profeta</es>
@@ -1849,6 +1909,7 @@
                 <wyrd>1</wyrd>
             </prophetsHolyBlessing>
             <devotionalLiturgy>
+                <id>devotionalLiturgy</id>
                 <name>
                     <en>The Devotional Liturgy</en>
                     <es>Liturgia Devocional</es>
@@ -1879,6 +1940,7 @@
                 <wyrd>1</wyrd>
             </devotionalLiturgy>
             <layingOnOfHands>
+                <id>layingOnOfHands</id>
                 <name>
                     <en>The Laying On of Hands</en>
                     <es>Imposición de Manos</es>
@@ -1902,6 +1964,7 @@
                 <wyrd>1</wyrd>
             </layingOnOfHands>
             <prophetsCensure>
+                <id>prophetsCensure</id>
                 <name>
                     <en>The Prophet's Censure</en>
                     <es>Censura del Profeta</es>
@@ -1931,6 +1994,7 @@
                 <wyrd>1</wyrd>
             </prophetsCensure>
             <oathToTheSaints>
+                <id>oathToTheSaints</id>
                 <name>
                     <en>Oath to the Saints</en>
                     <es>Juramento a los Santos</es>
@@ -1977,6 +2041,7 @@
                 <wyrd>1</wyrd>
             </oathToTheSaints>
             <pulpitsGift>
+                <id>pulpitsGift</id>
                 <name>
                     <en>The Pulpit's Gift</en>
                     <es>Don de la Vida Religiosa</es>
@@ -2002,6 +2067,7 @@
                 <wyrd>1</wyrd>
             </pulpitsGift>
             <tonguesOfBabel>
+                <id>tonguesOfBabel</id>
                 <name>
                     <en>The Tongues of Babel</en>
                     <es>Lenguas de Babel</es>
@@ -2037,6 +2103,7 @@
                 <wyrd>1</wyrd>
             </tonguesOfBabel>
             <sanctification>
+                <id>sanctification</id>
                 <name>
                     <en>Sanctification</en>
                     <es>Santifiación</es>
@@ -2071,6 +2138,7 @@
                 <wyrd>2</wyrd>
             </sanctification>
             <sanctification8>
+                <id>sanctification8</id>
                 <name>
                     <en>Sanctification (Article of Faith)</en>
                     <es>Santifiación (Artículo de Fe)</es>
@@ -2105,6 +2173,7 @@
                 <wyrd>2</wyrd>
             </sanctification8>
             <shieldOfFaith>
+                <id>shieldOfFaith</id>
                 <name>
                     <en>Shield of Faith</en>
                     <es>Escudo de la Fe</es>
@@ -2145,6 +2214,7 @@
                 <wyrd>1</wyrd>
             </shieldOfFaith>
             <providentialDeliverance>
+                <id>providentialDeliverance</id>
                 <name>
                     <en>Providential Deliverance</en>
                     <es>Salvación Providencial</es>
@@ -2198,6 +2268,7 @@
         <classification>others</classification>
         <powers>
             <consecration>
+                <id>consecration</id>
                 <name>
                     <en>Consecration</en>
                     <es>Consagración</es>
@@ -2229,6 +2300,7 @@
                 <wyrd>1</wyrd>
             </consecration>
             <light>
+                <id>light</id>
                 <name>
                     <en>Light</en>
                     <es>Luz</es>
@@ -2257,6 +2329,7 @@
                 <wyrd>1</wyrd>
             </light>
             <armorOfThePancreatorOrhodox>
+                <id>armorOfThePancreatorOrhodox</id>
                 <name>
                     <en>Armor of the Pancreator</en>
                     <es>Armadura del Pancreator</es>
@@ -2289,6 +2362,7 @@
                 <wyrd>1</wyrd>
             </armorOfThePancreatorOrhodox>
             <tighteningTheLeash>
+                <id>tighteningTheLeash</id>
                 <name>
                     <en>Tightening the Leash</en>
                     <es>Ajustar el Yugo</es>
@@ -2329,6 +2403,7 @@
                 <wyrd>1</wyrd>
             </tighteningTheLeash>
             <faithfulHeart>
+                <id>faithfulHeart</id>
                 <name>
                     <en>Faithful Heart</en>
                     <es>Corazón Fiel</es>
@@ -2354,6 +2429,7 @@
                 <wyrd>1</wyrd>
             </faithfulHeart>
             <dispersalOfDarkness>
+                <id>dispersalOfDarkness</id>
                 <name>
                     <en>Dispersal of Darkness</en>
                     <es>Dispersión de las Tinieblas</es>
@@ -2386,6 +2462,7 @@
                 <wyrd>1</wyrd>
             </dispersalOfDarkness>
             <consecrationOfLand>
+                <id>consecrationOfLand</id>
                 <name>
                     <en>Consecration of Land</en>
                     <es>Consagración de la Tierra</es>
@@ -2424,6 +2501,7 @@
                 <wyrd>1</wyrd>
             </consecrationOfLand>
             <blessingTheCrops>
+                <id>blessingTheCrops</id>
                 <name>
                     <en>Blessing the Crops</en>
                     <es>Bendición de los Cultivos</es>
@@ -2455,6 +2533,7 @@
                 <wyrd>1</wyrd>
             </blessingTheCrops>
             <sealingTheTemple>
+                <id>sealingTheTemple</id>
                 <name>
                     <en>Sealing the Temple</en>
                     <es>Sellar el Templo</es>
@@ -2502,6 +2581,7 @@
         <classification>combat</classification>
         <powers>
             <soulsVessel>
+                <id>soulsVessel</id>
                 <name>
                     <en>Soul's Vessel</en>
                     <es>Recipiente del Alma</es>
@@ -2527,6 +2607,7 @@
                 <wyrd>1</wyrd>
             </soulsVessel>
             <rightfullyGuidedHand>
+                <id>rightfullyGuidedHand</id>
                 <name>
                     <en>Rightfully Guided Hand</en>
                     <es>Mano de Justicia</es>
@@ -2554,6 +2635,7 @@
                 <wyrd>1</wyrd>
             </rightfullyGuidedHand>
             <armorOfThePancreator>
+                <id>armorOfThePancreator</id>
                 <name>
                     <en>Armor of the Pancreator</en>
                     <es>Armadura de Pancreator</es>
@@ -2576,6 +2658,7 @@
                 <wyrd>1</wyrd>
             </armorOfThePancreator>
             <righteousFervor>
+                <id>righteousFervor</id>
                 <name>
                     <en>Righteous Fervor</en>
                     <es>Fervor de los Justos</es>
@@ -2624,6 +2707,7 @@
                 <wyrd>1</wyrd>
             </righteousFervor>
             <liturgyOfTheWrathfulHost>
+                <id>liturgyOfTheWrathfulHost</id>
                 <name>
                     <en>Liturgy of the Wrathful Host</en>
                     <es>Liturgia de Furia Divina</es>
@@ -2654,6 +2738,7 @@
                 <wyrd>1</wyrd>
             </liturgyOfTheWrathfulHost>
             <smitingHand>
+                <id>smitingHand</id>
                 <name>
                     <en>Smiting Hand</en>
                     <es>Mano Destructora</es>
@@ -2680,6 +2765,7 @@
                 <wyrd>1</wyrd>
             </smitingHand>
             <fearsomeMajesty>
+                <id>fearsomeMajesty</id>
                 <name>
                     <en>Fearsome Majesty</en>
                     <es>Majestuosidad Aterradora</es>
@@ -2708,6 +2794,7 @@
                 <wyrd>1</wyrd>
             </fearsomeMajesty>
             <oathOfTheShieldmates>
+                <id>oathOfTheShieldmates</id>
                 <name>
                     <en>Oath of the Shieldmates</en>
                     <es>Juramento de los Camaradas de Escudo</es>
@@ -2747,6 +2834,7 @@
                 <wyrd>1</wyrd>
             </oathOfTheShieldmates>
             <salutationsToZakhayelos>
+                <id>salutationsToZakhayelos</id>
                 <name>
                     <en>Salutations to Zakhayelos, Lord of Hosts</en>
                     <es>Saludos a Zakhayelos, Señor de lo Divino</es>
@@ -2810,6 +2898,7 @@
         <classification>others</classification>
         <powers>
             <celestialAlignment>
+                <id>celestialAlignment</id>
                 <name>
                     <en>Celestial Alignment</en>
                     <es>Alineación Celestial</es>
@@ -2856,6 +2945,7 @@
                 <wyrd>1</wyrd>
             </celestialAlignment>
             <divineRevelation>
+                <id>divineRevelation</id>
                 <name>
                     <en>Divine Revelation</en>
                     <es>Revelación Divina</es>
@@ -2892,6 +2982,7 @@
                 <wyrd>1</wyrd>
             </divineRevelation>
             <rendingTheVeilOfUnreason>
+                <id>rendingTheVeilOfUnreason</id>
                 <name>
                     <en>Rending the Veil of Unreason</en>
                     <es>Desgarrar el Velo de la Sinrazón</es>
@@ -2935,6 +3026,7 @@
                 <wyrd>1</wyrd>
             </rendingTheVeilOfUnreason>
             <secondSight>
+                <id>secondSight</id>
                 <name>
                     <en>Second Sight</en>
                     <es>Segunda Visión</es>
@@ -2977,6 +3069,7 @@
                 <wyrd>1</wyrd>
             </secondSight>
             <silenceTheBeast>
+                <id>silenceTheBeast</id>
                 <name>
                     <en>Silence the Beast</en>
                     <es>Silenciar a la Bestia</es>
@@ -3027,6 +3120,7 @@
                 <wyrd>1</wyrd>
             </silenceTheBeast>
             <osseusTransmutation>
+                <id>osseusTransmutation</id>
                 <name>
                     <en>Osseus Transmutation</en>
                     <es>Transmutación Ósea</es>
@@ -3065,6 +3159,7 @@
                 <wyrd>1</wyrd>
             </osseusTransmutation>
             <allSeingEye>
+                <id>allSeingEye</id>
                 <name>
                     <en>All-Seeing Eye</en>
                     <es>El Ojo que Todo lo Ve</es>
@@ -3088,6 +3183,7 @@
                 <wyrd>1</wyrd>
             </allSeingEye>
             <refinementOfEssence>
+                <id>refinementOfEssence</id>
                 <name>
                     <en>Refinement of Essence</en>
                     <es>Perfeccionamiento de la Esencia</es>
@@ -3125,6 +3221,7 @@
                 <wyrd>1</wyrd>
             </refinementOfEssence>
             <investiture>
+                <id>investiture</id>
                 <name>
                     <en>Investiture</en>
                     <es>Investidura</es>
@@ -3155,6 +3252,7 @@
                 <wyrd>1</wyrd>
             </investiture>
             <knowledgeAndConversationOfTholumiyelos>
+                <id>knowledgeAndConversationOfTholumiyelos</id>
                 <name>
                     <en>Knowledge and Conversation of Tholumiyelos, Lord of Wisdom</en>
                     <es>Conocimiento y Conversación de Tholumiyelos, Señor de la Sabiduría</es>
@@ -3218,6 +3316,7 @@
         <classification>alteration</classification>
         <powers>
             <knowingTheFalseHeart>
+                <id>knowingTheFalseHeart</id>
                 <name>
                     <en>Knowing the False Heart</en>
                     <es>Conocer la Falsedad del Corazón</es>
@@ -3251,6 +3350,7 @@
                 <wyrd>1</wyrd>
             </knowingTheFalseHeart>
             <scentOfEvil>
+                <id>scentOfEvil</id>
                 <name>
                     <en>Scent of Evil</en>
                     <es>Rastro del Mal</es>
@@ -3287,6 +3387,7 @@
                 <wyrd>1</wyrd>
             </scentOfEvil>
             <stingOfConscience>
+                <id>stingOfConscience</id>
                 <name>
                     <en>Sting of Conscience</en>
                     <es>Aguijón de Conciencia</es>
@@ -3321,6 +3422,7 @@
                 <wyrd>1</wyrd>
             </stingOfConscience>
             <torchbearing>
+                <id>torchbearing</id>
                 <name>
                     <en>Torchbearing</en>
                     <es>Portar la Antorcha</es>
@@ -3345,6 +3447,7 @@
                 <wyrd>1</wyrd>
             </torchbearing>
             <faultOfTheSoulless>
+                <id>faultOfTheSoulless</id>
                 <name>
                     <en>Fault of the Soulless</en>
                     <es>La Culpa del Sin Alma</es>
@@ -3397,6 +3500,7 @@
                 <wyrd>1</wyrd>
             </faultOfTheSoulless>
             <fearsomeMajestyAvesti>
+                <id>fearsomeMajestyAvesti</id>
                 <name>
                     <en>Fearsome Majesty</en>
                     <es>Majestuosidad Aterradora</es>
@@ -3426,6 +3530,7 @@
                 <wyrd>1</wyrd>
             </fearsomeMajestyAvesti>
             <prophetsProjectedFlame>
+                <id>prophetsProjectedFlame</id>
                 <name>
                     <en>Prophet's Projected Flame</en>
                     <es>Llama Proyectada del Profeta</es>
@@ -3445,6 +3550,7 @@
                 <wyrd>1</wyrd>
             </prophetsProjectedFlame>
             <inquisitoryCommandment>
+                <id>inquisitoryCommandment</id>
                 <name>
                     <en>Inquisitory Commandment</en>
                     <es>Mandamiento Inquisorial</es>
@@ -3473,6 +3579,7 @@
                 <wyrd>1</wyrd>
             </inquisitoryCommandment>
             <torturesOfTheDamned>
+                <id>torturesOfTheDamned</id>
                 <name>
                     <en>Tortures of the Damned</en>
                     <es>Tortura de los Condenados</es>
@@ -3512,6 +3619,7 @@
                 <wyrd>1</wyrd>
             </torturesOfTheDamned>
             <petitionToJachemuyelos>
+                <id>petitionToJachemuyelos</id>
                 <name>
                     <en>Petition to Jachemuyelos, Lord of Judgment</en>
                     <es>Petición a Jachemuyelos, Señor del Juicio</es>
@@ -3566,6 +3674,7 @@
         <classification>alteration</classification>
         <powers>
             <cleansing>
+                <id>cleansing</id>
                 <name>
                     <en>Cleansing</en>
                     <es>Purificación</es>
@@ -3603,6 +3712,7 @@
                 <wyrd>1</wyrd>
             </cleansing>
             <hearth>
+                <id>hearth</id>
                 <name>
                     <en>Hearth</en>
                     <es>Hoguera</es>
@@ -3636,6 +3746,7 @@
                 <wyrd>1</wyrd>
             </hearth>
             <calming>
+                <id>calming</id>
                 <name>
                     <en>Calming</en>
                     <es>Calmar</es>
@@ -3669,6 +3780,7 @@
                 <wyrd>1</wyrd>
             </calming>
             <knowingHeart>
+                <id>knowingHeart</id>
                 <name>
                     <en>Knowing Heart</en>
                     <es>Conocer el Corazón</es>
@@ -3698,6 +3810,7 @@
                 <wyrd>1</wyrd>
             </knowingHeart>
             <fruitfulMultiplication>
+                <id>fruitfulMultiplication</id>
                 <name>
                     <en>Fruitful Multiplication</en>
                     <es>Multiplicació Fructífera</es>
@@ -3725,6 +3838,7 @@
                 <wyrd>1</wyrd>
             </fruitfulMultiplication>
             <restoration>
+                <id>restoration</id>
                 <name>
                     <en>Restoration</en>
                     <es>Restauración</es>
@@ -3762,6 +3876,7 @@
                 <wyrd>1</wyrd>
             </restoration>
             <mannaFromHeaven>
+                <id>mannaFromHeaven</id>
                 <name>
                     <en>Manna from Heaven</en>
                     <es>Maná Caído del Cielo</es>
@@ -3788,6 +3903,7 @@
                 <wyrd>1</wyrd>
             </mannaFromHeaven>
             <healingHandOfSaintAmalthea>
+                <id>healingHandOfSaintAmalthea</id>
                 <name>
                     <en>Healing Hand of Saint Amalthea</en>
                     <es>Mano Sanadora de Santa Amaltea</es>
@@ -3816,6 +3932,7 @@
                 <wyrd>1</wyrd>
             </healingHandOfSaintAmalthea>
             <sanctuary>
+                <id>sanctuary</id>
                 <name>
                     <en>Sanctuary</en>
                     <es>Santuario</es>
@@ -3843,6 +3960,7 @@
                 <wyrd>1</wyrd>
             </sanctuary>
             <invitationToHamomeyelos>
+                <id>invitationToHamomeyelos</id>
                 <name>
                     <en>Invitation to Hamomeyelos, Lord of Mercy</en>
                     <es>Invitación a Hamomeyelos, Señor de la Misericordia</es>
@@ -3894,6 +4012,7 @@
         <official>false</official>
         <powers>
             <avevIgna>
+                <id>avevIgna</id>
                 <name>
                     <en>Ave Igna</en>
                     <es>Ave Igna</es>
@@ -3906,6 +4025,7 @@
                 <wyrd>1</wyrd>
             </avevIgna>
             <blessedDisciple>
+                <id>blessedDisciple</id>
                 <name>
                     <en>Blessed Discipled</en>
                     <es>El Discípulo Bendecido</es>
@@ -3919,6 +4039,7 @@
                 <wyrd>1</wyrd>
             </blessedDisciple>
             <blessTheFaithful>
+                <id>blessTheFaithful</id>
                 <name>
                     <en>Bless the Faithful</en>
                     <es>La Bendición de los Creyentes</es>
@@ -3932,6 +4053,7 @@
                 <wyrd>1</wyrd>
             </blessTheFaithful>
             <fearOfTheProphet>
+                <id>fearOfTheProphet</id>
                 <name>
                     <en>Fear of the Prophet</en>
                     <es>El miedo del profeta</es>
@@ -3945,6 +4067,7 @@
                 <wyrd>1</wyrd>
             </fearOfTheProphet>
             <songOfPeace>
+                <id>songOfPeace</id>
                 <name>
                     <en>Song of Peace</en>
                     <es>La Canción de la Paz</es>
@@ -3958,6 +4081,7 @@
                 <wyrd>1</wyrd>
             </songOfPeace>
             <theChorusOfManyFlames>
+                <id>theChorusOfManyFlames</id>
                 <name>
                     <en>The Chorus Of Many Flames</en>
                     <es>El Coro de las Múltiples Llamas</es>
@@ -3971,6 +4095,7 @@
                 <wyrd>1</wyrd>
             </theChorusOfManyFlames>
             <shepherdsLament>
+                <id>shepherdsLament</id>
                 <name>
                     <en>Shepherd's Lament</en>
                     <es>El Lamento del Pastor</es>
@@ -3984,6 +4109,7 @@
                 <wyrd>1</wyrd>
             </shepherdsLament>
             <theUpliftingWord>
+                <id>theUpliftingWord</id>
                 <name>
                     <en>The Uplifting Word</en>
                     <es>La Palabra que Anima</es>
@@ -3997,6 +4123,7 @@
                 <wyrd>1</wyrd>
             </theUpliftingWord>
             <hornOfJoshua>
+                <id>hornOfJoshua</id>
                 <name>
                     <en>Horn of Joshua</en>
                     <es>El Cuerno de Josué</es>
@@ -4010,6 +4137,7 @@
                 <wyrd>1</wyrd>
             </hornOfJoshua>
             <theLordsChampion>
+                <id>theLordsChampion</id>
                 <name>
                     <en>The Lord's Champion</en>
                     <es>El Campeón del Señor</es>
@@ -4023,6 +4151,7 @@
                 <wyrd>1</wyrd>
             </theLordsChampion>
             <graceOfEmpyrean>
+                <id>graceOfEmpyrean</id>
                 <name>
                     <en>Grace of Empyrean</en>
                     <es>La Gracia del Empíreo</es>
@@ -4049,6 +4178,7 @@
         <official>false</official>
         <powers>
             <purification>
+                <id>purification</id>
                 <name>
                     <en>Purification</en>
                     <es>Purificación</es>
@@ -4062,6 +4192,7 @@
                 <wyrd>0</wyrd>
             </purification>
             <gjartisBlessing>
+                <id>gjartisBlessing</id>
                 <name>
                     <en>Gjarti's Blessing</en>
                     <es>La Bendición de Gjarti</es>
@@ -4074,6 +4205,7 @@
                 <wyrd>1</wyrd>
             </gjartisBlessing>
             <gjartisKiss>
+                <id>gjartisKiss</id>
                 <name>
                     <en>Gjarti's Kiss</en>
                     <es>El Beso de Gjarti</es>
@@ -4087,6 +4219,7 @@
                 <wyrd>1</wyrd>
             </gjartisKiss>
             <weatherWay>
+                <id>weatherWay</id>
                 <name>
                     <en>Weather Way</en>
                     <es>La Senda del Clima</es>
@@ -4100,6 +4233,7 @@
                 <wyrd>1</wyrd>
             </weatherWay>
             <voiceOfTheAnimalPowers>
+                <id>voiceOfTheAnimalPowers</id>
                 <name>
                     <en>Voice of the Animal Powers</en>
                     <es>La Voz de los Animales</es>
@@ -4112,6 +4246,7 @@
                 <wyrd>1</wyrd>
             </voiceOfTheAnimalPowers>
             <voiceOfThePlantPowers>
+                <id>voiceOfThePlantPowers</id>
                 <name>
                     <en>Voice of the Plant Powers</en>
                     <es>La Voz de las Plantas</es>
@@ -4124,6 +4259,7 @@
                 <wyrd>1</wyrd>
             </voiceOfThePlantPowers>
             <sacredSpace>
+                <id>sacredSpace</id>
                 <name>
                     <en>Sacred Space</en>
                     <es>Espacio Sagrado</es>
@@ -4136,6 +4272,7 @@
                 <wyrd>1</wyrd>
             </sacredSpace>
             <callCreature>
+                <id>callCreature</id>
                 <name>
                     <en>Call Creature</en>
                     <es>Llamar a una Criatura</es>
@@ -4148,6 +4285,7 @@
                 <wyrd>1</wyrd>
             </callCreature>
             <commandCreature>
+                <id>commandCreature</id>
                 <name>
                     <en>Command Creature</en>
                     <es>Dominar a una Criatura</es>
@@ -4161,6 +4299,7 @@
                 <wyrd>1</wyrd>
             </commandCreature>
             <stormLord>
+                <id>stormLord</id>
                 <name>
                     <en>Storm Lord</en>
                     <es>Señor de la Tormenta</es>
@@ -4174,6 +4313,7 @@
                 <wyrd>1</wyrd>
             </stormLord>
             <strengthOfTheAnimalPowers>
+                <id>strengthOfTheAnimalPowers</id>
                 <name>
                     <en>Strength of the Animal Powers</en>
                     <es>La Fuerza de los Animales</es>
@@ -4187,6 +4327,7 @@
                 <wyrd>1</wyrd>
             </strengthOfTheAnimalPowers>
             <summonTheLordOfTheQuarters>
+                <id>summonTheLordOfTheQuarters</id>
                 <name>
                     <en>Summon the Lord of the Quarters</en>
                     <es>Convocar al Señor de Todos los Rincones</es>
@@ -4211,6 +4352,7 @@
         <official>false</official>
         <powers>
             <subtleMemory>
+                <id>subtleMemory</id>
                 <name>
                     <en>Subtle Memory</en>
                     <es>Memoria Sutil</es>
@@ -4222,6 +4364,7 @@
                 <wyrd>0</wyrd>
             </subtleMemory>
             <foreboding>
+                <id>foreboding</id>
                 <name>
                     <en>Foreboding</en>
                     <es>Premonición</es>
@@ -4233,6 +4376,7 @@
                 <wyrd>1</wyrd>
             </foreboding>
             <shareDream>
+                <id>shareDream</id>
                 <name>
                     <en>Share Dream</en>
                     <es>Compartir los Sueños</es>
@@ -4244,6 +4388,7 @@
                 <wyrd>1</wyrd>
             </shareDream>
             <dreamSign>
+                <id>dreamSign</id>
                 <name>
                     <en>DreamSign</en>
                     <es>Señal Onírica</es>
@@ -4255,6 +4400,7 @@
                 <wyrd>1</wyrd>
             </dreamSign>
             <mentor>
+                <id>mentor</id>
                 <name>
                     <en>Mentor</en>
                     <es>Maestro</es>
@@ -4266,6 +4412,7 @@
                 <wyrd>1</wyrd>
             </mentor>
             <dreamSkill>
+                <id>dreamSkill</id>
                 <name>
                     <en>Dream Skill</en>
                     <es>Habilidad Onírica</es>
@@ -4277,6 +4424,7 @@
                 <wyrd>1</wyrd>
             </dreamSkill>
             <wakingDream>
+                <id>wakingDream</id>
                 <name>
                     <en>Waking Dream</en>
                     <es>Sueño en la Vigilia</es>
@@ -4289,6 +4437,7 @@
                 <wyrd>1</wyrd>
             </wakingDream>
             <timesGoneBy>
+                <id>timesGoneBy</id>
                 <name>
                     <en>Times Gone By</en>
                     <es>Tiempos Pasados</es>
@@ -4300,6 +4449,7 @@
                 <wyrd>1</wyrd>
             </timesGoneBy>
             <portents>
+                <id>portents</id>
                 <name>
                     <en>Portents</en>
                     <es>Presagios</es>
@@ -4324,6 +4474,7 @@
         <official>false</official>
         <powers>
             <birthright>
+                <id>birthright</id>
                 <name>
                     <en>Birthright</en>
                     <es>Derecho de Nacimiento</es>
@@ -4335,6 +4486,7 @@
                 <wyrd>1</wyrd>
             </birthright>
             <advisor>
+                <id>advisor</id>
                 <name>
                     <en>Advisor</en>
                     <es>Consejero</es>
@@ -4346,6 +4498,7 @@
                 <wyrd>1</wyrd>
             </advisor>
             <schemes>
+                <id>schemes</id>
                 <name>
                     <en>Schemes</en>
                     <es>Intrigas</es>
@@ -4357,6 +4510,7 @@
                 <wyrd>1</wyrd>
             </schemes>
             <sightFromBeyond>
+                <id>sightFromBeyond</id>
                 <name>
                     <en>Sight from Beyond</en>
                     <es>Visiones desde el Más Allá</es>
@@ -4370,6 +4524,7 @@
                 <wyrd>1</wyrd>
             </sightFromBeyond>
             <protectFief>
+                <id>protectFief</id>
                 <name>
                     <en>Protect Fief</en>
                     <es>Proteger el Feudo</es>
@@ -4382,6 +4537,7 @@
                 <wyrd>1</wyrd>
             </protectFief>
             <foilRival>
+                <id>foilRival</id>
                 <name>
                     <en>Foil Rival</en>
                     <es>Frustar a un Rival</es>
@@ -4395,6 +4551,7 @@
                 <wyrd>1</wyrd>
             </foilRival>
             <thwartAssassin>
+                <id>thwartAssassin</id>
                 <name>
                     <en>Thwart Assassin</en>
                     <es>Detener a un Asesino</es>
@@ -4407,6 +4564,7 @@
                 <wyrd>1</wyrd>
             </thwartAssassin>
             <commandKin>
+                <id>commandKin</id>
                 <name>
                     <en>Command Kin</en>
                     <es>Dominar a la Familia</es>
@@ -4420,6 +4578,7 @@
                 <wyrd>1</wyrd>
             </commandKin>
             <summonLordOfTheLords>
+                <id>summonLordOfTheLords</id>
                 <name>
                     <en>Summon Lord of the Lords</en>
                     <es>Invocar al Señor Supremo</es>
@@ -4444,6 +4603,7 @@
         <official>false</official>
         <powers>
             <twigHex>
+                <id>twigHex</id>
                 <name>
                     <en>Twig Hex</en>
                     <es>Hechizo de las Ramas</es>
@@ -4457,6 +4617,7 @@
                 <wyrd>1</wyrd>
             </twigHex>
             <luckyWink>
+                <id>luckyWink</id>
                 <name>
                     <en>Lucky Wink</en>
                     <es>Guiño de la Suerte</es>
@@ -4470,6 +4631,7 @@
                 <wyrd>1</wyrd>
             </luckyWink>
             <gitGone>
+                <id>gitGone</id>
                 <name>
                     <en>Git Gone</en>
                     <es>Largo de Aquí</es>
@@ -4496,6 +4658,7 @@
         <official>false</official>
         <powers>
             <horuspication>
+                <id>horuspication</id>
                 <name>
                     <en>Horuspication</en>
                     <es>Horuspicación</es>
@@ -4509,6 +4672,7 @@
                 <wyrd>1</wyrd>
             </horuspication>
             <deathScent>
+                <id>deathScent</id>
                 <name>
                     <en>Death Scent</en>
                     <es>Aroma de la Muerte</es>
@@ -4522,6 +4686,7 @@
                 <wyrd>1</wyrd>
             </deathScent>
             <endStrike>
+                <id>endStrike</id>
                 <name>
                     <en>End Strike</en>
                     <es>Ataque Final</es>
@@ -4534,6 +4699,7 @@
                 <wyrd>1</wyrd>
             </endStrike>
             <hunterSense>
+                <id>hunterSense</id>
                 <name>
                     <en>Hunter Sense</en>
                     <es>Sentir al Cazador</es>
@@ -4547,6 +4713,7 @@
                 <wyrd>1</wyrd>
             </hunterSense>
             <finalSight>
+                <id>finalSight</id>
                 <name>
                     <en>Final Sight</en>
                     <es>La Última Visión</es>
@@ -4560,6 +4727,7 @@
                 <wyrd>1</wyrd>
             </finalSight>
             <finalSong>
+                <id>finalSong</id>
                 <name>
                     <en>Final Song</en>
                     <es>La Última Canción</es>
@@ -4572,6 +4740,7 @@
                 <wyrd>1</wyrd>
             </finalSong>
             <deadSight>
+                <id>deadSight</id>
                 <name>
                     <en>Dead Sight</en>
                     <es>Visión Muerta</es>
@@ -4585,6 +4754,7 @@
                 <wyrd>1</wyrd>
             </deadSight>
             <funeraryCommunion>
+                <id>funeraryCommunion</id>
                 <name>
                     <en>Funerary Communion</en>
                     <es>Comunión Funeraria</es>
@@ -4597,6 +4767,7 @@
                 <wyrd>1</wyrd>
             </funeraryCommunion>
             <songsOfDistantHeights>
+                <id>songsOfDistantHeights</id>
                 <name>
                     <en>Songs of Distant Heights</en>
                     <es>Canciones de Cumbres Lejanas</es>
@@ -4622,6 +4793,7 @@
         <restrictedToRaces>ascorbite</restrictedToRaces>
         <powers>
             <hiveMindPath>
+                <id>hiveMindPath</id>
                 <name>
                     <en>Hive Mind</en>
                     <es>Mentalidad de Colmena</es>
@@ -4648,6 +4820,7 @@
         <official>false</official>
         <powers>
             <prana>
+                <id>prana</id>
                 <name>
                     <en>Prana</en>
                     <es>Prana</es>
@@ -4659,6 +4832,7 @@
                 <wyrd>1</wyrd>
             </prana>
             <forcedEntry>
+                <id>forcedEntry</id>
                 <name>
                     <en>Forced Entry</en>
                     <es>Forzar la Entrada</es>
@@ -4670,6 +4844,7 @@
                 <wyrd>1</wyrd>
             </forcedEntry>
             <confusion>
+                <id>confusion</id>
                 <name>
                     <en>Confusion</en>
                     <es>Desorientación</es>
@@ -4682,6 +4857,7 @@
                 <wyrd>1</wyrd>
             </confusion>
             <whirlingDervish>
+                <id>whirlingDervish</id>
                 <name>
                     <en>Whirling Dervish</en>
                     <es>Remolino Derviche</es>
@@ -4693,6 +4869,7 @@
                 <wyrd>1</wyrd>
             </whirlingDervish>
             <externalVibrations>
+                <id>externalVibrations</id>
                 <name>
                     <en>External Vibrations</en>
                     <es>Vibraciones Externas</es>
@@ -4705,6 +4882,7 @@
                 <wyrd>1</wyrd>
             </externalVibrations>
             <internalVibrations>
+                <id>internalVibrations</id>
                 <name>
                     <en>Internal Vibrations</en>
                     <es>Vibraciones Internas</es>
@@ -4716,6 +4894,7 @@
                 <wyrd>1</wyrd>
             </internalVibrations>
             <blur>
+                <id>blur</id>
                 <name>
                     <en>Blur</en>
                     <es>Borrón</es>
@@ -4727,6 +4906,7 @@
                 <wyrd>1</wyrd>
             </blur>
             <pranaBurst>
+                <id>pranaBurst</id>
                 <name>
                     <en>Prana Burst</en>
                     <es>Estallido Prana</es>
@@ -4738,6 +4918,7 @@
                 <wyrd>1</wyrd>
             </pranaBurst>
             <resonate>
+                <id>resonate</id>
                 <name>
                     <en>Resonate</en>
                     <es>Resonancia</es>
@@ -4749,6 +4930,7 @@
                 <wyrd>1</wyrd>
             </resonate>
             <nerveBurn>
+                <id>nerveBurn</id>
                 <name>
                     <en>Nerve Burn</en>
                     <es>Descarga Nerviosa</es>
@@ -4761,6 +4943,7 @@
                 <wyrd>1</wyrd>
             </nerveBurn>
             <stupefy>
+                <id>stupefy</id>
                 <name>
                     <en>Stupefy</en>
                     <es>Estupefacción</es>
@@ -4785,6 +4968,7 @@
         <official>false</official>
         <powers>
             <falseGlimpse>
+                <id>falseGlimpse</id>
                 <name>
                     <en>False Glimpse</en>
                     <es>Falsa Impresión</es>
@@ -4797,6 +4981,7 @@
                 <wyrd>1</wyrd>
             </falseGlimpse>
             <falseSight>
+                <id>falseSight</id>
                 <name>
                     <en>False Sight</en>
                     <es>Visión Falsa</es>
@@ -4809,6 +4994,7 @@
                 <wyrd>1</wyrd>
             </falseSight>
             <lyingSenses>
+                <id>lyingSenses</id>
                 <name>
                     <en>Lying Senses</en>
                     <es>Sentidos Mentirosos</es>
@@ -4821,6 +5007,7 @@
                 <wyrd>1</wyrd>
             </lyingSenses>
             <falseObject>
+                <id>falseObject</id>
                 <name>
                     <en>False Object</en>
                     <es>Objeto Falso</es>
@@ -4833,6 +5020,7 @@
                 <wyrd>1</wyrd>
             </falseObject>
             <falseScenery>
+                <id>falseScenery</id>
                 <name>
                     <en>False Scenery</en>
                     <es>Escenario Falso</es>
@@ -4845,6 +5033,7 @@
                 <wyrd>1</wyrd>
             </falseScenery>
             <falseCreature>
+                <id>falseCreature</id>
                 <name>
                     <en>False Creature</en>
                     <es>Criatura Falsa</es>
@@ -4857,6 +5046,7 @@
                 <wyrd>1</wyrd>
             </falseCreature>
             <falseWorld>
+                <id>falseWorld</id>
                 <name>
                     <en>False World</en>
                     <es>Mundo Falso</es>
@@ -4869,6 +5059,7 @@
                 <wyrd>1</wyrd>
             </falseWorld>
             <persistenceOfVisioning>
+                <id>persistenceOfVisioning</id>
                 <name>
                     <en>Persistence of Visioning</en>
                     <es>Visualización Persistente</es>
@@ -4881,6 +5072,7 @@
                 <wyrd>1</wyrd>
             </persistenceOfVisioning>
             <massHallucination>
+                <id>massHallucination</id>
                 <name>
                     <en>Mass Hallucination</en>
                     <es>Alucinación en Masa</es>
@@ -4905,6 +5097,7 @@
         <official>false</official>
         <powers>
             <shadowDance>
+                <id>shadowDance</id>
                 <name>
                     <en>Shadow Dance</en>
                     <es>Baile de las Sombras</es>
@@ -4916,6 +5109,7 @@
                 <wyrd>1</wyrd>
             </shadowDance>
             <multipleShadowDance>
+                <id>multipleShadowDance</id>
                 <name>
                     <en>Multiple Shadow Dance</en>
                     <es>Baile de las Sombras Múltiple</es>
@@ -4927,6 +5121,7 @@
                 <wyrd>1</wyrd>
             </multipleShadowDance>
             <stoneWall>
+                <id>multipleShadowDance</id>
                 <name>
                     <en>Stone Wall</en>
                     <es>Muro de Piedra</es>
@@ -4938,6 +5133,7 @@
                 <wyrd>1</wyrd>
             </stoneWall>
             <multipleStoneWall>
+                <id>multipleStoneWall</id>
                 <name>
                     <en>Multiple Stone Wall</en>
                     <es>Muro de Piedra Múltiple</es>
@@ -4949,6 +5145,7 @@
                 <wyrd>1</wyrd>
             </multipleStoneWall>
             <veiledFace>
+                <id>veiledFace</id>
                 <name>
                     <en>Veiled Face</en>
                     <es>Rostro Velado</es>
@@ -4960,6 +5157,7 @@
                 <wyrd>1</wyrd>
             </veiledFace>
             <multipleEeiledFace>
+                <id>multipleEeiledFace</id>
                 <name>
                     <en>Multiple Veiled Face</en>
                     <es>Rostro Velado Múltiple</es>
@@ -4971,6 +5169,7 @@
                 <wyrd>1</wyrd>
             </multipleEeiledFace>
             <ironBrow>
+                <id>ironBrow</id>
                 <name>
                     <en>Iron Brow</en>
                     <es>Frente de Hierro</es>
@@ -4982,6 +5181,7 @@
                 <wyrd>1</wyrd>
             </ironBrow>
             <multipleIronBrow>
+                <id>multipleIronBrow</id>
                 <name>
                     <en>Multiple Iron Brow</en>
                     <es>Frente de Hierro Múltiple</es>
@@ -4993,6 +5193,7 @@
                 <wyrd>1</wyrd>
             </multipleIronBrow>
             <invisibility>
+                <id>invisibility</id>
                 <name>
                     <en>Invisibility</en>
                     <es>Invisibilidad</es>
@@ -5019,6 +5220,7 @@
         <official>false</official>
         <powers>
             <psiSense>
+                <id>psiSense</id>
                 <name>
                     <en>Psi Sense</en>
                     <es>Sentido Psí</es>
@@ -5031,6 +5233,7 @@
                 <wyrd>1</wyrd>
             </psiSense>
             <diffusion>
+                <id>diffusion</id>
                 <name>
                     <en>Diffusion</en>
                     <es>Difusión</es>
@@ -5043,6 +5246,7 @@
                 <wyrd>1</wyrd>
             </diffusion>
             <absorption>
+                <id>absorption</id>
                 <name>
                     <en>Absorption</en>
                     <es>Absorción</es>
@@ -5055,6 +5259,7 @@
                 <wyrd>1</wyrd>
             </absorption>
             <allSeingEyes>
+                <id>allSeingEyes</id>
                 <name>
                     <en>All-Seeing Eyes</en>
                     <es>Visión Escrutadora</es>
@@ -5067,6 +5272,7 @@
                 <wyrd>1</wyrd>
             </allSeingEyes>
             <refraction>
+                <id>refraction</id>
                 <name>
                     <en>Refraction</en>
                     <es>Refracción</es>
@@ -5079,6 +5285,7 @@
                 <wyrd>1</wyrd>
             </refraction>
             <reflection>
+                <id>reflection</id>
                 <name>
                     <en>Reflection</en>
                     <es>Reflexión</es>
@@ -5091,6 +5298,7 @@
                 <wyrd>1</wyrd>
             </reflection>
             <wyrdHarvest>
+                <id>wyrdHarvest</id>
                 <name>
                     <en>Wyrd Harvest</en>
                     <es>Cosecha de Wyrd</es>
@@ -5103,6 +5311,7 @@
                 <wyrd>1</wyrd>
             </wyrdHarvest>
             <redirection>
+                <id>redirection</id>
                 <name>
                     <en>Redirection</en>
                     <es>Redirección</es>
@@ -5115,6 +5324,7 @@
                 <wyrd>1</wyrd>
             </redirection>
             <darkHarvest>
+                <id>darkHarvest</id>
                 <name>
                     <en>Dark Harvest</en>
                     <es>Cosecha Oscura</es>

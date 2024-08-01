@@ -26,7 +26,6 @@ package com.softwaremagico.tm.character.benefices;
 
 import com.softwaremagico.tm.IElementRetriever;
 import com.softwaremagico.tm.InvalidXmlElementException;
-import com.softwaremagico.tm.log.MachineLog;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 

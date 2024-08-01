@@ -6,7 +6,6 @@ import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.equipment.DamageTypeFactory;
 import com.softwaremagico.tm.character.equipment.Equipment;
 import com.softwaremagico.tm.character.equipment.Size;
-import com.softwaremagico.tm.log.MachineLog;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
 import java.util.ArrayList;

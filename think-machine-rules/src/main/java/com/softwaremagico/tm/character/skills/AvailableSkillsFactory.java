@@ -26,7 +26,6 @@ package com.softwaremagico.tm.character.skills;
 
 
 import com.softwaremagico.tm.InvalidXmlElementException;
-import com.softwaremagico.tm.log.MachineLog;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
 import java.util.ArrayList;

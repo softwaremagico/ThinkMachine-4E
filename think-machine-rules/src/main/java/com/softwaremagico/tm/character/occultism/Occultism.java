@@ -1,5 +1,29 @@
 package com.softwaremagico.tm.character.occultism;
 
+/*-
+ * #%L
+ * Think Machine 4E (Rules)
+ * %%
+ * Copyright (C) 2017 - 2024 Softwaremagico
+ * %%
+ * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
+ * <softwaremagico@gmail.com> Valencia (Spain).
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation; either version 2 of the License, or (at your option) any later
+ * version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * this program; If not, see <http://www.gnu.org/licenses/gpl-3.0.html>.
+ * #L%
+ */
+
 
 import com.softwaremagico.tm.InvalidXmlElementException;
 import com.softwaremagico.tm.character.Settings;
@@ -67,11 +91,11 @@ public class Occultism {
             // Module without noOccult benefice.
         }
 
-        if (psyValue != 0 && (race == null || race.getBenefices().contains(noOccult))) {
+        if (noOccult != null && psyValue != 0 && (race == null || race.getBenefices().contains(noOccult.getId()))) {
             throw new InvalidPsiqueLevelException("Race '" + race + "' cannot have psique levels.");
         }
-        if (Objects.equals(occultismType, OccultismTypeFactory.getPsi()) && psyValue != 0
-                && race.getBenefices().contains(noPsi)) {
+        if (noPsi != null && Objects.equals(occultismType, OccultismTypeFactory.getPsi()) && psyValue != 0
+                && race.getBenefices().contains(noPsi.getId())) {
             throw new InvalidPsiqueLevelException("Race '" + race + "' cannot have psi levels.");
         }
         psiqueValue.put(occultismType.getId(), psyValue);
@@ -123,18 +147,20 @@ public class Occultism {
             MachineXmlReaderLog.errorMessage(this.getClass(), e);
         }
         // Limited to some factions
-        if (!path.getFactionsAllowed().isEmpty() && settings.isRestrictionsChecked() && !path.getFactionsAllowed().contains(faction)) {
+        if (!path.getFactionsAllowed().isEmpty() && settings.isRestrictionsChecked() && faction != null
+                && !path.getFactionsAllowed().contains(faction.getId())) {
             throw new InvalidFactionOfPowerException("Power '" + power + "' can only be acquired by  '"
                     + path.getFactionsAllowed() + "' character faction is '" + faction + "'.");
         }
         // Limited to some races
-        if (!path.getRestrictedToRaces().isEmpty() && settings.isRestrictionsChecked() && !path.getRestrictedToRaces().contains(race)) {
+        if (!path.getRestrictedToRaces().isEmpty() && settings.isRestrictionsChecked() && race != null
+                && !path.getRestrictedToRaces().contains(race.getId())) {
             throw new InvalidFactionOfPowerException("Power '" + power + "' can only be acquired by  '"
                     + path.getFactionsAllowed() + "' character faction is '" + faction + "'.");
         }
 
         // Psi must have previous level.
-        if (Objects.equals(path.getOccultismType(), OccultismTypeFactory.getPsi())) {
+        if (OccultismTypeFactory.getPsi() != null && Objects.equals(path.getOccultismType(), OccultismTypeFactory.getPsi().getId())) {
             boolean acquiredLevel = false;
             for (final OccultismPower previousLevelPower : path.getPreviousLevelPowers(power)) {
                 if (selectedPowers.get(path.getId()) != null

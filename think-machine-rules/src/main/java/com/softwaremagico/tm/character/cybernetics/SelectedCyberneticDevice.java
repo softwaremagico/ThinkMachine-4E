@@ -30,7 +30,6 @@ import com.softwaremagico.tm.InvalidXmlElementException;
 import com.softwaremagico.tm.character.values.Bonification;
 import com.softwaremagico.tm.character.values.IElementWithBonification;
 import com.softwaremagico.tm.character.values.StaticValue;
-import com.softwaremagico.tm.log.MachineLog;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
 import java.util.ArrayList;

@@ -55,6 +55,7 @@ public abstract class XmlFactory<T extends Element<T>> {
 
     //Id -> Element
     private Map<String, T> elements = null;
+    private List<T> elementList = null;
 
     public XmlFactory() {
 
@@ -92,7 +93,10 @@ public abstract class XmlFactory<T extends Element<T>> {
 
     public List<T> readXml(Class<T> entityClass) throws InvalidXmlElementException {
         try {
-            return readXml(entityClass, ModuleManager.DEFAULT_MODULE);
+            if (elementList == null) {
+                elementList = readXml(entityClass, ModuleManager.DEFAULT_MODULE);
+            }
+            return elementList;
         } catch (IOException e) {
             throw new InvalidXmlElementException("Error reading xml for '" + entityClass + "'", e);
         }

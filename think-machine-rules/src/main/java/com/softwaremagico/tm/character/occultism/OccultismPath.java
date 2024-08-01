@@ -1,5 +1,29 @@
 package com.softwaremagico.tm.character.occultism;
 
+/*-
+ * #%L
+ * Think Machine 4E (Rules)
+ * %%
+ * Copyright (C) 2017 - 2024 Softwaremagico
+ * %%
+ * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
+ * <softwaremagico@gmail.com> Valencia (Spain).
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation; either version 2 of the License, or (at your option) any later
+ * version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * this program; If not, see <http://www.gnu.org/licenses/gpl-3.0.html>.
+ * #L%
+ */
+
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -9,6 +33,7 @@ import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.factions.FactionGroup;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -46,7 +71,11 @@ public class OccultismPath extends Element<OccultismPath> {
 
     public Map<String, OccultismPower> getOccultismPowers() {
         if (occultismPowers == null) {
-            occultismPowers = occultismPowersElements.stream().collect(Collectors.toMap(OccultismPower::getId, item -> item));
+            if (occultismPowersElements != null) {
+                occultismPowers = occultismPowersElements.stream().collect(Collectors.toMap(OccultismPower::getId, item -> item));
+            } else {
+                occultismPowers = new HashMap<>();
+            }
         }
         return occultismPowers;
     }
@@ -67,7 +96,7 @@ public class OccultismPath extends Element<OccultismPath> {
     }
 
     private Integer getPreviousLevelWithPowers(OccultismPower power) {
-        final List<OccultismPower> powersOfPath = new ArrayList<>(occultismPowers.values());
+        final List<OccultismPower> powersOfPath = new ArrayList<>(getOccultismPowers().values());
 
         // Sort by level inverse.
         powersOfPath.sort((power0, power1) -> {
@@ -125,6 +154,14 @@ public class OccultismPath extends Element<OccultismPath> {
         this.classification = classification;
     }
 
+    public Set<OccultismPower> getOccultismPowersElements() {
+        return occultismPowersElements;
+    }
+
+    public void setOccultismPowersElements(Set<OccultismPower> occultismPowersElements) {
+        this.occultismPowersElements = occultismPowersElements;
+    }
+
     @Override
     public int hashCode() {
         return super.hashCode();
@@ -142,7 +179,6 @@ public class OccultismPath extends Element<OccultismPath> {
     @Override
     public void setRestrictedToRaces(Set<String> restrictedToRaces) {
         super.setRestrictedToRaces(restrictedToRaces);
-        occultismPowers.forEach((s, occultismPower) -> occultismPower.setRestrictedToRaces(restrictedToRaces));
     }
 
     public void setRestrictedToFactions(String restrictedToFactionsContent) {
@@ -152,24 +188,20 @@ public class OccultismPath extends Element<OccultismPath> {
     @Override
     public void setRestrictedToFactions(Set<String> restrictedToFactions) {
         super.setRestrictedToFactions(restrictedToFactions);
-        occultismPowers.forEach((s, occultismPower) -> occultismPower.setRestrictedToFactions(restrictedToFactions));
     }
 
     @Override
     public void setRestricted(boolean restricted) {
         super.setRestricted(restricted);
-        occultismPowers.forEach((s, occultismPower) -> occultismPower.setRestricted(restricted));
     }
 
     @Override
     public void setRestrictedToFactionGroup(FactionGroup factionGroup) {
         super.setRestrictedToFactionGroup(factionGroup);
-        occultismPowers.forEach((s, occultismPower) -> occultismPower.setRestrictedToFactionGroup(factionGroup));
     }
 
     @Override
     public void setOfficial(boolean official) {
         super.setOfficial(official);
-        occultismPowers.forEach((s, occultismPower) -> occultismPower.setOfficial(official));
     }
 }
