@@ -1,10 +1,10 @@
-package com.softwaremagico.tm.character.equipment;
+package com.softwaremagico.tm.character.equipment.weapons;
 
 /*-
  * #%L
- * Think Machine 4E (Rules)
+ * Think Machine (Core)
  * %%
- * Copyright (C) 2017 - 2024 Softwaremagico
+ * Copyright (C) 2017 - 2018 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -24,18 +24,18 @@ package com.softwaremagico.tm.character.equipment;
  * #L%
  */
 
-import java.util.Objects;
+public class WeaponRandomDefinition {
+    private double probabilityMultiplier;
 
+    public WeaponRandomDefinition() {
+        probabilityMultiplier = 1d;
+    }
 
-public enum Size {
-    XS, S, M, L, XL, XXL;
+    public double getProbabilityMultiplier() {
+        return probabilityMultiplier;
+    }
 
-    public static Size get(String sizeName) {
-        for (final Size size : Size.values()) {
-            if (Objects.equals(size.name().toLowerCase(), sizeName.toLowerCase())) {
-                return size;
-            }
-        }
-        return null;
+    public void setProbabilityMultiplier(double probabilityMultiplier) {
+        this.probabilityMultiplier = probabilityMultiplier;
     }
 }

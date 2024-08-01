@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.equipment;
+package com.softwaremagico.tm.character.equipment.weapons;
 
 /*-
  * #%L
@@ -24,18 +24,17 @@ package com.softwaremagico.tm.character.equipment;
  * #L%
  */
 
-import java.util.Objects;
 
+import com.softwaremagico.tm.InvalidXmlElementException;
 
-public enum Size {
-    XS, S, M, L, XL, XXL;
+public class InvalidWeaponException extends InvalidXmlElementException {
+    private static final long serialVersionUID = 1243337930745480002L;
 
-    public static Size get(String sizeName) {
-        for (final Size size : Size.values()) {
-            if (Objects.equals(size.name().toLowerCase(), sizeName.toLowerCase())) {
-                return size;
-            }
-        }
-        return null;
+    public InvalidWeaponException(String message) {
+        super(message);
+    }
+
+    public InvalidWeaponException(String message, Exception e) {
+        super(message, e);
     }
 }

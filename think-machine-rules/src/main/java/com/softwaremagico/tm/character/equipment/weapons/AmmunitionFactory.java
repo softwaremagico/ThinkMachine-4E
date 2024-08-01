@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.equipment;
+package com.softwaremagico.tm.character.equipment.weapons;
 
 /*-
  * #%L
@@ -24,18 +24,31 @@ package com.softwaremagico.tm.character.equipment;
  * #L%
  */
 
-import java.util.Objects;
+
+import com.softwaremagico.tm.InvalidXmlElementException;
+import com.softwaremagico.tm.xml.XmlFactory;
+
+import java.util.List;
+
+public final class AmmunitionFactory extends XmlFactory<Ammunition> {
+    private static final String XML_FILE = "ammunition.xml";
+
+    private static final class AmmunitionFactoryInit {
+        public static final AmmunitionFactory INSTANCE = new AmmunitionFactory();
+    }
+
+    public static AmmunitionFactory getInstance() {
+        return AmmunitionFactoryInit.INSTANCE;
+    }
 
 
-public enum Size {
-    XS, S, M, L, XL, XXL;
+    @Override
+    public String getXmlFile() {
+        return XML_FILE;
+    }
 
-    public static Size get(String sizeName) {
-        for (final Size size : Size.values()) {
-            if (Objects.equals(size.name().toLowerCase(), sizeName.toLowerCase())) {
-                return size;
-            }
-        }
-        return null;
+    @Override
+    public List<Ammunition> getElements() throws InvalidXmlElementException {
+        return readXml(Ammunition.class);
     }
 }

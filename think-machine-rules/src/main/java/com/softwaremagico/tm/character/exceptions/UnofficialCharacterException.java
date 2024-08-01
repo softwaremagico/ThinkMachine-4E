@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.equipment;
+package com.softwaremagico.tm.character.exceptions;
 
 /*-
  * #%L
@@ -24,18 +24,15 @@ package com.softwaremagico.tm.character.equipment;
  * #L%
  */
 
-import java.util.Objects;
 
+public class UnofficialCharacterException extends Exception {
+    private static final long serialVersionUID = 9201638123276853578L;
 
-public enum Size {
-    XS, S, M, L, XL, XXL;
+    public UnofficialCharacterException(String message) {
+        super(message);
+    }
 
-    public static Size get(String sizeName) {
-        for (final Size size : Size.values()) {
-            if (Objects.equals(size.name().toLowerCase(), sizeName.toLowerCase())) {
-                return size;
-            }
-        }
-        return null;
+    public UnofficialCharacterException(String message, Exception e) {
+        super(message, e);
     }
 }

@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.equipment;
+package com.softwaremagico.tm.character.equipment.weapons;
 
 /*-
  * #%L
@@ -24,18 +24,27 @@ package com.softwaremagico.tm.character.equipment;
  * #L%
  */
 
-import java.util.Objects;
+import com.softwaremagico.tm.Element;
+import com.softwaremagico.tm.TranslatedText;
 
+public class Accessory extends Element<Accessory> {
 
-public enum Size {
-    XS, S, M, L, XL, XXL;
-
-    public static Size get(String sizeName) {
-        for (final Size size : Size.values()) {
-            if (Objects.equals(size.name().toLowerCase(), sizeName.toLowerCase())) {
-                return size;
-            }
-        }
-        return null;
+    public Accessory() {
+        super();
     }
+
+    public Accessory(String id, TranslatedText name, TranslatedText description, String language, String moduleName) {
+        super(id, name, description, language, moduleName);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
 }

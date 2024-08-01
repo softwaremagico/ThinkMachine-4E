@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.equipment;
+package com.softwaremagico.tm.character.equipment.weapons;
 
 /*-
  * #%L
@@ -24,18 +24,31 @@ package com.softwaremagico.tm.character.equipment;
  * #L%
  */
 
-import java.util.Objects;
+
+import com.softwaremagico.tm.InvalidXmlElementException;
+import com.softwaremagico.tm.xml.XmlFactory;
+
+import java.util.List;
+
+public final class AccessoryFactory extends XmlFactory<Accessory> {
+    private static final String XML_FILE = "weapons_accessories.xml";
+
+    private static final class ShieldFactoryInit {
+        public static final AccessoryFactory INSTANCE = new AccessoryFactory();
+    }
+
+    public static AccessoryFactory getInstance() {
+        return ShieldFactoryInit.INSTANCE;
+    }
 
 
-public enum Size {
-    XS, S, M, L, XL, XXL;
+    @Override
+    public String getXmlFile() {
+        return XML_FILE;
+    }
 
-    public static Size get(String sizeName) {
-        for (final Size size : Size.values()) {
-            if (Objects.equals(size.name().toLowerCase(), sizeName.toLowerCase())) {
-                return size;
-            }
-        }
-        return null;
+    @Override
+    public List<Accessory> getElements() throws InvalidXmlElementException {
+        return readXml(Accessory.class);
     }
 }

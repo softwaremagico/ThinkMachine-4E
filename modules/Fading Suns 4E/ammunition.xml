@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ammunitions>
+	<ammo>
+		<id>solidSlug</id>
+		<name>
+			<en>Solid Slug (.47)</en>
+			<es>Proyectil Sólido (.47)</es>
+		</name>
+		<goal>0</goal>
+		<damage>7</damage>
+		<strength>3</strength>
+		<range>30/80</range>
+	</ammo>
+	<ammo>
+		<id>riotSolidSlug</id>
+		<name>
+			<en>Solid Slug (.47)</en>
+			<es>Proyectil Sólido (.47)</es>
+		</name>
+		<goal>0</goal>
+		<damage>7</damage>
+		<strength>3</strength>
+		<range>30/80</range>
+	</ammo>
+	<ammo>
+		<id>xienSolidSlug</id>
+		<name>
+			<en>Solid Slug (.47)</en>
+			<es>Proyectil Sólido (.47)</es>
+		</name>
+		<goal>-1</goal>
+		<damage>7</damage>
+		<strength>3</strength>
+		<range>20/60</range>
+	</ammo>
+	<ammo>
+		<id>capekUnderWater</id>
+		<name>
+			<en>Underwater use</en>
+			<es>Bajo el Agua</es>
+		</name>
+		<goal>-</goal>
+		<damage>7/6/5</damage>
+		<range>30/90/X</range>
+	</ammo>
+	<ammo>
+		<id>sabotHiron</id>
+		<name>
+			<en>Stone/Airon</en>
+			<es>Piedra/Hierro</es>
+		</name>
+		<goal>-</goal>
+		<damage>5/4/3</damage>
+		<range>-</range>
+	</ammo>
+	<ammo>
+		<id>sabotPlastic</id>
+		<name>
+			<en>Plastic/Glass</en>
+			<es>Plástico/Cristal</es>
+		</name>
+		<goal>-</goal>
+		<damage>4/3/2</damage>
+		<range>-</range>
+	</ammo>
+	<ammo>
+		<id>sabotWood</id>
+		<name>
+			<en>Wood/Ice</en>
+			<es>Madera/Hielo</es>
+		</name>
+		<goal>-</goal>
+		<damage>3/2/1</damage>
+		<range>-</range>
+	</ammo>
+	<ammo>
+		<id>plasticBodyShield</id>
+		<name>
+			<en>Plastic</en>
+			<es>Plástico</es>
+		</name>
+		<goal>1</goal>
+		<cost>2</cost>
+	</ammo>
+	<ammo>
+		<id>bodyShieldRazorEdged</id>
+		<name>
+			<en>Razor-edged</en>
+			<es>Borders Afilados</es>
+		</name>
+		<goal>1</goal>
+		<damage>+2</damage>
+		<cost>15</cost>
+	</ammo>
+	<ammo>
+		<id>legSheath</id>
+		<name>
+			<en>Leg Sheath</en>
+			<es>Funda de Pierna</es>
+		</name>
+		<goal>1</goal>
+		<damage>+3</damage>
+		<strength>1</strength>
+		<cost>15</cost>
+		<size>S</size>
+	</ammo>
+	<ammo>
+		<id>innactiveKossack</id>
+		<name>
+			<en>Inactive Mode</en>
+			<es>Modo Inactivo</es>
+		</name>
+		<goal>0</goal>
+		<damage>4</damage>
+		<strength>4</strength>
+	</ammo>
+	<ammo>
+		<id>panzerBreakerShell</id>
+		<name>
+			<en>Panzer Breaker Shell</en>
+			<es>Munición Anti Tanque</es>
+		</name>
+		<damage>13</damage>
+		<damageType>halveArmour</damageType>
+	</ammo>
+
+</ammunitions>
