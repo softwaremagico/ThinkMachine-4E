@@ -24,6 +24,7 @@ package com.softwaremagico.tm.factory;
  * #L%
  */
 
+import com.softwaremagico.tm.InvalidXmlElementException;
 import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -36,7 +37,7 @@ public class CharacteristicsDefinitionFactoryTests {
 
 
     @Test
-    public void readCharacteristics() throws IOException {
+    public void readCharacteristics() throws InvalidXmlElementException {
         Assert.assertEquals(DEFINED_CHARACTERISTICS,
                 CharacteristicsDefinitionFactory.getInstance().getElements().size());
     }

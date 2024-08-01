@@ -24,9 +24,9 @@ package com.softwaremagico.tm.character.cybernetics;
  * #L%
  */
 
+import com.softwaremagico.tm.InvalidXmlElementException;
 import com.softwaremagico.tm.xml.XmlFactory;
 
-import java.io.IOException;
 import java.util.List;
 
 public final class CyberneticDeviceTraitFactory extends XmlFactory<CyberneticDeviceTrait> {
@@ -47,7 +47,7 @@ public final class CyberneticDeviceTraitFactory extends XmlFactory<CyberneticDev
     }
 
     @Override
-    public List<CyberneticDeviceTrait> getElements() throws IOException {
+    public List<CyberneticDeviceTrait> getElements() throws InvalidXmlElementException {
         return readXml(CyberneticDeviceTrait.class);
     }
 }

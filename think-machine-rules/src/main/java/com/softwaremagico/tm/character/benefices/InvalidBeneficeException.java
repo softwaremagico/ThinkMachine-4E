@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.blessings;
+package com.softwaremagico.tm.character.benefices;
 
 /*-
  * #%L
@@ -24,30 +24,17 @@ package com.softwaremagico.tm.character.blessings;
  * #L%
  */
 
+
 import com.softwaremagico.tm.InvalidXmlElementException;
-import com.softwaremagico.tm.xml.XmlFactory;
 
-import java.util.List;
+public class InvalidBeneficeException extends InvalidXmlElementException {
+    private static final long serialVersionUID = 3558660253411869827L;
 
-public class BlessingFactory extends XmlFactory<Blessing> {
-    private static final String XML_FILE = "blessings.xml";
-
-    private static final class BlessingFactoryInit {
-        public static final BlessingFactory INSTANCE = new BlessingFactory();
+    public InvalidBeneficeException(String message) {
+        super(message);
     }
 
-    public static BlessingFactory getInstance() {
-        return BlessingFactoryInit.INSTANCE;
-    }
-
-
-    @Override
-    public String getXmlFile() {
-        return XML_FILE;
-    }
-
-    @Override
-    public List<Blessing> getElements() throws InvalidXmlElementException {
-        return readXml(Blessing.class);
+    public InvalidBeneficeException(String message, Exception e) {
+        super(message, e);
     }
 }

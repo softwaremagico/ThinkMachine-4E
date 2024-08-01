@@ -34,9 +34,9 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.dataformat.xml.ser.ToXmlGenerator;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.softwaremagico.tm.Element;
+import com.softwaremagico.tm.InvalidXmlElementException;
 import com.softwaremagico.tm.file.PathManager;
 import com.softwaremagico.tm.file.modules.ModuleManager;
-import com.softwaremagico.tm.log.MachineLog;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -47,6 +47,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 public abstract class XmlFactory<T extends Element<T>> {
 
@@ -75,25 +76,25 @@ public abstract class XmlFactory<T extends Element<T>> {
         return objectMapper;
     }
 
-    public T getElement(String id) {
+    public T getElement(String id) throws InvalidXmlElementException {
         if (elements == null) {
-            try {
-                getElements();
-            } catch (IOException e) {
-                MachineLog.errorMessage(this.getClass(), e);
-            }
+            getElements();
         }
         return elements.get(id);
     }
 
-    public List<T> getElements(Collection<String> ids) throws IOException {
-        return getElements().stream().filter(t -> ids.contains(t.getId())).toList();
+    public List<T> getElements(Collection<String> ids) throws InvalidXmlElementException {
+        return getElements().stream().filter(t -> ids.contains(t.getId())).collect(Collectors.toList());
     }
 
-    public abstract List<T> getElements() throws IOException;
+    public abstract List<T> getElements() throws InvalidXmlElementException;
 
-    public List<T> readXml(Class<T> entityClass) throws IOException {
-        return readXml(entityClass, ModuleManager.DEFAULT_MODULE);
+    public List<T> readXml(Class<T> entityClass) throws InvalidXmlElementException {
+        try {
+            return readXml(entityClass, ModuleManager.DEFAULT_MODULE);
+        } catch (IOException e) {
+            throw new InvalidXmlElementException("Error reading xml for '" + entityClass + "'", e);
+        }
     }
 
     public List<T> readXml(Class<T> entityClass, String moduleName) throws IOException {

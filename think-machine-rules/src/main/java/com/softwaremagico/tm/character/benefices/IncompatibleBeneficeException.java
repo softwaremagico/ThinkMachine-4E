@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.races;
+package com.softwaremagico.tm.character.benefices;
 
 /*-
  * #%L
@@ -25,18 +25,28 @@ package com.softwaremagico.tm.character.races;
  */
 
 
-import com.softwaremagico.tm.InvalidXmlElementException;
+public class IncompatibleBeneficeException extends InvalidBeneficeException {
+    private static final long serialVersionUID = 3558660253411869827L;
+    private final transient AvailableBenefice newBenefice;
+    private final transient AvailableBenefice incompatibleBenefice;
 
-
-public class InvalidRaceException extends InvalidXmlElementException {
-
-    private static final long serialVersionUID = 1243337930745480002L;
-
-    public InvalidRaceException(String message) {
+    public IncompatibleBeneficeException(String message, AvailableBenefice newBenefice) {
         super(message);
+        this.newBenefice = newBenefice;
+        this.incompatibleBenefice = null;
     }
 
-    public InvalidRaceException(String message, Exception e) {
-        super(message, e);
+    public IncompatibleBeneficeException(String message, AvailableBenefice newBenefice, AvailableBenefice incompatibleBenefice) {
+        super(message);
+        this.newBenefice = newBenefice;
+        this.incompatibleBenefice = incompatibleBenefice;
+    }
+
+    public AvailableBenefice getNewBenefice() {
+        return newBenefice;
+    }
+
+    public AvailableBenefice getIncompatibleBenefice() {
+        return incompatibleBenefice;
     }
 }

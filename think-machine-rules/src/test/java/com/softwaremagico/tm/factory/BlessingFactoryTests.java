@@ -24,6 +24,7 @@ package com.softwaremagico.tm.factory;
  * #L%
  */
 
+import com.softwaremagico.tm.InvalidXmlElementException;
 import com.softwaremagico.tm.character.blessings.BlessingFactory;
 import com.softwaremagico.tm.character.blessings.BlessingGroup;
 import org.testng.Assert;
@@ -39,13 +40,13 @@ public class BlessingFactoryTests {
     private static final int DEFINED_BONUS_MISSING_EYE = 2;
 
     @Test
-    public void checkTotalElements() throws IOException {
+    public void checkTotalElements() throws InvalidXmlElementException {
         Assert.assertEquals(BlessingFactory.getInstance().getElements().size(),
                 DEFINED_BLESSINGS);
     }
 
     @Test
-    public void multiplesBonifications() {
+    public void multiplesBonifications() throws InvalidXmlElementException {
         Assert.assertEquals(DEFINED_BONUS_MISSING_EYE,
                 BlessingFactory.getInstance().getElement("bold").getBonifications().size());
         Assert.assertEquals(BlessingGroup.BEHAVIOUR,

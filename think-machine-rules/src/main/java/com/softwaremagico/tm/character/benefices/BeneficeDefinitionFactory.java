@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.blessings;
+package com.softwaremagico.tm.character.benefices;
 
 /*-
  * #%L
@@ -29,15 +29,15 @@ import com.softwaremagico.tm.xml.XmlFactory;
 
 import java.util.List;
 
-public class BlessingFactory extends XmlFactory<Blessing> {
-    private static final String XML_FILE = "blessings.xml";
+public class BeneficeDefinitionFactory extends XmlFactory<BeneficeDefinition> {
+    private static final String XML_FILE = "benefices.xml";
 
-    private static final class BlessingFactoryInit {
-        public static final BlessingFactory INSTANCE = new BlessingFactory();
+    private static final class BeneficeDefinitionFactoryInit {
+        public static final BeneficeDefinitionFactory INSTANCE = new BeneficeDefinitionFactory();
     }
 
-    public static BlessingFactory getInstance() {
-        return BlessingFactoryInit.INSTANCE;
+    public static BeneficeDefinitionFactory getInstance() {
+        return BeneficeDefinitionFactoryInit.INSTANCE;
     }
 
 
@@ -47,7 +47,7 @@ public class BlessingFactory extends XmlFactory<Blessing> {
     }
 
     @Override
-    public List<Blessing> getElements() throws InvalidXmlElementException {
-        return readXml(Blessing.class);
+    public List<BeneficeDefinition> getElements() throws InvalidXmlElementException {
+        return readXml(BeneficeDefinition.class);
     }
 }

@@ -5,12 +5,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.factions.FactionGroup;
+import com.softwaremagico.tm.log.MachineLog;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.StringTokenizer;
 
 /*-
  * #%L
@@ -36,7 +39,7 @@ import java.util.Set;
  * #L%
  */
 
-public class Element<T extends Element<?>> implements Comparable<T> {
+public class Element<T extends Element<?>> extends XmlData implements Comparable<T> {
     public static final String DEFAULT_NULL_ID = "null";
 
     @JsonProperty("id")
@@ -214,12 +217,19 @@ public class Element<T extends Element<?>> implements Comparable<T> {
     }
 
     public boolean isRestricted(CharacterPlayer characterPlayer) {
-        return characterPlayer != null && characterPlayer.getSettings().isRestrictionsChecked()
-                && ((!getRestrictedToRaces().isEmpty() && (characterPlayer.getRace() == null || !getRestrictedToRaces().contains(characterPlayer.getRace())))
-                || (getRestrictedToFactionGroup() != null && (characterPlayer.getFaction() == null
-                && !Objects.equals(getRestrictedToFactionGroup(), FactionFactory.getInstance().getElement(characterPlayer.getFaction()).getFactionGroup())))
-                || (!getRestrictedToFactions().isEmpty() && (characterPlayer.getFaction() == null
-                || !getRestrictedToFactions().contains(characterPlayer.getFaction()))));
+        try {
+            return characterPlayer != null && characterPlayer.getSettings().isRestrictionsChecked()
+                    && ((!getRestrictedToRaces().isEmpty() && (characterPlayer.getRace() == null
+                    || !getRestrictedToRaces().contains(characterPlayer.getRace())))
+                    || (getRestrictedToFactionGroup() != null && (characterPlayer.getFaction() == null
+                    && !Objects.equals(getRestrictedToFactionGroup(),
+                    FactionFactory.getInstance().getElement(characterPlayer.getFaction()).getFactionGroup())))
+                    || (!getRestrictedToFactions().isEmpty() && (characterPlayer.getFaction() == null
+                    || !getRestrictedToFactions().contains(characterPlayer.getFaction()))));
+        } catch (InvalidXmlElementException e) {
+            MachineLog.errorMessage(this.getName(), e);
+        }
+        return true;
     }
 
     public void setRestricted(boolean restricted) {

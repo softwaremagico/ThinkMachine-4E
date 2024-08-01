@@ -24,9 +24,9 @@ package com.softwaremagico.tm.character.factions.random;
  * #L%
  */
 
+import com.softwaremagico.tm.InvalidXmlElementException;
 import com.softwaremagico.tm.xml.XmlFactory;
 
-import java.io.IOException;
 import java.util.List;
 
 public final class RandomFactionFactory extends XmlFactory<RandomFaction> {
@@ -47,7 +47,7 @@ public final class RandomFactionFactory extends XmlFactory<RandomFaction> {
     }
 
     @Override
-    public List<RandomFaction> getElements() throws IOException {
+    public List<RandomFaction> getElements() throws InvalidXmlElementException {
         return readXml(RandomFaction.class);
     }
 }

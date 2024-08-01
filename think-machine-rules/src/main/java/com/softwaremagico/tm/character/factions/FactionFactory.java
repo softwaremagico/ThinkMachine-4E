@@ -24,9 +24,9 @@ package com.softwaremagico.tm.character.factions;
  * #L%
  */
 
+import com.softwaremagico.tm.InvalidXmlElementException;
 import com.softwaremagico.tm.xml.XmlFactory;
 
-import java.io.IOException;
 import java.util.List;
 
 public final class FactionFactory extends XmlFactory<Faction> {
@@ -47,7 +47,7 @@ public final class FactionFactory extends XmlFactory<Faction> {
     }
 
     @Override
-    public List<Faction> getElements() throws IOException {
+    public List<Faction> getElements() throws InvalidXmlElementException {
         return readXml(Faction.class);
     }
 }

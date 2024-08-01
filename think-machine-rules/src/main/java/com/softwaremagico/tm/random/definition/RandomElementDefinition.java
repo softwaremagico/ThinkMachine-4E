@@ -24,26 +24,26 @@ package com.softwaremagico.tm.random.definition;
  * #L%
  */
 
+import com.softwaremagico.tm.XmlData;
 import com.softwaremagico.tm.character.characteristics.Characteristic;
-import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionGroup;
-import com.softwaremagico.tm.character.races.Race;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.StringTokenizer;
 
-public class RandomElementDefinition {
+public class RandomElementDefinition extends XmlData {
     private Integer staticProbability;
     private Integer minimumTechLevel;
     private Integer maximumTechLevel;
     private Double probabilityMultiplier;
-    private final Set<Faction> restrictedFactions = new HashSet<>();
-    private final Set<Faction> recommendedFactions = new HashSet<>();
-    private final Set<Race> forbiddenRaces = new HashSet<>();
-    private final Set<Race> restrictedRaces = new HashSet<>();
-    private final Set<Race> recommendedRaces = new HashSet<>();
-    private final Set<FactionGroup> restrictedFactionGroups = new HashSet<>();
-    private final Set<FactionGroup> recommendedFactionGroups = new HashSet<>();
+    private Set<String> restrictedFactions = new HashSet<>();
+    private Set<String> recommendedFactions = new HashSet<>();
+    private Set<String> forbiddenRaces = new HashSet<>();
+    private Set<String> restrictedRaces = new HashSet<>();
+    private Set<String> recommendedRaces = new HashSet<>();
+    private Set<FactionGroup> restrictedFactionGroups = new HashSet<>();
+    private Set<FactionGroup> recommendedFactionGroups = new HashSet<>();
     private RandomProbabilityDefinition probability;
 
     public RandomElementDefinition() {
@@ -114,7 +114,7 @@ public class RandomElementDefinition {
         this.minimumTechLevel = minimumTechLevel;
     }
 
-    public Set<Faction> getRecommendedFactions() {
+    public Set<String> getRecommendedFactions() {
         return recommendedFactions;
     }
 
@@ -128,13 +128,13 @@ public class RandomElementDefinition {
         return recommendedFactionGroups;
     }
 
-    public void addRecommendedFaction(Faction faction) {
+    public void addRecommendedFaction(String faction) {
         if (faction != null) {
             recommendedFactions.add(faction);
         }
     }
 
-    public void addRecommendedRaces(Race race) {
+    public void addRecommendedRaces(String race) {
         if (race != null) {
             restrictedRaces.add(race);
         }
@@ -148,13 +148,13 @@ public class RandomElementDefinition {
         this.probability = probability;
     }
 
-    public void addRecommendedRace(Race race) {
+    public void addRecommendedRace(String race) {
         if (race != null) {
             recommendedRaces.add(race);
         }
     }
 
-    public Set<Race> getRecommendedRaces() {
+    public Set<String> getRecommendedRaces() {
         return recommendedRaces;
     }
 
@@ -188,7 +188,7 @@ public class RandomElementDefinition {
         this.probabilityMultiplier = probabilityMultiplier;
     }
 
-    public Set<Faction> getRestrictedFactions() {
+    public Set<String> getRestrictedFactions() {
         return restrictedFactions;
     }
 
@@ -198,28 +198,93 @@ public class RandomElementDefinition {
         }
     }
 
-    public void addRestrictedRace(Race restrictedRace) {
+    public void addRestrictedRace(String restrictedRace) {
         if (restrictedRace != null) {
             restrictedRaces.add(restrictedRace);
         }
     }
 
-    public Set<Race> getRestrictedRaces() {
+    public Set<String> getRestrictedRaces() {
         return restrictedRaces;
     }
 
-    public void addForbiddenRace(Race forbiddenRace) {
+    public void addForbiddenRace(String forbiddenRace) {
         if (forbiddenRace != null) {
             forbiddenRaces.add(forbiddenRace);
         }
     }
 
-    public Set<Race> getForbiddenRaces() {
+    public Set<String> getForbiddenRaces() {
         return forbiddenRaces;
     }
 
     public Set<FactionGroup> getRestrictedFactionGroups() {
         return restrictedFactionGroups;
+    }
+
+    public void setRestrictedFactions(String restrictedFactionsContent) {
+        restrictedFactions = new HashSet<>();
+        readCommaSeparatedTokens(restrictedFactions, restrictedFactionsContent);
+    }
+
+    public void setRestrictedFactions(Set<String> restrictedFactions) {
+        this.restrictedFactions = restrictedFactions;
+    }
+
+    public void setRecommendedFactions(String recommendedFactionsContent) {
+        recommendedFactions = new HashSet<>();
+        readCommaSeparatedTokens(recommendedFactions, recommendedFactionsContent);
+    }
+
+    public void setRecommendedFactions(Set<String> recommendedFactions) {
+        this.recommendedFactions = recommendedFactions;
+    }
+
+    public void setForbiddenRaces(String forbiddenRacesContent) {
+        forbiddenRaces = new HashSet<>();
+        readCommaSeparatedTokens(forbiddenRaces, forbiddenRacesContent);
+    }
+
+    public void setForbiddenRaces(Set<String> forbiddenRaces) {
+        this.forbiddenRaces = forbiddenRaces;
+    }
+
+    public void setRestrictedRaces(String restrictedRacesContent) {
+        restrictedRaces = new HashSet<>();
+        readCommaSeparatedTokens(restrictedRaces, restrictedRacesContent);
+    }
+
+    public void setRestrictedRaces(Set<String> restrictedRaces) {
+        this.restrictedRaces = restrictedRaces;
+    }
+
+    public void setRecommendedRaces(String recommendedRacesContent) {
+        recommendedRaces = new HashSet<>();
+        readCommaSeparatedTokens(recommendedRaces, recommendedRacesContent);
+    }
+
+    public void setRecommendedRaces(Set<String> recommendedRaces) {
+        this.recommendedRaces = recommendedRaces;
+    }
+
+    public void setRestrictedFactionGroups(Set<FactionGroup> restrictedFactionGroups) {
+        this.restrictedFactionGroups = restrictedFactionGroups;
+    }
+
+    public Set<FactionGroup> getRecommendedFactionGroups() {
+        return recommendedFactionGroups;
+    }
+
+    public void setRecommendedFactionGroups(String recommendedFactionGroupsContent) {
+        recommendedFactionGroups = new HashSet<>();
+        final StringTokenizer recommendedFactionGroupsTokenizer = new StringTokenizer(recommendedFactionGroupsContent, ",");
+        while (recommendedFactionGroupsTokenizer.hasMoreTokens()) {
+            recommendedFactionGroups.add(FactionGroup.get(recommendedFactionGroupsTokenizer.nextToken().trim()));
+        }
+    }
+
+    public void setRecommendedFactionGroups(Set<FactionGroup> recommendedFactionGroups) {
+        this.recommendedFactionGroups = recommendedFactionGroups;
     }
 
     @Override

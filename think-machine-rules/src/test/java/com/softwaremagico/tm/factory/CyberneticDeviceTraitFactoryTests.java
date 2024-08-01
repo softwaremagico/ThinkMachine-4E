@@ -24,6 +24,7 @@ package com.softwaremagico.tm.factory;
  * #L%
  */
 
+import com.softwaremagico.tm.InvalidXmlElementException;
 import com.softwaremagico.tm.character.cybernetics.CyberneticDeviceTraitFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -36,7 +37,7 @@ public class CyberneticDeviceTraitFactoryTests {
     private static final int DEFINED_TRAITS = 60;
 
     @Test
-    public void checkTotalElements() throws IOException {
+    public void checkTotalElements() throws InvalidXmlElementException {
         Assert.assertEquals(CyberneticDeviceTraitFactory.getInstance().getElements().size(),
                 DEFINED_TRAITS);
     }

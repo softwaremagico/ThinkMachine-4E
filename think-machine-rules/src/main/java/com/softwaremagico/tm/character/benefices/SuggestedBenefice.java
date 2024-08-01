@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.blessings;
+package com.softwaremagico.tm.character.benefices;
 
 /*-
  * #%L
@@ -24,30 +24,35 @@ package com.softwaremagico.tm.character.blessings;
  * #L%
  */
 
-import com.softwaremagico.tm.InvalidXmlElementException;
-import com.softwaremagico.tm.xml.XmlFactory;
+import com.softwaremagico.tm.Element;
 
-import java.util.List;
+public class SuggestedBenefice extends Element<SuggestedBenefice> {
+    private final BeneficeDefinition beneficeDefinition;
+    private final Integer value;
 
-public class BlessingFactory extends XmlFactory<Blessing> {
-    private static final String XML_FILE = "blessings.xml";
-
-    private static final class BlessingFactoryInit {
-        public static final BlessingFactory INSTANCE = new BlessingFactory();
+    public SuggestedBenefice(BeneficeDefinition beneficeDefinition, Integer value) {
+        super(beneficeDefinition.getId(), beneficeDefinition.getName(), beneficeDefinition.getDescription(),
+                beneficeDefinition.getLanguage(), beneficeDefinition.getModuleName());
+        this.beneficeDefinition = beneficeDefinition;
+        this.value = value;
     }
 
-    public static BlessingFactory getInstance() {
-        return BlessingFactoryInit.INSTANCE;
+    public Integer getValue() {
+        return value;
     }
 
+    public BeneficeDefinition getBeneficeDefinition() {
+        return beneficeDefinition;
+    }
 
     @Override
-    public String getXmlFile() {
-        return XML_FILE;
+    public int hashCode() {
+        return super.hashCode();
     }
 
     @Override
-    public List<Blessing> getElements() throws InvalidXmlElementException {
-        return readXml(Blessing.class);
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
+
 }

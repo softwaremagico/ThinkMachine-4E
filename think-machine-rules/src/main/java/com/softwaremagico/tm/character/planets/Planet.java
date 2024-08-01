@@ -1,10 +1,35 @@
 package com.softwaremagico.tm.character.planets;
 
+/*-
+ * #%L
+ * Think Machine 4E (Rules)
+ * %%
+ * Copyright (C) 2017 - 2024 Softwaremagico
+ * %%
+ * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
+ * <softwaremagico@gmail.com> Valencia (Spain).
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation; either version 2 of the License, or (at your option) any later
+ * version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * this program; If not, see <http://www.gnu.org/licenses/gpl-3.0.html>.
+ * #L%
+ */
+
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.softwaremagico.tm.Element;
+import com.softwaremagico.tm.InvalidXmlElementException;
 import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.Name;
 import com.softwaremagico.tm.character.Surname;
@@ -13,10 +38,8 @@ import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.factions.random.RandomFactionFactory;
 import com.softwaremagico.tm.log.MachineLog;
 
-import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.StringTokenizer;
 import java.util.stream.Collectors;
 
 @JacksonXmlRootElement(localName = "planet")
@@ -53,12 +76,7 @@ public class Planet extends Element<Planet> {
     public Set<String> getFactions() {
         if (factions == null) {
             factions = new HashSet<>();
-            if (factionData != null) {
-                final StringTokenizer femaleNamesTokenizer = new StringTokenizer(factionData, ",");
-                while (femaleNamesTokenizer.hasMoreTokens()) {
-                    factions.add(femaleNamesTokenizer.nextToken().trim());
-                }
-            }
+            readCommaSeparatedTokens(factions, factionData);
         }
         return factions;
     }
@@ -70,7 +88,7 @@ public class Planet extends Element<Planet> {
             try {
                 this.humanFactions = FactionFactory.getInstance().getElements(factions).stream().filter(Faction::isOnlyForHuman).
                         collect(Collectors.toSet());
-            } catch (IOException e) {
+            } catch (InvalidXmlElementException e) {
                 MachineLog.errorMessage(this.getClass(), e);
             }
         }
@@ -81,8 +99,12 @@ public class Planet extends Element<Planet> {
         if (names == null) {
             names = new HashSet<>();
             for (final Faction faction : getHumanFactions()) {
-                if (RandomFactionFactory.getInstance().getElement(faction.getId()) != null) {
-                    names.addAll(RandomFactionFactory.getInstance().getElement(faction.getId()).getAllNames());
+                try {
+                    if (RandomFactionFactory.getInstance().getElement(faction.getId()) != null) {
+                        names.addAll(RandomFactionFactory.getInstance().getElement(faction.getId()).getAllNames());
+                    }
+                } catch (InvalidXmlElementException e) {
+                    MachineLog.errorMessage(this.getName(), e);
                 }
             }
         }
@@ -93,8 +115,12 @@ public class Planet extends Element<Planet> {
         if (surnames == null) {
             surnames = new HashSet<>();
             for (final Faction faction : getHumanFactions()) {
-                if (RandomFactionFactory.getInstance().getElement(faction.getId()) != null) {
-                    surnames.addAll(RandomFactionFactory.getInstance().getElement(faction.getId()).getSurnames());
+                try {
+                    if (RandomFactionFactory.getInstance().getElement(faction.getId()) != null) {
+                        surnames.addAll(RandomFactionFactory.getInstance().getElement(faction.getId()).getSurnames());
+                    }
+                } catch (InvalidXmlElementException e) {
+                    MachineLog.errorMessage(this.getName(), e);
                 }
             }
         }

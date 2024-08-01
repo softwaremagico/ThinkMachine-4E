@@ -26,5 +26,5 @@ package com.softwaremagico.tm;
 
 public interface IElementRetriever<T extends Element<T>> {
 
-    T getElement(String elementId, String language, String moduleName) throws InvalidXmlElementException;
+    T getElement(String elementId) throws InvalidXmlElementException;
 }

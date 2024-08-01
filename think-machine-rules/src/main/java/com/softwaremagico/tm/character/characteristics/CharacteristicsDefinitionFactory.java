@@ -24,9 +24,9 @@ package com.softwaremagico.tm.character.characteristics;
  * #L%
  */
 
+import com.softwaremagico.tm.InvalidXmlElementException;
 import com.softwaremagico.tm.xml.XmlFactory;
 
-import java.io.IOException;
 import java.util.List;
 
 public class CharacteristicsDefinitionFactory extends XmlFactory<CharacteristicDefinition> {
@@ -47,7 +47,7 @@ public class CharacteristicsDefinitionFactory extends XmlFactory<CharacteristicD
     }
 
     @Override
-    public List<CharacteristicDefinition> getElements() throws IOException {
+    public List<CharacteristicDefinition> getElements() throws InvalidXmlElementException {
         return readXml(CharacteristicDefinition.class);
     }
 }

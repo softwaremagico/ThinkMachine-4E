@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.blessings;
+package com.softwaremagico.tm.character.benefices;
 
 /*-
  * #%L
@@ -24,30 +24,18 @@ package com.softwaremagico.tm.character.blessings;
  * #L%
  */
 
-import com.softwaremagico.tm.InvalidXmlElementException;
-import com.softwaremagico.tm.xml.XmlFactory;
 
-import java.util.List;
+public enum BeneficeClassification {
+    BENEFICE, AFFLICTION;
 
-public class BlessingFactory extends XmlFactory<Blessing> {
-    private static final String XML_FILE = "blessings.xml";
-
-    private static final class BlessingFactoryInit {
-        public static final BlessingFactory INSTANCE = new BlessingFactory();
-    }
-
-    public static BlessingFactory getInstance() {
-        return BlessingFactoryInit.INSTANCE;
-    }
-
-
-    @Override
-    public String getXmlFile() {
-        return XML_FILE;
-    }
-
-    @Override
-    public List<Blessing> getElements() throws InvalidXmlElementException {
-        return readXml(Blessing.class);
+    public static BeneficeClassification get(String tag) {
+        if (tag != null) {
+            for (final BeneficeClassification classification : BeneficeClassification.values()) {
+                if (classification.name().equalsIgnoreCase(tag)) {
+                    return classification;
+                }
+            }
+        }
+        return null;
     }
 }

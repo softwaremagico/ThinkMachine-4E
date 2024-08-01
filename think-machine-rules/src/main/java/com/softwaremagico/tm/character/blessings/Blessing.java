@@ -91,7 +91,7 @@ public class Blessing extends Element<Blessing> implements IElementWithBonificat
             while (iterator.hasNext()) {
                 final IValue affects = iterator.next().getAffects();
                 if (affects != null && affects.getName() != null) {
-                    if (!text.isEmpty()) {
+                    if (text.length() > 0) {
                         text.append(", ");
                     }
                     text.append(affects.getName());

@@ -31,7 +31,6 @@ import com.softwaremagico.tm.log.MachineLog;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.StringTokenizer;
 
 public class Race extends Element<Race> {
 
@@ -140,16 +139,12 @@ public class Race extends Element<Race> {
     }
 
     public Set<String> getBenefices() {
-
         return benefices;
     }
 
     public void setBlessings(String blessingContent) {
         blessings = new HashSet<>();
-        final StringTokenizer blessingsTokenizer = new StringTokenizer(blessingContent, ",");
-        while (blessingsTokenizer.hasMoreTokens()) {
-            blessings.add(blessingsTokenizer.nextToken().trim());
-        }
+        readCommaSeparatedTokens(blessings, blessingContent);
     }
 
     public void setBlessings(Set<String> blessings) {
@@ -158,10 +153,7 @@ public class Race extends Element<Race> {
 
     public void setBenefices(String beneficesContent) {
         benefices = new HashSet<>();
-        final StringTokenizer beneficesTokenizer = new StringTokenizer(beneficesContent, ",");
-        while (beneficesTokenizer.hasMoreTokens()) {
-            benefices.add(beneficesTokenizer.nextToken().trim());
-        }
+        readCommaSeparatedTokens(benefices, beneficesContent);
     }
 
     public void setBenefices(Set<String> benefices) {
@@ -170,10 +162,7 @@ public class Race extends Element<Race> {
 
     public void setPlanets(String planetsContent) {
         planets = new HashSet<>();
-        final StringTokenizer planetsTokenizer = new StringTokenizer(planetsContent, ",");
-        while (planetsTokenizer.hasMoreTokens()) {
-            planets.add(planetsTokenizer.nextToken().trim());
-        }
+        readCommaSeparatedTokens(planets, planetsContent);
     }
 
     public Set<String> getPlanets() {

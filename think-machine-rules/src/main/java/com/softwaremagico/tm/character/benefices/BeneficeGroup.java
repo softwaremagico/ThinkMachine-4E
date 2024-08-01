@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.blessings;
+package com.softwaremagico.tm.character.benefices;
 
 /*-
  * #%L
@@ -24,30 +24,35 @@ package com.softwaremagico.tm.character.blessings;
  * #L%
  */
 
-import com.softwaremagico.tm.InvalidXmlElementException;
-import com.softwaremagico.tm.xml.XmlFactory;
 
-import java.util.List;
+public enum BeneficeGroup {
 
-public class BlessingFactory extends XmlFactory<Blessing> {
-    private static final String XML_FILE = "blessings.xml";
+    BACKGROUND,
 
-    private static final class BlessingFactoryInit {
-        public static final BlessingFactory INSTANCE = new BlessingFactory();
-    }
+    COMMUNITY,
 
-    public static BlessingFactory getInstance() {
-        return BlessingFactoryInit.INSTANCE;
-    }
+    TECHNOLOGY,
 
+    RELICS,
 
-    @Override
-    public String getXmlFile() {
-        return XML_FILE;
-    }
+    POSSESSIONS,
 
-    @Override
-    public List<Blessing> getElements() throws InvalidXmlElementException {
-        return readXml(Blessing.class);
+    RICHES,
+
+    STATUS,
+
+    RANK,
+
+    FIGHTING;
+
+    public static BeneficeGroup get(String tag) {
+        if (tag != null) {
+            for (final BeneficeGroup benefitGroup : BeneficeGroup.values()) {
+                if (benefitGroup.name().equalsIgnoreCase(tag)) {
+                    return benefitGroup;
+                }
+            }
+        }
+        return null;
     }
 }
