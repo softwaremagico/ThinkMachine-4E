@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character;
+package com.softwaremagico.tm.character.combat;
 
 /*-
  * #%L
@@ -24,46 +24,17 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
-import com.softwaremagico.tm.character.combat.CombatActionRequirement;
-import com.softwaremagico.tm.character.skills.AvailableSkill;
 
-public class CharacterPlayer {
+import com.softwaremagico.tm.InvalidXmlElementException;
 
-    private String race;
+public class InvalidCombatStyleException extends InvalidXmlElementException {
+    private static final long serialVersionUID = 3558660253411869827L;
 
-    private String faction;
-
-    private final Settings settings;
-
-    public CharacterPlayer() {
-        settings = new Settings();
+    public InvalidCombatStyleException(String message) {
+        super(message);
     }
 
-    public String getRace() {
-        return race;
-    }
-
-    public void setRace(String race) {
-        this.race = race;
-    }
-
-    public String getFaction() {
-        return faction;
-    }
-
-    public void setFaction(String faction) {
-        this.faction = faction;
-    }
-
-    public Settings getSettings() {
-        return settings;
-    }
-
-    public int getSkillTotalRanks(AvailableSkill restriction) {
-        return 0;
-    }
-
-    public CombatActionRequirement getCharacteristic(String id) {
-        return null;
+    public InvalidCombatStyleException(String message, Exception e) {
+        super(message, e);
     }
 }

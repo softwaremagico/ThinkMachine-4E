@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character;
+package com.softwaremagico.tm.character.combat;
 
 /*-
  * #%L
@@ -24,46 +24,27 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
-import com.softwaremagico.tm.character.combat.CombatActionRequirement;
-import com.softwaremagico.tm.character.skills.AvailableSkill;
 
-public class CharacterPlayer {
+import com.softwaremagico.tm.Element;
+import com.softwaremagico.tm.TranslatedText;
 
-    private String race;
+public class CombatStance extends Element<CombatStance> {
 
-    private String faction;
-
-    private final Settings settings;
-
-    public CharacterPlayer() {
-        settings = new Settings();
+    public CombatStance() {
+        super();
     }
 
-    public String getRace() {
-        return race;
+    public CombatStance(String id, TranslatedText name, TranslatedText description, String language, String moduleName) {
+        super(id, name, description, language, moduleName);
     }
 
-    public void setRace(String race) {
-        this.race = race;
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
 
-    public String getFaction() {
-        return faction;
-    }
-
-    public void setFaction(String faction) {
-        this.faction = faction;
-    }
-
-    public Settings getSettings() {
-        return settings;
-    }
-
-    public int getSkillTotalRanks(AvailableSkill restriction) {
-        return 0;
-    }
-
-    public CombatActionRequirement getCharacteristic(String id) {
-        return null;
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

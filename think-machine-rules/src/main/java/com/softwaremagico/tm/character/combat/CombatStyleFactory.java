@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character;
+package com.softwaremagico.tm.character.combat;
 
 /*-
  * #%L
@@ -24,46 +24,30 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
-import com.softwaremagico.tm.character.combat.CombatActionRequirement;
-import com.softwaremagico.tm.character.skills.AvailableSkill;
+import com.softwaremagico.tm.InvalidXmlElementException;
+import com.softwaremagico.tm.xml.XmlFactory;
 
-public class CharacterPlayer {
+import java.util.List;
 
-    private String race;
+public class CombatStyleFactory extends XmlFactory<CombatStyle> {
+    private static final String XML_FILE = "combat_styles.xml";
 
-    private String faction;
-
-    private final Settings settings;
-
-    public CharacterPlayer() {
-        settings = new Settings();
+    private static final class CombatStyleFactoryInit {
+        public static final CombatStyleFactory INSTANCE = new CombatStyleFactory();
     }
 
-    public String getRace() {
-        return race;
+    public static CombatStyleFactory getInstance() {
+        return CombatStyleFactoryInit.INSTANCE;
     }
 
-    public void setRace(String race) {
-        this.race = race;
+
+    @Override
+    public String getXmlFile() {
+        return XML_FILE;
     }
 
-    public String getFaction() {
-        return faction;
-    }
-
-    public void setFaction(String faction) {
-        this.faction = faction;
-    }
-
-    public Settings getSettings() {
-        return settings;
-    }
-
-    public int getSkillTotalRanks(AvailableSkill restriction) {
-        return 0;
-    }
-
-    public CombatActionRequirement getCharacteristic(String id) {
-        return null;
+    @Override
+    public List<CombatStyle> getElements() throws InvalidXmlElementException {
+        return readXml(CombatStyle.class);
     }
 }

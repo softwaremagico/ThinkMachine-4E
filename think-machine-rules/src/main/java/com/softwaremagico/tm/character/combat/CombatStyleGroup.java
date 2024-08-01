@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character;
+package com.softwaremagico.tm.character.combat;
 
 /*-
  * #%L
@@ -24,46 +24,20 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
-import com.softwaremagico.tm.character.combat.CombatActionRequirement;
-import com.softwaremagico.tm.character.skills.AvailableSkill;
 
-public class CharacterPlayer {
+public enum CombatStyleGroup {
+    MELEE,
 
-    private String race;
+    FIGHT,
 
-    private String faction;
+    RANGED;
 
-    private final Settings settings;
-
-    public CharacterPlayer() {
-        settings = new Settings();
-    }
-
-    public String getRace() {
-        return race;
-    }
-
-    public void setRace(String race) {
-        this.race = race;
-    }
-
-    public String getFaction() {
-        return faction;
-    }
-
-    public void setFaction(String faction) {
-        this.faction = faction;
-    }
-
-    public Settings getSettings() {
-        return settings;
-    }
-
-    public int getSkillTotalRanks(AvailableSkill restriction) {
-        return 0;
-    }
-
-    public CombatActionRequirement getCharacteristic(String id) {
+    public static CombatStyleGroup get(String groupName) {
+        for (final CombatStyleGroup combatStyleGroup : CombatStyleGroup.values()) {
+            if (combatStyleGroup.name().equalsIgnoreCase(groupName)) {
+                return combatStyleGroup;
+            }
+        }
         return null;
     }
 }

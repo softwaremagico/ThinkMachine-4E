@@ -1,0 +1,1026 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<combat_styles>
+	<style>
+		<id>graa</id>
+		<name>
+			<en>Graa</en>
+			<es>Graa</es>
+		</name>
+		<combatStyleGroup>fight</combatStyleGroup>
+		<combatActions>
+			<combatAction>
+				<id>banga</id>
+				<name>
+					<en>Banga</en>
+					<es>Banga</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>melee</skill>
+						<value>3</value>
+					</requirement1>
+				</requirements>
+				<others>
+					<en>No penalization by charging.</en>
+					<es>Sin penalización por carga.</es>
+				</others>
+			</combatAction>
+			<combatAction>
+				<id>drox</id>
+				<name>
+					<en>Drox</en>
+					<es>Drox</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>melee, fight, slugGuns, energyGuns</skill>
+						<value>5</value>
+					</requirement1>
+					<requirement2>
+						<skill>athletics</skill>
+						<value>7</value>
+					</requirement2>
+				</requirements>
+				<others>
+						<en>Extra action.</en>
+						<es>Acción extra.</es>
+				</others>
+			</combatAction>
+			<combatAction>
+				<id>throx</id>
+				<name>
+					<en>Throx</en>
+					<es>Throx</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>melee, fight, slugGuns, energyGuns</skill>
+						<value>9</value>
+					</requirement1>
+					<requirement2>
+						<skill>athletics</skill>
+						<value>9</value>
+					</requirement2>
+				</requirements>
+				<others>
+					<en>Two extra actions.</en>
+					<es>Dos acciones extra.</es>
+				</others>
+			</combatAction>
+		</combatActions>
+		<stances>
+			<stance>
+				<id>gripppingHand</id>
+				<name>
+					<en>Gripping Hand</en>
+					<es>Mano de Presa</es>
+				</name>
+				<description>
+					<en>+2 Goal for Grapple actions.</en>
+					<es>+2 RA para acción de sujección.</es>
+				</description>
+			</stance>
+		</stances>
+		<restrictedToRaces>vorox</restrictedToRaces>
+	</style>
+	<style>
+		<id>joxKaiVon</id>
+		<name>
+			<en>Jox Kai Von</en>
+			<es>Jox Kai Von</es>
+		</name>
+		<combatStyleGroup>fight</combatStyleGroup>
+		<combatActions>
+			<combatAction>
+				<id>jab</id>
+				<name>
+					<en>Jab</en>
+					<es>Directo</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>fight</skill>
+						<value>3</value>
+					</requirement1>
+				</requirements>
+				<others>
+					<en>-1 a Defense.</en>
+					<es>-1 a Defensa.</es>
+				</others>
+			</combatAction>
+			<combatAction>
+				<id>pound</id>
+				<name>
+					<en>Pound</en>
+					<es>Machacar</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>fight</skill>
+						<value>5</value>
+					</requirement1>
+					<requirement2>
+						<skill>athletics</skill>
+						<value>6</value>
+					</requirement2>
+				</requirements>
+				<others>
+					<en>Extra attack agains knocked down opponents.</en>
+					<es>Ataque extra contra enemigos derribados.</es>
+				</others>
+			</combatAction>
+			<combatAction>
+				<id>mantisStrike</id>
+				<name>
+					<en>Mantis Strike</en>
+					<es>Golpe de Mantis</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>fight</skill>
+						<value>9</value>
+					</requirement1>
+					<requirement2>
+						<skill>physick</skill>
+						<value>7</value>
+					</requirement2>
+				</requirements>
+				<others>
+					<en>Perception + Physick goals as extra damage</en>
+					<es>Percepción + Conoc. del Cuerpo como daño extra.</es>
+				</others>
+			</combatAction>
+		</combatActions>	
+		<stances>
+			<stance>
+				<id>joxStance</id>
+				<name>
+					<en>Jox Stance</en>
+					<es>Posición Jox</es>
+				</name>
+				<description>
+					<en>+1 wound point if successful strike.</en>
+					<es>+1 Herida si golpea con éxito.</es>
+				</description>
+			</stance>
+		</stances>
+		<random>
+			<recommendedFactions>ukar, decados</recommendedFactions>
+		</random>
+	</style>
+	<style>
+		<id>koto</id>
+		<name>
+			<en>Koto</en>
+			<es>Koto</es>
+		</name>
+		<combatStyleGroup>fight</combatStyleGroup>
+		<combatActions>
+			<combatAction>
+				<id>stepToSky</id>
+				<name>
+					<en>Step to Sky</en>
+					<es>Zancada Voladora</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>fight</skill>
+						<value>4</value>
+					</requirement1>
+					<requirement2>
+						<skill>athletics</skill>
+						<value>4</value>
+					</requirement2>
+				</requirements>
+				<damage>+2</damage>
+				<others>
+					<en>-1 to Defense.</en>
+					<es>-1 a Defensa.</es>
+				</others>
+			</combatAction>
+			<combatAction>
+				<id>joloBirdSquawks</id>
+				<name>
+					<en>Jolo Bird Squawks</en>
+					<es>Graznido de Pájaro Jolo</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>fight</skill>
+						<value>6</value>
+					</requirement1>
+					<requirement2>
+						<skill>knavery</skill>
+						<value>6</value>
+					</requirement2>
+				</requirements>
+				<others>
+					<en>Wt + Knavery vs Wt + Observe to reduce Defense.</en>
+					<es>As + Artería contra As + Observar para reducir la Defensa.</es>
+				</others>
+			</combatAction>
+			<combatAction>
+				<id>oldLadyFallsAndGetsUp</id>
+				<name>
+					<en>Old Lady Falls and Gets Up</en>
+					<es>Vieja Mujer Cae y Se levanta</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>fight</skill>
+						<value>9</value>
+					</requirement1>
+					<requirement2>
+						<skill>athletics</skill>
+						<value>7</value>
+					</requirement2>
+				</requirements>
+				<others>
+					<en>-3 a Defense and both can be knocked down.</en>
+					<es>-3 a Defensa y ambos pueden ser derribados.</es>
+				</others>
+			</combatAction>
+		</combatActions>	
+		<stances>
+			<stance>
+				<id>kotoStance</id>
+				<name>
+					<en>Koto Stance</en>
+					<es>Posición Koto</es>
+				</name>
+				<description>
+					<en>-1 to enemy defence</en>
+					<es>-1 a la defensa del enemigo.</es>
+				</description>
+			</stance>
+		</stances>
+		<random>
+			<recommendedFactions>alMalik</recommendedFactions>
+		</random>
+	</style>
+	<style>
+		<id>mantok</id>
+		<name>
+			<en>Mantok</en>
+			<es>Mantok</es>
+		</name>
+		<combatStyleGroup>fight</combatStyleGroup>
+		<combatActions>
+			<combatAction>
+				<id>closePalmReachHeart</id>
+				<name>
+					<en>Close Palm, Reach the Hearth</en>
+					<es>Cerrar la Mano, Alcanzar el Corazón</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>fight</skill>
+						<value>4</value>
+					</requirement1>
+				</requirements>
+				<goal>-2</goal>
+				<damage>+3</damage>
+			</combatAction>
+			<combatAction>
+				<id>crossArmsDonTheRobe</id>
+				<name>
+					<en>Cross Arms, Don the Robe</en>
+					<es>Cruzarse de brazos, Vestir Ropajes</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>fight</skill>
+						<value>5</value>
+					</requirement1>
+					<requirement2>
+						<skill>faith</skill>
+						<value>6</value>
+					</requirement2>
+				</requirements>
+				<others>
+					<en>1W to cause damage to missing hits.</en>
+					<es>1W para causar daño a los ataques fallidos.</es>
+				</others>
+			</combatAction>
+			<combatAction>
+				<id>strechSpineSpeakTheWord</id>
+				<name>
+					<en>Strech Spine, Speak the Word</en>
+					<es>Estirar la Columna, Hablar la Palabra</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>fight</skill>
+						<value>9</value>
+					</requirement1>
+					<requirement2>
+						<skill>faith</skill>
+						<value>8</value>
+					</requirement2>
+				</requirements>
+				<others>
+					<en>1W to -1d of armour.</en>
+					<es>1W para -1d de armadura.</es>
+				</others>
+			</combatAction>
+		</combatActions>	
+		<stances>
+			<stance>
+				<id>soldierStance</id>
+				<name>
+					<en>Soldier's Stance</en>
+					<es>Posición de Soldado</es>
+				</name>
+				<description>
+					<en>+4 to Goal agains grapple or knock out.</en>
+					<es>+4 RA contra Presa o Derribo.</es>
+				</description>
+			</stance>
+		</stances>
+		<restrictedFactions>brotherBattle</restrictedFactions>
+	</style>
+	<style>
+		<id>ironHeel</id>
+		<name>
+			<en>Iron Heel</en>
+			<es>Talón de Acero</es>
+		</name>
+		<combatStyleGroup>fight</combatStyleGroup>
+		<combatActions>
+			<combatAction>
+				<id>chainOfDestruction</id>
+				<name>
+					<en>Chain of Destruction</en>
+					<es>Cadena de Destrucción</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>fight</skill>
+						<value>4</value>
+					</requirement1>
+				</requirements>
+				<others>
+					<en>Sustained damage to grappled foe.</en>
+					<es>Daño continuado a enemigos apresados.</es>
+				</others>
+			</combatAction>
+			<combatAction>
+				<id>headButt</id>
+				<name>
+					<en>Head Butt</en>
+					<es>Cabezazo</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>fight</skill>
+						<value>5</value>
+					</requirement1>
+					<requirement2>
+						<skill>vigor</skill>
+						<value>6</value>
+					</requirement2>
+				</requirements>
+				<goal>+2</goal>
+				<damage>4</damage>
+				<others>
+					<en>Ignores armour*</en>
+					<es>Ignora armadura*</es>
+				</others>
+			</combatAction>
+			<combatAction>
+				<id>chokeHold</id>
+				<name>
+					<en>Choke Hold</en>
+					<es>Abrazo del Oso</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>fight</skill>
+						<value>9</value>
+					</requirement1>
+					<requirement2>
+						<skill>vigor</skill>
+						<value>7</value>
+					</requirement2>
+				</requirements>
+				<others>
+					<en>St + Vigor vs En + Vigor or knoked down.</en>
+					<es>Fu + Vigor vs Fr + Vigor o aturdido.</es>
+				</others>
+			</combatAction>
+		</combatActions>	
+		<stances>
+			<stance>
+				<id>beatdownStance</id>
+				<name>
+					<en>Beatdown Stance</en>
+					<es>Posición de Paliza</es>
+				</name>
+				<description>
+					<en>+2 damage to Grapple. +2 Goal to Grapple or Knock-down.</en>
+					<es>+2 al daño de Presa. +2 RA a Presa o Derribo.</es>
+				</description>
+			</stance>
+		</stances>
+		<random>
+			<recommendedFactions>muster</recommendedFactions>
+		</random>
+	</style>
+	<style>
+		<id>shaidan</id>
+		<name>
+			<en>Shaidan</en>
+			<es>Shaidan</es>
+		</name>
+		<combatStyleGroup>fight</combatStyleGroup>
+		<combatActions>
+			<combatAction>
+				<id>royalPalm</id>
+				<name>
+					<en>Royal Palm</en>
+					<es>Palma Real</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>fight</skill>
+						<value>3</value>
+					</requirement1>
+				</requirements>
+				<others>
+					<en>+1 wound</en>
+					<es>+1 heridas</es>
+				</others>
+			</combatAction>
+			<combatAction>
+				<id>astrideTheThrone</id>
+				<name>
+					<en>Astride The Throne</en>
+					<es>Con un Pie en el Trono</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>fight</skill>
+						<value>6</value>
+					</requirement1>
+					<requirement2>
+						<skill>athletics</skill>
+						<value>5</value>
+					</requirement2>
+				</requirements>
+				<others>
+					<en>+4 Goal agains grapple or knock down.</en>
+					<es>+4 RA contra presa o derribo.</es>
+				</others>
+			</combatAction>
+			<combatAction>
+				<id>imperialDecree</id>
+				<name>
+					<en>Imperial Decree</en>
+					<es>Decretp Imperial</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>fight</skill>
+						<value>9</value>
+					</requirement1>
+					<requirement2>
+						<skill>vigor</skill>
+						<value>7</value>
+					</requirement2>
+				</requirements>
+				<others>
+					<en>1W x extra wound</en>
+					<es>1W por herida extra</es>
+				</others>
+			</combatAction>
+		</combatActions>	
+		<stances>
+			<stance>
+				<id>balancedStance</id>
+				<name>
+					<en>Balanced Stance</en>
+					<es>Posición Equilibrada</es>
+				</name>
+				<description>
+					<en>+1 to Defense against melee or fight attacks.</en>
+					<es>+1 a Defensa contra ataques cuerpo a cuerpo.</es>
+				</description>
+			</stance>
+		</stances>
+		<random>
+			<recommendedFactions>hazat</recommendedFactions>
+		</random>
+	</style>
+	<style>
+		<id>florentine</id>
+		<name>
+			<en>Florentine</en>
+			<es>Florentino</es>
+		</name>
+		<combatStyleGroup>melee</combatStyleGroup>
+		<combatActions>
+			<combatAction>
+				<id>offHandStrike</id>
+				<name>
+					<en>Off-Hand Strike</en>
+					<es>Golpear con la Mano Torpe</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>melee</skill>
+						<value>4</value>
+					</requirement1>
+				</requirements>
+				<goal>-2</goal>
+				<others>
+					<en>-2 Defense.</en>
+					<es>-2 a la Defensa.</es>
+				</others>
+			</combatAction>
+			<combatAction>
+				<id>doubleStrike</id>
+				<name>
+					<en>Double Strike</en>
+					<es>Golpe Doble</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>melee</skill>
+						<value>6</value>
+					</requirement1>
+					<requirement2>
+						<skill>athletics</skill>
+						<value>6</value>
+					</requirement2>
+				</requirements>
+				<others>
+					<en>Two different attacks</en>
+					<es>Dos ataques diferentes</es>
+				</others>
+			</combatAction>
+			<combatAction>
+				<id>wallOfSteel</id>
+				<name>
+					<en>Wall of Steel</en>
+					<es>Muro de Acero</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>melee</skill>
+						<value>9</value>
+					</requirement1>
+					<requirement2>
+						<skill>vigor</skill>
+						<value>7</value>
+					</requirement2>
+				</requirements>
+				<damage>-2d</damage>
+				<others>
+					<en>+2 Defense</en>
+					<es>+2 Defense</es>
+				</others>
+			</combatAction>
+		</combatActions>	
+		<stances>
+			<stance>
+				<id>wovenSteel</id>
+				<name>
+					<en>Woven Steel</en>
+					<es>Floritura de Acero</es>
+				</name>
+				<description>
+					<en>+1 a defense agains melee or fight attackas if wielding two weapons.</en>
+					<es>+1 a Defensa contra ataques cuerpo a cuerpo si porta dos armas.</es>
+				</description>
+			</stance>
+		</stances>
+		<random>
+			<recommendedFactions>liHalan</recommendedFactions>
+		</random>
+	</style>
+	<style>
+		<id>kraxiKnife</id>
+		<name>
+			<en>Kraxi Knife</en>
+			<es>Kraxi</es>
+		</name>
+		<combatStyleGroup>melee</combatStyleGroup>
+		<combatActions>
+			<combatAction>
+				<id>thrust</id>
+				<name>
+					<en>Thrust</en>
+					<es>Empujar</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>melee</skill>
+						<value>3</value>
+					</requirement1>
+				</requirements>
+				<damage>+1d</damage>
+				<others>
+					<en>No penalizations for moving 1m.</en>
+					<es>Sin penalización por mover 1m.</es>
+				</others>
+			</combatAction>
+			<combatAction>
+				<id>rapidStrike</id>
+				<name>
+					<en>Rapid Strike</en>
+					<es>Golpe Rápido</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>melee</skill>
+						<value>6</value>
+					</requirement1>
+					<requirement2>
+						<skill>athletics</skill>
+						<value>5</value>
+					</requirement2>
+				</requirements>
+				<others>
+					<en>3 attacks.</en>
+					<es>3 ataques.</es>
+				</others>
+			</combatAction>
+			<combatAction>
+				<id>slipOfTheKnife</id>
+				<name>
+					<en>Slip of the Knife</en>
+					<es>Colar el Cuchillo</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>melee</skill>
+						<value>9</value>
+					</requirement1>
+					<requirement2>
+						<skill>observe</skill>
+						<value>7</value>
+					</requirement2>
+				</requirements>
+				<others>
+					<en>-1d Armour by VP.</en>
+					<es>-1d Armadura por PV.</es>
+				</others>
+			</combatAction>
+		</combatActions>	
+		<stances>
+			<stance>
+				<id>focusedRage</id>
+				<name>
+					<en>Focused Rage</en>
+					<es>Rabia Encauzada</es>
+				</name>
+				<description>
+					<en>2D extra damage with a melee weapon of size 3 or smaller</en>
+					<es>2D de daño extra con arma de tamaño 3 o menor.</es>
+				</description>
+			</stance>
+		</stances>
+		<random>
+			<recommendedFactions>ukar, scravers</recommendedFactions>
+		</random>
+	</style>
+	<style>
+		<id>serpentis</id>
+		<name>
+			<en>Serpentis</en>
+			<es>Serpentis</es>
+		</name>
+		<combatStyleGroup>melee</combatStyleGroup>
+		<combatActions>
+			<combatAction>
+				<id>drawAndStrike</id>
+				<name>
+					<en>Draw and Strike</en>
+					<es>Desenfundar y Atacar</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>melee</skill>
+						<value>4</value>
+					</requirement1>
+					<requirement2>
+						<skill>selfControl</skill>
+						<value>4</value>
+					</requirement2>
+				</requirements>
+				<others>
+					<en>When drawing -2 foe's Defense if intiative higher.</en>
+					<es>Al desenfundar -2 a Defensa del enemigo si la iniciativa es mayor.</es>
+				</others>
+			</combatAction>
+			<combatAction>
+				<id>setup</id>
+				<name>
+					<en>Setup</en>
+					<es>Fintar</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>melee</skill>
+						<value>7</value>
+					</requirement1>
+					<requirement2>
+						<skill>athletics</skill>
+						<value>6</value>
+					</requirement2>
+				</requirements>
+				<goal>-2</goal>
+				<damage>+3</damage>
+				<others>
+					<en>-2 Defense to next attack.</en>
+					<es>-2 Defensa para el siguiente ataque.</es>
+				</others>
+			</combatAction>
+			<combatAction>
+				<id>stopThrust</id>
+				<name>
+					<en>Stop Thurst</en>
+					<es>Detener Empuje</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>melee</skill>
+						<value>9</value>
+					</requirement1>
+					<requirement2>
+						<skill>athletics</skill>
+						<value>8</value>
+					</requirement2>
+				</requirements>
+				<others>
+					<en>Special</en>
+					<es>Especial</es>
+				</others>
+			</combatAction>
+		</combatActions>	
+		<stances>
+			<stance>
+				<id>weavingFangs</id>
+				<name>
+					<en>Weaving Fangs</en>
+					<es>Floritura Letal</es>
+				</name>
+				<description>
+					<en>+3 to initiative. Ignores -2 movement penalty</en>
+					<es>+3 a iniciativa. Ignora penalizador de -2 a movimiento</es>
+				</description>
+			</stance>
+		</stances>
+	</style>
+	<style>
+		<id>torero</id>
+		<name>
+			<en>Torero</en>
+			<es>Torero</es>
+		</name>
+		<combatStyleGroup>melee</combatStyleGroup>
+		<combatActions>
+			<combatAction>
+				<id>maskingStrike</id>
+				<name>
+					<en>Masking Strike</en>
+					<es>Ocultar Golpe</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>melee</skill>
+						<value>4</value>
+					</requirement1>
+				</requirements>
+				<goal>-2</goal>
+				<damage>+2d</damage>
+			</combatAction>
+			<combatAction>
+				<id>disarmingCloak</id>
+				<name>
+					<en>Disarming Cloak</en>
+					<es>Capote de Desarme</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>melee</skill>
+						<value>6</value>
+					</requirement1>
+					<requirement2>
+						<skill>athletics</skill>
+						<value>5</value>
+					</requirement2>
+				</requirements>
+				<others>
+					<en>-4 to avoid being disarming.</en>
+					<es>-4 a evitar ser desarmado.</es>
+				</others>
+			</combatAction>
+			<combatAction>
+				<id>entaglingStrike</id>
+				<name>
+					<en>Entagling Strike</en>
+					<es>Golpe Enredante</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>melee</skill>
+						<value>9</value>
+					</requirement1>
+					<requirement2>
+						<skill>athletics</skill>
+						<value>8</value>
+					</requirement2>
+				</requirements>
+				<others>
+					<en>If knocked down, extra attack.</en>
+					<es>Ataque extra a enemigo derribado.</es>
+				</others>
+			</combatAction>
+		</combatActions>	
+		<stances>
+			<stance>
+				<id>faena</id>
+				<name>
+					<en>Faena</en>
+					<es>Faena</es>
+				</name>
+				<description>
+					<en>Ds + Athletics to reduce the Victory Points of one attack</en>
+					<es>Ds + Atletismo para reducir los Puntos de Victoria de un ataque.</es>
+				</description>
+			</stance>
+		</stances>
+		<restrictedFactionGroups>nobility</restrictedFactionGroups>
+	</style>
+	<style>
+		<id>phoenixRifleCorps</id>
+		<name>
+			<en>Phoenix Rifle Corps</en>
+			<es>Entrenamiento de Cuerpo de Fusileros del Fénix</es>
+		</name>
+		<combatStyleGroup>ranged</combatStyleGroup>
+		<combatActions>
+			<combatAction>
+				<id>practicedShooting</id>
+				<name>
+					<en>Practiced Shooting</en>
+					<es>Entrenamiento de Tiro</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>slugGuns, energyGuns</skill>
+						<value>3</value>
+					</requirement1>
+				</requirements>
+				<goal>+2</goal>
+				<others>
+					<en>With rifle or shotgun.</en>
+					<es>Con rifle o escopeta.</es>
+				</others>
+			</combatAction>
+			<combatAction>
+				<id>stockSlam</id>
+				<name>
+					<en>Stock Slam</en>
+					<es>Culatazo</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>fight</skill>
+						<value>5</value>
+					</requirement1>
+					<requirement2>
+						<skill>vigor</skill>
+						<value>4</value>
+					</requirement2>
+				</requirements>
+				<damage>3d</damage>
+				<others>
+					<en>Knock down</en>
+					<es>Derriba</es>
+				</others>
+			</combatAction>
+			<combatAction>
+				<id>instictShot</id>
+				<name>
+					<en>Instinct Shot</en>
+					<es>Disparo Instintivo</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>slugGuns, energyGuns</skill>
+						<value>9</value>
+					</requirement1>
+					<requirement2>
+						<skill>observe</skill>
+						<value>7</value>
+					</requirement2>
+				</requirements>
+				<others>
+					<en>1W to ignore a -1 Goal.</en>
+					<es>1W para ignorar -1 RA.</es>
+				</others>
+			</combatAction>
+		</combatActions>	
+		<stances>
+			<stance>
+				<id>headsDownStance</id>
+				<name>
+					<en>Heads Down Stance</en>
+					<es>Posición "A cubierto"</es>
+				</name>
+				<description>
+					<en>+1 Defense from cover and half penalty for firing from cover. Cannot move</en>
+					<es>+1 Defensa en cobertura y mitad de penalización por covertura. No puede mover.</es>
+				</description>
+			</stance>
+		</stances>
+	</style>
+	<style>
+		<id>pistola</id>
+		<name>
+			<en>Pistola</en>
+			<es>Pistola</es>
+		</name>
+		<combatStyleGroup>ranged</combatStyleGroup>
+		<combatActions>
+			<combatAction>
+				<id>snapShot</id>
+				<name>
+					<en>Snap Shot</en>
+					<es>Disparo Instantáneo</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>slugGuns, energyGuns</skill>
+						<value>4</value>
+					</requirement1>
+				</requirements>
+				<others>
+					<en>No penalization for two shots, -2 for three shots.</en>
+					<es>Sin penalizador a dos disparos, -2 para tres disparos.</es>
+				</others>
+			</combatAction>
+			<combatAction>
+				<id>rollAndShoot</id>
+				<name>
+					<en>Roll and Shoot</en>
+					<es>Rueda y Dispara</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>slugGuns, energyGuns</skill>
+						<value>6</value>
+					</requirement1>
+					<requirement2>
+						<skill>athletics</skill>
+						<value>5</value>
+					</requirement2>
+				</requirements>
+				<others>
+					<en>Rolls 3 meters Standing or on its knees</en>
+					<es>Rueda 3 metros. Arrodillado o de pié.</es>
+				</others>
+			</combatAction>
+			<combatAction>
+				<id>runAndGun</id>
+				<name>
+					<en>Run and Gun</en>
+					<es>Corre y Dispara</es>
+				</name>
+				<requirements>
+					<requirement1>
+						<skill>slugGuns, energyGuns</skill>
+						<value>9</value>
+					</requirement1>
+					<requirement2>
+						<skill>athletics</skill>
+						<value>7</value>
+					</requirement2>
+				</requirements>
+				<others>
+					<en>Run and shot. -2 to Defense</en>
+					<es>Dispara y corre. -2 a Defensa</es>
+				</others>
+			</combatAction>
+		</combatActions>	
+		<stances>
+			<stance>
+				<id>criticorumReload</id>
+				<name>
+					<en>Criticorum Reload</en>
+					<es>Recarga Criticorum</es>
+				</name>
+				<description>
+					<en>No penalty for drawing a gun and shoot. +3 to initiative</en>
+					<es>Sin penalización por desenfundar y disparar un arma. +3 a iniciativa</es>
+				</description>
+			</stance>
+		</stances>
+		<random>
+			<recommendedFactionGroups>guild</recommendedFactionGroups>
+			<recommendedFactions>muster, scravers</recommendedFactions>
+		</random>
+	</style>
+</combat_styles>

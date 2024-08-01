@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character;
+package com.softwaremagico.tm.character.combat;
 
 /*-
  * #%L
@@ -24,46 +24,41 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
-import com.softwaremagico.tm.character.combat.CombatActionRequirement;
-import com.softwaremagico.tm.character.skills.AvailableSkill;
 
-public class CharacterPlayer {
+import com.softwaremagico.tm.character.values.IValue;
 
-    private String race;
+import java.util.Set;
 
-    private String faction;
+public class CombatActionRequirement {
+    private Set<IValue> requirement;
+    private int value;
 
-    private final Settings settings;
-
-    public CharacterPlayer() {
-        settings = new Settings();
+    public CombatActionRequirement() {
+        super();
     }
 
-    public String getRace() {
-        return race;
+    protected CombatActionRequirement(Set<IValue> requirement, int value) {
+        this.requirement = requirement;
+        this.value = value;
     }
 
-    public void setRace(String race) {
-        this.race = race;
+    public Set<IValue> getRequirements() {
+        return requirement;
     }
 
-    public String getFaction() {
-        return faction;
+    public int getValue() {
+        return value;
     }
 
-    public void setFaction(String faction) {
-        this.faction = faction;
+    public Set<IValue> getRequirement() {
+        return requirement;
     }
 
-    public Settings getSettings() {
-        return settings;
+    public void setRequirement(Set<IValue> requirement) {
+        this.requirement = requirement;
     }
 
-    public int getSkillTotalRanks(AvailableSkill restriction) {
-        return 0;
-    }
-
-    public CombatActionRequirement getCharacteristic(String id) {
-        return null;
+    public void setValue(int value) {
+        this.value = value;
     }
 }
