@@ -28,8 +28,6 @@ import com.softwaremagico.tm.InvalidXmlElementException;
 import com.softwaremagico.tm.character.benefices.AvailableBenefice;
 import com.softwaremagico.tm.character.benefices.AvailableBeneficeFactory;
 import com.softwaremagico.tm.character.benefices.BeneficeDefinitionFactory;
-import com.softwaremagico.tm.character.factions.FactionFactory;
-import com.softwaremagico.tm.character.races.RaceFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

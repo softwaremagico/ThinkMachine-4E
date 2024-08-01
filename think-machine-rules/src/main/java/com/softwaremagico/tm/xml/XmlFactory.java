@@ -70,6 +70,7 @@ public abstract class XmlFactory<T extends Element<T>> {
                     .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
                     .enable(SerializationFeature.INDENT_OUTPUT)
                     .enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS).serializationInclusion(JsonInclude.Include.NON_EMPTY)
+//                    .disable(DeserializationFeature.FAIL_ON_INVALID_SUBTYPE)
                     .addModule(new JavaTimeModule())
                     .build();
         }

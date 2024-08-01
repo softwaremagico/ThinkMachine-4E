@@ -43,10 +43,10 @@ import java.util.stream.Collectors;
 
 public final class AvailableBeneficeFactory implements IElementRetriever<AvailableBenefice> {
     private Map<String, AvailableBenefice> availableBenefices;
-    private final Map<BeneficeDefinition, Set<AvailableBenefice>> availableBeneficesByDefinition;
+    private Map<BeneficeDefinition, Set<AvailableBenefice>> availableBeneficesByDefinition;
 
     private AvailableBeneficeFactory() {
-        availableBeneficesByDefinition = new HashMap<>();
+
     }
 
     private static final class AvailableBeneficeFactoryInit {
@@ -114,6 +114,9 @@ public final class AvailableBeneficeFactory implements IElementRetriever<Availab
     private void addAvailableBenefice(String id, BeneficeDefinition beneficeDefinition,
                                       AvailableBenefice availableBenefice) {
         getAvailableBenefices().put(id, availableBenefice);
+        if (availableBeneficesByDefinition == null) {
+            availableBeneficesByDefinition = new HashMap<>();
+        }
         availableBeneficesByDefinition.computeIfAbsent(beneficeDefinition, k -> new HashSet<>());
         availableBeneficesByDefinition.get(beneficeDefinition).add(availableBenefice);
     }
@@ -131,6 +134,7 @@ public final class AvailableBeneficeFactory implements IElementRetriever<Availab
             throws InvalidXmlElementException {
         // Force the load.
         if (availableBeneficesByDefinition == null) {
+            availableBeneficesByDefinition = new HashMap<>();
             getElements();
         }
         return availableBeneficesByDefinition.get(beneficeDefinition);
@@ -139,6 +143,7 @@ public final class AvailableBeneficeFactory implements IElementRetriever<Availab
     public Map<BeneficeDefinition, Set<AvailableBenefice>> getAvailableBeneficesByDefinition()
             throws InvalidXmlElementException {
         if (availableBeneficesByDefinition == null) {
+            availableBeneficesByDefinition = new HashMap<>();
             getElements();
         }
         return availableBeneficesByDefinition;

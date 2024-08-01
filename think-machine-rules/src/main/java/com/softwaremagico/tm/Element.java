@@ -8,12 +8,10 @@ import com.softwaremagico.tm.character.factions.FactionGroup;
 import com.softwaremagico.tm.log.MachineLog;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
-import java.util.StringTokenizer;
 
 /*-
  * #%L

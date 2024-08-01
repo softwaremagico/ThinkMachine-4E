@@ -267,6 +267,14 @@ public class RandomElementDefinition extends XmlData {
         this.recommendedRaces = recommendedRaces;
     }
 
+    public void setRestrictedFactionGroups(String restrictedFactionGroupsContent) {
+        restrictedFactionGroups = new HashSet<>();
+        final StringTokenizer restrictedFactionGroupsTokenizer = new StringTokenizer(restrictedFactionGroupsContent, ",");
+        while (restrictedFactionGroupsTokenizer.hasMoreTokens()) {
+            restrictedFactionGroups.add(FactionGroup.get(restrictedFactionGroupsTokenizer.nextToken().trim()));
+        }
+    }
+
     public void setRestrictedFactionGroups(Set<FactionGroup> restrictedFactionGroups) {
         this.restrictedFactionGroups = restrictedFactionGroups;
     }
