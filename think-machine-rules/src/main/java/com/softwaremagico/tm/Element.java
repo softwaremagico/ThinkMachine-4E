@@ -3,6 +3,7 @@ package com.softwaremagico.tm;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.factions.FactionGroup;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 
@@ -51,6 +52,7 @@ public class Element<T extends Element<?>> implements Comparable<T> {
 
     private String language;
 
+    @JsonProperty("random")
     private RandomElementDefinition randomDefinition;
 
     private boolean restricted = false;
@@ -215,7 +217,7 @@ public class Element<T extends Element<?>> implements Comparable<T> {
         return characterPlayer != null && characterPlayer.getSettings().isRestrictionsChecked()
                 && ((!getRestrictedToRaces().isEmpty() && (characterPlayer.getRace() == null || !getRestrictedToRaces().contains(characterPlayer.getRace())))
                 || (getRestrictedToFactionGroup() != null && (characterPlayer.getFaction() == null
-                && !Objects.equals(getRestrictedToFactionGroup(), characterPlayer.getFaction().getFactionGroup())))
+                && !Objects.equals(getRestrictedToFactionGroup(), FactionFactory.getInstance().getElement(characterPlayer.getFaction()).getFactionGroup())))
                 || (!getRestrictedToFactions().isEmpty() && (characterPlayer.getFaction() == null
                 || !getRestrictedToFactions().contains(characterPlayer.getFaction()))));
     }

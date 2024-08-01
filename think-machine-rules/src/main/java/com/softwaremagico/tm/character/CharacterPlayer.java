@@ -24,14 +24,11 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
-import com.softwaremagico.tm.character.factions.Faction;
-import com.softwaremagico.tm.character.races.Race;
-
 public class CharacterPlayer {
 
-    private Race race;
+    private String race;
 
-    private Faction faction;
+    private String faction;
 
     private final Settings settings;
 
@@ -39,19 +36,19 @@ public class CharacterPlayer {
         settings = new Settings();
     }
 
-    public Race getRace() {
+    public String getRace() {
         return race;
     }
 
-    public void setRace(Race race) {
+    public void setRace(String race) {
         this.race = race;
     }
 
-    public Faction getFaction() {
+    public String getFaction() {
         return faction;
     }
 
-    public void setFaction(Faction faction) {
+    public void setFaction(String faction) {
         this.faction = faction;
     }
 
