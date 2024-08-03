@@ -41,7 +41,7 @@ import com.softwaremagico.tm.character.skills.Skill;
         @JsonSubTypes.Type(value = Characteristic.class, name = "characteristic"),
         @JsonSubTypes.Type(value = CharacteristicDefinition.class, name = "characteristicDefinition"),
         @JsonSubTypes.Type(value = OccultismType.class, name = "occultismType"),
-        @JsonSubTypes.Type(value = Skill.class, name = "skillDefinition"),
+        @JsonSubTypes.Type(value = Skill.class, name = "skill"),
         @JsonSubTypes.Type(value = SpecialValue.class, name = "specialValue"),
 })
 public interface IValue {

@@ -36,6 +36,7 @@ import java.util.Set;
 
 public class Restrictions extends XmlData {
 
+    //Cannot be chosen by the character. Is assigned by race or faction.
     @JsonProperty("restricted")
     private boolean restricted = false;
 

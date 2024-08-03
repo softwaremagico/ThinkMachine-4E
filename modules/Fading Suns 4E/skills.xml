@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <skills>
     <skill>
-        <type>skillDefinition</type>
+        <type>skill</type>
         <id>academia</id>
         <name>
             <en>Influence</en>
@@ -9,7 +9,7 @@
         </name>
     </skill>
     <skill>
-        <type>skillDefinition</type>
+        <type>skill</type>
         <id>alchemy</id>
         <name>
             <en>Alchemy</en>
@@ -22,7 +22,7 @@
         </restrictions>
     </skill>
     <skill>
-        <type>skillDefinition</type>
+        <type>skill</type>
         <id>animalia</id>
         <name>
             <en>Animalia</en>
@@ -30,7 +30,7 @@
         </name>
     </skill>
     <skill>
-        <type>skillDefinition</type>
+        <type>skill</type>
         <id>arts</id>
         <name>
             <en>Arte</en>
@@ -38,7 +38,7 @@
         </name>
     </skill>
     <skill>
-        <type>skillDefinition</type>
+        <type>skill</type>
         <id>arts</id>
         <name>
             <en>Arte</en>
@@ -46,7 +46,7 @@
         </name>
     </skill>
     <skill>
-        <type>skillDefinition</type>
+        <type>skill</type>
         <id>charm</id>
         <name>
             <en>Charm</en>
@@ -54,7 +54,7 @@
         </name>
     </skill>
     <skill>
-        <type>skillDefinition</type>
+        <type>skill</type>
         <id>disguise</id>
         <name>
             <en>Disguise</en>
@@ -62,7 +62,7 @@
         </name>
     </skill>
     <skill>
-        <type>skillDefinition</type>
+        <type>skill</type>
         <id>drive</id>
         <name>
             <en>Drive</en>
@@ -70,7 +70,7 @@
         </name>
     </skill>
     <skill>
-        <type>skillDefinition</type>
+        <type>skill</type>
         <id>empathy</id>
         <name>
             <en>Empathy</en>
@@ -78,7 +78,7 @@
         </name>
     </skill>
     <skill>
-        <type>skillDefinition</type>
+        <type>skill</type>
         <id>fight</id>
         <name>
             <en>Fight</en>
@@ -86,7 +86,7 @@
         </name>
     </skill>
     <skill>
-        <type>skillDefinition</type>
+        <type>skill</type>
         <id>focus</id>
         <name>
             <en>Focus</en>
@@ -94,7 +94,7 @@
         </name>
     </skill>
     <skill>
-        <type>skillDefinition</type>
+        <type>skill</type>
         <id>impress</id>
         <name>
             <en>Impress</en>
@@ -102,7 +102,7 @@
         </name>
     </skill>
     <skill>
-        <type>skillDefinition</type>
+        <type>skill</type>
         <id>interface</id>
         <name>
             <en>Interface</en>
@@ -111,1177 +111,117 @@
         <restrictions>
             <factions>engineers</factions>
             <factionGroups>church</factionGroups>
-            <callings>Merchant, Amateur, Clergy, Conspiracist, Enthusiast, Scribe, Spy</callings>
+            <callings>merchant, amateur, clergy, conspiracist, enthusiast, scribe, spy</callings>
         </restrictions>
     </skill>
-
-
-
     <skill>
-        <type>skillDefinition</type>
-        <id>influence</id>
+        <type>skill</type>
+        <id>intrusion</id>
         <name>
-            <en>Influence</en>
-            <es>Influenciar</es>
+            <en>Intrusion</en>
+            <es>Intrusión</es>
         </name>
-        <group>social</group>
-        <natural>true</natural>
     </skill>
     <skill>
-        <type>skillDefinition</type>
-        <id>throwing</id>
+        <type>skill</type>
+        <id>knavery</id>
         <name>
-            <en>Throwing</en>
-            <es>Lanzar</es>
+            <en>Knavery</en>
+            <es>Charalatanería</es>
         </name>
-        <group>combat</group>
-        <natural>true</natural>
     </skill>
     <skill>
-        <type>skillDefinition</type>
-        <id>observe</id>
-        <name>
-            <en>Observe</en>
-            <es>Observar</es>
-        </name>
-        <group>analytical</group>
-        <natural>true</natural>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>fight</id>
-        <name>
-            <en>Fight</en>
-            <es>Pelear</es>
-        </name>
-        <group>combat</group>
-        <natural>true</natural>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>phoenixEmpireLore</id>
-        <name>
-            <en>Lore [Phoenix Empire]</en>
-            <es>Saber [Imperio Fénix]</es>
-        </name>
-        <group>lore</group>
-        <natural>true</natural>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>planetaryLore</id>
-        <name>
-            <en>Lore</en>
-            <es>Saber</es>
-        </name>
-        <group>lore</group>
-        <natural>true</natural>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>factionLore</id>
-        <name>
-            <en>Lore</en>
-            <es>Saber</es>
-        </name>
-        <group>lore</group>
-        <natural>true</natural>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>sneak</id>
-        <name>
-            <en>Sneak</en>
-            <es>Sigilo</es>
-        </name>
-        <group>malefaction</group>
-        <natural>true</natural>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>vigor</id>
-        <name>
-            <en>Vigor</en>
-            <es>Vigor</es>
-        </name>
-        <group>physical</group>
-        <natural>true</natural>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>bureaucracy</id>
-        <name>
-            <en>Bureaucracy</en>
-            <es>Burocracia</es>
-        </name>
-        <group>analytical</group>
-        <random>
-            <minTechLevel>2</minTechLevel>
-            <recommendedFactionGroups>nobility, church, guild</recommendedFactionGroups>
-        </random>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>physick</id>
-        <name>
-            <en>Physick</en>
-            <es>Conocim. del Cuerpo</es>
-        </name>
-        <group>analytical</group>
-        <random>
-            <minTechLevel>2</minTechLevel>
-        </random>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>warfare</id>
-        <name>
-            <en>Warfare</en>
-            <es>Guerra</es>
-        </name>
-        <group>analytical</group>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>investigation</id>
-        <name>
-            <en>Investigation</en>
-            <es>Investigar</es>
-        </name>
-        <group>analytical</group>
-        <random>
-            <minTechLevel>2</minTechLevel>
-        </random>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>appliedScience</id>
-        <name>
-            <en>Applied Science</en>
-            <es>Ciencia Aplicada</es>
-        </name>
-        <group>science</group>
-        <factionSkill>engineers</factionSkill>
-        <random>
-            <minTechLevel>2</minTechLevel>
-        </random>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>socialScience</id>
-        <name>
-            <en>Social Science</en>
-            <es>Ciencia Social</es>
-        </name>
-        <group>science</group>
-        <random>
-            <minTechLevel>3</minTechLevel>
-        </random>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>physicalScience</id>
-        <name>
-            <en>Physical Science</en>
-            <es>Ciencia de la Física</es>
-        </name>
-        <group>science</group>
-        <factionSkill>engineers, prospectors, apothecaries</factionSkill>
-        <random>
-            <minTechLevel>2</minTechLevel>
-        </random>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>lifeScience</id>
-        <name>
-            <en>Life Science</en>
-            <es>Ciencia de la Vida</es>
-        </name>
-        <group>science</group>
-        <factionSkill>engineers, apothecaries</factionSkill>
-        <random>
-            <minTechLevel>2</minTechLevel>
-        </random>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>terraforming</id>
-        <name>
-            <en>Terraforming</en>
-            <es>Terraformismo</es>
-        </name>
-        <group>science</group>
-        <factionSkill>engineers</factionSkill>
-        <random>
-            <minTechLevel>6</minTechLevel>
-        </random>
-        <requiredSkills>physicalScience, lifeScience</requiredSkills>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>energyGuns</id>
-        <name>
-            <en>Energy Guns</en>
-            <es>Armas de Energía</es>
-        </name>
-        <group>combat</group>
-        <random>
-            <minTechLevel>5</minTechLevel>
-        </random>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>slugGuns</id>
-        <name>
-            <en>Slug Guns</en>
-            <es>Armas de Fuego</es>
-        </name>
-        <group>combat</group>
-        <random>
-            <minTechLevel>2</minTechLevel>
-            <maxTechLevel>6</maxTechLevel>
-        </random>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>archery</id>
-        <name>
-            <en>Archery</en>
-            <es>Arquería</es>
-        </name>
-        <group>combat</group>
-        <random>
-            <minTechLevel>0</minTechLevel>
-            <maxTechLevel>2</maxTechLevel>
-        </random>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>artifactMelee</id>
-        <name>
-            <en>Artifact Melee</en>
-            <es>Artefacto Cuerpo a C.</es>
-        </name>
-        <group>combat</group>
-        <random>
-            <minTechLevel>7</minTechLevel>
-        </random>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>gunnery</id>
-        <name>
-            <en>Gunnery</en>
-            <es>Artillería de Supresión</es>
-        </name>
-        <group>combat</group>
-        <random>
-            <minTechLevel>3</minTechLevel>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
-        </random>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>artillery</id>
-        <name>
-            <en>Artillery</en>
-            <es>Artillería Pesada</es>
-        </name>
-        <group>combat</group>
-        <random>
-            <minTechLevel>3</minTechLevel>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
-        </random>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
+        <type>skill</type>
         <id>melee</id>
         <name>
             <en>Melee</en>
             <es>Cuerpo a Cuerpo</es>
         </name>
-        <group>combat</group>
     </skill>
     <skill>
-        <type>skillDefinition</type>
-        <id>demolitions</id>
+        <type>skill</type>
+        <id>observe</id>
         <name>
-            <en>Demolitions</en>
-            <es>Demoliciones</es>
+            <en>Observe</en>
+            <es>Observar</es>
         </name>
-        <group>combat</group>
-        <random>
-            <minTechLevel>3</minTechLevel>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
-        </random>
     </skill>
     <skill>
-        <type>skillDefinition</type>
-        <id>beastcraft</id>
+        <type>skill</type>
+        <id>perform</id>
         <name>
-            <en>Beastcraft</en>
-            <es>Controlar Bestia de Tiro</es>
+            <en>Perform</en>
+            <es>Representar</es>
         </name>
-        <group>control</group>
-        <random>
-            <minTechLevel>0</minTechLevel>
-            <maxTechLevel>3</maxTechLevel>
-            <restrictedFactionGroups>nobility</restrictedFactionGroups>
-        </random>
     </skill>
     <skill>
-        <type>skillDefinition</type>
-        <id>watercraft</id>
+        <type>skill</type>
+        <id>pilot</id>
         <name>
-            <en>Watercraft</en>
-            <es>Controlar Embarcación</es>
+            <en>Pilot</en>
+            <es>Pilotar</es>
         </name>
-        <group>control</group>
-        <random>
-            <generalProbability>low</generalProbability>
-        </random>
+        <restrictions>
+            <factions>brotherBattle</factions>
+            <factionGroups>nobility</factionGroups>
+            <callings>merchant, explorer, mendicant, pirate</callings>
+        </restrictions>
     </skill>
     <skill>
-        <type>skillDefinition</type>
-        <id>ride</id>
+        <type>skill</type>
+        <id>remedy</id>
         <name>
-            <en>Ride</en>
-            <es>Montar</es>
+            <en>Remedy</en>
+            <es>Curar</es>
         </name>
-        <group>control</group>
-        <random>
-            <minTechLevel>0</minTechLevel>
-            <maxTechLevel>2</maxTechLevel>
-            <recommendedFactionGroups>nobility</recommendedFactionGroups>
-        </random>
     </skill>
     <skill>
-        <type>skillDefinition</type>
-        <id>aircraft</id>
+        <type>skill</type>
+        <id>shoot</id>
         <name>
-            <en>Aircraft</en>
-            <es>Controlar Aeronave</es>
+            <en>Shoot</en>
+            <es>Disparar</es>
         </name>
-        <group>control</group>
-        <random>
-            <minTechLevel>3</minTechLevel>
-            <generalProbability>low</generalProbability>
-        </random>
     </skill>
     <skill>
-        <type>skillDefinition</type>
-        <id>spacecraft</id>
-        <name>
-            <en>Spacecraft</en>
-            <es>Controlar Nave Espacial</es>
-        </name>
-        <group>control</group>
-        <factionSkill>charioteers, engineers, scravers</factionSkill>
-        <random>
-            <minTechLevel>5</minTechLevel>
-            <recommendedFactions>charioteers</recommendedFactions>
-        </random>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>landcraft</id>
-        <name>
-            <en>Landcraft</en>
-            <es>Controlar Vehíc. Terrestre</es>
-        </name>
-        <group>control</group>
-        <random>
-            <minTechLevel>3</minTechLevel>
-        </random>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>arts</id>
-        <name>
-            <en>Arts</en>
-            <es>Arte</es>
-        </name>
-        <group>creative</group>
-        <specializations>
-            <specialization>
-                <id>music</id>
-                <name>
-                    <en>Music</en>
-                    <es>Música</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>caligraphy</id>
-                <name>
-                    <en>Caligraphy</en>
-                    <es>Caligrafía</es>
-                </name>
-                <random>
-                    <generalProbability>low</generalProbability>
-                </random>
-            </specialization>
-            <specialization>
-                <id>drawing</id>
-                <name>
-                    <en>Drawing</en>
-                    <es>Dibujo</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>embroidery</id>
-                <name>
-                    <en>Embroidery</en>
-                    <es>Bordado</es>
-                </name>
-                <random>
-                    <generalProbability>minimum</generalProbability>
-                    <recommendedFactionGroups>nobility</recommendedFactionGroups>
-                </random>
-            </specialization>
-            <specialization>
-                <id>painting</id>
-                <name>
-                    <en>Painting</en>
-                    <es>Pintura</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>writting</id>
-                <name>
-                    <en>Creative Writting</en>
-                    <es>Escritor</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>sculpting</id>
-                <name>
-                    <en>Sculpting</en>
-                    <es>Escultor</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>poetry</id>
-                <name>
-                    <en>Poetry</en>
-                    <es>Poesía</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>stainedGlass</id>
-                <name>
-                    <en>Stained Glass</en>
-                    <es>Vitral</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>rhetoric</id>
-                <name>
-                    <en>Rhetoric</en>
-                    <es>Retórica</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>composition</id>
-                <name>
-                    <en>Composition</en>
-                    <es>Composición</es>
-                </name>
-                <official>false</official>
-                <random>
-                    <generalProbability>minimum</generalProbability>
-                </random>
-            </specialization>
-        </specializations>
-        <numberToShow>2</numberToShow>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>disguise</id>
-        <name>
-            <en>Disguise</en>
-            <es>Disfrazarse</es>
-        </name>
-        <group>creative</group>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>performance</id>
-        <name>
-            <en>Performance</en>
-            <es>Interpretar</es>
-        </name>
-        <group>creative</group>
-        <specializations>
-            <specialization>
-                <id>acting</id>
-                <name>
-                    <en>Acting</en>
-                    <es>Actuar</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>dancing</id>
-                <name>
-                    <en>Dancing</en>
-                    <es>Bailar</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>singing</id>
-                <name>
-                    <en>Singing</en>
-                    <es>Canto</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>storytelling</id>
-                <name>
-                    <en>Storytelling</en>
-                    <es>Cuentacuentos</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>recital</id>
-                <name>
-                    <en>Recital</en>
-                    <es>Recital</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>flute</id>
-                <name>
-                    <en>Flute</en>
-                    <es>Flauta</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>lute</id>
-                <name>
-                    <en>Lute</en>
-                    <es>Laúd</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>guitar</id>
-                <name>
-                    <en>Guitar</en>
-                    <es>Guitarra</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>drums</id>
-                <name>
-                    <en>Drums</en>
-                    <es>Percusión</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>piano</id>
-                <name>
-                    <en>Piano</en>
-                    <es>Piano</es>
-                </name>
-                <random>
-                    <recommendedFactionGroups>nobility</recommendedFactionGroups>
-                </random>
-            </specialization>
-        </specializations>
-        <numberToShow>2</numberToShow>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>gaming</id>
-        <name>
-            <en>Gaming</en>
-            <es>Juego</es>
-        </name>
-        <group>creative</group>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>craft</id>
-        <name>
-            <en>Craft</en>
-            <es>Oficio</es>
-        </name>
-        <group>creative</group>
-        <specializations>
-            <specialization>
-                <id>blacksmith</id>
-                <name>
-                    <en>Blacksmith</en>
-                    <es>Herrero</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>weaponsmith</id>
-                <name>
-                    <en>Weaponsmith</en>
-                    <es>Armero</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>carpenter</id>
-                <name>
-                    <en>Carpenter</en>
-                    <es>Carpintero</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>cartographer</id>
-                <name>
-                    <en>Cartographer</en>
-                    <es>Cartógrafo</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>cook</id>
-                <name>
-                    <en>Cook</en>
-                    <es>Cocinero</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>jeweler</id>
-                <name>
-                    <en>Jeweler</en>
-                    <es>Joyero</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>leatherworker</id>
-                <name>
-                    <en>Leatherworker</en>
-                    <es>Curtidor</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>locksmith</id>
-                <name>
-                    <en>Locksmith</en>
-                    <es>Cerrajero</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>mason</id>
-                <name>
-                    <en>Mason</en>
-                    <es>Masón</es>
-                </name>
-                <random>
-                    <generalProbability>minimum</generalProbability>
-                </random>
-            </specialization>
-            <specialization>
-                <id>potter</id>
-                <name>
-                    <en>Potter</en>
-                    <es>Alfarero</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>tailor</id>
-                <name>
-                    <en>Tailor</en>
-                    <es>Sastre</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>weaver</id>
-                <name>
-                    <en>Weaver</en>
-                    <es>Tejedor</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>Household</id>
-                <name>
-                    <en>Household</en>
-                    <es>Doméstico</es>
-                </name>
-                <official>false</official>
-            </specialization>
-        </specializations>
-        <numberToShow>2</numberToShow>
-        <random>
-            <restrictedFactionGroups>nobility, church</restrictedFactionGroups>
-            <generalProbability>low</generalProbability>
-        </random>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>lockpicking</id>
-        <name>
-            <en>Lockpicking</en>
-            <es>Abrir Cerraduras</es>
-        </name>
-        <group>malefaction</group>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>streetWise</id>
-        <name>
-            <en>Streetwise</en>
-            <es>Callejear</es>
-        </name>
-        <group>malefaction</group>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
+        <type>skill</type>
         <id>sleightOfHand</id>
         <name>
             <en>Sleight of Hand</en>
-            <es>Juego de Manos</es>
+            <es>Prestidigitación</es>
         </name>
-        <group>malefaction</group>
     </skill>
     <skill>
-        <type>skillDefinition</type>
-        <id>torture</id>
+        <type>skill</type>
+        <id>sneak</id>
         <name>
-            <en>Torture</en>
-            <es>Torturar</es>
+            <en>Sneak</en>
+            <es>Sigilo</es>
         </name>
-        <group>malefaction</group>
     </skill>
     <skill>
-        <type>skillDefinition</type>
-        <id>athletics</id>
-        <name>
-            <en>Athletics</en>
-            <es>Atletismo</es>
-        </name>
-        <group>physical</group>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>selfControl</id>
-        <name>
-            <en>Self Control</en>
-            <es>Autocontrol</es>
-        </name>
-        <group>physical</group>
-        <random>
-            <recommendedFactionGroups>church</recommendedFactionGroups>
-        </random>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
+        <type>skill</type>
         <id>survival</id>
         <name>
             <en>Survival</en>
             <es>Supervivencia</es>
         </name>
-        <group>physical</group>
     </skill>
     <skill>
-        <type>skillDefinition</type>
-        <id>lore</id>
-        <name>
-            <en>Lore</en>
-            <es>Saber</es>
-        </name>
-        <group>lore</group>
-        <official>true</official>
-        <specializations>
-            <specialization>
-                <id>jumpwebLore</id>
-                <name>
-                    <en>Jumpweb</en>
-                    <es>Red de Salto</es>
-                </name>
-                <random>
-                    <minTechLevel>5</minTechLevel>
-                    <generalProbability>low</generalProbability>
-                    <recommendedFactions>charioteers, scravers</recommendedFactions>
-                </random>
-            </specialization>
-            <specialization>
-                <id>beastsLore</id>
-                <name>
-                    <en>Beasts</en>
-                    <es>Bestias</es>
-                </name>
-            </specialization>
-            <specialization>
-                <id>energyPistolsLore</id>
-                <name>
-                    <en>Energy Pistols</en>
-                    <es>Pistola Energía</es>
-                </name>
-                <random>
-                    <minTechLevel>5</minTechLevel>
-                    <generalProbability>low</generalProbability>
-                </random>
-            </specialization>
-            <specialization>
-                <id>thinkMachineLore</id>
-                <name>
-                    <en>Think Machine</en>
-                    <es>Máquina Pensante</es>
-                </name>
-                <random>
-                    <minTechLevel>5</minTechLevel>
-                    <recommendedFactions>engineers</recommendedFactions>
-                </random>
-            </specialization>
-            <specialization>
-                <id>kelantiLore</id>
-                <name>
-                    <en>Kelanti</en>
-                    <es>Kelanti</es>
-                </name>
-                <restrictedToRaces>obun</restrictedToRaces>
-                <random>
-                    <recommendedRaces>obun</recommendedRaces>
-                    <generalProbability>minimum</generalProbability>
-                </random>
-            </specialization>
-            <specialization>
-                <id>poisonsLore</id>
-                <name>
-                    <en>Poisons</en>
-                    <es>Venenos</es>
-                </name>
-                <random>
-                    <generalProbability>low</generalProbability>
-                </random>
-            </specialization>
-            <specialization>
-                <id>symbiotsLore</id>
-                <name>
-                    <en>Symbiots</en>
-                    <es>Simbiontes</es>
-                </name>
-                <random>
-                    <generalProbability>minimum</generalProbability>
-                </random>
-            </specialization>
-            <specialization>
-                <id>godLore</id>
-                <name>
-                    <en>God</en>
-                    <es>Dioses</es>
-                </name>
-                <official>false</official>
-                <restrictedToRaces>oroym</restrictedToRaces>
-                <random>
-                    <recommendedRaces>oroym</recommendedRaces>
-                    <generalProbability>minimum</generalProbability>
-                </random>
-            </specialization>
-            <specialization>
-                <id>theologyLore</id>
-                <name>
-                    <en>Theology</en>
-                    <es>Teología</es>
-                </name>
-                <random>
-                    <generalProbability>low</generalProbability>
-                    <recommendedFactions>mendicantMonks, amaltheans, avestites, eskatonic, brotherBattle, orthodox
-                    </recommendedFactions>
-                </random>
-            </specialization>
-            <specialization>
-                <id>tradeLore</id>
-                <name>
-                    <en>Trade</en>
-                    <es>Comercio</es>
-                </name>
-                <random>
-                    <generalProbability>low</generalProbability>
-                </random>
-            </specialization>
-            <specialization>
-                <id>occultismLore</id>
-                <name>
-                    <en>Occultism</en>
-                    <es>Ocultismo</es>
-                </name>
-                <official>false</official>
-                <random>
-                    <generalProbability>low</generalProbability>
-                </random>
-            </specialization>
-            <specialization>
-                <id>lawLore</id>
-                <name>
-                    <en>Laws</en>
-                    <es>Leyes</es>
-                </name>
-                <random>
-                    <generalProbability>low</generalProbability>
-                </random>
-            </specialization>
-            <specialization>
-                <id>financeLore</id>
-                <name>
-                    <en>Finances</en>
-                    <es>Finanzas</es>
-                </name>
-                <random>
-                    <generalProbability>low</generalProbability>
-                </random>
-            </specialization>
-        </specializations>
-        <numberToShow>4</numberToShow>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>xenoLore</id>
-        <name>
-            <en>Xeno Lore</en>
-            <es>Xenología</es>
-        </name>
-        <group>lore</group>
-        <specializations>
-            <specialization>
-                <id>urObun</id>
-                <name>
-                    <en>Ur-Obun</en>
-                    <es>Ur-Obun</es>
-                </name>
-                <random>
-                    <generalProbability>low</generalProbability>
-                </random>
-            </specialization>
-            <specialization>
-                <id>urUkar</id>
-                <name>
-                    <en>Ur-Ukar</en>
-                    <es>Ur-Ukar</es>
-                </name>
-                <random>
-                    <generalProbability>low</generalProbability>
-                </random>
-            </specialization>
-            <specialization>
-                <id>vorox</id>
-                <name>
-                    <en>Vorox</en>
-                    <es>Vorox</es>
-                </name>
-                <random>
-                    <generalProbability>low</generalProbability>
-                </random>
-            </specialization>
-            <specialization>
-                <id>shantor</id>
-                <name>
-                    <en>Shantor</en>
-                    <es>Shantor</es>
-                </name>
-                <random>
-                    <generalProbability>minimum</generalProbability>
-                </random>
-            </specialization>
-            <specialization>
-                <id>gannok</id>
-                <name>
-                    <en>Gannok</en>
-                    <es>Gannok</es>
-                </name>
-                <random>
-                    <generalProbability>minimum</generalProbability>
-                </random>
-            </specialization>
-            <specialization>
-                <id>etyri</id>
-                <name>
-                    <en>Etyri</en>
-                    <es>Etyri</es>
-                </name>
-                <random>
-                    <generalProbability>minimum</generalProbability>
-                </random>
-            </specialization>
-            <specialization>
-                <id>hironem</id>
-                <name>
-                    <en>Hironem</en>
-                    <es>Hironem</es>
-                </name>
-                <random>
-                    <generalProbability>minimum</generalProbability>
-                </random>
-            </specialization>
-            <specialization>
-                <id>ascorbites</id>
-                <name>
-                    <en>Ascorbites</en>
-                    <es>Ascorbitas</es>
-                </name>
-                <random>
-                    <generalProbability>minimum</generalProbability>
-                </random>
-            </specialization>
-            <specialization>
-                <id>oroym</id>
-                <name>
-                    <en>Oro'ym</en>
-                    <es>Oro'ym</es>
-                </name>
-                <random>
-                    <generalProbability>minimum</generalProbability>
-                </random>
-            </specialization>
-            <specialization>
-                <id>annuaki</id>
-                <name>
-                    <es>Anunnaki</es>
-                    <en>Anunnaki</en>
-                </name>
-                <random>
-                    <generalProbability>none</generalProbability>
-                </random>
-            </specialization>
-            <specialization>
-                <id>vau</id>
-                <en>Vau</en>
-                <es>Vau</es>
-                <random>
-                    <generalProbability>none</generalProbability>
-                </random>
-            </specialization>
-        </specializations>
-        <numberToShow>2</numberToShow>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>empathy</id>
-        <name>
-            <en>Empathy</en>
-            <es>Empatía</es>
-        </name>
-        <group>social</group>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>etiquette</id>
-        <name>
-            <en>Etiquette</en>
-            <es>Etiqueta</es>
-        </name>
-        <group>social</group>
-        <random>
-            <recommendedFactionGroups>nobility</recommendedFactionGroups>
-        </random>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>knavery</id>
-        <name>
-            <en>Knavery</en>
-            <es>Artería</es>
-        </name>
-        <group>social</group>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>leadership</id>
-        <name>
-            <en>Leadership</en>
-            <es>Liderazgo</es>
-        </name>
-        <group>social</group>
-        <random>
-            <recommendedFactionGroups>nobility, church</recommendedFactionGroups>
-        </random>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>spacecraftOperations</id>
-        <name>
-            <en>Spacecraft Operations</en>
-            <es>Mantenimiento de Naves</es>
-        </name>
-        <factionSkill>engineers, charioteers, scravers</factionSkill>
-        <group>technical</group>
-        <random>
-            <minTechLevel>5</minTechLevel>
-            <recommendedFactions>engineers, charioteers</recommendedFactions>
-        </random>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
+        <type>skill</type>
         <id>techRedemption</id>
         <name>
             <en>Tech Redemption</en>
-            <es>Recuperación Tecnológica</es>
+            <es>Tecnorredención</es>
         </name>
-        <factionSkill>engineers, charioteers, scravers</factionSkill>
-        <group>technical</group>
-        <random>
-            <minTechLevel>3</minTechLevel>
-            <recommendedFactionGroups>guild</recommendedFactionGroups>
-            <recommendedFactions>engineers, scravers</recommendedFactions>
-        </random>
     </skill>
     <skill>
-        <type>skillDefinition</type>
-        <id>thinkMachine</id>
+        <type>skill</type>
+        <id>vigor</id>
         <name>
-            <en>Think Machine</en>
-            <es>Máquina Pensante</es>
+            <en>Vigor</en>
+            <es>Vigor</es>
         </name>
-        <factionSkill>engineers, charioteers, scravers</factionSkill>
-        <group>technical</group>
-        <random>
-            <minTechLevel>4</minTechLevel>
-            <recommendedFactions>engineers, charioteers, scravers</recommendedFactions>
-        </random>
-    </skill>
-
-    <skill>
-        <type>skillDefinition</type>
-        <id>etherEar</id>
-        <name>
-            <en>Ether Ear</en>
-            <es>Oído Inalámbrico</es>
-        </name>
-        <group>technical</group>
-        <random>
-            <probabilityMultiplier>0</probabilityMultiplier>
-        </random>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>spyEye</id>
-        <name>
-            <en>Spy Eye</en>
-            <es>Ojo Espía</es>
-        </name>
-        <group>technical</group>
-        <random>
-            <probabilityMultiplier>0</probabilityMultiplier>
-        </random>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>xEyes</id>
-        <name>
-            <en>X-Eyes</en>
-            <es>Ojos con Rayos X</es>
-        </name>
-        <group>technical</group>
-        <random>
-            <probabilityMultiplier>0</probabilityMultiplier>
-        </random>
-    </skill>
-    <skill>
-        <type>skillDefinition</type>
-        <id>fly</id>
-        <name>
-            <en>Fly</en>
-            <es>Volar</es>
-        </name>
-        <group>physical</group>
-        <official>false</official>
-        <restrictedToRaces>etyri</restrictedToRaces>
-        <random>
-            <probabilityMultiplier>0</probabilityMultiplier>
-        </random>
     </skill>
 
 

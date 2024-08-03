@@ -51,7 +51,7 @@
         <classes>
             <!--            <class name="com.softwaremagico.tm.file.ModuleManagerTests"/>-->
             <!--            <class name="com.softwaremagico.tm.file.configurator.ConfigurationTests"/>-->
-            <class name="com.softwaremagico.tm.factory.Skill2FactoryTests"/>
+            <class name="com.softwaremagico.tm.factory.SkillsFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.RaceFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.DamageTypeFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.FactionFactoryTests"/>
