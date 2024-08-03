@@ -198,8 +198,10 @@
                     <es>Jerga Vagabunda</es>
                 </name>
                 <official>false</official>
-                <restricted>true</restricted>
-                <restrictedToFactions>vagabonds</restrictedToFactions>
+                <restrictions>
+                    <restricted>true</restricted>
+                    <factions>vagabonds</factions>
+                </restrictions>
                 <random>
                     <probabilityMultiplier>0</probabilityMultiplier>
                 </random>
@@ -810,7 +812,9 @@
         </description>
         <cost>20</cost>
         <group>relics</group>
-        <restrictedToFactionGroup>church</restrictedToFactionGroup>
+        <restrictions>
+            <factionGroups>church</factionGroups>
+        </restrictions>
         <random>
             <minTechLevel>6</minTechLevel>
         </random>
@@ -833,7 +837,9 @@
         </description>
         <cost>1-4</cost>
         <group>relics</group>
-        <restrictedToFactionGroup>church</restrictedToFactionGroup>
+        <restrictions>
+            <factionGroups>church</factionGroups>
+        </restrictions>
     </benefice>
     <benefice>
         <id>saintLore</id>
@@ -851,7 +857,9 @@
         </description>
         <cost>3-22</cost>
         <group>relics</group>
-        <restrictedToFactionGroup>church</restrictedToFactionGroup>
+        <restrictions>
+            <factionGroups>church</factionGroups>
+        </restrictions>
         <random>
             <probabilityMultiplier>0</probabilityMultiplier>
         </random>
@@ -873,7 +881,9 @@
         </description>
         <cost>1</cost>
         <group>relics</group>
-        <restrictedToFactionGroup>church</restrictedToFactionGroup>
+        <restrictions>
+            <factionGroups>church</factionGroups>
+        </restrictions>
     </benefice>
     <benefice>
         <id>wyrdTabernacle</id>
@@ -891,7 +901,9 @@
         </description>
         <cost>2-20</cost>
         <group>relics</group>
-        <restrictedToFactionGroup>church</restrictedToFactionGroup>
+        <restrictions>
+            <factionGroups>church</factionGroups>
+        </restrictions>
     </benefice>
 
     <benefice>
@@ -1419,7 +1431,9 @@
             </specialization>
         </specializations>
         <group>rank</group>
-        <restrictedToFactionGroup>guild</restrictedToFactionGroup>
+        <restrictions>
+            <factionGroups>guild</factionGroups>
+        </restrictions>
     </benefice>
     <benefice>
         <id>nobility</id>
@@ -1497,8 +1511,10 @@
             </specialization>
         </specializations>
         <group>rank</group>
-        <restrictedToFactionGroup>nobility</restrictedToFactionGroup>
-        <restrictedToFactions>manja</restrictedToFactions>
+        <restrictions>
+            <factionGroups>nobility</factionGroups>
+            <factions>manja</factions>
+        </restrictions>
     </benefice>
     <benefice>
         <id>ordained</id>
@@ -1575,7 +1591,9 @@
             </specialization>
         </specializations>
         <group>rank</group>
-        <restrictedToFactionGroup>church</restrictedToFactionGroup>
+        <restrictions>
+            <factionGroups>church</factionGroups>
+        </restrictions>
     </benefice>
     <benefice>
         <id>professionalContract</id>
@@ -1908,7 +1926,9 @@
         </name>
         <cost>3</cost>
         <group>background</group>
-        <restricted>true</restricted>
+        <restrictions>
+            <restricted>true</restricted>
+        </restrictions>
     </benefice>
     <benefice>
         <id>extraLimbs</id>
@@ -1918,7 +1938,9 @@
         </name>
         <cost>6</cost>
         <group>background</group>
-        <restricted>true</restricted>
+        <restrictions>
+            <restricted>true</restricted>
+        </restrictions>
     </benefice>
     <benefice>
         <id>noOccult</id>
@@ -1933,7 +1955,9 @@
         <cost>6</cost>
         <affliction>true</affliction>
         <group>background</group>
-        <restricted>true</restricted>
+        <restrictions>
+            <restricted>true</restricted>
+        </restrictions>
     </benefice>
     <benefice>
         <id>noPsi</id>
@@ -1949,7 +1973,9 @@
         <affliction>true</affliction>
         <group>background</group>
         <official>false</official>
-        <restricted>true</restricted>
+        <restrictions>
+            <restricted>true</restricted>
+        </restrictions>
     </benefice>
     <benefice>
         <id>poisonousClaw</id>
@@ -1963,7 +1989,9 @@
         </description>
         <cost>6</cost>
         <group>background</group>
-        <restricted>true</restricted>
+        <restrictions>
+            <restricted>true</restricted>
+        </restrictions>
     </benefice>
     <benefice>
         <id>ostraziced2</id>
@@ -1975,7 +2003,9 @@
         <affliction>true</affliction>
         <group>background</group>
         <official>false</official>
-        <restricted>true</restricted>
+        <restrictions>
+            <restricted>true</restricted>
+        </restrictions>
     </benefice>
     <benefice>
         <id>ostraziced4</id>
@@ -1987,7 +2017,9 @@
         <affliction>true</affliction>
         <group>background</group>
         <official>false</official>
-        <restricted>true</restricted>
+        <restrictions>
+            <restricted>true</restricted>
+        </restrictions>
     </benefice>
     <benefice>
         <id>restrictedLanguage</id>
@@ -2015,7 +2047,9 @@
         <affliction>true</affliction>
         <group>background</group>
         <official>false</official>
-        <restricted>true</restricted>
+        <restrictions>
+            <restricted>true</restricted>
+        </restrictions>
     </benefice>
     <benefice>
         <id>noFineManipulation</id>
@@ -2031,7 +2065,9 @@
         <affliction>true</affliction>
         <group>background</group>
         <official>false</official>
-        <restricted>true</restricted>
+        <restrictions>
+            <restricted>true</restricted>
+        </restrictions>
     </benefice>
     <benefice>
         <id>dolomei</id>
@@ -2046,7 +2082,9 @@
         <cost>2</cost>
         <group>possessions</group>
         <official>false</official>
-        <restricted>true</restricted>
+        <restrictions>
+            <restricted>true</restricted>
+        </restrictions>
     </benefice>
     <benefice>
         <id>muzzleManipulator</id>
@@ -2061,7 +2099,9 @@
         <cost>3</cost>
         <group>possessions</group>
         <official>false</official>
-        <restricted>true</restricted>
+        <restrictions>
+            <restricted>true</restricted>
+        </restrictions>
     </benefice>
     <benefice>
         <id>prominentFamily</id>
@@ -2083,7 +2123,9 @@
         <cost>1-2</cost>
         <group>background</group>
         <official>false</official>
-        <restrictedToRaces>gannok</restrictedToRaces>
+        <restrictions>
+            <races>gannok</races>
+        </restrictions>
     </benefice>
     <benefice>
         <id>coldBlood</id>
@@ -2100,9 +2142,11 @@
         </description>
         <cost>3</cost>
         <group>background</group>
-        <restricted>true</restricted>
+        <restrictions>
+            <restricted>true</restricted>
+            <restrictedToRaces>hironem</restrictedToRaces>
+        </restrictions>
         <official>false</official>
-        <restrictedToRaces>hironem</restrictedToRaces>
         <affliction>true</affliction>
     </benefice>
     <benefice>
@@ -2166,7 +2210,9 @@
             </specialization>
         </specializations>
         <group>status</group>
-        <restricted>true</restricted>
+        <restrictions>
+            <restricted>true</restricted>
+        </restrictions>
         <official>false</official>
     </benefice>
     <benefice>
@@ -2264,6 +2310,8 @@
         <cost>1</cost>
         <group>status</group>
         <official>false</official>
-        <restricted>true</restricted>
+        <restrictions>
+            <restricted>true</restricted>
+        </restrictions>
     </benefice>
 </benefices>
