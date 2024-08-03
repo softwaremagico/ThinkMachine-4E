@@ -2,6 +2,123 @@
 <skills>
     <skill>
         <type>skillDefinition</type>
+        <id>academia</id>
+        <name>
+            <en>Influence</en>
+            <es>Academia</es>
+        </name>
+    </skill>
+    <skill>
+        <type>skillDefinition</type>
+        <id>alchemy</id>
+        <name>
+            <en>Alchemy</en>
+            <es>Alquimia</es>
+        </name>
+        <restrictions>
+            <factions>engineers</factions>
+            <factionGroups>church</factionGroups>
+            <callings>banker, enthusiast, occultist, spy, techRedeemer, theurgist</callings>
+        </restrictions>
+    </skill>
+    <skill>
+        <type>skillDefinition</type>
+        <id>animalia</id>
+        <name>
+            <en>Animalia</en>
+            <es>Trato con Animales</es>
+        </name>
+    </skill>
+    <skill>
+        <type>skillDefinition</type>
+        <id>arts</id>
+        <name>
+            <en>Arte</en>
+            <es>Arts</es>
+        </name>
+    </skill>
+    <skill>
+        <type>skillDefinition</type>
+        <id>arts</id>
+        <name>
+            <en>Arte</en>
+            <es>Arts</es>
+        </name>
+    </skill>
+    <skill>
+        <type>skillDefinition</type>
+        <id>charm</id>
+        <name>
+            <en>Charm</en>
+            <es>Encanto</es>
+        </name>
+    </skill>
+    <skill>
+        <type>skillDefinition</type>
+        <id>disguise</id>
+        <name>
+            <en>Disguise</en>
+            <es>Disfraz</es>
+        </name>
+    </skill>
+    <skill>
+        <type>skillDefinition</type>
+        <id>drive</id>
+        <name>
+            <en>Drive</en>
+            <es>Conducir</es>
+        </name>
+    </skill>
+    <skill>
+        <type>skillDefinition</type>
+        <id>empathy</id>
+        <name>
+            <en>Empathy</en>
+            <es>Empatía</es>
+        </name>
+    </skill>
+    <skill>
+        <type>skillDefinition</type>
+        <id>fight</id>
+        <name>
+            <en>Fight</en>
+            <es>Pelear</es>
+        </name>
+    </skill>
+    <skill>
+        <type>skillDefinition</type>
+        <id>focus</id>
+        <name>
+            <en>Focus</en>
+            <es>Introspección</es>
+        </name>
+    </skill>
+    <skill>
+        <type>skillDefinition</type>
+        <id>impress</id>
+        <name>
+            <en>Impress</en>
+            <es>Impresionar</es>
+        </name>
+    </skill>
+    <skill>
+        <type>skillDefinition</type>
+        <id>interface</id>
+        <name>
+            <en>Interface</en>
+            <es>Interfaz</es>
+        </name>
+        <restrictions>
+            <factions>engineers</factions>
+            <factionGroups>church</factionGroups>
+            <callings>Merchant, Amateur, Clergy, Conspiracist, Enthusiast, Scribe, Spy</callings>
+        </restrictions>
+    </skill>
+
+
+
+    <skill>
+        <type>skillDefinition</type>
         <id>influence</id>
         <name>
             <en>Influence</en>

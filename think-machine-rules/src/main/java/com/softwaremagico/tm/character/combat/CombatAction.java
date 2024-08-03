@@ -28,7 +28,7 @@ import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
-import com.softwaremagico.tm.character.skills.AvailableSkill;
+import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.values.IValue;
 
 import java.util.Objects;
@@ -73,8 +73,8 @@ public class CombatAction extends Element<CombatAction> {
         for (final CombatActionRequirement requirement : getRequirements()) {
             boolean allowed = false;
             for (final IValue restriction : requirement.getRequirements()) {
-                if (restriction instanceof AvailableSkill) {
-                    if (characterPlayer.getSkillTotalRanks((AvailableSkill) restriction) >= requirement.getValue()) {
+                if (restriction instanceof Skill) {
+                    if (characterPlayer.getSkillTotalRanks((Skill) restriction) >= requirement.getValue()) {
                         allowed = true;
                     }
                 } else if (restriction instanceof CharacteristicDefinition) {
@@ -94,7 +94,7 @@ public class CombatAction extends Element<CombatAction> {
     private boolean checkRestriction(String skillId) {
         for (final CombatActionRequirement requirement : getRequirements()) {
             for (final IValue restriction : requirement.getRequirements()) {
-                if (restriction instanceof AvailableSkill) {
+                if (restriction instanceof Skill) {
                     if (Objects.equals(restriction.getId(), skillId)) {
                         return true;
                     }

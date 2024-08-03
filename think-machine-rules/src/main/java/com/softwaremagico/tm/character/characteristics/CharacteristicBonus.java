@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.skills;
+package com.softwaremagico.tm.character.characteristics;
 
 /*-
  * #%L
@@ -24,11 +24,28 @@ package com.softwaremagico.tm.character.skills;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.softwaremagico.tm.XmlData;
 
-public class CyberneticSkill extends SelectedSkill {
+public class CharacteristicBonus extends XmlData {
+    @JsonProperty("bonus")
+    private int bonus;
+    @JsonProperty("id")
+    private String characteristic;
 
-    public CyberneticSkill(Skill availableSkill, int value, boolean special) {
-        super(availableSkill, value, special);
+    public int getBonus() {
+        return bonus;
     }
 
+    public void setBonus(int bonus) {
+        this.bonus = bonus;
+    }
+
+    public String getCharacteristic() {
+        return characteristic;
+    }
+
+    public void setCharacteristic(String characteristic) {
+        this.characteristic = characteristic;
+    }
 }

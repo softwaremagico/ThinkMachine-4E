@@ -34,7 +34,6 @@ import java.io.IOException;
 
 @Test(groups = {"blessingFactory"})
 public class BlessingFactoryTests {
-    private static final String LANGUAGE = "es";
 
     private static final int DEFINED_BLESSINGS = 1;
     private static final int DEFINED_BONUS_MISSING_EYE = 2;

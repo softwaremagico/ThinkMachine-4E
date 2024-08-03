@@ -135,8 +135,8 @@ public class Faction extends Element<Faction> {
 
     public boolean isOnlyForHuman() {
         if (isOnlyForHuman == null) {
-            isOnlyForHuman = getRestrictedToRaces().size() == 1
-                    && getRestrictedToRaces().contains("human");
+            isOnlyForHuman = getRestrictions().getRestrictedToRaces().size() == 1
+                    && getRestrictions().getRestrictedToRaces().contains("human");
 
         }
         return isOnlyForHuman;

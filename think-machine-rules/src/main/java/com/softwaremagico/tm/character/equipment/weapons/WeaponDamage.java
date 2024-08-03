@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
 import com.softwaremagico.tm.character.equipment.Size;
-import com.softwaremagico.tm.character.skills.AvailableSkillsFactory;
+import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.log.MachineLog;
 
 import java.util.Objects;
@@ -240,7 +240,7 @@ public class WeaponDamage {
     public String getRoll() {
         try {
             return CharacteristicsDefinitionFactory.getInstance().getElement(characteristic).getAbbreviation() + "+"
-                    + AvailableSkillsFactory.getInstance().getElement(skill).getName();
+                    + SkillFactory.getInstance().getElement(skill).getName();
         } catch (Exception e) {
             return "";
         }

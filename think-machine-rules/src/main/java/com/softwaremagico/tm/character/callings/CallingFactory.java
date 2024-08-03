@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.skills;
+package com.softwaremagico.tm.character.callings;
 
 /*-
  * #%L
@@ -29,15 +29,15 @@ import com.softwaremagico.tm.xml.XmlFactory;
 
 import java.util.List;
 
-public class SkillDefinitionFactory extends XmlFactory<SkillDefinition> {
-    private static final String XML_FILE = "skills.xml";
+public class CallingFactory extends XmlFactory<Calling> {
+    private static final String XML_FILE = "callings.xml";
 
-    private static final class SkillDefinitionFactoryInit {
-        public static final SkillDefinitionFactory INSTANCE = new SkillDefinitionFactory();
+    private static final class CallingFactoryInit {
+        public static final CallingFactory INSTANCE = new CallingFactory();
     }
 
-    public static SkillDefinitionFactory getInstance() {
-        return SkillDefinitionFactoryInit.INSTANCE;
+    public static CallingFactory getInstance() {
+        return CallingFactoryInit.INSTANCE;
     }
 
 
@@ -47,7 +47,7 @@ public class SkillDefinitionFactory extends XmlFactory<SkillDefinition> {
     }
 
     @Override
-    public List<SkillDefinition> getElements() throws InvalidXmlElementException {
-        return readXml(SkillDefinition.class);
+    public List<Calling> getElements() throws InvalidXmlElementException {
+        return readXml(Calling.class);
     }
 }

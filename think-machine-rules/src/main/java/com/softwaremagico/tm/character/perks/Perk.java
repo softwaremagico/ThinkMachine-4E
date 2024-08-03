@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.skills;
+package com.softwaremagico.tm.character.perks;
 
 /*-
  * #%L
@@ -24,11 +24,8 @@ package com.softwaremagico.tm.character.skills;
  * #L%
  */
 
+import com.softwaremagico.tm.Element;
 
-public class CyberneticSkill extends SelectedSkill {
-
-    public CyberneticSkill(Skill availableSkill, int value, boolean special) {
-        super(availableSkill, value, special);
-    }
-
+public class Perk extends Element<Perk> {
+    private boolean isAffliction = false;
 }

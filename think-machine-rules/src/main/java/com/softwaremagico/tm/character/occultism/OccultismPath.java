@@ -162,42 +162,26 @@ public class OccultismPath extends Element<OccultismPath> {
         this.occultismPowersElements = occultismPowersElements;
     }
 
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
-
     public void setRestrictedToRaces(String restrictedToRacesContent) {
-        readCommaSeparatedTokens(super.getRestrictedToRaces(), restrictedToRacesContent);
+        readCommaSeparatedTokens(super.getRestrictions().getRestrictedToRaces(), restrictedToRacesContent);
     }
 
-    @Override
     public void setRestrictedToRaces(Set<String> restrictedToRaces) {
-        super.setRestrictedToRaces(restrictedToRaces);
+        super.getRestrictions().setRestrictedToRaces(restrictedToRaces);
     }
 
     public void setRestrictedToFactions(String restrictedToFactionsContent) {
-        readCommaSeparatedTokens(super.getRestrictedToFactions(), restrictedToFactionsContent);
+        readCommaSeparatedTokens(super.getRestrictions().getRestrictedToFactions(), restrictedToFactionsContent);
     }
 
-    @Override
+
     public void setRestrictedToFactions(Set<String> restrictedToFactions) {
-        super.setRestrictedToFactions(restrictedToFactions);
+        super.getRestrictions().setRestrictedToFactions(restrictedToFactions);
     }
 
-    @Override
-    public void setRestricted(boolean restricted) {
-        super.setRestricted(restricted);
-    }
 
-    @Override
     public void setRestrictedToFactionGroup(FactionGroup factionGroup) {
-        super.setRestrictedToFactionGroup(factionGroup);
+        super.getRestrictions().setRestrictedToFactionGroup(factionGroup);
     }
 
     @Override

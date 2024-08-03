@@ -26,7 +26,7 @@ package com.softwaremagico.tm.character;
 
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.combat.CombatActionRequirement;
-import com.softwaremagico.tm.character.skills.AvailableSkill;
+import com.softwaremagico.tm.character.skills.Skill;
 
 public class CharacterPlayer {
 
@@ -60,7 +60,7 @@ public class CharacterPlayer {
         return settings;
     }
 
-    public int getSkillTotalRanks(AvailableSkill restriction) {
+    public int getSkillTotalRanks(Skill restriction) {
         return 0;
     }
 

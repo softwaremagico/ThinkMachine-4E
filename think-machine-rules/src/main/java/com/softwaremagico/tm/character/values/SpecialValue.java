@@ -28,7 +28,7 @@ import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.InvalidXmlElementException;
 import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
-import com.softwaremagico.tm.character.skills.SkillDefinitionFactory;
+import com.softwaremagico.tm.character.skills.SkillFactory;
 
 import java.util.Set;
 
@@ -54,7 +54,7 @@ public class SpecialValue extends Element<SpecialValue> implements IValue {
         } catch (InvalidXmlElementException e) {
             // Is a skill??
             try {
-                return SkillDefinitionFactory.getInstance().getElement(valueName);
+                return SkillFactory.getInstance().getElement(valueName);
             } catch (InvalidXmlElementException e2) {
                 // Is something else?
                 try {

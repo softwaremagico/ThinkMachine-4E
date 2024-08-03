@@ -24,11 +24,30 @@ package com.softwaremagico.tm.character.skills;
  * #L%
  */
 
+import com.softwaremagico.tm.InvalidXmlElementException;
+import com.softwaremagico.tm.xml.XmlFactory;
 
-public class CyberneticSkill extends SelectedSkill {
+import java.util.List;
 
-    public CyberneticSkill(Skill availableSkill, int value, boolean special) {
-        super(availableSkill, value, special);
+public class SkillFactory extends XmlFactory<Skill> {
+    private static final String XML_FILE = "skills.xml";
+
+    private static final class SkillDefinitionFactoryInit {
+        public static final SkillFactory INSTANCE = new SkillFactory();
     }
 
+    public static SkillFactory getInstance() {
+        return SkillDefinitionFactoryInit.INSTANCE;
+    }
+
+
+    @Override
+    public String getXmlFile() {
+        return XML_FILE;
+    }
+
+    @Override
+    public List<Skill> getElements() throws InvalidXmlElementException {
+        return readXml(Skill.class);
+    }
 }

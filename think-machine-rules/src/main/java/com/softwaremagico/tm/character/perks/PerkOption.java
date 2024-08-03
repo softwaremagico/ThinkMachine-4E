@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.skills;
+package com.softwaremagico.tm.character.perks;
 
 /*-
  * #%L
@@ -24,11 +24,30 @@ package com.softwaremagico.tm.character.skills;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.softwaremagico.tm.XmlData;
 
-public class CyberneticSkill extends SelectedSkill {
+import java.util.List;
 
-    public CyberneticSkill(Skill availableSkill, int value, boolean special) {
-        super(availableSkill, value, special);
+public class PerkOption extends XmlData {
+    @JsonProperty("total")
+    private int totalOptions;
+    @JsonProperty("perks")
+    private List<String> perks;
+
+    public int getTotalOptions() {
+        return totalOptions;
     }
 
+    public void setTotalOptions(int totalOptions) {
+        this.totalOptions = totalOptions;
+    }
+
+    public List<String> getPerks() {
+        return perks;
+    }
+
+    public void setPerks(List<String> perks) {
+        this.perks = perks;
+    }
 }

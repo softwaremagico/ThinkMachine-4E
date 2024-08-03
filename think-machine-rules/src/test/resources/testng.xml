@@ -30,6 +30,7 @@
                 <include name="armourFactory"/>
                 <include name="combatStyleFactory"/>
                 <include name="cyberneticFactory"/>
+                <include name="callingFactory"/>
                 <include name="randomDefinition"/>
                 <include name="randomCharacter"/>
                 <include name="cybernetics"/>
@@ -50,7 +51,7 @@
         <classes>
             <!--            <class name="com.softwaremagico.tm.file.ModuleManagerTests"/>-->
             <!--            <class name="com.softwaremagico.tm.file.configurator.ConfigurationTests"/>-->
-            <class name="com.softwaremagico.tm.factory.SkillFactoryTests"/>
+            <class name="com.softwaremagico.tm.factory.Skill2FactoryTests"/>
             <class name="com.softwaremagico.tm.factory.RaceFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.DamageTypeFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.FactionFactoryTests"/>
@@ -65,6 +66,7 @@
             <class name="com.softwaremagico.tm.factory.ArmourSpecificationsFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.CombatStylesFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.CyberneticDeviceTraitFactoryTests"/>
+            <class name="com.softwaremagico.tm.factory.CallingFactoryTests"/>
             <!--            <class name="com.softwaremagico.tm.rules.BlessingTests"/>-->
             <!--            <class name="com.softwaremagico.tm.rules.BeneficeTests"/>-->
             <!--            <class name="com.softwaremagico.tm.rules.OccultismTests"/>-->

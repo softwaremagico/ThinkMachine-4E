@@ -98,8 +98,8 @@ public class CombatStyle extends Element<CombatStyle> {
     }
 
     public boolean isAvailable(CharacterPlayer characterPlayer) {
-        return getRestrictedToRaces().isEmpty() || (characterPlayer.getRace() != null
-                && getRestrictedToRaces().contains(characterPlayer.getRace()));
+        return getRestrictions().getRestrictedToRaces().isEmpty() || (characterPlayer.getRace() != null
+                && getRestrictions().getRestrictedToRaces().contains(characterPlayer.getRace()));
     }
 
     public void addCombatAction(CombatAction combatAction) {

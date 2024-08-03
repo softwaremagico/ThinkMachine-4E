@@ -4653,7 +4653,9 @@
             <es>Visión de la Muerte</es>
         </name>
         <occultismType>theurgy</occultismType>
-        <restrictedToRaces>etyri</restrictedToRaces>
+        <restrictions>
+            <races>etyri</races>
+        </restrictions>
         <classification>combat</classification>
         <official>false</official>
         <powers>
@@ -4790,7 +4792,9 @@
         <occultismType>psi</occultismType>
         <classification>others</classification>
         <official>false</official>
-        <restrictedToRaces>ascorbite</restrictedToRaces>
+        <restrictions>
+            <races>ascorbite</races>
+        </restrictions>
         <powers>
             <hiveMindPath>
                 <id>hiveMindPath</id>

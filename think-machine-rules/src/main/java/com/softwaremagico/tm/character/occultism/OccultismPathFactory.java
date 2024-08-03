@@ -65,10 +65,9 @@ public final class OccultismPathFactory extends XmlFactory<OccultismPath> {
         //Update power values related to rites.
         occultismPaths.forEach(occultismPath -> {
             occultismPath.getOccultismPowersElements().forEach(occultismPower -> {
-                occultismPower.setRestrictedToRaces(occultismPath.getRestrictedToRaces());
-                occultismPower.setRestrictedToFactions(occultismPath.getRestrictedToFactions());
-                occultismPower.setRestricted(occultismPath.isRestricted());
-                occultismPower.setRestrictedToFactionGroup(occultismPath.getRestrictedToFactionGroup());
+                occultismPower.getRestrictions().setRestrictedToRaces(occultismPath.getRestrictions().getRestrictedToRaces());
+                occultismPower.getRestrictions().setRestrictedToFactions(occultismPath.getRestrictions().getRestrictedToFactions());
+                occultismPower.getRestrictions().setRestrictedToFactionGroup(occultismPath.getRestrictions().getRestrictedToFactionGroup());
                 occultismPower.setOfficial(occultismPath.isOfficial());
             });
         });

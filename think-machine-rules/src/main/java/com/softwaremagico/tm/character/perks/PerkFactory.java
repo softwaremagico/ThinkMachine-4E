@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.skills;
+package com.softwaremagico.tm.character.perks;
 
 /*-
  * #%L
@@ -24,11 +24,31 @@ package com.softwaremagico.tm.character.skills;
  * #L%
  */
 
+import com.softwaremagico.tm.InvalidXmlElementException;
+import com.softwaremagico.tm.character.skills.SkillFactory;
+import com.softwaremagico.tm.xml.XmlFactory;
 
-public class CyberneticSkill extends SelectedSkill {
+import java.util.List;
 
-    public CyberneticSkill(Skill availableSkill, int value, boolean special) {
-        super(availableSkill, value, special);
+public class PerkFactory extends XmlFactory<Perk> {
+    private static final String XML_FILE = "perks.xml";
+
+    private static final class PerkFactoryInit {
+        public static final SkillFactory INSTANCE = new SkillFactory();
     }
 
+    public static SkillFactory getInstance() {
+        return PerkFactoryInit.INSTANCE;
+    }
+
+
+    @Override
+    public String getXmlFile() {
+        return XML_FILE;
+    }
+
+    @Override
+    public List<Perk> getElements() throws InvalidXmlElementException {
+        return readXml(Perk.class);
+    }
 }

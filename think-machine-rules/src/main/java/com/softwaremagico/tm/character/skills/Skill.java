@@ -24,10 +24,10 @@ package com.softwaremagico.tm.character.skills;
  * #L%
  */
 
-import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
+import com.softwaremagico.tm.character.values.IValue;
 
-public class Skill<T extends Skill<?>> extends Element<T> {
+public class Skill extends SkillDefinition<Skill> implements ISkillRandomDefintions, IValue {
 
     public Skill() {
         super();
@@ -37,7 +37,8 @@ public class Skill<T extends Skill<?>> extends Element<T> {
         super(id, name, description, language, moduleName);
     }
 
-    public String getUniqueId() {
-        return getId();
+    public boolean isNatural() {
+        return getRestrictions() == null || !getRestrictions().isRestricted();
     }
+
 }

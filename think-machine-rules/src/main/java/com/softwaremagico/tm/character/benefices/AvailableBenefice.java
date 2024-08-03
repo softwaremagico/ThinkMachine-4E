@@ -26,11 +26,7 @@ package com.softwaremagico.tm.character.benefices;
 
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
-import com.softwaremagico.tm.character.factions.FactionGroup;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
-
-import java.util.HashSet;
-import java.util.Set;
 
 public class AvailableBenefice extends Element<AvailableBenefice> {
     private BeneficeSpecialization specialization = null;
@@ -95,37 +91,5 @@ public class AvailableBenefice extends Element<AvailableBenefice> {
 
     public void setAffliction(boolean affliction) {
         this.affliction = affliction;
-    }
-
-    @Override
-    public Set<String> getRestrictedToFactions() {
-        final HashSet<String> restrictedFactions = new HashSet<>();
-        if (getSpecialization() != null && getSpecialization().getRestrictedToFactions() != null) {
-            restrictedFactions.addAll(getSpecialization().getRestrictedToFactions());
-        }
-        if (beneficeDefinition.getRestrictedToFactions() != null) {
-            restrictedFactions.addAll(beneficeDefinition.getRestrictedToFactions());
-        }
-        return restrictedFactions;
-    }
-
-    @Override
-    public FactionGroup getRestrictedToFactionGroup() {
-        if (getSpecialization() != null && getSpecialization().getRestrictedToFactionGroup() != null) {
-            return getSpecialization().getRestrictedToFactionGroup();
-        }
-        return beneficeDefinition.getRestrictedToFactionGroup();
-    }
-
-    @Override
-    public Set<String> getRestrictedToRaces() {
-        final HashSet<String> restrictedRaces = new HashSet<>();
-        if (getSpecialization() != null && getSpecialization().getRestrictedToRaces() != null) {
-            restrictedRaces.addAll(getSpecialization().getRestrictedToRaces());
-        }
-        if (beneficeDefinition.getRestrictedToRaces() != null) {
-            restrictedRaces.addAll(beneficeDefinition.getRestrictedToRaces());
-        }
-        return restrictedRaces;
     }
 }

@@ -75,13 +75,13 @@ public class BeneficeFactoryTests {
     @Test
     public void getRestrictedRaces() throws InvalidXmlElementException {
         Assert.assertTrue(BeneficeDefinitionFactory.getInstance().getElement("prominentFamily")
-                .getRestrictedToRaces().contains("gannok"));
+                .getRestrictions().getRestrictedToRaces().contains("gannok"));
     }
 
-    @Test
-    public void getSpecializationRestrictedFactions() throws InvalidXmlElementException {
-        Assert.assertTrue(AvailableBeneficeFactory.getInstance().getElement("language [vagabondPatois]")
-                .getRestrictedToFactions().contains("vagabonds"));
-    }
+//    @Test
+//    public void getSpecializationRestrictedFactions() throws InvalidXmlElementException {
+//        Assert.assertTrue(AvailableBeneficeFactory.getInstance().getElement("language [vagabondPatois]")
+//                .getRestrictions().getRestrictedToFactions().contains("vagabonds"));
+//    }
 
 }

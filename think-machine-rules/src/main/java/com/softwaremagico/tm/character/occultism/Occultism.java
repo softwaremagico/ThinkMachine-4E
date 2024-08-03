@@ -153,8 +153,8 @@ public class Occultism {
                     + path.getFactionsAllowed() + "' character faction is '" + faction + "'.");
         }
         // Limited to some races
-        if (!path.getRestrictedToRaces().isEmpty() && settings.isRestrictionsChecked() && race != null
-                && !path.getRestrictedToRaces().contains(race.getId())) {
+        if (!path.getRestrictions().getRestrictedToRaces().isEmpty() && settings.isRestrictionsChecked() && race != null
+                && !path.getRestrictions().getRestrictedToRaces().contains(race.getId())) {
             throw new InvalidFactionOfPowerException("Power '" + power + "' can only be acquired by  '"
                     + path.getFactionsAllowed() + "' character faction is '" + faction + "'.");
         }

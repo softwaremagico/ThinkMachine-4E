@@ -2,16 +2,9 @@ package com.softwaremagico.tm;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.softwaremagico.tm.character.CharacterPlayer;
-import com.softwaremagico.tm.character.factions.FactionFactory;
-import com.softwaremagico.tm.character.factions.FactionGroup;
-import com.softwaremagico.tm.log.MachineXmlReaderLog;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 /*-
  * #%L
@@ -56,15 +49,10 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
     @JsonProperty("random")
     private RandomElementDefinition randomDefinition;
 
-    private boolean restricted = false;
+    @JsonProperty("restrictions")
+    private Restrictions restrictions;
 
     private boolean official = true;
-
-    private Set<String> restrictedToRaces = new HashSet<>();
-
-    private FactionGroup restrictedToFactionGroup = null;
-
-    private Set<String> restrictedToFactions = new HashSet<>();
 
     //Only fort sheet representation.
     @JsonIgnore
@@ -80,7 +68,6 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
         this.moduleName = "";
         this.language = "";
         this.randomDefinition = new RandomElementDefinition();
-        this.restricted = false;
     }
 
     public Element(String id, TranslatedText name, TranslatedText description, String language, String moduleName) {
@@ -210,28 +197,15 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
         return Objects.equals(element.getId(), DEFAULT_NULL_ID);
     }
 
-    public boolean isRestricted() {
-        return restricted;
-    }
-
-    public boolean isRestricted(CharacterPlayer characterPlayer) {
-        try {
-            return characterPlayer != null && characterPlayer.getSettings().isRestrictionsChecked()
-                    && ((!getRestrictedToRaces().isEmpty() && (characterPlayer.getRace() == null
-                    || !getRestrictedToRaces().contains(characterPlayer.getRace())))
-                    || (getRestrictedToFactionGroup() != null && (characterPlayer.getFaction() == null
-                    && !Objects.equals(getRestrictedToFactionGroup(),
-                    FactionFactory.getInstance().getElement(characterPlayer.getFaction()).getFactionGroup())))
-                    || (!getRestrictedToFactions().isEmpty() && (characterPlayer.getFaction() == null
-                    || !getRestrictedToFactions().contains(characterPlayer.getFaction()))));
-        } catch (InvalidXmlElementException e) {
-            MachineXmlReaderLog.errorMessage(this.getName(), e);
+    public Restrictions getRestrictions() {
+        if (restrictions == null) {
+            restrictions = new Restrictions();
         }
-        return true;
+        return restrictions;
     }
 
-    public void setRestricted(boolean restricted) {
-        this.restricted = restricted;
+    public void setRestrictions(Restrictions restrictions) {
+        this.restrictions = restrictions;
     }
 
     public boolean isOfficial() {
@@ -240,37 +214,5 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
 
     public void setOfficial(boolean official) {
         this.official = official;
-    }
-
-    public Set<String> getRestrictedToRaces() {
-        return restrictedToRaces;
-    }
-
-    public Set<String> getRestrictedToFactions() {
-        return restrictedToFactions;
-    }
-
-    public void setRestrictedToRaces(String restrictedToRaces) {
-        this.restrictedToRaces = Collections.singleton(restrictedToRaces);
-    }
-
-    public void setRestrictedToRaces(Set<String> restrictedToRaces) {
-        this.restrictedToRaces = restrictedToRaces;
-    }
-
-    public void setRestrictedToFactions(String restrictedToFactions) {
-        this.restrictedToFactions = Collections.singleton(restrictedToFactions);
-    }
-
-    public void setRestrictedToFactions(Set<String> restrictedToFactions) {
-        this.restrictedToFactions = restrictedToFactions;
-    }
-
-    public FactionGroup getRestrictedToFactionGroup() {
-        return restrictedToFactionGroup;
-    }
-
-    public void setRestrictedToFactionGroup(FactionGroup restrictedToFactionGroup) {
-        this.restrictedToFactionGroup = restrictedToFactionGroup;
     }
 }

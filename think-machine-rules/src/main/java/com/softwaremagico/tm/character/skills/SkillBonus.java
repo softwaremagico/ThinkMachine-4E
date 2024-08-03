@@ -24,11 +24,28 @@ package com.softwaremagico.tm.character.skills;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.softwaremagico.tm.XmlData;
 
-public class CyberneticSkill extends SelectedSkill {
+public class SkillBonus extends XmlData {
+    @JsonProperty("bonus")
+    private int bonus;
+    @JsonProperty("id")
+    private String skill;
 
-    public CyberneticSkill(Skill availableSkill, int value, boolean special) {
-        super(availableSkill, value, special);
+    public int getBonus() {
+        return bonus;
     }
 
+    public void setBonus(int bonus) {
+        this.bonus = bonus;
+    }
+
+    public String getSkill() {
+        return skill;
+    }
+
+    public void setSkill(String skill) {
+        this.skill = skill;
+    }
 }
