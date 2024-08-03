@@ -4654,7 +4654,9 @@
         </name>
         <occultismType>theurgy</occultismType>
         <restrictions>
-            <races>etyri</races>
+            <races>
+                <race>etyri</race>
+            </races>
         </restrictions>
         <classification>combat</classification>
         <official>false</official>
@@ -4793,7 +4795,9 @@
         <classification>others</classification>
         <official>false</official>
         <restrictions>
-            <races>ascorbite</races>
+            <races>
+                <race>ascorbite</race>
+            </races>
         </restrictions>
         <powers>
             <hiveMindPath>

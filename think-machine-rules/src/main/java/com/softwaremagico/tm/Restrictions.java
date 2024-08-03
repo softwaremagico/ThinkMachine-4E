@@ -26,12 +26,13 @@ package com.softwaremagico.tm;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.factions.FactionGroup;
+import com.softwaremagico.tm.character.races.RaceFactory;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 public class Restrictions extends XmlData {
@@ -44,7 +45,7 @@ public class Restrictions extends XmlData {
     private Set<String> restrictedToRaces = new HashSet<>();
 
     @JsonProperty("factionGroups")
-    private FactionGroup restrictedToFactionGroup = null;
+    private Set<FactionGroup> restrictedToFactionGroup = new HashSet<>();
 
     @JsonProperty("factions")
     private Set<String> restrictedToFactions = new HashSet<>();
@@ -56,30 +57,20 @@ public class Restrictions extends XmlData {
         return restrictedToRaces;
     }
 
-    public void setRestrictedToRaces(String restrictedToRacesContent) {
-        this.restrictedToRaces = new HashSet<>();
-        readCommaSeparatedTokens(restrictedToRaces, restrictedToRacesContent);
-    }
-
     public void setRestrictedToRaces(Set<String> restrictedToRaces) {
         this.restrictedToRaces = restrictedToRaces;
     }
 
-    public FactionGroup getRestrictedToFactionGroup() {
+    public Set<FactionGroup> getRestrictedToFactionGroup() {
         return restrictedToFactionGroup;
     }
 
-    public void setRestrictedToFactionGroup(FactionGroup restrictedToFactionGroup) {
+    public void setRestrictedToFactionGroup(Set<FactionGroup> restrictedToFactionGroup) {
         this.restrictedToFactionGroup = restrictedToFactionGroup;
     }
 
     public Set<String> getRestrictedToFactions() {
         return restrictedToFactions;
-    }
-
-    public void setRestrictedToFactions(String restrictedToFactionsContent) {
-        this.restrictedToFactions = new HashSet<>();
-        readCommaSeparatedTokens(restrictedToFactions, restrictedToFactionsContent);
     }
 
     public void setRestrictedToFactions(Set<String> restrictedToFactions) {
@@ -88,11 +79,6 @@ public class Restrictions extends XmlData {
 
     public Set<String> getRestrictedToCallings() {
         return restrictedToCallings;
-    }
-
-    public void setRestrictedToCallings(String restrictedToCallingsContent) {
-        this.restrictedToCallings = new HashSet<>();
-        readCommaSeparatedTokens(restrictedToCallings, restrictedToCallingsContent);
     }
 
     public void setRestrictedToCallings(Set<String> restrictedToCallings) {
@@ -108,10 +94,9 @@ public class Restrictions extends XmlData {
             return characterPlayer != null && characterPlayer.getSettings().isRestrictionsChecked()
                     && ((!getRestrictedToRaces().isEmpty() && (characterPlayer.getRace() == null
                     || !getRestrictedToRaces().contains(characterPlayer.getRace())))
-                    || (getRestrictedToFactionGroup() != null && (characterPlayer.getFaction() == null
                     || isRestricted()
-                    && !Objects.equals(getRestrictedToFactionGroup(),
-                    FactionFactory.getInstance().getElement(characterPlayer.getFaction()).getFactionGroup())))
+                    || (getRestrictedToFactionGroup() != null && (characterPlayer.getFaction() == null
+                    && !getRestrictedToFactionGroup().contains(FactionFactory.getInstance().getElement(characterPlayer.getFaction()).getFactionGroup())))
                     || (!getRestrictedToFactions().isEmpty() && (characterPlayer.getFaction() == null
                     || !getRestrictedToFactions().contains(characterPlayer.getFaction()))));
             //TODO(softwaremagico): include callings.
@@ -123,5 +108,18 @@ public class Restrictions extends XmlData {
 
     public boolean isRestricted() {
         return restricted;
+    }
+
+    @Override
+    public void validate() throws InvalidXmlElementException {
+        for (String race : restrictedToRaces) {
+            RaceFactory.getInstance().getElement(race);
+        }
+        for (String faction : restrictedToFactions) {
+            FactionFactory.getInstance().getElement(faction);
+        }
+        for (String calling : restrictedToCallings) {
+            CallingFactory.getInstance().getElement(calling);
+        }
     }
 }

@@ -115,4 +115,10 @@ public abstract class XmlFactory<T extends Element<T>> {
         elements.forEach(element -> this.elements.put(element.getId(), element));
         return elements;
     }
+
+    public void validate() throws InvalidXmlElementException {
+        for (T element : getElements()) {
+            element.validate();
+        }
+    }
 }

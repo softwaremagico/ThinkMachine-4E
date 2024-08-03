@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<competences>
+    <competence>
+        <id>combatArmor</id>
+        <group>armor</group>
+        <name>
+            <en>Combat Armor</en>
+            <es>Armadura de Combate</es>
+        </name>
+    </competence>
+    <competence>
+        <id>handheldShield</id>
+        <group>armor</group>
+        <name>
+            <en>Handheld Shield</en>
+            <es>Escudo de Mano</es>
+        </name>
+    </competence>
+    <competence>
+        <id>warArmor</id>
+        <group>armor</group>
+        <name>
+            <en>War Armor</en>
+            <es>Armadura de Guerra</es>
+        </name>
+        <restrictions>
+            <factions>
+                <faction>brotherBattle</faction>
+            </factions>
+            <factionGroups>
+                <factionGroup>guild</factionGroup>
+                <factionGroup>nobility</factionGroup>
+            </factionGroups>
+            <callings>
+                <calling>theDispossessed</calling>
+                <calling>imperialCohort</calling>
+                <calling>mercenary</calling>
+                <calling>pirate</calling>
+                <calling>templar</calling>
+            </callings>
+        </restrictions>
+    </competence>
+</competences>

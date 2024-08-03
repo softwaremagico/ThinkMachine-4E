@@ -180,7 +180,7 @@ public class OccultismPath extends Element<OccultismPath> {
     }
 
 
-    public void setRestrictedToFactionGroup(FactionGroup factionGroup) {
+    public void setRestrictedToFactionGroup(Set<FactionGroup> factionGroup) {
         super.getRestrictions().setRestrictedToFactionGroup(factionGroup);
     }
 

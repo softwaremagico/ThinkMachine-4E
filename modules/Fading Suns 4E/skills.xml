@@ -16,9 +16,20 @@
             <es>Alquimia</es>
         </name>
         <restrictions>
-            <factions>engineers</factions>
-            <factionGroups>church</factionGroups>
-            <callings>banker, enthusiast, occultist, spy, techRedeemer, theurgist</callings>
+            <factions>
+                <faction>engineers</faction>
+            </factions>
+            <factionGroups>
+                <factionGroup>church</factionGroup>
+            </factionGroups>
+            <callings>
+                <calling>banker</calling>
+                <calling>enthusiast</calling>
+                <calling>occultist</calling>
+                <calling>spy</calling>
+                <calling>techRedeemer</calling>
+                <calling>theurgist</calling>
+            </callings>
         </restrictions>
     </skill>
     <skill>
@@ -109,9 +120,19 @@
             <es>Interfaz</es>
         </name>
         <restrictions>
-            <factions>engineers</factions>
-            <factionGroups>church</factionGroups>
-            <callings>merchant, amateur, clergy, conspiracist, enthusiast, scribe, spy</callings>
+            <factions><faction>engineers</faction></factions>
+            <factionGroups>
+                <factionGroup>church</factionGroup>
+            </factionGroups>
+            <callings>
+                <calling>merchant</calling>
+                <calling>amateur</calling>
+                <calling>clergy</calling>
+                <calling>conspiracist</calling>
+                <calling>enthusiast</calling>
+                <calling>scribe</calling>
+                <calling>spy</calling>
+            </callings>
         </restrictions>
     </skill>
     <skill>
@@ -162,9 +183,18 @@
             <es>Pilotar</es>
         </name>
         <restrictions>
-            <factions>brotherBattle</factions>
-            <factionGroups>nobility</factionGroups>
-            <callings>merchant, explorer, mendicant, pirate</callings>
+            <factions>
+                <faction>brotherBattle</faction>
+            </factions>
+            <factionGroups>
+                <factionGroup>nobility</factionGroup>
+            </factionGroups>
+            <callings>
+                <calling>merchant</calling>
+                <calling>explorer</calling>
+                <calling>mendicant</calling>
+                <calling>pirate</calling>
+            </callings>
         </restrictions>
     </skill>
     <skill>

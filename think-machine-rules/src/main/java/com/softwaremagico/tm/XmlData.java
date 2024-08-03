@@ -27,7 +27,7 @@ package com.softwaremagico.tm;
 import java.util.Collection;
 import java.util.StringTokenizer;
 
-public class XmlData {
+public abstract class XmlData {
 
 
     protected void readCommaSeparatedTokens(Collection<String> collection, String collectionData) {
@@ -37,6 +37,10 @@ public class XmlData {
                 collection.add(collectionTokenizer.nextToken().trim());
             }
         }
+    }
+
+    public void validate() throws InvalidXmlElementException {
+
     }
 
 }

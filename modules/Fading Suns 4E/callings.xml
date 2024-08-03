@@ -151,7 +151,9 @@
 
         </equipment>
         <restrictions>
-            <factionGroups>nobility</factionGroups>
+            <factionGroups>
+                <faction>nobility</faction>
+            </factionGroups>
         </restrictions>
     </calling>
 </callings>
