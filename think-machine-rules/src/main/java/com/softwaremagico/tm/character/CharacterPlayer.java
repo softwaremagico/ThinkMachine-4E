@@ -34,6 +34,8 @@ public class CharacterPlayer {
 
     private String faction;
 
+    private String uprising;
+
     private final Settings settings;
 
     public CharacterPlayer() {
@@ -70,5 +72,13 @@ public class CharacterPlayer {
 
     public int getCharacteristicValue(CharacteristicName characteristicName) {
         return 0;
+    }
+
+    public String getUprising() {
+        return uprising;
+    }
+
+    public void setUprising(String uprising) {
+        this.uprising = uprising;
     }
 }

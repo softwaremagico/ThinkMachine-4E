@@ -24,54 +24,9 @@ package com.softwaremagico.tm.character.callings;
  * #L%
  */
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.softwaremagico.tm.Element;
-import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
-import com.softwaremagico.tm.character.characteristics.CharacteristicOption;
-import com.softwaremagico.tm.character.perks.PerkOption;
-import com.softwaremagico.tm.character.skills.SkillOption;
+import com.softwaremagico.tm.character.CharacterStep;
 
-import java.util.List;
+public class Calling extends CharacterStep<Calling> {
 
-public class Calling extends Element<Calling> {
-    @JsonProperty("capabilities")
-    private List<CapabilityOptions> capabilityOptions;
-    @JsonProperty("characteristics")
-    private List<CharacteristicOption> characteristicOptions;
-    @JsonProperty("skills")
-    private List<SkillOption> skillOptions;
-    @JsonProperty("perks")
-    private List<PerkOption> perksOptions;
 
-    public List<CapabilityOptions> getCapabilityOptions() {
-        return capabilityOptions;
-    }
-
-    public void setCapabilityOptions(List<CapabilityOptions> capabilityOptions) {
-        this.capabilityOptions = capabilityOptions;
-    }
-
-    public List<CharacteristicOption> getCharacteristicOptions() {
-        return characteristicOptions;
-    }
-
-    public void setCharacteristicOptions(List<CharacteristicOption> characteristicOptions) {
-        this.characteristicOptions = characteristicOptions;
-    }
-
-    public List<SkillOption> getSkillOptions() {
-        return skillOptions;
-    }
-
-    public void setSkillOptions(List<SkillOption> skillOptions) {
-        this.skillOptions = skillOptions;
-    }
-
-    public List<PerkOption> getPerksOptions() {
-        return perksOptions;
-    }
-
-    public void setPerksOptions(List<PerkOption> perksOptions) {
-        this.perksOptions = perksOptions;
-    }
 }

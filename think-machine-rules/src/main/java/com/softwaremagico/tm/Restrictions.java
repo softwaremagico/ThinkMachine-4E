@@ -50,6 +50,9 @@ public class Restrictions extends XmlData {
     @JsonProperty("factions")
     private Set<String> restrictedToFactions = new HashSet<>();
 
+    @JsonProperty("uprising")
+    private Set<String> restrictedToUprising = new HashSet<>();
+
     @JsonProperty("callings")
     private Set<String> restrictedToCallings = new HashSet<>();
 
@@ -77,6 +80,14 @@ public class Restrictions extends XmlData {
         this.restrictedToFactions = restrictedToFactions;
     }
 
+    public Set<String> getRestrictedToUprising() {
+        return restrictedToUprising;
+    }
+
+    public void setRestrictedToUprising(Set<String> restrictedToUprising) {
+        this.restrictedToUprising = restrictedToUprising;
+    }
+
     public Set<String> getRestrictedToCallings() {
         return restrictedToCallings;
     }
@@ -98,7 +109,9 @@ public class Restrictions extends XmlData {
                     || (getRestrictedToFactionGroup() != null && (characterPlayer.getFaction() == null
                     && !getRestrictedToFactionGroup().contains(FactionFactory.getInstance().getElement(characterPlayer.getFaction()).getFactionGroup())))
                     || (!getRestrictedToFactions().isEmpty() && (characterPlayer.getFaction() == null
-                    || !getRestrictedToFactions().contains(characterPlayer.getFaction()))));
+                    || !getRestrictedToFactions().contains(characterPlayer.getFaction())))
+                    || (!getRestrictedToUprising().isEmpty() && (characterPlayer.getUprising() == null
+                    || !getRestrictedToUprising().contains(characterPlayer.getUprising()))));
             //TODO(softwaremagico): include callings.
         } catch (InvalidXmlElementException e) {
             MachineXmlReaderLog.errorMessage("Is restricted!", e);

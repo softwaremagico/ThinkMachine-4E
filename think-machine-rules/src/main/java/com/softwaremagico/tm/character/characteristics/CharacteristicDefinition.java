@@ -41,6 +41,8 @@ public class CharacteristicDefinition extends Element<CharacteristicDefinition>
     @JsonProperty("characteristicType")
     private CharacteristicType type;
 
+    private CharacteristicFunction function;
+
     public CharacteristicDefinition() {
         super();
     }
@@ -77,6 +79,14 @@ public class CharacteristicDefinition extends Element<CharacteristicDefinition>
             }
         }
         return null;
+    }
+
+    public CharacteristicFunction getFunction() {
+        return function;
+    }
+
+    public void setFunction(CharacteristicFunction function) {
+        this.function = function;
     }
 
     @Override
