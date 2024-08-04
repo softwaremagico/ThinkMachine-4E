@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.callings;
+package com.softwaremagico.tm.character.capabilities;
 
 /*-
  * #%L

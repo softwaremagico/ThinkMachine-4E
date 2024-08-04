@@ -31,6 +31,7 @@
                 <include name="combatStyleFactory"/>
                 <include name="cyberneticFactory"/>
                 <include name="callingFactory"/>
+                <include name="capabilityFactory"/>
                 <include name="factoryValidation"/>
                 <include name="randomDefinition"/>
                 <include name="randomCharacter"/>
@@ -68,6 +69,7 @@
             <class name="com.softwaremagico.tm.factory.CombatStylesFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.CyberneticDeviceTraitFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.CallingFactoryTests"/>
+            <class name="com.softwaremagico.tm.factory.CapabilityFactoryTest"/>
             <class name="com.softwaremagico.tm.factory.ValidateFactoryTests"/>
             <!--            <class name="com.softwaremagico.tm.rules.BlessingTests"/>-->
             <!--            <class name="com.softwaremagico.tm.rules.BeneficeTests"/>-->

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<capabilities>
+    <capability>
+        <id>combatArmor</id>
+        <group>armor</group>
+        <name>
+            <en>Combat Armor</en>
+            <es>Armadura de Combate</es>
+        </name>
+    </capability>
+    <capability>
+        <id>handheldShield</id>
+        <group>armor</group>
+        <name>
+            <en>Handheld Shield</en>
+            <es>Escudo de Mano</es>
+        </name>
+    </capability>
+    <capability>
+        <id>warArmor</id>
+        <group>armor</group>
+        <name>
+            <en>War Armor</en>
+            <es>Armadura de Guerra</es>
+        </name>
+        <restrictions>
+            <factions>
+                <faction>brotherBattle</faction>
+            </factions>
+            <factionGroups>
+                <factionGroup>guild</factionGroup>
+                <factionGroup>nobility</factionGroup>
+            </factionGroups>
+            <callings>
+                <calling>theDispossessed</calling>
+                <calling>imperialCohort</calling>
+                <calling>mercenary</calling>
+                <calling>pirate</calling>
+                <calling>templar</calling>
+            </callings>
+        </restrictions>
+    </capability>
+
+    <capability>
+        <id>militaryWeapon</id>
+        <group>meleeWeapons</group>
+        <name>
+            <en>Military Weapons</en>
+            <es>Armas Militares</es>
+        </name>
+        <restrictions>
+            <factions>
+                <faction>yeoman</faction>
+                <faction>brotherBattle</faction>
+            </factions>
+            <factionGroups>
+                <factionGroup>guild</factionGroup>
+                <factionGroup>nobility</factionGroup>
+            </factionGroups>
+            <callings>
+                <calling>amateur</calling>
+                <calling>bountyHunter</calling>
+                <calling>chainer</calling>
+                <calling>explorer</calling>
+                <calling>imperialCohort</calling>
+                <calling>mercenary</calling>
+                <calling>pirate</calling>
+                <calling>scout</calling>
+                <calling>spy</calling>
+                <calling>starPilot</calling>
+                <calling>templar</calling>
+                <calling>thief</calling>
+            </callings>
+        </restrictions>
+    </capability>
+    <capability>
+        <id>artifactWeapon</id>
+        <group>meleeWeapons</group>
+        <name>
+            <en>Artifact Weapon</en>
+            <es>Artefactos Cuerpo a Cuerpo</es>
+        </name>
+    </capability>
+
+    <capability>
+        <id>artillery</id>
+        <group>militaryOrdnance</group>
+        <name>
+            <en>Artillery</en>
+            <es>Artillería</es>
+        </name>
+        <restrictions>
+            <factions>
+                <faction>brotherBattle</faction>
+            </factions>
+            <factionGroups>
+                <factionGroup>nobility</factionGroup>
+                <factionGroup>guild</factionGroup>
+            </factionGroups>
+            <callings>
+                <calling>mercenary</calling>
+            </callings>
+        </restrictions>
+    </capability>
+    <capability>
+        <id>demolitions</id>
+        <group>militaryOrdnance</group>
+        <name>
+            <en>Demolitions</en>
+            <es>Demoliciones</es>
+        </name>
+        <restrictions>
+            <factions>
+                <faction>brotherBattle</faction>
+                <faction>inquisitor</faction>
+            </factions>
+            <factionGroups>
+                <factionGroup>nobility</factionGroup>
+                <factionGroup>guild</factionGroup>
+            </factionGroups>
+            <callings>
+                <calling>bountyHunter</calling>
+                <calling>imperialCohort</calling>
+                <calling>mercenary</calling>
+                <calling>reclaimer</calling>
+                <calling>scout</calling>
+                <calling>spy</calling>
+                <calling>techRedeemer</calling>
+                <calling>thief</calling>
+            </callings>
+        </restrictions>
+    </capability>
+    <capability>
+        <id>gunnery</id>
+        <group>militaryOrdnance</group>
+        <name>
+            <en>Gunnery</en>
+            <es>Artillería Montada</es>
+        </name>
+        <restrictions>
+            <factions>
+                <faction>brotherBattle</faction>
+            </factions>
+            <factionGroups>
+                <factionGroup>nobility</factionGroup>
+                <factionGroup>guild</factionGroup>
+            </factionGroups>
+            <callings>
+                <calling>chainer</calling>
+                <calling>explorer</calling>
+                <calling>imperialCohort</calling>
+                <calling>mercenary</calling>
+                <calling>pirate</calling>
+                <calling>scout</calling>
+                <calling>starPilot</calling>
+            </callings>
+        </restrictions>
+    </capability>
+    <capability>
+        <id>musicalInstrumentBrass</id>
+        <group>musicalInstruments</group>
+        <name>
+            <en>Musical Instrument (Brass)</en>
+            <es>Instrumento Musical (Viento Metal)</es>
+        </name>
+    </capability>
+    <capability>
+        <id>musicalInstrumentStrings</id>
+        <group>musicalInstruments</group>
+        <name>
+            <en>Musical Instrument (Strings)</en>
+            <es>Instrumento Musical (Cuerda)</es>
+        </name>
+    </capability>
+    <capability>
+        <id>musicalInstrumentWoodwind</id>
+        <group>musicalInstruments</group>
+        <name>
+            <en>Musical Instrument (Woodwind)</en>
+            <es>Instrumento Musical (Viento Madera)</es>
+        </name>
+    </capability>
+    <capability>
+        <id>musicalInstrumentPercussion</id>
+        <group>musicalInstruments</group>
+        <name>
+            <en>Musical Instrument (Percussion)</en>
+            <es>Instrumento Musical (Percusión)</es>
+        </name>
+    </capability>
+    <capability>
+        <id>musicalInstrumentKeyboards</id>
+        <group>musicalInstruments</group>
+        <name>
+            <en>Musical Instrument (Keyboards)</en>
+            <es>Instrumento Musical (Teclado)</es>
+        </name>
+    </capability>
+
+    <capability>
+        <id>archery</id>
+        <group>rangedWeapon</group>
+        <name>
+            <en>Archery</en>
+            <es>Tiro con Arco</es>
+        </name>
+    </capability>
+    <capability>
+        <id>artifactGun</id>
+        <group>rangedWeapon</group>
+        <name>
+            <en>Artifact Gun</en>
+            <es>Artefacto a Distancia</es>
+        </name>
+    </capability>
+    <capability>
+        <id>energyGun</id>
+        <group>rangedWeapon</group>
+        <name>
+            <en>Energy Guns</en>
+            <es>Armas de Energía</es>
+        </name>
+    </capability>
+    <capability>
+        <id>slugGuns</id>
+        <group>rangedWeapon</group>
+        <name>
+            <en>Slug Guns</en>
+            <es>Armas de Balas</es>
+        </name>
+        <restrictions>
+            <factions>
+                <faction>brotherBattle</faction>
+                <faction>inquisitor</faction>
+            </factions>
+            <factionGroups>
+                <factionGroup>nobility</factionGroup>
+                <factionGroup>guild</factionGroup>
+            </factionGroups>
+            <callings>
+                <calling>chainer</calling>
+                <calling>amateur</calling>
+                <calling>bountyHunter</calling>
+                <calling>chainer</calling>
+                <calling>explorer</calling>
+                <calling>detective</calling>
+                <calling>imperialCohort</calling>
+                <calling>mercenary</calling>
+                <calling>pirate</calling>
+                <calling>reclaimer</calling>
+                <calling>scout</calling>
+                <calling>spy</calling>
+                <calling>techRedeemer</calling>
+                <calling>templar</calling>
+            </callings>
+        </restrictions>
+    </capability>
+</capabilities>

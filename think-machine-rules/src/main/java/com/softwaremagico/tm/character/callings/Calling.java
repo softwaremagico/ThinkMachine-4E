@@ -26,6 +26,7 @@ package com.softwaremagico.tm.character.callings;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
+import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.characteristics.CharacteristicOption;
 import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.character.skills.SkillOption;
