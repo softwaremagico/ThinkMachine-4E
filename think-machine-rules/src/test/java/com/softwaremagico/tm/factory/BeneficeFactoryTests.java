@@ -73,9 +73,9 @@ public class BeneficeFactoryTests {
     }
 
     @Test
-    public void getRestrictedRaces() throws InvalidXmlElementException {
+    public void getRestrictedSpecies() throws InvalidXmlElementException {
         Assert.assertTrue(BeneficeDefinitionFactory.getInstance().getElement("prominentFamily")
-                .getRestrictions().getRestrictedToRaces().contains("gannok"));
+                .getRestrictions().getRestrictedToSpecies().contains("gannok"));
     }
 
 //    @Test

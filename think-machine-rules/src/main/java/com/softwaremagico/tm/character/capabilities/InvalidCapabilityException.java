@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.races;
+package com.softwaremagico.tm.character.capabilities;
 
 /*-
  * #%L
@@ -24,30 +24,16 @@ package com.softwaremagico.tm.character.races;
  * #L%
  */
 
-import com.softwaremagico.tm.InvalidXmlElementException;
-import com.softwaremagico.tm.xml.XmlFactory;
 
-import java.util.List;
+public class InvalidCapabilityException extends RuntimeException {
 
-public class RaceFactory extends XmlFactory<Race> {
-    private static final String XML_FILE = "races.xml";
+    private static final long serialVersionUID = 124956025341182821L;
 
-    private static final class RaceFactoryInit {
-        public static final RaceFactory INSTANCE = new RaceFactory();
+    public InvalidCapabilityException(String message) {
+        super(message);
     }
 
-    public static RaceFactory getInstance() {
-        return RaceFactoryInit.INSTANCE;
-    }
-
-
-    @Override
-    public String getXmlFile() {
-        return XML_FILE;
-    }
-
-    @Override
-    public List<Race> getElements() throws InvalidXmlElementException {
-        return readXml(Race.class);
+    public InvalidCapabilityException(String message, Exception e) {
+        super(message, e);
     }
 }

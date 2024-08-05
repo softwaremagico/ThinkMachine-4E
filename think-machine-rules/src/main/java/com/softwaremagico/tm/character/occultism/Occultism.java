@@ -30,7 +30,7 @@ import com.softwaremagico.tm.character.Settings;
 import com.softwaremagico.tm.character.benefices.AvailableBenefice;
 import com.softwaremagico.tm.character.benefices.AvailableBeneficeFactory;
 import com.softwaremagico.tm.character.factions.Faction;
-import com.softwaremagico.tm.character.races.Race;
+import com.softwaremagico.tm.character.specie.Specie;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
 import java.util.ArrayList;
@@ -74,7 +74,7 @@ public class Occultism {
     }
 
     public void setPsiqueLevel(OccultismType occultismType, int psyValue,
-                               Race race) throws InvalidPsiqueLevelException {
+                               Specie specie) throws InvalidPsiqueLevelException {
         if (psyValue < 0) {
             throw new InvalidPsiqueLevelException("Psique level cannot be less than zero.");
         }
@@ -91,12 +91,12 @@ public class Occultism {
             // Module without noOccult benefice.
         }
 
-        if (noOccult != null && psyValue != 0 && (race == null || race.getBenefices().contains(noOccult.getId()))) {
-            throw new InvalidPsiqueLevelException("Race '" + race + "' cannot have psique levels.");
+        if (noOccult != null && psyValue != 0 && (specie == null || specie.getPerks().contains(noOccult.getId()))) {
+            throw new InvalidPsiqueLevelException("Race '" + specie + "' cannot have psique levels.");
         }
         if (noPsi != null && Objects.equals(occultismType, OccultismTypeFactory.getPsi()) && psyValue != 0
-                && race.getBenefices().contains(noPsi.getId())) {
-            throw new InvalidPsiqueLevelException("Race '" + race + "' cannot have psi levels.");
+                && specie.getPerks().contains(noPsi.getId())) {
+            throw new InvalidPsiqueLevelException("Race '" + specie + "' cannot have psi levels.");
         }
         psiqueValue.put(occultismType.getId(), psyValue);
     }
@@ -130,7 +130,7 @@ public class Occultism {
         return getSelectedPowers().keySet().size();
     }
 
-    public void canAddPower(OccultismPath path, OccultismPower power, String language, Faction faction, Race race, Settings settings)
+    public void canAddPower(OccultismPath path, OccultismPower power, String language, Faction faction, Specie specie, Settings settings)
             throws InvalidOccultismPowerException {
         if (power == null) {
             throw new InvalidOccultismPowerException("Power cannot be null.");
@@ -152,9 +152,9 @@ public class Occultism {
             throw new InvalidFactionOfPowerException("Power '" + power + "' can only be acquired by  '"
                     + path.getFactionsAllowed() + "' character faction is '" + faction + "'.");
         }
-        // Limited to some races
-        if (!path.getRestrictions().getRestrictedToRaces().isEmpty() && settings.isRestrictionsChecked() && race != null
-                && !path.getRestrictions().getRestrictedToRaces().contains(race.getId())) {
+        // Limited to some species
+        if (!path.getRestrictions().getRestrictedToSpecies().isEmpty() && settings.isRestrictionsChecked() && specie != null
+                && !path.getRestrictions().getRestrictedToSpecies().contains(specie.getId())) {
             throw new InvalidFactionOfPowerException("Power '" + power + "' can only be acquired by  '"
                     + path.getFactionsAllowed() + "' character faction is '" + faction + "'.");
         }
@@ -176,9 +176,9 @@ public class Occultism {
         }
     }
 
-    public boolean addPower(OccultismPath path, OccultismPower power, String language, Faction faction, Race race, Settings settings)
+    public boolean addPower(OccultismPath path, OccultismPower power, String language, Faction faction, Specie specie, Settings settings)
             throws InvalidOccultismPowerException {
-        canAddPower(path, power, language, faction, race, settings);
+        canAddPower(path, power, language, faction, specie, settings);
         selectedPowers.computeIfAbsent(path.getId(), k -> new ArrayList<>());
         return selectedPowers.get(path.getId()).add(power);
     }

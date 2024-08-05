@@ -120,7 +120,9 @@
             <es>Interfaz</es>
         </name>
         <restrictions>
-            <factions><faction>engineers</faction></factions>
+            <factions>
+                <faction>engineers</faction>
+            </factions>
             <factionGroups>
                 <factionGroup>church</factionGroup>
             </factionGroups>

@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.races;
+package com.softwaremagico.tm.character.specie;
 
 /*-
  * #%L
@@ -32,7 +32,7 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 
 
 @JacksonXmlRootElement(localName = "characteristic")
-public class RaceCharacteristic extends Element<RaceCharacteristic> {
+public class SpecieCharacteristic extends Element<SpecieCharacteristic> {
 
     @JsonAlias("id")
     private CharacteristicName characteristic;
@@ -43,7 +43,7 @@ public class RaceCharacteristic extends Element<RaceCharacteristic> {
     @JsonProperty("maximumInitialValue")
     private int maximumInitialValue;
 
-    public RaceCharacteristic() {
+    public SpecieCharacteristic() {
         super();
     }
 

@@ -24,9 +24,9 @@ package com.softwaremagico.tm.character.callings;
  * #L%
  */
 
-import com.softwaremagico.tm.character.CharacterStep;
+import com.softwaremagico.tm.character.CharacterDefinitionStep;
 
-public class Calling extends CharacterStep<Calling> {
+public class Calling extends CharacterDefinitionStep<Calling> {
 
 
 }

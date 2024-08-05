@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<races>
+<species>
     <human>
         <id>human</id>
         <name>
@@ -30,7 +30,7 @@
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
-       </characteristic>
+        </characteristic>
         <characteristic>
             <id>perception</id>
             <value>3</value>
@@ -38,11 +38,11 @@
             <maximumValue>10</maximumValue>
         </characteristic>
         <characteristic>
-            <id>tech</id>
+            <id>will</id>
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
-       </characteristic>
+        </characteristic>
         <characteristic>
             <id>presence</id>
             <value>3</value>
@@ -50,7 +50,7 @@
             <maximumValue>10</maximumValue>
         </characteristic>
         <characteristic>
-            <id>will</id>
+            <id>intuition</id>
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
@@ -64,9 +64,6 @@
         <movement>
             <value>5</value>
         </movement>
-        <defense>
-            <value>1</value>
-        </defense>
         <psi>0</psi>
         <urge>0</urge>
         <theurgy>0</theurgy>
@@ -86,11 +83,11 @@
             <id>strength</id>
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
-            <maximumValue>9</maximumValue>
+            <maximumValue>10</maximumValue>
         </characteristic>
         <characteristic>
             <id>dexterity</id>
-            <value>4</value>
+            <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
         </characteristic>
@@ -98,14 +95,14 @@
             <id>endurance</id>
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
-            <maximumValue>9</maximumValue>
+            <maximumValue>10</maximumValue>
         </characteristic>
         <characteristic>
             <id>wits</id>
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
-            <maximumValue>10</maximumValue>
-       </characteristic>
+            <maximumValue>11</maximumValue>
+        </characteristic>
         <characteristic>
             <id>perception</id>
             <value>3</value>
@@ -113,11 +110,11 @@
             <maximumValue>10</maximumValue>
         </characteristic>
         <characteristic>
-            <id>tech</id>
+            <id>will</id>
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
-            <maximumValue>10</maximumValue>
-       </characteristic>
+            <maximumValue>11</maximumValue>
+        </characteristic>
         <characteristic>
             <id>presence</id>
             <value>3</value>
@@ -125,7 +122,7 @@
             <maximumValue>10</maximumValue>
         </characteristic>
         <characteristic>
-            <id>will</id>
+            <id>intuition</id>
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
@@ -139,14 +136,18 @@
         <movement>
             <value>5</value>
         </movement>
-        <defense>
-            <value>1</value>
-        </defense>
         <psi>1</psi>
         <urge>0</urge>
         <theurgy>1</theurgy>
         <hubris>0</hubris>
-        <blessings>just, condescending</blessings>
+        <capabilities>
+            <capability>speakLojmaa</capability>
+        </capabilities>
+        <perks>
+            <perk>childOfDhiyana</perk>
+            <perk>mentalConditioning</perk>
+            <perk>oralMemory</perk>
+        </perks>
         <random>
             <staticProbability>10</staticProbability>
         </random>
@@ -181,7 +182,7 @@
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
-       </characteristic>
+        </characteristic>
         <characteristic>
             <id>perception</id>
             <value>3</value>
@@ -189,11 +190,11 @@
             <maximumValue>10</maximumValue>
         </characteristic>
         <characteristic>
-            <id>tech</id>
+            <id>will</id>
             <value>4</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
-       </characteristic>
+        </characteristic>
         <characteristic>
             <id>presence</id>
             <value>3</value>
@@ -201,7 +202,7 @@
             <maximumValue>10</maximumValue>
         </characteristic>
         <characteristic>
-            <id>will</id>
+            <id>intuition</id>
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
@@ -215,9 +216,6 @@
         <movement>
             <value>5</value>
         </movement>
-        <defense>
-            <value>1</value>
-        </defense>
         <psi>1</psi>
         <urge>1</urge>
         <theurgy>0</theurgy>
@@ -258,7 +256,7 @@
             <value>2</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
-       </characteristic>
+        </characteristic>
         <characteristic>
             <id>perception</id>
             <value>3</value>
@@ -266,11 +264,11 @@
             <maximumValue>10</maximumValue>
         </characteristic>
         <characteristic>
-            <id>tech</id>
+            <id>will</id>
             <value>1</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
-       </characteristic>
+        </characteristic>
         <characteristic>
             <id>presence</id>
             <value>3</value>
@@ -278,7 +276,7 @@
             <maximumValue>10</maximumValue>
         </characteristic>
         <characteristic>
-            <id>will</id>
+            <id>intuition</id>
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
@@ -292,9 +290,6 @@
         <movement>
             <value>14</value>
         </movement>
-        <defense>
-            <value>1</value>
-        </defense>
         <psi>0</psi>
         <urge>0</urge>
         <theurgy>0</theurgy>
@@ -335,7 +330,7 @@
             <value>2</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
-       </characteristic>
+        </characteristic>
         <characteristic>
             <id>perception</id>
             <value>3</value>
@@ -343,11 +338,11 @@
             <maximumValue>10</maximumValue>
         </characteristic>
         <characteristic>
-            <id>tech</id>
+            <id>will</id>
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
-       </characteristic>
+        </characteristic>
         <characteristic>
             <id>presence</id>
             <value>3</value>
@@ -355,7 +350,7 @@
             <maximumValue>10</maximumValue>
         </characteristic>
         <characteristic>
-            <id>will</id>
+            <id>intuition</id>
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
@@ -369,9 +364,6 @@
         <movement>
             <value>16</value>
         </movement>
-        <defense>
-            <value>1</value>
-        </defense>
         <psi>0</psi>
         <urge>0</urge>
         <theurgy>0</theurgy>
@@ -414,7 +406,7 @@
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
-       </characteristic>
+        </characteristic>
         <characteristic>
             <id>perception</id>
             <value>3</value>
@@ -422,11 +414,11 @@
             <maximumValue>10</maximumValue>
         </characteristic>
         <characteristic>
-            <id>tech</id>
+            <id>will</id>
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
-       </characteristic>
+        </characteristic>
         <characteristic>
             <id>presence</id>
             <value>3</value>
@@ -434,7 +426,7 @@
             <maximumValue>10</maximumValue>
         </characteristic>
         <characteristic>
-            <id>will</id>
+            <id>intuition</id>
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
@@ -448,9 +440,6 @@
         <movement>
             <value>5</value>
         </movement>
-        <defense>
-            <value>1</value>
-        </defense>
         <psi>0</psi>
         <urge>0</urge>
         <theurgy>0</theurgy>
@@ -495,7 +484,7 @@
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
-       </characteristic>
+        </characteristic>
         <characteristic>
             <id>perception</id>
             <value>4</value>
@@ -503,11 +492,11 @@
             <maximumValue>12</maximumValue>
         </characteristic>
         <characteristic>
-            <id>tech</id>
+            <id>will</id>
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
-       </characteristic>
+        </characteristic>
         <characteristic>
             <id>presence</id>
             <value>3</value>
@@ -515,7 +504,7 @@
             <maximumValue>10</maximumValue>
         </characteristic>
         <characteristic>
-            <id>will</id>
+            <id>intuition</id>
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
@@ -529,9 +518,6 @@
         <movement>
             <value>5</value>
         </movement>
-        <defense>
-            <value>1</value>
-        </defense>
         <psi>0</psi>
         <urge>0</urge>
         <theurgy>0</theurgy>
@@ -574,7 +560,7 @@
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
-       </characteristic>
+        </characteristic>
         <characteristic>
             <id>perception</id>
             <value>3</value>
@@ -582,11 +568,11 @@
             <maximumValue>10</maximumValue>
         </characteristic>
         <characteristic>
-            <id>tech</id>
+            <id>will</id>
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
-       </characteristic>
+        </characteristic>
         <characteristic>
             <id>presence</id>
             <value>3</value>
@@ -594,7 +580,7 @@
             <maximumValue>10</maximumValue>
         </characteristic>
         <characteristic>
-            <id>will</id>
+            <id>intuition</id>
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
@@ -608,9 +594,6 @@
         <movement>
             <value>5</value>
         </movement>
-        <defense>
-            <value>1</value>
-        </defense>
         <psi>0</psi>
         <urge>0</urge>
         <theurgy>0</theurgy>
@@ -653,7 +636,7 @@
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
-       </characteristic>
+        </characteristic>
         <characteristic>
             <id>perception</id>
             <value>4</value>
@@ -661,11 +644,11 @@
             <maximumValue>11</maximumValue>
         </characteristic>
         <characteristic>
-            <id>tech</id>
+            <id>will</id>
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
-       </characteristic>
+        </characteristic>
         <characteristic>
             <id>presence</id>
             <value>3</value>
@@ -673,7 +656,7 @@
             <maximumValue>10</maximumValue>
         </characteristic>
         <characteristic>
-            <id>will</id>
+            <id>intuition</id>
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
@@ -687,9 +670,6 @@
         <movement>
             <value>5</value>
         </movement>
-        <defense>
-            <value>1</value>
-        </defense>
         <psi>0</psi>
         <urge>0</urge>
         <theurgy>0</theurgy>
@@ -734,7 +714,7 @@
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
-       </characteristic>
+        </characteristic>
         <characteristic>
             <id>perception</id>
             <value>4</value>
@@ -742,11 +722,11 @@
             <maximumValue>11</maximumValue>
         </characteristic>
         <characteristic>
-            <id>tech</id>
+            <id>will</id>
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
-       </characteristic>
+        </characteristic>
         <characteristic>
             <id>presence</id>
             <value>3</value>
@@ -754,7 +734,7 @@
             <maximumValue>10</maximumValue>
         </characteristic>
         <characteristic>
-            <id>will</id>
+            <id>intuition</id>
             <value>3</value>
             <maximumInitialValue>8</maximumInitialValue>
             <maximumValue>10</maximumValue>
@@ -768,9 +748,6 @@
         <movement>
             <value>5</value>
         </movement>
-        <defense>
-            <value>1</value>
-        </defense>
         <psi>0</psi>
         <urge>0</urge>
         <theurgy>0</theurgy>
@@ -783,4 +760,4 @@
             <staticProbability>0</staticProbability>
         </random>
     </oroym>
-</races>
+</species>

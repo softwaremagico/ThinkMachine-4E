@@ -7,10 +7,10 @@
             <es>Educación Alienígena</es>
         </name>
         <description>
-            <en>Due to some odd series of events, the character was raised by members of another race. It’s almost
+            <en>Due to some odd series of events, the character was raised by members of another specie. It’s almost
                 unheard of for humans to care for a Ur-Ukar child or a Vorox to take care of a human infant, but it has
                 happened. A character with this Benefice begins with knowledge of that species’ language (the Speak
-                skill) instead of his own. Anyone with a prejudice against non-human races (which includes almost every
+                skill) instead of his own. Anyone with a prejudice against non-human species (which includes almost every
                 person in the Known Worlds) will tend to have a special distrust for the character.
             </en>
             <es>Debido a una extraña serie de sucesión de eventos, el personaje ha sido criado por miembros de otra
@@ -107,7 +107,7 @@
                     <es>Terráqueo</es>
                 </name>
                 <random>
-                    <forbiddenRaces>human</forbiddenRaces>
+                    <forbiddenSpecies>human</forbiddenSpecies>
                 </random>
             </specialization>
             <specialization>
@@ -124,7 +124,7 @@
                     <es>Obun</es>
                 </name>
                 <random>
-                    <forbiddenRaces>obun</forbiddenRaces>
+                    <forbiddenSpecies>obun</forbiddenSpecies>
                 </random>
             </specialization>
             <specialization>
@@ -134,7 +134,7 @@
                     <es>Ukar</es>
                 </name>
                 <random>
-                    <forbiddenRaces>ukar</forbiddenRaces>
+                    <forbiddenSpecies>ukar</forbiddenSpecies>
                 </random>
             </specialization>
             <specialization>
@@ -144,7 +144,7 @@
                     <es>Vorox</es>
                 </name>
                 <random>
-                    <forbiddenRaces>vorox</forbiddenRaces>
+                    <forbiddenSpecies>vorox</forbiddenSpecies>
                 </random>
             </specialization>
             <specialization>
@@ -154,7 +154,7 @@
                     <es>Lenguaje del Viento</es>
                 </name>
                 <random>
-                    <forbiddenRaces>shantor</forbiddenRaces>
+                    <forbiddenSpecies>shantor</forbiddenSpecies>
                     <probabilityMultiplier>0.1</probabilityMultiplier>
                 </random>
             </specialization>
@@ -165,7 +165,7 @@
                     <es>Tok Tok</es>
                 </name>
                 <random>
-                    <forbiddenRaces>gannok</forbiddenRaces>
+                    <forbiddenSpecies>gannok</forbiddenSpecies>
                     <probabilityMultiplier>0.1</probabilityMultiplier>
                 </random>
             </specialization>
@@ -176,7 +176,7 @@
                     <es>Salsu</es>
                 </name>
                 <random>
-                    <forbiddenRaces>hironem</forbiddenRaces>
+                    <forbiddenSpecies>hironem</forbiddenSpecies>
                     <probabilityMultiplier>0.1</probabilityMultiplier>
                 </random>
             </specialization>
@@ -187,7 +187,7 @@
                     <es>Oro'ym</es>
                 </name>
                 <random>
-                    <forbiddenRaces>oroym</forbiddenRaces>
+                    <forbiddenSpecies>oroym</forbiddenSpecies>
                     <probabilityMultiplier>0.1</probabilityMultiplier>
                 </random>
             </specialization>
@@ -2059,7 +2059,7 @@
                     <es>Terráqueo</es>
                 </name>
                 <random>
-                    <forbiddenRaces>human</forbiddenRaces>
+                    <forbiddenSpecies>human</forbiddenSpecies>
                 </random>
             </specialization>
         </specializations>
@@ -2144,9 +2144,9 @@
         <group>background</group>
         <official>false</official>
         <restrictions>
-            <races>
-                <race>gannok</race>
-            </races>
+            <species>
+                <specie>gannok</specie>
+            </species>
         </restrictions>
     </benefice>
     <benefice>
@@ -2166,9 +2166,9 @@
         <group>background</group>
         <restrictions>
             <restricted>true</restricted>
-            <races>
-                <race>hironem</race>
-            </races>
+            <species>
+                <specie>hironem</specie>
+            </species>
         </restrictions>
         <official>false</official>
         <affliction>true</affliction>

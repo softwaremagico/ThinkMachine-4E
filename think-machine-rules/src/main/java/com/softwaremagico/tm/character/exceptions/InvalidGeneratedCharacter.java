@@ -25,7 +25,7 @@ package com.softwaremagico.tm.character.exceptions;
  */
 
 
-public class InvalidGeneratedCharacter extends Exception {
+public class InvalidGeneratedCharacter extends RuntimeException {
 
     private static final long serialVersionUID = 3558660253411869827L;
 

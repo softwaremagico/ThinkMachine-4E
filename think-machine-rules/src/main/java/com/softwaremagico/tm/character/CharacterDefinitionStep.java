@@ -33,7 +33,7 @@ import com.softwaremagico.tm.character.skills.SkillOption;
 
 import java.util.List;
 
-public class CharacterStep<T extends Element<?>> extends Element<T> {
+public class CharacterDefinitionStep<T extends Element<?>> extends Element<T> {
     @JsonProperty("capabilities")
     private List<CapabilityOptions> capabilityOptions;
     @JsonProperty("characteristics")

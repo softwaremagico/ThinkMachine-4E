@@ -39,9 +39,9 @@ public class RandomElementDefinition extends XmlData {
     private Double probabilityMultiplier;
     private Set<String> restrictedFactions = new HashSet<>();
     private Set<String> recommendedFactions = new HashSet<>();
-    private Set<String> forbiddenRaces = new HashSet<>();
-    private Set<String> restrictedRaces = new HashSet<>();
-    private Set<String> recommendedRaces = new HashSet<>();
+    private Set<String> forbiddenSpecies = new HashSet<>();
+    private Set<String> restrictedSpecies = new HashSet<>();
+    private Set<String> recommendedSpecies = new HashSet<>();
     private Set<FactionGroup> restrictedFactionGroups = new HashSet<>();
     private Set<FactionGroup> recommendedFactionGroups = new HashSet<>();
     private RandomProbabilityDefinition probability;
@@ -78,17 +78,17 @@ public class RandomElementDefinition extends XmlData {
             recommendedFactions.clear();
             recommendedFactions.addAll(randomDefinition.getRecommendedFactions());
         }
-        if (randomDefinition.getRecommendedRaces() != null && !randomDefinition.getRecommendedRaces().isEmpty()) {
-            recommendedRaces.clear();
-            recommendedRaces.addAll(randomDefinition.getRecommendedRaces());
+        if (randomDefinition.getRecommendedSpecies() != null && !randomDefinition.getRecommendedSpecies().isEmpty()) {
+            recommendedSpecies.clear();
+            recommendedSpecies.addAll(randomDefinition.getRecommendedSpecies());
         }
-        if (randomDefinition.getForbiddenRaces() != null && !randomDefinition.getForbiddenRaces().isEmpty()) {
-            forbiddenRaces.clear();
-            forbiddenRaces.addAll(randomDefinition.getForbiddenRaces());
+        if (randomDefinition.getForbiddenSpecies() != null && !randomDefinition.getForbiddenSpecies().isEmpty()) {
+            forbiddenSpecies.clear();
+            forbiddenSpecies.addAll(randomDefinition.getForbiddenSpecies());
         }
-        if (randomDefinition.getRestrictedRaces() != null && !randomDefinition.getRestrictedRaces().isEmpty()) {
-            restrictedRaces.clear();
-            restrictedRaces.addAll(randomDefinition.getRestrictedRaces());
+        if (randomDefinition.getRestrictedSpecies() != null && !randomDefinition.getRestrictedSpecies().isEmpty()) {
+            restrictedSpecies.clear();
+            restrictedSpecies.addAll(randomDefinition.getRestrictedSpecies());
         }
         if (randomDefinition.getRestrictedFactionGroups() != null && !randomDefinition.getRestrictedFactionGroups().isEmpty()) {
             restrictedFactionGroups.clear();
@@ -134,9 +134,9 @@ public class RandomElementDefinition extends XmlData {
         }
     }
 
-    public void addRecommendedRaces(String race) {
+    public void addRecommendedSpecies(String race) {
         if (race != null) {
-            restrictedRaces.add(race);
+            restrictedSpecies.add(race);
         }
     }
 
@@ -150,12 +150,12 @@ public class RandomElementDefinition extends XmlData {
 
     public void addRecommendedRace(String race) {
         if (race != null) {
-            recommendedRaces.add(race);
+            recommendedSpecies.add(race);
         }
     }
 
-    public Set<String> getRecommendedRaces() {
-        return recommendedRaces;
+    public Set<String> getRecommendedSpecies() {
+        return recommendedSpecies;
     }
 
     public Integer getMaximumTechLevel() {
@@ -200,22 +200,22 @@ public class RandomElementDefinition extends XmlData {
 
     public void addRestrictedRace(String restrictedRace) {
         if (restrictedRace != null) {
-            restrictedRaces.add(restrictedRace);
+            restrictedSpecies.add(restrictedRace);
         }
     }
 
-    public Set<String> getRestrictedRaces() {
-        return restrictedRaces;
+    public Set<String> getRestrictedSpecies() {
+        return restrictedSpecies;
     }
 
     public void addForbiddenRace(String forbiddenRace) {
         if (forbiddenRace != null) {
-            forbiddenRaces.add(forbiddenRace);
+            forbiddenSpecies.add(forbiddenRace);
         }
     }
 
-    public Set<String> getForbiddenRaces() {
-        return forbiddenRaces;
+    public Set<String> getForbiddenSpecies() {
+        return forbiddenSpecies;
     }
 
     public Set<FactionGroup> getRestrictedFactionGroups() {
@@ -240,31 +240,31 @@ public class RandomElementDefinition extends XmlData {
         this.recommendedFactions = recommendedFactions;
     }
 
-    public void setForbiddenRaces(String forbiddenRacesContent) {
-        forbiddenRaces = new HashSet<>();
-        readCommaSeparatedTokens(forbiddenRaces, forbiddenRacesContent);
+    public void setForbiddenSpecies(String forbiddenSpeciesContent) {
+        forbiddenSpecies = new HashSet<>();
+        readCommaSeparatedTokens(forbiddenSpecies, forbiddenSpeciesContent);
     }
 
-    public void setForbiddenRaces(Set<String> forbiddenRaces) {
-        this.forbiddenRaces = forbiddenRaces;
+    public void setForbiddenSpecies(Set<String> forbiddenSpecies) {
+        this.forbiddenSpecies = forbiddenSpecies;
     }
 
-    public void setRestrictedRaces(String restrictedRacesContent) {
-        restrictedRaces = new HashSet<>();
-        readCommaSeparatedTokens(restrictedRaces, restrictedRacesContent);
+    public void setRestrictedSpecies(String restrictedSpeciesContent) {
+        restrictedSpecies = new HashSet<>();
+        readCommaSeparatedTokens(restrictedSpecies, restrictedSpeciesContent);
     }
 
-    public void setRestrictedRaces(Set<String> restrictedRaces) {
-        this.restrictedRaces = restrictedRaces;
+    public void setRestrictedSpecies(Set<String> restrictedSpecies) {
+        this.restrictedSpecies = restrictedSpecies;
     }
 
-    public void setRecommendedRaces(String recommendedRacesContent) {
-        recommendedRaces = new HashSet<>();
-        readCommaSeparatedTokens(recommendedRaces, recommendedRacesContent);
+    public void setRecommendedSpecies(String recommendedSpeciesContent) {
+        recommendedSpecies = new HashSet<>();
+        readCommaSeparatedTokens(recommendedSpecies, recommendedSpeciesContent);
     }
 
-    public void setRecommendedRaces(Set<String> recommendedRaces) {
-        this.recommendedRaces = recommendedRaces;
+    public void setRecommendedSpecies(Set<String> recommendedSpecies) {
+        this.recommendedSpecies = recommendedSpecies;
     }
 
     public void setRestrictedFactionGroups(String restrictedFactionGroupsContent) {

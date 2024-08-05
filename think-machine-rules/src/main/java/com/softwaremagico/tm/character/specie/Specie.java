@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.races;
+package com.softwaremagico.tm.character.specie;
 
 /*-
  * #%L
@@ -32,12 +32,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Race extends Element<Race> {
+public class Specie extends Element<Specie> {
 
-    private List<RaceCharacteristic> raceCharacteristics;
+    private List<SpecieCharacteristic> specieCharacteristics;
 
-    private Set<String> blessings = null;
-    private Set<String> benefices = null;
     private Set<String> planets = null;
 
     private int psi;
@@ -45,17 +43,20 @@ public class Race extends Element<Race> {
     private int urge;
     private int hubris;
 
+    private List<String> capabilities;
+    private List<String> perks;
+
     private int cost;
 
-    public RaceCharacteristic getParameter(CharacteristicName characteristicName) throws InvalidRaceException {
-        return raceCharacteristics.stream().filter(raceCharacteristic -> raceCharacteristic.getCharacteristic() == characteristicName).findFirst()
-                .orElseThrow(() -> new InvalidRaceException("Characteristic '" + characteristicName + "' does not exists on race '" + getId() + "'."));
+    public SpecieCharacteristic getParameter(CharacteristicName characteristicName) throws InvalidSpecieException {
+        return specieCharacteristics.stream().filter(specieCharacteristic -> specieCharacteristic.getCharacteristic() == characteristicName).findFirst()
+                .orElseThrow(() -> new InvalidSpecieException("Characteristic '" + characteristicName + "' does not exists on race '" + getId() + "'."));
     }
 
     public void setMaximumValue(CharacteristicName characteristicName, int maxValue) {
         try {
             getParameter(characteristicName).setMaximumValue(maxValue);
-        } catch (NullPointerException | InvalidRaceException npe) {
+        } catch (NullPointerException | InvalidSpecieException npe) {
             MachineLog.severe(this.getClass().getName(), "Invalid maximum parameter '{}'.", characteristicName);
         }
     }
@@ -63,7 +64,7 @@ public class Race extends Element<Race> {
     public void setMaximumInitialValue(CharacteristicName characteristicName, int maxValue) {
         try {
             getParameter(characteristicName).setMaximumInitialValue(maxValue);
-        } catch (NullPointerException | InvalidRaceException npe) {
+        } catch (NullPointerException | InvalidSpecieException npe) {
             MachineLog.severe(this.getClass().getName(), "Invalid maximum initial parameter '{}'.", characteristicName);
         }
     }
@@ -71,12 +72,12 @@ public class Race extends Element<Race> {
     public void setValue(CharacteristicName characteristicName, int value) {
         try {
             getParameter(characteristicName).setInitialValue(value);
-        } catch (NullPointerException | InvalidRaceException npe) {
+        } catch (NullPointerException | InvalidSpecieException npe) {
             MachineLog.severe(this.getClass().getName(), "Invalid value parameter '{}'.", characteristicName);
         }
     }
 
-    public RaceCharacteristic get(CharacteristicName characteristicName) throws InvalidRaceException {
+    public SpecieCharacteristic get(CharacteristicName characteristicName) throws InvalidSpecieException {
         return getParameter(characteristicName);
     }
 
@@ -134,32 +135,6 @@ public class Race extends Element<Race> {
         return !getId().equals("human");
     }
 
-    public Set<String> getBlessings() {
-        return blessings;
-    }
-
-    public Set<String> getBenefices() {
-        return benefices;
-    }
-
-    public void setBlessings(String blessingContent) {
-        blessings = new HashSet<>();
-        readCommaSeparatedTokens(blessings, blessingContent);
-    }
-
-    public void setBlessings(Set<String> blessings) {
-        this.blessings = blessings;
-    }
-
-    public void setBenefices(String beneficesContent) {
-        benefices = new HashSet<>();
-        readCommaSeparatedTokens(benefices, beneficesContent);
-    }
-
-    public void setBenefices(Set<String> benefices) {
-        this.benefices = benefices;
-    }
-
     public void setPlanets(String planetsContent) {
         planets = new HashSet<>();
         readCommaSeparatedTokens(planets, planetsContent);
@@ -171,5 +146,29 @@ public class Race extends Element<Race> {
 
     public void setPlanets(Set<String> planets) {
         this.planets = planets;
+    }
+
+    public List<SpecieCharacteristic> getSpecieCharacteristics() {
+        return specieCharacteristics;
+    }
+
+    public void setSpecieCharacteristics(List<SpecieCharacteristic> specieCharacteristics) {
+        this.specieCharacteristics = specieCharacteristics;
+    }
+
+    public List<String> getCapabilities() {
+        return capabilities;
+    }
+
+    public void setCapabilities(List<String> capabilities) {
+        this.capabilities = capabilities;
+    }
+
+    public List<String> getPerks() {
+        return perks;
+    }
+
+    public void setPerks(List<String> perks) {
+        this.perks = perks;
     }
 }

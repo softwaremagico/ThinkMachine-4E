@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.upbringing;
+package com.softwaremagico.tm.character.capabilities;
 
 /*-
  * #%L
@@ -24,8 +24,16 @@ package com.softwaremagico.tm.character.upbringing;
  * #L%
  */
 
-import com.softwaremagico.tm.character.CharacterDefinitionStep;
 
-public class Upbringing extends CharacterDefinitionStep<Upbringing> {
+public class InvalidSpecializationException extends RuntimeException {
 
+    private static final long serialVersionUID = 3549560253411869821L;
+
+    public InvalidSpecializationException(String message) {
+        super(message);
+    }
+
+    public InvalidSpecializationException(String message, Exception e) {
+        super(message, e);
+    }
 }

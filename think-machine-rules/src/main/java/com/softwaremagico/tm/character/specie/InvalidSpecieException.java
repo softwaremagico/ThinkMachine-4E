@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.upbringing;
+package com.softwaremagico.tm.character.specie;
 
 /*-
  * #%L
@@ -24,8 +24,19 @@ package com.softwaremagico.tm.character.upbringing;
  * #L%
  */
 
-import com.softwaremagico.tm.character.CharacterDefinitionStep;
 
-public class Upbringing extends CharacterDefinitionStep<Upbringing> {
+import com.softwaremagico.tm.InvalidXmlElementException;
 
+
+public class InvalidSpecieException extends InvalidXmlElementException {
+
+    private static final long serialVersionUID = 1243337930745480002L;
+
+    public InvalidSpecieException(String message) {
+        super(message);
+    }
+
+    public InvalidSpecieException(String message, Exception e) {
+        super(message, e);
+    }
 }

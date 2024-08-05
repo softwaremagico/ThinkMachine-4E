@@ -25,9 +25,14 @@ package com.softwaremagico.tm.character.capabilities;
  */
 
 import com.softwaremagico.tm.Element;
+import com.softwaremagico.tm.character.skills.Specialization;
+
+import java.util.List;
+import java.util.Objects;
 
 public class Capability extends Element<Capability> {
     private String group;
+    private List<Specialization> specializations;
 
     public String getGroup() {
         return group;
@@ -35,5 +40,18 @@ public class Capability extends Element<Capability> {
 
     public void setGroup(String group) {
         this.group = group;
+    }
+
+    public List<Specialization> getSpecializations() {
+        return specializations;
+    }
+
+    public Specialization getSpecialization(String specialization) {
+        return specializations.stream().filter(s -> Objects.equals(s.getId(), specialization)).findFirst().orElseThrow(() ->
+                new InvalidSpecializationException("Specialization '" + specialization + "' not found on capability '" + getId() + "'."));
+    }
+
+    public void setSpecializations(List<Specialization> specializations) {
+        this.specializations = specializations;
     }
 }

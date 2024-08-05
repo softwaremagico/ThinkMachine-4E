@@ -132,11 +132,11 @@ public class CombatStylesFactoryTests {
 //    }
 //
 //    @Test
-//    public void checkRestrictedRaces() throws InvalidXmlElementException {
+//    public void checkRestrictedSpecies() throws InvalidXmlElementException {
 //        final CombatStyle graa = CombatStyleFactory.getInstance().getElement("graa", LANGUAGE,
 //                PathManager.DEFAULT_MODULE_FOLDER);
 //        Assert.assertEquals(RaceFactory.getInstance().getElement("vorox", LANGUAGE, PathManager.DEFAULT_MODULE_FOLDER),
-//                graa.getRestrictedToRaces().iterator().next());
+//                graa.getRestrictedToSpecies().iterator().next());
 //    }
 //
 //    @Test

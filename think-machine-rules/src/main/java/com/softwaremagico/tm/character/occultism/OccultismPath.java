@@ -162,12 +162,12 @@ public class OccultismPath extends Element<OccultismPath> {
         this.occultismPowersElements = occultismPowersElements;
     }
 
-    public void setRestrictedToRaces(String restrictedToRacesContent) {
-        readCommaSeparatedTokens(super.getRestrictions().getRestrictedToRaces(), restrictedToRacesContent);
+    public void setRestrictedToSpecies(String restrictedToSpeciesContent) {
+        readCommaSeparatedTokens(super.getRestrictions().getRestrictedToSpecies(), restrictedToSpeciesContent);
     }
 
-    public void setRestrictedToRaces(Set<String> restrictedToRaces) {
-        super.getRestrictions().setRestrictedToRaces(restrictedToRaces);
+    public void setRestrictedToSpecies(Set<String> restrictedToSpecies) {
+        super.getRestrictions().setRestrictedToSpecies(restrictedToSpecies);
     }
 
     public void setRestrictedToFactions(String restrictedToFactionsContent) {

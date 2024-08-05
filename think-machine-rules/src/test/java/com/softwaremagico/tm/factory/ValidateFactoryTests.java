@@ -39,7 +39,7 @@ import com.softwaremagico.tm.character.occultism.OccultismRangeFactory;
 import com.softwaremagico.tm.character.occultism.OccultismTypeFactory;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
-import com.softwaremagico.tm.character.races.RaceFactory;
+import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.skills.SkillFactory;
 import org.testng.annotations.Test;
 
@@ -96,7 +96,7 @@ public class ValidateFactoryTests {
 
     @Test
     public void validateRaceFactory() throws InvalidXmlElementException {
-        RaceFactory.getInstance().validate();
+        SpecieFactory.getInstance().validate();
     }
 
     @Test

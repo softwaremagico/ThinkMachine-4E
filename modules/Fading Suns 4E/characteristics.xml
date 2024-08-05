@@ -104,7 +104,7 @@
 		<type>characteristicDefinition</type>
 	</characteristicDefinition>
 	<characteristicDefinition>
-		<id>will</id>
+		<id>intuition</id>
 		<name>
 			<en>Intuition</en>
 			<es>Intuición</es>
@@ -153,19 +153,6 @@
 		<abbreviation>
 			<en>Mv</en>
 			<es>Mv</es>
-		</abbreviation>
-		<characteristicType>others</characteristicType>
-		<type>characteristicDefinition</type>
-	</characteristicDefinition>
-	<characteristicDefinition>
-		<id>defense</id>
-		<name>
-			<en>Defense</en>
-			<es>Defensa</es>
-		</name>
-		<abbreviation>
-			<en>Df</en>
-			<es>Df</es>
 		</abbreviation>
 		<characteristicType>others</characteristicType>
 		<type>characteristicDefinition</type>

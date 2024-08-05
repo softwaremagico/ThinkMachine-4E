@@ -24,17 +24,22 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
+import com.softwaremagico.tm.character.capabilities.CapabilitySelection;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.combat.CombatActionRequirement;
 import com.softwaremagico.tm.character.skills.Skill;
 
+import java.util.List;
+
 public class CharacterPlayer {
 
-    private String race;
+    private String specie;
 
-    private String faction;
+    private CharacterDefinitionStepSelection faction;
 
-    private String uprising;
+    private CharacterDefinitionStepSelection uprising;
+
+    private List<CapabilitySelection> capabilities;
 
     private final Settings settings;
 
@@ -42,19 +47,19 @@ public class CharacterPlayer {
         settings = new Settings();
     }
 
-    public String getRace() {
-        return race;
+    public String getSpecie() {
+        return specie;
     }
 
-    public void setRace(String race) {
-        this.race = race;
+    public void setSpecie(String specie) {
+        this.specie = specie;
     }
 
-    public String getFaction() {
+    public CharacterDefinitionStepSelection getFaction() {
         return faction;
     }
 
-    public void setFaction(String faction) {
+    public void setFaction(CharacterDefinitionStepSelection faction) {
         this.faction = faction;
     }
 
@@ -74,11 +79,19 @@ public class CharacterPlayer {
         return 0;
     }
 
-    public String getUprising() {
+    public CharacterDefinitionStepSelection getUprising() {
         return uprising;
     }
 
-    public void setUprising(String uprising) {
+    public void setUprising(CharacterDefinitionStepSelection uprising) {
         this.uprising = uprising;
+    }
+
+    public List<CapabilitySelection> getCapabilities() {
+        return capabilities;
+    }
+
+    public void setCapabilities(List<CapabilitySelection> capabilities) {
+        this.capabilities = capabilities;
     }
 }

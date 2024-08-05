@@ -16,9 +16,6 @@
                 </capabilities>
             </options>
             <options>
-                <total>1</total>
-            </options>
-            <options>
                 <capability>courtCustoms</capability>
                 <total>1</total>
             </options>
@@ -60,7 +57,7 @@
                         <bonus>1</bonus>
                     </characteristic>
                     <characteristic>
-                        <id>will</id>
+                        <id>intuition</id>
                         <bonus>1</bonus>
                     </characteristic>
                 </characteristics>

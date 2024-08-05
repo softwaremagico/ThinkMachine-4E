@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.races;
+package com.softwaremagico.tm.character.specie;
 
 /*-
  * #%L
@@ -24,19 +24,30 @@ package com.softwaremagico.tm.character.races;
  * #L%
  */
 
-
 import com.softwaremagico.tm.InvalidXmlElementException;
+import com.softwaremagico.tm.xml.XmlFactory;
 
+import java.util.List;
 
-public class InvalidRaceException extends InvalidXmlElementException {
+public class SpecieFactory extends XmlFactory<Specie> {
+    private static final String XML_FILE = "species.xml";
 
-    private static final long serialVersionUID = 1243337930745480002L;
-
-    public InvalidRaceException(String message) {
-        super(message);
+    private static final class RaceFactoryInit {
+        public static final SpecieFactory INSTANCE = new SpecieFactory();
     }
 
-    public InvalidRaceException(String message, Exception e) {
-        super(message, e);
+    public static SpecieFactory getInstance() {
+        return RaceFactoryInit.INSTANCE;
+    }
+
+
+    @Override
+    public String getXmlFile() {
+        return XML_FILE;
+    }
+
+    @Override
+    public List<Specie> getElements() throws InvalidXmlElementException {
+        return readXml(Specie.class);
     }
 }

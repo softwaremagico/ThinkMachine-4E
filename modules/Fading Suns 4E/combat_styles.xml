@@ -81,7 +81,7 @@
 				</description>
 			</stance>
 		</stances>
-		<restrictions><races><race>vorox</race></races></restrictions>
+		<restrictions><species><specie>vorox</specie></species></restrictions>
 	</style>
 	<style>
 		<id>joxKaiVon</id>

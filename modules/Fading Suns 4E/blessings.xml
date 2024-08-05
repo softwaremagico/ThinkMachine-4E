@@ -24,7 +24,7 @@
             <bonification>
                 <value>2</value>
                 <affects>
-                    <id>will</id>
+                    <id>intuition</id>
                     <type>characteristic</type>
                 </affects>
                 <situation>
