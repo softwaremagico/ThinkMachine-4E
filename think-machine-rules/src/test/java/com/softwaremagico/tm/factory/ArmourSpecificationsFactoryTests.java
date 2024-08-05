@@ -25,8 +25,7 @@ package com.softwaremagico.tm.factory;
  */
 
 
-import com.softwaremagico.tm.InvalidXmlElementException;
-import com.softwaremagico.tm.character.equipment.armours.ArmourFactory;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.character.equipment.armours.ArmourSpecificationFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;

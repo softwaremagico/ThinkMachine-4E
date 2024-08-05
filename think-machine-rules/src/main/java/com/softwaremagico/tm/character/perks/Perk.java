@@ -24,8 +24,27 @@ package com.softwaremagico.tm.character.perks;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
 
 public class Perk extends Element<Perk> {
     private boolean isAffliction = false;
+    @JsonProperty("cyberDevice")
+    private Integer cyberDeviceTechLevel;
+
+    public boolean isAffliction() {
+        return isAffliction;
+    }
+
+    public void setAffliction(boolean affliction) {
+        isAffliction = affliction;
+    }
+
+    public Integer getCyberDeviceTechLevel() {
+        return cyberDeviceTechLevel;
+    }
+
+    public void setCyberDeviceTechLevel(Integer cyberDeviceTechLevel) {
+        this.cyberDeviceTechLevel = cyberDeviceTechLevel;
+    }
 }

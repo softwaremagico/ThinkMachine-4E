@@ -24,8 +24,7 @@ package com.softwaremagico.tm.factory;
  * #L%
  */
 
-import com.softwaremagico.tm.InvalidXmlElementException;
-import com.softwaremagico.tm.character.callings.CallingFactory;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;

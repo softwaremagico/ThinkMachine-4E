@@ -2,8 +2,11 @@ package com.softwaremagico.tm;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.softwaremagico.tm.character.skills.Specialization;
+import com.softwaremagico.tm.exceptions.InvalidSpecializationException;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 
+import java.util.List;
 import java.util.Objects;
 
 /*-
@@ -51,6 +54,9 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
 
     @JsonProperty("restrictions")
     private Restrictions restrictions;
+
+
+    private List<Specialization> specializations;
 
     private boolean official = true;
 
@@ -130,6 +136,19 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
 
     public void setOrder(Integer order) {
         this.order = order;
+    }
+
+    public List<Specialization> getSpecializations() {
+        return specializations;
+    }
+
+    public Specialization getSpecialization(String specialization) {
+        return specializations.stream().filter(s -> Objects.equals(s.getId(), specialization)).findFirst().orElseThrow(() ->
+                new InvalidSpecializationException("Specialization '" + specialization + "' not found on capability '" + getId() + "'."));
+    }
+
+    public void setSpecializations(List<Specialization> specializations) {
+        this.specializations = specializations;
     }
 
     @Override

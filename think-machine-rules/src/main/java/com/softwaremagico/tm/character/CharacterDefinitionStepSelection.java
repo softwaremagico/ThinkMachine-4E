@@ -2,7 +2,7 @@ package com.softwaremagico.tm.character;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
-import com.softwaremagico.tm.character.exceptions.InvalidGeneratedCharacter;
+import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
 
 import java.util.Arrays;
 import java.util.List;

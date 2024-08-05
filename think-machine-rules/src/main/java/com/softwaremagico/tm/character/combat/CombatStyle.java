@@ -27,10 +27,9 @@ package com.softwaremagico.tm.character.combat;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
-import com.softwaremagico.tm.InvalidXmlElementException;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.CharacterPlayer;
-import com.softwaremagico.tm.character.benefices.BeneficeDefinition;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
 import java.util.ArrayList;
@@ -118,15 +117,6 @@ public class CombatStyle extends Element<CombatStyle> {
             }
         }
         return null;
-    }
-
-    public static CombatStyle getCombatStyle(BeneficeDefinition beneficeDefinition) {
-        try {
-            return CombatStyleFactory.getInstance().getElement(beneficeDefinition.getId());
-        } catch (InvalidXmlElementException e) {
-            MachineXmlReaderLog.errorMessage(CombatStyle.class, e);
-            return null;
-        }
     }
 
     public void setGroup(CombatStyleGroup group) {

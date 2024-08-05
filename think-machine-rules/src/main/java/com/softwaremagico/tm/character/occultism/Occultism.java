@@ -25,12 +25,14 @@ package com.softwaremagico.tm.character.occultism;
  */
 
 
-import com.softwaremagico.tm.InvalidXmlElementException;
 import com.softwaremagico.tm.character.Settings;
-import com.softwaremagico.tm.character.benefices.AvailableBenefice;
-import com.softwaremagico.tm.character.benefices.AvailableBeneficeFactory;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.specie.Specie;
+import com.softwaremagico.tm.exceptions.InvalidFactionOfPowerException;
+import com.softwaremagico.tm.exceptions.InvalidOccultismPowerException;
+import com.softwaremagico.tm.exceptions.InvalidPowerLevelException;
+import com.softwaremagico.tm.exceptions.InvalidPsiqueLevelException;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
 import java.util.ArrayList;
@@ -71,34 +73,6 @@ public class Occultism {
             return psiqueValue.get(occultismType.getId());
         }
         return 0;
-    }
-
-    public void setPsiqueLevel(OccultismType occultismType, int psyValue,
-                               Specie specie) throws InvalidPsiqueLevelException {
-        if (psyValue < 0) {
-            throw new InvalidPsiqueLevelException("Psique level cannot be less than zero.");
-        }
-        AvailableBenefice noOccult = null;
-        AvailableBenefice noPsi = null;
-        try {
-            noOccult = AvailableBeneficeFactory.getInstance().getElement("noOccult");
-        } catch (InvalidXmlElementException e) {
-            // Module without noOccult benefice.
-        }
-        try {
-            noPsi = AvailableBeneficeFactory.getInstance().getElement("noPsi");
-        } catch (InvalidXmlElementException e) {
-            // Module without noOccult benefice.
-        }
-
-        if (noOccult != null && psyValue != 0 && (specie == null || specie.getPerks().contains(noOccult.getId()))) {
-            throw new InvalidPsiqueLevelException("Race '" + specie + "' cannot have psique levels.");
-        }
-        if (noPsi != null && Objects.equals(occultismType, OccultismTypeFactory.getPsi()) && psyValue != 0
-                && specie.getPerks().contains(noPsi.getId())) {
-            throw new InvalidPsiqueLevelException("Race '" + specie + "' cannot have psi levels.");
-        }
-        psiqueValue.put(occultismType.getId(), psyValue);
     }
 
     public int getDarkSideLevel(OccultismType occultismType) {

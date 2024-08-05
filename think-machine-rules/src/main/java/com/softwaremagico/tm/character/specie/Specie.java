@@ -26,6 +26,7 @@ package com.softwaremagico.tm.character.specie;
 
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
+import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.log.MachineLog;
 
 import java.util.HashSet;

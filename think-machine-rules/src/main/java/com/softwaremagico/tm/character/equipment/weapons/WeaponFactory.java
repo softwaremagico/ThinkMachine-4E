@@ -25,7 +25,7 @@ package com.softwaremagico.tm.character.equipment.weapons;
  */
 
 
-import com.softwaremagico.tm.InvalidXmlElementException;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.xml.XmlFactory;
 
 import java.util.List;

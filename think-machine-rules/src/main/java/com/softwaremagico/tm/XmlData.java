@@ -24,6 +24,8 @@ package com.softwaremagico.tm;
  * #L%
  */
 
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+
 import java.util.Collection;
 import java.util.StringTokenizer;
 
