@@ -50,17 +50,17 @@ public class FactionFactoryTests {
 
     @Test
     public void readNames() throws InvalidXmlElementException {
-        final Faction hazat = FactionFactory.getInstance().getElement("hazat");
+        final Faction hazat = FactionFactory.getInstance().getElements("hazat");
         Assert.assertNotNull(hazat);
-        Assert.assertTrue(RandomFactionFactory.getInstance().getElement("hazat").getNames(Gender.MALE).size() >= DEFINED_MALE_NAMES);
+        Assert.assertTrue(RandomFactionFactory.getInstance().getElements("hazat").getNames(Gender.MALE).size() >= DEFINED_MALE_NAMES);
         Assert.assertTrue(
-                RandomFactionFactory.getInstance().getElement("hazat").getNames(Gender.FEMALE).size() >= DEFINED_FEMALE_NAMES);
-        Assert.assertTrue(RandomFactionFactory.getInstance().getElement("hazat").getData().getSurnames().size() >= DEFINED_SURNAMES);
+                RandomFactionFactory.getInstance().getElements("hazat").getNames(Gender.FEMALE).size() >= DEFINED_FEMALE_NAMES);
+        Assert.assertTrue(RandomFactionFactory.getInstance().getElements("hazat").getData().getSurnames().size() >= DEFINED_SURNAMES);
     }
 
     @Test
     public void checkSuggestedBenefices() throws InvalidXmlElementException {
-        final Faction obun = FactionFactory.getInstance().getElement("obun");
+        final Faction obun = FactionFactory.getInstance().getElements("obun");
         //TODO(softwaremagico): complete this.
     }
 

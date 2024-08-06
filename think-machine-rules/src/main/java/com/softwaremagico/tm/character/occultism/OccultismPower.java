@@ -92,7 +92,7 @@ public class OccultismPower extends Element<OccultismPower> {
     public String getRoll() {
         final StringBuilder stringBuilder = new StringBuilder();
         try {
-            stringBuilder.append(CharacteristicsDefinitionFactory.getInstance().getElement(getCharacteristic()).getAbbreviation());
+            stringBuilder.append(CharacteristicsDefinitionFactory.getInstance().getElements(getCharacteristic()).getAbbreviation());
         } catch (InvalidXmlElementException e) {
             MachineXmlReaderLog.errorMessage(this.getClass(), e);
         }
@@ -116,7 +116,7 @@ public class OccultismPower extends Element<OccultismPower> {
         final StringBuilder representation = new StringBuilder();
         for (final String theurgyComponent : sortedComponents) {
             try {
-                representation.append(TheurgyComponentFactory.getInstance().getElement(theurgyComponent).getAbbreviation());
+                representation.append(TheurgyComponentFactory.getInstance().getElements(theurgyComponent).getAbbreviation());
             } catch (InvalidXmlElementException e) {
                 MachineXmlReaderLog.errorMessage(this.getClass(), e);
             }

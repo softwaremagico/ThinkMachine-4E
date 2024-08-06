@@ -62,10 +62,10 @@ public class Bonification {
 
     public void setAffects(String affectsContent) {
         try {
-            if (SkillFactory.getInstance().getElement(affectsContent) != null) {
-                this.affects = SkillFactory.getInstance().getElement(affectsContent);
-            } else if (CharacteristicsDefinitionFactory.getInstance().getElement(affectsContent) != null) {
-                this.affects = CharacteristicsDefinitionFactory.getInstance().getElement(affectsContent);
+            if (SkillFactory.getInstance().getElements(affectsContent) != null) {
+                this.affects = SkillFactory.getInstance().getElements(affectsContent);
+            } else if (CharacteristicsDefinitionFactory.getInstance().getElements(affectsContent) != null) {
+                this.affects = CharacteristicsDefinitionFactory.getInstance().getElements(affectsContent);
             }
             //TODO(softwaremagico): add new IValues types when implemented.
         } catch (InvalidXmlElementException e) {

@@ -60,6 +60,8 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
 
     private boolean official = true;
 
+    private String group;
+
     //Only fort sheet representation.
     @JsonIgnore
     private Integer order;
@@ -149,6 +151,14 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
 
     public void setSpecializations(List<Specialization> specializations) {
         this.specializations = specializations;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
     }
 
     @Override

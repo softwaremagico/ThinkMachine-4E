@@ -44,7 +44,7 @@ public class PlanetsFactoryTests {
 
     @Test
     public void readPlanetsFactions() throws InvalidXmlElementException {
-        Assert.assertEquals(PlanetFactory.getInstance().getElement("stigmata")
+        Assert.assertEquals(PlanetFactory.getInstance().getElements("stigmata")
                 .getFactions().size(), 3);
     }
 }

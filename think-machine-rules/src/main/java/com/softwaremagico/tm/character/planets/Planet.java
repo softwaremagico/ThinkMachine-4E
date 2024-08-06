@@ -100,8 +100,8 @@ public class Planet extends Element<Planet> {
             names = new HashSet<>();
             for (final Faction faction : getHumanFactions()) {
                 try {
-                    if (RandomFactionFactory.getInstance().getElement(faction.getId()) != null) {
-                        names.addAll(RandomFactionFactory.getInstance().getElement(faction.getId()).getAllNames());
+                    if (RandomFactionFactory.getInstance().getElements(faction.getId()) != null) {
+                        names.addAll(RandomFactionFactory.getInstance().getElements(faction.getId()).getAllNames());
                     }
                 } catch (InvalidXmlElementException e) {
                     MachineXmlReaderLog.errorMessage(this.getName(), e);
@@ -116,8 +116,8 @@ public class Planet extends Element<Planet> {
             surnames = new HashSet<>();
             for (final Faction faction : getHumanFactions()) {
                 try {
-                    if (RandomFactionFactory.getInstance().getElement(faction.getId()) != null) {
-                        surnames.addAll(RandomFactionFactory.getInstance().getElement(faction.getId()).getSurnames());
+                    if (RandomFactionFactory.getInstance().getElements(faction.getId()) != null) {
+                        surnames.addAll(RandomFactionFactory.getInstance().getElements(faction.getId()).getSurnames());
                     }
                 } catch (InvalidXmlElementException e) {
                     MachineXmlReaderLog.errorMessage(this.getName(), e);

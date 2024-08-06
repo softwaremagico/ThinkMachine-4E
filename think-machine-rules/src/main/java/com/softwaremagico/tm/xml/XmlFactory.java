@@ -78,7 +78,7 @@ public abstract class XmlFactory<T extends Element<T>> {
         return objectMapper;
     }
 
-    public T getElement(String id) throws InvalidXmlElementException {
+    public T getElements(String id) throws InvalidXmlElementException {
         if (elements == null) {
             getElements();
         }

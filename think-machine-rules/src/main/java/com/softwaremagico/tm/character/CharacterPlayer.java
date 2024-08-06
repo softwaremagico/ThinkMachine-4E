@@ -29,6 +29,7 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.combat.CombatActionRequirement;
 import com.softwaremagico.tm.character.skills.Skill;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CharacterPlayer {
@@ -93,5 +94,13 @@ public class CharacterPlayer {
 
     public void setCapabilities(List<CapabilitySelection> capabilities) {
         this.capabilities = capabilities;
+    }
+
+    public List<String> getCallings() {
+        return new ArrayList<>();
+    }
+
+    public List<String> getPerks() {
+        return new ArrayList<>();
     }
 }

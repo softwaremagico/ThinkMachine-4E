@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.perks;
+package com.softwaremagico.tm.factory;
 
 /*-
  * #%L
@@ -24,30 +24,27 @@ package com.softwaremagico.tm.character.perks;
  * #L%
  */
 
+
+import com.softwaremagico.tm.RestrictionMode;
+import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.xml.XmlFactory;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
-import java.util.List;
+@Test(groups = {"perkFactory"})
+public class PerkFactoryTests {
+    private static final int DEFINED_PERKS = 46;
 
-public class PerkFactory extends XmlFactory<Perk> {
-    private static final String XML_FILE = "perks.xml";
 
-    private static final class PerkFactoryInit {
-        public static final PerkFactory INSTANCE = new PerkFactory();
+    @Test
+    public void readPerks() throws InvalidXmlElementException {
+        Assert.assertEquals(PerkFactory.getInstance().getElements().size(),
+                DEFINED_PERKS);
     }
 
-    public static PerkFactory getInstance() {
-        return PerkFactoryInit.INSTANCE;
-    }
-
-
-    @Override
-    public String getXmlFile() {
-        return XML_FILE;
-    }
-
-    @Override
-    public List<Perk> getElements() throws InvalidXmlElementException {
-        return readXml(Perk.class);
+    @Test
+    public void getPerkRestrictionMode() throws InvalidXmlElementException {
+        Assert.assertEquals(PerkFactory.getInstance().getElements("chameleon").getRestrictions().getMode(),
+                RestrictionMode.ANY_FROM_GROUP);
     }
 }

@@ -56,77 +56,77 @@ public class WeaponsFactoryTests {
 
     @Test
     public void checkShotgun() throws InvalidXmlElementException {
-        Assert.assertEquals(1, WeaponFactory.getInstance().getElement("typicalShotgun")
+        Assert.assertEquals(1, WeaponFactory.getInstance().getElements("typicalShotgun")
                 .getAmmunition().size());
     }
 
     @Test
     public void checkBasicHuntingRifle() throws InvalidXmlElementException {
-        Assert.assertEquals(3, WeaponFactory.getInstance().getElement("basicHuntingRifle")
+        Assert.assertEquals(3, WeaponFactory.getInstance().getElements("basicHuntingRifle")
                 .getAccessories().size());
     }
 
     @Test
     public void checkRandomModifications() throws InvalidXmlElementException {
-        Assert.assertEquals(0.01d, WeaponFactory.getInstance().getElement("arbata")
+        Assert.assertEquals(0.01d, WeaponFactory.getInstance().getElements("arbata")
                 .getRandomDefinition().getProbabilityMultiplier());
     }
 
     @Test
     public void getMainDamage() throws InvalidXmlElementException {
-        Assert.assertEquals(6, WeaponFactory.getInstance().getElement("arbata").getWeaponDamages().get(0).getMainDamage());
-        Assert.assertEquals(8, WeaponFactory.getInstance().getElement("typicalShotgun")
+        Assert.assertEquals(6, WeaponFactory.getInstance().getElements("arbata").getWeaponDamages().get(0).getMainDamage());
+        Assert.assertEquals(8, WeaponFactory.getInstance().getElements("typicalShotgun")
                 .getWeaponDamages().get(0).getMainDamage());
-        Assert.assertEquals(12, WeaponFactory.getInstance().getElement("wireGrenade").getWeaponDamages().get(0).getMainDamage());
+        Assert.assertEquals(12, WeaponFactory.getInstance().getElements("wireGrenade").getWeaponDamages().get(0).getMainDamage());
     }
 
     @Test
     public void getAreaDamage() throws InvalidXmlElementException {
-        Assert.assertEquals(1, WeaponFactory.getInstance().getElement("goboLobberJetPistol")
+        Assert.assertEquals(1, WeaponFactory.getInstance().getElements("goboLobberJetPistol")
                 .getWeaponDamages().get(0).getAreaMeters());
-        Assert.assertEquals(2, WeaponFactory.getInstance().getElement("goboGarbageChucker")
+        Assert.assertEquals(2, WeaponFactory.getInstance().getElements("goboGarbageChucker")
                 .getWeaponDamages().get(0).getAreaMeters());
-        Assert.assertEquals(3, WeaponFactory.getInstance().getElement("musterNightstorm")
+        Assert.assertEquals(3, WeaponFactory.getInstance().getElements("musterNightstorm")
                 .getWeaponDamages().get(0).getAreaMeters());
-        Assert.assertEquals(5, WeaponFactory.getInstance().getElement("fragGrenades").getWeaponDamages().get(0).getAreaMeters());
+        Assert.assertEquals(5, WeaponFactory.getInstance().getElements("fragGrenades").getWeaponDamages().get(0).getAreaMeters());
     }
 
     @Test
     public void getDamageWithoutArea() throws InvalidXmlElementException {
-        Assert.assertEquals("3", WeaponFactory.getInstance().getElement("blastPellet")
+        Assert.assertEquals("3", WeaponFactory.getInstance().getElements("blastPellet")
                 .getWeaponDamages().get(0).getDamageWithoutArea());
-        Assert.assertEquals("12", WeaponFactory.getInstance().getElement("fragGrenades")
+        Assert.assertEquals("12", WeaponFactory.getInstance().getElements("fragGrenades")
                 .getWeaponDamages().get(0).getDamageWithoutArea());
     }
 
 
     @Test
     public void checkMultipleDamage() throws InvalidXmlElementException {
-        final Weapon nitobiAxe = WeaponFactory.getInstance().getElement("nitobiBlasterAxe");
+        final Weapon nitobiAxe = WeaponFactory.getInstance().getElements("nitobiBlasterAxe");
         Assert.assertEquals(nitobiAxe.getWeaponDamages().size(), 2);
     }
 
     @Test
     public void checkMultipleDamageDifferentTechLevel() throws InvalidXmlElementException {
-        final Weapon javelin = WeaponFactory.getInstance().getElement("javelin");
+        final Weapon javelin = WeaponFactory.getInstance().getElements("javelin");
         Assert.assertEquals(javelin.getWeaponDamages().size(), 2);
         Assert.assertEquals((int) javelin.getWeaponDamages().get(1).getDamageTechLevel(), 1);
     }
 
     @Test
     public void checkMultipleDamageNames() throws InvalidXmlElementException {
-        final Weapon rock = WeaponFactory.getInstance().getElement("rock");
+        final Weapon rock = WeaponFactory.getInstance().getElements("rock");
         Assert.assertEquals(rock.getWeaponDamages().size(), 5);
         Assert.assertEquals(rock.getWeaponDamages().get(1).getName().getSpanish(), "Media");
 
-        final Weapon heavyFuthangaBow = WeaponFactory.getInstance().getElement("heavyFuthangaBow");
+        final Weapon heavyFuthangaBow = WeaponFactory.getInstance().getElements("heavyFuthangaBow");
         Assert.assertEquals(heavyFuthangaBow.getWeaponDamages().size(), 2);
         Assert.assertEquals(heavyFuthangaBow.getWeaponDamages().get(1).getName().getSpanish(), "Arco Compuesto");
     }
 
     @Test
     public void checkMultipleDamageSize() throws InvalidXmlElementException {
-        final Weapon rock = WeaponFactory.getInstance().getElement("rock");
+        final Weapon rock = WeaponFactory.getInstance().getElements("rock");
         Assert.assertEquals(rock.getWeaponDamages().size(), 5);
         Assert.assertEquals(rock.getWeaponDamages().get(1).getSize(), Size.S);
         Assert.assertEquals(rock.getWeaponDamages().get(4).getSize(), Size.XL);
@@ -134,7 +134,7 @@ public class WeaponsFactoryTests {
 
     @Test
     public void extraCost() throws InvalidXmlElementException {
-        final Weapon heavyFuthangaBow = WeaponFactory.getInstance().getElement("heavyFuthangaBow");
+        final Weapon heavyFuthangaBow = WeaponFactory.getInstance().getElements("heavyFuthangaBow");
         Assert.assertEquals(heavyFuthangaBow.getWeaponDamages().size(), 2);
         Assert.assertEquals(heavyFuthangaBow.getWeaponDamages().get(1).getExtraCost(), 30);
     }

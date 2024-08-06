@@ -25,18 +25,22 @@ package com.softwaremagico.tm;
  */
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.factions.FactionGroup;
+import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.log.MachineXmlReaderLog;
+import com.softwaremagico.tm.log.MachineLog;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Restrictions extends XmlData {
 
@@ -61,6 +65,17 @@ public class Restrictions extends XmlData {
 
     @JsonProperty("capabilities")
     private Set<String> restrictedToCapabilities = new HashSet<>();
+
+    @JsonProperty("perks")
+    private Set<String> restrictedPerks = new HashSet<>();
+
+    @JsonProperty("perksGroups")
+    private Set<String> restrictedToPerksGroups = new HashSet<>();
+
+    @JacksonXmlProperty(isAttribute = true)
+    private RestrictionMode mode = RestrictionMode.ANY;
+
+    @JacksonXmlProperty(isAttribute = true)
 
     public Set<String> getRestrictedToSpecies() {
         return restrictedToSpecies;
@@ -102,6 +117,14 @@ public class Restrictions extends XmlData {
         this.restrictedToCallings = restrictedToCallings;
     }
 
+    public Set<String> getRestrictedToPerksGroups() {
+        return restrictedToPerksGroups;
+    }
+
+    public void setRestrictedToPerksGroups(Set<String> restrictedToPerksGroups) {
+        this.restrictedToPerksGroups = restrictedToPerksGroups;
+    }
+
     public Set<String> getRestrictedToCapabilities() {
         return restrictedToCapabilities;
     }
@@ -115,23 +138,112 @@ public class Restrictions extends XmlData {
     }
 
     public boolean isRestricted(CharacterPlayer characterPlayer) {
-        try {
-            return characterPlayer != null && characterPlayer.getSettings().isRestrictionsChecked()
-                    && ((!getRestrictedToSpecies().isEmpty() && (characterPlayer.getSpecie() == null
-                    || !getRestrictedToSpecies().contains(characterPlayer.getSpecie())))
-                    || isRestricted()
-                    || (getRestrictedToFactionGroup() != null && (characterPlayer.getFaction() == null
-                    && !getRestrictedToFactionGroup().contains(FactionFactory.getInstance()
-                    .getElement(characterPlayer.getFaction().getId()).getFactionGroup())))
-                    || (!getRestrictedToFactions().isEmpty() && (characterPlayer.getFaction() == null
-                    || !getRestrictedToFactions().contains(characterPlayer.getFaction().getId())))
-                    || (!getRestrictedToUprising().isEmpty() && (characterPlayer.getUprising() == null
-                    || !getRestrictedToUprising().contains(characterPlayer.getUprising().getId()))));
-            //TODO(softwaremagico): include callings.
-        } catch (InvalidXmlElementException e) {
-            MachineXmlReaderLog.errorMessage("Is restricted!", e);
+        switch (mode) {
+            case ANY_FROM_GROUP:
+                return accomplishAnyRestrictionFromEachGroup(characterPlayer);
+            case ANY:
+            default:
+                return accomplishAnyRestriction(characterPlayer);
         }
-        return true;
+    }
+
+
+    private boolean accomplishAnyRestriction(CharacterPlayer characterPlayer) {
+        if (characterPlayer == null) {
+            return false;
+        }
+        if (!characterPlayer.getSettings().isRestrictionsChecked()) {
+            return true;
+        }
+        try {
+            return
+                    //Check Specie
+                    (!getRestrictedToSpecies().isEmpty() && (characterPlayer.getSpecie() != null && getRestrictedToSpecies()
+                            .contains(characterPlayer.getSpecie())))
+                            // Check Faction Group
+                            || (!getRestrictedToFactionGroup().isEmpty() && (characterPlayer.getFaction() != null && getRestrictedToFactionGroup()
+                            .contains(FactionFactory.getInstance().getElements(characterPlayer.getFaction().getId()).getFactionGroup())))
+                            // Check Faction
+                            || (!getRestrictedToFactions().isEmpty() && (characterPlayer.getFaction() != null && getRestrictedToFactions()
+                            .contains(characterPlayer.getFaction().getId())))
+                            // Check Uprising
+                            || (!getRestrictedToUprising().isEmpty() && (characterPlayer.getUprising() != null && getRestrictedToUprising()
+                            .contains(characterPlayer.getUprising().getId())))
+                            //Check Callings
+                            || (!getRestrictedToCallings().isEmpty() && (characterPlayer.getCallings() != null && !Collections.disjoint(
+                            getRestrictedToCallings(), (characterPlayer.getCallings()))))
+                            // Check Perks
+                            || (!getRestrictedPerks().isEmpty() && (characterPlayer.getPerks() != null && !Collections.disjoint(
+                            getRestrictedPerks(), (characterPlayer.getPerks()))))
+                            // Check perks Groups
+                            || (!getRestrictedToPerksGroups().isEmpty() && (characterPlayer.getPerks() != null && getRestrictedToPerksGroups().stream()
+                            .anyMatch(PerkFactory.getInstance().getElements(characterPlayer.getPerks()).stream()
+                                    .map(Element::getGroup).collect(Collectors.toList())::contains)))
+                            //Check capabilities
+                            || (!getRestrictedToCallings().isEmpty() && (characterPlayer.getCallings() != null && !Collections.disjoint(
+                            getRestrictedToCallings(), (characterPlayer.getCallings()))));
+        } catch (InvalidXmlElementException e) {
+            MachineLog.errorMessage("Is restricted!", e);
+        }
+        return false;
+    }
+
+
+    private boolean accomplishAnyRestrictionFromEachGroup(CharacterPlayer characterPlayer) {
+        if (characterPlayer == null) {
+            return false;
+        }
+        if (!characterPlayer.getSettings().isRestrictionsChecked()) {
+            return true;
+        }
+        try {
+            return
+                    //Check Specie
+                    (getRestrictedToSpecies().isEmpty() || (characterPlayer.getSpecie() != null && getRestrictedToSpecies()
+                            .contains(characterPlayer.getSpecie())))
+                            // Check Faction Group
+                            && (getRestrictedToFactionGroup().isEmpty() || (characterPlayer.getFaction() != null && getRestrictedToFactionGroup()
+                            .contains(FactionFactory.getInstance().getElements(characterPlayer.getFaction().getId()).getFactionGroup())))
+                            // Check Faction
+                            && (getRestrictedToFactions().isEmpty() || (characterPlayer.getFaction() != null && getRestrictedToFactions()
+                            .contains(characterPlayer.getFaction().getId())))
+                            // Check Uprising
+                            && (getRestrictedToUprising().isEmpty() || (characterPlayer.getUprising() != null && getRestrictedToUprising()
+                            .contains(characterPlayer.getUprising().getId())))
+                            //Check Callings
+                            && (getRestrictedToCallings().isEmpty() || (characterPlayer.getCallings() != null && !Collections.disjoint(
+                            getRestrictedToCallings(), (characterPlayer.getCallings()))))
+                            // Check Perks
+                            && (getRestrictedPerks().isEmpty() || (characterPlayer.getPerks() != null && !Collections.disjoint(
+                            getRestrictedPerks(), (characterPlayer.getPerks()))))
+                            // Check perks Groups
+                            && (getRestrictedToPerksGroups().isEmpty() || (characterPlayer.getPerks() != null && getRestrictedToPerksGroups().stream()
+                            .anyMatch(PerkFactory.getInstance().getElements(characterPlayer.getPerks()).stream()
+                                    .map(Element::getGroup).collect(Collectors.toList())::contains)))
+                            //Check capabilities
+                            && (getRestrictedToCallings().isEmpty() || (characterPlayer.getCallings() != null && !Collections.disjoint(
+                            getRestrictedToCallings(), (characterPlayer.getCallings()))));
+        } catch (InvalidXmlElementException e) {
+            MachineLog.errorMessage("Is restricted!", e);
+        }
+        return false;
+    }
+
+
+    public RestrictionMode getMode() {
+        return mode;
+    }
+
+    public void setMode(RestrictionMode mode) {
+        this.mode = mode;
+    }
+
+    public Set<String> getRestrictedPerks() {
+        return restrictedPerks;
+    }
+
+    public void setRestrictedPerks(Set<String> restrictedPerks) {
+        this.restrictedPerks = restrictedPerks;
     }
 
     public boolean isRestricted() {
@@ -145,17 +257,17 @@ public class Restrictions extends XmlData {
     @Override
     public void validate() throws InvalidXmlElementException {
         for (String race : restrictedToSpecies) {
-            SpecieFactory.getInstance().getElement(race);
+            SpecieFactory.getInstance().getElements(race);
         }
         for (String faction : restrictedToFactions) {
-            FactionFactory.getInstance().getElement(faction);
+            FactionFactory.getInstance().getElements(faction);
         }
         for (String calling : restrictedToCallings) {
-            CallingFactory.getInstance().getElement(calling);
+            CallingFactory.getInstance().getElements(calling);
         }
 
         for (String capability : restrictedToCapabilities) {
-            CapabilityFactory.getInstance().getElement(capability);
+            CapabilityFactory.getInstance().getElements(capability);
         }
     }
 }

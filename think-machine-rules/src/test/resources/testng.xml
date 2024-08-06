@@ -30,6 +30,7 @@
                 <include name="callingFactory"/>
                 <include name="capabilityFactory"/>
                 <include name="upbringingFactory"/>
+                <include name="perkFactory"/>
                 <include name="factoryValidation"/>
 
                 <include name="characterCreation"/>
@@ -69,6 +70,7 @@
             <class name="com.softwaremagico.tm.factory.CallingFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.CapabilityFactoryTest"/>
             <class name="com.softwaremagico.tm.factory.UpbringingFactoryTest"/>
+            <class name="com.softwaremagico.tm.factory.PerkFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.ValidateFactoryTests"/>
             <class name="com.softwaremagico.tm.rules.CharacterCreationTest"/>
             <!--            <class name="com.softwaremagico.tm.rules.BlessingTests"/>-->

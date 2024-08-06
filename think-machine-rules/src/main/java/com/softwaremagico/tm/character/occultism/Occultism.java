@@ -114,7 +114,7 @@ public class Occultism {
         }
         // Correct level of psi or theurgy
         try {
-            if (power.getLevel() > getPsiqueLevel(OccultismTypeFactory.getInstance().getElement(path.getOccultismType()))) {
+            if (power.getLevel() > getPsiqueLevel(OccultismTypeFactory.getInstance().getElements(path.getOccultismType()))) {
                 throw new InvalidPsiqueLevelException("Insufficient psi/theurgy level to acquire '" + power + "'.");
             }
         } catch (InvalidXmlElementException e) {

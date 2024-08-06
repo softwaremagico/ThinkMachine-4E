@@ -58,7 +58,7 @@ public final class OccultismTypeFactory extends XmlFactory<OccultismType> {
 
     public static OccultismType getPsi() {
         try {
-            return OccultismTypeFactory.getInstance().getElement(PSI_TAG);
+            return OccultismTypeFactory.getInstance().getElements(PSI_TAG);
         } catch (InvalidXmlElementException e) {
             MachineXmlReaderLog.errorMessage(OccultismTypeFactory.class.getName(), e);
             return null;
@@ -67,7 +67,7 @@ public final class OccultismTypeFactory extends XmlFactory<OccultismType> {
 
     public static OccultismType getTheurgy() {
         try {
-            return OccultismTypeFactory.getInstance().getElement(THEURGY_TAG);
+            return OccultismTypeFactory.getInstance().getElements(THEURGY_TAG);
         } catch (InvalidXmlElementException e) {
             MachineXmlReaderLog.errorMessage(OccultismTypeFactory.class.getName(), e);
             return null;
