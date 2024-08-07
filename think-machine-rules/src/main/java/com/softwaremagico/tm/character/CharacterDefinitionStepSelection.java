@@ -18,6 +18,9 @@ public class CharacterDefinitionStepSelection extends Element<CharacterDefinitio
     @JsonProperty("perks")
     private List<CharacterSelectedElement> perksOptions;
 
+    //TODO(softwaremagico): implement this.
+    private boolean raisedInSpace;
+
     public CharacterDefinitionStepSelection(CharacterDefinitionStep<?> characterDefinitionStep) throws InvalidGeneratedCharacter {
         if (characterDefinitionStep == null) {
             throw new InvalidGeneratedCharacter("You cannot make a selection if there is no step defined.");

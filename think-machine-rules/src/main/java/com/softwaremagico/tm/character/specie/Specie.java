@@ -26,6 +26,7 @@ package com.softwaremagico.tm.character.specie;
 
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
+import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.log.MachineLog;
 
@@ -45,7 +46,7 @@ public class Specie extends Element<Specie> {
     private int hubris;
 
     private List<String> capabilities;
-    private List<String> perks;
+    private List<PerkOption> perks;
 
     private int cost;
 
@@ -165,11 +166,11 @@ public class Specie extends Element<Specie> {
         this.capabilities = capabilities;
     }
 
-    public List<String> getPerks() {
+    public List<PerkOption> getPerks() {
         return perks;
     }
 
-    public void setPerks(List<String> perks) {
+    public void setPerks(List<PerkOption> perks) {
         this.perks = perks;
     }
 }

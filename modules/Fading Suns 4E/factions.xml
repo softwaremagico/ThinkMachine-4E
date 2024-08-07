@@ -16,14 +16,25 @@
             <options>
                 <total>1</total>
                 <capabilities>
-                    <capability>slugGuns</capability>
-                    <capability>energyGuns</capability>
-                    <capability>combatArmor</capability>
-                    <capability>lore</capability>
+                    <capability>
+                        <id>slugGuns</id>
+                    </capability>
+                    <capability>
+                        <id>energyGun</id>
+                    </capability>
+                    <capability>
+                        <id>combatArmor</id>
+                    </capability>
+                    <capability>
+                        <id>lore</id>
+                    </capability>
                 </capabilities>
             </options>
             <options>
-                <capability>hazatLore</capability>
+                <capability>
+                    <id>factionLore</id>
+                    <specialization>hazat</specialization>
+                </capability>
                 <total>1</total>
             </options>
             <options>
@@ -72,7 +83,9 @@
             <options>
                 <total>1</total>
                 <perks>
-                    <perk>nobleTitleKnight</perk>
+                    <perk>
+                        <id>nobleTitleKnight</id>
+                    </perk>
                 </perks>
             </options>
         </perks>

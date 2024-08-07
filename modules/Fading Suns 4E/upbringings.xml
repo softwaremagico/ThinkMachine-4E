@@ -10,25 +10,58 @@
             <options>
                 <total>1</total>
                 <capabilities>
-                    <capability>artsLore</capability>
-                    <capability>beastback</capability>
-                    <capability>warfareLore</capability>
+                    <capability>
+                        <group>artsLores</group>
+                    </capability>
+                    <capability>
+                        <id>beastback</id>
+                    </capability>
+                    <capability>
+                        <id>warfareLore</id>
+                    </capability>
                 </capabilities>
             </options>
             <options>
-                <capability>courtCustoms</capability>
                 <total>1</total>
+                <capabilities>
+                    <capability>
+                        <id>courtCustoms</id>
+                    </capability>
+                </capabilities>
             </options>
             <options>
-                <capability>homeworldLore</capability>
                 <total>1</total>
+                <capabilities>
+                    <capability>
+                        <id>planetLore</id>
+                    </capability>
+                </capabilities>
             </options>
             <options>
-                <capability>militaryWeapons</capability>
                 <total>1</total>
+                <capabilities>
+                    <capability>
+                        <id>militaryWeapons</id>
+                    </capability>
+                </capabilities>
             </options>
             <options>
-                <capability>readSpeakUrthish</capability>
+                <total>1</total>
+                <capabilities>
+                    <capability>
+                        <id>read</id>
+                        <specialization>urthish</specialization>
+                    </capability>
+                </capabilities>
+            </options>
+            <options>
+                <total>1</total>
+                <capabilities>
+                    <capability>
+                        <id>speak</id>
+                        <specialization>urthish</specialization>
+                    </capability>
+                </capabilities>
             </options>
         </capabilities>
         <characteristics>
@@ -85,42 +118,14 @@
             <options>
                 <total>1</total>
                 <perks>
-                    <perk>imperious</perk>
+                    <perk>
+                        <id>imperious</id>
+                    </perk>
                 </perks>
+                <openPerks>false</openPerks>
             </options>
             <options>
                 <total>1</total>
-                <perks>
-                    <perk>advisor</perk>
-                    <perk>alienFriend</perk>
-                    <perk>alienUpbringing</perk>
-                    <perk>ally</perk>
-                    <perk>ambidextrous</perk>
-                    <perk>cash</perk>
-                    <perk>comeliness</perk>
-                    <perk>contact</perk>
-                    <perk>danger Sense</perk>
-                    <perk>exemplar</perk>
-                    <perk>fameInfamy</perk>
-                    <perk>familyTies</perk>
-                    <perk>forthright</perk>
-                    <perk>gossipNetwork</perk>
-                    <perk>incitePassion</perk>
-                    <perk>passageContract</perk>
-                    <perk>reeveAdvocate</perk>
-                    <perk>refuge</perk>
-                    <perk>retinue</perk>
-                    <perk>savoirFaire</perk>
-                    <perk>sensitivity</perk>
-                    <perk>steadyHand</perk>
-                    <perk>stoicBody</perk>
-                    <perk>stoicMind</perk>
-                    <perk>stoicSpirit</perk>
-                    <perk>trendsetter</perk>
-                    <perk>underworldContacts</perk>
-                    <perk>veteran</perk>
-                    <perk>wellTraveled</perk>
-                </perks>
             </options>
         </perks>
         <skills>

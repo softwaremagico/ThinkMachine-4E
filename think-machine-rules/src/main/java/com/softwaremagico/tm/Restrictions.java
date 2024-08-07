@@ -147,6 +147,18 @@ public class Restrictions extends XmlData {
         }
     }
 
+    public boolean isOpen() {
+        return !this.restricted
+                && (restrictedToSpecies == null || restrictedToSpecies.isEmpty())
+                && (restrictedToFactionGroup == null || restrictedToFactionGroup.isEmpty())
+                && (restrictedToFactions == null || restrictedToFactions.isEmpty())
+                && (restrictedToUprising == null || restrictedToUprising.isEmpty())
+                && (restrictedToCallings == null || restrictedToCallings.isEmpty())
+                && (restrictedToCapabilities == null || restrictedToCapabilities.isEmpty())
+                && (restrictedPerks == null || restrictedPerks.isEmpty())
+                && (restrictedToPerksGroups == null || restrictedToPerksGroups.isEmpty());
+    }
+
 
     private boolean accomplishAnyRestriction(CharacterPlayer characterPlayer) {
         if (characterPlayer == null) {

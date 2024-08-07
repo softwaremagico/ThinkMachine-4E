@@ -26,14 +26,18 @@ package com.softwaremagico.tm.character.capabilities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.XmlData;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.log.MachineLog;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CapabilityOptions extends XmlData {
     @JsonProperty("total")
     private int totalOptions;
     @JsonProperty("capabilities")
-    private List<String> capabilities;
+    private List<CapabilityOption> capabilities;
 
     public int getTotalOptions() {
         return totalOptions;
@@ -43,11 +47,32 @@ public class CapabilityOptions extends XmlData {
         this.totalOptions = totalOptions;
     }
 
-    public List<String> getCapabilities() {
+    public List<CapabilityOption> getCapabilities() {
+        final List<CapabilityOption> capabilities = new ArrayList<>();
+        for (CapabilityOption capabilityOption : this.capabilities) {
+            if (capabilityOption.getGroup() != null) {
+                try {
+                    capabilities.addAll(CapabilityFactory.getInstance().getElementsByGroup(capabilityOption.getGroup()).stream()
+                            .map(CapabilityOption::new).collect(Collectors.toList()));
+                } catch (InvalidXmlElementException e) {
+                    MachineLog.errorMessage(this.getClass(), e);
+                }
+            } else {
+                capabilities.add(capabilityOption);
+            }
+        }
         return capabilities;
     }
 
-    public void setCapabilities(List<String> capabilities) {
+    public void setCapabilities(List<CapabilityOption> capabilities) {
         this.capabilities = capabilities;
+    }
+
+    @Override
+    public String toString() {
+        return "CapabilityOptions{" +
+                "totalOptions=" + totalOptions +
+                ", capabilities=" + capabilities +
+                '}';
     }
 }

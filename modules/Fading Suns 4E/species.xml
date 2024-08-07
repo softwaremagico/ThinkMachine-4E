@@ -141,12 +141,21 @@
         <theurgy>1</theurgy>
         <hubris>0</hubris>
         <capabilities>
-            <capability>speakLojmaa</capability>
+            <capability>
+                <id>speak</id>
+                <specialization>lojmaa</specialization>
+            </capability>
         </capabilities>
         <perks>
-            <perk>childOfDhiyana</perk>
-            <perk>mentalConditioning</perk>
-            <perk>oralMemory</perk>
+            <perk>
+                <id>childOfDhiyana</id>
+            </perk>
+            <perk>
+                <id>mentalConditioning</id>
+            </perk>
+            <perk>
+                <id>oralMemory</id>
+            </perk>
         </perks>
         <random>
             <staticProbability>10</staticProbability>

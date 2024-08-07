@@ -46,6 +46,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
@@ -89,6 +90,10 @@ public abstract class XmlFactory<T extends Element<T>> {
         return getElements().stream().filter(t -> ids.contains(t.getId())).collect(Collectors.toList());
     }
 
+    public List<T> getElementsByGroup(String group) throws InvalidXmlElementException {
+        return getElements().stream().filter(t -> Objects.equals(group, t.getGroup())).collect(Collectors.toList());
+    }
+
     public abstract List<T> getElements() throws InvalidXmlElementException;
 
     public List<T> readXml(Class<T> entityClass) throws InvalidXmlElementException {
@@ -120,5 +125,9 @@ public abstract class XmlFactory<T extends Element<T>> {
         for (T element : getElements()) {
             element.validate();
         }
+    }
+
+    public List<T> getRestrictedByUprising(String uprising) throws InvalidXmlElementException {
+        return getElements().stream().filter(t -> t.getRestrictions().getRestrictedToUprising().contains(uprising)).collect(Collectors.toList());
     }
 }

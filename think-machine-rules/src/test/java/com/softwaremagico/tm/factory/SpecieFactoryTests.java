@@ -31,6 +31,8 @@ import com.softwaremagico.tm.character.specie.SpecieFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Objects;
+
 @Test(groups = {"raceFactory"})
 public class SpecieFactoryTests {
     private static final int DEFINED_Species = 10;
@@ -45,9 +47,9 @@ public class SpecieFactoryTests {
 
     @Test
     public void readAfflictions() throws InvalidXmlElementException {
-        final Specie vorox = SpecieFactory.getInstance().getElements("obun");
-        Assert.assertTrue(vorox.getPerks().contains("childOfDhiyana"));
-        Assert.assertEquals((int) vorox.getRandomDefinition().getStaticProbability(), 10);
+        final Specie obun = SpecieFactory.getInstance().getElements("obun");
+        Assert.assertTrue(obun.getPerks().stream().anyMatch(perkOption -> Objects.equals(perkOption.getId(), "childOfDhiyana")));
+        Assert.assertEquals((int) obun.getRandomDefinition().getStaticProbability(), 10);
     }
 
 

@@ -696,9 +696,61 @@
         </name>
         <group>churchOrdination</group>
         <restrictions>
-            <callings>
-                <calling>priest</calling>
-            </callings>
+            <perks>
+                <perk>churchOrdinationNovitiate</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>churchOrdinationDeacon</id>
+        <name>
+            <en>Church Ordination (Deacon)</en>
+            <es>Ordenación Religiosa (Canónigo)</es>
+        </name>
+        <group>churchOrdination</group>
+        <restrictions>
+            <perks>
+                <perk>churchOrdinationCanon</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>churchOrdinationPriest</id>
+        <name>
+            <en>Church Ordination (Priest)</en>
+            <es>Ordenación Religiosa (Sacerdote)</es>
+        </name>
+        <group>churchOrdination</group>
+        <restrictions>
+            <perks>
+                <perk>churchOrdinationDeacon</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>churchOrdinationBishop</id>
+        <name>
+            <en>Church Ordination (Bishop)</en>
+            <es>Ordenación Religiosa (Obispo)</es>
+        </name>
+        <group>churchOrdination</group>
+        <restrictions>
+            <perks>
+                <perk>churchOrdinationPriest</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>churchOrdinationArchbishop</id>
+        <name>
+            <en>Church Ordination (Archbishop)</en>
+            <es>Ordenación Religiosa (Arzobispo)</es>
+        </name>
+        <group>churchOrdination</group>
+        <restrictions>
+            <perks>
+                <perk>churchOrdinationBishop</perk>
+            </perks>
         </restrictions>
     </perk>
 

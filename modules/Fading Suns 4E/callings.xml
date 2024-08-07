@@ -10,15 +10,23 @@
             <options>
                 <total>1</total>
                 <capabilities>
-                    <capability>militaryWeapons</capability>
+                    <capability>
+                        <id>militaryWeapons</id>
+                    </capability>
                 </capabilities>
             </options>
             <options>
                 <total>1</total>
                 <capabilities>
-                    <capability>beastback</capability>
-                    <capability>warcraft</capability>
-                    <capability>warfareLore</capability>
+                    <capability>
+                        <id>beastback</id>
+                    </capability>
+                    <capability>
+                        <id>warcraft</id>
+                    </capability>
+                    <capability>
+                        <id>warfareLore</id>
+                    </capability>
                 </capabilities>
             </options>
         </capabilities>
@@ -137,13 +145,27 @@
             <options>
                 <total>1</total>
                 <perks>
-                    <perk>conscript</perk>
-                    <perk>invigorate</perk>
-                    <perk>loyaltyUntoDeath</perk>
-                    <perk>marksmanship</perk>
-                    <perk>martialArts</perk>
-                    <perk>militaryRank</perk>
-                    <perk>strategicMind</perk>
+                    <perk>
+                        <id>conscript</id>
+                    </perk>
+                    <perk>
+                        <id>invigorate</id>
+                    </perk>
+                    <perk>
+                        <id>loyaltyUntoDeath</id>
+                    </perk>
+                    <perk>
+                        <id>marksmanship</id>
+                    </perk>
+                    <perk>
+                        <id>martialArts</id>
+                    </perk>
+                    <perk>
+                        <id>militaryRank</id>
+                    </perk>
+                    <perk>
+                        <id>strategicMind</id>
+                    </perk>
                 </perks>
             </options>
         </perks>

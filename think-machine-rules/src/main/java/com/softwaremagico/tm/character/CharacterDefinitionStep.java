@@ -28,7 +28,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.characteristics.CharacteristicOption;
-import com.softwaremagico.tm.character.perks.PerkOption;
+import com.softwaremagico.tm.character.perks.PerkOptions;
 import com.softwaremagico.tm.character.skills.SkillOption;
 
 import java.util.List;
@@ -41,7 +41,7 @@ public class CharacterDefinitionStep<T extends Element<?>> extends Element<T> {
     @JsonProperty("skills")
     private List<SkillOption> skillOptions;
     @JsonProperty("perks")
-    private List<PerkOption> perksOptions;
+    private List<PerkOptions> perksOptions;
 
     public List<CapabilityOptions> getCapabilityOptions() {
         return capabilityOptions;
@@ -67,11 +67,11 @@ public class CharacterDefinitionStep<T extends Element<?>> extends Element<T> {
         this.skillOptions = skillOptions;
     }
 
-    public List<PerkOption> getPerksOptions() {
+    public List<PerkOptions> getPerksOptions() {
         return perksOptions;
     }
 
-    public void setPerksOptions(List<PerkOption> perksOptions) {
+    public void setPerksOptions(List<PerkOptions> perksOptions) {
         this.perksOptions = perksOptions;
     }
 }
