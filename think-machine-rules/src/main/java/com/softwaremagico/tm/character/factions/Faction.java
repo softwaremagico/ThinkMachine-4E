@@ -24,13 +24,20 @@ package com.softwaremagico.tm.character.factions;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.softwaremagico.tm.character.CharacterDefinitionStep;
+
+import java.util.List;
 
 @JacksonXmlRootElement(localName = "faction")
 public class Faction extends CharacterDefinitionStep<Faction> {
     private FactionGroup factionGroup;
     private Boolean isOnlyForHuman;
+    private Blessing blessing;
+    private Curse curse;
+    @JsonProperty("favoredCallings")
+    private List<String> favoredCallings;
 
     public Faction() {
     }
@@ -50,5 +57,29 @@ public class Faction extends CharacterDefinitionStep<Faction> {
 
         }
         return isOnlyForHuman;
+    }
+
+    public Blessing getBlessing() {
+        return blessing;
+    }
+
+    public void setBlessing(Blessing blessing) {
+        this.blessing = blessing;
+    }
+
+    public Curse getCurse() {
+        return curse;
+    }
+
+    public void setCurse(Curse curse) {
+        this.curse = curse;
+    }
+
+    public List<String> getFavoredCallings() {
+        return favoredCallings;
+    }
+
+    public void setFavoredCallings(List<String> favoredCallings) {
+        this.favoredCallings = favoredCallings;
     }
 }

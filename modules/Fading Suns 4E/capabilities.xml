@@ -1303,7 +1303,7 @@
 
     <capability>
         <id>dance</id>
-        <group>performingArts</group>
+        <group>performingArtsLore</group>
         <name>
             <en>Dance</en>
             <es>Danza</es>
@@ -1311,7 +1311,7 @@
     </capability>
     <capability>
         <id>magic</id>
-        <group>performingArts</group>
+        <group>performingArtsLore</group>
         <name>
             <en>Magic</en>
             <es>magia</es>
@@ -1319,7 +1319,7 @@
     </capability>
     <capability>
         <id>music</id>
-        <group>performingArts</group>
+        <group>performingArtsLore</group>
         <name>
             <en>Music</en>
             <es>Música</es>
@@ -1327,7 +1327,7 @@
     </capability>
     <capability>
         <id>oratory</id>
-        <group>performingArts</group>
+        <group>performingArtsLore</group>
         <name>
             <en>Oratory</en>
             <es>Oratoria</es>
@@ -1335,7 +1335,7 @@
     </capability>
     <capability>
         <id>song</id>
-        <group>performingArts</group>
+        <group>performingArtsLore</group>
         <name>
             <en>Song</en>
             <es>Canto</es>
@@ -1343,7 +1343,7 @@
     </capability>
     <capability>
         <id>theatre</id>
-        <group>performingArts</group>
+        <group>performingArtsLore</group>
         <name>
             <en>Theatre</en>
             <es>Teatro</es>

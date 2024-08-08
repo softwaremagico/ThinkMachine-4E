@@ -8,34 +8,34 @@ package com.softwaremagico.tm.factory;
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
  * Foundation; either version 2 of the License, or (at your option) any later
  * version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU General Public License along with
  * this program; If not, see <http://www.gnu.org/licenses/gpl-3.0.html>.
  * #L%
  */
 
 
-import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.character.Gender;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.factions.random.RandomFactionFactory;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = {"factionsFactory"})
 public class FactionFactoryTests {
-    private static final int DEFINED_FACTIONS = 1;
+    private static final int DEFINED_FACTIONS = 2;
     private static final int DEFINED_MALE_NAMES = 103;
     private static final int DEFINED_FEMALE_NAMES = 100;
     private static final int DEFINED_SURNAMES = 125;
@@ -45,6 +45,26 @@ public class FactionFactoryTests {
     public void checkTotalElements() throws InvalidXmlElementException {
         Assert.assertEquals(FactionFactory.getInstance().getElements().size(),
                 DEFINED_FACTIONS);
+    }
+
+    @Test
+    public void checkBlessing() throws InvalidXmlElementException {
+        final Faction alMalik = FactionFactory.getInstance().getElements("alMalik");
+        Assert.assertNotNull(alMalik.getBlessing());
+        Assert.assertEquals(alMalik.getBlessing().getId(), "extrovert");
+    }
+
+    @Test
+    public void checkCurse() throws InvalidXmlElementException {
+        final Faction alMalik = FactionFactory.getInstance().getElements("alMalik");
+        Assert.assertNotNull(alMalik.getCurse());
+        Assert.assertEquals(alMalik.getCurse().getId(), "impetuous");
+    }
+
+    @Test
+    public void checkFavoredCallings() throws InvalidXmlElementException {
+        final Faction alMalik = FactionFactory.getInstance().getElements("alMalik");
+        Assert.assertTrue(alMalik.getFavoredCallings().contains("enthusiast"));
     }
 
 
