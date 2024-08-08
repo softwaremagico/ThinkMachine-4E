@@ -33,6 +33,15 @@ public class SkillBonus extends XmlData {
     @JsonProperty("id")
     private String skill;
 
+    public SkillBonus() {
+        super();
+    }
+
+    public SkillBonus(Skill skill) {
+        this();
+        setSkill(skill.getId());
+    }
+
     public int getBonus() {
         return bonus;
     }

@@ -24,18 +24,24 @@ package com.softwaremagico.tm.character.perks;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.XmlData;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.log.MachineLog;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class PerkOptions extends XmlData {
     @JsonProperty("total")
     private int totalOptions = 1;
     @JsonProperty("perks")
     private List<PerkOption> perks;
+    @JsonIgnore
+    private List<PerkOption> finalPerks;
     @JsonProperty("openPerks")
     private boolean includeOpenPerks = true;
 
@@ -52,7 +58,22 @@ public class PerkOptions extends XmlData {
     }
 
     public List<PerkOption> getPerks() {
-        return perks;
+        if (finalPerks == null) {
+            finalPerks = new ArrayList<>();
+            for (PerkOption perkOptions : this.perks) {
+                if (perkOptions.getGroup() != null) {
+                    try {
+                        finalPerks.addAll(PerkFactory.getInstance().getElementsByGroup(perkOptions.getGroup()).stream()
+                                .map(PerkOption::new).collect(Collectors.toList()));
+                    } catch (InvalidXmlElementException e) {
+                        MachineLog.errorMessage(this.getClass(), e);
+                    }
+                } else {
+                    finalPerks.add(perkOptions);
+                }
+            }
+        }
+        return finalPerks;
     }
 
     public void addPerks(Collection<PerkOption> perks) {

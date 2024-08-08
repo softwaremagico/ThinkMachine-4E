@@ -27,7 +27,10 @@ package com.softwaremagico.tm.character.skills;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.XmlData;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -37,6 +40,8 @@ public class SkillOption extends XmlData {
     private int totalOptions;
     @JsonProperty("skills")
     private List<SkillBonus> skills;
+    @JsonIgnore
+    private List<SkillBonus> finalSkills;
     @JsonIgnore
     private Map<String, SkillBonus> skillBonusById;
 
@@ -49,7 +54,20 @@ public class SkillOption extends XmlData {
     }
 
     public List<SkillBonus> getSkills() {
-        return skills;
+        if (finalSkills == null) {
+            try {
+                if (skills == null || skills.isEmpty()) {
+                    finalSkills = new ArrayList<>();
+                    finalSkills.addAll(SkillFactory.getInstance().getElements().stream()
+                            .map(SkillBonus::new).collect(Collectors.toList()));
+                } else {
+                    finalSkills = skills;
+                }
+            } catch (InvalidXmlElementException e) {
+                MachineXmlReaderLog.errorMessage(this.getClass(), e);
+            }
+        }
+        return finalSkills;
     }
 
     public void setSkills(List<SkillBonus> skills) {
@@ -58,7 +76,7 @@ public class SkillOption extends XmlData {
 
     public SkillBonus getSkillBonus(String skill) {
         if (skillBonusById == null) {
-            skillBonusById = skills.stream().collect(Collectors.toMap(SkillBonus::getSkill, item -> item));
+            skillBonusById = getSkills().stream().collect(Collectors.toMap(SkillBonus::getSkill, item -> item));
         }
         return skillBonusById.get(skill);
     }

@@ -32,7 +32,7 @@ import org.testng.annotations.Test;
 
 @Test(groups = {"skillFactory"})
 public class SkillsFactoryTests {
-    private static final int TOTAL_SKILLS = 26;
+    private static final int TOTAL_SKILLS = 25;
 
     @Test
     public void readSkills() throws InvalidXmlElementException {
@@ -43,7 +43,7 @@ public class SkillsFactoryTests {
     public void isRestricted() throws InvalidXmlElementException {
         Assert.assertFalse(SkillFactory.getInstance().getElements("alchemy").getRestrictions().isRestricted());
         Assert.assertEquals(SkillFactory.getInstance().getElements("alchemy").getRestrictions().getRestrictedToFactions().size(), 1);
-        Assert.assertEquals(SkillFactory.getInstance().getElements("alchemy").getRestrictions().getRestrictedToFactionGroup().iterator().next(), FactionGroup.CHURCH);
+        Assert.assertEquals(SkillFactory.getInstance().getElements("alchemy").getRestrictions().getRestrictedToFactionGroup().iterator().next(), FactionGroup.PRIEST);
         Assert.assertEquals(SkillFactory.getInstance().getElements("alchemy").getRestrictions().getRestrictedToCallings().size(), 6);
     }
 }

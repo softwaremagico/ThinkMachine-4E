@@ -27,7 +27,10 @@ package com.softwaremagico.tm.character.characteristics;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.XmlData;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -37,6 +40,8 @@ public class CharacteristicOption extends XmlData {
     private int totalOptions;
     @JsonProperty("characteristics")
     private List<CharacteristicBonus> characteristics;
+    @JsonIgnore
+    private List<CharacteristicBonus> finalCharacteristics;
     @JsonIgnore
     private Map<String, CharacteristicBonus> characteristicBonusById;
 
@@ -49,7 +54,20 @@ public class CharacteristicOption extends XmlData {
     }
 
     public List<CharacteristicBonus> getCharacteristics() {
-        return characteristics;
+        if (finalCharacteristics == null) {
+            try {
+                if (characteristics == null || characteristics.isEmpty()) {
+                    finalCharacteristics = new ArrayList<>();
+                    finalCharacteristics.addAll(CharacteristicsDefinitionFactory.getInstance().getElements().stream()
+                            .map(CharacteristicBonus::new).collect(Collectors.toList()));
+                } else {
+                    finalCharacteristics = characteristics;
+                }
+            } catch (InvalidXmlElementException e) {
+                MachineXmlReaderLog.errorMessage(this.getClass(), e);
+            }
+        }
+        return finalCharacteristics;
     }
 
     public void setCharacteristics(List<CharacteristicBonus> characteristics) {
@@ -58,7 +76,7 @@ public class CharacteristicOption extends XmlData {
 
     public CharacteristicBonus getCharacteristicBonus(String characteristic) {
         if (characteristicBonusById == null) {
-            characteristicBonusById = characteristics.stream().collect(Collectors.toMap(CharacteristicBonus::getCharacteristic, item -> item));
+            characteristicBonusById = getCharacteristics().stream().collect(Collectors.toMap(CharacteristicBonus::getCharacteristic, item -> item));
         }
         return characteristicBonusById.get(characteristic);
     }

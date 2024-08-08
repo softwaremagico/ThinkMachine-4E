@@ -7,6 +7,9 @@ public class PerkOption {
     @JsonProperty("id")
     private String id;
 
+    @JsonProperty("group")
+    private String group;
+
     public PerkOption() {
         super();
     }
@@ -27,6 +30,14 @@ public class PerkOption {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
     }
 
     @Override

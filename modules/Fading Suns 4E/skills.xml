@@ -20,7 +20,7 @@
                 <faction>engineers</faction>
             </factions>
             <factionGroups>
-                <factionGroup>church</factionGroup>
+                <factionGroup>priest</factionGroup>
             </factionGroups>
             <callings>
                 <calling>banker</calling>
@@ -38,14 +38,6 @@
         <name>
             <en>Animalia</en>
             <es>Trato con Animales</es>
-        </name>
-    </skill>
-    <skill>
-        <type>skill</type>
-        <id>arts</id>
-        <name>
-            <en>Arte</en>
-            <es>Arts</es>
         </name>
     </skill>
     <skill>
@@ -124,7 +116,7 @@
                 <faction>engineers</faction>
             </factions>
             <factionGroups>
-                <factionGroup>church</factionGroup>
+                <factionGroup>priest</factionGroup>
             </factionGroups>
             <callings>
                 <calling>merchant</calling>

@@ -31,9 +31,7 @@ public enum FactionGroup {
 
     NOBILITY,
 
-    CHURCH,
-
-    MINOR_CHURCH,
+    PRIEST,
 
     KNIGHTLY_ORDERS,
 

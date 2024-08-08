@@ -33,6 +33,15 @@ public class CharacteristicBonus extends XmlData {
     @JsonProperty("id")
     private String characteristic;
 
+    public CharacteristicBonus() {
+        super();
+    }
+
+    public CharacteristicBonus(CharacteristicDefinition characteristic) {
+        super();
+        setCharacteristic(characteristic.getId());
+    }
+
     public int getBonus() {
         return bonus;
     }

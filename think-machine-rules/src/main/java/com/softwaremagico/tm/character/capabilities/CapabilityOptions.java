@@ -24,10 +24,12 @@ package com.softwaremagico.tm.character.capabilities;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.XmlData;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineLog;
+import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +40,9 @@ public class CapabilityOptions extends XmlData {
     private int totalOptions;
     @JsonProperty("capabilities")
     private List<CapabilityOption> capabilities;
+    @JsonIgnore
+    private List<CapabilityOption> finalCapabilities;
+
 
     public int getTotalOptions() {
         return totalOptions;
@@ -48,20 +53,32 @@ public class CapabilityOptions extends XmlData {
     }
 
     public List<CapabilityOption> getCapabilities() {
-        final List<CapabilityOption> capabilities = new ArrayList<>();
-        for (CapabilityOption capabilityOption : this.capabilities) {
-            if (capabilityOption.getGroup() != null) {
+        if (finalCapabilities == null) {
+            finalCapabilities = new ArrayList<>();
+            if (this.capabilities == null || this.capabilities.isEmpty()) {
                 try {
-                    capabilities.addAll(CapabilityFactory.getInstance().getElementsByGroup(capabilityOption.getGroup()).stream()
+                    finalCapabilities.addAll(CapabilityFactory.getInstance().getElements().stream()
                             .map(CapabilityOption::new).collect(Collectors.toList()));
                 } catch (InvalidXmlElementException e) {
-                    MachineLog.errorMessage(this.getClass(), e);
+                    MachineXmlReaderLog.errorMessage(this.getClass(), e);
                 }
             } else {
-                capabilities.add(capabilityOption);
+                //Add Groups
+                for (CapabilityOption capabilityOption : this.capabilities) {
+                    if (capabilityOption.getGroup() != null) {
+                        try {
+                            finalCapabilities.addAll(CapabilityFactory.getInstance().getElementsByGroup(capabilityOption.getGroup()).stream()
+                                    .map(CapabilityOption::new).collect(Collectors.toList()));
+                        } catch (InvalidXmlElementException e) {
+                            MachineLog.errorMessage(this.getClass(), e);
+                        }
+                    } else {
+                        finalCapabilities.add(capabilityOption);
+                    }
+                }
             }
         }
-        return capabilities;
+        return finalCapabilities;
     }
 
     public void setCapabilities(List<CapabilityOption> capabilities) {
@@ -70,9 +87,9 @@ public class CapabilityOptions extends XmlData {
 
     @Override
     public String toString() {
-        return "CapabilityOptions{" +
-                "totalOptions=" + totalOptions +
-                ", capabilities=" + capabilities +
-                '}';
+        return "CapabilityOptions{"
+                + "totalOptions=" + totalOptions
+                + ", capabilities=" + capabilities
+                + '}';
     }
 }

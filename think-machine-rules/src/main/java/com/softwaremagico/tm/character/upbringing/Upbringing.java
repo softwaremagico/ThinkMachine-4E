@@ -24,6 +24,7 @@ package com.softwaremagico.tm.character.upbringing;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.softwaremagico.tm.character.CharacterDefinitionStep;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.perks.PerkOption;
@@ -36,26 +37,30 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Upbringing extends CharacterDefinitionStep<Upbringing> {
+    @JsonIgnore
+    private List<PerkOptions> finalPerkOptions;
 
     @Override
     public List<PerkOptions> getPerksOptions() {
-        //No perks defined.
-        final List<PerkOptions> perkOptionsList = new ArrayList<>();
-        for (PerkOptions perkOptions : super.getPerksOptions()) {
-            if (perkOptions.isIncludeOpenPerks()) {
-                final PerkOptions completedPerkOption = perkOptions.copy();
-                //Add Open perks
-                try {
-                    completedPerkOption.addPerks(PerkFactory.getInstance().getElements().stream().filter(perk -> perk.getRestrictions().isOpen())
-                            .map(PerkOption::new).collect(Collectors.toList()));
-                } catch (InvalidXmlElementException e) {
-                    MachineLog.errorMessage(this.getClass(), e);
+        if (finalPerkOptions == null) {
+            //No perks defined.
+            finalPerkOptions = new ArrayList<>();
+            for (PerkOptions perkOptions : super.getPerksOptions()) {
+                if (perkOptions.isIncludeOpenPerks()) {
+                    final PerkOptions completedPerkOption = perkOptions.copy();
+                    //Add Open perks
+                    try {
+                        completedPerkOption.addPerks(PerkFactory.getInstance().getElements().stream().filter(perk -> perk.getRestrictions().isOpen())
+                                .map(PerkOption::new).collect(Collectors.toList()));
+                    } catch (InvalidXmlElementException e) {
+                        MachineLog.errorMessage(this.getClass(), e);
+                    }
+                    finalPerkOptions.add(completedPerkOption);
+                } else {
+                    finalPerkOptions.add(perkOptions);
                 }
-                perkOptionsList.add(completedPerkOption);
-            } else {
-                perkOptionsList.add(perkOptions);
             }
         }
-        return perkOptionsList;
+        return finalPerkOptions;
     }
 }

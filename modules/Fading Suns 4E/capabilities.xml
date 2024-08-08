@@ -157,44 +157,48 @@
         </restrictions>
     </capability>
     <capability>
-        <id>musicalInstrumentBrass</id>
-        <group>musicalInstruments</group>
+        <id>musicalInstrument</id>
         <name>
-            <en>Musical Instrument (Brass)</en>
-            <es>Instrumento Musical (Viento Metal)</es>
+            <en>Musical Instrument</en>
+            <es>Instrumento Musical</es>
         </name>
-    </capability>
-    <capability>
-        <id>musicalInstrumentStrings</id>
-        <group>musicalInstruments</group>
-        <name>
-            <en>Musical Instrument (Strings)</en>
-            <es>Instrumento Musical (Cuerda)</es>
-        </name>
-    </capability>
-    <capability>
-        <id>musicalInstrumentWoodwind</id>
-        <group>musicalInstruments</group>
-        <name>
-            <en>Musical Instrument (Woodwind)</en>
-            <es>Instrumento Musical (Viento Madera)</es>
-        </name>
-    </capability>
-    <capability>
-        <id>musicalInstrumentPercussion</id>
-        <group>musicalInstruments</group>
-        <name>
-            <en>Musical Instrument (Percussion)</en>
-            <es>Instrumento Musical (Percusión)</es>
-        </name>
-    </capability>
-    <capability>
-        <id>musicalInstrumentKeyboards</id>
-        <group>musicalInstruments</group>
-        <name>
-            <en>Musical Instrument (Keyboards)</en>
-            <es>Instrumento Musical (Teclado)</es>
-        </name>
+        <specializations>
+            <specialization>
+                <id>brass</id>
+                <name>
+                    <en>Brass</en>
+                    <es>Viento Metal</es>
+                </name>
+            </specialization>
+            <specialization>
+                <id>strings</id>
+                <name>
+                    <en>Strings</en>
+                    <es>Cuerda</es>
+                </name>
+            </specialization>
+            <specialization>
+                <id>woodwind</id>
+                <name>
+                    <en>Woodwind</en>
+                    <es>Viento Madera</es>
+                </name>
+            </specialization>
+            <specialization>
+                <id>percussion</id>
+                <name>
+                    <en>Percussion</en>
+                    <es>Percusión</es>
+                </name>
+            </specialization>
+            <specialization>
+                <id>keyboards</id>
+                <name>
+                    <en>Keyboards</en>
+                    <es>Teclado</es>
+                </name>
+            </specialization>
+        </specializations>
     </capability>
 
     <capability>
@@ -350,10 +354,10 @@
         </restrictions>
     </capability>
     <capability>
-        <id>warcarft</id>
+        <id>watercraft</id>
         <group>transport</group>
         <name>
-            <en>Warcraft</en>
+            <en>Watercraft</en>
             <es>Vehículos Acuáticos</es>
         </name>
     </capability>
@@ -1275,8 +1279,10 @@
             <es>Saber Cirugía</es>
         </name>
         <restrictions>
+            <factionGroups>
+                <factionGroup>priest</factionGroup>
+            </factionGroups>
             <callings>
-                <calling>priest</calling>
                 <calling>merchant</calling>
                 <calling>chainer</calling>
                 <calling>enthusiast</calling>

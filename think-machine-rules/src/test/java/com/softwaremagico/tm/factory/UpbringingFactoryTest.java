@@ -8,30 +8,30 @@ package com.softwaremagico.tm.factory;
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
  * Foundation; either version 2 of the License, or (at your option) any later
  * version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU General Public License along with
  * this program; If not, see <http://www.gnu.org/licenses/gpl-3.0.html>.
  * #L%
  */
 
-import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = {"upbringingFactory"})
 public class UpbringingFactoryTest {
-    private static final int DEFINED_UPRISINGS = 1;
+    private static final int DEFINED_UPRISINGS = 4;
 
     @Test
     public void checkTotalElements() throws InvalidXmlElementException {
@@ -60,6 +60,14 @@ public class UpbringingFactoryTest {
     @Test
     public void getPerksOption() throws InvalidXmlElementException {
         Assert.assertEquals(UpbringingFactory.getInstance().getElements("noble").getPerksOptions().size(), 2);
-        Assert.assertEquals(UpbringingFactory.getInstance().getElements("noble").getPerksOptions().get(1).getPerks().size(), 29);
+        Assert.assertEquals(UpbringingFactory.getInstance().getElements("noble").getPerksOptions().get(1).getPerks().size(), 18);
+    }
+
+    @Test
+    public void getAnyOption() throws InvalidXmlElementException {
+        Assert.assertEquals(UpbringingFactory.getInstance().getElements("yeoman").getSkillOptions().size(), 5);
+        Assert.assertEquals(UpbringingFactory.getInstance().getElements("yeoman").getCharacteristicOptions().size(), 5);
+        Assert.assertEquals(UpbringingFactory.getInstance().getElements("yeoman").getCapabilityOptions().size(), 6);
+        Assert.assertEquals(UpbringingFactory.getInstance().getElements("yeoman").getCapabilityOptions().get(5).getCapabilities().size(), CapabilityFactoryTest.TOTAL_ELEMENTS);
     }
 }
