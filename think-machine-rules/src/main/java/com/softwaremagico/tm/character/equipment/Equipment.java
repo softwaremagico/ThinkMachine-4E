@@ -33,6 +33,8 @@ import com.softwaremagico.tm.character.equipment.item.Item;
 import com.softwaremagico.tm.character.equipment.shields.Shield;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 
+import java.util.List;
+
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         property = "type",
@@ -48,6 +50,7 @@ public abstract class Equipment<E extends Element<?>> extends Element<E> impleme
     private float cost;
     private int techLevel;
     private Size size;
+    private List<String> traits;
 
     public Equipment() {
         super();
@@ -78,5 +81,13 @@ public abstract class Equipment<E extends Element<?>> extends Element<E> impleme
 
     public void setSize(Size size) {
         this.size = size;
+    }
+
+    public List<String> getTraits() {
+        return traits;
+    }
+
+    public void setTraits(List<String> traits) {
+        this.traits = traits;
     }
 }

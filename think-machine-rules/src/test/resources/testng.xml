@@ -14,8 +14,8 @@
     <test name="CharacterCrud" enabled="true" preserve-order="true">
         <groups>
             <run>
-<!--                <include name="moduleManager"/>-->
-<!--                <include name="configurationReader"/>-->
+                <!--                <include name="moduleManager"/>-->
+                <!--                <include name="configurationReader"/>-->
                 <include name="skillFactory"/>
                 <include name="raceFactory"/>
                 <include name="damageFactory"/>
@@ -30,27 +30,28 @@
                 <include name="callingFactory"/>
                 <include name="capabilityFactory"/>
                 <include name="upbringingFactory"/>
+                <include name="equipmentTraitsFactory"/>
                 <include name="itemFactory"/>
                 <include name="perkFactory"/>
                 <include name="factoryValidation"/>
 
                 <include name="characterCreation"/>
 
-<!--                <include name="randomDefinition"/>-->
-<!--                <include name="randomCharacter"/>-->
-<!--                <include name="cybernetics"/>-->
-<!--                <include name="jsonExporter"/>-->
-<!--                <include name="blessings"/>-->
-<!--                <include name="benefices"/>-->
-<!--                <include name="occultism"/>-->
-<!--                <include name="exportTxt"/>-->
-<!--                <include name="experience"/>-->
-<!--                <include name="costCalculator"/>-->
-<!--                <exclude name="jsonCache"/>-->
-<!--                <include name="moduleEnforcer"/>-->
-<!--                <include name="faction"/>-->
-<!--                <include name="specie"/>-->
-<!--                <include name="skills"/>-->
+                <!--                <include name="randomDefinition"/>-->
+                <!--                <include name="randomCharacter"/>-->
+                <!--                <include name="cybernetics"/>-->
+                <!--                <include name="jsonExporter"/>-->
+                <!--                <include name="blessings"/>-->
+                <!--                <include name="benefices"/>-->
+                <!--                <include name="occultism"/>-->
+                <!--                <include name="exportTxt"/>-->
+                <!--                <include name="experience"/>-->
+                <!--                <include name="costCalculator"/>-->
+                <!--                <exclude name="jsonCache"/>-->
+                <!--                <include name="moduleEnforcer"/>-->
+                <!--                <include name="faction"/>-->
+                <!--                <include name="specie"/>-->
+                <!--                <include name="skills"/>-->
             </run>
         </groups>
         <classes>
@@ -74,6 +75,7 @@
             <class name="com.softwaremagico.tm.factory.UpbringingFactoryTest"/>
             <class name="com.softwaremagico.tm.factory.PerkFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.ValidateFactoryTests"/>
+            <class name="com.softwaremagico.tm.factory.EquipmentTraitsFactoryTests"/>
             <class name="com.softwaremagico.tm.rules.CharacterCreationTest"/>
             <!--            <class name="com.softwaremagico.tm.rules.BlessingTests"/>-->
             <!--            <class name="com.softwaremagico.tm.rules.BeneficeTests"/>-->

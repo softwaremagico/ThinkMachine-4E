@@ -201,9 +201,12 @@
         <favoredCallings>
             <calling>enthusiast</calling>
         </favoredCallings>
-        <materialAward>
-
-        </materialAward>
+        <materialAwards>
+            <item>
+                <id>estheticOrb</id>
+                <type>item</type>
+            </item>
+        </materialAwards>
         <restrictions>
             <upbringings>
                 <upbringing>nobility</upbringing>
@@ -341,11 +344,13 @@
             <probabilityMultiplier>20</probabilityMultiplier>
         </random>
     </faction>
+
+
     <faction>
-        <id>hawkwood</id>
+        <id>decados</id>
         <name>
-            <en>Hawkwood</en>
-            <es>Hawkwood</es>
+            <en>Decados</en>
+            <es>Decados</es>
         </name>
         <group>nobility</group>
         <restrictions>
@@ -354,6 +359,27 @@
             </species>
         </restrictions>
         <capabilities>
+            <options>
+                <capability>
+                    <id>factionLore</id>
+                    <specialization>decados</specialization>
+                </capability>
+                <total>1</total>
+            </options>
+            <options>
+                <total>1</total>
+                <capabilities>
+                    <capability>
+                        <group>medicalLore</group>
+                    </capability>
+                    <capability>
+                        <group>knowledgeLore</group>
+                    </capability>
+                    <capability>
+                        <group>artsLore</group>
+                    </capability>
+                </capabilities>
+            </options>
             <options>
                 <total>1</total>
                 <capabilities>
@@ -364,23 +390,9 @@
                         <id>energyGun</id>
                     </capability>
                     <capability>
-                        <id>combatArmor</id>
-                    </capability>
-                    <capability>
-                        <id>lore</id>
+                        <id>militaryWeapons</id>
                     </capability>
                 </capabilities>
-            </options>
-            <options>
-                <capability>
-                    <id>factionLore</id>
-                    <specialization>hazat</specialization>
-                </capability>
-                <total>1</total>
-            </options>
-            <options>
-                <capability>warfareLore</capability>
-                <total>1</total>
             </options>
         </capabilities>
         <characteristics>
@@ -389,11 +401,28 @@
                 <characteristics>
                     <characteristic>
                         <id>dexterity</id>
-                        <bonus>2</bonus>
+                        <bonus>1</bonus>
                     </characteristic>
                     <characteristic>
                         <id>strength</id>
-                        <bonus>2</bonus>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>endurance</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>perception</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>wits</id>
+                        <bonus>1</bonus>
                     </characteristic>
                 </characteristics>
             </options>
@@ -402,7 +431,7 @@
                 <characteristics>
                     <characteristic>
                         <id>presence</id>
-                        <bonus>2</bonus>
+                        <bonus>1</bonus>
                     </characteristic>
                 </characteristics>
             </options>
@@ -411,11 +440,7 @@
                 <characteristics>
                     <characteristic>
                         <id>will</id>
-                        <bonus>1</bonus>
-                    </characteristic>
-                    <characteristic>
-                        <id>wits</id>
-                        <bonus>1</bonus>
+                        <bonus>2</bonus>
                     </characteristic>
                 </characteristics>
             </options>
@@ -435,21 +460,298 @@
                 <total>1</total>
                 <skills>
                     <skill>
-                        <id>slugGuns</id>
+                        <id>academia</id>
                         <bonus>1</bonus>
                     </skill>
                     <skill>
-                        <id>energyGuns</id>
+                        <id>arts</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>charm</id>
                         <bonus>1</bonus>
                     </skill>
                     <skill>
-                        <id>combatArmor</id>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>knavery</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>disguise</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>interface</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>intrusion</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skill>
+                    <id>melee</id>
+                    <bonus>1</bonus>
+                </skill>
+                <skill>
+                    <id>shoot</id>
+                    <bonus>1</bonus>
+                </skill>
+            </options>
+            <options>
+                <total>1</total>
+                <skill>
+                    <id>observer</id>
+                    <bonus>1</bonus>
+                </skill>
+                <skill>
+                    <id>sneak</id>
+                    <bonus>1</bonus>
+                </skill>
+            </options>
+        </skills>
+        <blessing>
+            <id>suspicious</id>
+            <name>
+                <en>Suspicious</en>
+                <es>Receloso</es>
+            </name>
+            <description>
+                <en>+2 Perception around political rivals</en>
+                <es>+2 Perception around political rivals</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>vain</id>
+            <name>
+                <en>Vain</en>
+                <es>Vanidoso</es>
+            </name>
+            <description>
+                <en>-2 Perception when flattered</en>
+                <es>Percepción –2 cuando te hacen un cumplido</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>sybarite</calling>
+        </favoredCallings>
+        <materialAwards>
+            <item>
+                <id>littleFriend</id>
+                <type>item</type>
+            </item>
+        </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>nobility</upbringing>
+            </upbringings>
+        </restrictions>
+        <random>
+            <!--Recommended poisons-->
+        </random>
+    </faction>
+
+
+    <faction>
+        <id>hawkwood</id>
+        <name>
+            <en>Hawkwood</en>
+            <es>Hawkwood</es>
+        </name>
+        <group>nobility</group>
+        <restrictions>
+            <species>
+                <specie>human</specie>
+            </species>
+        </restrictions>
+        <capabilities>
+            <options>
+                <total>1</total>
+                <capabilities>
+                    <capability>
+                        <id>beastBack</id>
+                    </capability>
+                    <capability>
+                        <id>shipboardOperations</id>
+                    </capability>
+                    <capability>
+                        <id>warfareLore</id>
+                    </capability>
+                </capabilities>
+            </options>
+            <options>
+                <total>1</total>
+                <capability>
+                    <id>factionLore</id>
+                    <specialization>hazat</specialization>
+                </capability>
+            </options>
+            <options>
+                <total>1</total>
+                <capability>
+                    <id>militaryWeapons</id>
+                </capability>
+                <capability>
+                    <id>energyGuns</id>
+                </capability>
+                <capability>
+                    <id>slugGuns</id>
+                </capability>
+            </options>
+        </capabilities>
+        <characteristics>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>faith</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>will</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>endurance</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>strength</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>wits</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>presence</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+        </characteristics>
+        <perks>
+            <options>
+                <total>1</total>
+                <perks>
+                    <perk>
+                        <id>nobleTitleKnight</id>
+                    </perk>
+                </perks>
+            </options>
+        </perks>
+        <skills>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>academia</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>focus</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>vigor</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>melee</id>
                         <bonus>1</bonus>
                     </skill>
                 </skills>
             </options>
         </skills>
-        <blessings>unyielding, prideful</blessings>
+        <blessing>
+            <id>unyielding</id>
+            <name>
+                <en>Unyielding</en>
+                <es>Obstinado</es>
+            </name>
+            <description>
+                <en>+1 goal on End-, Will-, Faith- based rolls when being called out.</en>
+                <es>Meta +1 en tiradas de Constitución, Voluntad y Fe cuando te retan.</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>prideful</id>
+            <name>
+                <en>Prideful</en>
+                <es>Orgulloso</es>
+            </name>
+            <description>
+                <en>-2 Wits when insulted.</en>
+                <es>Inteligencia –2 si te insultan.</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>commander</calling>
+        </favoredCallings>
+        <materialAwards>
+            <item>
+                <id>sword</id>
+                <type>weapon</type>
+            </item>
+        </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>nobility</upbringing>
+            </upbringings>
+        </restrictions>
         <random>
             <names>
                 <male>George, Jake, Gilfoyle, Charlie, Henry, Jacob, John, Thomas, Lawrence, Richard, James, Alfred,
