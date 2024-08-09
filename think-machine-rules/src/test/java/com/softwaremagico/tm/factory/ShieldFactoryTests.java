@@ -40,8 +40,8 @@ public class ShieldFactoryTests {
 
     @Test
     public void getShieldValues() throws InvalidXmlElementException {
-        Assert.assertEquals(ShieldFactory.getInstance().getElements("duelingShield").getImpact(), 5);
-        Assert.assertEquals(ShieldFactory.getInstance().getElements("duelingShield").getForce(), 10);
-        Assert.assertEquals(ShieldFactory.getInstance().getElements("duelingShield").getHits(), 15);
+        Assert.assertEquals(ShieldFactory.getInstance().getElement("duelingShield").getImpact(), 5);
+        Assert.assertEquals(ShieldFactory.getInstance().getElement("duelingShield").getForce(), 10);
+        Assert.assertEquals(ShieldFactory.getInstance().getElement("duelingShield").getHits(), 15);
     }
 }

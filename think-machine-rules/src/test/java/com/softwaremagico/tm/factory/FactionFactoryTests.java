@@ -26,6 +26,8 @@ package com.softwaremagico.tm.factory;
 
 
 import com.softwaremagico.tm.character.Gender;
+import com.softwaremagico.tm.character.equipment.item.Quality;
+import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.factions.random.RandomFactionFactory;
@@ -49,38 +51,49 @@ public class FactionFactoryTests {
 
     @Test
     public void checkBlessing() throws InvalidXmlElementException {
-        final Faction alMalik = FactionFactory.getInstance().getElements("alMalik");
+        final Faction alMalik = FactionFactory.getInstance().getElement("alMalik");
         Assert.assertNotNull(alMalik.getBlessing());
         Assert.assertEquals(alMalik.getBlessing().getId(), "extrovert");
     }
 
     @Test
     public void checkCurse() throws InvalidXmlElementException {
-        final Faction alMalik = FactionFactory.getInstance().getElements("alMalik");
+        final Faction alMalik = FactionFactory.getInstance().getElement("alMalik");
         Assert.assertNotNull(alMalik.getCurse());
         Assert.assertEquals(alMalik.getCurse().getId(), "impetuous");
     }
 
     @Test
     public void checkFavoredCallings() throws InvalidXmlElementException {
-        final Faction alMalik = FactionFactory.getInstance().getElements("alMalik");
+        final Faction alMalik = FactionFactory.getInstance().getElement("alMalik");
         Assert.assertTrue(alMalik.getFavoredCallings().contains("enthusiast"));
     }
 
 
     @Test
     public void readNames() throws InvalidXmlElementException {
-        final Faction hazat = FactionFactory.getInstance().getElements("hazat");
+        final Faction hazat = FactionFactory.getInstance().getElement("hazat");
         Assert.assertNotNull(hazat);
-        Assert.assertTrue(RandomFactionFactory.getInstance().getElements("hazat").getNames(Gender.MALE).size() >= DEFINED_MALE_NAMES);
+        Assert.assertTrue(RandomFactionFactory.getInstance().getElement("hazat").getNames(Gender.MALE).size() >= DEFINED_MALE_NAMES);
         Assert.assertTrue(
-                RandomFactionFactory.getInstance().getElements("hazat").getNames(Gender.FEMALE).size() >= DEFINED_FEMALE_NAMES);
-        Assert.assertTrue(RandomFactionFactory.getInstance().getElements("hazat").getData().getSurnames().size() >= DEFINED_SURNAMES);
+                RandomFactionFactory.getInstance().getElement("hazat").getNames(Gender.FEMALE).size() >= DEFINED_FEMALE_NAMES);
+        Assert.assertTrue(RandomFactionFactory.getInstance().getElement("hazat").getData().getSurnames().size() >= DEFINED_SURNAMES);
     }
+
+
+    @Test
+    public void readCustomizedWeapon() throws InvalidXmlElementException {
+        final Faction hawkwood = FactionFactory.getInstance().getElement("hawkwood");
+        Assert.assertNotNull(hawkwood);
+        Assert.assertEquals(FactionFactory.getInstance().getElement("hawkwood").getMaterialAwards().size(), 1);
+        Assert.assertTrue(FactionFactory.getInstance().getElement("hawkwood").getMaterialAwards().get(0) instanceof CustomizedWeapon);
+        Assert.assertEquals(((CustomizedWeapon) FactionFactory.getInstance().getElement("hawkwood").getMaterialAwards().get(0)).getQuality(), Quality.PREMIUM);
+    }
+
 
     @Test
     public void checkSuggestedBenefices() throws InvalidXmlElementException {
-        final Faction obun = FactionFactory.getInstance().getElements("obun");
+        final Faction obun = FactionFactory.getInstance().getElement("obun");
         //TODO(softwaremagico): complete this.
     }
 

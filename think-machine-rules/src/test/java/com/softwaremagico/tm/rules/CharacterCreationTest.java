@@ -49,6 +49,6 @@ public class CharacterCreationTest {
 
     @Test
     public void selectFaction() throws InvalidXmlElementException {
-        characterPlayer.setFaction(new CharacterDefinitionStepSelection(FactionFactory.getInstance().getElements("hawkwood")));
+        characterPlayer.setFaction(new CharacterDefinitionStepSelection(FactionFactory.getInstance().getElement("hawkwood")));
     }
 }

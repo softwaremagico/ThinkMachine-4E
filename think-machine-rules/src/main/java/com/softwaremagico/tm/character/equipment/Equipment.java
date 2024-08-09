@@ -28,8 +28,12 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.equipment.armors.Armor;
+import com.softwaremagico.tm.character.equipment.armors.CustomizedArmor;
+import com.softwaremagico.tm.character.equipment.item.CustomizedItem;
 import com.softwaremagico.tm.character.equipment.item.Item;
+import com.softwaremagico.tm.character.equipment.shields.CustomizedShield;
 import com.softwaremagico.tm.character.equipment.shields.Shield;
+import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 
 import java.util.List;
@@ -41,9 +45,13 @@ import java.util.List;
 )
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Item.class, name = "item"),
+        @JsonSubTypes.Type(value = CustomizedItem.class, name = "customizedItem"),
         @JsonSubTypes.Type(value = Shield.class, name = "shield"),
+        @JsonSubTypes.Type(value = CustomizedShield.class, name = "customizedShield"),
         @JsonSubTypes.Type(value = Armor.class, name = "armor"),
-        @JsonSubTypes.Type(value = Weapon.class, name = "weapon")
+        @JsonSubTypes.Type(value = CustomizedArmor.class, name = "customizedArmor"),
+        @JsonSubTypes.Type(value = Weapon.class, name = "weapon"),
+        @JsonSubTypes.Type(value = CustomizedWeapon.class, name = "customizedWeapon")
 })
 public abstract class Equipment<E extends Element<?>> extends Element<E> implements IElementWithTechnologyLevel {
     private float cost;

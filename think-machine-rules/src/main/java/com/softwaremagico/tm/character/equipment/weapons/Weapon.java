@@ -173,7 +173,7 @@ public class Weapon extends Equipment<Weapon> {
                 stringBuilder.append(", ");
             }
             try {
-                stringBuilder.append(DamageTypeFactory.getInstance().getElements(damageType).getName().getTranslatedText());
+                stringBuilder.append(DamageTypeFactory.getInstance().getElement(damageType).getName().getTranslatedText());
             } catch (InvalidXmlElementException e) {
                 MachineXmlReaderLog.errorMessage(this.getClass(), e);
             }

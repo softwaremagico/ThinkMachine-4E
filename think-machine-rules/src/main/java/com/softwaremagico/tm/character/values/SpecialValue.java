@@ -50,15 +50,15 @@ public class SpecialValue extends Element<SpecialValue> implements IValue {
             throws InvalidXmlElementException {
         try {
             // Is a characteristic?
-            return CharacteristicsDefinitionFactory.getInstance().getElements(valueName);
+            return CharacteristicsDefinitionFactory.getInstance().getElement(valueName);
         } catch (InvalidXmlElementException e) {
             // Is a skill??
             try {
-                return SkillFactory.getInstance().getElements(valueName);
+                return SkillFactory.getInstance().getElement(valueName);
             } catch (InvalidXmlElementException e2) {
                 // Is something else?
                 try {
-                    return SpecialValueFactory.getInstance().getElements(valueName);
+                    return SpecialValueFactory.getInstance().getElement(valueName);
                 } catch (InvalidXmlElementException e3) {
                     throw new InvalidXmlElementException("Invalid value '" + valueName + "'.", e3);
                 }

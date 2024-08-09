@@ -41,13 +41,13 @@ public class CapabilityFactoryTest {
 
     @Test
     public void checkSpecializations() throws InvalidXmlElementException {
-        Assert.assertEquals(CapabilityFactory.getInstance().getElements("beastLore").getSpecializations().size(),
+        Assert.assertEquals(CapabilityFactory.getInstance().getElement("beastLore").getSpecializations().size(),
                 2);
     }
 
     @Test
     public void checkSpecializationRestriction() throws InvalidXmlElementException {
-        Assert.assertTrue(CapabilityFactory.getInstance().getElements("read").getSpecialization("urthtech")
+        Assert.assertTrue(CapabilityFactory.getInstance().getElement("read").getSpecialization("urthtech")
                 .getRestrictions().isRequiredCapability("urthish"));
     }
 }

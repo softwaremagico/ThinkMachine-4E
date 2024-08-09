@@ -239,8 +239,8 @@ public class WeaponDamage {
 
     public String getRoll() {
         try {
-            return CharacteristicsDefinitionFactory.getInstance().getElements(characteristic).getAbbreviation() + "+"
-                    + SkillFactory.getInstance().getElements(skill).getName();
+            return CharacteristicsDefinitionFactory.getInstance().getElement(characteristic).getAbbreviation() + "+"
+                    + SkillFactory.getInstance().getElement(skill).getName();
         } catch (Exception e) {
             return "";
         }

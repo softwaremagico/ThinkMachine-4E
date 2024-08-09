@@ -45,7 +45,7 @@ public class CombatStylesFactoryTests {
     @Test
     public void readCombatActions() throws InvalidXmlElementException {
         Assert.assertEquals(CombatStyleFactory.getInstance()
-                .getElements("graa").getCombatActions().size(), 3);
+                .getElement("graa").getCombatActions().size(), 3);
     }
 
     @Test

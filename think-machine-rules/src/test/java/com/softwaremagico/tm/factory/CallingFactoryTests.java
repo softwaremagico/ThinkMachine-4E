@@ -41,25 +41,25 @@ public class CallingFactoryTests {
 
     @Test
     public void getCapabilityOption() throws InvalidXmlElementException {
-        Assert.assertEquals(CallingFactory.getInstance().getElements("commander").getCapabilityOptions().size(), 2);
-        Assert.assertEquals(CallingFactory.getInstance().getElements("commander").getCapabilityOptions().get(1).getCapabilities().size(), 3);
+        Assert.assertEquals(CallingFactory.getInstance().getElement("commander").getCapabilityOptions().size(), 2);
+        Assert.assertEquals(CallingFactory.getInstance().getElement("commander").getCapabilityOptions().get(1).getCapabilities().size(), 3);
     }
 
     @Test
     public void getCharacteristicOption() throws InvalidXmlElementException {
-        Assert.assertEquals(CallingFactory.getInstance().getElements("commander").getCharacteristicOptions().size(), 4);
-        Assert.assertEquals(CallingFactory.getInstance().getElements("commander").getCharacteristicOptions().get(0).getCharacteristicBonus("endurance").getBonus(), 1);
+        Assert.assertEquals(CallingFactory.getInstance().getElement("commander").getCharacteristicOptions().size(), 4);
+        Assert.assertEquals(CallingFactory.getInstance().getElement("commander").getCharacteristicOptions().get(0).getCharacteristicBonus("endurance").getBonus(), 1);
     }
 
     @Test
     public void getSkillOption() throws InvalidXmlElementException {
-        Assert.assertEquals(CallingFactory.getInstance().getElements("commander").getSkillOptions().size(), 7);
-        Assert.assertEquals(CallingFactory.getInstance().getElements("commander").getSkillOptions().get(0).getSkillBonus("academia").getBonus(), 1);
+        Assert.assertEquals(CallingFactory.getInstance().getElement("commander").getSkillOptions().size(), 7);
+        Assert.assertEquals(CallingFactory.getInstance().getElement("commander").getSkillOptions().get(0).getSkillBonus("academia").getBonus(), 1);
     }
 
     @Test
     public void getPerksOption() throws InvalidXmlElementException {
-        Assert.assertEquals(CallingFactory.getInstance().getElements("commander").getPerksOptions().size(), 1);
-        Assert.assertEquals(CallingFactory.getInstance().getElements("commander").getPerksOptions().get(0).getPerks().size(), 7);
+        Assert.assertEquals(CallingFactory.getInstance().getElement("commander").getPerksOptions().size(), 1);
+        Assert.assertEquals(CallingFactory.getInstance().getElement("commander").getPerksOptions().get(0).getPerks().size(), 7);
     }
 }

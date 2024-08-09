@@ -744,7 +744,8 @@
         <materialAwards>
             <item>
                 <id>sword</id>
-                <type>weapon</type>
+                <type>customizedWeapon</type>
+                <quality>premium</quality>
             </item>
         </materialAwards>
         <restrictions>

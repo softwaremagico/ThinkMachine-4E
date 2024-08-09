@@ -40,9 +40,9 @@ public class SkillsFactoryTests {
 
     @Test
     public void isRestricted() throws InvalidXmlElementException {
-        Assert.assertFalse(SkillFactory.getInstance().getElements("alchemy").getRestrictions().isRestricted());
-        Assert.assertEquals(SkillFactory.getInstance().getElements("alchemy").getRestrictions().getRestrictedToFactions().size(), 1);
-        Assert.assertEquals(SkillFactory.getInstance().getElements("alchemy").getRestrictions().getRestrictedToUpbringing().iterator().next(), "priest");
-        Assert.assertEquals(SkillFactory.getInstance().getElements("alchemy").getRestrictions().getRestrictedToCallings().size(), 6);
+        Assert.assertFalse(SkillFactory.getInstance().getElement("alchemy").getRestrictions().isRestricted());
+        Assert.assertEquals(SkillFactory.getInstance().getElement("alchemy").getRestrictions().getRestrictedToFactions().size(), 1);
+        Assert.assertEquals(SkillFactory.getInstance().getElement("alchemy").getRestrictions().getRestrictedToUpbringing().iterator().next(), "priest");
+        Assert.assertEquals(SkillFactory.getInstance().getElement("alchemy").getRestrictions().getRestrictedToCallings().size(), 6);
     }
 }

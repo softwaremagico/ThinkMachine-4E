@@ -85,13 +85,13 @@ public class OccultismFactoryTests {
     @Test
     public void getClassifications() throws InvalidXmlElementException {
         Assert.assertEquals(ElementClassification.ENHANCEMENT,
-                OccultismPathFactory.getInstance().getElements("sixthSense").getClassification());
+                OccultismPathFactory.getInstance().getElement("sixthSense").getClassification());
         Assert.assertEquals(ElementClassification.COMBAT,
-                OccultismPathFactory.getInstance().getElements("soma").getClassification());
+                OccultismPathFactory.getInstance().getElement("soma").getClassification());
         Assert.assertEquals(ElementClassification.OTHERS,
-                OccultismPathFactory.getInstance().getElements("sympathy").getClassification());
+                OccultismPathFactory.getInstance().getElement("sympathy").getClassification());
         Assert.assertEquals(ElementClassification.ALTERATION,
-                OccultismPathFactory.getInstance().getElements("templeAvestiRituals")
+                OccultismPathFactory.getInstance().getElement("templeAvestiRituals")
                         .getClassification());
     }
 
@@ -99,7 +99,7 @@ public class OccultismFactoryTests {
     @Test
     public void checkNonOfficialPaths() throws InvalidXmlElementException {
         Assert.assertFalse(OccultismPathFactory.getInstance()
-                .getElements("bedlam").getOccultismPowers()
+                .getElement("bedlam").getOccultismPowers()
                 .get("prana").isOfficial());
     }
 }

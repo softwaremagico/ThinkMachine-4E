@@ -268,17 +268,17 @@ public class Restrictions extends XmlData {
     @Override
     public void validate() throws InvalidXmlElementException {
         for (String race : restrictedToSpecies) {
-            SpecieFactory.getInstance().getElements(race);
+            SpecieFactory.getInstance().getElement(race);
         }
         for (String faction : restrictedToFactions) {
-            FactionFactory.getInstance().getElements(faction);
+            FactionFactory.getInstance().getElement(faction);
         }
         for (String calling : restrictedToCallings) {
-            CallingFactory.getInstance().getElements(calling);
+            CallingFactory.getInstance().getElement(calling);
         }
 
         for (String capability : restrictedToCapabilities) {
-            CapabilityFactory.getInstance().getElements(capability);
+            CapabilityFactory.getInstance().getElement(capability);
         }
     }
 }

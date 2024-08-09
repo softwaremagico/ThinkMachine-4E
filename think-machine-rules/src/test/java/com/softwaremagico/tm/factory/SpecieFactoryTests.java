@@ -47,7 +47,7 @@ public class SpecieFactoryTests {
 
     @Test
     public void readAfflictions() throws InvalidXmlElementException {
-        final Specie obun = SpecieFactory.getInstance().getElements("obun");
+        final Specie obun = SpecieFactory.getInstance().getElement("obun");
         Assert.assertTrue(obun.getPerks().stream().anyMatch(perkOption -> Objects.equals(perkOption.getId(), "childOfDhiyana")));
         Assert.assertEquals((int) obun.getRandomDefinition().getStaticProbability(), 10);
     }
@@ -56,13 +56,13 @@ public class SpecieFactoryTests {
 
     @Test
     public void readRaceExtraPoints() throws InvalidXmlElementException {
-        final Specie vorox = SpecieFactory.getInstance().getElements("vorox");
+        final Specie vorox = SpecieFactory.getInstance().getElement("vorox");
         Assert.assertEquals(vorox.getCost(), 9);
     }
 
     @Test
     public void readPlanets() throws InvalidXmlElementException {
-        Assert.assertEquals(SpecieFactory.getInstance().getElements("shantor")
+        Assert.assertEquals(SpecieFactory.getInstance().getElement("shantor")
                 .getPlanets().size(), 1);
     }
 }

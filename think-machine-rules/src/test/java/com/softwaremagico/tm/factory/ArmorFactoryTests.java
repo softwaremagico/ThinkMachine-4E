@@ -43,45 +43,45 @@ public class ArmorFactoryTests {
 
     @Test
     public void readArmoursSpecifications() throws InvalidXmlElementException {
-        Assert.assertEquals(ArmorFactory.getInstance().getElements("adeptRobes")
+        Assert.assertEquals(ArmorFactory.getInstance().getElement("adeptRobes")
                 .getSpecifications().size(), 7);
     }
 
     @Test
     public void readShieldsFromArmour() throws InvalidXmlElementException {
-        Assert.assertEquals(ArmorFactory.getInstance().getElements("synthsilk")
+        Assert.assertEquals(ArmorFactory.getInstance().getElement("synthsilk")
                 .getAllowedShields().size(), 4);
-        Assert.assertEquals(ArmorFactory.getInstance().getElements("adeptRobes")
+        Assert.assertEquals(ArmorFactory.getInstance().getElement("adeptRobes")
                 .getAllowedShields().size(), 1);
     }
 
     @Test
     public void readDamagesFromArmour() throws InvalidXmlElementException {
         Assert.assertEquals(
-                ArmorFactory.getInstance().getElements("ceramsteelExoframe")
+                ArmorFactory.getInstance().getElement("ceramsteelExoframe")
                         .getDamageTypes().size(), 4);
-        Assert.assertEquals(ArmorFactory.getInstance().getElements("spacesuit")
+        Assert.assertEquals(ArmorFactory.getInstance().getElement("spacesuit")
                 .getDamageTypes().size(), 4);
     }
 
     @Test
     public void readOthersFromArmour() throws InvalidXmlElementException {
         Assert.assertEquals(
-                ArmorFactory.getInstance().getElements("ceramsteelExoframe")
+                ArmorFactory.getInstance().getElement("ceramsteelExoframe")
                         .getSpecifications().size(), 2);
-        Assert.assertEquals(ArmorFactory.getInstance().getElements("halfPlateMetal")
+        Assert.assertEquals(ArmorFactory.getInstance().getElement("halfPlateMetal")
                 .getSpecifications().size(), 1);
-        Assert.assertTrue(ArmorFactory.getInstance().getElements("chainMailMetal")
+        Assert.assertTrue(ArmorFactory.getInstance().getElement("chainMailMetal")
                 .getSpecifications().contains("metal"));
     }
 
     @Test
     public void getPenalization() throws InvalidXmlElementException {
         Assert.assertEquals(
-                ArmorFactory.getInstance().getElements("spacesuit")
+                ArmorFactory.getInstance().getElement("spacesuit")
                         .getStandardPenalization().getDexterityModification(), 0);
         Assert.assertEquals(
-                ArmorFactory.getInstance().getElements("spacesuit")
+                ArmorFactory.getInstance().getElement("spacesuit")
                         .getSpecialPenalization().getDexterityModification(), -2);
     }
 }
