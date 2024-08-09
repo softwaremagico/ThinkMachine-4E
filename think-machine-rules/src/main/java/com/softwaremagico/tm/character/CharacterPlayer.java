@@ -38,7 +38,7 @@ public class CharacterPlayer {
 
     private CharacterDefinitionStepSelection faction;
 
-    private CharacterDefinitionStepSelection uprising;
+    private CharacterDefinitionStepSelection upbringing;
 
     private List<CapabilitySelection> capabilities;
 
@@ -80,12 +80,12 @@ public class CharacterPlayer {
         return 0;
     }
 
-    public CharacterDefinitionStepSelection getUprising() {
-        return uprising;
+    public CharacterDefinitionStepSelection getUpbringing() {
+        return upbringing;
     }
 
-    public void setUprising(CharacterDefinitionStepSelection uprising) {
-        this.uprising = uprising;
+    public void setUpbringing(CharacterDefinitionStepSelection upbringing) {
+        this.upbringing = upbringing;
     }
 
     public List<CapabilitySelection> getCapabilities() {

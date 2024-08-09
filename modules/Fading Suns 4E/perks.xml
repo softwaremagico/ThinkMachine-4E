@@ -654,9 +654,9 @@
             <es>Cartulario</es>
         </name>
         <restrictions mode="any_from_group">
-            <factionGroups>
-                <factionGroup>priest</factionGroup>
-            </factionGroups>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
             <callings>
                 <calling>clergy</calling>
             </callings>
@@ -685,9 +685,9 @@
         </name>
         <group>churchOrdination</group>
         <restrictions>
-            <factionGroups>
-                <factionGroup>priest</factionGroup>
-            </factionGroups>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
         </restrictions>
     </perk>
     <perk>

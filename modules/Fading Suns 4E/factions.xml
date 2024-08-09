@@ -204,6 +204,11 @@
         <materialAward>
 
         </materialAward>
+        <restrictions>
+            <upbringings>
+                <upbringing>nobility</upbringing>
+            </upbringings>
+        </restrictions>
         <random>
             <names>
                 <male>Aban, Abbas, Abbud, Abbudin, Abdul, Abdel, 'Abd al, Abdullah, 'Abid, 'Abidin, Abu Bakr, Abu al

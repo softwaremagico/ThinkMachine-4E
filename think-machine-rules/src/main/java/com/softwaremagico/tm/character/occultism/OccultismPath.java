@@ -30,7 +30,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.ElementClassification;
 import com.softwaremagico.tm.TranslatedText;
-import com.softwaremagico.tm.character.factions.FactionGroup;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -180,8 +179,8 @@ public class OccultismPath extends Element<OccultismPath> {
     }
 
 
-    public void setRestrictedToFactionGroup(Set<FactionGroup> factionGroup) {
-        super.getRestrictions().setRestrictedToFactionGroup(factionGroup);
+    public void setRestrictedToFactionGroup(Set<String> upbringings) {
+        super.getRestrictions().setRestrictedToUpbringing(upbringings);
     }
 
     @Override

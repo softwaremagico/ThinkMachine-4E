@@ -24,9 +24,8 @@ package com.softwaremagico.tm.factory;
  * #L%
  */
 
-import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.character.factions.FactionGroup;
 import com.softwaremagico.tm.character.skills.SkillFactory;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -43,7 +42,7 @@ public class SkillsFactoryTests {
     public void isRestricted() throws InvalidXmlElementException {
         Assert.assertFalse(SkillFactory.getInstance().getElements("alchemy").getRestrictions().isRestricted());
         Assert.assertEquals(SkillFactory.getInstance().getElements("alchemy").getRestrictions().getRestrictedToFactions().size(), 1);
-        Assert.assertEquals(SkillFactory.getInstance().getElements("alchemy").getRestrictions().getRestrictedToFactionGroup().iterator().next(), FactionGroup.PRIEST);
+        Assert.assertEquals(SkillFactory.getInstance().getElements("alchemy").getRestrictions().getRestrictedToUpbringing().iterator().next(), "priest");
         Assert.assertEquals(SkillFactory.getInstance().getElements("alchemy").getRestrictions().getRestrictedToCallings().size(), 6);
     }
 }

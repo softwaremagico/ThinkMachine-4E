@@ -880,7 +880,7 @@
         <size>L</size>
         <cost>20</cost>
         <random>
-            <recommendedFactionGroups>nobility</recommendedFactionGroups>
+            <recommendedUpbringings>nobility</recommendedUpbringings>
         </random>
     </rapier>
     <saber>
@@ -5855,7 +5855,7 @@
         <others>autofeed, flechette</others>
         <random>
             <probabilityMultiplier>0.01</probabilityMultiplier>
-            <restrictedFactionGroups>guild</restrictedFactionGroups>
+            <restrictedUpbringings>merchant</restrictedUpbringings>
         </random>
     </reznorNailGun>
     <nailgunPowerTool>

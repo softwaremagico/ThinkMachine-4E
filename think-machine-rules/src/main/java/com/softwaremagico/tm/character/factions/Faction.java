@@ -32,7 +32,6 @@ import java.util.List;
 
 @JacksonXmlRootElement(localName = "faction")
 public class Faction extends CharacterDefinitionStep<Faction> {
-    private FactionGroup factionGroup;
     private Boolean isOnlyForHuman;
     private Blessing blessing;
     private Curse curse;
@@ -40,14 +39,6 @@ public class Faction extends CharacterDefinitionStep<Faction> {
     private List<String> favoredCallings;
 
     public Faction() {
-    }
-
-    public FactionGroup getFactionGroup() {
-        return factionGroup;
-    }
-
-    public void setFactionGroup(FactionGroup factionGroup) {
-        this.factionGroup = factionGroup;
     }
 
     public boolean isOnlyForHuman() {

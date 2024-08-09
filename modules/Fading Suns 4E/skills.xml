@@ -19,9 +19,9 @@
             <factions>
                 <faction>engineers</faction>
             </factions>
-            <factionGroups>
-                <factionGroup>priest</factionGroup>
-            </factionGroups>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
             <callings>
                 <calling>banker</calling>
                 <calling>enthusiast</calling>
@@ -115,9 +115,9 @@
             <factions>
                 <faction>engineers</faction>
             </factions>
-            <factionGroups>
-                <factionGroup>priest</factionGroup>
-            </factionGroups>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
             <callings>
                 <calling>merchant</calling>
                 <calling>amateur</calling>
@@ -180,9 +180,9 @@
             <factions>
                 <faction>brotherBattle</faction>
             </factions>
-            <factionGroups>
-                <factionGroup>nobility</factionGroup>
-            </factionGroups>
+            <upbringings>
+                <upbringing>nobility</upbringing>
+            </upbringings>
             <callings>
                 <calling>merchant</calling>
                 <calling>explorer</calling>

@@ -851,7 +851,7 @@
 				</description>
 			</stance>
 		</stances>
-		<restrictedFactionGroups>nobility</restrictedFactionGroups>
+		<restrictedUpbringings>nobility</restrictedUpbringings>
 	</style>
 	<style>
 		<id>phoenixRifleCorps</id>
@@ -1019,7 +1019,7 @@
 			</stance>
 		</stances>
 		<random>
-			<recommendedFactionGroups>guild</recommendedFactionGroups>
+			<recommendedUpbringings>merchant</recommendedUpbringings>
 			<recommendedFactions>muster, scravers</recommendedFactions>
 		</random>
 	</style>

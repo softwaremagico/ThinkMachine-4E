@@ -30,7 +30,6 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
 import com.softwaremagico.tm.character.factions.FactionFactory;
-import com.softwaremagico.tm.character.factions.FactionGroup;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
@@ -51,8 +50,8 @@ public class Restrictions extends XmlData {
     @JsonProperty("species")
     private Set<String> restrictedToSpecies = new HashSet<>();
 
-    @JsonProperty("factionGroups")
-    private Set<FactionGroup> restrictedToFactionGroup = new HashSet<>();
+    @JsonProperty("upbringings")
+    private Set<String> restrictedToUpbringing = new HashSet<>();
 
     @JsonProperty("factions")
     private Set<String> restrictedToFactions = new HashSet<>();
@@ -85,12 +84,12 @@ public class Restrictions extends XmlData {
         this.restrictedToSpecies = restrictedToSpecies;
     }
 
-    public Set<FactionGroup> getRestrictedToFactionGroup() {
-        return restrictedToFactionGroup;
+    public Set<String> getRestrictedToUpbringing() {
+        return restrictedToUpbringing;
     }
 
-    public void setRestrictedToFactionGroup(Set<FactionGroup> restrictedToFactionGroup) {
-        this.restrictedToFactionGroup = restrictedToFactionGroup;
+    public void setRestrictedToUpbringing(Set<String> restrictedToUpbringing) {
+        this.restrictedToUpbringing = restrictedToUpbringing;
     }
 
     public Set<String> getRestrictedToFactions() {
@@ -150,7 +149,7 @@ public class Restrictions extends XmlData {
     public boolean isOpen() {
         return !this.restricted
                 && (restrictedToSpecies == null || restrictedToSpecies.isEmpty())
-                && (restrictedToFactionGroup == null || restrictedToFactionGroup.isEmpty())
+                && (restrictedToUpbringing == null || restrictedToUpbringing.isEmpty())
                 && (restrictedToFactions == null || restrictedToFactions.isEmpty())
                 && (restrictedToUprising == null || restrictedToUprising.isEmpty())
                 && (restrictedToCallings == null || restrictedToCallings.isEmpty())
@@ -173,14 +172,14 @@ public class Restrictions extends XmlData {
                     (!getRestrictedToSpecies().isEmpty() && (characterPlayer.getSpecie() != null && getRestrictedToSpecies()
                             .contains(characterPlayer.getSpecie())))
                             // Check Faction Group
-                            || (!getRestrictedToFactionGroup().isEmpty() && (characterPlayer.getFaction() != null && getRestrictedToFactionGroup()
-                            .contains(FactionFactory.getInstance().getElements(characterPlayer.getFaction().getId()).getFactionGroup())))
+                            || (!getRestrictedToUprising().isEmpty() && (characterPlayer.getFaction() != null && getRestrictedToUprising()
+                            .contains(characterPlayer.getUpbringing().getId())))
                             // Check Faction
                             || (!getRestrictedToFactions().isEmpty() && (characterPlayer.getFaction() != null && getRestrictedToFactions()
                             .contains(characterPlayer.getFaction().getId())))
                             // Check Uprising
-                            || (!getRestrictedToUprising().isEmpty() && (characterPlayer.getUprising() != null && getRestrictedToUprising()
-                            .contains(characterPlayer.getUprising().getId())))
+                            || (!getRestrictedToUprising().isEmpty() && (characterPlayer.getUpbringing() != null && getRestrictedToUprising()
+                            .contains(characterPlayer.getUpbringing().getId())))
                             //Check Callings
                             || (!getRestrictedToCallings().isEmpty() && (characterPlayer.getCallings() != null && !Collections.disjoint(
                             getRestrictedToCallings(), (characterPlayer.getCallings()))))
@@ -214,14 +213,14 @@ public class Restrictions extends XmlData {
                     (getRestrictedToSpecies().isEmpty() || (characterPlayer.getSpecie() != null && getRestrictedToSpecies()
                             .contains(characterPlayer.getSpecie())))
                             // Check Faction Group
-                            && (getRestrictedToFactionGroup().isEmpty() || (characterPlayer.getFaction() != null && getRestrictedToFactionGroup()
-                            .contains(FactionFactory.getInstance().getElements(characterPlayer.getFaction().getId()).getFactionGroup())))
+                            && (getRestrictedToUprising().isEmpty() || (characterPlayer.getFaction() != null && getRestrictedToUprising()
+                            .contains(characterPlayer.getUpbringing().getId())))
                             // Check Faction
                             && (getRestrictedToFactions().isEmpty() || (characterPlayer.getFaction() != null && getRestrictedToFactions()
                             .contains(characterPlayer.getFaction().getId())))
                             // Check Uprising
-                            && (getRestrictedToUprising().isEmpty() || (characterPlayer.getUprising() != null && getRestrictedToUprising()
-                            .contains(characterPlayer.getUprising().getId())))
+                            && (getRestrictedToUprising().isEmpty() || (characterPlayer.getUpbringing() != null && getRestrictedToUprising()
+                            .contains(characterPlayer.getUpbringing().getId())))
                             //Check Callings
                             && (getRestrictedToCallings().isEmpty() || (characterPlayer.getCallings() != null && !Collections.disjoint(
                             getRestrictedToCallings(), (characterPlayer.getCallings()))))

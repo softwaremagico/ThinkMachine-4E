@@ -32,7 +32,7 @@
 		<hits>15</hits>
 		<cost>700</cost>
 		<random>
-			<recommendedFactionGroups>nobility</recommendedFactionGroups>
+			<recommendedUpbringings>nobility</recommendedUpbringings>
 		</random>
 	</shield>
 	<shield>

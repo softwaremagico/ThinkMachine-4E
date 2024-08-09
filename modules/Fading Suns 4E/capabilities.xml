@@ -27,10 +27,10 @@
             <factions>
                 <faction>brotherBattle</faction>
             </factions>
-            <factionGroups>
-                <factionGroup>guild</factionGroup>
-                <factionGroup>nobility</factionGroup>
-            </factionGroups>
+            <upbringings>
+                <upbringing>merchant</upbringing>
+                <upbringing>nobility</upbringing>
+            </upbringings>
             <callings>
                 <calling>theDispossessed</calling>
                 <calling>imperialCohort</calling>
@@ -53,10 +53,10 @@
                 <faction>yeoman</faction>
                 <faction>brotherBattle</faction>
             </factions>
-            <factionGroups>
-                <factionGroup>guild</factionGroup>
-                <factionGroup>nobility</factionGroup>
-            </factionGroups>
+            <upbringings>
+                <upbringing>merchant</upbringing>
+                <upbringing>nobility</upbringing>
+            </upbringings>
             <callings>
                 <calling>amateur</calling>
                 <calling>bountyHunter</calling>
@@ -93,10 +93,10 @@
             <factions>
                 <faction>brotherBattle</faction>
             </factions>
-            <factionGroups>
-                <factionGroup>nobility</factionGroup>
-                <factionGroup>guild</factionGroup>
-            </factionGroups>
+            <upbringings>
+                <upbringing>nobility</upbringing>
+                <upbringing>merchant</upbringing>
+            </upbringings>
             <callings>
                 <calling>mercenary</calling>
             </callings>
@@ -114,10 +114,10 @@
                 <faction>brotherBattle</faction>
                 <faction>inquisitor</faction>
             </factions>
-            <factionGroups>
-                <factionGroup>nobility</factionGroup>
-                <factionGroup>guild</factionGroup>
-            </factionGroups>
+            <upbringings>
+                <upbringing>nobility</upbringing>
+                <upbringing>merchant</upbringing>
+            </upbringings>
             <callings>
                 <calling>bountyHunter</calling>
                 <calling>imperialCohort</calling>
@@ -141,10 +141,10 @@
             <factions>
                 <faction>brotherBattle</faction>
             </factions>
-            <factionGroups>
-                <factionGroup>nobility</factionGroup>
-                <factionGroup>guild</factionGroup>
-            </factionGroups>
+            <upbringings>
+                <upbringing>nobility</upbringing>
+                <upbringing>merchant</upbringing>
+            </upbringings>
             <callings>
                 <calling>chainer</calling>
                 <calling>explorer</calling>
@@ -237,10 +237,10 @@
                 <faction>brotherBattle</faction>
                 <faction>inquisitor</faction>
             </factions>
-            <factionGroups>
-                <factionGroup>nobility</factionGroup>
-                <factionGroup>guild</factionGroup>
-            </factionGroups>
+            <upbringings>
+                <upbringing>nobility</upbringing>
+                <upbringing>merchant</upbringing>
+            </upbringings>
             <callings>
                 <calling>chainer</calling>
                 <calling>amateur</calling>
@@ -318,10 +318,10 @@
             <factions>
                 <faction>brotherBattle</faction>
             </factions>
-            <factionGroups>
-                <factionGroup>nobility</factionGroup>
-                <factionGroup>guild</factionGroup>
-            </factionGroups>
+            <upbringings>
+                <upbringing>nobility</upbringing>
+                <upbringing>merchant</upbringing>
+            </upbringings>
             <callings>
                 <calling>explorer</calling>
                 <calling>imperialCohort</calling>
@@ -342,10 +342,10 @@
             <factions>
                 <faction>brotherBattle</faction>
             </factions>
-            <factionGroups>
-                <factionGroup>nobility</factionGroup>
-                <factionGroup>guild</factionGroup>
-            </factionGroups>
+            <upbringings>
+                <upbringing>nobility</upbringing>
+                <upbringing>merchant</upbringing>
+            </upbringings>
             <callings>
                 <calling>mercenary</calling>
                 <calling>scout</calling>
@@ -1173,10 +1173,10 @@
             <factions>
                 <faction>brotherBattle</faction>
             </factions>
-            <factionGroups>
-                <factionGroup>nobility</factionGroup>
-                <factionGroup>guild</factionGroup>
-            </factionGroups>
+            <upbringings>
+                <upbringing>nobility</upbringing>
+                <upbringing>merchant</upbringing>
+            </upbringings>
             <callings>
                 <calling>theDispossessed</calling>
                 <calling>mercenary</calling>
@@ -1279,9 +1279,9 @@
             <es>Saber Cirugía</es>
         </name>
         <restrictions>
-            <factionGroups>
-                <factionGroup>priest</factionGroup>
-            </factionGroups>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
             <callings>
                 <calling>merchant</calling>
                 <calling>chainer</calling>
@@ -1358,9 +1358,9 @@
             <es>Ciencias Aplicadas</es>
         </name>
         <restrictions>
-            <factionGroups>
-                <factionGroup>guild</factionGroup>
-            </factionGroups>
+            <upbringings>
+                <upbringing>merchant</upbringing>
+            </upbringings>
             <callings>
                 <calling>reclaimer</calling>
                 <calling>scholar</calling>
@@ -1376,9 +1376,9 @@
             <es>Inteligencia Artificial</es>
         </name>
         <restrictions>
-            <factionGroups>
-                <factionGroup>guild</factionGroup>
-            </factionGroups>
+            <upbringings>
+                <upbringing>merchant</upbringing>
+            </upbringings>
             <callings>
                 <calling>occultist</calling>
                 <calling>reclaimer</calling>
@@ -1406,9 +1406,9 @@
             <es>Ciencias Naturales</es>
         </name>
         <restrictions>
-            <factionGroups>
-                <factionGroup>guild</factionGroup>
-            </factionGroups>
+            <upbringings>
+                <upbringing>merchant</upbringing>
+            </upbringings>
             <callings>
                 <calling>scholar</calling>
             </callings>
@@ -1422,9 +1422,9 @@
             <es>Terraformación</es>
         </name>
         <restrictions>
-            <factionGroups>
-                <factionGroup>guild</factionGroup>
-            </factionGroups>
+            <upbringings>
+                <upbringing>merchant</upbringing>
+            </upbringings>
         </restrictions>
     </capability>
 
@@ -1447,9 +1447,9 @@
             <factions>
                 <faction>brotherBattle</faction>
             </factions>
-            <factionGroups>
-                <factionGroup>guild</factionGroup>
-            </factionGroups>
+            <upbringings>
+                <upbringing>merchant</upbringing>
+            </upbringings>
             <callings>
                 <calling>enthusiast</calling>
                 <calling>explorer</calling>
@@ -1479,9 +1479,9 @@
             <factions>
                 <faction>brotherBattle</faction>
             </factions>
-            <factionGroups>
-                <factionGroup>guild</factionGroup>
-            </factionGroups>
+            <upbringings>
+                <upbringing>merchant</upbringing>
+            </upbringings>
             <callings>
                 <calling>enthusiast</calling>
                 <calling>explorer</calling>
@@ -1508,9 +1508,9 @@
             <es>Saber Tecnológico (NT 8)</es>
         </name>
         <restrictions>
-            <factionGroups>
-                <factionGroup>guild</factionGroup>
-            </factionGroups>
+            <upbringings>
+                <upbringing>merchant</upbringing>
+            </upbringings>
             <callings>
                 <calling>reclaimer</calling>
                 <calling>starPilot</calling>
