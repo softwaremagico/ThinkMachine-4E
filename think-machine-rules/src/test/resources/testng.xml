@@ -30,6 +30,7 @@
                 <include name="callingFactory"/>
                 <include name="capabilityFactory"/>
                 <include name="upbringingFactory"/>
+                <include name="itemFactory"/>
                 <include name="perkFactory"/>
                 <include name="factoryValidation"/>
 
@@ -64,8 +65,9 @@
             <class name="com.softwaremagico.tm.factory.OccultismFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.PlanetsFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.ShieldFactoryTests"/>
-            <class name="com.softwaremagico.tm.factory.ArmourFactoryTests"/>
-            <class name="com.softwaremagico.tm.factory.ArmourSpecificationsFactoryTests"/>
+            <class name="com.softwaremagico.tm.factory.ArmorFactoryTests"/>
+            <class name="com.softwaremagico.tm.factory.ArmorSpecificationsFactoryTests"/>
+            <class name="com.softwaremagico.tm.factory.ItemFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.CombatStylesFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.CallingFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.CapabilityFactoryTest"/>

@@ -1,11 +1,10 @@
 package com.softwaremagico.tm.character.equipment.weapons;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.equipment.DamageTypeFactory;
 import com.softwaremagico.tm.character.equipment.Equipment;
 import com.softwaremagico.tm.character.equipment.Size;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
 import java.util.ArrayList;
@@ -68,20 +67,6 @@ public class Weapon extends Equipment<Weapon> {
         this.techLevelSpecial = false;
         this.special = "";
         this.size = null;
-    }
-
-    public Weapon(String id, TranslatedText name, TranslatedText description, String language, String moduleName, WeaponType type,
-                  List<WeaponDamage> damages, int techLevel, boolean techLevelSpecial, Size size, String special,
-                  Set<String> damageTypes, float cost, Set<String> ammunition, Set<String> accessories) {
-        super(id, name, description, cost, techLevel, language, moduleName);
-        this.weaponDamages = damages;
-        this.size = size;
-        this.techLevelSpecial = techLevelSpecial;
-        this.type = type;
-        this.special = special;
-        this.damageTypes = damageTypes;
-        this.ammunition = ammunition;
-        this.accessories = accessories;
     }
 
     public WeaponType getType() {

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<equipments>
+    <equipment>
+        <id>estheticOrb</id>
+        <name>
+            <en>Aesthetic Orb</en>
+            <es>Orbe Estético</es>
+        </name>
+        <description>
+            <en>Floating baseball-sized orb; can follow its user and produce soft lighting and mood music from a library
+                of themes.
+            </en>
+            <es>Un orbe flotante del tamaño de una pelota de béisbol; puede se guir a su propietario y emitir una suave
+                luz y música ambiental con una variedad de temas para elegir.
+            </es>
+        </description>
+        <techLevel>6</techLevel>
+        <size>XS</size>
+    </equipment>
+</equipments>

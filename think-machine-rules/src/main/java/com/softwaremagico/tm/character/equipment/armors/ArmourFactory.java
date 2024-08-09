@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.equipment.armours;
+package com.softwaremagico.tm.character.equipment.armors;
 
 /*-
  * #%L
@@ -24,20 +24,21 @@ package com.softwaremagico.tm.character.equipment.armours;
  * #L%
  */
 
+
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.xml.XmlFactory;
 
 import java.util.List;
 
-public final class ArmourSpecificationFactory extends XmlFactory<ArmourSpecification> {
-    private static final String XML_FILE = "armours_specifications.xml";
+public final class ArmourFactory extends XmlFactory<Armor> {
+    private static final String XML_FILE = "armours.xml";
 
-    private static final class ArmourSpecificationFactoryInit {
-        public static final ArmourSpecificationFactory INSTANCE = new ArmourSpecificationFactory();
+    private static final class ArmourFactoryInit {
+        public static final ArmourFactory INSTANCE = new ArmourFactory();
     }
 
-    public static ArmourSpecificationFactory getInstance() {
-        return ArmourSpecificationFactoryInit.INSTANCE;
+    public static ArmourFactory getInstance() {
+        return ArmourFactoryInit.INSTANCE;
     }
 
 
@@ -47,7 +48,7 @@ public final class ArmourSpecificationFactory extends XmlFactory<ArmourSpecifica
     }
 
     @Override
-    public List<ArmourSpecification> getElements() throws InvalidXmlElementException {
-        return readXml(ArmourSpecification.class);
+    public List<Armor> getElements() throws InvalidXmlElementException {
+        return readXml(Armor.class);
     }
 }

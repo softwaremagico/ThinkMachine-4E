@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.equipment.shields;
+package com.softwaremagico.tm.character.equipment.armors;
 
 /*-
  * #%L
@@ -25,46 +25,27 @@ package com.softwaremagico.tm.character.equipment.shields;
  */
 
 
+import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
-import com.softwaremagico.tm.character.equipment.Equipment;
 
-public class Shield extends Equipment<Shield> {
-    private int impact;
-    private int force;
-    private int hits;
+public class ArmourSpecification extends Element<ArmourSpecification> {
 
-    /**
-     * For creating empty elements.
-     */
-    public Shield() {
+    public ArmourSpecification() {
         super();
-        this.impact = 0;
-        this.force = 0;
-        this.hits = 0;
     }
 
-    public int getImpact() {
-        return impact;
+    public ArmourSpecification(String id, TranslatedText name, TranslatedText description, String language, String moduleName) {
+        super(id, name, description, language, moduleName);
     }
 
-    public int getForce() {
-        return force;
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
 
-    public int getHits() {
-        return hits;
-    }
-
-    public void setImpact(int impact) {
-        this.impact = impact;
-    }
-
-    public void setForce(int force) {
-        this.force = force;
-    }
-
-    public void setHits(int hits) {
-        this.hits = hits;
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 
 }

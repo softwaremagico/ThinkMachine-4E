@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.equipment.armours;
+package com.softwaremagico.tm.character.equipment.armors;
 
 /*-
  * #%L
@@ -25,13 +25,12 @@ package com.softwaremagico.tm.character.equipment.armours;
  */
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.equipment.Equipment;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class Armour extends Equipment<Armour> {
+public class Armor extends Equipment<Armor> {
     private int protection;
     @JsonProperty("damageType")
     private Set<String> damageTypes;
@@ -47,7 +46,7 @@ public class Armour extends Equipment<Armour> {
     /**
      * For creating empty elements.
      */
-    public Armour() {
+    public Armor() {
         super();
         this.protection = 0;
         this.damageTypes = new HashSet<>();
@@ -55,29 +54,6 @@ public class Armour extends Equipment<Armour> {
         this.specialPenalization = new ArmourPenalization(0, 0, 0, 0);
         this.allowedShields = new HashSet<>();
         this.specifications = new HashSet<>();
-    }
-
-    public Armour(String id, TranslatedText name, TranslatedText description, String language, String moduleName, int techLevel, int protection,
-                  Set<String> damageTypes, float cost) {
-        super(id, name, description, cost, techLevel, language, moduleName);
-        this.protection = protection;
-        this.damageTypes = damageTypes;
-        this.standardPenalization = new ArmourPenalization(0, 0, 0, 0);
-        this.specialPenalization = new ArmourPenalization(0, 0, 0, 0);
-        this.allowedShields = new HashSet<>();
-        this.specifications = new HashSet<>();
-    }
-
-    public Armour(String id, TranslatedText name, TranslatedText description, String language, String moduleName, int techLevel, int protection,
-                  Set<String> damageTypes, ArmourPenalization specialPenalization, ArmourPenalization otherPenalization,
-                  Set<String> allowedShields, Set<String> specifications, float cost) {
-        super(id, name, description, cost, techLevel, language, moduleName);
-        this.protection = protection;
-        this.damageTypes = damageTypes;
-        this.standardPenalization = specialPenalization;
-        this.specialPenalization = otherPenalization;
-        this.allowedShields = allowedShields;
-        this.specifications = specifications;
     }
 
     public int getProtection() {

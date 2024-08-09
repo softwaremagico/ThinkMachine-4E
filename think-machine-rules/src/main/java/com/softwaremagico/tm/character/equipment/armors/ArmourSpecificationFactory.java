@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.equipment.shields;
+package com.softwaremagico.tm.character.equipment.armors;
 
 /*-
  * #%L
@@ -24,47 +24,30 @@ package com.softwaremagico.tm.character.equipment.shields;
  * #L%
  */
 
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.xml.XmlFactory;
 
-import com.softwaremagico.tm.TranslatedText;
-import com.softwaremagico.tm.character.equipment.Equipment;
+import java.util.List;
 
-public class Shield extends Equipment<Shield> {
-    private int impact;
-    private int force;
-    private int hits;
+public final class ArmourSpecificationFactory extends XmlFactory<ArmourSpecification> {
+    private static final String XML_FILE = "armours_specifications.xml";
 
-    /**
-     * For creating empty elements.
-     */
-    public Shield() {
-        super();
-        this.impact = 0;
-        this.force = 0;
-        this.hits = 0;
+    private static final class ArmourSpecificationFactoryInit {
+        public static final ArmourSpecificationFactory INSTANCE = new ArmourSpecificationFactory();
     }
 
-    public int getImpact() {
-        return impact;
+    public static ArmourSpecificationFactory getInstance() {
+        return ArmourSpecificationFactoryInit.INSTANCE;
     }
 
-    public int getForce() {
-        return force;
+
+    @Override
+    public String getXmlFile() {
+        return XML_FILE;
     }
 
-    public int getHits() {
-        return hits;
+    @Override
+    public List<ArmourSpecification> getElements() throws InvalidXmlElementException {
+        return readXml(ArmourSpecification.class);
     }
-
-    public void setImpact(int impact) {
-        this.impact = impact;
-    }
-
-    public void setForce(int force) {
-        this.force = force;
-    }
-
-    public void setHits(int hits) {
-        this.hits = hits;
-    }
-
 }

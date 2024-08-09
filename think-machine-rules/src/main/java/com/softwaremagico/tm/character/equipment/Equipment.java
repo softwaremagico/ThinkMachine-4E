@@ -24,23 +24,35 @@ package com.softwaremagico.tm.character.equipment;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.softwaremagico.tm.Element;
-import com.softwaremagico.tm.TranslatedText;
+import com.softwaremagico.tm.character.characteristics.Characteristic;
+import com.softwaremagico.tm.character.equipment.armors.Armor;
+import com.softwaremagico.tm.character.equipment.item.Item;
+import com.softwaremagico.tm.character.equipment.shields.Shield;
+import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        property = "type",
+        defaultImpl = Characteristic.class
+)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Item.class, name = "item"),
+        @JsonSubTypes.Type(value = Shield.class, name = "shield"),
+        @JsonSubTypes.Type(value = Armor.class, name = "armor"),
+        @JsonSubTypes.Type(value = Weapon.class, name = "weapon")
+})
 public abstract class Equipment<E extends Element<?>> extends Element<E> implements IElementWithTechnologyLevel {
-    private final float cost;
-    private final int techLevel;
+    private float cost;
+    private int techLevel;
+    private Size size;
 
     public Equipment() {
         super();
         this.cost = 0;
         this.techLevel = 0;
-    }
-
-    public Equipment(String id, TranslatedText name, TranslatedText description, float cost, int techLevel, String language, String moduleName) {
-        super(id, name, description, language, moduleName);
-        this.cost = cost;
-        this.techLevel = techLevel;
     }
 
     public float getCost() {
@@ -52,4 +64,19 @@ public abstract class Equipment<E extends Element<?>> extends Element<E> impleme
         return techLevel;
     }
 
+    public void setCost(float cost) {
+        this.cost = cost;
+    }
+
+    public void setTechLevel(int techLevel) {
+        this.techLevel = techLevel;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public void setSize(Size size) {
+        this.size = size;
+    }
 }
