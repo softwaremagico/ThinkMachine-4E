@@ -1,70 +1,180 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <shields>
-	<shield>
-		<id>standardShield</id>
-		<name>
-			<en>Standard Shield</en>
-			<es>Escudo Estándar</es>
-		</name>
-		<description>
-			<en>Energy shields are not uncommon in the Known Worlds. Anyone involved in dangerous work has one. Dangerous work can be anything from adven- turing into Unknown Space, spying on enemy installations, or even being a diplomat to a rival faction. Although churned out by the millions during the Second Republic, the theories used to develop energy shields are now lost, but the maintenance of the technology is fairly common, since they are found all around among nobles, Universal Church priests, guilders, and military forces. Peasants and yeoman would love to have them, but they’re not that common. Energy shields are impact and energy activated, meaning that they automatically turn on when their field (usually an inch around the body) is compromised by a kinetic or energetic force of a certain magnitude. The magnitude threshold is determined by the type of shield. An energy shield is rated by the minimum amount of damage it takes to activate it (Impact Threshold) and the maximum amount it will block (Force Capacity). In other words, attacks with damage below the minimum amount of damage rating (the impact threshold) will not activate the shield, but any attack with damage over the minimum will activate the shield. Attacks with damage over the maximum rating will inflict however much damage exceeds that rating.</en>
-			<es>Los escudos de energía son de uso habitual en los Mundos Conocidos. Cualquier persona involucrada en trabajos peligrosos tiene uno. Un trabajo peligroso puede ser cualquier cosa, desde aventurarse en el Espacio Desconocido, hasta espiar instalaciones enemigas, o incluso ser un diplomático de una facción rival. Aunque durante la Segunda República se invirtieron millones en estudios para desarrollar los escudos de energía, esta tecnología se han perdido, pero el mantenimiento de la tecnología es bastante común, ya que se encuentran por todas partes entre los nobles, los sacerdotes de la Iglesia Universal, los miembros de los gremios y las fuerzas militares. A los campesinos y a los terratenientes les encantaría tener uno, pero no son tan comunes. Los escudos de energía se activan con un impacto o con energía, lo que significa que se encienden automáticamente cuando su campo (por lo general una pulgada alrededor del cuerpo) se ve comprometido por la energía cinética o energética de una cierta magnitud. El umbral de magnitud se determina en función del tipo de escudo. La puntuación de un escudo de energía se determina por la cantidad mínima de los daños necesarios</es>		
-		</description>
-		<techLevel>7</techLevel>
-		<impact>5</impact>
-		<force>10</force>
-		<hits>10</hits>
-		<cost>500</cost>
-	</shield>
-	<shield>
-		<id>duelingShield</id>
-		<name>
-			<en>Dueling Shield</en>
-			<es>Escudo de Duelo</es>
-		</name>
-		<description>
-			<en>Energy shields are not uncommon in the Known Worlds. Anyone involved in dangerous work has one. Dangerous work can be anything from adven- turing into Unknown Space, spying on enemy installations, or even being a diplomat to a rival faction. Although churned out by the millions during the Second Republic, the theories used to develop energy shields are now lost, but the maintenance of the technology is fairly common, since they are found all around among nobles, Universal Church priests, guilders, and military forces. Peasants and yeoman would love to have them, but they’re not that common. Energy shields are impact and energy activated, meaning that they automatically turn on when their field (usually an inch around the body) is compromised by a kinetic or energetic force of a certain magnitude. The magnitude threshold is determined by the type of shield. An energy shield is rated by the minimum amount of damage it takes to activate it (Impact Threshold) and the maximum amount it will block (Force Capacity). In other words, attacks with damage below the minimum amount of damage rating (the impact threshold) will not activate the shield, but any attack with damage over the minimum will activate the shield. Attacks with damage over the maximum rating will inflict however much damage exceeds that rating.</en>
-			<es>Los escudos de energía son de uso habitual en los Mundos Conocidos. Cualquier persona involucrada en trabajos peligrosos tiene uno. Un trabajo peligroso puede ser cualquier cosa, desde aventurarse en el Espacio Desconocido, hasta espiar instalaciones enemigas, o incluso ser un diplomático de una facción rival. Aunque durante la Segunda República se invirtieron millones en estudios para desarrollar los escudos de energía, esta tecnología se han perdido, pero el mantenimiento de la tecnología es bastante común, ya que se encuentran por todas partes entre los nobles, los sacerdotes de la Iglesia Universal, los miembros de los gremios y las fuerzas militares. A los campesinos y a los terratenientes les encantaría tener uno, pero no son tan comunes. Los escudos de energía se activan con un impacto o con energía, lo que significa que se encienden automáticamente cuando su campo (por lo general una pulgada alrededor del cuerpo) se ve comprometido por la energía cinética o energética de una cierta magnitud. El umbral de magnitud se determina en función del tipo de escudo. La puntuación de un escudo de energía se determina por la cantidad mínima de los daños necesarios</es>		
-		</description>
-		<techLevel>7</techLevel>
-		<impact>5</impact>
-		<force>10</force>
-		<hits>15</hits>
-		<cost>700</cost>
-		<random>
-			<recommendedUpbringings>nobility</recommendedUpbringings>
-		</random>
-	</shield>
-	<shield>
-		<id>assaultShield</id>
-		<name>
-			<en>Assault Shield</en>
-			<es>Escudo de Asalto</es>
-		</name>
-		<description>
-			<en>Energy shields are not uncommon in the Known Worlds. Anyone involved in dangerous work has one. Dangerous work can be anything from adven- turing into Unknown Space, spying on enemy installations, or even being a diplomat to a rival faction. Although churned out by the millions during the Second Republic, the theories used to develop energy shields are now lost, but the maintenance of the technology is fairly common, since they are found all around among nobles, Universal Church priests, guilders, and military forces. Peasants and yeoman would love to have them, but they’re not that common. Energy shields are impact and energy activated, meaning that they automatically turn on when their field (usually an inch around the body) is compromised by a kinetic or energetic force of a certain magnitude. The magnitude threshold is determined by the type of shield. An energy shield is rated by the minimum amount of damage it takes to activate it (Impact Threshold) and the maximum amount it will block (Force Capacity). In other words, attacks with damage below the minimum amount of damage rating (the impact threshold) will not activate the shield, but any attack with damage over the minimum will activate the shield. Attacks with damage over the maximum rating will inflict however much damage exceeds that rating.</en>
-			<es>Los escudos de energía son de uso habitual en los Mundos Conocidos. Cualquier persona involucrada en trabajos peligrosos tiene uno. Un trabajo peligroso puede ser cualquier cosa, desde aventurarse en el Espacio Desconocido, hasta espiar instalaciones enemigas, o incluso ser un diplomático de una facción rival. Aunque durante la Segunda República se invirtieron millones en estudios para desarrollar los escudos de energía, esta tecnología se han perdido, pero el mantenimiento de la tecnología es bastante común, ya que se encuentran por todas partes entre los nobles, los sacerdotes de la Iglesia Universal, los miembros de los gremios y las fuerzas militares. A los campesinos y a los terratenientes les encantaría tener uno, pero no son tan comunes. Los escudos de energía se activan con un impacto o con energía, lo que significa que se encienden automáticamente cuando su campo (por lo general una pulgada alrededor del cuerpo) se ve comprometido por la energía cinética o energética de una cierta magnitud. El umbral de magnitud se determina en función del tipo de escudo. La puntuación de un escudo de energía se determina por la cantidad mínima de los daños necesarios</es>		
-		</description>
-		<techLevel>7</techLevel>
-		<impact>5</impact>
-		<force>15</force>
-		<hits>20</hits>
-		<cost>3000</cost>
-	</shield>
-	<shield>
-		<id>battleShield</id>
-		<name>
-			<en>Battle Shield</en>
-			<es>Escudo de Batalla</es>
-		</name>
-		<description>
-			<en>Energy shields are not uncommon in the Known Worlds. Anyone involved in dangerous work has one. Dangerous work can be anything from adven- turing into Unknown Space, spying on enemy installations, or even being a diplomat to a rival faction. Although churned out by the millions during the Second Republic, the theories used to develop energy shields are now lost, but the maintenance of the technology is fairly common, since they are found all around among nobles, Universal Church priests, guilders, and military forces. Peasants and yeoman would love to have them, but they’re not that common. Energy shields are impact and energy activated, meaning that they automatically turn on when their field (usually an inch around the body) is compromised by a kinetic or energetic force of a certain magnitude. The magnitude threshold is determined by the type of shield. An energy shield is rated by the minimum amount of damage it takes to activate it (Impact Threshold) and the maximum amount it will block (Force Capacity). In other words, attacks with damage below the minimum amount of damage rating (the impact threshold) will not activate the shield, but any attack with damage over the minimum will activate the shield. Attacks with damage over the maximum rating will inflict however much damage exceeds that rating.</en>
-			<es>Los escudos de energía son de uso habitual en los Mundos Conocidos. Cualquier persona involucrada en trabajos peligrosos tiene uno. Un trabajo peligroso puede ser cualquier cosa, desde aventurarse en el Espacio Desconocido, hasta espiar instalaciones enemigas, o incluso ser un diplomático de una facción rival. Aunque durante la Segunda República se invirtieron millones en estudios para desarrollar los escudos de energía, esta tecnología se han perdido, pero el mantenimiento de la tecnología es bastante común, ya que se encuentran por todas partes entre los nobles, los sacerdotes de la Iglesia Universal, los miembros de los gremios y las fuerzas militares. A los campesinos y a los terratenientes les encantaría tener uno, pero no son tan comunes. Los escudos de energía se activan con un impacto o con energía, lo que significa que se encienden automáticamente cuando su campo (por lo general una pulgada alrededor del cuerpo) se ve comprometido por la energía cinética o energética de una cierta magnitud. El umbral de magnitud se determina en función del tipo de escudo. La puntuación de un escudo de energía se determina por la cantidad mínima de los daños necesarios</es>		
-		</description>
-		<techLevel>7</techLevel>
-		<impact>5</impact>
-		<force>20</force>
-		<hits>30</hits>
-		<cost>5000</cost>
-	</shield>
+    <shield>
+        <id>standardShield</id>
+        <type>shield</type>
+        <name>
+            <en>Standard Shield</en>
+            <es>Escudo Estándar</es>
+        </name>
+        <description>
+            <en>Energy shields are not uncommon in the Known Worlds. Anyone involved in dangerous work has one.
+                Dangerous work can be anything from adven- turing into Unknown Space, spying on enemy installations, or
+                even being a diplomat to a rival faction. Although churned out by the millions during the Second
+                Republic, the theories used to develop energy shields are now lost, but the maintenance of the
+                technology is fairly common, since they are found all around among nobles, Universal Church priests,
+                guilders, and military forces. Peasants and yeoman would love to have them, but they’re not that common.
+                Energy shields are impact and energy activated, meaning that they automatically turn on when their field
+                (usually an inch around the body) is compromised by a kinetic or energetic force of a certain magnitude.
+                The magnitude threshold is determined by the type of shield. An energy shield is rated by the minimum
+                amount of damage it takes to activate it (Impact Threshold) and the maximum amount it will block (Force
+                Capacity). In other words, attacks with damage below the minimum amount of damage rating (the impact
+                threshold) will not activate the shield, but any attack with damage over the minimum will activate the
+                shield. Attacks with damage over the maximum rating will inflict however much damage exceeds that
+                rating.
+            </en>
+            <es>Los escudos de energía son de uso habitual en los Mundos Conocidos. Cualquier persona involucrada en
+                trabajos peligrosos tiene uno. Un trabajo peligroso puede ser cualquier cosa, desde aventurarse en el
+                Espacio Desconocido, hasta espiar instalaciones enemigas, o incluso ser un diplomático de una facción
+                rival. Aunque durante la Segunda República se invirtieron millones en estudios para desarrollar los
+                escudos de energía, esta tecnología se han perdido, pero el mantenimiento de la tecnología es bastante
+                común, ya que se encuentran por todas partes entre los nobles, los sacerdotes de la Iglesia Universal,
+                los miembros de los gremios y las fuerzas militares. A los campesinos y a los terratenientes les
+                encantaría tener uno, pero no son tan comunes. Los escudos de energía se activan con un impacto o con
+                energía, lo que significa que se encienden automáticamente cuando su campo (por lo general una pulgada
+                alrededor del cuerpo) se ve comprometido por la energía cinética o energética de una cierta magnitud. El
+                umbral de magnitud se determina en función del tipo de escudo. La puntuación de un escudo de energía se
+                determina por la cantidad mínima de los daños necesarios
+            </es>
+        </description>
+        <techLevel>7</techLevel>
+        <impact>5</impact>
+        <force>10</force>
+        <hits>10</hits>
+        <cost>500</cost>
+    </shield>
+    <shield>
+        <id>duelingShield</id>
+        <type>shield</type>
+        <name>
+            <en>Dueling Shield</en>
+            <es>Escudo de Duelo</es>
+        </name>
+        <description>
+            <en>Energy shields are not uncommon in the Known Worlds. Anyone involved in dangerous work has one.
+                Dangerous work can be anything from adven- turing into Unknown Space, spying on enemy installations, or
+                even being a diplomat to a rival faction. Although churned out by the millions during the Second
+                Republic, the theories used to develop energy shields are now lost, but the maintenance of the
+                technology is fairly common, since they are found all around among nobles, Universal Church priests,
+                guilders, and military forces. Peasants and yeoman would love to have them, but they’re not that common.
+                Energy shields are impact and energy activated, meaning that they automatically turn on when their field
+                (usually an inch around the body) is compromised by a kinetic or energetic force of a certain magnitude.
+                The magnitude threshold is determined by the type of shield. An energy shield is rated by the minimum
+                amount of damage it takes to activate it (Impact Threshold) and the maximum amount it will block (Force
+                Capacity). In other words, attacks with damage below the minimum amount of damage rating (the impact
+                threshold) will not activate the shield, but any attack with damage over the minimum will activate the
+                shield. Attacks with damage over the maximum rating will inflict however much damage exceeds that
+                rating.
+            </en>
+            <es>Los escudos de energía son de uso habitual en los Mundos Conocidos. Cualquier persona involucrada en
+                trabajos peligrosos tiene uno. Un trabajo peligroso puede ser cualquier cosa, desde aventurarse en el
+                Espacio Desconocido, hasta espiar instalaciones enemigas, o incluso ser un diplomático de una facción
+                rival. Aunque durante la Segunda República se invirtieron millones en estudios para desarrollar los
+                escudos de energía, esta tecnología se han perdido, pero el mantenimiento de la tecnología es bastante
+                común, ya que se encuentran por todas partes entre los nobles, los sacerdotes de la Iglesia Universal,
+                los miembros de los gremios y las fuerzas militares. A los campesinos y a los terratenientes les
+                encantaría tener uno, pero no son tan comunes. Los escudos de energía se activan con un impacto o con
+                energía, lo que significa que se encienden automáticamente cuando su campo (por lo general una pulgada
+                alrededor del cuerpo) se ve comprometido por la energía cinética o energética de una cierta magnitud. El
+                umbral de magnitud se determina en función del tipo de escudo. La puntuación de un escudo de energía se
+                determina por la cantidad mínima de los daños necesarios
+            </es>
+        </description>
+        <techLevel>7</techLevel>
+        <impact>5</impact>
+        <force>10</force>
+        <hits>15</hits>
+        <cost>700</cost>
+        <random>
+            <recommendedUpbringings>
+                <id>nobility</id>
+            </recommendedUpbringings>
+        </random>
+    </shield>
+    <shield>
+        <id>assaultShield</id>
+        <type>shield</type>
+        <name>
+            <en>Assault Shield</en>
+            <es>Escudo de Asalto</es>
+        </name>
+        <description>
+            <en>Energy shields are not uncommon in the Known Worlds. Anyone involved in dangerous work has one.
+                Dangerous work can be anything from adven- turing into Unknown Space, spying on enemy installations, or
+                even being a diplomat to a rival faction. Although churned out by the millions during the Second
+                Republic, the theories used to develop energy shields are now lost, but the maintenance of the
+                technology is fairly common, since they are found all around among nobles, Universal Church priests,
+                guilders, and military forces. Peasants and yeoman would love to have them, but they’re not that common.
+                Energy shields are impact and energy activated, meaning that they automatically turn on when their field
+                (usually an inch around the body) is compromised by a kinetic or energetic force of a certain magnitude.
+                The magnitude threshold is determined by the type of shield. An energy shield is rated by the minimum
+                amount of damage it takes to activate it (Impact Threshold) and the maximum amount it will block (Force
+                Capacity). In other words, attacks with damage below the minimum amount of damage rating (the impact
+                threshold) will not activate the shield, but any attack with damage over the minimum will activate the
+                shield. Attacks with damage over the maximum rating will inflict however much damage exceeds that
+                rating.
+            </en>
+            <es>Los escudos de energía son de uso habitual en los Mundos Conocidos. Cualquier persona involucrada en
+                trabajos peligrosos tiene uno. Un trabajo peligroso puede ser cualquier cosa, desde aventurarse en el
+                Espacio Desconocido, hasta espiar instalaciones enemigas, o incluso ser un diplomático de una facción
+                rival. Aunque durante la Segunda República se invirtieron millones en estudios para desarrollar los
+                escudos de energía, esta tecnología se han perdido, pero el mantenimiento de la tecnología es bastante
+                común, ya que se encuentran por todas partes entre los nobles, los sacerdotes de la Iglesia Universal,
+                los miembros de los gremios y las fuerzas militares. A los campesinos y a los terratenientes les
+                encantaría tener uno, pero no son tan comunes. Los escudos de energía se activan con un impacto o con
+                energía, lo que significa que se encienden automáticamente cuando su campo (por lo general una pulgada
+                alrededor del cuerpo) se ve comprometido por la energía cinética o energética de una cierta magnitud. El
+                umbral de magnitud se determina en función del tipo de escudo. La puntuación de un escudo de energía se
+                determina por la cantidad mínima de los daños necesarios
+            </es>
+        </description>
+        <techLevel>7</techLevel>
+        <impact>5</impact>
+        <force>15</force>
+        <hits>20</hits>
+        <cost>3000</cost>
+    </shield>
+    <shield>
+        <id>battleShield</id>
+        <type>shield</type>
+        <name>
+            <en>Battle Shield</en>
+            <es>Escudo de Batalla</es>
+        </name>
+        <description>
+            <en>Energy shields are not uncommon in the Known Worlds. Anyone involved in dangerous work has one.
+                Dangerous work can be anything from adven- turing into Unknown Space, spying on enemy installations, or
+                even being a diplomat to a rival faction. Although churned out by the millions during the Second
+                Republic, the theories used to develop energy shields are now lost, but the maintenance of the
+                technology is fairly common, since they are found all around among nobles, Universal Church priests,
+                guilders, and military forces. Peasants and yeoman would love to have them, but they’re not that common.
+                Energy shields are impact and energy activated, meaning that they automatically turn on when their field
+                (usually an inch around the body) is compromised by a kinetic or energetic force of a certain magnitude.
+                The magnitude threshold is determined by the type of shield. An energy shield is rated by the minimum
+                amount of damage it takes to activate it (Impact Threshold) and the maximum amount it will block (Force
+                Capacity). In other words, attacks with damage below the minimum amount of damage rating (the impact
+                threshold) will not activate the shield, but any attack with damage over the minimum will activate the
+                shield. Attacks with damage over the maximum rating will inflict however much damage exceeds that
+                rating.
+            </en>
+            <es>Los escudos de energía son de uso habitual en los Mundos Conocidos. Cualquier persona involucrada en
+                trabajos peligrosos tiene uno. Un trabajo peligroso puede ser cualquier cosa, desde aventurarse en el
+                Espacio Desconocido, hasta espiar instalaciones enemigas, o incluso ser un diplomático de una facción
+                rival. Aunque durante la Segunda República se invirtieron millones en estudios para desarrollar los
+                escudos de energía, esta tecnología se han perdido, pero el mantenimiento de la tecnología es bastante
+                común, ya que se encuentran por todas partes entre los nobles, los sacerdotes de la Iglesia Universal,
+                los miembros de los gremios y las fuerzas militares. A los campesinos y a los terratenientes les
+                encantaría tener uno, pero no son tan comunes. Los escudos de energía se activan con un impacto o con
+                energía, lo que significa que se encienden automáticamente cuando su campo (por lo general una pulgada
+                alrededor del cuerpo) se ve comprometido por la energía cinética o energética de una cierta magnitud. El
+                umbral de magnitud se determina en función del tipo de escudo. La puntuación de un escudo de energía se
+                determina por la cantidad mínima de los daños necesarios
+            </es>
+        </description>
+        <techLevel>7</techLevel>
+        <impact>5</impact>
+        <force>20</force>
+        <hits>30</hits>
+        <cost>5000</cost>
+    </shield>
 </shields>

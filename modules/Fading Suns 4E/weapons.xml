@@ -2,6 +2,7 @@
 <weapons>
     <arbata>
         <id>arbata</id>
+        <type>weapon</type>
         <name>
             <en>Arbat’a (Crystal Sword)</en>
             <es>Arbat'a (Espada de Cristal)</es>
@@ -27,7 +28,7 @@
             </es>
         </description>
         <techLevel>2</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -45,6 +46,7 @@
     </arbata>
     <axe>
         <id>axe</id>
+        <type>weapon</type>
         <name>
             <en>Axe</en>
             <es>Hacha</es>
@@ -58,7 +60,7 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -81,6 +83,7 @@
     </axe>
     <bodyShield0>
         <id>bodyShield0</id>
+        <type>weapon</type>
         <name>
             <en>Body Shield</en>
             <es>Escudo de Cuerpo</es>
@@ -104,7 +107,7 @@
             </es>
         </description>
         <techLevel>0</techLevel>
-        <type>MELEE_SHIELD</type>
+        <weaponType>MELEE_SHIELD</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -121,6 +124,7 @@
     </bodyShield0>
     <bodyShield1>
         <id>bodyShield1</id>
+        <type>weapon</type>
         <name>
             <en>Body Shield</en>
             <es>Escudo de Cuerpo</es>
@@ -144,7 +148,7 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <type>MELEE_SHIELD</type>
+        <weaponType>MELEE_SHIELD</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -161,6 +165,7 @@
     </bodyShield1>
     <bodyShield2>
         <id>bodyShield2</id>
+        <type>weapon</type>
         <name>
             <en>Body Shield</en>
             <es>Escudo de Cuerpo</es>
@@ -184,7 +189,7 @@
             </es>
         </description>
         <techLevel>2</techLevel>
-        <type>MELEE_SHIELD</type>
+        <weaponType>MELEE_SHIELD</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -201,6 +206,7 @@
     </bodyShield2>
     <buckler>
         <id>buckler</id>
+        <type>weapon</type>
         <name>
             <en>Buckler</en>
             <es>Rodela</es>
@@ -220,7 +226,7 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <type>MELEE_SHIELD</type>
+        <weaponType>MELEE_SHIELD</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -236,6 +242,7 @@
     </buckler>
     <cestus>
         <id>cestus</id>
+        <type>weapon</type>
         <name>
             <en>Cestus</en>
             <es>Cestus</es>
@@ -253,7 +260,7 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -268,6 +275,7 @@
     </cestus>
     <club0>
         <id>club0</id>
+        <type>weapon</type>
         <name>
             <en>Club</en>
             <es>Porra</es>
@@ -284,7 +292,7 @@
             </es>
         </description>
         <techLevel>0</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -307,6 +315,7 @@
     </club0>
     <club1>
         <id>club1</id>
+        <type>weapon</type>
         <name>
             <en>Club</en>
             <es>Porra</es>
@@ -323,7 +332,7 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -346,6 +355,7 @@
     </club1>
     <curvedSword>
         <id>curvedSword</id>
+        <type>weapon</type>
         <name>
             <en>Curved Sword</en>
             <es>Espada Curva</es>
@@ -360,7 +370,7 @@
             </es>
         </description>
         <techLevel>2</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -375,6 +385,7 @@
     </curvedSword>
     <dagger>
         <id>dagger</id>
+        <type>weapon</type>
         <name>
             <en>Dagger</en>
             <es>Daga</es>
@@ -388,7 +399,7 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -411,6 +422,7 @@
     </dagger>
     <flail>
         <id>flail</id>
+        <type>weapon</type>
         <name>
             <en>Flail</en>
             <es>Mayal</es>
@@ -425,7 +437,7 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -448,6 +460,7 @@
     </flail>
     <frapStick>
         <id>frapStick</id>
+        <type>weapon</type>
         <name>
             <en>Frap Stick</en>
             <es>Palo de Amarre</es>
@@ -468,7 +481,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -487,6 +500,7 @@
     </frapStick>
     <garrote>
         <id>garrote</id>
+        <type>weapon</type>
         <name>
             <en>Garrote</en>
             <es>Garrote</es>
@@ -507,7 +521,7 @@
             </es>
         </description>
         <techLevel>0</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -522,6 +536,7 @@
     </garrote>
     <glankesh>
         <id>glankesh</id>
+        <type>weapon</type>
         <name>
             <en>Glankesh (Vorox Sword)</en>
             <es>Glankesh (Espada Vorox)</es>
@@ -544,7 +559,7 @@
             </es>
         </description>
         <techLevel>2</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -562,6 +577,7 @@
     </glankesh>
     <hollowKnife>
         <id>hollowKnife</id>
+        <type>weapon</type>
         <name>
             <en>Hollow Knife</en>
             <es>Cuchillo Hueco</es>
@@ -582,7 +598,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -601,6 +617,7 @@
     </hollowKnife>
     <knife>
         <id>knife</id>
+        <type>weapon</type>
         <name>
             <en>Knife</en>
             <es>Cuchillo</es>
@@ -631,7 +648,7 @@
             </es>
         </description>
         <techLevel>0</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -657,6 +674,7 @@
     </knife>
     <kurganSideSword>
         <id>kurganSideSword</id>
+        <type>weapon</type>
         <name>
             <en>Kurgan Side Sword</en>
             <es>Espada Ropera Kurgan</es>
@@ -673,7 +691,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -692,6 +710,7 @@
     </kurganSideSword>
     <kossackChainsword>
         <id>kossackChainsword</id>
+        <type>weapon</type>
         <name>
             <en>Kossack Osteotomic Sword</en>
             <es>Espada Osteotómica Cosaca</es>
@@ -716,7 +735,7 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -736,6 +755,7 @@
     </kossackChainsword>
     <mace>
         <id>mace</id>
+        <type>weapon</type>
         <name>
             <en>Mace</en>
             <es>Maza</es>
@@ -749,7 +769,7 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -772,6 +792,7 @@
     </mace>
     <mainGauche>
         <id>mainGauche</id>
+        <type>weapon</type>
         <name>
             <en>Main Gauche</en>
             <es>Daga de Misericordia</es>
@@ -790,7 +811,7 @@
             </es>
         </description>
         <techLevel>2</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -805,6 +826,7 @@
     </mainGauche>
     <pick>
         <id>pick</id>
+        <type>weapon</type>
         <name>
             <en>Pick</en>
             <es>Pico</es>
@@ -821,7 +843,7 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -840,6 +862,7 @@
     </pick>
     <rapier>
         <id>rapier</id>
+        <type>weapon</type>
         <name>
             <en>Rapier</en>
             <es>Estoque</es>
@@ -859,7 +882,7 @@
             </es>
         </description>
         <techLevel>2</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -880,11 +903,14 @@
         <size>L</size>
         <cost>20</cost>
         <random>
-            <recommendedUpbringings>nobility</recommendedUpbringings>
+            <recommendedUpbringings>
+                <id>nobility</id>
+            </recommendedUpbringings>
         </random>
     </rapier>
     <saber>
         <id>saber</id>
+        <type>weapon</type>
         <name>
             <en>Saber</en>
             <es>Sable</es>
@@ -902,7 +928,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -917,6 +943,7 @@
     </saber>
     <spear>
         <id>spear</id>
+        <type>weapon</type>
         <name>
             <en>Spear</en>
             <es>Lanza</es>
@@ -945,7 +972,7 @@
             </es>
         </description>
         <techLevel>0</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -968,6 +995,7 @@
     </spear>
     <splinterSword>
         <id>splinterSword</id>
+        <type>weapon</type>
         <name>
             <en>Splinter Sword</en>
             <es>Espada de Esquirlas</es>
@@ -996,7 +1024,7 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1015,6 +1043,7 @@
     </splinterSword>
     <staff>
         <id>staff</id>
+        <type>weapon</type>
         <name>
             <en>Staff</en>
             <es>Báculo</es>
@@ -1029,7 +1058,7 @@
             </es>
         </description>
         <techLevel>0</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1052,6 +1081,7 @@
     </staff>
     <suresnakeWhip>
         <id>suresnakeWhip</id>
+        <type>weapon</type>
         <name>
             <en>Suresnake Whip</en>
             <es>Látigo Serpiente</es>
@@ -1076,7 +1106,7 @@
             </es>
         </description>
         <techLevel>7</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1095,6 +1125,7 @@
     </suresnakeWhip>
     <trenchKnife>
         <id>trenchKnife</id>
+        <type>weapon</type>
         <name>
             <en>Trench Knife</en>
             <es>Cuchillo de Trinchera</es>
@@ -1109,7 +1140,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1127,6 +1158,7 @@
     </trenchKnife>
     <twoHandedAxe>
         <id>twoHandedAxe</id>
+        <type>weapon</type>
         <name>
             <en>Two-Handed Axe</en>
             <es>Hacha a Dos Manos</es>
@@ -1150,7 +1182,7 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1176,6 +1208,7 @@
     </twoHandedAxe>
     <twoHandedSword>
         <id>twoHandedSword</id>
+        <type>weapon</type>
         <name>
             <en>Two-Handed Sword</en>
             <es>Espada a Dos Manos</es>
@@ -1197,7 +1230,7 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1223,6 +1256,7 @@
     </twoHandedSword>
     <warSword>
         <id>warSword</id>
+        <type>weapon</type>
         <name>
             <en>War Sword</en>
             <es>Espada de Guerra</es>
@@ -1240,7 +1274,7 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1266,6 +1300,7 @@
     </warSword>
     <whip>
         <id>whip</id>
+        <type>weapon</type>
         <name>
             <en>Whip</en>
             <es>Látigo</es>
@@ -1283,7 +1318,7 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <type>MELEE</type>
+        <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1302,6 +1337,7 @@
     </whip>
     <wireblade>
         <id>wireblade</id>
+        <type>weapon</type>
         <name>
             <en>Wireblade</en>
             <es>Filoespada</es>
@@ -1329,7 +1365,7 @@
             </es>
         </description>
         <techLevel>8</techLevel>
-        <type>MELEE_ARTIFACT</type>
+        <weaponType>MELEE_ARTIFACT</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1345,6 +1381,7 @@
     </wireblade>
     <fluxSword>
         <id>fluxSword</id>
+        <type>weapon</type>
         <name>
             <en>Flux Sword</en>
             <es>Espada de Flujo</es>
@@ -1364,7 +1401,7 @@
             </es>
         </description>
         <techLevel>8</techLevel>
-        <type>MELEE_ARTIFACT</type>
+        <weaponType>MELEE_ARTIFACT</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1380,6 +1417,7 @@
     </fluxSword>
     <mistSword>
         <id>mistSword</id>
+        <type>weapon</type>
         <name>
             <en>Mist Sword</en>
             <es>Espada Mística</es>
@@ -1403,7 +1441,7 @@
             </es>
         </description>
         <techLevel>8</techLevel>
-        <type>MELEE_ARTIFACT</type>
+        <weaponType>MELEE_ARTIFACT</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1425,6 +1463,7 @@
 
     <dart>
         <id>dart</id>
+        <type>weapon</type>
         <name>
             <en>Dart</en>
             <es>Dardo</es>
@@ -1441,7 +1480,7 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <type>THROWING</type>
+        <weaponType>THROWING</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1473,6 +1512,7 @@
     </dart>
     <javelin>
         <id>javelin</id>
+        <type>weapon</type>
         <name>
             <en>Javelin</en>
             <es>Jabalina</es>
@@ -1489,7 +1529,7 @@
             </es>
         </description>
         <techLevel>0</techLevel>
-        <type>THROWING</type>
+        <weaponType>THROWING</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1521,6 +1561,7 @@
     </javelin>
     <rock>
         <id>rock</id>
+        <type>weapon</type>
         <name>
             <en>Rock</en>
             <es>Piedra</es>
@@ -1534,7 +1575,7 @@
             </es>
         </description>
         <techLevel>0</techLevel>
-        <type>THROWING</type>
+        <weaponType>THROWING</weaponType>
         <damageList>
             <weaponDamage>
                 <damageName>
@@ -1620,6 +1661,7 @@
     </rock>
     <star>
         <id>star</id>
+        <type>weapon</type>
         <name>
             <en>Star</en>
             <es>Estrella</es>
@@ -1633,7 +1675,7 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <type>THROWING</type>
+        <weaponType>THROWING</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1662,6 +1704,7 @@
     </star>
     <throwingAxe>
         <id>throwingAxe</id>
+        <type>weapon</type>
         <name>
             <en>Throwing Axe</en>
             <es>Hacha Arrojadiza</es>
@@ -1676,7 +1719,7 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <type>THROWING</type>
+        <weaponType>THROWING</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1705,6 +1748,7 @@
     </throwingAxe>
     <throwingKnife>
         <id>throwingKnife</id>
+        <type>weapon</type>
         <name>
             <en>Throwing Knife</en>
             <es>Cuchillo Arrojadizo</es>
@@ -1720,7 +1764,7 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <type>THROWING</type>
+        <weaponType>THROWING</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1752,6 +1796,7 @@
     </throwingKnife>
     <heavyFuthangaBow>
         <id>heavyFuthangaBow</id>
+        <type>weapon</type>
         <name>
             <en>Heavy Futhanga Bow</en>
             <es>Arco Pesado Futhanga</es>
@@ -1763,7 +1808,7 @@
             </es>
         </description>
         <techLevel>0</techLevel>
-        <type>BOW</type>
+        <weaponType>BOW</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1799,6 +1844,7 @@
     </heavyFuthangaBow>
     <huntingBow>
         <id>huntingBow</id>
+        <type>weapon</type>
         <name>
             <en>Hunting Bow</en>
             <es>Arco de Caza</es>
@@ -1815,7 +1861,7 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <type>BOW</type>
+        <weaponType>BOW</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1848,6 +1894,7 @@
     </huntingBow>
     <lightFuthangaBow>
         <id>lightFuthangaBow</id>
+        <type>weapon</type>
         <name>
             <en>Light Futhanga Bow</en>
             <es>Arco Ligero Futhanga</es>
@@ -1866,7 +1913,7 @@
             </es>
         </description>
         <techLevel>0</techLevel>
-        <type>BOW</type>
+        <weaponType>BOW</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1902,6 +1949,7 @@
     </lightFuthangaBow>
     <selfBow>
         <id>selfBow</id>
+        <type>weapon</type>
         <name>
             <en>Self Bow</en>
             <es>Arco Sencillo</es>
@@ -1915,7 +1963,7 @@
             </es>
         </description>
         <techLevel>0</techLevel>
-        <type>BOW</type>
+        <weaponType>BOW</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1948,6 +1996,7 @@
     </selfBow>
     <targetBow>
         <id>targetBow</id>
+        <type>weapon</type>
         <name>
             <en>Target Bow</en>
             <es>Arco de Feria</es>
@@ -1963,7 +2012,7 @@
             </es>
         </description>
         <techLevel>2</techLevel>
-        <type>BOW</type>
+        <weaponType>BOW</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1996,6 +2045,7 @@
     </targetBow>
     <warBow>
         <id>warBow</id>
+        <type>weapon</type>
         <name>
             <en>War Bow</en>
             <es>Arco de Guerra</es>
@@ -2012,7 +2062,7 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <type>BOW</type>
+        <weaponType>BOW</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2045,6 +2095,7 @@
     </warBow>
     <handCrossbow>
         <id>handCrossbow</id>
+        <type>weapon</type>
         <name>
             <en>Hand Crossbow</en>
             <es>Ballesta de Mano</es>
@@ -2058,7 +2109,7 @@
             </es>
         </description>
         <techLevel>2</techLevel>
-        <type>CROSSBOW</type>
+        <weaponType>CROSSBOW</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2076,6 +2127,7 @@
     </handCrossbow>
     <lightCrossbow>
         <id>lightCrossbow</id>
+        <type>weapon</type>
         <name>
             <en>Light Crossbow</en>
             <es>Ballesta Ligera</es>
@@ -2085,7 +2137,7 @@
             <es>Una ballesta de 30kg de tensión utilizada para cazar en muchas zonas rurales.</es>
         </description>
         <techLevel>2</techLevel>
-        <type>CROSSBOW</type>
+        <weaponType>CROSSBOW</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2104,6 +2156,7 @@
     </lightCrossbow>
     <heavyCrossbow>
         <id>heavyCrossbow</id>
+        <type>weapon</type>
         <name>
             <en>Heavy Crossbow</en>
             <es>Ballesta Pesada</es>
@@ -2117,7 +2170,7 @@
             </es>
         </description>
         <techLevel>2</techLevel>
-        <type>CROSSBOW</type>
+        <weaponType>CROSSBOW</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2136,6 +2189,7 @@
     </heavyCrossbow>
     <mediumCrossbow>
         <id>mediumCrossbow</id>
+        <type>weapon</type>
         <name>
             <en>Medium Crossbow</en>
             <es>Ballesta Mediana</es>
@@ -2147,7 +2201,7 @@
             </es>
         </description>
         <techLevel>2</techLevel>
-        <type>CROSSBOW</type>
+        <weaponType>CROSSBOW</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2166,6 +2220,7 @@
     </mediumCrossbow>
     <wristCrossbow>
         <id>wristCrossbow</id>
+        <type>weapon</type>
         <name>
             <en>Wrist Crossbow</en>
             <es>Ballesta de Muñeca</es>
@@ -2182,7 +2237,7 @@
             </es>
         </description>
         <techLevel>2</techLevel>
-        <type>CROSSBOW</type>
+        <weaponType>CROSSBOW</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2202,6 +2257,7 @@
 
     <typicalDerringer>
         <id>typicalDerringer</id>
+        <type>weapon</type>
         <name>
             <en>Typical Derringer (.32)</en>
             <es>Típico Derringer (.32)</es>
@@ -2229,7 +2285,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2250,6 +2306,7 @@
     </typicalDerringer>
     <lankDerringer>
         <id>lankDerringer</id>
+        <type>weapon</type>
         <name>
             <en>Lank Derringer (.32)</en>
             <es>Derringer Lank (.32)</es>
@@ -2277,7 +2334,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2295,6 +2352,7 @@
     </lankDerringer>
     <mitchauMaverick>
         <id>mitchauMaverick</id>
+        <type>weapon</type>
         <name>
             <en>Mitchau Maverick (.32)</en>
             <es>Mitchau Maverick (.32)</es>
@@ -2322,7 +2380,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2340,6 +2398,7 @@
     </mitchauMaverick>
     <varstenSnake-eyes>
         <id>varstenSnake-eyes</id>
+        <type>weapon</type>
         <name>
             <en>Varsten Snake-eyes (.32)</en>
             <es>Varsten Ojos de Serpiente (.32)</es>
@@ -2367,7 +2426,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2385,6 +2444,7 @@
     </varstenSnake-eyes>
     <typicalLightRevolver>
         <id>typicalLightRevolver</id>
+        <type>weapon</type>
         <name>
             <en>Typical Light Revolver (.32)</en>
             <es>Revolver Ligero Típico (.32)</es>
@@ -2402,7 +2462,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2423,6 +2483,7 @@
     </typicalLightRevolver>
     <fenirShortstop>
         <id>fenirShortstop</id>
+        <type>weapon</type>
         <name>
             <en>Fenir Shortstop (.32)</en>
             <es>Shortstop Fenir (.32)</es>
@@ -2440,7 +2501,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2458,6 +2519,7 @@
     </fenirShortstop>
     <macCaulyLearmat>
         <id>macCaulyLearmat</id>
+        <type>weapon</type>
         <name>
             <en>MacCauly Learmat (.32)</en>
             <es>MacCauly Learmat (.32)</es>
@@ -2475,7 +2537,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2493,12 +2555,13 @@
     </macCaulyLearmat>
     <mitchauProtector>
         <id>mitchauProtector</id>
+        <type>weapon</type>
         <name>
             <en>Mitchau Protector (.32)</en>
             <es>Mitchau Protector (.32)</es>
         </name>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2516,6 +2579,7 @@
     </mitchauProtector>
     <typicalLightAutofeed>
         <id>typicalLightAutofeed</id>
+        <type>weapon</type>
         <name>
             <en>Typical Light Autofeed</en>
             <es>Autorrecarga Ligera Típica</es>
@@ -2544,7 +2608,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2565,6 +2629,7 @@
     </typicalLightAutofeed>
     <fenirMonbow>
         <id>fenirMonbow</id>
+        <type>weapon</type>
         <name>
             <en>Fenir Monbow (.32)</en>
             <es>Monbow Fenir (.32)</es>
@@ -2593,7 +2658,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2611,6 +2676,7 @@
     </fenirMonbow>
     <mitchauRumber>
         <id>mitchauRumber</id>
+        <type>weapon</type>
         <name>
             <en>Mitchau Rumber (.32)</en>
             <es>Mitchau Rumber (.32)</es>
@@ -2639,7 +2705,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2657,6 +2723,7 @@
     </mitchauRumber>
     <phoenixHandgun>
         <id>phoenixHandgun</id>
+        <type>weapon</type>
         <name>
             <en>Phoenix Handgun (.32)</en>
             <es>Revólver del Fénix (.32)</es>
@@ -2685,7 +2752,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2703,6 +2770,7 @@
     </phoenixHandgun>
     <sumperKrant>
         <id>sumperKrant</id>
+        <type>weapon</type>
         <name>
             <en>Sumper Krant (.32)</en>
             <es>Sumper Krant (.32)</es>
@@ -2731,7 +2799,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2749,6 +2817,7 @@
     </sumperKrant>
     <typicalMedRevolver>
         <id>typicalMedRevolver</id>
+        <type>weapon</type>
         <name>
             <en>Typical Med. Revolver (.40)</en>
             <es>Revólver Mediano Típico (.40)</es>
@@ -2776,7 +2845,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2797,6 +2866,7 @@
     </typicalMedRevolver>
     <drexelFirehunter>
         <id>drexelFirehunter</id>
+        <type>weapon</type>
         <name>
             <en>Drexel Firehunter (.38)</en>
             <es>Drexel Firehunter (.38)</es>
@@ -2824,7 +2894,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2842,6 +2912,7 @@
     </drexelFirehunter>
     <macCulyLoadrite>
         <id>macCulyLoadrite</id>
+        <type>weapon</type>
         <name>
             <en>MacCuly Loadrite (.38)</en>
             <es>MacCuly Loadrite (.38)</es>
@@ -2869,7 +2940,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2887,6 +2958,7 @@
     </macCulyLoadrite>
     <mitchauQuarryGun>
         <id>mitchauQuarryGun</id>
+        <type>weapon</type>
         <name>
             <en>Mitchau Quarry Gun (.40)</en>
             <es>Mitchau Quarry Gun (.40)</es>
@@ -2914,7 +2986,7 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2933,12 +3005,13 @@
     </mitchauQuarryGun>
     <mitchauThunderer>
         <id>mitchauThunderer</id>
+        <type>weapon</type>
         <name>
             <en>Mitchau Thunderer (.40)</en>
             <es>Mitchau Atronador (.40)</es>
         </name>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2956,6 +3029,7 @@
     </mitchauThunderer>
     <nerewPeacetrunk>
         <id>nerewPeacetrunk</id>
+        <type>weapon</type>
         <name>
             <en>Nerew Peacetrunk (.40)</en>
             <es>Nerew Peacetrunk (.40)</es>
@@ -2983,7 +3057,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3001,6 +3075,7 @@
     </nerewPeacetrunk>
     <typicalMediumAutofeed>
         <id>typicalMediumAutofeed</id>
+        <type>weapon</type>
         <name>
             <en>Typical Med. Autofeed (.40)</en>
             <es>Autorrecarga Mediana Típica</es>
@@ -3017,7 +3092,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3038,6 +3113,7 @@
     </typicalMediumAutofeed>
     <immanVorton>
         <id>immanVorton</id>
+        <type>weapon</type>
         <name>
             <en>Imman Vorton (.40)</en>
             <es>Imman Vorton (.40)</es>
@@ -3054,7 +3130,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3072,6 +3148,7 @@
     </immanVorton>
     <kroslerDunehound>
         <id>kroslerDunehound</id>
+        <type>weapon</type>
         <name>
             <en>Krosler Dunehound (.40)</en>
             <es>Krosler Dunehound (.40)</es>
@@ -3088,7 +3165,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3106,6 +3183,7 @@
     </kroslerDunehound>
     <mitchauRipper>
         <id>mitchauRipper</id>
+        <type>weapon</type>
         <name>
             <en>Mitchau Ripper (.40)</en>
             <es>Mitchau Ripper (.40)</es>
@@ -3122,7 +3200,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3140,6 +3218,7 @@
     </mitchauRipper>
     <typicalHvyRevolver>
         <id>typicalHvyRevolver</id>
+        <type>weapon</type>
         <name>
             <en>Typical Hvy Revolver (.47)</en>
             <es>Revólver Pesado Típico (.47)</es>
@@ -3158,7 +3237,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3179,6 +3258,7 @@
     </typicalHvyRevolver>
     <macCaulyBuster>
         <id>macCaulyBuster</id>
+        <type>weapon</type>
         <name>
             <en>MacCauly Buster (.50)</en>
             <es>MacCauly Buster (.50)</es>
@@ -3197,7 +3277,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3215,6 +3295,7 @@
     </macCaulyBuster>
     <tensonMauler>
         <id>tensonMauler</id>
+        <type>weapon</type>
         <name>
             <en>Tenson Mauler (.47)</en>
             <es>Tenson Mauler (.47)</es>
@@ -3233,7 +3314,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3251,6 +3332,7 @@
     </tensonMauler>
     <sumpterUlik>
         <id>sumpterUlik</id>
+        <type>weapon</type>
         <name>
             <en>Sumpter Ulik (.47)</en>
             <es>Sumpter Ulik (.47)</es>
@@ -3269,7 +3351,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3303,6 +3385,7 @@
     </sumpterUlik>
     <typicalHvyAutofeed>
         <id>typicalHvyAutofeed</id>
+        <type>weapon</type>
         <name>
             <en>Typical Heavy Autofeed (.47)</en>
             <es>Autorrecarga Pesada Típica (.47)</es>
@@ -3321,7 +3404,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3342,6 +3425,7 @@
     </typicalHvyAutofeed>
     <kroslerSampson>
         <id>kroslerSampson</id>
+        <type>weapon</type>
         <name>
             <en>Krosler Sampson (.47)</en>
             <es>Krosler Sampson (.47)</es>
@@ -3360,7 +3444,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3378,6 +3462,7 @@
     </kroslerSampson>
     <tensonBlitzer>
         <id>tensonBlitzer</id>
+        <type>weapon</type>
         <name>
             <en>Tenson Blitzer (.47)</en>
             <es>Tenson Blitzer (.47)</es>
@@ -3396,7 +3481,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3414,6 +3499,7 @@
     </tensonBlitzer>
     <sumpterUrthquake>
         <id>sumpterUrthquake</id>
+        <type>weapon</type>
         <name>
             <en>Sumpter Urthquake (.47)</en>
             <es>Sumpter Urthquake (.47)</es>
@@ -3432,7 +3518,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3466,6 +3552,7 @@
     </sumpterUrthquake>
     <typicalManfeedRifle>
         <id>typicalManfeedRifle</id>
+        <type>weapon</type>
         <name>
             <en>Typical Manfeed Rifle (.40)</en>
             <es>Rifle de Recarga Manual Típico (.40)</es>
@@ -3523,7 +3610,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3545,6 +3632,7 @@
     </typicalManfeedRifle>
     <basicHuntingRifle>
         <id>basicHuntingRifle</id>
+        <type>weapon</type>
         <name>
             <en>Basic Hunting Rifle (.40)</en>
             <es>Rifle de Caza Básico</es>
@@ -3602,7 +3690,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3624,6 +3712,7 @@
     </basicHuntingRifle>
     <dragonfly>
         <id>dragonfly</id>
+        <type>weapon</type>
         <name>
             <en>Dragonfly 7 (.40)</en>
             <es>Dragonfly 7 (.40)</es>
@@ -3681,7 +3770,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3700,6 +3789,7 @@
     </dragonfly>
     <imperialRifle>
         <id>imperialRifle</id>
+        <type>weapon</type>
         <name>
             <en>Imperial Rifle (.40)</en>
             <es>Rifle Imperial (.40)</es>
@@ -3757,7 +3847,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3776,6 +3866,7 @@
     </imperialRifle>
     <typicalSniperRifle>
         <id>typicalSniperRifle</id>
+        <type>weapon</type>
         <name>
             <en>Typical Sniper Rifle (13mm)</en>
             <es>Rifle de Francotirador Típico (13mm)</es>
@@ -3805,7 +3896,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3824,6 +3915,7 @@
     </typicalSniperRifle>
     <hyramGlory>
         <id>hyramGlory</id>
+        <type>weapon</type>
         <name>
             <en>Hyram Glory (13mm)</en>
             <es>Hyram Glory (13mm)</es>
@@ -3853,7 +3945,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3872,6 +3964,7 @@
     </hyramGlory>
     <radirLongshot>
         <id>radirLongshot</id>
+        <type>weapon</type>
         <name>
             <en>Radir Longshot (13mm)</en>
             <es>Radir Longshot (13mm)</es>
@@ -3901,7 +3994,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3920,6 +4013,7 @@
     </radirLongshot>
     <typicalAutoRifle>
         <id>typicalAutoRifle</id>
+        <type>weapon</type>
         <name>
             <en>Typical Auto. Rifle (10mm)</en>
             <es>Rifle de Autorrecarga Típico (10mm)</es>
@@ -3960,7 +4054,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3982,6 +4076,7 @@
     </typicalAutoRifle>
     <blueLionM3>
         <id>blueLionM3</id>
+        <type>weapon</type>
         <name>
             <en>Blue Lion M3 (.40)</en>
             <es>León Azul M3 (.40)</es>
@@ -4022,7 +4117,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -4041,6 +4136,7 @@
     </blueLionM3>
     <hyramSplendor>
         <id>hyramSplendor</id>
+        <type>weapon</type>
         <name>
             <en>Hyram Splendor (13mm)</en>
             <es>Hyram Splendor (13mm)</es>
@@ -4081,7 +4177,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -4100,6 +4196,7 @@
     </hyramSplendor>
     <massariStomper>
         <id>massariStomper</id>
+        <type>weapon</type>
         <name>
             <en>Massari Stomper (.47)</en>
             <es>Masseri Stomper (.47)</es>
@@ -4140,7 +4237,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -4159,6 +4256,7 @@
     </massariStomper>
     <hazatModel68>
         <id>hazatModel68</id>
+        <type>weapon</type>
         <name>
             <en>Hazat Model 68 (.40)</en>
             <es>Modelo Hazat 68 (.40)</es>
@@ -4199,7 +4297,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -4221,6 +4319,7 @@
     </hazatModel68>
     <musterRover10>
         <id>musterRover10</id>
+        <type>weapon</type>
         <name>
             <en>Muster Rover (10mm)</en>
             <es>Rover de la Asamblea (10mm)</es>
@@ -4261,7 +4360,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -4283,6 +4382,7 @@
     </musterRover10>
     <vamGelderThracker>
         <id>vamGelderThracker</id>
+        <type>weapon</type>
         <name>
             <en>Van Gelder Thracker (.47)</en>
             <es>Van Gelder Thracker (.47)</es>
@@ -4323,7 +4423,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -4342,6 +4442,7 @@
     </vamGelderThracker>
     <typicalCaselessRifle>
         <id>typicalCaselessRifle</id>
+        <type>weapon</type>
         <name>
             <en>Typical Caseless Rifle</en>
             <es>Rifle sin Casquillos Típico</es>
@@ -4397,7 +4498,7 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -4420,6 +4521,7 @@
     </typicalCaselessRifle>
     <gleelanMRC>
         <id>gleelanMRC</id>
+        <type>weapon</type>
         <name>
             <en>Gleelan MR-C (4.3mm)</en>
             <es>Gleelan MR-C (4.3mm)</es>
@@ -4475,7 +4577,7 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -4495,6 +4597,7 @@
     </gleelanMRC>
     <laylandCaseless>
         <id>laylandCaseless</id>
+        <type>weapon</type>
         <name>
             <en>Layland Caseless (5mm)</en>
             <es>Layland Caseless (5mm)</es>
@@ -4550,7 +4653,7 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -4570,6 +4673,7 @@
     </laylandCaseless>
     <kMMR12>
         <id>kMMR12</id>
+        <type>weapon</type>
         <name>
             <en>K&amp;M MR12 (5mm)</en>
             <es>K&amp;M MR12 (5mm)</es>
@@ -4625,7 +4729,7 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -4645,6 +4749,7 @@
     </kMMR12>
     <kMMR12v3>
         <id>kMMR12v3</id>
+        <type>weapon</type>
         <name>
             <en>K&amp;M MR12v3 (5mm)</en>
             <es>K&amp;M MR12v3 (5mm)</es>
@@ -4700,7 +4805,7 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -4720,6 +4825,7 @@
     </kMMR12v3>
     <typicalSMG>
         <id>typicalSMG</id>
+        <type>weapon</type>
         <name>
             <en>Typical SMG (.40)</en>
             <es>Subfusil Típico (.40)</es>
@@ -4758,7 +4864,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -4780,6 +4886,7 @@
     </typicalSMG>
     <herstalProject98>
         <id>herstalProject98</id>
+        <type>weapon</type>
         <name>
             <en>Herstal Project 98 (.32)</en>
             <es>Herstal Project 98 (.32)</es>
@@ -4818,7 +4925,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -4837,6 +4944,7 @@
     </herstalProject98>
     <jahnisakMuffler>
         <id>jahnisakMuffler</id>
+        <type>weapon</type>
         <name>
             <en>Jahnisak Muffler (.40)</en>
             <es>Jahnisak con Silenciador (.40)</es>
@@ -4875,7 +4983,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -4894,6 +5002,7 @@
     </jahnisakMuffler>
     <kmsm7>
         <id>kmsm7</id>
+        <type>weapon</type>
         <name>
             <en>K&amp;M S M7 (.40)</en>
             <es>K&amp;M S-M7 (.40)</es>
@@ -4932,7 +5041,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -4951,6 +5060,7 @@
     </kmsm7>
     <lankStinger>
         <id>lankStinger</id>
+        <type>weapon</type>
         <name>
             <en>Lank Stinger (.40)</en>
             <es>Lank Stinger (.40)</es>
@@ -4989,7 +5099,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -5008,6 +5118,7 @@
     </lankStinger>
     <martechCobraZ81>
         <id>martechCobraZ81</id>
+        <type>weapon</type>
         <name>
             <en>Martech Cobra vz.81 (.40)</en>
             <es>Martech Cobra vz.81 (.40)</es>
@@ -5046,7 +5157,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -5065,6 +5176,7 @@
     </martechCobraZ81>
     <typicalShotgun>
         <id>typicalShotgun</id>
+        <type>weapon</type>
         <name>
             <en>Typical Shotgun (10 g.)</en>
             <es>Escopeta Típica (10 g.)</es>
@@ -5107,7 +5219,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -5145,6 +5257,7 @@
     </typicalShotgun>
     <typicalTwinBarrel>
         <id>typicalTwinBarrel</id>
+        <type>weapon</type>
         <name>
             <en>Typical Twin-barrel (10 g.)</en>
             <es>Doble Cañón Típico (10 g.)</es>
@@ -5187,7 +5300,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -5223,6 +5336,7 @@
     </typicalTwinBarrel>
     <dreskelBoomer>
         <id>dreskelBoomer</id>
+        <type>weapon</type>
         <name>
             <en>Dreskel Boomer</en>
             <es>Dreskel Boomer</es>
@@ -5265,7 +5379,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -5298,6 +5412,7 @@
     </dreskelBoomer>
     <dreskelGatling>
         <id>dreskelGatling</id>
+        <type>weapon</type>
         <name>
             <en>Dreskel Gatling (8 g.)</en>
             <es>Dreskel Gatling (8 g.)</es>
@@ -5340,7 +5455,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -5359,6 +5474,7 @@
     </dreskelGatling>
     <mHazatRiot>
         <id>mHazatRiot</id>
+        <type>weapon</type>
         <name>
             <en>M. Hazat Riot.-01 (10 g.)</en>
             <es>M. Hazat Riot.-01 (10 g.)</es>
@@ -5401,7 +5517,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -5439,6 +5555,7 @@
     </mHazatRiot>
     <xienShortBarrel>
         <id>xienShortBarrel</id>
+        <type>weapon</type>
         <name>
             <en>Xien Short Barrel (10 g.)</en>
             <es>Xien Cañón Corto (10 g.)</es>
@@ -5481,7 +5598,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -5515,6 +5632,7 @@
     </xienShortBarrel>
     <typicalFirelockPistol>
         <id>typicalFirelockPistol</id>
+        <type>weapon</type>
         <name>
             <en>Typical Firelock Pistol</en>
             <es>Pistola de Avancarga Típica</es>
@@ -5537,7 +5655,7 @@
             </es>
         </description>
         <techLevel>2</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -5556,6 +5674,7 @@
     </typicalFirelockPistol>
     <typicalFirelockRifle>
         <id>typicalFirelockRifle</id>
+        <type>weapon</type>
         <name>
             <en>Typical Firelock Rifle</en>
             <es>Pistola de Avancarga Típica</es>
@@ -5578,7 +5697,7 @@
             </es>
         </description>
         <techLevel>2</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -5597,6 +5716,7 @@
     </typicalFirelockRifle>
     <cancanaghDartgunPistol>
         <id>cancanaghDartgunPistol</id>
+        <type>weapon</type>
         <name>
             <en>Cancanagh Dartgun Pistol</en>
             <es>Pistolas de Dardos Cancanagh</es>
@@ -5640,7 +5760,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -5662,6 +5782,7 @@
     </cancanaghDartgunPistol>
     <decadosGroinGun>
         <id>decadosGroinGun</id>
+        <type>weapon</type>
         <name>
             <en>Decados Groin Gun (.32)</en>
             <es>Pistola Decados Groin (.32)</es>
@@ -5705,7 +5826,7 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -5729,6 +5850,7 @@
     </decadosGroinGun>
     <hailstormSplinterPistol>
         <id>hailstormSplinterPistol</id>
+        <type>weapon</type>
         <name>
             <en>Hailstorm Splinter Pistol</en>
             <es>Pistola de Dardos Hailstorm</es>
@@ -5772,7 +5894,7 @@
             </es>
         </description>
         <techLevel>6</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -5794,6 +5916,7 @@
     </hailstormSplinterPistol>
     <reznorNailGun>
         <id>reznorNailGun</id>
+        <type>weapon</type>
         <name>
             <en>Reznor Nail Gun</en>
             <es>Arma de Clavos Reznor</es>
@@ -5837,7 +5960,7 @@
             </es>
         </description>
         <techLevel>6</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -5860,6 +5983,7 @@
     </reznorNailGun>
     <nailgunPowerTool>
         <id>nailgunPowerTool</id>
+        <type>weapon</type>
         <name>
             <en>Nailgun Power Tool</en>
             <es>Pistola de Clavos Eléctrica</es>
@@ -5903,7 +6027,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -5931,6 +6055,7 @@
     </nailgunPowerTool>
     <capekAquaRifle>
         <id>capekAquaRifle</id>
+        <type>weapon</type>
         <name>
             <en>Capek Aqua Rifle (.47)</en>
             <es>Rifle Acuático Capek</es>
@@ -5981,7 +6106,7 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -6020,6 +6145,7 @@
     </capekAquaRifle>
     <cupidLongarm>
         <id>cupidLongarm</id>
+        <type>weapon</type>
         <name>
             <en>Cupid Longarm</en>
             <es>Cupid Longarm</es>
@@ -6070,7 +6196,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -6092,6 +6218,7 @@
     </cupidLongarm>
     <reznorModelXI>
         <id>reznorModelXI</id>
+        <type>weapon</type>
         <name>
             <en>Reznor Model IX</en>
             <es>Reznor Modelo IX</es>
@@ -6142,7 +6269,7 @@
             </es>
         </description>
         <techLevel>6</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -6164,6 +6291,7 @@
     </reznorModelXI>
     <sabotGun>
         <id>sabotGun</id>
+        <type>weapon</type>
         <name>
             <en>Sabot Gun</en>
             <es>Arma de Zanco</es>
@@ -6214,7 +6342,7 @@
             </es>
         </description>
         <techLevel>7</techLevel>
-        <type>SLUG</type>
+        <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -6279,6 +6407,7 @@
     </sabotGun>
     <martechMidgetPalmLaser>
         <id>martechMidgetPalmLaser</id>
+        <type>weapon</type>
         <name>
             <en>Martech Midget Palm Laser</en>
             <es>Láser de Mano Martech Midget</es>
@@ -6297,7 +6426,7 @@
             </es>
         </description>
         <techLevel>6</techLevel>
-        <type>LASER</type>
+        <weaponType>LASER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -6334,6 +6463,7 @@
     </martechMidgetPalmLaser>
     <martechGold>
         <id>martechGold</id>
+        <type>weapon</type>
         <name>
             <en>Martech Gold</en>
             <es>Martech Oro</es>
@@ -6366,7 +6496,7 @@
             </es>
         </description>
         <techLevel>6</techLevel>
-        <type>LASER</type>
+        <weaponType>LASER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -6385,6 +6515,7 @@
     </martechGold>
     <martechAmber>
         <id>martechAmber</id>
+        <type>weapon</type>
         <name>
             <en>Martech Amber</en>
             <es>Martech Ámbar</es>
@@ -6417,7 +6548,7 @@
             </es>
         </description>
         <techLevel>6</techLevel>
-        <type>LASER</type>
+        <weaponType>LASER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -6436,6 +6567,7 @@
     </martechAmber>
     <bannerCabalXaserPistol>
         <id>bannerCabalXaserPistol</id>
+        <type>weapon</type>
         <name>
             <en>Banner Cabal Xaser Pistol</en>
             <es>Pistola Camarilla del Estandarte Xáser</es>
@@ -6468,7 +6600,7 @@
             </es>
         </description>
         <techLevel>7</techLevel>
-        <type>LASER</type>
+        <weaponType>LASER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -6490,6 +6622,7 @@
     </bannerCabalXaserPistol>
     <bannerCabalGraserPistol>
         <id>bannerCabalGraserPistol</id>
+        <type>weapon</type>
         <name>
             <en>Banner Cabal Graser Pistol</en>
             <es>Pistola Camarilla del Estandarte Graser</es>
@@ -6522,7 +6655,7 @@
             </es>
         </description>
         <techLevel>7</techLevel>
-        <type>LASER</type>
+        <weaponType>LASER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -6544,6 +6677,7 @@
     </bannerCabalGraserPistol>
     <martechIndigo>
         <id>martechIndigo</id>
+        <type>weapon</type>
         <name>
             <en>Martech Indigo</en>
             <es>Martech Índigo</es>
@@ -6580,7 +6714,7 @@
             </es>
         </description>
         <techLevel>6</techLevel>
-        <type>LASER</type>
+        <weaponType>LASER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -6600,6 +6734,7 @@
     </martechIndigo>
     <martechSafireSniper>
         <id>martechSafireSniper</id>
+        <type>weapon</type>
         <name>
             <en>Martech Safire (Sniper)</en>
             <es>Martech Zafiro (Francotirador)</es>
@@ -6636,7 +6771,7 @@
             </es>
         </description>
         <techLevel>6</techLevel>
-        <type>LASER</type>
+        <weaponType>LASER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -6659,6 +6794,7 @@
     </martechSafireSniper>
     <bannerCabalXaserRifle>
         <id>bannerCabalXaserRifle</id>
+        <type>weapon</type>
         <name>
             <en>Banner Cabal Xaser Rifle</en>
             <es>Rifle Camarilla del Estandarte Xáser</es>
@@ -6695,7 +6831,7 @@
             </es>
         </description>
         <techLevel>7</techLevel>
-        <type>LASER</type>
+        <weaponType>LASER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -6718,6 +6854,7 @@
     </bannerCabalXaserRifle>
     <bannerCabalGraserRifle>
         <id>bannerCabalGraserRifle</id>
+        <type>weapon</type>
         <name>
             <en>Banner Cabal Graser Rifle</en>
             <es>Rifle Camarilla del Estandarte Gráser</es>
@@ -6747,7 +6884,7 @@
             </es>
         </description>
         <techLevel>7</techLevel>
-        <type>LASER</type>
+        <weaponType>LASER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -6770,6 +6907,7 @@
     </bannerCabalGraserRifle>
     <martechRed>
         <id>martechRed</id>
+        <type>weapon</type>
         <name>
             <en>Martech Red</en>
             <es>Martech Rojo</es>
@@ -6792,7 +6930,7 @@
             </es>
         </description>
         <techLevel>6</techLevel>
-        <type>LASER</type>
+        <weaponType>LASER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -6812,6 +6950,7 @@
     </martechRed>
     <varstenBlacklight>
         <id>varstenBlacklight</id>
+        <type>weapon</type>
         <name>
             <en>Varsten Blacklight</en>
             <es>Varsten Blacklight</es>
@@ -6834,7 +6973,7 @@
             </es>
         </description>
         <techLevel>6</techLevel>
-        <type>LASER</type>
+        <weaponType>LASER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -6857,6 +6996,7 @@
     </varstenBlacklight>
     <soeAlembic>
         <id>soeAlembic</id>
+        <type>weapon</type>
         <name>
             <en>SOE Alembic</en>
             <es>SOE Alembic</es>
@@ -6881,7 +7021,7 @@
             </es>
         </description>
         <techLevel>7</techLevel>
-        <type>BLASTER</type>
+        <weaponType>BLASTER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -6903,6 +7043,7 @@
     </soeAlembic>
     <lankEruptor>
         <id>lankEruptor</id>
+        <type>weapon</type>
         <name>
             <en>Lank Eruptor</en>
             <es>Eruptor Lank</es>
@@ -6927,7 +7068,7 @@
             </es>
         </description>
         <techLevel>7</techLevel>
-        <type>BLASTER</type>
+        <weaponType>BLASTER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -6949,6 +7090,7 @@
     </lankEruptor>
     <soeCrucible>
         <id>soeCrucible</id>
+        <type>weapon</type>
         <name>
             <en>SOE Crucible</en>
             <es>SOE Crucible</es>
@@ -6962,7 +7104,7 @@
             </es>
         </description>
         <techLevel>7</techLevel>
-        <type>BLASTER</type>
+        <weaponType>BLASTER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -6982,6 +7124,7 @@
     </soeCrucible>
     <nitobiBlasterAxe>
         <id>nitobiBlasterAxe</id>
+        <type>weapon</type>
         <name>
             <en>Nitobi Blaster Axe</en>
             <es>Hoja Bláster Nitobi</es>
@@ -7012,7 +7155,7 @@
             </es>
         </description>
         <techLevel>7</techLevel>
-        <type>BLASTER</type>
+        <weaponType>BLASTER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -7041,6 +7184,7 @@
     </nitobiBlasterAxe>
     <soeVolcano>
         <id>soeVolcano</id>
+        <type>weapon</type>
         <name>
             <en>SOE Volcano</en>
             <es>SOE Volcano</es>
@@ -7059,7 +7203,7 @@
             </es>
         </description>
         <techLevel>7</techLevel>
-        <type>BLASTER</type>
+        <weaponType>BLASTER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -7082,6 +7226,7 @@
     </soeVolcano>
     <lankIncinerator>
         <id>lankIncinerator</id>
+        <type>weapon</type>
         <name>
             <en>Lank Incinerator</en>
             <es>Incinerador Lank</es>
@@ -7100,7 +7245,7 @@
             </es>
         </description>
         <techLevel>7</techLevel>
-        <type>BLASTER</type>
+        <weaponType>BLASTER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -7125,6 +7270,7 @@
 
     <kalomiteFlamegun>
         <id>kalomiteFlamegun</id>
+        <type>weapon</type>
         <name>
             <en>Kalomite Flamegun</en>
             <es>Lanzallamas Kalomite</es>
@@ -7170,7 +7316,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>FLAMMER</type>
+        <weaponType>FLAMMER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -7193,6 +7339,7 @@
     </kalomiteFlamegun>
     <kendraDragon>
         <id>kendraDragon</id>
+        <type>weapon</type>
         <name>
             <en>Kendra Dragon</en>
             <es>Kendra Dragon</es>
@@ -7238,7 +7385,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>FLAMMER</type>
+        <weaponType>FLAMMER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -7260,6 +7407,7 @@
     </kendraDragon>
     <sOEHowler>
         <id>sOEHowler</id>
+        <type>weapon</type>
         <name>
             <en>SOE Howler</en>
             <es>SOE Howler</es>
@@ -7279,7 +7427,7 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <type>SCREECHER</type>
+        <weaponType>SCREECHER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -7301,6 +7449,7 @@
     </sOEHowler>
     <zenicPacifier>
         <id>zenicPacifier</id>
+        <type>weapon</type>
         <name>
             <en>Zenic Pacifier</en>
             <es>Pacificador Zenic</es>
@@ -7320,7 +7469,7 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <type>SCREECHER</type>
+        <weaponType>SCREECHER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -7342,6 +7491,7 @@
     </zenicPacifier>
     <arbogastSleeper>
         <id>arbogastSleeper</id>
+        <type>weapon</type>
         <name>
             <en>Arbogast Sleeper</en>
             <es>Arbogast Sleeper</es>
@@ -7377,7 +7527,7 @@
             </es>
         </description>
         <techLevel>6</techLevel>
-        <type>STUNNER</type>
+        <weaponType>STUNNER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -7398,6 +7548,7 @@
     </arbogastSleeper>
     <sOETesla16B50002>
         <id>sOETesla16B50002</id>
+        <type>weapon</type>
         <name>
             <en>SOE Tesla 16B50002</en>
             <es>SOE Tesla 16B50002</es>
@@ -7433,7 +7584,7 @@
             </es>
         </description>
         <techLevel>6</techLevel>
-        <type>STUNNER</type>
+        <weaponType>STUNNER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -7454,6 +7605,7 @@
     </sOETesla16B50002>
     <republicArms3000>
         <id>republicArms3000</id>
+        <type>weapon</type>
         <name>
             <en>Republic Arms 3000</en>
             <es>Republican Arms 3000</es>
@@ -7480,7 +7632,7 @@
             </es>
         </description>
         <techLevel>8</techLevel>
-        <type>ARTIFACT_ENERGY</type>
+        <weaponType>ARTIFACT_ENERGY</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -7502,6 +7654,7 @@
     </republicArms3000>
     <varsotechModel331>
         <id>varsotechModel331</id>
+        <type>weapon</type>
         <name>
             <en>Varsotech Model 331</en>
             <es>Varsotech Model 331</es>
@@ -7531,7 +7684,7 @@
             </es>
         </description>
         <techLevel>8</techLevel>
-        <type>ARTIFACT_ENERGY</type>
+        <weaponType>ARTIFACT_ENERGY</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -7553,12 +7706,13 @@
     </varsotechModel331>
     <cunninghamDemeantor>
         <id>cunninghamDemeantor</id>
+        <type>weapon</type>
         <name>
             <en>Cunningham Demeantor</en>
             <es>Dementor Cunningham</es>
         </name>
         <techLevel>8</techLevel>
-        <type>ARTIFACT_ENERGY</type>
+        <weaponType>ARTIFACT_ENERGY</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -7606,6 +7760,7 @@
 
     <typicalLtMg>
         <id>typicalLtMg</id>
+        <type>weapon</type>
         <name>
             <en>Typical Lt. Mg (10mm)</en>
             <es>Ametralladora Ligera Típica (10mm)</es>
@@ -7638,7 +7793,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>HEAVY</type>
+        <weaponType>HEAVY</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -7657,6 +7812,7 @@
     </typicalLtMg>
     <jahnisak040MG>
         <id>jahnisak040MG</id>
+        <type>weapon</type>
         <name>
             <en>Jahnisak 0.40 MG</en>
             <es>Jahnisak 0.40 MG</es>
@@ -7689,7 +7845,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>HEAVY</type>
+        <weaponType>HEAVY</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -7708,6 +7864,7 @@
     </jahnisak040MG>
     <jahnisak051MG>
         <id>jahnisak051MG</id>
+        <type>weapon</type>
         <name>
             <en>Jahnisak 0.51 MG</en>
             <es>Jahnisak 0.51 MG</es>
@@ -7740,7 +7897,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>HEAVY</type>
+        <weaponType>HEAVY</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -7759,6 +7916,7 @@
     </jahnisak051MG>
     <jahniAutocannon>
         <id>jahniAutocannon</id>
+        <type>weapon</type>
         <name>
             <en>Jahnisak Autocannon (16mm)</en>
             <es>Auto cañón Jahnisak (16mm)</es>
@@ -7791,7 +7949,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>HEAVY</type>
+        <weaponType>HEAVY</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -7810,6 +7968,7 @@
     </jahniAutocannon>
     <furystormChaingun>
         <id>furystormChaingun</id>
+        <type>weapon</type>
         <name>
             <en>Furystorm Chaingun (20mm)</en>
             <es>Furystorm Chaingun (20mm)</es>
@@ -7842,7 +8001,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>HEAVY</type>
+        <weaponType>HEAVY</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -7861,6 +8020,7 @@
     </furystormChaingun>
     <deamasineTerrakin>
         <id>deamasineTerrakin</id>
+        <type>weapon</type>
         <name>
             <en>Deamasine Terrakin (Borer)</en>
             <es>Deamasine Terrakin (Perforante)</es>
@@ -7889,7 +8049,7 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <type>HEAVY</type>
+        <weaponType>HEAVY</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -7909,6 +8069,7 @@
     </deamasineTerrakin>
     <bosarkCannoneer>
         <id>bosarkCannoneer</id>
+        <type>weapon</type>
         <name>
             <en>Bosark Cannoneer (Borer)</en>
             <es>Cañonero Bosark (Perforante)</es>
@@ -7937,7 +8098,7 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <type>HEAVY</type>
+        <weaponType>HEAVY</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -7956,6 +8117,7 @@
     </bosarkCannoneer>
     <goboLobberJetPistol>
         <id>goboLobberJetPistol</id>
+        <type>weapon</type>
         <name>
             <en>Gobo Lobber Jet Pistol</en>
             <es>Pistola a Chorro Gobo Lobber</es>
@@ -8002,7 +8164,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>ROCKETEER</type>
+        <weaponType>ROCKETEER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -8021,6 +8183,7 @@
     </goboLobberJetPistol>
     <goboGarbageChucker>
         <id>goboGarbageChucker</id>
+        <type>weapon</type>
         <name>
             <en>Gobo Garbage Chucker</en>
             <es>Gobo Garbage Chucker</es>
@@ -8067,7 +8230,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>ROCKETEER</type>
+        <weaponType>ROCKETEER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -8087,6 +8250,7 @@
     </goboGarbageChucker>
     <musterNightstorm>
         <id>musterNightstorm</id>
+        <type>weapon</type>
         <name>
             <en>Muster Nightstorm</en>
             <es>Nightstorm de la Asamblea</es>
@@ -8133,7 +8297,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>ROCKETEER</type>
+        <weaponType>ROCKETEER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -8155,6 +8319,7 @@
     </musterNightstorm>
     <modelHazatR25>
         <id>modelHazatR25</id>
+        <type>weapon</type>
         <name>
             <en>Model Hazat R-25 (HEAT)</en>
             <es>Modelo Hazat R-25 (CALOR)</es>
@@ -8201,7 +8366,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>ROCKETEER</type>
+        <weaponType>ROCKETEER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -8224,6 +8389,7 @@
     </modelHazatR25>
     <dreskelBazooka>
         <id>dreskelBazooka</id>
+        <type>weapon</type>
         <name>
             <en>Dreskel Bazooka</en>
             <es>Bazooka Dreskel</es>
@@ -8270,7 +8436,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>ROCKETEER</type>
+        <weaponType>ROCKETEER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -8290,6 +8456,7 @@
     </dreskelBazooka>
     <dreskelBombardier>
         <id>dreskelBombardier</id>
+        <type>weapon</type>
         <name>
             <en>Dreskel Bombardier</en>
             <es>Dreskel Bombardier</es>
@@ -8311,7 +8478,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>GRENADE_LAUNCHER</type>
+        <weaponType>GRENADE_LAUNCHER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -8330,6 +8497,7 @@
     </dreskelBombardier>
     <hawkwoodLionRoar>
         <id>hawkwoodLionRoar</id>
+        <type>weapon</type>
         <name>
             <en>Hawkwood Lion Roar</en>
             <es>Hawkwood "Rugido de León"</es>
@@ -8351,7 +8519,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>GRENADE_LAUNCHER</type>
+        <weaponType>GRENADE_LAUNCHER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -8370,6 +8538,7 @@
     </hawkwoodLionRoar>
     <masseriDevastator>
         <id>masseriDevastator</id>
+        <type>weapon</type>
         <name>
             <en>Masseri Devastator</en>
             <es>Masseri Devastator</es>
@@ -8391,7 +8560,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>GRENADE_LAUNCHER</type>
+        <weaponType>GRENADE_LAUNCHER</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -8412,6 +8581,7 @@
 
     <gatlingLaser>
         <id>gatlingLaser</id>
+        <type>weapon</type>
         <name>
             <en>Gatling Laser</en>
             <es>Láser Gatling</es>
@@ -8432,7 +8602,7 @@
             </es>
         </description>
         <techLevel>6</techLevel>
-        <type>HEAVY</type>
+        <weaponType>HEAVY</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -8452,6 +8622,7 @@
     </gatlingLaser>
     <blasterCannon>
         <id>blasterCannon</id>
+        <type>weapon</type>
         <name>
             <en>Blaster Cannon</en>
             <es>Cañón Blaster</es>
@@ -8469,7 +8640,7 @@
             </es>
         </description>
         <techLevel>7</techLevel>
-        <type>HEAVY</type>
+        <weaponType>HEAVY</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -8491,6 +8662,7 @@
 
     <blastPellet>
         <id>blastPellet</id>
+        <type>weapon</type>
         <name>
             <en>Blast Pellet</en>
             <es>Perdigón Explosivo</es>
@@ -8508,7 +8680,7 @@
             </es>
         </description>
         <techLevel>6</techLevel>
-        <type>GRENADE</type>
+        <weaponType>GRENADE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -8545,6 +8717,7 @@
     </blastPellet>
     <concussionGrenade>
         <id>concussionGrenade</id>
+        <type>weapon</type>
         <name>
             <en>Concussion Grenade</en>
             <es>Granada de Confusión</es>
@@ -8563,7 +8736,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>GRENADE</type>
+        <weaponType>GRENADE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -8581,6 +8754,7 @@
     </concussionGrenade>
     <fragGrenades>
         <id>fragGrenades</id>
+        <type>weapon</type>
         <name>
             <en>Frag Grenades</en>
             <es>Granada de Fragmentación</es>
@@ -8608,7 +8782,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>GRENADE</type>
+        <weaponType>GRENADE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -8626,6 +8800,7 @@
     </fragGrenades>
     <pipeBomb>
         <id>pipeBomb</id>
+        <type>weapon</type>
         <name>
             <en>Pipe Bomb</en>
             <es>Bomba Casera</es>
@@ -8657,7 +8832,7 @@
             </es>
         </description>
         <techLevel>3</techLevel>
-        <type>GRENADE</type>
+        <weaponType>GRENADE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -8744,6 +8919,7 @@
     </pipeBomb>
     <plasmaGrenade>
         <id>plasmaGrenade</id>
+        <type>weapon</type>
         <name>
             <en>Plasma Grenade</en>
             <es>Granada de Plasma</es>
@@ -8758,7 +8934,7 @@
             </es>
         </description>
         <techLevel>6</techLevel>
-        <type>GRENADE</type>
+        <weaponType>GRENADE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -8777,6 +8953,7 @@
     </plasmaGrenade>
     <flashBangGrenade>
         <id>flashBangGrenade</id>
+        <type>weapon</type>
         <name>
             <en>Flash-Bang Grenade</en>
             <es>Granada Aturdidora</es>
@@ -8797,7 +8974,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <type>GRENADE</type>
+        <weaponType>GRENADE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -8815,6 +8992,7 @@
     </flashBangGrenade>
     <wireGrenade>
         <id>wireGrenade</id>
+        <type>weapon</type>
         <name>
             <en>Wire Grenade</en>
             <es>Granada Eléctrica</es>
@@ -8829,7 +9007,7 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <type>GRENADE</type>
+        <weaponType>GRENADE</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>

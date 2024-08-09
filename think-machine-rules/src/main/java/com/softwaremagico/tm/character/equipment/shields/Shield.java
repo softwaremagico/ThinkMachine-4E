@@ -25,7 +25,6 @@ package com.softwaremagico.tm.character.equipment.shields;
  */
 
 
-import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.equipment.Equipment;
 
 public class Shield extends Equipment<Shield> {

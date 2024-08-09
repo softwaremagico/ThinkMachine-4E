@@ -2,6 +2,7 @@
 <armours>
     <armour>
         <id>ceramsteelExoframe</id>
+        <type>armor</type>
         <name>
             <en>Ceramsteel Exoframe</en>
             <es>Exoesqueleto de Acerámica</es>
@@ -67,6 +68,7 @@
     </armour>
     <armour>
         <id>adeptRobes</id>
+        <type>armor</type>
         <name>
             <en>Adept Robes</en>
             <es>Túnicas de Adepto</es>
@@ -111,6 +113,7 @@
     </armour>
     <armour>
         <id>chainMailMetal</id>
+        <type>armor</type>
         <name>
             <en>Chain Mail (Metal)</en>
             <es>Cota de Mallas (Metal)</es>
@@ -139,6 +142,7 @@
     </armour>
     <armour>
         <id>chainMailPlastic</id>
+        <type>armor</type>
         <name>
             <en>Chain Mail (Plastic)</en>
             <es>Cota de Mallas (Plástico)</es>
@@ -166,6 +170,7 @@
     </armour>
     <armour>
         <id>chainMailPlasteel</id>
+        <type>armor</type>
         <name>
             <en>Chain Mail (Plasteel)</en>
             <es>Cota de Mallas (Plastiacero)</es>
@@ -193,6 +198,7 @@
     </armour>
     <armour>
         <id>frictionlessGel</id>
+        <type>armor</type>
         <name>
             <en>Frictionless Gel</en>
             <es>Gel Antifricción</es>
@@ -231,6 +237,7 @@
     </armour>
     <armour>
         <id>halfPlateMetal</id>
+        <type>armor</type>
         <name>
             <en>Half Plate (Metal)</en>
             <es>Coraza (Metal)</es>
@@ -261,6 +268,7 @@
     </armour>
     <armour>
         <id>halfPlatePlastic</id>
+        <type>armor</type>
         <name>
             <en>Half Plate (Plastic)</en>
             <es>Coraza (Plástico)</es>
@@ -290,6 +298,7 @@
     </armour>
     <armour>
         <id>halfPlatePlasteel</id>
+        <type>armor</type>
         <name>
             <en>Half Plate (Plasteel)</en>
             <es>Coraza (Plastiacero)</es>
@@ -319,6 +328,7 @@
     </armour>
     <armour>
         <id>heavyClothing</id>
+        <type>armor</type>
         <name>
             <en>Heavy Clothing</en>
             <es>Ropa Pesada</es>
@@ -344,11 +354,11 @@
         </standardPenalizations>
         <cost>4</cost>
         <damageType>soft, shock</damageType>
-        <shield>standardShield, duelingShield, assaultShield, battleShield
-        </shield>
+        <shield>standardShield, duelingShield, assaultShield, battleShield</shield>
     </armour>
     <armour>
         <id>leatherJerkin</id>
+        <type>armor</type>
         <name>
             <en>Leather Jerkin</en>
             <es>Jubón de Cuero</es>
@@ -378,6 +388,7 @@
     </armour>
     <armour>
         <id>leatherJerkinStuddedMetal</id>
+        <type>armor</type>
         <name>
             <en>Leather Jerkin Studded (Metal)</en>
             <es>Jubón de Cuero Tachonado (Metal)</es>
@@ -408,6 +419,7 @@
     </armour>
     <armour>
         <id>leatherJerkinStuddedPlastic</id>
+        <type>armor</type>
         <name>
             <en>Leather Jerkin Studded (Plastic)</en>
             <es>Jubón de Cuero Tachonado (Plástico)</es>
@@ -437,6 +449,7 @@
     </armour>
     <armour>
         <id>leatherJerkinStuddedPlasteel</id>
+        <type>armor</type>
         <name>
             <en>Leather Jerkin Studded (Plasteel)</en>
             <es>Jubón de Cuero Tachonado (Plastiacero)</es>
@@ -466,6 +479,7 @@
     </armour>
     <armour>
         <id>paddedClothing</id>
+        <type>armor</type>
         <name>
             <en>Padded Clothing</en>
             <es>Ropa Acolchada</es>
@@ -495,6 +509,7 @@
     </armour>
     <armour>
         <id>polymerKnit</id>
+        <type>armor</type>
         <name>
             <en>Polymer Knit</en>
             <es>Tejido de Polímero</es>
@@ -529,6 +544,7 @@
     </armour>
     <armour>
         <id>plateMailSuitMetal</id>
+        <type>armor</type>
         <name>
             <en>Plate Mail Suit (Metal)</en>
             <es>Armadura de Placas Completa (Metal)</es>
@@ -562,6 +578,7 @@
     </armour>
     <armour>
         <id>plateMailSuitPlastic</id>
+        <type>armor</type>
         <name>
             <en>Plate Mail Suit (Plastic)</en>
             <es>Armadura de Placas Completa (Plástico)</es>
@@ -595,6 +612,7 @@
     </armour>
     <armour>
         <id>plateMailSuitPlasteel</id>
+        <type>armor</type>
         <name>
             <en>Plate Mail Suit (Plasteel)</en>
             <es>Armadura de Placas Completa (Plastiacero)</es>
@@ -628,6 +646,7 @@
     </armour>
     <armour>
         <id>psiCloak</id>
+        <type>armor</type>
         <name>
             <en>Psi Cloak</en>
             <es>Manto de Psique</es>
@@ -666,6 +685,7 @@
     </armour>
     <armour>
         <id>scaleMailMetal</id>
+        <type>armor</type>
         <name>
             <en>Scale Mail (Metal)</en>
             <es>Cota de Placas (Metal)</es>
@@ -694,6 +714,7 @@
     </armour>
     <armour>
         <id>scaleMailPlastic</id>
+        <type>armor</type>
         <name>
             <en>Scale Mail (Plastic)</en>
             <es>Cota de Placas (Plástico)</es>
@@ -721,6 +742,7 @@
     </armour>
     <armour>
         <id>scaleMailPlasteel</id>
+        <type>armor</type>
         <name>
             <en>Scale Mail (Plasteel)</en>
             <es>Cota de Placas (Plastiacero)</es>
@@ -748,6 +770,7 @@
     </armour>
     <armour>
         <id>spacesuit</id>
+        <type>armor</type>
         <name>
             <en>Spacesuit</en>
             <es>Traje Espacial</es>
@@ -784,6 +807,7 @@
     </armour>
     <armour>
         <id>antiquarianSpacesuit</id>
+        <type>armor</type>
         <name>
             <en>Antiquarian Spacesuit</en>
             <es>Traje Espacial Antiguo</es>
@@ -820,6 +844,7 @@
     </armour>
     <armour>
         <id>armoredSpacesuit</id>
+        <type>armor</type>
         <name>
             <en>Armored Spacesuit</en>
             <es>Traje Espacial Blindado</es>
@@ -856,6 +881,7 @@
     </armour>
     <armour>
         <id>marauderSpacesuit</id>
+        <type>armor</type>
         <name>
             <en>Marauder Spacesuit</en>
             <es>Traje Espacial de Saqueador</es>
@@ -891,6 +917,7 @@
     </armour>
     <armour>
         <id>synthsilk</id>
+        <type>armor</type>
         <name>
             <en>Synthsilk</en>
             <es>Seda Sintética</es>
@@ -927,6 +954,7 @@
     </armour>
     <armour>
         <id>stiffsynth</id>
+        <type>armor</type>
         <name>
             <en>Stiffsynth</en>
             <es>Cuero Sintético</es>
@@ -965,6 +993,7 @@
     </armour>
     <armour>
         <id>smartsynth</id>
+        <type>armor</type>
         <name>
             <en>Smartsynth</en>
             <es>Inteligencia Sintética</es>
@@ -991,5 +1020,32 @@
         <cost>600</cost>
         <damageType>hard, impact, shock</damageType>
         <shield>assaultShield, battleShield</shield>
+    </armour>
+    <armour>
+        <id>synthsilkCape</id>
+        <type>armor</type>
+        <name>
+            <en>Synthsilk cape</en>
+            <es>Capa de Sinteseda</es>
+        </name>
+        <description>
+            <en>+3 Body Resistance, e-shield compatible</en>
+            <es>Resistencia Corporal +3, compatible con escudo de energía.</es>
+        </description>
+        <techLevel>5</techLevel>
+        <protection>3</protection>
+        <standardPenalizations>
+            <strength>0</strength>
+            <dexterity>0</dexterity>
+            <endurance>0</endurance>
+            <initiative>0</initiative>
+        </standardPenalizations>
+        <shield>standardShield, duelingShield, assaultShield, battleShield</shield>
+        <size>L</size>
+        <restrictions>
+            <factions>
+                <faction>hazat</faction>
+            </factions>
+        </restrictions>
     </armour>
 </armours>

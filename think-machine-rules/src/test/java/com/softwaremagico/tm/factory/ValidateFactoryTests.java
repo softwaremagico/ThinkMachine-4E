@@ -29,7 +29,7 @@ import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
 import com.softwaremagico.tm.character.combat.CombatStyleFactory;
 import com.softwaremagico.tm.character.equipment.DamageTypeFactory;
-import com.softwaremagico.tm.character.equipment.armors.ArmourFactory;
+import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
 import com.softwaremagico.tm.character.equipment.armors.ArmourSpecificationFactory;
 import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
 import com.softwaremagico.tm.character.factions.FactionFactory;
@@ -48,7 +48,7 @@ public class ValidateFactoryTests {
 
     @Test
     public void validateFactories() throws InvalidXmlElementException {
-        ArmourFactory.getInstance().validate();
+        ArmorFactory.getInstance().validate();
     }
 
     @Test

@@ -47,6 +47,7 @@ public class Weapon extends Equipment<Weapon> {
 
     private String special;
     private Set<String> damageTypes;
+    @JsonProperty("weaponType")
     private WeaponType type;
 
     private Set<String> ammunition;

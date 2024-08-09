@@ -799,4 +799,351 @@
             <probabilityMultiplier>20</probabilityMultiplier>
         </random>
     </faction>
+
+    <faction>
+        <id>hazat</id>
+        <name>
+            <en>Hazat</en>
+            <es>Hazat</es>
+        </name>
+        <group>nobility</group>
+        <restrictions>
+            <species>
+                <specie>human</specie>
+            </species>
+        </restrictions>
+        <capabilities>
+            <options>
+                <total>1</total>
+                <capability>
+                    <id>factionLore</id>
+                    <specialization>hazat</specialization>
+                </capability>
+            </options>
+            <options>
+                <total>1</total>
+                <capabilities>
+                    <capability>
+                        <id>combatArmor</id>
+                    </capability>
+                    <capability>
+                        <group>medicalLore</group>
+                    </capability>
+                    <capability>
+                        <group>knowledgeLore</group>
+                    </capability>
+                    <capability>
+                        <group>artsLore</group>
+                    </capability>
+                    <capability>
+                        <id>energyGuns</id>
+                    </capability>
+                    <capability>
+                        <id>slugGuns</id>
+                    </capability>
+                </capabilities>
+            </options>
+            <options>
+                <total>1</total>
+                <capability>
+                    <id>warfareLore</id>
+                </capability>
+            </options>
+        </capabilities>
+        <characteristics>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>strength</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>presence</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>will</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>wits</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+        </characteristics>
+        <perks>
+            <options>
+                <total>1</total>
+                <perks>
+                    <perk>
+                        <id>nobleTitleKnight</id>
+                    </perk>
+                </perks>
+            </options>
+        </perks>
+        <skills>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>academia</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>empathy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>vigor</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>fight</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+        </skills>
+        <blessing>
+            <id>disciplied</id>
+            <name>
+                <en>Disciplined</en>
+                <es>Disciplinado</es>
+            </name>
+            <description>
+                <en>+2 goal on Strength- or Dexterity-based combat rolls; choose only one characteristic when you
+                    acquire this Blessing.
+                </en>
+                <es>Meta +2 a tiradas de combate basadas en la Destreza o la Fuerza; elige solo una característica
+                    cuando adquieras esta bendición.
+                </es>
+            </description>
+        </blessing>
+        <curse>
+            <id>vengeful</id>
+            <name>
+                <en>Vengeful</en>
+                <es>Vengativo</es>
+            </name>
+            <description>
+                <en>-2 goal on Will-based rolls when questioned or insulted.</en>
+                <es>Meta –2 a tiradas basadas en la Voluntad cuando te interrogan o insultan.</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>duelist</calling>
+        </favoredCallings>
+        <materialAwards>
+            <item>
+                <id>synthsilkCape</id>
+                <type>armor</type>
+            </item>
+        </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+        </restrictions>
+        <random>
+            <names>
+                <male>Alonso, Rodrigo, Mardoqueo, Íñigo, Lucius, Augusto, Florentino, Simon, Mauricio, Guillermo,
+                    Quintino, Federico, Edgardo, Beremundo, Quinciano, Gustavo, Fausto, Constantin, Alain, Armando,
+                    Alfred, Álvaro, Antón, Max, León, Acoidan, Atugio, Beyanor, Bentago, Himar, Adolfo, Abelardo,
+                    Ademar, Agapito, Ambrosio, Arcadio, Artemio, Aurelio, Baldomero, Balvino, Berenguer, Braulio, Blas,
+                    Cancio, Casio, Cecilio, Clelio, Cenobio, Clodomiro, Conrado, Crescencio, Dalmiro, Delfo, Diaco,
+                    Donato, Eladio, Eleodoro, Eliodoro, Elvio, Ercilio, Eusebio, Eustaquio, Evaristo, Florencio,
+                    Froilán, Genaro, Gregorio, German, Gumersindo, Higinio, Honorato, Ireneo, Lauro, Leoncio, Lisandro,
+                    Longino, Lidovico, Mamerto, Marcindo, Melitón, Modestino, Nemesio, Nicanor, Nolasco, Normando,
+                    Pascasio, Pilaro, Pomposo, Prudencio, Raimundo, Rufino, Ruperto, Sandalio, Segismundo, Serapio,
+                    Severo, Seveso, Sisebuto, Toribicio, Trifón, Tristán, Tubal, Ubaldo, Urko, Valeriano, Werino,
+                    Zacarías, Zenón, Marco, Sigmundo, Sigfrido, Manrique, Baudilio, Avelino, Calixto, Custodio, Donaldo,
+                    Danilo, Alessio, Amador, Ángelo, Arcadio, Ares, Casio, Ceclilio, Cornelio, Dacio, Elio, Fabio,
+                    Flavio, Lucio, Máximo, Patricio, Prisco, Romeo, Valeriano, Luis, Joao, Cornelius, Bruno, Enrique,
+                    Lassalle
+                </male>
+                <female>Rosaria, Ligeia, Roberta, Octavia, Daniela, Helena, Aldagracia, Zoe, Pandora, Dara, Daza, Naira,
+                    Alba, Aniseta, Arcadia, Arminda, Artemia, Aurea, Brigida, Bartola, Bella, Cándida, Ciriaca, Casilda,
+                    Cleotilde, Cleofe, Delfa, Diana, Diega, Domitilia, Dorila, Elegia, Emilse, Enriqueta, Emelinda,
+                    Esperanza, Eufamia, Eutilia, Eufrocina, Feliciana, Fortunata, Florinda, Flora, Fructuosa, Genoveva,
+                    Gerturdes, Gregoria, Gumersinda, Hercilia, Higinia, Honorata, Indalecia, Irina, Idinea, Isaura,
+                    Isidora, Italia, Jacinta, Jovita, Leonarda, Leopoldina, Livia, Liboria, Librada, Ludovica, Lugarda,
+                    Macaria, Marcelina, Matiana, Mauricia, Melitona, Molinaria, Mucia, Minervina, Nefer, Nemesia,
+                    Nicanora, Nigia, Ofelia, Octaviana, Ogaria, Oliva, Olivia, Pánfila, Peregrina, Petrona, Policarpa,
+                    Polonia, Primitiva, Prudencia, Refugia, Restituta, Romidia, Serafina, Sinesia, Sinforosa, Sesebuta,
+                    Tecla, Teodolina, Tiburcia, Trinidad, Uberlinda, Ulpiana, Vitalia, Zenobia, Zoila, Clarissa, Camina,
+                    Juliette, Matilda, Ambrosia, Antolina, Arundina, Basilisa, Cayetana, Calista, Donora, Dosinda,
+                    Adriana, ArestrictedToRaceslis, Celia, Decia, Desideria, Diana, Estela, Fabia, Gala, Justina, Lilia,
+                    Loreto, Maira, Paulina, Severina, Sira, Valeria, Dominique, Hortense, Magdalena, Cornelia
+                </female>
+            </names>
+            <surnames>Hazat, Lafayette, Bursandra, Peñano, Iturbi, Mariana, Justus, Castenda, Leon, Rolan, Escovedo,
+                Serra, Méndez, Elcano, Azatlan, Abarca, Alfaro, Azagra, Badia, Borja, Bravo, Colombo, Durán, Fragoso,
+                Fuertes, Gobea, Hidalgo, Lázaro, Maese, Mendo, Moreno, Ortega, Pacheco, Pardo, Perianes, Periañez,
+                Rivas, Rosellón, Sandoval, Sousa, Vadillo, Viera, Villalobos, Ballesteros, Baudelaire, Dalton, Defoe,
+                Alquezar, Albiac, Balda, Bolado, Bortia, Berna, Bastida, Capella, Cota, Duat, Guijarro, Iñigo, Ivorra,
+                Lacorte, Luna, Lloria, Monzos, Marsa, Marc, Millán, Noguera, Olmos, Palmer, Palafox, Rubio, Saborido,
+                Solaz, Sans, Timor, Toro, Urrea, Beldevere, Lampiño, Audaz, Delfino, González, Del Toro, Rosales, De la
+                Vega, Salazar, Camacho, Varela, Vargas, Velez, Quintero, Rodríguez, Saucedo, Rivera, Castro, Cervantes,
+                Ciarfalio, Jovellanos, Miranda, Navia, Riego, Vega, Ayamonte, Cenete, Comares, Medina, Quesada, Torres,
+                Alba, Lara, Castro, Cifuentes, Calderón, Villegas, Medinaceli, Miranda, Osuna, Valverde, Pizarro,
+                Feijóo, Silvela, Robles, Santalla, Trénor, Balboa, Bazán, Lezo, Doria, Masciale, Malerba, Machungo,
+                Rebelo, Saint-Pierré, Cazerne, Tonio, Oliveira, Togliatti
+            </surnames>
+            <probabilityMultiplier>20</probabilityMultiplier>
+        </random>
+    </faction>
+
+    <faction>
+        <id></id>
+        <name>
+            <en></en>
+            <es></es>
+        </name>
+        <group>nobility</group>
+        <restrictions>
+            <species>
+                <specie>human</specie>
+            </species>
+        </restrictions>
+        <capabilities>
+            <options>
+                <total>1</total>
+                <capability>
+                    <id></id>
+                    <specialization></specialization>
+                </capability>
+            </options>
+        </capabilities>
+        <characteristics>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id></id>
+                        <bonus></bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+        </characteristics>
+        <perks>
+            <options>
+                <total>1</total>
+                <perks>
+                    <perk>
+                        <id>nobleTitleKnight</id>
+                    </perk>
+                </perks>
+            </options>
+        </perks>
+        <skills>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id></id>
+                        <bonus></bonus>
+                    </skill>
+                </skills>
+            </options>
+        </skills>
+        <blessing>
+            <id></id>
+            <name>
+                <en></en>
+                <es></es>
+            </name>
+            <description>
+                <en></en>
+                <es></es>
+            </description>
+        </blessing>
+        <curse>
+            <id></id>
+            <name>
+                <en></en>
+                <es></es>
+            </name>
+            <description>
+                <en></en>
+                <es></es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling></calling>
+        </favoredCallings>
+        <materialAwards>
+            <item>
+                <id></id>
+                <type></type>
+            </item>
+        </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing></upbringing>
+            </upbringings>
+        </restrictions>
+        <random>
+            <names>
+                <male>
+                </male>
+                <female>
+                </female>
+            </names>
+            <surnames>
+            </surnames>
+            <probabilityMultiplier>20</probabilityMultiplier>
+        </random>
+    </faction>
 </factions>

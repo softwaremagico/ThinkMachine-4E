@@ -27,7 +27,6 @@ package com.softwaremagico.tm.character.equipment;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.softwaremagico.tm.Element;
-import com.softwaremagico.tm.character.characteristics.Characteristic;
 import com.softwaremagico.tm.character.equipment.armors.Armor;
 import com.softwaremagico.tm.character.equipment.item.Item;
 import com.softwaremagico.tm.character.equipment.shields.Shield;
@@ -38,7 +37,7 @@ import java.util.List;
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         property = "type",
-        defaultImpl = Characteristic.class
+        defaultImpl = Item.class
 )
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Item.class, name = "item"),

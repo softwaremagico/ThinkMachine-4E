@@ -30,14 +30,14 @@ import com.softwaremagico.tm.xml.XmlFactory;
 
 import java.util.List;
 
-public final class ArmourFactory extends XmlFactory<Armor> {
-    private static final String XML_FILE = "armours.xml";
+public final class ArmorFactory extends XmlFactory<Armor> {
+    private static final String XML_FILE = "armors.xml";
 
     private static final class ArmourFactoryInit {
-        public static final ArmourFactory INSTANCE = new ArmourFactory();
+        public static final ArmorFactory INSTANCE = new ArmorFactory();
     }
 
-    public static ArmourFactory getInstance() {
+    public static ArmorFactory getInstance() {
         return ArmourFactoryInit.INSTANCE;
     }
 

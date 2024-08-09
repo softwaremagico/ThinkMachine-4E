@@ -2,6 +2,7 @@
 <equipments>
     <equipment>
         <id>estheticOrb</id>
+        <type>item</type>
         <name>
             <en>Aesthetic Orb</en>
             <es>Orbe Estético</es>
@@ -19,9 +20,15 @@
         <traits>
             <trait>curio</trait>
         </traits>
+        <restrictions>
+            <factions>
+                <faction>alMalik</faction>
+            </factions>
+        </restrictions>
     </equipment>
     <equipment>
         <id>littleFriend</id>
+        <type>item</type>
         <name>
             <en>Little Friend</en>
             <es>Amiguito</es>
@@ -40,5 +47,10 @@
         <traits>
             <trait>curio</trait>
         </traits>
+        <restrictions>
+            <factions>
+                <faction>decados</faction>
+            </factions>
+        </restrictions>
     </equipment>
 </equipments>
