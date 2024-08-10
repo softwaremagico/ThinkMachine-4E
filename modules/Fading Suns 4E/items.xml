@@ -53,4 +53,22 @@
             </factions>
         </restrictions>
     </equipment>
+    <equipment>
+        <id>saintsRelic</id>
+        <type>item</type>
+        <name>
+            <en>Saint’s relic</en>
+            <es>Reliquia de santo</es>
+        </name>
+        <description>
+            <en>Associated with a Gar den Worlds saint.</en>
+            <es>Asociada con un santo de un Mundo Jardín</es>
+        </description>
+        <size>XS</size>
+        <restrictions>
+            <factions>
+                <faction>liHalan</faction>
+            </factions>
+        </restrictions>
+    </equipment>
 </equipments>

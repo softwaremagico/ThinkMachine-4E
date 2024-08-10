@@ -1048,4 +1048,31 @@
             </factions>
         </restrictions>
     </armour>
+    <armour>
+        <id>looseSynthsilkRobes</id>
+        <type>armor</type>
+        <name>
+            <en>Loose Synthsilk Robes</en>
+            <es>Túnica de Sinteseda Holgada</es>
+        </name>
+        <description>
+            <en>+3 Body Resistance, e-shield compatible</en>
+            <es>Resistencia Corporal +3, compatible con escudo de energía.</es>
+        </description>
+        <techLevel>5</techLevel>
+        <protection>3</protection>
+        <standardPenalizations>
+            <strength>0</strength>
+            <dexterity>0</dexterity>
+            <endurance>0</endurance>
+            <initiative>0</initiative>
+        </standardPenalizations>
+        <shield>standardShield, duelingShield, assaultShield, battleShield</shield>
+        <size>L</size>
+        <restrictions>
+            <factions>
+                <faction>liHalan</faction>
+            </factions>
+        </restrictions>
+    </armour>
 </armours>
