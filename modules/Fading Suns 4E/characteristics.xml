@@ -157,4 +157,30 @@
 		<characteristicType>others</characteristicType>
 		<type>characteristicDefinition</type>
 	</characteristicDefinition>
+	<characteristicDefinition>
+		<id>theurgy</id>
+		<name>
+			<en>Theurgy</en>
+			<es>Teurgia</es>
+		</name>
+		<abbreviation>
+			<en>The</en>
+			<es>Teu</es>
+		</abbreviation>
+		<characteristicType>others</characteristicType>
+		<type>characteristicDefinition</type>
+	</characteristicDefinition>
+	<characteristicDefinition>
+		<id>psi</id>
+		<name>
+			<en>Psi</en>
+			<es>Psi</es>
+		</name>
+		<abbreviation>
+			<en>Psi</en>
+			<es>Psi</es>
+		</abbreviation>
+		<characteristicType>others</characteristicType>
+		<type>characteristicDefinition</type>
+	</characteristicDefinition>
 </characteristics>

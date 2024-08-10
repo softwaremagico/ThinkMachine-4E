@@ -6,6 +6,7 @@ import com.softwaremagico.tm.character.skills.Specialization;
 import com.softwaremagico.tm.exceptions.InvalidSpecializationException;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -34,7 +35,6 @@ import java.util.Objects;
  */
 
 public class Element<T extends Element<?>> extends XmlData implements Comparable<T> {
-    public static final String DEFAULT_NULL_ID = "null";
 
     @JsonProperty("id")
     private String id;
@@ -70,7 +70,6 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
      * For creating empty elements.
      */
     public Element() {
-        this.id = DEFAULT_NULL_ID;
         this.name = new TranslatedText();
         this.description = new TranslatedText();
         this.moduleName = "";
@@ -219,13 +218,6 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
         return moduleName;
     }
 
-    public static boolean isNull(Element<?> element) {
-        if (element == null) {
-            return true;
-        }
-        return Objects.equals(element.getId(), DEFAULT_NULL_ID);
-    }
-
     public Restrictions getRestrictions() {
         if (restrictions == null) {
             restrictions = new Restrictions();
@@ -243,5 +235,19 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
 
     public void setOfficial(boolean official) {
         this.official = official;
+    }
+
+    public void copy(Element<?> element) {
+        setId(element.getId());
+        setName(element.getName());
+        setDescription(element.getDescription());
+        setModuleName(element.getModuleName());
+        setRandomDefinition(element.getRandomDefinition());
+        setRestrictions(element.getRestrictions());
+        if (element.getSpecializations() != null) {
+            setSpecializations(new ArrayList<>(element.getSpecializations()));
+        }
+        setOfficial(element.isOfficial());
+        setGroup(element.getGroup());
     }
 }

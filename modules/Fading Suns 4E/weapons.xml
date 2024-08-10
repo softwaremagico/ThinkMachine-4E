@@ -29,6 +29,7 @@
         </description>
         <techLevel>2</techLevel>
         <weaponType>MELEE</weaponType>
+        <weaponClass>sword</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -371,6 +372,7 @@
         </description>
         <techLevel>2</techLevel>
         <weaponType>MELEE</weaponType>
+        <weaponClass>sword</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -560,6 +562,7 @@
         </description>
         <techLevel>2</techLevel>
         <weaponType>MELEE</weaponType>
+        <weaponClass>sword</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -692,6 +695,7 @@
         </description>
         <techLevel>4</techLevel>
         <weaponType>MELEE</weaponType>
+        <weaponClass>sword</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -736,6 +740,7 @@
         </description>
         <techLevel>5</techLevel>
         <weaponType>MELEE</weaponType>
+        <weaponClass>sword</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -929,6 +934,7 @@
         </description>
         <techLevel>3</techLevel>
         <weaponType>MELEE</weaponType>
+        <weaponClass>sword</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1025,6 +1031,7 @@
         </description>
         <techLevel>5</techLevel>
         <weaponType>MELEE</weaponType>
+        <weaponClass>sword</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1231,6 +1238,7 @@
         </description>
         <techLevel>1</techLevel>
         <weaponType>MELEE</weaponType>
+        <weaponClass>sword</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1275,6 +1283,7 @@
         </description>
         <techLevel>1</techLevel>
         <weaponType>MELEE</weaponType>
+        <weaponClass>sword</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1402,6 +1411,7 @@
         </description>
         <techLevel>8</techLevel>
         <weaponType>MELEE_ARTIFACT</weaponType>
+        <weaponClass>sword</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -1442,6 +1452,7 @@
         </description>
         <techLevel>8</techLevel>
         <weaponType>MELEE_ARTIFACT</weaponType>
+        <weaponClass>sword</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>

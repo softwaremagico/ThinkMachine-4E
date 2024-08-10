@@ -202,10 +202,13 @@
             <calling>enthusiast</calling>
         </favoredCallings>
         <materialAwards>
-            <item>
-                <id>estheticOrb</id>
-                <type>item</type>
-            </item>
+            <options>
+                <total>1</total>
+                <item>
+                    <id>estheticOrb</id>
+                    <type>item</type>
+                </item>
+            </options>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -552,10 +555,13 @@
             <calling>sybarite</calling>
         </favoredCallings>
         <materialAwards>
-            <item>
-                <id>littleFriend</id>
-                <type>item</type>
-            </item>
+            <options>
+                <total>1</total>
+                <item>
+                    <id>littleFriend</id>
+                    <type>item</type>
+                </item>
+            </options>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -742,11 +748,17 @@
             <calling>commander</calling>
         </favoredCallings>
         <materialAwards>
-            <item>
-                <id>sword</id>
-                <type>customizedWeapon</type>
-                <quality>premium</quality>
-            </item>
+            <options>
+                <total>1</total>
+                <items>
+                    <item>
+                        <weaponClass>sword</weaponClass>
+                        <weaponType>melee</weaponType>
+                        <type>customizedWeapon</type>
+                        <quality>premium</quality>
+                    </item>
+                </items>
+            </options>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -987,10 +999,15 @@
             <calling>duelist</calling>
         </favoredCallings>
         <materialAwards>
-            <item>
-                <id>synthsilkCape</id>
-                <type>armor</type>
-            </item>
+            <options>
+                <total>1</total>
+                <items>
+                    <item>
+                        <id>synthsilkCape</id>
+                        <type>armor</type>
+                    </item>
+                </items>
+            </options>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -1238,14 +1255,22 @@
             <calling>courtier</calling>
         </favoredCallings>
         <materialAwards>
-            <item>
-                <id>saintsRelic</id>
-                <type>item</type>
-            </item>
-            <item>
-                <id>saintsRelic</id>
-                <type>item</type>
-            </item>
+            <options>
+                <total>1</total>
+                <items>
+                    <item>
+                        <id>saintsRelic</id>
+                        <type>item</type>
+                    </item>
+                </items>
+            </options>
+            <options>
+                <total>1</total>
+                <item>
+                    <id>saintsRelic</id>
+                    <type>item</type>
+                </item>
+            </options>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -1270,12 +1295,225 @@
 
 
     <faction>
+        <id>brotherBattle</id>
+        <name>
+            <en>Brother Battle</en>
+            <es>Hermanos de Batalla</es>
+        </name>
+        <group>church</group>
+        <capabilities>
+            <options>
+                <total>1</total>
+                <capability>
+                    <id>combatArmor</id>
+                </capability>
+                <capability>
+                    <id>warArmor</id>
+                </capability>
+                <capability>
+                    <id>energyGuns</id>
+                </capability>
+                <capability>
+                    <id>slugGuns</id>
+                </capability>
+            </options>
+            <options>
+                <total>1</total>
+                <capability>
+                    <id>factionLore</id>
+                    <specialization>brotherBattle</specialization>
+                </capability>
+            </options>
+            <options>
+                <total>1</total>
+                <capability>
+                    <id>militaryWeapons</id>
+                </capability>
+            </options>
+        </capabilities>
+        <characteristics>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>theurgy</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>endurance</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>theurgy</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>faith</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>theurgy</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+                <options>
+                    <total>1</total>
+                    <characteristics>
+                        <characteristic>
+                            <id>strength</id>
+                            <bonus>2</bonus>
+                        </characteristic>
+                        <characteristic>
+                            <id>theurgy</id>
+                            <bonus>2</bonus>
+                        </characteristic>
+                    </characteristics>
+                </options>
+            </options>
+        </characteristics>
+        <perks>
+            <options>
+                <total>1</total>
+                <perks>
+                    <perk>
+                        <id>churchOrdinationNovitiate</id>
+                    </perk>
+                </perks>
+            </options>
+        </perks>
+        <skills>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>fight</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>focus</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>survival</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>remedy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>vigor</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+        </skills>
+        <blessing>
+            <id>disciplied</id>
+            <name>
+                <en>Disciplied</en>
+                <es>Disciplinado</es>
+            </name>
+            <description>
+                <en>+2 goal to shake off states.</en>
+                <es>Meta +2 para quitarte de encima estados.</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>clueless</id>
+            <name>
+                <en>Clueless</en>
+                <es>Inepto Social</es>
+            </name>
+            <description>
+                <en>-2 goal on Intuition- and Perception-based rolls to notice social cues.</en>
+                <es>Meta –2 en tiradas de Intuición y Percepción para darte cuenta de sutilezas sociales.</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>brotherBattle</calling>
+        </favoredCallings>
+        <materialAwards>
+            <options>
+                <total>1</total>
+                <items>
+                    <item>
+                        <weaponClass>sword</weaponClass>
+                        <weaponType>melee</weaponType>
+                        <type>customizedWeapon</type>
+                        <status>blessed</status>
+                    </item>
+                    <item>
+                        <weaponType>slug</weaponType>
+                        <type>customizedWeapon</type>
+                        <status>blessed</status>
+                    </item>
+                </items>
+            </options>
+        </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
+        <random>
+            <probabilityMultiplier>20</probabilityMultiplier>
+        </random>
+    </faction>
+
+    <faction>
         <id></id>
         <name>
             <en></en>
             <es></es>
         </name>
-        <group>nobility</group>
+        <group>church</group>
         <restrictions>
             <species>
                 <specie>human</specie>
@@ -1348,10 +1586,15 @@
             <calling></calling>
         </favoredCallings>
         <materialAwards>
-            <item>
-                <id></id>
-                <type></type>
-            </item>
+            <options>
+                <total>1</total>
+                <items>
+                    <item>
+                        <id></id>
+                        <type></type>
+                    </item>
+                </items>
+            </options>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -1359,14 +1602,6 @@
             </upbringings>
         </restrictions>
         <random>
-            <names>
-                <male>
-                </male>
-                <female>
-                </female>
-            </names>
-            <surnames>
-            </surnames>
             <probabilityMultiplier>20</probabilityMultiplier>
         </random>
     </faction>

@@ -31,7 +31,7 @@ import org.testng.annotations.Test;
 
 @Test(groups = {"characteristicsFactory"})
 public class CharacteristicsDefinitionFactoryTests {
-    private static final int DEFINED_CHARACTERISTICS = 11;
+    private static final int DEFINED_CHARACTERISTICS = 13;
 
 
     @Test

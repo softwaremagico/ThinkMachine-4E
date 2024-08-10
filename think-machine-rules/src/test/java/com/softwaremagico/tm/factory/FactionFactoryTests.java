@@ -27,6 +27,7 @@ package com.softwaremagico.tm.factory;
 
 import com.softwaremagico.tm.character.Gender;
 import com.softwaremagico.tm.character.equipment.item.Quality;
+import com.softwaremagico.tm.character.equipment.item.Status;
 import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
@@ -37,7 +38,7 @@ import org.testng.annotations.Test;
 
 @Test(groups = {"factionsFactory"})
 public class FactionFactoryTests {
-    private static final int DEFINED_FACTIONS = 6;
+    private static final int DEFINED_FACTIONS = 7;
     private static final int DEFINED_MALE_NAMES = 103;
     private static final int DEFINED_FEMALE_NAMES = 100;
     private static final int DEFINED_SURNAMES = 125;
@@ -85,16 +86,20 @@ public class FactionFactoryTests {
     public void readCustomizedWeapon() throws InvalidXmlElementException {
         final Faction hawkwood = FactionFactory.getInstance().getElement("hawkwood");
         Assert.assertNotNull(hawkwood);
-        Assert.assertEquals(FactionFactory.getInstance().getElement("hawkwood").getMaterialAwards().size(), 1);
-        Assert.assertTrue(FactionFactory.getInstance().getElement("hawkwood").getMaterialAwards().get(0) instanceof CustomizedWeapon);
-        Assert.assertEquals(((CustomizedWeapon) FactionFactory.getInstance().getElement("hawkwood").getMaterialAwards().get(0)).getQuality(), Quality.PREMIUM);
+        Assert.assertEquals(hawkwood.getMaterialAwards().size(), 1);
+        Assert.assertEquals(hawkwood.getMaterialAwards().get(0).getItems().size(), 9);
+        Assert.assertTrue(hawkwood.getMaterialAwards().get(0).getItems().get(0) instanceof CustomizedWeapon);
+        Assert.assertEquals(((CustomizedWeapon) hawkwood.getMaterialAwards().get(0).getItems().get(0)).getQuality(), Quality.PREMIUM);
     }
 
-
     @Test
-    public void checkSuggestedBenefices() throws InvalidXmlElementException {
-        final Faction obun = FactionFactory.getInstance().getElement("obun");
-        //TODO(softwaremagico): complete this.
+    public void readBlessedWeapon() throws InvalidXmlElementException {
+        final Faction brotherBattle = FactionFactory.getInstance().getElement("brotherBattle");
+        Assert.assertNotNull(brotherBattle);
+        Assert.assertEquals(brotherBattle.getMaterialAwards().size(), 1);
+        Assert.assertEquals(brotherBattle.getMaterialAwards().get(0).getItems().size(), 82);
+        Assert.assertTrue(brotherBattle.getMaterialAwards().get(0).getItems().get(0) instanceof CustomizedWeapon);
+        Assert.assertEquals(((CustomizedWeapon) brotherBattle.getMaterialAwards().get(0).getItems().get(0)).getStatus(), Status.BLESSED);
     }
 
 //    @Test

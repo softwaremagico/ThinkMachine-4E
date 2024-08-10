@@ -24,7 +24,7 @@ package com.softwaremagico.tm.exceptions;
  * #L%
  */
 
-public class InvalidXmlElementException extends Exception {
+public class InvalidXmlElementException extends RuntimeException {
     private static final long serialVersionUID = -6961127287958139460L;
 
     public InvalidXmlElementException(String message) {

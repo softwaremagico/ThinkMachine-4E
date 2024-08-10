@@ -36,6 +36,7 @@ import com.softwaremagico.tm.character.equipment.shields.Shield;
 import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @JsonTypeInfo(
@@ -96,5 +97,15 @@ public abstract class Equipment<E extends Element<?>> extends Element<E> impleme
 
     public void setTraits(List<String> traits) {
         this.traits = traits;
+    }
+
+    public void copy(Equipment<?> equipment) {
+        super.copy(equipment);
+        setCost(equipment.getCost());
+        setTechLevel(equipment.getTechLevel());
+        setSize(equipment.getSize());
+        if (equipment.getTraits() != null) {
+            setTraits(new ArrayList<>(equipment.getTraits()));
+        }
     }
 }

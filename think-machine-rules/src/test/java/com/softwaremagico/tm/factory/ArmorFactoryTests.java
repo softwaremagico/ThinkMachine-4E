@@ -32,7 +32,7 @@ import org.testng.annotations.Test;
 
 @Test(groups = {"armourFactory"})
 public class ArmorFactoryTests {
-    private static final int DEFINED_ARMOURS = 31;
+    private static final int DEFINED_ARMOURS = 32;
 
 
     @Test
