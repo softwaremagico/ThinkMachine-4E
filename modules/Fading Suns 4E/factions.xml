@@ -1047,7 +1047,7 @@
     </faction>
 
     <faction>
-        <id>liHalana</id>
+        <id>liHalan</id>
         <name>
             <en>Li Halan</en>
             <es>Li Halan</es>
@@ -1249,17 +1249,20 @@
         </materialAwards>
         <restrictions>
             <upbringings>
-                <upbringing></upbringing>
+                <upbringing>courtier</upbringing>
             </upbringings>
         </restrictions>
         <random>
             <names>
-                <male>
+                <male>Kiri, Naomasa, Akira, Batu, Kazuo, Kei, Shinsuke, Hideaki, Shirô, Yôko, Yutaka, Shintarou,
+                    Takashi, Hikaru, Makoto, Goru, Goro, Shinjitsu, Isamu, Kenshin, Yoshi, Heihachiro, Isoroku, Yang,
+                    Chung, Huang, Lao
                 </male>
-                <female>
-                </female>
+                <female>Yumiko, Yuki, Akira, Amaya, Midori, Keiko, Motoko, Yoko, Aya, Kiki</female>
             </names>
-            <surnames>
+            <surnames>Li Halan, Tsukamoto, Harari, Yao, Meng, Ito, Shaku, Numata, Shimada, Maki, Musaka, Sonooka,
+                Chôsokabe, Kaimura, Koike, Kunii, Sato, Yeuw, Lextius, Misamoto, Han, Wei-To, Naganaka, Kung-Zhau,
+                Okemo, Teng, Hidejiri, Jong, Togo, Yamamoto, Nagata, Wen-li, Wu-Cheng, Rui, Lang, Hazuki
             </surnames>
             <probabilityMultiplier>20</probabilityMultiplier>
         </random>
