@@ -201,4 +201,31 @@
             </factions>
         </restrictions>
     </equipment>
+    <equipment>
+        <id>multitool</id>
+        <type>item</type>
+        <name>
+            <en>Multitool</en>
+            <es>Multiherramienta</es>
+        </name>
+        <description>
+            <en>Produces an array of tools and meters for most tech redemption needs, one tool at a time;
+                screw-driver-sized.
+            </en>
+            <es>Incluye herramientas y medidores que cubren la mayoría de necesidades tecnorredentoras y se pueden usar
+                de uno en uno; del tamaño de un destornillador.
+            </es>
+        </description>
+        <techLevel>7</techLevel>
+        <size>S</size>
+        <techCompulsion>industrious</techCompulsion>
+        <traits>
+            <trait>nanotech</trait>
+        </traits>
+        <restrictions>
+            <factions>
+                <faction>engineers</faction>
+            </factions>
+        </restrictions>
+    </equipment>
 </equipments>

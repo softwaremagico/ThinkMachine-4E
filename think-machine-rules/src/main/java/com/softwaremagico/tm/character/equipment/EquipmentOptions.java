@@ -27,6 +27,7 @@ package com.softwaremagico.tm.character.equipment;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.XmlData;
+import com.softwaremagico.tm.character.equipment.item.ItemFactory;
 import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
@@ -57,7 +58,7 @@ public class EquipmentOptions extends XmlData {
             if (items != null && !items.isEmpty()) {
                 items.forEach(item -> {
                     if (item.getId() != null) {
-                        finalItems.add(item);
+                        finalItems.add(ItemFactory.getInstance().getElement(item.getId()));
                     } else if (item instanceof Weapon) {
                         final List<Weapon> customizedWeapons = new ArrayList<>();
                         if (((Weapon) item).getType() != null && ((Weapon) item).getWeaponClass() != null) {

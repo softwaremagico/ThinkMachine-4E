@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.factory;
+package com.softwaremagico.tm.character.equipment;
 
 /*-
  * #%L
@@ -24,27 +24,30 @@ package com.softwaremagico.tm.factory;
  * #L%
  */
 
-import com.softwaremagico.tm.character.equipment.item.ItemFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import com.softwaremagico.tm.xml.XmlFactory;
 
-@Test(groups = {"itemFactory"})
-public class ItemFactoryTests {
-    private static final int DEFINED_ITEMS = 11;
+import java.util.List;
 
-    @Test
-    public void readItems() throws InvalidXmlElementException {
-        Assert.assertEquals(ItemFactory.getInstance().getElements().size(), DEFINED_ITEMS);
+public class TechCompulsionFactory extends XmlFactory<TechCompulsion> {
+    private static final String XML_FILE = "tech_compulsion.xml";
+
+    private static final class TechCompulsionFactoryInit {
+        public static final TechCompulsionFactory INSTANCE = new TechCompulsionFactory();
     }
 
-    @Test
-    public void getItemValues() throws InvalidXmlElementException {
-        Assert.assertEquals(ItemFactory.getInstance().getElement("estheticOrb").getTechLevel(), 6);
+    public static TechCompulsionFactory getInstance() {
+        return TechCompulsionFactoryInit.INSTANCE;
     }
 
-    @Test
-    public void getTechCompulsion() throws InvalidXmlElementException {
-        Assert.assertEquals(ItemFactory.getInstance().getElement("multitool").getTechCompulsion(), "industrious");
+
+    @Override
+    public String getXmlFile() {
+        return XML_FILE;
+    }
+
+    @Override
+    public List<TechCompulsion> getElements() throws InvalidXmlElementException {
+        return readXml(TechCompulsion.class);
     }
 }

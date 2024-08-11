@@ -2396,7 +2396,7 @@
                         <id>jumpwebLore</id>
                     </capability>
                     <capability>
-                        <group>techLores</group>
+                        <group>techLore</group>
                     </capability>
                     <capability>
                         <id>thinkMachines</id>
@@ -2543,6 +2543,181 @@
             <probabilityMultiplier>20</probabilityMultiplier>
         </random>
     </faction>
+
+    <faction>
+        <id>engineers</id>
+        <name>
+            <en>Engineers</en>
+            <es>Ingenieros</es>
+        </name>
+        <group>merchant</group>
+        <capabilities>
+            <options>
+                <total>1</total>
+                <capabilities>
+                    <capability>
+                        <id>factionLore</id>
+                        <specialization>engineers</specialization>
+                    </capability>
+                </capabilities>
+            </options>
+            <options>
+                <total>1</total>
+                <capabilities>
+                    <capability>
+                        <group>techLore</group>
+                    </capability>
+                </capabilities>
+                <capabilities>
+                    <capability>
+                        <group>craftsLore</group>
+                    </capability>
+                </capabilities>
+            </options>
+            <options>
+                <total>1</total>
+                <capabilities>
+                    <capability>
+                        <group>techLore</group>
+                    </capability>
+                </capabilities>
+                <capabilities>
+                    <capability>
+                        <group>thinkMachines</group>
+                    </capability>
+                </capabilities>
+            </options>
+        </capabilities>
+        <characteristics>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>intuition</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>wits</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+        </characteristics>
+        <perks>
+            <options>
+                <total>1</total>
+                <perks>
+                    <perk>
+                        <id>guildComissionApprentice</id>
+                    </perk>
+                </perks>
+            </options>
+        </perks>
+        <skills>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>academia</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>alchemy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>crafts</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>focus</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>interface</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>techRedemption</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </skills>
+            </options>
+        </skills>
+        <blessing>
+            <id>innovative</id>
+            <name>
+                <en>Innovative</en>
+                <es>Innovador</es>
+            </name>
+            <description>
+                <en>+2 Intuition when trying to invent something new.</en>
+                <es>Intuición +2 cuando intentes inventar algo.</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>unnerving</id>
+            <name>
+                <en>Unnerving</en>
+                <es>Inquietante</es>
+            </name>
+            <description>
+                <en>-2 Presence when dealing with serfs.</en>
+                <es>Presencia –2 cuando trates con sirvientes.</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>techRedemeer</calling>
+        </favoredCallings>
+        <materialAwards>
+            <options>
+                <total>1</total>
+                <items>
+                    <item>
+                        <id>multitool</id>
+                    </item>
+                </items>
+            </options>
+        </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing></upbringing>
+            </upbringings>
+        </restrictions>
+        <random>
+            <probabilityMultiplier>20</probabilityMultiplier>
+        </random>
+    </faction>
+
 
     <faction>
         <id></id>

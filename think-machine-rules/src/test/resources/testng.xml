@@ -33,6 +33,7 @@
                 <include name="equipmentTraitsFactory"/>
                 <include name="itemFactory"/>
                 <include name="perkFactory"/>
+                <include name="techCompulsionFactory"/>
                 <include name="factoryValidation"/>
 
                 <include name="characterCreation"/>
@@ -76,6 +77,7 @@
             <class name="com.softwaremagico.tm.factory.PerkFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.ValidateFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.EquipmentTraitsFactoryTests"/>
+            <class name="com.softwaremagico.tm.factory.TechCompulsionFactoryTests"/>
             <class name="com.softwaremagico.tm.rules.CharacterCreationTest"/>
             <!--            <class name="com.softwaremagico.tm.rules.BlessingTests"/>-->
             <!--            <class name="com.softwaremagico.tm.rules.BeneficeTests"/>-->

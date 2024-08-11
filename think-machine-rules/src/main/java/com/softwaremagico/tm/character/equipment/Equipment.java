@@ -24,6 +24,7 @@ package com.softwaremagico.tm.character.equipment;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.softwaremagico.tm.Element;
@@ -59,6 +60,8 @@ public abstract class Equipment<E extends Element<?>> extends Element<E> impleme
     private int techLevel;
     private Size size;
     private List<String> traits;
+    @JsonProperty("techCompulsion")
+    private String techCompulsion;
 
     public Equipment() {
         super();
@@ -99,11 +102,20 @@ public abstract class Equipment<E extends Element<?>> extends Element<E> impleme
         this.traits = traits;
     }
 
+    public String getTechCompulsion() {
+        return techCompulsion;
+    }
+
+    public void setTechCompulsion(String techCompulsion) {
+        this.techCompulsion = techCompulsion;
+    }
+
     public void copy(Equipment<?> equipment) {
         super.copy(equipment);
         setCost(equipment.getCost());
         setTechLevel(equipment.getTechLevel());
         setSize(equipment.getSize());
+        setTechCompulsion(equipment.getTechCompulsion());
         if (equipment.getTraits() != null) {
             setTraits(new ArrayList<>(equipment.getTraits()));
         }

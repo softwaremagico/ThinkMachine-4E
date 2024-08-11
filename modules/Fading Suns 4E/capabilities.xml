@@ -1452,7 +1452,7 @@
 
     <capability>
         <id>techLore5</id>
-        <group>techLores</group>
+        <group>techLore</group>
         <name>
             <en>Tech Lore (TL5)</en>
             <es>Saber Tecnológico (NT 5)</es>
@@ -1460,7 +1460,7 @@
     </capability>
     <capability>
         <id>techLore6</id>
-        <group>techLores</group>
+        <group>techLore</group>
         <name>
             <en>Tech Lore (TL6)</en>
             <es>Saber Tecnológico (NT 6)</es>
@@ -1492,7 +1492,7 @@
     </capability>
     <capability>
         <id>techLore7</id>
-        <group>techLores</group>
+        <group>techLore</group>
         <name>
             <en>Tech Lore (TL7)</en>
             <es>Saber Tecnológico (NT 7)</es>
@@ -1524,7 +1524,7 @@
     </capability>
     <capability>
         <id>techLore8</id>
-        <group>techLores</group>
+        <group>techLore</group>
         <name>
             <en>Tech Lore (TL8)</en>
             <es>Saber Tecnológico (NT 8)</es>

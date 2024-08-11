@@ -24,27 +24,17 @@ package com.softwaremagico.tm.factory;
  * #L%
  */
 
-import com.softwaremagico.tm.character.equipment.item.ItemFactory;
+import com.softwaremagico.tm.character.equipment.TechCompulsionFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Test(groups = {"itemFactory"})
-public class ItemFactoryTests {
-    private static final int DEFINED_ITEMS = 11;
+@Test(groups = {"techCompulsionFactory"})
+public class TechCompulsionFactoryTests {
+    private static final int DEFINED_ITEMS = 13;
 
     @Test
     public void readItems() throws InvalidXmlElementException {
-        Assert.assertEquals(ItemFactory.getInstance().getElements().size(), DEFINED_ITEMS);
-    }
-
-    @Test
-    public void getItemValues() throws InvalidXmlElementException {
-        Assert.assertEquals(ItemFactory.getInstance().getElement("estheticOrb").getTechLevel(), 6);
-    }
-
-    @Test
-    public void getTechCompulsion() throws InvalidXmlElementException {
-        Assert.assertEquals(ItemFactory.getInstance().getElement("multitool").getTechCompulsion(), "industrious");
+        Assert.assertEquals(TechCompulsionFactory.getInstance().getElements().size(), DEFINED_ITEMS);
     }
 }

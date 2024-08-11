@@ -26,6 +26,7 @@ package com.softwaremagico.tm.factory;
 
 
 import com.softwaremagico.tm.character.Gender;
+import com.softwaremagico.tm.character.equipment.TechCompulsionFactory;
 import com.softwaremagico.tm.character.equipment.item.Quality;
 import com.softwaremagico.tm.character.equipment.item.Status;
 import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
@@ -38,7 +39,7 @@ import org.testng.annotations.Test;
 
 @Test(groups = {"factionsFactory"})
 public class FactionFactoryTests {
-    private static final int DEFINED_FACTIONS = 12;
+    private static final int DEFINED_FACTIONS = 13;
     private static final int DEFINED_MALE_NAMES = 103;
     private static final int DEFINED_FEMALE_NAMES = 100;
     private static final int DEFINED_SURNAMES = 125;
@@ -111,11 +112,11 @@ public class FactionFactoryTests {
         Assert.assertEquals(charioteers.getCapabilityOptions().get(1).getCapabilities().size(), 7);
     }
 
-//    @Test
-//    public void checkRestrictedBenefices() throws InvalidXmlElementException {
-//        final Faction amaltheans = FactionFactory.getInstance().getElement("amaltheans");
-//        Assert.assertEquals(amaltheans.getRestrictedBenefices().size(), 1);
-//        Assert.assertEquals(amaltheans.getRestrictedBenefices().iterator().next().getId(), "cash");
-//        Assert.assertEquals((int) amaltheans.getRestrictedBenefices().iterator().next().getMaxValue(), 8);
-//    }
+    @Test
+    public void itemTechConvulsion() throws InvalidXmlElementException {
+        final Faction engineers = FactionFactory.getInstance().getElement("engineers");
+        Assert.assertNotNull(engineers);
+        Assert.assertEquals(engineers.getMaterialAwards().get(0).getItems().get(0).getTechCompulsion(), "industrious");
+        Assert.assertNotNull(TechCompulsionFactory.getInstance().getElement("industrious"));
+    }
 }
