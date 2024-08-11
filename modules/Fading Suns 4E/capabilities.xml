@@ -1104,6 +1104,13 @@
                 </name>
             </specialization>
             <specialization>
+                <id>latin</id>
+                <name>
+                    <en>Latin</en>
+                    <es>Latin</es>
+                </name>
+            </specialization>
+            <specialization>
                 <id>vuldrish</id>
                 <name>
                     <en>Vuldrish</en>

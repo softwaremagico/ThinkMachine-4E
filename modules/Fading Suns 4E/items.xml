@@ -151,4 +151,30 @@
             </factions>
         </restrictions>
     </equipment>
+    <equipment>
+        <id>omegaGospels</id>
+        <type>item</type>
+        <name>
+            <en>Omega Gospels</en>
+            <es>Evangelios Omega</es>
+        </name>
+        <description>
+            <en>A copy of the Omega Gospels.</en>
+            <es>Una copia de los Evangelios Omega.</es>
+        </description>
+        <size>S</size>
+    </equipment>
+    <equipment>
+        <id>silverJumpCross</id>
+        <type>item</type>
+        <name>
+            <en>Silver Jump Cross</en>
+            <es>Cruz de Salto Plateada</es>
+        </name>
+        <description>
+            <en>A simple silver jump cross.</en>
+            <es>Una simple cruz de salto plateada.</es>
+        </description>
+        <size>S</size>
+    </equipment>
 </equipments>
