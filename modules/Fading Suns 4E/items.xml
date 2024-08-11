@@ -177,4 +177,28 @@
         </description>
         <size>S</size>
     </equipment>
+    <equipment>
+        <id>jumpkey</id>
+        <type>item</type>
+        <name>
+            <en>Jumpkey</en>
+            <es>Llave de Salto</es>
+        </name>
+        <description>
+            <en>Penlight-sized cylinder; holds jumproute coordinates for a single route between two planets.</en>
+            <es>Un cilindro del tamaño de una linterna de bolsillo; tiene las coordenadas de una ruta entre dos
+                planetas.
+            </es>
+        </description>
+        <techLevel>7</techLevel>
+        <size>S</size>
+        <traits>
+            <trait>curio</trait>
+        </traits>
+        <restrictions>
+            <factions>
+                <faction>charioteers</faction>
+            </factions>
+        </restrictions>
+    </equipment>
 </equipments>

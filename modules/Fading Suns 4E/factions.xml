@@ -15,10 +15,12 @@
         <capabilities>
             <options>
                 <total>1</total>
-                <capability>
-                    <id>factionLore</id>
-                    <specialization>alMalik</specialization>
-                </capability>
+                <capabilities>
+                    <capability>
+                        <id>factionLore</id>
+                        <specialization>alMalik</specialization>
+                    </capability>
+                </capabilities>
             </options>
             <options>
                 <total>1</total>
@@ -363,11 +365,13 @@
         </restrictions>
         <capabilities>
             <options>
-                <capability>
-                    <id>factionLore</id>
-                    <specialization>decados</specialization>
-                </capability>
                 <total>1</total>
+                <capabilities>
+                    <capability>
+                        <id>factionLore</id>
+                        <specialization>decados</specialization>
+                    </capability>
+                </capabilities>
             </options>
             <options>
                 <total>1</total>
@@ -603,22 +607,26 @@
             </options>
             <options>
                 <total>1</total>
-                <capability>
-                    <id>factionLore</id>
-                    <specialization>hazat</specialization>
-                </capability>
+                <capabilities>
+                    <capability>
+                        <id>factionLore</id>
+                        <specialization>hazat</specialization>
+                    </capability>
+                </capabilities>
             </options>
             <options>
                 <total>1</total>
-                <capability>
-                    <id>militaryWeapons</id>
-                </capability>
-                <capability>
-                    <id>energyGuns</id>
-                </capability>
-                <capability>
-                    <id>slugGuns</id>
-                </capability>
+                <capabilities>
+                    <capability>
+                        <id>militaryWeapons</id>
+                    </capability>
+                    <capability>
+                        <id>energyGuns</id>
+                    </capability>
+                    <capability>
+                        <id>slugGuns</id>
+                    </capability>
+                </capabilities>
             </options>
         </capabilities>
         <characteristics>
@@ -828,10 +836,12 @@
         <capabilities>
             <options>
                 <total>1</total>
-                <capability>
-                    <id>factionLore</id>
-                    <specialization>hazat</specialization>
-                </capability>
+                <capabilities>
+                    <capability>
+                        <id>factionLore</id>
+                        <specialization>hazat</specialization>
+                    </capability>
+                </capabilities>
             </options>
             <options>
                 <total>1</total>
@@ -1078,37 +1088,43 @@
         <capabilities>
             <options>
                 <total>1</total>
-                <capability>
-                    <id>cathedralCustoms</id>
-                </capability>
+                <capabilities>
+                    <capability>
+                        <id>cathedralCustoms</id>
+                    </capability>
+                </capabilities>
             </options>
             <options>
                 <total>1</total>
-                <capability>
-                    <id>factionLore</id>
-                    <specialization>liHalan</specialization>
-                </capability>
+                <capabilities>
+                    <capability>
+                        <id>factionLore</id>
+                        <specialization>liHalan</specialization>
+                    </capability>
+                </capabilities>
             </options>
             <options>
                 <total>1</total>
-                <capability>
-                    <id>religionLore</id>
-                </capability>
-                <capability>
-                    <id>slugGuns</id>
-                </capability>
-                <capability>
-                    <id>energyGun</id>
-                </capability>
-                <capability>
-                    <id>militaryWeapons</id>
-                </capability>
-                <capability>
-                    <group>artsLore</group>
-                </capability>
-                <capability>
-                    <group>performingArtsLore</group>
-                </capability>
+                <capabilities>
+                    <capability>
+                        <id>religionLore</id>
+                    </capability>
+                    <capability>
+                        <id>slugGuns</id>
+                    </capability>
+                    <capability>
+                        <id>energyGun</id>
+                    </capability>
+                    <capability>
+                        <id>militaryWeapons</id>
+                    </capability>
+                    <capability>
+                        <group>artsLore</group>
+                    </capability>
+                    <capability>
+                        <group>performingArtsLore</group>
+                    </capability>
+                </capabilities>
             </options>
         </capabilities>
         <characteristics>
@@ -1304,31 +1320,37 @@
         <capabilities>
             <options>
                 <total>1</total>
-                <capability>
-                    <id>combatArmor</id>
-                </capability>
-                <capability>
-                    <id>warArmor</id>
-                </capability>
-                <capability>
-                    <id>energyGuns</id>
-                </capability>
-                <capability>
-                    <id>slugGuns</id>
-                </capability>
+                <capabilities>
+                    <capability>
+                        <id>combatArmor</id>
+                    </capability>
+                    <capability>
+                        <id>warArmor</id>
+                    </capability>
+                    <capability>
+                        <id>energyGuns</id>
+                    </capability>
+                    <capability>
+                        <id>slugGuns</id>
+                    </capability>
+                </capabilities>
             </options>
             <options>
                 <total>1</total>
-                <capability>
-                    <id>factionLore</id>
-                    <specialization>brotherBattle</specialization>
-                </capability>
+                <capabilities>
+                    <capability>
+                        <id>factionLore</id>
+                        <specialization>brotherBattle</specialization>
+                    </capability>
+                </capabilities>
             </options>
             <options>
                 <total>1</total>
-                <capability>
-                    <id>militaryWeapons</id>
-                </capability>
+                <capabilities>
+                    <capability>
+                        <id>militaryWeapons</id>
+                    </capability>
+                </capabilities>
             </options>
         </capabilities>
         <characteristics>
@@ -1518,10 +1540,12 @@
         <capabilities>
             <options>
                 <total>1</total>
-                <capability>
-                    <id>factionLore</id>
-                    <specialization>eskatonic</specialization>
-                </capability>
+                <capabilities>
+                    <capability>
+                        <id>factionLore</id>
+                        <specialization>eskatonic</specialization>
+                    </capability>
+                </capabilities>
             </options>
             <options>
                 <total>1</total>
@@ -1531,12 +1555,14 @@
             </options>
             <options>
                 <total>1</total>
-                <capability>
-                    <id>latin</id>
-                </capability>
-                <capability>
-                    <group>knowledgeLore</group>
-                </capability>
+                <capabilities>
+                    <capability>
+                        <id>latin</id>
+                    </capability>
+                    <capability>
+                        <group>knowledgeLore</group>
+                    </capability>
+                </capabilities>
             </options>
         </capabilities>
         <characteristics>
@@ -1706,18 +1732,20 @@
         <capabilities>
             <options>
                 <total>1</total>
-                <capability>
-                    <id>diseaseLore</id>
-                </capability>
-                <capability>
-                    <id>poisonLore</id>
-                </capability>
-                <capability>
-                    <id>surgeryLore</id>
-                </capability>
-                <capability>
-                    <id>cyberneticsLore</id>
-                </capability>
+                <capabilities>
+                    <capability>
+                        <id>diseaseLore</id>
+                    </capability>
+                    <capability>
+                        <id>poisonLore</id>
+                    </capability>
+                    <capability>
+                        <id>surgeryLore</id>
+                    </capability>
+                    <capability>
+                        <id>cyberneticsLore</id>
+                    </capability>
+                </capabilities>
             </options>
             <options>
                 <total>1</total>
@@ -1728,15 +1756,17 @@
             </options>
             <options>
                 <total>1</total>
-                <capability>
-                    <group>knowledgeLore</group>
-                </capability>
-                <capability>
-                    <group>medicalLore</group>
-                </capability>
-                <capability>
-                    <group>customsLore</group>
-                </capability>
+                <capabilities>
+                    <capability>
+                        <group>knowledgeLore</group>
+                    </capability>
+                    <capability>
+                        <group>medicalLore</group>
+                    </capability>
+                    <capability>
+                        <group>customsLore</group>
+                    </capability>
+                </capabilities>
             </options>
         </capabilities>
         <characteristics>
@@ -1914,28 +1944,32 @@
         <capabilities>
             <options>
                 <total>1</total>
-                <capability>
-                    <group>knowledgeLore</group>
-                </capability>
-                <capability>
-                    <group>medicalLore</group>
-                </capability>
-                <capability>
-                    <group>customsLore</group>
-                </capability>
-                <capability>
-                    <group>energyGuns</group>
-                </capability>
-                <capability>
-                    <group>slugGuns</group>
-                </capability>
+                <capabilities>
+                    <capability>
+                        <group>knowledgeLore</group>
+                    </capability>
+                    <capability>
+                        <group>medicalLore</group>
+                    </capability>
+                    <capability>
+                        <group>customsLore</group>
+                    </capability>
+                    <capability>
+                        <group>energyGuns</group>
+                    </capability>
+                    <capability>
+                        <group>slugGuns</group>
+                    </capability>
+                </capabilities>
             </options>
             <options>
                 <total>1</total>
-                <capability>
-                    <id>factionLore</id>
-                    <specialization>alMalik</specialization>
-                </capability>
+                <capabilities>
+                    <capability>
+                        <id>factionLore</id>
+                        <specialization>alMalik</specialization>
+                    </capability>
+                </capabilities>
             </options>
             <options>
                 <total>1</total>
@@ -2131,45 +2165,50 @@
         <capabilities>
             <options>
                 <total>1</total>
-                <capability>
-                    <id>courtCustoms</id>
-                </capability>
-                <capability>
-                    <group>knowledgeLore</group>
-                </capability>
-                <capability>
-                    <group>medicalLore</group>
-                </capability>
-                <capability>
-                    <id>oratory</id>
-                    <group>performingArtsLore</group>
-                    <name>
-                        <en>Oratory</en>
-                        <es>Oratoria</es>
-                    </name>
-                    <random>
-                        <probabilityMultiplier>10</probabilityMultiplier>
-                    </random>
-                </capability>
+                <capabilities>
+                    <capability>
+                        <id>courtCustoms</id>
+                    </capability>
+                    <capability>
+                        <group>knowledgeLore</group>
+                    </capability>
+                    <capability>
+                        <group>medicalLore</group>
+                    </capability>
+                    <capability>
+                        <id>oratory</id>
+                        <group>performingArtsLore</group>
+                        <name>
+                            <en>Oratory</en>
+                            <es>Oratoria</es>
+                        </name>
+                        <random>
+                            <probabilityMultiplier>10</probabilityMultiplier>
+                        </random>
+                    </capability>
+                </capabilities>
             </options>
             <options>
                 <total>1</total>
-                <capability>
-                    <id>read</id>
-                    <specialization>latin</specialization>
-                </capability>
-                <total>1</total>
-                <capability>
-                    <id>speak</id>
-                    <specialization>latin</specialization>
-                </capability>
+                <capabilities>
+                    <capability>
+                        <id>read</id>
+                        <specialization>latin</specialization>
+                    </capability>
+                    <capability>
+                        <id>speak</id>
+                        <specialization>latin</specialization>
+                    </capability>
+                </capabilities>
             </options>
             <options>
                 <total>1</total>
-                <capability>
-                    <id>factionLore</id>
-                    <specialization>orthodox</specialization>
-                </capability>
+                <capabilities>
+                    <capability>
+                        <id>factionLore</id>
+                        <specialization>orthodox</specialization>
+                    </capability>
+                </capabilities>
             </options>
         </capabilities>
         <characteristics>
@@ -2334,19 +2373,193 @@
 
 
     <faction>
+        <id>charioteers</id>
+        <name>
+            <en>Charioteers</en>
+            <es>Aurigas</es>
+        </name>
+        <group>merchant</group>
+        <capabilities>
+            <options>
+                <total>1</total>
+                <capabilities>
+                    <capability>
+                        <id>factionLore</id>
+                        <specialization>charioteers</specialization>
+                    </capability>
+                </capabilities>
+            </options>
+            <options>
+                <total>1</total>
+                <capabilities>
+                    <capability>
+                        <id>jumpwebLore</id>
+                    </capability>
+                    <capability>
+                        <group>techLores</group>
+                    </capability>
+                    <capability>
+                        <id>thinkMachines</id>
+                    </capability>
+                </capabilities>
+            </options>
+        </capabilities>
+        <characteristics>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>intuition</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>presence</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>wits</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+        </characteristics>
+        <perks>
+            <options>
+                <total>1</total>
+                <perks>
+                    <perk>
+                        <id>guildComissionEnsign</id>
+                    </perk>
+                </perks>
+            </options>
+        </perks>
+        <skills>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>drive</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>focus</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>pilot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>techRedemption</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+        </skills>
+        <blessing>
+            <id>curious</id>
+            <name>
+                <en>Curious</en>
+                <es>Curioso</es>
+            </name>
+            <description>
+                <en>+2 Intuition when encountering something new.</en>
+                <es>+2 Intuition when encountering something new.</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>nosy</id>
+            <name>
+                <en>Nosy</en>
+                <es>Indiscreto</es>
+            </name>
+            <description>
+                <en>-2 Presence when encountering something new.</en>
+                <es>Presencia –2 cuando te encuentres con algo nuevo</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>starPilot</calling>
+        </favoredCallings>
+        <materialAwards>
+            <options>
+                <total>1</total>
+                <items>
+                    <item>
+                        <id>jumpkey</id>
+                        <type>item</type>
+                    </item>
+                </items>
+            </options>
+        </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>merchant</upbringing>
+            </upbringings>
+        </restrictions>
+        <random>
+            <probabilityMultiplier>20</probabilityMultiplier>
+        </random>
+    </faction>
+
+    <faction>
         <id></id>
         <name>
             <en></en>
             <es></es>
         </name>
-        <group>church</group>
+        <group>merchant</group>
         <capabilities>
             <options>
                 <total>1</total>
-                <capability>
-                    <id></id>
-                    <specialization></specialization>
-                </capability>
+                <capabilities>
+                    <capability>
+                        <id>factionLore</id>
+                        <specialization></specialization>
+                    </capability>
+                </capabilities>
             </options>
         </capabilities>
         <characteristics>
@@ -2356,10 +2569,6 @@
                     <characteristic>
                         <id></id>
                         <bonus></bonus>
-                    </characteristic>
-                    <characteristic>
-                        <id>theurgy</id>
-                        <bonus>1</bonus>
                     </characteristic>
                 </characteristics>
             </options>

@@ -38,7 +38,7 @@ import org.testng.annotations.Test;
 
 @Test(groups = {"factionsFactory"})
 public class FactionFactoryTests {
-    private static final int DEFINED_FACTIONS = 7;
+    private static final int DEFINED_FACTIONS = 12;
     private static final int DEFINED_MALE_NAMES = 103;
     private static final int DEFINED_FEMALE_NAMES = 100;
     private static final int DEFINED_SURNAMES = 125;
@@ -100,6 +100,15 @@ public class FactionFactoryTests {
         Assert.assertEquals(brotherBattle.getMaterialAwards().get(0).getItems().size(), 82);
         Assert.assertTrue(brotherBattle.getMaterialAwards().get(0).getItems().get(0) instanceof CustomizedWeapon);
         Assert.assertEquals(((CustomizedWeapon) brotherBattle.getMaterialAwards().get(0).getItems().get(0)).getStatus(), Status.BLESSED);
+    }
+
+    @Test
+    public void anySpecialization() throws InvalidXmlElementException {
+        final Faction charioteers = FactionFactory.getInstance().getElement("charioteers");
+        Assert.assertNotNull(charioteers);
+        Assert.assertEquals(charioteers.getCapabilityOptions().size(), 2);
+        //Known Worlds or Barbarian Worlds
+        Assert.assertEquals(charioteers.getCapabilityOptions().get(1).getCapabilities().size(), 2);
     }
 
 //    @Test
