@@ -501,7 +501,7 @@
     </capability>
     <capability>
         <id>cathedralCustoms</id>
-        <group>customsLores</group>
+        <group>customsLore</group>
         <name>
             <en>Cathedral Customs</en>
             <es>Usos de la Catedral</es>
@@ -509,7 +509,7 @@
     </capability>
     <capability>
         <id>commonsCustoms</id>
-        <group>customsLores</group>
+        <group>customsLore</group>
         <name>
             <en>Commons Customs</en>
             <es>Usos del Vulgo</es>
@@ -517,7 +517,7 @@
     </capability>
     <capability>
         <id>courtCustoms</id>
-        <group>customsLores</group>
+        <group>customsLore</group>
         <name>
             <en>Court Customs</en>
             <es>Usos de la Corte</es>
@@ -525,7 +525,7 @@
     </capability>
     <capability>
         <id>streetwise</id>
-        <group>customsLores</group>
+        <group>customsLore</group>
         <name>
             <en>Streetwise</en>
             <es>Bajos Fondos</es>
@@ -628,10 +628,10 @@
                 </name>
             </specialization>
             <specialization>
-                <id>amaltheans</id>
+                <id>sanctuaryAeon</id>
                 <name>
-                    <en>Amaltheans</en>
-                    <es>Amalteanos</es>
+                    <en>Sanctuary Aeon</en>
+                    <es>Santuario de Aeón</es>
                 </name>
             </specialization>
             <specialization>
@@ -1003,6 +1003,13 @@
                 </name>
             </specialization>
             <specialization>
+                <id>latin</id>
+                <name>
+                    <en>Latin</en>
+                    <es>Latin</es>
+                </name>
+            </specialization>
+            <specialization>
                 <id>urthtech</id>
                 <name>
                     <en>Urthtech</en>
@@ -1298,6 +1305,14 @@
         <name>
             <en>Torture Lore</en>
             <es>Saber Tortura</es>
+        </name>
+    </capability>
+    <capability>
+        <id>cyberneticsLore</id>
+        <group>medicalLore</group>
+        <name>
+            <en>Cybernetics Lore</en>
+            <es>Saber Cibernética</es>
         </name>
     </capability>
 

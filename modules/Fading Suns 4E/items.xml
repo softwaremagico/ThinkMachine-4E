@@ -71,4 +71,62 @@
             </factions>
         </restrictions>
     </equipment>
+    <equipment>
+        <id>apocryphaOfHorace</id>
+        <type>item</type>
+        <name>
+            <en>Apocrypha of Horace</en>
+            <es>Evangelios Apócrifos de Horacio</es>
+        </name>
+        <description>
+            <en>Associated with a Gar den Worlds saint.</en>
+            <es>Asociada con un santo de un Mundo Jardín</es>
+        </description>
+        <size>S</size>
+        <restrictions>
+            <factions>
+                <faction>eskatonic</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>saintHoraceTheLearnedTexts</id>
+        <type>item</type>
+        <name>
+            <en>Saint Horace the Learned Texts</en>
+            <es>Textos sobre San Horacio el Docto</es>
+        </name>
+        <description>
+            <en>Texts that were rejected by the Church (citing alleged false authorship and theological error).</en>
+            <es>Textos que la Iglesia rechazó (citando una supuesta falsa autoría y errores teológicos).</es>
+        </description>
+        <size>S</size>
+        <restrictions>
+            <factions>
+                <faction>eskatonic</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>mercifulTechnal</id>
+        <type>item</type>
+        <name>
+            <en>Merciful Technal</en>
+            <es>Tecnal Misericordioso</es>
+        </name>
+        <description>
+            <en>A medical scanner or surgery kit. Grants +2 goal to Remedy rolls.</en>
+            <es>Un escáner médico o instrumentos de cirugía. Meta +2 a tiradas de Curar</es>
+        </description>
+        <techLevel>5</techLevel>
+        <size>M</size>
+        <traits>
+            <trait>device</trait>
+        </traits>
+        <restrictions>
+            <factions>
+                <faction>sanctuaryAeon</faction>
+            </factions>
+        </restrictions>
+    </equipment>
 </equipments>

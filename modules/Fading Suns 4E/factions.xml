@@ -1500,6 +1500,7 @@
         <restrictions>
             <upbringings>
                 <upbringing>priest</upbringing>
+                <upbringing>brotherBattle</upbringing>
             </upbringings>
         </restrictions>
         <random>
@@ -1508,17 +1509,408 @@
     </faction>
 
     <faction>
+        <id>eskatonic</id>
+        <name>
+            <en>Eskatonic Order</en>
+            <es>Orden Eskatónica</es>
+        </name>
+        <group>church</group>
+        <capabilities>
+            <options>
+                <total>1</total>
+                <capability>
+                    <id>factionLore</id>
+                    <specialization>eskatonic</specialization>
+                </capability>
+            </options>
+            <options>
+                <total>1</total>
+                <capability>
+                    <id>occultLore</id>
+                </capability>
+            </options>
+            <options>
+                <total>1</total>
+                <capability>
+                    <id>latin</id>
+                </capability>
+                <capability>
+                    <group>knowledgeLore</group>
+                </capability>
+            </options>
+        </capabilities>
+        <characteristics>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>faith</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>theurgy</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>intuition</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>theurgy</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>wits</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>theurgy</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+        </characteristics>
+        <perks>
+            <options>
+                <total>1</total>
+                <perks>
+                    <perk>
+                        <id>churchOrdinationNovitiate</id>
+                    </perk>
+                </perks>
+            </options>
+        </perks>
+        <skills>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>academia</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>alchemy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>observe</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>remedy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>focus</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+        </skills>
+        <blessing>
+            <id>curious</id>
+            <name>
+                <en>Curious</en>
+                <es>Curioso</es>
+            </name>
+            <description>
+                <en>+2 Perception when encountering something new</en>
+                <es>Percepción +2 cuando te encuentres con algo nuevo</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>subtle</id>
+            <name>
+                <en>Subtle</en>
+                <es>Sutil</es>
+            </name>
+            <description>
+                <en>-1 goal for persuasion influence when explaining something</en>
+                <es>Meta –1 para la influencia de persuasión cuando estés explicando algo</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>occultist</calling>
+        </favoredCallings>
+        <materialAwards>
+            <options>
+                <total>1</total>
+                <items>
+                    <item>
+                        <id>apocryphaOfHorace</id>
+                        <type>item</type>
+                    </item>
+                </items>
+            </options>
+            <options>
+                <total>1</total>
+                <items>
+                    <item>
+                        <id>saintHoraceTheLearnedTexts</id>
+                        <type>item</type>
+                    </item>
+                </items>
+            </options>
+        </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
+        <random>
+            <probabilityMultiplier>20</probabilityMultiplier>
+        </random>
+    </faction>
+
+
+    <faction>
+        <id>sanctuaryAeon</id>
+        <name>
+            <en>Sanctuary Aeon</en>
+            <es>Santuario de Aeón</es>
+        </name>
+        <group>church</group>
+        <capabilities>
+            <options>
+                <total>1</total>
+                <capability>
+                    <id>diseaseLore</id>
+                </capability>
+                <capability>
+                    <id>poisonLore</id>
+                </capability>
+                <capability>
+                    <id>surgeryLore</id>
+                </capability>
+                <capability>
+                    <id>cyberneticsLore</id>
+                </capability>
+            </options>
+            <options>
+                <total>1</total>
+                <capability>
+                    <id>factionLore</id>
+                    <specialization>sanctuaryAeon</specialization>
+                </capability>
+            </options>
+            <options>
+                <total>1</total>
+                <capability>
+                    <group>knowledgeLore</group>
+                </capability>
+                <capability>
+                    <group>medicalLore</group>
+                </capability>
+                <capability>
+                    <group>customsLore</group>
+                </capability>
+            </options>
+        </capabilities>
+        <characteristics>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>theurgy</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>faith</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>intuition</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>theurgy</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>presence</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>theurgy</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>wits</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>theurgy</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+        </characteristics>
+        <perks>
+            <options>
+                <total>1</total>
+                <perks>
+                    <perk>
+                        <id>churchOrdinationNovitiate</id>
+                    </perk>
+                </perks>
+            </options>
+        </perks>
+        <skills>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>academia</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>arts</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>perform</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>empathy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>focus</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>remedy</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </skills>
+            </options>
+        </skills>
+        <blessing>
+            <id>compassionate</id>
+            <name>
+                <en>Compassionate</en>
+                <es>Compasivo</es>
+            </name>
+            <description>
+                <en>+1 goal for persuasion influence when helping others</en>
+                <es>Meta +1 para influencia de persuasión cuando ayudes a los demás</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>gullible</id>
+            <name>
+                <en>Gullible</en>
+                <es>Crédulo</es>
+            </name>
+            <description>
+                <en>-2 Mind Resistance against fast-talk attempts</en>
+                <es>Resistencia Mental –2 frente a intentos de engatusarte</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>healer</calling>
+        </favoredCallings>
+        <materialAwards>
+            <options>
+                <total>1</total>
+                <items>
+                    <item>
+                        <id>mercifulTechnal</id>
+                        <type>item</type>
+                    </item>
+                </items>
+            </options>
+        </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
+        <random>
+            <probabilityMultiplier>20</probabilityMultiplier>
+        </random>
+    </faction>
+
+
+    <faction>
         <id></id>
         <name>
             <en></en>
             <es></es>
         </name>
         <group>church</group>
-        <restrictions>
-            <species>
-                <specie>human</specie>
-            </species>
-        </restrictions>
         <capabilities>
             <options>
                 <total>1</total>
@@ -1536,6 +1928,10 @@
                         <id></id>
                         <bonus></bonus>
                     </characteristic>
+                    <characteristic>
+                        <id>theurgy</id>
+                        <bonus>1</bonus>
+                    </characteristic>
                 </characteristics>
             </options>
         </characteristics>
@@ -1544,7 +1940,7 @@
                 <total>1</total>
                 <perks>
                     <perk>
-                        <id>nobleTitleKnight</id>
+                        <id>churchOrdinationNovitiate</id>
                     </perk>
                 </perks>
             </options>
