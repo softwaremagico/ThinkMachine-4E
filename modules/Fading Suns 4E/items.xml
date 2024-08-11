@@ -129,4 +129,26 @@
             </factions>
         </restrictions>
     </equipment>
+    <equipment>
+        <id>avestitePendant</id>
+        <type>item</type>
+        <name>
+            <en>Avestite Pendant</en>
+            <es>Pendiente Avestita</es>
+        </name>
+        <description>
+            <en>A pendant bearing the symbol of the Holy Flame. With the flick of a switch, this symbol becomes a
+                searing brand which an Avestite can use to brand sinners’ foreheads.
+            </en>
+            <es>Un colgante con el símbolo de la Llama Sagrada. En un abrir y cerrar de ojos, el símbolo se convierte en
+                un hierro al rojo vivo con el que un avestita puede marcar las frentes de los pecadores.
+            </es>
+        </description>
+        <size>S</size>
+        <restrictions>
+            <factions>
+                <faction>avestites</faction>
+            </factions>
+        </restrictions>
+    </equipment>
 </equipments>

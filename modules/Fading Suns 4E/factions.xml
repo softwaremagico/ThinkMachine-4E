@@ -14,11 +14,11 @@
         </restrictions>
         <capabilities>
             <options>
+                <total>1</total>
                 <capability>
                     <id>factionLore</id>
                     <specialization>alMalik</specialization>
                 </capability>
-                <total>1</total>
             </options>
             <options>
                 <total>1</total>
@@ -1903,6 +1903,223 @@
         </random>
     </faction>
 
+
+    <faction>
+        <id>avestites</id>
+        <name>
+            <en>Temple Avesti</en>
+            <es>Templo Avesti</es>
+        </name>
+        <group>church</group>
+        <capabilities>
+            <options>
+                <total>1</total>
+                <capability>
+                    <group>knowledgeLore</group>
+                </capability>
+                <capability>
+                    <group>medicalLore</group>
+                </capability>
+                <capability>
+                    <group>customsLore</group>
+                </capability>
+                <capability>
+                    <group>energyGuns</group>
+                </capability>
+                <capability>
+                    <group>slugGuns</group>
+                </capability>
+            </options>
+            <options>
+                <total>1</total>
+                <capability>
+                    <id>factionLore</id>
+                    <specialization>alMalik</specialization>
+                </capability>
+            </options>
+            <options>
+                <total>1</total>
+                <capability>
+                    <id>tortureLore</id>
+                </capability>
+            </options>
+        </capabilities>
+        <characteristics>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>faith</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>theurgy</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>theurgy</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>presence</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>theurgy</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>perception</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>theurgy</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+        </characteristics>
+        <perks>
+            <options>
+                <total>1</total>
+                <perks>
+                    <perk>
+                        <id>churchOrdinationNovitiate</id>
+                    </perk>
+                </perks>
+            </options>
+        </perks>
+        <skills>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>empathy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>knavery</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>fight</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>focus</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>vigor</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>observe</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+        </skills>
+        <blessing>
+            <id>pious</id>
+            <name>
+                <en>Pious</en>
+                <es>Piadoso</es>
+            </name>
+            <description>
+                <en>+1 goal for coercion influence among the sinful.</en>
+                <es>Meta +1 contra la influencia de coacción entre pecadores</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>righteous</id>
+            <name>
+                <en>Righteous</en>
+                <es>Recto</es>
+            </name>
+            <description>
+                <en>-1 goal on Will- and Faith-based rolls when judgment questioned</en>
+                <es>Meta –1 en tiradas de Voluntad y Fe cuando se cuestione tu juicio</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>Inquisitor</calling>
+        </favoredCallings>
+        <materialAwards>
+            <options>
+                <total>1</total>
+                <items>
+                    <item>
+                        <id></id>
+                        <type></type>
+                    </item>
+                </items>
+            </options>
+        </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing></upbringing>
+            </upbringings>
+        </restrictions>
+        <random>
+            <probabilityMultiplier>20</probabilityMultiplier>
+        </random>
+    </faction>
 
     <faction>
         <id></id>
