@@ -25,6 +25,7 @@ package com.softwaremagico.tm.character.capabilities;
  */
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.softwaremagico.tm.character.skills.Specialization;
 
 public class CapabilityOption {
     @JsonProperty("id")
@@ -41,6 +42,14 @@ public class CapabilityOption {
     public CapabilityOption(Capability capability) {
         this();
         setId(capability.getId());
+    }
+
+    public CapabilityOption(Capability capability, Specialization specialization) {
+        this();
+        setId(capability.getId());
+        if (specialization != null) {
+            setSpecialization(specialization.getId());
+        }
     }
 
     public String getId() {
@@ -69,6 +78,6 @@ public class CapabilityOption {
 
     @Override
     public String toString() {
-        return id != null ? id : (group != null ? group : null);
+        return (id != null ? id : (group != null ? group : null)) + (specialization != null ? " (" + specialization + ")" : "");
     }
 }

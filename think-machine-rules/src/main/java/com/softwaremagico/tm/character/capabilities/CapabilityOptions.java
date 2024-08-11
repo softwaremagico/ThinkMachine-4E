@@ -27,6 +27,7 @@ package com.softwaremagico.tm.character.capabilities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.XmlData;
+import com.softwaremagico.tm.character.skills.Specialization;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineLog;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
@@ -73,7 +74,17 @@ public class CapabilityOptions extends XmlData {
                             MachineLog.errorMessage(this.getClass(), e);
                         }
                     } else {
-                        finalCapabilities.add(capabilityOption);
+                        //add specialities if needed
+                        final Capability capability = CapabilityFactory.getInstance().getElement(capabilityOption.getId());
+                        if (capability.getSpecializations() != null && !capability.getSpecializations().isEmpty()
+                                && capabilityOption.getSpecialization() == null) {
+                            //No specialization defined, can be any.
+                            for (Specialization specialization : capability.getSpecializations()) {
+                                finalCapabilities.add(new CapabilityOption(capability, specialization));
+                            }
+                        } else {
+                            finalCapabilities.add(capabilityOption);
+                        }
                     }
                 }
             }
