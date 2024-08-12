@@ -255,4 +255,27 @@
             </factions>
         </restrictions>
     </equipment>
+    <equipment>
+        <id>militarySquawker</id>
+        <type>item</type>
+        <name>
+            <en>Military Squawker</en>
+            <es>Altavoz Militar</es>
+        </name>
+        <description>
+            <en>Radio planetwide range + 1 AU interstellar.</en>
+            <es>Radio de alcance planetario + 1 UA interestelar.</es>
+        </description>
+        <techLevel>6</techLevel>
+        <size>M</size>
+        <techCompulsion>indiscreet</techCompulsion>
+        <traits>
+            <trait>radio</trait>
+        </traits>
+        <restrictions>
+            <factions>
+                <faction>theDispossessed</faction>
+            </factions>
+        </restrictions>
+    </equipment>
 </equipments>
