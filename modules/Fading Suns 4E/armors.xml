@@ -1075,4 +1075,36 @@
             </factions>
         </restrictions>
     </armour>
+    <armour>
+        <id>muSpASuit</id>
+        <type>armor</type>
+        <name>
+            <en>Multi-spectrum Synth Armor</en>
+            <es>Armadura Sintética Multiespectro</es>
+        </name>
+        <description>
+            <en>Shockproof, Slamproof + choose one more -proof: Blaster-, Flame-, or Laser-; does not require an armor
+                capability.
+            </en>
+            <es>Protección contra Descargas, Golpes + elige una protección adicional: Bláster, Fuego o Láser; no
+                requiere una competencia de armadura
+            </es>
+        </description>
+        <techLevel>6</techLevel>
+        <protection>4</protection>
+        <standardPenalizations>
+            <strength>0</strength>
+            <dexterity>0</dexterity>
+            <endurance>0</endurance>
+            <initiative>0</initiative>
+        </standardPenalizations>
+        <shield>standardShield, duelingShield, assaultShield, battleShield</shield>
+        <size>L</size>
+        <techCompulsion>protective</techCompulsion>
+        <restrictions>
+            <factions>
+                <faction>musters</faction>
+            </factions>
+        </restrictions>
+    </armour>
 </armours>

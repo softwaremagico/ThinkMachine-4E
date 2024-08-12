@@ -276,7 +276,6 @@ public class Restrictions extends XmlData {
         for (String calling : restrictedToCallings) {
             CallingFactory.getInstance().getElement(calling);
         }
-
         for (String capability : restrictedToCapabilities) {
             CapabilityFactory.getInstance().getElement(capability);
         }

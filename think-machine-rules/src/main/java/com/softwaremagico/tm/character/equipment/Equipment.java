@@ -36,6 +36,7 @@ import com.softwaremagico.tm.character.equipment.shields.CustomizedShield;
 import com.softwaremagico.tm.character.equipment.shields.Shield;
 import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -118,6 +119,14 @@ public abstract class Equipment<E extends Element<?>> extends Element<E> impleme
         setTechCompulsion(equipment.getTechCompulsion());
         if (equipment.getTraits() != null) {
             setTraits(new ArrayList<>(equipment.getTraits()));
+        }
+    }
+
+    @Override
+    public void validate() throws InvalidXmlElementException {
+        super.validate();
+        if (techCompulsion != null) {
+            TechCompulsionFactory.getInstance().getElement(techCompulsion);
         }
     }
 }

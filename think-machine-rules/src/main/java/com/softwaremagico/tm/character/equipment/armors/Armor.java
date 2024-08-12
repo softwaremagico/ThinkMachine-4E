@@ -25,7 +25,9 @@ package com.softwaremagico.tm.character.equipment.armors;
  */
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.softwaremagico.tm.character.equipment.DamageTypeFactory;
 import com.softwaremagico.tm.character.equipment.Equipment;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -116,7 +118,6 @@ public class Armor extends Equipment<Armor> {
         readCommaSeparatedTokens(specifications, specificationsContent);
     }
 
-
     public void setSpecifications(Set<String> specifications) {
         this.specifications = specifications;
     }
@@ -126,12 +127,10 @@ public class Armor extends Equipment<Armor> {
     }
 
     @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public void validate() throws InvalidXmlElementException {
+        super.validate();
+        if (damageTypes != null) {
+            damageTypes.forEach(damageType -> DamageTypeFactory.getInstance().getElement(damageType));
+        }
     }
 }

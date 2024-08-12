@@ -83,7 +83,11 @@ public abstract class XmlFactory<T extends Element<T>> {
         if (elements == null) {
             getElements();
         }
-        return elements.get(id);
+        final T element = elements.get(id);
+        if (element == null) {
+            throw new InvalidXmlElementException(this.getClass().getName() + " has no element with id '" + id + "'.");
+        }
+        return element;
     }
 
     public List<T> getElements(Collection<String> ids) throws InvalidXmlElementException {
