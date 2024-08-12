@@ -295,4 +295,23 @@
             </factions>
         </restrictions>
     </equipment>
+    <equipment>
+        <id>societyOfStPaulusExpeditionGuide</id>
+        <type>item</type>
+        <name>
+            <en>The Society of St. Paulus Expedition Guide</en>
+            <es>La Guía de Expediciones de la Sociedad de San Pablo</es>
+        </name>
+        <description>
+            <en>Provides a broad (but relatively shallow) Known Worlds Lore capability</en>
+            <es>Ofrece una competencia amplia de Saber sobre los Mundos Conocidos (aunque bastante superficial).</es>
+        </description>
+        <techLevel>6</techLevel>
+        <size>XS</size>
+        <restrictions>
+            <factions>
+                <faction>societyOfStPaulus</faction>
+            </factions>
+        </restrictions>
+    </equipment>
 </equipments>
