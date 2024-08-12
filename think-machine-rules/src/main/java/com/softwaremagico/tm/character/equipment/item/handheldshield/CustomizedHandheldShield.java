@@ -26,7 +26,6 @@ package com.softwaremagico.tm.character.equipment.item.handheldshield;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.character.equipment.item.Quality;
-import com.softwaremagico.tm.character.equipment.shields.Shield;
 
 public class CustomizedHandheldShield extends HandheldShield {
 

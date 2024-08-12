@@ -60,7 +60,7 @@ public class EquipmentOptions extends XmlData {
             if (items != null && !items.isEmpty()) {
                 items.forEach(item -> {
                     if (item.getId() != null) {
-                        Equipment<?> finalItem = Equipment.generateCopy(item);
+                        final Equipment<?> finalItem = Equipment.generateCopy(item);
                         finalItem.setQuantity(item.getQuantity());
                         finalItems.add(finalItem);
                     } else if (item instanceof Weapon) {

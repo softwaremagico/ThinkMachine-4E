@@ -323,4 +323,62 @@
         </name>
         <size>XS</size>
     </equipment>
+    <equipment>
+        <id>militaryCommandersUniform</id>
+        <type>item</type>
+        <name>
+            <en>Military Commander’s Uniform</en>
+            <es>Uniforme de Comandante Militar</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>commander</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>destrier</id>
+        <type>item</type>
+        <name>
+            <en>Destrier</en>
+            <es>Corcel de Guerra</es>
+        </name>
+        <description>
+            <en>Trained war horse.</en>
+            <es>Corcel de guerra.</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>dressSword</id>
+        <type>item</type>
+        <name>
+            <en>Dress Sword</en>
+            <es>Espada Ceremonial</es>
+        </name>
+        <size>L</size>
+    </equipment>
+    <equipment>
+        <id>courtOutfit</id>
+        <type>item</type>
+        <name>
+            <en>Noble Court Outfit</en>
+            <es>Traje de Corte</es>
+        </name>
+    </equipment>
+    <equipment>
+        <id>churchPageantryOutfit</id>
+        <type>item</type>
+        <name>
+            <en>Church Pageantry Outfit</en>
+            <es>Traje de Celebración Religiosa</es>
+        </name>
+    </equipment>
+    <equipment>
+        <id>agoraShoppingOutfit</id>
+        <type>item</type>
+        <name>
+            <en>Agora Shopping Outfit</en>
+            <es>Traje de Celebración Religiosa</es>
+        </name>
+    </equipment>
 </equipments>

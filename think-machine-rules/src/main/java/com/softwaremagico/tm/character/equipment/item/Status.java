@@ -25,5 +25,6 @@ package com.softwaremagico.tm.character.equipment.item;
  */
 
 public enum Status {
-    BLESSED;
+    BLESSED,
+    ELEGANT;
 }
