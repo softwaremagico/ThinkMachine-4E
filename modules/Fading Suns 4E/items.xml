@@ -228,4 +228,31 @@
             </factions>
         </restrictions>
     </equipment>
+    <equipment>
+        <id>guestKey</id>
+        <type>item</type>
+        <name>
+            <en>Guest Key</en>
+            <es>Llave de invitados</es>
+        </name>
+        <description>
+            <en>Universal key. When inserted into a simple mechanical lock, key conforms to shape needed to unlock it,
+                bypassing need for certain Intrusion rolls.
+            </en>
+            <es>Llave maestra. Cuando se introduce en un cerrojo mecánico, adquiere la forma necesaria para abrirlo,
+                volviendo innecesarias ciertas tiradas de Intrusión.
+            </es>
+        </description>
+        <techLevel>7</techLevel>
+        <size>S</size>
+        <techCompulsion>industrious</techCompulsion>
+        <traits>
+            <trait>nanotech</trait>
+        </traits>
+        <restrictions>
+            <factions>
+                <faction>scravers</faction>
+            </factions>
+        </restrictions>
+    </equipment>
 </equipments>

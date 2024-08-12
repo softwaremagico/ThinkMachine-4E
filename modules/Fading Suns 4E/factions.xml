@@ -2447,7 +2447,7 @@
                 <total>1</total>
                 <perks>
                     <perk>
-                        <id>guildComissionEnsign</id>
+                        <id>guildCommissionEnsign</id>
                     </perk>
                 </perks>
             </options>
@@ -2622,7 +2622,7 @@
                 <total>1</total>
                 <perks>
                     <perk>
-                        <id>guildComissionApprentice</id>
+                        <id>guildCommissionApprentice</id>
                     </perk>
                 </perks>
             </options>
@@ -2803,7 +2803,7 @@
                 <total>1</total>
                 <perks>
                     <perk>
-                        <id>guildComissionPrivate</id>
+                        <id>guildCommissionPrivate</id>
                     </perk>
                 </perks>
             </options>
@@ -2988,7 +2988,7 @@
                 <total>1</total>
                 <perks>
                     <perk>
-                        <id>guildComissionAssociate</id>
+                        <id>guildCommissionAssociate</id>
                     </perk>
                 </perks>
             </options>
@@ -3089,6 +3089,231 @@
         </random>
     </faction>
 
+
+    <faction>
+        <id>scravers</id>
+        <name>
+            <en>Scravers</en>
+            <es>Carroñeros</es>
+        </name>
+        <group>merchant</group>
+        <capabilities>
+            <options>
+                <total>1</total>
+                <capabilities>
+                    <capability>
+                        <id>factionLore</id>
+                        <specialization>scravers</specialization>
+                    </capability>
+                </capabilities>
+            </options>
+            <options>
+                <total>1</total>
+                <capabilities>
+                    <capability>
+                        <id>factionLore</id>
+                        <specialization>scravers</specialization>
+                    </capability>
+                </capabilities>
+            </options>
+            <options>
+                <total>1</total>
+                <capabilities>
+                    <capability>
+                        <id>slugGuns</id>
+                    </capability>
+                    <capability>
+                        <id>energyGun</id>
+                    </capability>
+                    <capability>
+                        <group>transport</group>
+                    </capability>
+                    <capability>
+                        <group>techLore</group>
+                    </capability>
+                </capabilities>
+            </options>
+            <options>
+                <total>1</total>
+                <capabilities>
+                    <capability>
+                        <id>streetwise</id>
+                    </capability>
+                </capabilities>
+            </options>
+        </capabilities>
+        <characteristics>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>strength</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>perception</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>presence</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>wits</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+        </characteristics>
+        <perks>
+            <options>
+                <total>1</total>
+                <perks>
+                    <perk>
+                        <id>guildCommissionAssociate</id>
+                    </perk>
+                </perks>
+            </options>
+        </perks>
+        <skills>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>knavery</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>drive</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>pilot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>fight</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>intrusion</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>observe</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>sleightOfHand</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>techRedemption</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+        </skills>
+        <blessing>
+            <id>theMan</id>
+            <name>
+                <en>The Man</en>
+                <es>Jefazo»</es>
+            </name>
+            <description>
+                <en>+2 Presence when leading underlings.</en>
+                <es>Presencia +2 cuando dirijas a tus subordinados.</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>possessive</id>
+            <name>
+                <en>Possessive</en>
+                <es>Posesivo</es>
+            </name>
+            <description>
+                <en>-2 Presence when cut out of the action.</en>
+                <es>Presencia –2 cuando te dejen fuera de la acción.</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>thief</calling>
+        </favoredCallings>
+        <materialAwards>
+            <options>
+                <total>1</total>
+                <items>
+                    <item>
+                        <id>guestKey</id>
+                        <type>item</type>
+                    </item>
+                </items>
+            </options>
+        </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>merchant</upbringing>
+            </upbringings>
+        </restrictions>
+        <random>
+            <probabilityMultiplier>20</probabilityMultiplier>
+        </random>
+    </faction>
 
     <faction>
         <id></id>

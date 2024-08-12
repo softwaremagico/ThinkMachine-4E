@@ -31,7 +31,7 @@ import org.testng.annotations.Test;
 
 @Test(groups = {"itemFactory"})
 public class ItemFactoryTests {
-    private static final int DEFINED_ITEMS = 11;
+    private static final int DEFINED_ITEMS = 12;
 
     @Test
     public void readItems() throws InvalidXmlElementException {
