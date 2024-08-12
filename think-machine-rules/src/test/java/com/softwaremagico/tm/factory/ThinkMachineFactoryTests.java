@@ -32,7 +32,7 @@ import org.testng.annotations.Test;
 
 @Test(groups = {"thinkMachineFactory"})
 public class ThinkMachineFactoryTests {
-    private static final int DEFINED_ITEMS = 1;
+    private static final int DEFINED_ITEMS = 2;
 
     @Test
     public void readItems() throws InvalidXmlElementException {

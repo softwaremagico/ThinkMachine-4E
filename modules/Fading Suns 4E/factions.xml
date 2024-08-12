@@ -3321,7 +3321,7 @@
             <en>The Dispossessed</en>
             <es>Los Desposeídos</es>
         </name>
-        <group>merchant</group>
+        <group>yeoman</group>
         <capabilities>
             <options>
                 <total>1</total>
@@ -3503,12 +3503,208 @@
     </faction>
 
     <faction>
+        <id>far</id>
+        <name>
+            <en>F.A.R. (Frontier for Alien Rights)</en>
+            <es>ODA (Organización por los Derechos de los Alienígenas)</es>
+        </name>
+        <group>yeoman</group>
+        <capabilities>
+            <options>
+                <total>1</total>
+                <capabilities>
+                    <capability>
+                        <id>commonsCustoms</id>
+                    </capability>
+                    <capability>
+                        <id>courtCustoms</id>
+                    </capability>
+                    <capability>
+                        <id>cathedralCustoms</id>
+                    </capability>
+                </capabilities>
+            </options>
+            <options>
+                <total>1</total>
+                <capabilities>
+                    <capability>
+                        <id>speak</id>
+                    </capability>
+                </capabilities>
+            </options>
+            <options>
+                <total>1</total>
+                <capabilities>
+                    <capability>
+                        <id>xenoLore</id>
+                    </capability>
+                </capabilities>
+            </options>
+        </capabilities>
+        <characteristics>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>intuition</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>presence</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>will</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+        </characteristics>
+        <perks>
+            <options>
+                <total>1</total>
+                <perks>
+                    <perk>
+                        <id>professionalReputationRookie</id>
+                    </perk>
+                </perks>
+            </options>
+        </perks>
+        <skills>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>academia</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>empathy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>sneak</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>fight</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>survival</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>knavery</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>observe</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+        </skills>
+        <blessing>
+            <id>righteous</id>
+            <name>
+                <en>Righteous</en>
+                <es>Recto</es>
+            </name>
+            <description>
+                <en>+1 goal for influence when standing up for alien rights and dignity</en>
+                <es>Meta +1 a influencia cuando defiendas la dignidad y los derechos de los alienígenas</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>bitter</id>
+            <name>
+                <en>Bitter</en>
+                <es>Resentido</es>
+            </name>
+            <description>
+                <en>-1 goal for persuasion influence against anti-alien bigots</en>
+                <es>Meta –1 en persuasión de influencia contra personas que odian a los alienígenas</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>lawyer</calling>
+        </favoredCallings>
+        <materialAwards>
+            <options>
+                <total>1</total>
+                <items>
+                    <item>
+                        <id>scramblerKey</id>
+                        <type>item</type>
+                    </item>
+                    <item>
+                        <id>translator</id>
+                        <type>thinkMachine</type>
+                    </item>
+                </items>
+            </options>
+        </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>yeoman</upbringing>
+            </upbringings>
+        </restrictions>
+        <random>
+            <probabilityMultiplier>20</probabilityMultiplier>
+        </random>
+    </faction>
+
+
+    <faction>
         <id></id>
         <name>
             <en></en>
             <es></es>
         </name>
-        <group>merchant</group>
+        <group>yeoman</group>
         <capabilities>
             <options>
                 <total>1</total>

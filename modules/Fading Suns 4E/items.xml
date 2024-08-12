@@ -269,12 +269,29 @@
         <techLevel>6</techLevel>
         <size>M</size>
         <techCompulsion>indiscreet</techCompulsion>
-        <traits>
-            <trait>radio</trait>
-        </traits>
         <restrictions>
             <factions>
                 <faction>theDispossessed</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>scramblerKey</id>
+        <type>item</type>
+        <name>
+            <en>Scrambler Key</en>
+            <es>Llave Amorfa</es>
+        </name>
+        <description>
+            <en>Lockpick device. Used to unchain enslaved aliens.</en>
+            <es>Dispositivo ganzúa. Utilizada para liberar alienígenas.</es>
+        </description>
+        <techLevel>6</techLevel>
+        <size>XS</size>
+        <techCompulsion>industrious</techCompulsion>
+        <restrictions>
+            <factions>
+                <faction>far</faction>
             </factions>
         </restrictions>
     </equipment>
