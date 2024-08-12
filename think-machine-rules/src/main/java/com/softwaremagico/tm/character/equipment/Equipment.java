@@ -34,6 +34,8 @@ import com.softwaremagico.tm.character.equipment.item.CustomizedItem;
 import com.softwaremagico.tm.character.equipment.item.Item;
 import com.softwaremagico.tm.character.equipment.shields.CustomizedShield;
 import com.softwaremagico.tm.character.equipment.shields.Shield;
+import com.softwaremagico.tm.character.equipment.thinkmachines.CustomizedThinkMachine;
+import com.softwaremagico.tm.character.equipment.thinkmachines.ThinkMachine;
 import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
@@ -54,7 +56,9 @@ import java.util.List;
         @JsonSubTypes.Type(value = Armor.class, name = "armor"),
         @JsonSubTypes.Type(value = CustomizedArmor.class, name = "customizedArmor"),
         @JsonSubTypes.Type(value = Weapon.class, name = "weapon"),
-        @JsonSubTypes.Type(value = CustomizedWeapon.class, name = "customizedWeapon")
+        @JsonSubTypes.Type(value = CustomizedWeapon.class, name = "customizedWeapon"),
+        @JsonSubTypes.Type(value = ThinkMachine.class, name = "thinkMachine"),
+        @JsonSubTypes.Type(value = CustomizedThinkMachine.class, name = "customizedThinkMachine")
 })
 public abstract class Equipment<E extends Element<?>> extends Element<E> implements IElementWithTechnologyLevel {
     private float cost;

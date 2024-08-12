@@ -28,6 +28,4 @@ import com.softwaremagico.tm.character.equipment.Equipment;
 import com.softwaremagico.tm.character.equipment.IElementWithTechnologyLevel;
 
 public class Item extends Equipment<Item> implements IElementWithTechnologyLevel {
-    public Item() {
-    }
 }

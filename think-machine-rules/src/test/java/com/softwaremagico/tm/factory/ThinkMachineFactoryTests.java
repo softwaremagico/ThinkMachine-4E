@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.equipment.item;
+package com.softwaremagico.tm.factory;
 
 /*-
  * #%L
@@ -24,30 +24,28 @@ package com.softwaremagico.tm.character.equipment.item;
  * #L%
  */
 
+import com.softwaremagico.tm.character.equipment.item.ItemFactory;
+import com.softwaremagico.tm.character.equipment.thinkmachines.ThinkMachineFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.xml.XmlFactory;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
-import java.util.List;
+@Test(groups = {"thinkMachineFactory"})
+public class ThinkMachineFactoryTests {
+    private static final int DEFINED_ITEMS = 1;
 
-public class ItemFactory extends XmlFactory<Item> {
-    private static final String XML_FILE = "items.xml";
-
-    private static final class ItemFactoryInit {
-        public static final ItemFactory INSTANCE = new ItemFactory();
+    @Test
+    public void readItems() throws InvalidXmlElementException {
+        Assert.assertEquals(ThinkMachineFactory.getInstance().getElements().size(), DEFINED_ITEMS);
     }
 
-    public static ItemFactory getInstance() {
-        return ItemFactoryInit.INSTANCE;
+    @Test
+    public void getItemValues() throws InvalidXmlElementException {
+        Assert.assertEquals(ThinkMachineFactory.getInstance().getElement("crawler").getTechLevel(), 6);
     }
 
-
-    @Override
-    public String getXmlFile() {
-        return XML_FILE;
-    }
-
-    @Override
-    public List<Item> getElements() throws InvalidXmlElementException {
-        return readXml(Item.class);
+    @Test
+    public void getTechCompulsion() throws InvalidXmlElementException {
+        Assert.assertEquals(ThinkMachineFactory.getInstance().getElement("crawler").getTechCompulsion(), "indiscreet");
     }
 }

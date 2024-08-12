@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.equipment.item;
+package com.softwaremagico.tm.character.equipment.thinkmachines;
 
 /*-
  * #%L
@@ -29,15 +29,15 @@ import com.softwaremagico.tm.xml.XmlFactory;
 
 import java.util.List;
 
-public class ItemFactory extends XmlFactory<Item> {
-    private static final String XML_FILE = "items.xml";
+public class ThinkMachineFactory extends XmlFactory<ThinkMachine> {
+    private static final String XML_FILE = "think_machines.xml";
 
-    private static final class ItemFactoryInit {
-        public static final ItemFactory INSTANCE = new ItemFactory();
+    private static final class ThinkMachineFactoryInit {
+        public static final ThinkMachineFactory INSTANCE = new ThinkMachineFactory();
     }
 
-    public static ItemFactory getInstance() {
-        return ItemFactoryInit.INSTANCE;
+    public static ThinkMachineFactory getInstance() {
+        return ThinkMachineFactoryInit.INSTANCE;
     }
 
 
@@ -47,7 +47,7 @@ public class ItemFactory extends XmlFactory<Item> {
     }
 
     @Override
-    public List<Item> getElements() throws InvalidXmlElementException {
-        return readXml(Item.class);
+    public List<ThinkMachine> getElements() throws InvalidXmlElementException {
+        return readXml(ThinkMachine.class);
     }
 }

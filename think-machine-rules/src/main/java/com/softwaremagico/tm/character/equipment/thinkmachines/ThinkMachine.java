@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.equipment.item;
+package com.softwaremagico.tm.character.equipment.thinkmachines;
 
 /*-
  * #%L
@@ -24,30 +24,9 @@ package com.softwaremagico.tm.character.equipment.item;
  * #L%
  */
 
-import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.xml.XmlFactory;
+import com.softwaremagico.tm.character.equipment.Equipment;
+import com.softwaremagico.tm.character.equipment.IElementWithTechnologyLevel;
 
-import java.util.List;
+public class ThinkMachine extends Equipment<ThinkMachine> implements IElementWithTechnologyLevel {
 
-public class ItemFactory extends XmlFactory<Item> {
-    private static final String XML_FILE = "items.xml";
-
-    private static final class ItemFactoryInit {
-        public static final ItemFactory INSTANCE = new ItemFactory();
-    }
-
-    public static ItemFactory getInstance() {
-        return ItemFactoryInit.INSTANCE;
-    }
-
-
-    @Override
-    public String getXmlFile() {
-        return XML_FILE;
-    }
-
-    @Override
-    public List<Item> getElements() throws InvalidXmlElementException {
-        return readXml(Item.class);
-    }
 }

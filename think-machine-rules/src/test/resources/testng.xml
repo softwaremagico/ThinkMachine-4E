@@ -32,6 +32,7 @@
                 <include name="upbringingFactory"/>
                 <include name="equipmentTraitsFactory"/>
                 <include name="itemFactory"/>
+                <include name="thinkMachineFactory"/>
                 <include name="perkFactory"/>
                 <include name="techCompulsionFactory"/>
                 <include name="factoryValidation"/>
@@ -70,6 +71,7 @@
             <class name="com.softwaremagico.tm.factory.ArmorFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.ArmorSpecificationsFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.ItemFactoryTests"/>
+            <class name="com.softwaremagico.tm.factory.ThinkMachineFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.CombatStylesFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.CallingFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.CapabilityFactoryTest"/>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<equipments>
+    <equipment>
+        <id>crawler</id>
+        <type>thinkMachine</type>
+        <name>
+            <en>Crawler</en>
+            <es>Araña</es>
+        </name>
+        <description>
+            <en>Reads Reeve’s datanet “crawl”: lists of open jobs, debts owed to the guild, defaulters’ names, etc</en>
+            <es>Lee la "telaraña" de datos de los Magistrados: listas de trabajos, deudas con el gremio, nombres de
+                morosos, etc.
+            </es>
+        </description>
+        <techLevel>6</techLevel>
+        <size>S</size>
+        <techCompulsion>indiscreet</techCompulsion>
+        <restrictions>
+            <factions>
+                <faction>reeves</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+</equipments>
