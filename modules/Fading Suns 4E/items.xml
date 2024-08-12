@@ -314,4 +314,13 @@
             </factions>
         </restrictions>
     </equipment>
+    <equipment>
+        <id>firebirds</id>
+        <type>item</type>
+        <name>
+            <en>Firebirds</en>
+            <es>Fénix</es>
+        </name>
+        <size>XS</size>
+    </equipment>
 </equipments>

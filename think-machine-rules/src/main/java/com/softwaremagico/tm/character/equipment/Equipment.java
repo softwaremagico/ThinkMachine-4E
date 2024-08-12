@@ -42,6 +42,7 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
@@ -67,6 +68,8 @@ public abstract class Equipment<E extends Element<?>> extends Element<E> impleme
     private List<String> traits;
     @JsonProperty("techCompulsion")
     private String techCompulsion;
+    @JsonProperty("quantity")
+    private int quantity = 1;
 
     public Equipment() {
         super();
@@ -115,12 +118,21 @@ public abstract class Equipment<E extends Element<?>> extends Element<E> impleme
         this.techCompulsion = techCompulsion;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = Objects.requireNonNullElse(quantity, 1);
+    }
+
     public void copy(Equipment<?> equipment) {
         super.copy(equipment);
         setCost(equipment.getCost());
         setTechLevel(equipment.getTechLevel());
         setSize(equipment.getSize());
         setTechCompulsion(equipment.getTechCompulsion());
+        setQuantity(equipment.getQuantity());
         if (equipment.getTraits() != null) {
             setTraits(new ArrayList<>(equipment.getTraits()));
         }
@@ -132,5 +144,10 @@ public abstract class Equipment<E extends Element<?>> extends Element<E> impleme
         if (techCompulsion != null) {
             TechCompulsionFactory.getInstance().getElement(techCompulsion);
         }
+    }
+
+    @Override
+    public String toString() {
+        return getId() + (getQuantity() > 1 ? " (" + getQuantity() + ")" : "");
     }
 }

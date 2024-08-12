@@ -39,7 +39,7 @@ import org.testng.annotations.Test;
 
 @Test(groups = {"factionsFactory"})
 public class FactionFactoryTests {
-    private static final int DEFINED_FACTIONS = 19;
+    private static final int DEFINED_FACTIONS = 20;
     private static final int DEFINED_MALE_NAMES = 103;
     private static final int DEFINED_FEMALE_NAMES = 100;
     private static final int DEFINED_SURNAMES = 125;
@@ -118,5 +118,12 @@ public class FactionFactoryTests {
         Assert.assertNotNull(engineers);
         Assert.assertEquals(engineers.getMaterialAwards().get(0).getItems().get(0).getTechCompulsion(), "industrious");
         Assert.assertNotNull(TechCompulsionFactory.getInstance().getElement("industrious"));
+    }
+
+    @Test
+    public void getFenixQuantity() throws InvalidXmlElementException {
+        final Faction vagabonds = FactionFactory.getInstance().getElement("vagabonds");
+        Assert.assertNotNull(vagabonds);
+        Assert.assertEquals(vagabonds.getMaterialAwards().get(0).getItems().get(0).getQuantity(), 100);
     }
 }
