@@ -31,7 +31,7 @@ import org.testng.annotations.Test;
 
 @Test(groups = {"skillFactory"})
 public class SkillsFactoryTests {
-    private static final int TOTAL_SKILLS = 25;
+    private static final int TOTAL_SKILLS = 26;
 
     @Test
     public void readSkills() throws InvalidXmlElementException {

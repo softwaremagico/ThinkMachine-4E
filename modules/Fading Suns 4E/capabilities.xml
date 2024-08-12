@@ -676,6 +676,13 @@
                     <es>Magistrados</es>
                 </name>
             </specialization>
+            <specialization>
+                <id>vuldrok</id>
+                <name>
+                    <en>Vuldrok</en>
+                    <es>Vuldrok</es>
+                </name>
+            </specialization>
         </specializations>
     </capability>
     <capability>

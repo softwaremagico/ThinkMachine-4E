@@ -29,15 +29,23 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.equipment.armors.Armor;
+import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
 import com.softwaremagico.tm.character.equipment.armors.CustomizedArmor;
 import com.softwaremagico.tm.character.equipment.item.CustomizedItem;
 import com.softwaremagico.tm.character.equipment.item.Item;
+import com.softwaremagico.tm.character.equipment.item.ItemFactory;
+import com.softwaremagico.tm.character.equipment.item.handheldshield.CustomizedHandheldShield;
+import com.softwaremagico.tm.character.equipment.item.handheldshield.HandheldShield;
+import com.softwaremagico.tm.character.equipment.item.handheldshield.HandheldShieldFactory;
 import com.softwaremagico.tm.character.equipment.shields.CustomizedShield;
 import com.softwaremagico.tm.character.equipment.shields.Shield;
+import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
 import com.softwaremagico.tm.character.equipment.thinkmachines.CustomizedThinkMachine;
 import com.softwaremagico.tm.character.equipment.thinkmachines.ThinkMachine;
+import com.softwaremagico.tm.character.equipment.thinkmachines.ThinkMachineFactory;
 import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
+import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.ArrayList;
@@ -55,6 +63,9 @@ import java.util.Objects;
         @JsonSubTypes.Type(value = Shield.class, name = "shield"),
         @JsonSubTypes.Type(value = CustomizedShield.class, name = "customizedShield"),
         @JsonSubTypes.Type(value = Armor.class, name = "armor"),
+        @JsonSubTypes.Type(value = CustomizedArmor.class, name = "customizedArmor"),
+        @JsonSubTypes.Type(value = HandheldShield.class, name = "handheldShield"),
+        @JsonSubTypes.Type(value = CustomizedHandheldShield.class, name = "customizedHandheldShield"),
         @JsonSubTypes.Type(value = CustomizedArmor.class, name = "customizedArmor"),
         @JsonSubTypes.Type(value = Weapon.class, name = "weapon"),
         @JsonSubTypes.Type(value = CustomizedWeapon.class, name = "customizedWeapon"),
@@ -124,6 +135,28 @@ public abstract class Equipment<E extends Element<?>> extends Element<E> impleme
 
     public void setQuantity(Integer quantity) {
         this.quantity = Objects.requireNonNullElse(quantity, 1);
+    }
+
+    public static Equipment<?> generateCopy(Equipment<?> equipment) {
+        Equipment<?> finalItem = null;
+        if (equipment instanceof Item) {
+            finalItem = ItemFactory.getInstance().getElement(equipment.getId());
+        } else if (equipment instanceof Weapon) {
+            finalItem = WeaponFactory.getInstance().getElement(equipment.getId());
+        } else if (equipment instanceof Armor) {
+            finalItem = ArmorFactory.getInstance().getElement(equipment.getId());
+        } else if (equipment instanceof Shield) {
+            finalItem = ShieldFactory.getInstance().getElement(equipment.getId());
+        } else if (equipment instanceof ThinkMachine) {
+            finalItem = ThinkMachineFactory.getInstance().getElement(equipment.getId());
+        } else if (equipment instanceof HandheldShield) {
+            finalItem = HandheldShieldFactory.getInstance().getElement(equipment.getId());
+        }
+        if (finalItem == null) {
+            throw new InvalidXmlElementException("Equipment '" + equipment + "' is not copied correctly.");
+        }
+        finalItem.copy(equipment);
+        return finalItem;
     }
 
     public void copy(Equipment<?> equipment) {

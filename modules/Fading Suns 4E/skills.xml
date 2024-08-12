@@ -58,6 +58,14 @@
     </skill>
     <skill>
         <type>skill</type>
+        <id>crafts</id>
+        <name>
+            <en>Crafts</en>
+            <es>Oficios</es>
+        </name>
+    </skill>
+    <skill>
+        <type>skill</type>
         <id>disguise</id>
         <name>
             <en>Disguise</en>

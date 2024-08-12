@@ -29,6 +29,7 @@ import com.softwaremagico.tm.character.Gender;
 import com.softwaremagico.tm.character.equipment.TechCompulsionFactory;
 import com.softwaremagico.tm.character.equipment.item.Quality;
 import com.softwaremagico.tm.character.equipment.item.Status;
+import com.softwaremagico.tm.character.equipment.item.handheldshield.CustomizedHandheldShield;
 import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
@@ -125,5 +126,13 @@ public class FactionFactoryTests {
         final Faction vagabonds = FactionFactory.getInstance().getElement("vagabonds");
         Assert.assertNotNull(vagabonds);
         Assert.assertEquals(vagabonds.getMaterialAwards().get(0).getItems().get(0).getQuantity(), 100);
+    }
+
+    @Test
+    public void getWeaponQuality() throws InvalidXmlElementException {
+        final Faction vuldrok = FactionFactory.getInstance().getElement("vuldrok");
+        Assert.assertNotNull(vuldrok);
+        Assert.assertTrue(vuldrok.getMaterialAwards().get(0).getItems()
+                .get(vuldrok.getMaterialAwards().get(0).getItems().size() - 1) instanceof CustomizedHandheldShield);
     }
 }

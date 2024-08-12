@@ -27,8 +27,9 @@ package com.softwaremagico.tm.character.equipment;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.XmlData;
-import com.softwaremagico.tm.character.equipment.item.Item;
-import com.softwaremagico.tm.character.equipment.item.ItemFactory;
+import com.softwaremagico.tm.character.equipment.item.handheldshield.CustomizedHandheldShield;
+import com.softwaremagico.tm.character.equipment.item.handheldshield.HandheldShield;
+import com.softwaremagico.tm.character.equipment.item.handheldshield.HandheldShieldFactory;
 import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
@@ -59,9 +60,7 @@ public class EquipmentOptions extends XmlData {
             if (items != null && !items.isEmpty()) {
                 items.forEach(item -> {
                     if (item.getId() != null) {
-                        final Item sourceItem = ItemFactory.getInstance().getElement(item.getId());
-                        final Item finalItem = new Item();
-                        finalItem.copy(sourceItem);
+                        Equipment<?> finalItem = Equipment.generateCopy(item);
                         finalItem.setQuantity(item.getQuantity());
                         finalItems.add(finalItem);
                     } else if (item instanceof Weapon) {
@@ -79,12 +78,21 @@ public class EquipmentOptions extends XmlData {
                         customizedWeapons.forEach(weapon -> {
                             final CustomizedWeapon customizedWeapon = new CustomizedWeapon();
                             customizedWeapon.copy(weapon);
+                            customizedWeapon.setQuantity(item.getQuantity());
                             if (item instanceof CustomizedWeapon) {
                                 customizedWeapon.setQuality(((CustomizedWeapon) item).getQuality());
                                 customizedWeapon.setStatus(((CustomizedWeapon) item).getStatus());
-                                customizedWeapon.setQuantity(item.getQuantity());
                             }
                             finalItems.add(customizedWeapon);
+                        });
+                    } else if (item instanceof HandheldShield) {
+                        final List<HandheldShield> customizedHandheldShields =
+                                new ArrayList<>(HandheldShieldFactory.getInstance().getElements());
+                        customizedHandheldShields.forEach(handheldShield -> {
+                            final CustomizedHandheldShield customizedHandheldShield = new CustomizedHandheldShield();
+                            customizedHandheldShield.copy(handheldShield);
+                            customizedHandheldShield.setQuantity(item.getQuantity());
+                            finalItems.add(customizedHandheldShield);
                         });
                     }
                 });
