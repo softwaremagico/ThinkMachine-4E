@@ -27,11 +27,14 @@ package com.softwaremagico.tm.character;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
+import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class CharacterDefinitionStepSelection extends Element<CharacterDefinitionStepSelection> {
+public abstract class CharacterDefinitionStepSelection<T extends CharacterDefinitionStepSelection<?>> extends Element<T> {
+
+    private final CharacterPlayer characterPlayer;
 
     @JsonProperty("capabilities")
     private List<CharacterSelectedElement> capabilityOptions;
@@ -45,18 +48,20 @@ public class CharacterDefinitionStepSelection extends Element<CharacterDefinitio
     //TODO(softwaremagico): implement this.
     private boolean raisedInSpace;
 
-    public CharacterDefinitionStepSelection(CharacterDefinitionStep<?> characterDefinitionStep) throws InvalidGeneratedCharacter {
-        if (characterDefinitionStep == null) {
-            throw new InvalidGeneratedCharacter("You cannot make a selection if there is no step defined.");
-        }
-        setId(characterDefinitionStep.getId());
-        setName(characterDefinitionStep.getName());
-        setDescription(characterDefinitionStep.getDescription());
+    public CharacterDefinitionStepSelection(CharacterPlayer characterPlayer, CharacterDefinitionStep<?> characterDefinitionStep)
+            throws InvalidGeneratedCharacter {
+        copy(characterDefinitionStep);
+
+        this.characterPlayer = characterPlayer;
 
         setCapabilityOptions(Arrays.asList(new CharacterSelectedElement[characterDefinitionStep.getCapabilityOptions().size()]));
         setCharacteristicOptions(Arrays.asList(new CharacterSelectedElement[characterDefinitionStep.getCharacteristicOptions().size()]));
         setSkillOptions(Arrays.asList(new CharacterSelectedElement[characterDefinitionStep.getSkillOptions().size()]));
         setPerksOptions(Arrays.asList(new CharacterSelectedElement[characterDefinitionStep.getPerksOptions().size()]));
+    }
+
+    public CharacterPlayer getCharacterPlayer() {
+        return characterPlayer;
     }
 
     public List<CharacterSelectedElement> getCapabilityOptions() {
@@ -89,5 +94,21 @@ public class CharacterDefinitionStepSelection extends Element<CharacterDefinitio
 
     public void setPerksOptions(List<CharacterSelectedElement> perksOptions) {
         this.perksOptions = perksOptions;
+    }
+
+    public void validate() throws InvalidSelectionException {
+        super.validate();
+        if (getRestrictions().getRestrictedToSpecies() != null && !getRestrictions().getRestrictedToSpecies().isEmpty()) {
+            if (characterPlayer.getSpecie() != null && !getRestrictions().getRestrictedToSpecies().contains(characterPlayer.getSpecie())) {
+                throw new InvalidSelectionException("Option '" + getId() + "' is not allowed with specie '" + characterPlayer.getSpecie() + "'.");
+            }
+        }
+        if (getRestrictions().getRestrictedToUpbringing() != null && !getRestrictions().getRestrictedToUpbringing().isEmpty()) {
+            if (characterPlayer.getUpbringing().getId() != null
+                    && !getRestrictions().getRestrictedToUpbringing().contains(characterPlayer.getUpbringing().getId())) {
+                throw new InvalidSelectionException("Option '" + getId() + "' is not allowed with upbringing '"
+                        + characterPlayer.getUpbringing().getId() + "'.");
+            }
+        }
     }
 }

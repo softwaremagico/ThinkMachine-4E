@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.character.skills.Specialization;
 import com.softwaremagico.tm.exceptions.InvalidSpecializationException;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 
 import java.util.ArrayList;
@@ -238,6 +239,9 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
     }
 
     public void copy(Element<?> element) {
+        if (element == null) {
+            throw new InvalidXmlElementException("You cannot make a copy if there is no element defined.");
+        }
         setId(element.getId());
         setName(element.getName());
         setDescription(element.getDescription());

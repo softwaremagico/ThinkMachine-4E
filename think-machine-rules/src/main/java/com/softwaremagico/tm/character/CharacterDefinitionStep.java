@@ -43,6 +43,8 @@ public class CharacterDefinitionStep<T extends Element<?>> extends Element<T> {
     @JsonProperty("perks")
     private List<PerkOptions> perksOptions;
 
+
+
     public List<CapabilityOptions> getCapabilityOptions() {
         return capabilityOptions;
     }

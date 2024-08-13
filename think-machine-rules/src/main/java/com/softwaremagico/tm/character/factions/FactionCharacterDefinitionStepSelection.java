@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.capabilities;
+package com.softwaremagico.tm.character.factions;
 
 /*-
  * #%L
@@ -24,24 +24,29 @@ package com.softwaremagico.tm.character.capabilities;
  * #L%
  */
 
-import com.softwaremagico.tm.character.CharacterDefinitionStep;
 import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.exceptions.InvalidFactionException;
 import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
+import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 
-public class CapabilitySelection extends CharacterDefinitionStepSelection<CapabilitySelection> {
-    private String specialization;
+public class FactionCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection<FactionCharacterDefinitionStepSelection> {
 
-    public CapabilitySelection(CharacterPlayer characterPlayer, String capability) throws InvalidGeneratedCharacter {
-        super(characterPlayer, new CharacterDefinitionStep<>());
-        setId(capability);
+    public FactionCharacterDefinitionStepSelection(CharacterPlayer characterPlayer, String faction) throws InvalidGeneratedCharacter {
+        super(characterPlayer, FactionFactory.getInstance().getElement(faction));
+        setId(faction);
     }
 
-    public String getSpecialization() {
-        return specialization;
-    }
 
-    public void setSpecialization(String specialization) {
-        this.specialization = specialization;
+    @Override
+    public void validate() throws InvalidSelectionException {
+        if (getCharacterPlayer().getUpbringing() == null) {
+            throw new InvalidFactionException("No upbringing selected. Select an upbringing first.");
+        }
+        try {
+            super.validate();
+        } catch (InvalidSelectionException e) {
+            throw new InvalidFactionException(e.getMessage(), e);
+        }
     }
 }

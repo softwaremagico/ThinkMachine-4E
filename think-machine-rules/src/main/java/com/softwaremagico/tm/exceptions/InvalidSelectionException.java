@@ -24,16 +24,15 @@ package com.softwaremagico.tm.exceptions;
  * #L%
  */
 
+public class InvalidSelectionException extends RuntimeException {
 
-public class InvalidCapabilityException extends InvalidSelectionException {
+    private static final long serialVersionUID = 1232025341181081L;
 
-    private static final long serialVersionUID = 124956025341182821L;
-
-    public InvalidCapabilityException(String message) {
+    public InvalidSelectionException(String message) {
         super(message);
     }
 
-    public InvalidCapabilityException(String message, Exception e) {
+    public InvalidSelectionException(String message, Exception e) {
         super(message, e);
     }
 }

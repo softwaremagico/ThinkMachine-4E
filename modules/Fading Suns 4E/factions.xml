@@ -7,11 +7,6 @@
             <es>al-Malik</es>
         </name>
         <group>nobility</group>
-        <restrictions>
-            <species>
-                <specie>human</specie>
-            </species>
-        </restrictions>
         <capabilities>
             <options>
                 <total>1</total>
@@ -216,6 +211,9 @@
             <upbringings>
                 <upbringing>nobility</upbringing>
             </upbringings>
+            <species>
+                <specie>human</specie>
+            </species>
         </restrictions>
         <random>
             <names>

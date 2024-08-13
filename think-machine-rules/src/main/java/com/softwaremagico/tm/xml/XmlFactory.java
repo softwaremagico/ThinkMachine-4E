@@ -131,7 +131,7 @@ public abstract class XmlFactory<T extends Element<T>> {
         }
     }
 
-    public List<T> getRestrictedByUprising(String uprising) throws InvalidXmlElementException {
-        return getElements().stream().filter(t -> t.getRestrictions().getRestrictedToUprising().contains(uprising)).collect(Collectors.toList());
+    public List<T> getRestrictedToUpbringing(String uprising) throws InvalidXmlElementException {
+        return getElements().stream().filter(t -> t.getRestrictions().getRestrictedToUpbringing().contains(uprising)).collect(Collectors.toList());
     }
 }

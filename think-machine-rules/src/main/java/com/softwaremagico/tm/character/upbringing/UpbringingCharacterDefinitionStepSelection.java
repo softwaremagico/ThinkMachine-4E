@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.capabilities;
+package com.softwaremagico.tm.character.upbringing;
 
 /*-
  * #%L
@@ -24,24 +24,29 @@ package com.softwaremagico.tm.character.capabilities;
  * #L%
  */
 
-import com.softwaremagico.tm.character.CharacterDefinitionStep;
 import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.factions.FactionCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
+import com.softwaremagico.tm.exceptions.InvalidSelectionException;
+import com.softwaremagico.tm.exceptions.InvalidUpbringingException;
 
-public class CapabilitySelection extends CharacterDefinitionStepSelection<CapabilitySelection> {
-    private String specialization;
+public class UpbringingCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection<FactionCharacterDefinitionStepSelection> {
 
-    public CapabilitySelection(CharacterPlayer characterPlayer, String capability) throws InvalidGeneratedCharacter {
-        super(characterPlayer, new CharacterDefinitionStep<>());
-        setId(capability);
+    public UpbringingCharacterDefinitionStepSelection(CharacterPlayer characterPlayer, String upbringing) throws InvalidGeneratedCharacter {
+        super(characterPlayer, UpbringingFactory.getInstance().getElement(upbringing));
+        setId(upbringing);
     }
 
-    public String getSpecialization() {
-        return specialization;
-    }
-
-    public void setSpecialization(String specialization) {
-        this.specialization = specialization;
+    @Override
+    public void validate() throws InvalidSelectionException {
+        if (getCharacterPlayer().getSpecie() == null) {
+            throw new InvalidUpbringingException("No specie selected. Select a specie first.");
+        }
+        try {
+            super.validate();
+        } catch (InvalidSelectionException e) {
+            throw new InvalidUpbringingException(e.getMessage(), e);
+        }
     }
 }

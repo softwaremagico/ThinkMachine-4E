@@ -25,15 +25,15 @@ package com.softwaremagico.tm.exceptions;
  */
 
 
-public class InvalidCapabilityException extends InvalidSelectionException {
+public class InvalidUpbringingException extends InvalidSelectionException {
 
-    private static final long serialVersionUID = 124956025341182821L;
+    private static final long serialVersionUID = 189956028651282541L;
 
-    public InvalidCapabilityException(String message) {
+    public InvalidUpbringingException(String message) {
         super(message);
     }
 
-    public InvalidCapabilityException(String message, Exception e) {
+    public InvalidUpbringingException(String message, Exception e) {
         super(message, e);
     }
 }

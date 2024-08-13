@@ -208,7 +208,16 @@
                 </skills>
             </options>
         </skills>
+        <restrictions>
+            <species>
+                <specie>human</specie>
+                <specie>obun</specie>
+                <specie>vorox</specie>
+            </species>
+        </restrictions>
     </uprising>
+
+
     <uprising>
         <id>priest</id>
         <name>

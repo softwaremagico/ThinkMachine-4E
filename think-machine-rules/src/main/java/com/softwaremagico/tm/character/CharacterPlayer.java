@@ -27,7 +27,10 @@ package com.softwaremagico.tm.character;
 import com.softwaremagico.tm.character.capabilities.CapabilitySelection;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.combat.CombatActionRequirement;
+import com.softwaremagico.tm.character.factions.FactionCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.skills.Skill;
+import com.softwaremagico.tm.character.upbringing.UpbringingCharacterDefinitionStepSelection;
+import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,9 +39,9 @@ public class CharacterPlayer {
 
     private String specie;
 
-    private CharacterDefinitionStepSelection faction;
+    private UpbringingCharacterDefinitionStepSelection upbringing;
 
-    private CharacterDefinitionStepSelection upbringing;
+    private FactionCharacterDefinitionStepSelection faction;
 
     private List<CapabilitySelection> capabilities;
 
@@ -54,14 +57,66 @@ public class CharacterPlayer {
 
     public void setSpecie(String specie) {
         this.specie = specie;
+        try {
+            if (this.upbringing != null) {
+                this.upbringing.validate();
+            }
+        } catch (InvalidSelectionException e) {
+            setUpbringing((String) null);
+        }
     }
 
-    public CharacterDefinitionStepSelection getFaction() {
+    public FactionCharacterDefinitionStepSelection getFaction() {
         return faction;
     }
 
-    public void setFaction(CharacterDefinitionStepSelection faction) {
+
+    public UpbringingCharacterDefinitionStepSelection getUpbringing() {
+        return upbringing;
+    }
+
+    public void setUpbringing(UpbringingCharacterDefinitionStepSelection upbringing) {
+        this.upbringing = upbringing;
+    }
+
+    public void setUpbringing(String upbringing) {
+        if (upbringing != null) {
+            this.upbringing = new UpbringingCharacterDefinitionStepSelection(this, upbringing);
+            try {
+                this.upbringing.validate();
+            } catch (InvalidSelectionException e) {
+                this.upbringing = null;
+                throw e;
+            }
+        } else {
+            this.upbringing = null;
+        }
+        try {
+            if (this.faction != null) {
+                this.faction.validate();
+            }
+        } catch (InvalidSelectionException e) {
+            setFaction((String) null);
+        }
+    }
+
+
+    public void setFaction(FactionCharacterDefinitionStepSelection faction) {
         this.faction = faction;
+    }
+
+    public void setFaction(String faction) {
+        if (faction != null) {
+            this.faction = new FactionCharacterDefinitionStepSelection(this, faction);
+            try {
+                this.faction.validate();
+            } catch (InvalidSelectionException e) {
+                this.faction = null;
+                throw e;
+            }
+        } else {
+            this.faction = null;
+        }
     }
 
     public Settings getSettings() {
@@ -80,13 +135,6 @@ public class CharacterPlayer {
         return 0;
     }
 
-    public CharacterDefinitionStepSelection getUpbringing() {
-        return upbringing;
-    }
-
-    public void setUpbringing(CharacterDefinitionStepSelection upbringing) {
-        this.upbringing = upbringing;
-    }
 
     public List<CapabilitySelection> getCapabilities() {
         return capabilities;

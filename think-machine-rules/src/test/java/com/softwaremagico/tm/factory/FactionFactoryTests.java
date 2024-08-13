@@ -72,6 +72,13 @@ public class FactionFactoryTests {
         Assert.assertTrue(alMalik.getFavoredCallings().contains("enthusiast"));
     }
 
+    @Test
+    public void checkRestriction() throws InvalidXmlElementException {
+        final Faction brotherBattle = FactionFactory.getInstance().getElement("brotherBattle");
+        Assert.assertNotNull(brotherBattle);
+        Assert.assertFalse(brotherBattle.getRestrictions().getRestrictedToUpbringing().isEmpty());
+    }
+
 
     @Test
     public void readNames() throws InvalidXmlElementException {
