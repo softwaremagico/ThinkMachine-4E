@@ -137,7 +137,7 @@ public abstract class Equipment<E extends Element<?>> extends Element<E> impleme
         this.quantity = Objects.requireNonNullElse(quantity, 1);
     }
 
-    public static Equipment<?> generateCopy(Equipment<?> equipment) {
+    public static Equipment<?> completeItem(Equipment<?> equipment) {
         Equipment<?> finalItem = null;
         if (equipment instanceof Item) {
             finalItem = ItemFactory.getInstance().getElement(equipment.getId());
@@ -155,8 +155,8 @@ public abstract class Equipment<E extends Element<?>> extends Element<E> impleme
         if (finalItem == null) {
             throw new InvalidXmlElementException("Equipment '" + equipment + "' is not copied correctly.");
         }
-        finalItem.copy(equipment);
-        return finalItem;
+        equipment.copy(finalItem);
+        return equipment;
     }
 
     public void copy(Equipment<?> equipment) {
@@ -165,7 +165,7 @@ public abstract class Equipment<E extends Element<?>> extends Element<E> impleme
         setTechLevel(equipment.getTechLevel());
         setSize(equipment.getSize());
         setTechCompulsion(equipment.getTechCompulsion());
-        setQuantity(equipment.getQuantity());
+        //setQuantity(equipment.getQuantity());
         if (equipment.getTraits() != null) {
             setTraits(new ArrayList<>(equipment.getTraits()));
         }
