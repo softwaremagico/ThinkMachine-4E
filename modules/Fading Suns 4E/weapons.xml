@@ -909,7 +909,7 @@
         <cost>20</cost>
         <random>
             <recommendedUpbringings>
-                <id>nobility</id>
+                <id>noble</id>
             </recommendedUpbringings>
         </random>
     </rapier>

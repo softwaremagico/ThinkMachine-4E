@@ -201,7 +201,7 @@
         </materialAwards>
         <restrictions>
             <upbringings>
-                <faction>nobility</faction>
+                <upbringing>noble</upbringing>
             </upbringings>
         </restrictions>
     </calling>
@@ -397,7 +397,7 @@
         </materialAwards>
         <restrictions>
             <upbringings>
-                <faction>nobility</faction>
+                <upbringing>noble</upbringing>
             </upbringings>
         </restrictions>
     </calling>
@@ -464,7 +464,7 @@
         </materialAwards>
         <restrictions>
             <upbringings>
-                <faction>nobility</faction>
+                <upbringing>noble</upbringing>
             </upbringings>
         </restrictions>
     </calling>

@@ -855,7 +855,7 @@
                 </description>
             </stance>
         </stances>
-        <restrictedUpbringings>nobility</restrictedUpbringings>
+        <restrictedUpbringings>noble</restrictedUpbringings>
     </style>
     <style>
         <id>phoenixRifleCorps</id>

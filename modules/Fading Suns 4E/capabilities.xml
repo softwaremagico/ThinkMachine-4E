@@ -29,7 +29,7 @@
             </factions>
             <upbringings>
                 <upbringing>merchant</upbringing>
-                <upbringing>nobility</upbringing>
+                <upbringing>noble</upbringing>
             </upbringings>
             <callings>
                 <calling>theDispossessed</calling>
@@ -55,7 +55,7 @@
             </factions>
             <upbringings>
                 <upbringing>merchant</upbringing>
-                <upbringing>nobility</upbringing>
+                <upbringing>noble</upbringing>
             </upbringings>
             <callings>
                 <calling>amateur</calling>
@@ -94,7 +94,7 @@
                 <faction>brotherBattle</faction>
             </factions>
             <upbringings>
-                <upbringing>nobility</upbringing>
+                <upbringing>noble</upbringing>
                 <upbringing>merchant</upbringing>
             </upbringings>
             <callings>
@@ -115,7 +115,7 @@
                 <faction>inquisitor</faction>
             </factions>
             <upbringings>
-                <upbringing>nobility</upbringing>
+                <upbringing>noble</upbringing>
                 <upbringing>merchant</upbringing>
             </upbringings>
             <callings>
@@ -142,7 +142,7 @@
                 <faction>brotherBattle</faction>
             </factions>
             <upbringings>
-                <upbringing>nobility</upbringing>
+                <upbringing>noble</upbringing>
                 <upbringing>merchant</upbringing>
             </upbringings>
             <callings>
@@ -238,7 +238,7 @@
                 <faction>inquisitor</faction>
             </factions>
             <upbringings>
-                <upbringing>nobility</upbringing>
+                <upbringing>noble</upbringing>
                 <upbringing>merchant</upbringing>
             </upbringings>
             <callings>
@@ -319,7 +319,7 @@
                 <faction>brotherBattle</faction>
             </factions>
             <upbringings>
-                <upbringing>nobility</upbringing>
+                <upbringing>noble</upbringing>
                 <upbringing>merchant</upbringing>
             </upbringings>
             <callings>
@@ -343,7 +343,7 @@
                 <faction>brotherBattle</faction>
             </factions>
             <upbringings>
-                <upbringing>nobility</upbringing>
+                <upbringing>noble</upbringing>
                 <upbringing>merchant</upbringing>
             </upbringings>
             <callings>
@@ -1195,7 +1195,7 @@
                 <faction>brotherBattle</faction>
             </factions>
             <upbringings>
-                <upbringing>nobility</upbringing>
+                <upbringing>noble</upbringing>
                 <upbringing>merchant</upbringing>
             </upbringings>
             <callings>

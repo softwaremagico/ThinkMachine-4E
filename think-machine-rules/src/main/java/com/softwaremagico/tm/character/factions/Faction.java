@@ -27,7 +27,9 @@ package com.softwaremagico.tm.character.factions;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.softwaremagico.tm.character.CharacterDefinitionStep;
+import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.equipment.EquipmentOptions;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.List;
 
@@ -83,5 +85,13 @@ public class Faction extends CharacterDefinitionStep<Faction> {
 
     public void setMaterialAwards(List<EquipmentOptions> materialAwards) {
         this.materialAwards = materialAwards;
+    }
+
+    @Override
+    public void validate() throws InvalidXmlElementException {
+        super.validate();
+        if (favoredCallings != null) {
+            favoredCallings.forEach(favoredCalling -> CallingFactory.getInstance().getElement(favoredCalling));
+        }
     }
 }

@@ -98,17 +98,8 @@ public abstract class CharacterDefinitionStepSelection<T extends CharacterDefini
 
     public void validate() throws InvalidSelectionException {
         super.validate();
-        if (getRestrictions().getRestrictedToSpecies() != null && !getRestrictions().getRestrictedToSpecies().isEmpty()) {
-            if (characterPlayer.getSpecie() != null && !getRestrictions().getRestrictedToSpecies().contains(characterPlayer.getSpecie())) {
-                throw new InvalidSelectionException("Option '" + getId() + "' is not allowed with specie '" + characterPlayer.getSpecie() + "'.");
-            }
-        }
-        if (getRestrictions().getRestrictedToUpbringing() != null && !getRestrictions().getRestrictedToUpbringing().isEmpty()) {
-            if (characterPlayer.getUpbringing().getId() != null
-                    && !getRestrictions().getRestrictedToUpbringing().contains(characterPlayer.getUpbringing().getId())) {
-                throw new InvalidSelectionException("Option '" + getId() + "' is not allowed with upbringing '"
-                        + characterPlayer.getUpbringing().getId() + "'.");
-            }
+        if (getRestrictions().isRestricted(characterPlayer)) {
+            throw new InvalidSelectionException("Restrictions for  '" + getId() + "' are not meet.");
         }
     }
 }

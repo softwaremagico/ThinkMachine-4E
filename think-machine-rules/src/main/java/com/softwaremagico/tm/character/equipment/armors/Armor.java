@@ -27,6 +27,7 @@ package com.softwaremagico.tm.character.equipment.armors;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.character.equipment.DamageTypeFactory;
 import com.softwaremagico.tm.character.equipment.Equipment;
+import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.HashSet;
@@ -131,6 +132,12 @@ public class Armor extends Equipment<Armor> {
         super.validate();
         if (damageTypes != null) {
             damageTypes.forEach(damageType -> DamageTypeFactory.getInstance().getElement(damageType));
+        }
+        if (allowedShields != null) {
+            allowedShields.forEach(allowedShield -> ShieldFactory.getInstance().getElement(allowedShield));
+        }
+        if (specifications != null) {
+            specifications.forEach(specification -> ArmourSpecificationFactory.getInstance().getElement(specification));
         }
     }
 }

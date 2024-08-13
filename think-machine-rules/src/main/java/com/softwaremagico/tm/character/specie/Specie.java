@@ -24,7 +24,7 @@ package com.softwaremagico.tm.character.specie;
  * #L%
  */
 
-import com.softwaremagico.tm.Element;
+import com.softwaremagico.tm.character.CharacterDefinitionStep;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
@@ -34,7 +34,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Specie extends Element<Specie> {
+public class Specie extends CharacterDefinitionStep<Specie> {
 
     private List<SpecieCharacteristic> specieCharacteristics;
 
@@ -45,7 +45,6 @@ public class Specie extends Element<Specie> {
     private int urge;
     private int hubris;
 
-    private List<String> capabilities;
     private List<PerkOption> perks;
 
     private int cost;
@@ -156,14 +155,6 @@ public class Specie extends Element<Specie> {
 
     public void setSpecieCharacteristics(List<SpecieCharacteristic> specieCharacteristics) {
         this.specieCharacteristics = specieCharacteristics;
-    }
-
-    public List<String> getCapabilities() {
-        return capabilities;
-    }
-
-    public void setCapabilities(List<String> capabilities) {
-        this.capabilities = capabilities;
     }
 
     public List<PerkOption> getPerks() {

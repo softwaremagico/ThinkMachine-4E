@@ -25,6 +25,7 @@ package com.softwaremagico.tm.rules;
  */
 
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.exceptions.InvalidCallingException;
 import com.softwaremagico.tm.exceptions.InvalidFactionException;
 import com.softwaremagico.tm.exceptions.InvalidUpbringingException;
 import org.testng.annotations.Test;
@@ -40,11 +41,42 @@ public class CharacterCreationTest {
         characterPlayer.setUpbringing("noble");
     }
 
+    public void validUpbringing() {
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("noble");
+    }
+
     @Test(expectedExceptions = InvalidFactionException.class)
     public void invalidFaction() {
         CharacterPlayer characterPlayer = new CharacterPlayer();
         characterPlayer.setSpecie("human");
         characterPlayer.setUpbringing("noble");
         characterPlayer.setFaction("brotherBattle");
+    }
+
+    public void validFaction() {
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("noble");
+        characterPlayer.setFaction("alMalik");
+    }
+
+    @Test(expectedExceptions = InvalidCallingException.class)
+    public void invalidCalling() {
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("priest");
+        characterPlayer.setFaction("brotherBattle");
+        characterPlayer.setCalling("commander");
+    }
+
+    @Test
+    public void validCalling() {
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("noble");
+        characterPlayer.setFaction("alMalik");
+        characterPlayer.setCalling("commander");
     }
 }

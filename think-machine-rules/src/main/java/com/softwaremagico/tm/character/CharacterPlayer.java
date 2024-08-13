@@ -24,7 +24,7 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
-import com.softwaremagico.tm.character.capabilities.CapabilitySelection;
+import com.softwaremagico.tm.character.callings.CallingCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.combat.CombatActionRequirement;
 import com.softwaremagico.tm.character.factions.FactionCharacterDefinitionStepSelection;
@@ -40,10 +40,9 @@ public class CharacterPlayer {
     private String specie;
 
     private UpbringingCharacterDefinitionStepSelection upbringing;
-
     private FactionCharacterDefinitionStepSelection faction;
+    private CallingCharacterDefinitionStepSelection calling;
 
-    private List<CapabilitySelection> capabilities;
 
     private final Settings settings;
 
@@ -98,6 +97,14 @@ public class CharacterPlayer {
         } catch (InvalidSelectionException e) {
             setFaction((String) null);
         }
+
+        try {
+            if (this.calling != null) {
+                this.calling.validate();
+            }
+        } catch (InvalidSelectionException e) {
+            setCalling((String) null);
+        }
     }
 
 
@@ -117,6 +124,35 @@ public class CharacterPlayer {
         } else {
             this.faction = null;
         }
+        try {
+            if (this.calling != null) {
+                this.calling.validate();
+            }
+        } catch (InvalidSelectionException e) {
+            setCalling((String) null);
+        }
+    }
+
+    public CallingCharacterDefinitionStepSelection getCalling() {
+        return calling;
+    }
+
+    public void setCalling(CallingCharacterDefinitionStepSelection calling) {
+        this.calling = calling;
+    }
+
+    public void setCalling(String calling) {
+        if (calling != null) {
+            this.calling = new CallingCharacterDefinitionStepSelection(this, calling);
+            try {
+                this.calling.validate();
+            } catch (InvalidSelectionException e) {
+                this.calling = null;
+                throw e;
+            }
+        } else {
+            this.calling = null;
+        }
     }
 
     public Settings getSettings() {
@@ -133,15 +169,6 @@ public class CharacterPlayer {
 
     public int getCharacteristicValue(CharacteristicName characteristicName) {
         return 0;
-    }
-
-
-    public List<CapabilitySelection> getCapabilities() {
-        return capabilities;
-    }
-
-    public void setCapabilities(List<CapabilitySelection> capabilities) {
-        this.capabilities = capabilities;
     }
 
     public List<String> getCallings() {

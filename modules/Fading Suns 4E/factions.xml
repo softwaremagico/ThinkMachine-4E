@@ -6,7 +6,7 @@
             <en>al-Malik</en>
             <es>al-Malik</es>
         </name>
-        <group>nobility</group>
+        <group>noble</group>
         <capabilities>
             <options>
                 <total>1</total>
@@ -209,7 +209,7 @@
         </materialAwards>
         <restrictions>
             <upbringings>
-                <upbringing>nobility</upbringing>
+                <upbringing>noble</upbringing>
             </upbringings>
             <species>
                 <specie>human</specie>
@@ -355,7 +355,7 @@
             <en>Decados</en>
             <es>Decados</es>
         </name>
-        <group>nobility</group>
+        <group>noble</group>
         <restrictions>
             <species>
                 <specie>human</specie>
@@ -567,7 +567,7 @@
         </materialAwards>
         <restrictions>
             <upbringings>
-                <upbringing>nobility</upbringing>
+                <upbringing>noble</upbringing>
             </upbringings>
         </restrictions>
         <random>
@@ -582,7 +582,7 @@
             <en>Hawkwood</en>
             <es>Hawkwood</es>
         </name>
-        <group>nobility</group>
+        <group>noble</group>
         <restrictions>
             <species>
                 <specie>human</specie>
@@ -768,7 +768,7 @@
         </materialAwards>
         <restrictions>
             <upbringings>
-                <upbringing>nobility</upbringing>
+                <upbringing>noble</upbringing>
             </upbringings>
         </restrictions>
         <random>
@@ -825,7 +825,7 @@
             <en>Hazat</en>
             <es>Hazat</es>
         </name>
-        <group>nobility</group>
+        <group>noble</group>
         <restrictions>
             <species>
                 <specie>human</specie>
@@ -1077,7 +1077,7 @@
             <en>Li Halan</en>
             <es>Li Halan</es>
         </name>
-        <group>nobility</group>
+        <group>noble</group>
         <restrictions>
             <species>
                 <specie>human</specie>

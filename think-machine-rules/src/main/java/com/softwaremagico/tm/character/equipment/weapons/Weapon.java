@@ -207,4 +207,18 @@ public class Weapon extends Equipment<Weapon> {
             setAccessories(new HashSet<>(weapon.getAccessories()));
         }
     }
+
+    @Override
+    public void validate() throws InvalidXmlElementException {
+        super.validate();
+        if (damageTypes != null) {
+            damageTypes.forEach(damageType -> DamageTypeFactory.getInstance().getElement(damageType));
+        }
+        if (ammunition != null) {
+            ammunition.forEach(ammo -> AmmunitionFactory.getInstance().getElement(ammo));
+        }
+        if (accessories != null) {
+            accessories.forEach(accessory -> AccessoryFactory.getInstance().getElement(accessory));
+        }
+    }
 }
