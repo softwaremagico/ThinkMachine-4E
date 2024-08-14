@@ -35,6 +35,9 @@ import java.util.List;
 
 @JacksonXmlRootElement(localName = "faction")
 public class Faction extends CharacterDefinitionStep<Faction> {
+    private static final int TOTAL_CHARACTERISTICS_OPTIONS = 5;
+    private static final int TOTAL_SKILL_OPTIONS = 5;
+
     private Boolean isOnlyForHuman;
     private Blessing blessing;
     private Curse curse;
@@ -85,6 +88,14 @@ public class Faction extends CharacterDefinitionStep<Faction> {
 
     public void setMaterialAwards(List<EquipmentOptions> materialAwards) {
         this.materialAwards = materialAwards;
+    }
+
+    public int getCharacteristicsTotalPoints() {
+        return TOTAL_CHARACTERISTICS_OPTIONS;
+    }
+
+    public int getSkillsTotalPoints() {
+        return TOTAL_SKILL_OPTIONS;
     }
 
     @Override

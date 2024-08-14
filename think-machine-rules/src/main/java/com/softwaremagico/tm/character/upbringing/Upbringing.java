@@ -37,6 +37,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Upbringing extends CharacterDefinitionStep<Upbringing> {
+
+    private static final int TOTAL_CHARACTERISTICS_OPTIONS = 5;
+    private static final int TOTAL_SKILL_OPTIONS = 5;
+
     @JsonIgnore
     private List<PerkOptions> finalPerkOptions;
 
@@ -62,5 +66,14 @@ public class Upbringing extends CharacterDefinitionStep<Upbringing> {
             }
         }
         return finalPerkOptions;
+    }
+
+
+    public int getCharacteristicsTotalPoints() {
+        return TOTAL_CHARACTERISTICS_OPTIONS;
+    }
+
+    public int getSkillsTotalPoints() {
+        return TOTAL_SKILL_OPTIONS;
     }
 }

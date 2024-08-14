@@ -54,7 +54,7 @@
                 <characteristics>
                     <characteristic>
                         <id>wits</id>
-                        <bonus>2</bonus>
+                        <bonus>1</bonus>
                     </characteristic>
                 </characteristics>
             </options>
@@ -62,7 +62,7 @@
                 <total>1</total>
                 <characteristics>
                     <characteristic>
-                        <id>intuition</id>
+                        <id>will</id>
                         <bonus>1</bonus>
                     </characteristic>
                     <characteristic>
@@ -404,17 +404,34 @@
 
 
     <calling>
-        <id></id>
+        <id>courtier</id>
         <name>
-            <en></en>
-            <es></es>
+            <en>Courtier</en>
+            <es>Cortesano</es>
         </name>
         <capabilities>
             <options>
                 <total>1</total>
                 <capabilities>
                     <capability>
-                        <id>militaryWeapons</id>
+                        <group>medicalLore</group>
+                    </capability>
+                    <capability>
+                        <group>knowledgeLore</group>
+                    </capability>
+                    <capability>
+                        <group>artsLore</group>
+                    </capability>
+                </capabilities>
+            </options>
+            <options>
+                <total>1</total>
+                <capabilities>
+                    <capability>
+                        <id>cathedralCustoms</id>
+                    </capability>
+                    <capability>
+                        <id>commonsCustoms</id>
                     </capability>
                 </capabilities>
             </options>
@@ -429,13 +446,37 @@
                     </characteristic>
                 </characteristics>
             </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>presence</id>
+                        <bonus>3</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
         </characteristics>
         <perks>
             <options>
                 <total>1</total>
                 <perks>
                     <perk>
-                        <id></id>
+                        <id>councilMember</id>
+                    </perk>
+                    <perk>
+                        <id>entourage</id>
+                    </perk>
+                    <perk>
+                        <id>paramour</id>
+                    </perk>
+                    <perk>
+                        <id>respectable</id>
+                    </perk>
+                    <perk>
+                        <id>schmooze</id>
+                    </perk>
+                    <perk>
+                        <id>viciousInsult</id>
                     </perk>
                 </perks>
             </options>
@@ -445,8 +486,272 @@
                 <total>1</total>
                 <skills>
                     <skill>
-                        <id></id>
+                        <id>academia</id>
                         <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>arts</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+                <options>
+                    <total>1</total>
+                    <skills>
+                        <skill>
+                            <id>charm</id>
+                            <bonus>3</bonus>
+                        </skill>
+                    </skills>
+                </options>
+                <options>
+                    <total>1</total>
+                    <skills>
+                        <skill>
+                            <id>impress</id>
+                            <bonus>2</bonus>
+                        </skill>
+                    </skills>
+                </options>
+                <options>
+                    <total>1</total>
+                    <skills>
+                        <skill>
+                            <id>knavery</id>
+                            <bonus>1</bonus>
+                        </skill>
+                    </skills>
+                </options>
+                <options>
+                    <total>1</total>
+                    <skills>
+                        <skill>
+                            <id>melee</id>
+                            <bonus>1</bonus>
+                        </skill>
+                        <skill>
+                            <id>shoot</id>
+                            <bonus>1</bonus>
+                        </skill>
+                    </skills>
+                </options>
+                <options>
+                    <total>1</total>
+                    <skills>
+                        <skill>
+                            <id>perform</id>
+                            <bonus>1</bonus>
+                        </skill>
+                    </skills>
+                </options>
+            </options>
+        </skills>
+        <materialAwards>
+            <options>
+                <total>1</total>
+                <items>
+                    <item>
+                        <id>officialOccasionOutfit</id>
+                        <type>item</type>
+                    </item>
+                </items>
+            </options>
+            <options>
+                <total>1</total>
+                <items>
+                    <item>
+                        <id>huntingOutfit</id>
+                        <type>item</type>
+                    </item>
+                </items>
+            </options>
+            <options>
+                <total>1</total>
+                <items>
+                    <item>
+                        <id>diningOutfit</id>
+                        <type>item</type>
+                    </item>
+                </items>
+            </options>
+        </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+        </restrictions>
+    </calling>
+
+
+    <calling>
+        <id>duelist</id>
+        <name>
+            <en>Duelist</en>
+            <es>Duelista</es>
+        </name>
+        <capabilities>
+            <options>
+                <total>1</total>
+                <capabilities>
+                    <capability>
+                        <id>militaryWeapons</id>
+                    </capability>
+                </capabilities>
+            </options>
+            <options>
+                <total>1</total>
+                <capabilities>
+                    <capability>
+                        <id>combatArmor</id>
+                    </capability>
+                </capabilities>
+            </options>
+        </capabilities>
+        <characteristics>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>endurance</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>perception</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>will</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+            <options>
+                <total>1</total>
+                <characteristics>
+                    <characteristic>
+                        <id>strength</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </characteristics>
+            </options>
+        </characteristics>
+        <perks>
+            <options>
+                <total>1</total>
+                <perks>
+                    <perk>
+                        <id>aimAssistance</id>
+                    </perk>
+                    <perk>
+                        <id>aimWhereItHurts</id>
+                    </perk>
+                    <perk>
+                        <id>armedToTheTeeth</id>
+                    </perk>
+                    <perk>
+                        <id>danceOfDestruction</id>
+                    </perk>
+                    <perk>
+                        <id>fencing</id>
+                    </perk>
+                    <perk>
+                        <id>marksmanship</id>
+                    </perk>
+                    <perk>
+                        <id>nimble</id>
+                    </perk>
+                    <perk>
+                        <id>twoGunFighting</id>
+                    </perk>
+                </perks>
+            </options>
+        </perks>
+        <skills>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>fight</id>
+                        <bonus>2</bonus>
+                    </skill>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>empathy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>focus</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>knavery</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>perform</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>3</bonus>
+                    </skill>
+                </skills>
+            </options>
+            <options>
+                <total>1</total>
+                <skills>
+                    <skill>
+                        <id>vigor</id>
+                        <bonus>2</bonus>
                     </skill>
                 </skills>
             </options>

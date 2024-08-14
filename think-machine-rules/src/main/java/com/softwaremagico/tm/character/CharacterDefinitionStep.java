@@ -30,10 +30,16 @@ import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.characteristics.CharacteristicOption;
 import com.softwaremagico.tm.character.perks.PerkOptions;
 import com.softwaremagico.tm.character.skills.SkillOption;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class CharacterDefinitionStep<T extends Element<?>> extends Element<T> {
+    private static final int TOTAL_CHARACTERISTICS_OPTIONS = 0;
+    private static final int TOTAL_SKILL_OPTIONS = 0;
+
     @JsonProperty("capabilities")
     private List<CapabilityOptions> capabilityOptions;
     @JsonProperty("characteristics")
@@ -42,7 +48,6 @@ public class CharacterDefinitionStep<T extends Element<?>> extends Element<T> {
     private List<SkillOption> skillOptions;
     @JsonProperty("perks")
     private List<PerkOptions> perksOptions;
-
 
 
     public List<CapabilityOptions> getCapabilityOptions() {
@@ -54,7 +59,7 @@ public class CharacterDefinitionStep<T extends Element<?>> extends Element<T> {
     }
 
     public List<CharacteristicOption> getCharacteristicOptions() {
-        return characteristicOptions;
+        return Objects.requireNonNullElseGet(characteristicOptions, ArrayList::new);
     }
 
     public void setCharacteristicOptions(List<CharacteristicOption> characteristicOptions) {
@@ -62,7 +67,7 @@ public class CharacterDefinitionStep<T extends Element<?>> extends Element<T> {
     }
 
     public List<SkillOption> getSkillOptions() {
-        return skillOptions;
+        return Objects.requireNonNullElseGet(skillOptions, ArrayList::new);
     }
 
     public void setSkillOptions(List<SkillOption> skillOptions) {
@@ -75,5 +80,37 @@ public class CharacterDefinitionStep<T extends Element<?>> extends Element<T> {
 
     public void setPerksOptions(List<PerkOptions> perksOptions) {
         this.perksOptions = perksOptions;
+    }
+
+    public int getCharacteristicsTotalPoints() {
+        return TOTAL_CHARACTERISTICS_OPTIONS;
+    }
+
+    public int getSkillsTotalPoints() {
+        return TOTAL_SKILL_OPTIONS;
+    }
+
+    @Override
+    public void validate() throws InvalidXmlElementException {
+        super.validate();
+
+        int totalCharacteristicsPoints = 0;
+        for (CharacteristicOption characteristicOption : getCharacteristicOptions()) {
+            totalCharacteristicsPoints += characteristicOption.getTotalOptions() * characteristicOption.getCharacteristics().get(0).getBonus();
+        }
+        if (totalCharacteristicsPoints > getCharacteristicsTotalPoints()) {
+            throw new InvalidXmlElementException("Element '" + getId() + "' has more than '" + getCharacteristicsTotalPoints() + "' characteristics options. "
+                    + "Currently has '" + totalCharacteristicsPoints + "' characteristic points.");
+        }
+
+
+        int totalSkillPoints = 0;
+        for (SkillOption skillOption : getSkillOptions()) {
+            totalSkillPoints += skillOption.getTotalOptions() * skillOption.getSkills().get(0).getBonus();
+        }
+        if (totalSkillPoints > getSkillsTotalPoints()) {
+            throw new InvalidXmlElementException("Element '" + getId() + "' has more than " + getSkillsTotalPoints() + " skill options. "
+                    + "Currently has '" + totalSkillPoints + "' skill points.");
+        }
     }
 }

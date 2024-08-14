@@ -160,11 +160,11 @@ public class CharacterCreationTest {
         Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.STRENGTH), 3);
         Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.DEXTERITY), 5);
         Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.ENDURANCE), 4);
-        Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.WITS), 6);
+        Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.WITS), 5);
         Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.PERCEPTION), 4);
-        Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.WILL), 5);
+        Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.WILL), 6);
         Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.PRESENCE), 8);
-        Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.INTUITION), 4);
+        Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.INTUITION), 3);
         Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.FAITH), 4);
     }
 }

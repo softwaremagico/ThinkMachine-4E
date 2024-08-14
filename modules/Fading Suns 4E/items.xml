@@ -381,4 +381,28 @@
             <es>Traje de Celebración Religiosa</es>
         </name>
     </equipment>
+    <equipment>
+        <id>officialOccasionOutfit</id>
+        <type>item</type>
+        <name>
+            <en>Official Occasion Outfit</en>
+            <es>Traje Oficial</es>
+        </name>
+    </equipment>
+    <equipment>
+        <id>huntingOutfit</id>
+        <type>item</type>
+        <name>
+            <en>Hunting Outfit</en>
+            <es>Traje de Caza</es>
+        </name>
+    </equipment>
+    <equipment>
+        <id>diningOutfit</id>
+        <type>item</type>
+        <name>
+            <en>Dining Outfit</en>
+            <es>Traje de Cena</es>
+        </name>
+    </equipment>
 </equipments>

@@ -27,6 +27,15 @@ package com.softwaremagico.tm.character.callings;
 import com.softwaremagico.tm.character.CharacterDefinitionStep;
 
 public class Calling extends CharacterDefinitionStep<Calling> {
+    private static final int TOTAL_CHARACTERISTICS_OPTIONS = 5;
+    private static final int TOTAL_SKILL_OPTIONS = 10;
 
 
+    public int getCharacteristicsTotalPoints() {
+        return TOTAL_CHARACTERISTICS_OPTIONS;
+    }
+
+    public int getSkillsTotalPoints() {
+        return TOTAL_SKILL_OPTIONS;
+    }
 }
