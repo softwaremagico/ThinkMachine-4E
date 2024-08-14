@@ -66,6 +66,6 @@ public class PerkOption {
 
     @Override
     public String toString() {
-        return id;
+        return id != null ? id : group;
     }
 }

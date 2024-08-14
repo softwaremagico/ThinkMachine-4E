@@ -30,13 +30,13 @@
                         <id>slugGuns</id>
                     </capability>
                     <capability>
-                        <id>energyGun</id>
+                        <id>energyGuns</id>
                     </capability>
                     <capability>
                         <id>militaryWeapons</id>
                     </capability>
                     <capability>
-                        <id>arts</id>
+                        <group>artsLore</group>
                     </capability>
                     <capability>
                         <group>performingArtsLore</group>
@@ -392,7 +392,7 @@
                         <id>slugGuns</id>
                     </capability>
                     <capability>
-                        <id>energyGun</id>
+                        <id>energyGuns</id>
                     </capability>
                     <capability>
                         <id>militaryWeapons</id>
@@ -1111,7 +1111,7 @@
                         <id>slugGuns</id>
                     </capability>
                     <capability>
-                        <id>energyGun</id>
+                        <id>energyGuns</id>
                     </capability>
                     <capability>
                         <id>militaryWeapons</id>
@@ -1953,10 +1953,10 @@
                         <group>customsLore</group>
                     </capability>
                     <capability>
-                        <group>energyGuns</group>
+                        <id>energyGuns</id>
                     </capability>
                     <capability>
-                        <group>slugGuns</group>
+                        <id>slugGuns</id>
                     </capability>
                 </capabilities>
             </options>
@@ -3112,7 +3112,7 @@
                         <id>slugGuns</id>
                     </capability>
                     <capability>
-                        <id>energyGun</id>
+                        <id>energyGuns</id>
                     </capability>
                     <capability>
                         <group>transport</group>
@@ -4116,7 +4116,7 @@
                         <id>warArmor</id>
                     </capability>
                     <capability>
-                        <id>militaryWeapon</id>
+                        <id>militaryWeapons</id>
                     </capability>
                 </capabilities>
             </options>

@@ -37,19 +37,19 @@ public enum CharacteristicName {
 
     PERCEPTION,
 
+    WILL,
+
     TECH,
 
     PRESENCE,
 
-    WILL,
+    INTUITION,
 
     FAITH,
 
     INITIATIVE,
 
-    MOVEMENT,
-
-    DEFENSE;
+    MOVEMENT;
 
     CharacteristicName() {
 

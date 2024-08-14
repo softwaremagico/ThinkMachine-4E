@@ -57,4 +57,9 @@ public class SkillBonus extends XmlData {
     public void setSkill(String skill) {
         this.skill = skill;
     }
+
+    @Override
+    public String toString() {
+        return skill + " (+" + bonus + ")";
+    }
 }

@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character;
+package com.softwaremagico.tm.exceptions;
 
 /*-
  * #%L
@@ -24,17 +24,22 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
-import java.util.ArrayList;
-import java.util.List;
 
-public class CharacterSelectedElement {
-    private List<String> selections = new ArrayList<>();
+public class InvalidSelectedElementException extends InvalidXmlElementException {
+    private static final long serialVersionUID = 194333793074549262L;
+    private final String selectedId;
 
-    public List<String> getSelections() {
-        return selections;
+    public InvalidSelectedElementException(String message, String selectedId) {
+        super(message);
+        this.selectedId = selectedId;
     }
 
-    public void setSelections(List<String> selections) {
-        this.selections = selections;
+    public InvalidSelectedElementException(String message, Exception e, String selectedId) {
+        super(message, e);
+        this.selectedId = selectedId;
+    }
+
+    public String getSelectedId() {
+        return selectedId;
     }
 }

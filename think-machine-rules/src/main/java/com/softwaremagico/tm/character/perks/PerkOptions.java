@@ -104,4 +104,12 @@ public class PerkOptions extends XmlData {
         }
         return perkOptions;
     }
+
+    @Override
+    public String toString() {
+        return "PerkOptions{"
+                + "(x" + totalOptions + "): "
+                + perks
+                + '}';
+    }
 }

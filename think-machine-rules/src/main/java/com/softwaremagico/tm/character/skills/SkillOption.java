@@ -80,4 +80,12 @@ public class SkillOption extends XmlData {
         }
         return skillBonusById.get(skill);
     }
+
+    @Override
+    public String toString() {
+        return "SkillOption{"
+                + "(x" + totalOptions + "): "
+                + skills
+                + '}';
+    }
 }

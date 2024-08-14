@@ -38,8 +38,17 @@ public class CharacteristicBonus extends XmlData {
     }
 
     public CharacteristicBonus(CharacteristicDefinition characteristic) {
-        super();
-        setCharacteristic(characteristic.getId());
+        this(characteristic.getId());
+    }
+
+    public CharacteristicBonus(String characteristic) {
+        this();
+        setCharacteristic(characteristic);
+    }
+
+    public CharacteristicBonus(String characteristic, int bonus) {
+        this(characteristic);
+        setBonus(bonus);
     }
 
     public int getBonus() {
@@ -56,5 +65,10 @@ public class CharacteristicBonus extends XmlData {
 
     public void setCharacteristic(String characteristic) {
         this.characteristic = characteristic;
+    }
+
+    @Override
+    public String toString() {
+        return characteristic + " (+" + bonus + ")";
     }
 }

@@ -29,6 +29,7 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.combat.CombatActionRequirement;
 import com.softwaremagico.tm.character.factions.FactionCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.skills.Skill;
+import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.upbringing.UpbringingCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 
@@ -36,6 +37,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CharacterPlayer {
+    private static final int INITIAL_VALUE = 3;
+    private static final int MAX_INITIAL_VALUE = 8;
+
 
     private String specie;
 
@@ -159,17 +163,45 @@ public class CharacterPlayer {
         return settings;
     }
 
-    public int getSkillTotalRanks(Skill restriction) {
-        return 0;
+    public int getSkillValue(Skill skill) {
+        if (skill == null) {
+            return 0;
+        }
+        return getSkillValue(skill.getId());
     }
 
-    public CombatActionRequirement getCharacteristic(String id) {
+    public int getSkillValue(String skill) {
+        int bonus = 0;
+        if (SkillFactory.getInstance().getElement(skill).isNatural()) {
+            bonus += INITIAL_VALUE;
+        }
+        bonus += upbringing.getSkillBonus(skill);
+        bonus += faction.getSkillBonus(skill);
+        bonus += calling.getSkillBonus(skill);
+        return bonus;
+    }
+
+    public int getCharacteristicValue(CharacteristicName characteristic) {
+        if (characteristic == null) {
+            return 0;
+        }
+        return getCharacteristicValue(characteristic.getId());
+    }
+
+    public int getCharacteristicValue(String characteristic) {
+        int bonus = INITIAL_VALUE;
+        bonus += upbringing.getCharacteristicBonus(characteristic);
+        bonus += faction.getCharacteristicBonus(characteristic);
+        bonus += calling.getCharacteristicBonus(characteristic);
+        //Max 8 value for starting character.
+        bonus = Math.min(bonus, MAX_INITIAL_VALUE);
+        return bonus;
+    }
+
+    public CombatActionRequirement getCharacteristicCombatValue(String id) {
         return null;
     }
 
-    public int getCharacteristicValue(CharacteristicName characteristicName) {
-        return 0;
-    }
 
     public List<String> getCallings() {
         return new ArrayList<>();

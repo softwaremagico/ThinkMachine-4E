@@ -78,6 +78,17 @@ public class CharacteristicOption extends XmlData {
         if (characteristicBonusById == null) {
             characteristicBonusById = getCharacteristics().stream().collect(Collectors.toMap(CharacteristicBonus::getCharacteristic, item -> item));
         }
-        return characteristicBonusById.get(characteristic);
+        if (characteristicBonusById.get(characteristic) != null) {
+            return characteristicBonusById.get(characteristic);
+        }
+        return new CharacteristicBonus(characteristic, 0);
+    }
+
+    @Override
+    public String toString() {
+        return "CharacteristicOption{"
+                + "(x" + totalOptions + "): "
+                + characteristics
+                + '}';
     }
 }

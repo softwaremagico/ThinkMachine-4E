@@ -40,7 +40,6 @@ import com.softwaremagico.tm.character.equipment.thinkmachines.ThinkMachineFacto
 import com.softwaremagico.tm.character.equipment.weapons.AccessoryFactory;
 import com.softwaremagico.tm.character.equipment.weapons.AmmunitionFactory;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
-import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.occultism.OccultismDurationFactory;
 import com.softwaremagico.tm.character.occultism.OccultismPathFactory;
 import com.softwaremagico.tm.character.occultism.OccultismRangeFactory;

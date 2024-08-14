@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character;
+package com.softwaremagico.tm.exceptions;
 
 /*-
  * #%L
@@ -24,17 +24,14 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
-import java.util.ArrayList;
-import java.util.List;
+public class TooManySelectionsException extends InvalidSelectionException {
+    private static final long serialVersionUID = 997638112276358208L;
 
-public class CharacterSelectedElement {
-    private List<String> selections = new ArrayList<>();
-
-    public List<String> getSelections() {
-        return selections;
+    public TooManySelectionsException(String message) {
+        super(message);
     }
 
-    public void setSelections(List<String> selections) {
-        this.selections = selections;
+    public TooManySelectionsException(String message, Exception e) {
+        super(message, e);
     }
 }

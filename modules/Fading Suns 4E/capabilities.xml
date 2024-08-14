@@ -42,7 +42,7 @@
     </capability>
 
     <capability>
-        <id>militaryWeapon</id>
+        <id>militaryWeapons</id>
         <group>meleeWeapons</group>
         <name>
             <en>Military Weapons</en>
@@ -218,7 +218,7 @@
         </name>
     </capability>
     <capability>
-        <id>energyGun</id>
+        <id>energyGuns</id>
         <group>rangedWeapon</group>
         <name>
             <en>Energy Guns</en>
@@ -364,7 +364,7 @@
 
     <capability>
         <id>imagery</id>
-        <group>artsLores</group>
+        <group>artsLore</group>
         <name>
             <en>Imagery</en>
             <es>Pintura</es>
@@ -372,7 +372,7 @@
     </capability>
     <capability>
         <id>magicLantern</id>
-        <group>artsLores</group>
+        <group>artsLore</group>
         <name>
             <en>Magic Lantern</en>
             <es>Linterna Mágica</es>
@@ -380,7 +380,7 @@
     </capability>
     <capability>
         <id>poetry</id>
-        <group>artsLores</group>
+        <group>artsLore</group>
         <name>
             <en>Poetry</en>
             <es>Poesía</es>
@@ -388,7 +388,7 @@
     </capability>
     <capability>
         <id>sculpting</id>
-        <group>artsLores</group>
+        <group>artsLore</group>
         <name>
             <en>Sculpting</en>
             <es>Escultura</es>
@@ -396,7 +396,7 @@
     </capability>
     <capability>
         <id>writing</id>
-        <group>artsLores</group>
+        <group>artsLore</group>
         <name>
             <en>Writing</en>
             <es>Escritura</es>
