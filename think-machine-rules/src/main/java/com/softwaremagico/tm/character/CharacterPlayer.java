@@ -32,6 +32,7 @@ import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.upbringing.UpbringingCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
+import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -163,14 +164,14 @@ public class CharacterPlayer {
         return settings;
     }
 
-    public int getSkillValue(Skill skill) {
+    public int getSkillValue(Skill skill) throws MaxInitialValueExceededException {
         if (skill == null) {
             return 0;
         }
         return getSkillValue(skill.getId());
     }
 
-    public int getSkillValue(String skill) {
+    public int getSkillValue(String skill) throws MaxInitialValueExceededException {
         int bonus = 0;
         if (SkillFactory.getInstance().getElement(skill).isNatural()) {
             bonus += INITIAL_VALUE;
@@ -178,23 +179,29 @@ public class CharacterPlayer {
         bonus += upbringing.getSkillBonus(skill);
         bonus += faction.getSkillBonus(skill);
         bonus += calling.getSkillBonus(skill);
+        if (bonus > MAX_INITIAL_VALUE) {
+            throw new MaxInitialValueExceededException("Skill '" + skill + "' has exceeded the maximum value of .",
+                    bonus, MAX_INITIAL_VALUE);
+        }
         return bonus;
     }
 
-    public int getCharacteristicValue(CharacteristicName characteristic) {
+    public int getCharacteristicValue(CharacteristicName characteristic) throws MaxInitialValueExceededException {
         if (characteristic == null) {
             return 0;
         }
         return getCharacteristicValue(characteristic.getId());
     }
 
-    public int getCharacteristicValue(String characteristic) {
+    public int getCharacteristicValue(String characteristic) throws MaxInitialValueExceededException {
         int bonus = INITIAL_VALUE;
         bonus += upbringing.getCharacteristicBonus(characteristic);
         bonus += faction.getCharacteristicBonus(characteristic);
         bonus += calling.getCharacteristicBonus(characteristic);
-        //Max 8 value for starting character.
-        bonus = Math.min(bonus, MAX_INITIAL_VALUE);
+        if (bonus > MAX_INITIAL_VALUE) {
+            throw new MaxInitialValueExceededException("Characteristic '" + characteristic + "' has exceeded the maximum value of .",
+                    bonus, MAX_INITIAL_VALUE);
+        }
         return bonus;
     }
 

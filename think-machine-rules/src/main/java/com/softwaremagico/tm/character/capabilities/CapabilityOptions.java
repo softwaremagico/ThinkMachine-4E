@@ -99,8 +99,8 @@ public class CapabilityOptions extends XmlData {
     @Override
     public String toString() {
         return "CapabilityOptions{"
-                + "totalOptions=" + totalOptions
-                + ", capabilities=" + capabilities
+                + "(x" + totalOptions + "): "
+                + capabilities
                 + '}';
     }
 }
