@@ -108,8 +108,18 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
         return description;
     }
 
-    public TranslatedText getNameRepresentation() {
-        return getName();
+    public String getNameRepresentation() {
+        if (getName() != null) {
+            return getName().getTranslatedText();
+        }
+        return "";
+    }
+
+    public String getDescriptionRepresentation() {
+        if (getDescription() != null) {
+            return getDescription().getTranslatedText();
+        }
+        return "";
     }
 
     public String getId() {

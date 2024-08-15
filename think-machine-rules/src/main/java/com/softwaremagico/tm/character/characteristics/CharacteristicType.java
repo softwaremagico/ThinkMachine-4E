@@ -39,6 +39,10 @@ public enum CharacteristicType {
     CharacteristicType() {
     }
 
+    public String getId() {
+        return name().toLowerCase();
+    }
+
     public static CharacteristicType getType(String name) {
         for (final CharacteristicType type : CharacteristicType.values()) {
             if (Objects.equals(type.name().toLowerCase(), name.toLowerCase())) {

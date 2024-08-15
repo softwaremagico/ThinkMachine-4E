@@ -25,38 +25,58 @@ package com.softwaremagico.tm.character.characteristics;
  * #L%
  */
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public enum CharacteristicName {
 
-    STRENGTH,
+    STRENGTH(CharacteristicType.BODY),
 
-    DEXTERITY,
+    DEXTERITY(CharacteristicType.BODY),
 
-    ENDURANCE,
+    ENDURANCE(CharacteristicType.BODY),
 
-    WITS,
+    WITS(CharacteristicType.MIND),
 
-    PERCEPTION,
+    PERCEPTION(CharacteristicType.MIND),
 
-    WILL,
+    WILL(CharacteristicType.MIND),
 
-    TECH,
+    PRESENCE(CharacteristicType.SPIRIT),
 
-    PRESENCE,
+    INTUITION(CharacteristicType.SPIRIT),
 
-    INTUITION,
+    FAITH(CharacteristicType.SPIRIT),
 
-    FAITH,
+    INITIATIVE(CharacteristicType.OTHERS),
 
-    INITIATIVE,
+    MOVEMENT(CharacteristicType.OTHERS),
 
-    MOVEMENT;
+    TECH(CharacteristicType.OTHERS);
 
-    CharacteristicName() {
+    private final CharacteristicType characteristicType;
+    private static final Map<CharacteristicType, List<CharacteristicName>> CHARACTERISTIC_TYPE_LIST;
 
+    static {
+        CHARACTERISTIC_TYPE_LIST = new HashMap<>();
+        for (final CharacteristicName characteristic : CharacteristicName.values()) {
+            CHARACTERISTIC_TYPE_LIST.computeIfAbsent(characteristic.getCharacteristicType(), k -> new ArrayList<>());
+            CHARACTERISTIC_TYPE_LIST.get(characteristic.getCharacteristicType()).add(characteristic);
+        }
+    }
+
+    CharacteristicName(CharacteristicType characteristicType) {
+        this.characteristicType = characteristicType;
     }
 
     public String getId() {
         return name().toLowerCase();
+    }
+
+    public CharacteristicType getCharacteristicType() {
+        return characteristicType;
     }
 
     @Override
@@ -77,5 +97,9 @@ public enum CharacteristicName {
             }
         }
         return null;
+    }
+
+    public static List<CharacteristicName> getCharacteristics(CharacteristicType characteristicType) {
+        return CHARACTERISTIC_TYPE_LIST.get(characteristicType);
     }
 }

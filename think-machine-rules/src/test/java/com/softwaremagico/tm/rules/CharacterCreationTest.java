@@ -42,6 +42,41 @@ import org.testng.annotations.Test;
 @Test(groups = "characterCreation")
 public class CharacterCreationTest {
 
+    public static CharacterPlayer generateHumanNobleDecadosCommander() {
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+
+        characterPlayer.setUpbringing("noble");
+        final Upbringing upbringing = UpbringingFactory.getInstance().getElement("noble");
+        for (int i = 0; i < upbringing.getCharacteristicOptions().size(); i++) {
+            for (int j = 0; j < upbringing.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
+                characterPlayer.getUpbringing().getCharacteristicOptions().get(i).getSelections()
+                        .add(upbringing.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic());
+            }
+        }
+
+        characterPlayer.setFaction("decados");
+        final Faction faction = FactionFactory.getInstance().getElement("decados");
+        for (int i = 0; i < faction.getCharacteristicOptions().size(); i++) {
+            for (int j = 0; j < faction.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
+                characterPlayer.getFaction().getCharacteristicOptions().get(i).getSelections()
+                        .add(faction.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic());
+            }
+        }
+
+
+        characterPlayer.setCalling("commander");
+        final Calling calling = CallingFactory.getInstance().getElement("commander");
+        for (int i = 0; i < calling.getCharacteristicOptions().size(); i++) {
+            for (int j = 0; j < calling.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
+                characterPlayer.getCalling().getCharacteristicOptions().get(i).getSelections()
+                        .add(calling.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic());
+            }
+        }
+
+        return characterPlayer;
+    }
+
 
     @Test(expectedExceptions = InvalidUpbringingException.class)
     public void invalidUpbringing() {
@@ -125,37 +160,8 @@ public class CharacterCreationTest {
     }
 
     @Test
-    public void characterCreationCharacteristics() throws MaxInitialValueExceededException {
-        CharacterPlayer characterPlayer = new CharacterPlayer();
-        characterPlayer.setSpecie("human");
-
-        characterPlayer.setUpbringing("noble");
-        final Upbringing upbringing = UpbringingFactory.getInstance().getElement("noble");
-        for (int i = 0; i < upbringing.getCharacteristicOptions().size(); i++) {
-            for (int j = 0; j < upbringing.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getUpbringing().getCharacteristicOptions().get(i).getSelections()
-                        .add(upbringing.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic());
-            }
-        }
-
-        characterPlayer.setFaction("decados");
-        final Faction faction = FactionFactory.getInstance().getElement("decados");
-        for (int i = 0; i < faction.getCharacteristicOptions().size(); i++) {
-            for (int j = 0; j < faction.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getFaction().getCharacteristicOptions().get(i).getSelections()
-                        .add(faction.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic());
-            }
-        }
-
-
-        characterPlayer.setCalling("commander");
-        final Calling calling = CallingFactory.getInstance().getElement("commander");
-        for (int i = 0; i < calling.getCharacteristicOptions().size(); i++) {
-            for (int j = 0; j < calling.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getCalling().getCharacteristicOptions().get(i).getSelections()
-                        .add(calling.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic());
-            }
-        }
+    public void checkHumanNobleDecadosCommander() throws MaxInitialValueExceededException {
+        CharacterPlayer characterPlayer = generateHumanNobleDecadosCommander();
 
         Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.STRENGTH), 3);
         Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.DEXTERITY), 5);

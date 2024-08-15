@@ -49,4 +49,8 @@ public class FactionCharacterDefinitionStepSelection extends CharacterDefinition
             throw new InvalidFactionException(e.getMessage(), e);
         }
     }
+
+    public Faction get() {
+        return FactionFactory.getInstance().getElement(getId());
+    }
 }

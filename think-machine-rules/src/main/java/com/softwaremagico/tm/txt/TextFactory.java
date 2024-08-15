@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.factions;
+package com.softwaremagico.tm.txt;
 
 /*-
  * #%L
@@ -24,5 +24,30 @@ package com.softwaremagico.tm.character.factions;
  * #L%
  */
 
-public class Curse extends Blessing {
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.xml.XmlFactory;
+
+import java.util.List;
+
+public class TextFactory extends XmlFactory<Text> {
+    private static final String XML_FILE = "character_sheet.xml";
+
+    private static final class TextFactoryInit {
+        public static final TextFactory INSTANCE = new TextFactory();
+    }
+
+    public static TextFactory getInstance() {
+        return TextFactoryInit.INSTANCE;
+    }
+
+
+    @Override
+    public String getXmlFile() {
+        return XML_FILE;
+    }
+
+    @Override
+    public List<Text> getElements() throws InvalidXmlElementException {
+        return readXml(Text.class);
+    }
 }

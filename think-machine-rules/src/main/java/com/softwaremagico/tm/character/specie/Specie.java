@@ -49,6 +49,8 @@ public class Specie extends CharacterDefinitionStep<Specie> {
 
     private int cost;
 
+    private int size;
+
     public SpecieCharacteristic getParameter(CharacteristicName characteristicName) throws InvalidSpecieException {
         return specieCharacteristics.stream().filter(specieCharacteristic -> specieCharacteristic.getCharacteristic() == characteristicName).findFirst()
                 .orElseThrow(() -> new InvalidSpecieException("Characteristic '" + characteristicName + "' does not exists on race '" + getId() + "'."));
@@ -163,5 +165,13 @@ public class Specie extends CharacterDefinitionStep<Specie> {
 
     public void setPerks(List<PerkOption> perks) {
         this.perks = perks;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 }

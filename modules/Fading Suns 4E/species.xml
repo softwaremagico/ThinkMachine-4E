@@ -64,6 +64,7 @@
         <movement>
             <value>5</value>
         </movement>
+        <size>5</size>
         <psi>0</psi>
         <urge>0</urge>
         <theurgy>0</theurgy>
@@ -136,6 +137,7 @@
         <movement>
             <value>5</value>
         </movement>
+        <size>5</size>
         <psi>1</psi>
         <urge>0</urge>
         <theurgy>1</theurgy>
@@ -225,6 +227,7 @@
         <movement>
             <value>5</value>
         </movement>
+        <size>5</size>
         <psi>1</psi>
         <urge>1</urge>
         <theurgy>0</theurgy>
@@ -299,6 +302,7 @@
         <movement>
             <value>14</value>
         </movement>
+        <size>7</size>
         <psi>0</psi>
         <urge>0</urge>
         <theurgy>0</theurgy>
@@ -373,6 +377,7 @@
         <movement>
             <value>16</value>
         </movement>
+        <size>5</size>
         <psi>0</psi>
         <urge>0</urge>
         <theurgy>0</theurgy>
@@ -449,6 +454,7 @@
         <movement>
             <value>5</value>
         </movement>
+        <size>3</size>
         <psi>0</psi>
         <urge>0</urge>
         <theurgy>0</theurgy>
@@ -527,6 +533,7 @@
         <movement>
             <value>5</value>
         </movement>
+        <size>5</size>
         <psi>0</psi>
         <urge>0</urge>
         <theurgy>0</theurgy>
@@ -603,6 +610,7 @@
         <movement>
             <value>5</value>
         </movement>
+        <size>5</size>
         <psi>0</psi>
         <urge>0</urge>
         <theurgy>0</theurgy>
@@ -679,6 +687,7 @@
         <movement>
             <value>5</value>
         </movement>
+        <size>5</size>
         <psi>0</psi>
         <urge>0</urge>
         <theurgy>0</theurgy>
@@ -757,6 +766,7 @@
         <movement>
             <value>5</value>
         </movement>
+        <size>5</size>
         <psi>0</psi>
         <urge>0</urge>
         <theurgy>0</theurgy>

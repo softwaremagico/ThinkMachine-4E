@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.factions;
+package com.softwaremagico.tm.txt;
 
 /*-
  * #%L
@@ -24,5 +24,7 @@ package com.softwaremagico.tm.character.factions;
  * #L%
  */
 
-public class Curse extends Blessing {
+import com.softwaremagico.tm.Element;
+
+public class Text extends Element<Text> {
 }
