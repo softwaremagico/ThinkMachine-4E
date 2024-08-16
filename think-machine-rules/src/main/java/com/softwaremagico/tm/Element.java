@@ -175,7 +175,11 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
     public int compareTo(T element) {
         if (getName() == null) {
             if (element.getName() == null) {
-                return 0;
+                if (getId() != null) {
+                    return getId().compareTo(element.getId());
+                } else {
+                    return 0;
+                }
             }
             return -1;
         }

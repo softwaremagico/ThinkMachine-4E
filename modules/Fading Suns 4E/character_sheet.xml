@@ -24,8 +24,8 @@
     <infoGender>
         <id>infoGender</id>
         <name>
-            <en>Gender:</en>
-            <es>Género:</es>
+            <en>Gender</en>
+            <es>Género</es>
         </name>
     </infoGender>
     <male>
@@ -224,6 +224,13 @@
             <es>Voluntad</es>
         </name>
     </will>
+    <intuition>
+        <id>intuition</id>
+        <name>
+            <en>Intuition</en>
+            <es>Intuición</es>
+        </name>
+    </intuition>
     <faith>
         <id>faith</id>
         <name>

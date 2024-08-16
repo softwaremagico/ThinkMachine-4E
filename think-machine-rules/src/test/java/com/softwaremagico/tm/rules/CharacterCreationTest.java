@@ -25,11 +25,15 @@ package com.softwaremagico.tm.rules;
  */
 
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.Gender;
+import com.softwaremagico.tm.character.Name;
+import com.softwaremagico.tm.character.Surname;
 import com.softwaremagico.tm.character.callings.Calling;
 import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
+import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.character.upbringing.Upbringing;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidCallingException;
@@ -44,8 +48,15 @@ public class CharacterCreationTest {
 
     public static CharacterPlayer generateHumanNobleDecadosCommander() {
         CharacterPlayer characterPlayer = new CharacterPlayer();
-        characterPlayer.setSpecie("human");
 
+        characterPlayer.getInfo().addName(new Name("Oliver", Gender.MALE, null));
+        characterPlayer.getInfo().setSurname(new Surname("Queen", null));
+        characterPlayer.getInfo().setPlayer("Player 1");
+        characterPlayer.getInfo().setGender(Gender.MALE);
+        characterPlayer.getInfo().setAge(31);
+        characterPlayer.getInfo().setPlanet(PlanetFactory.getInstance().getElement("sutek"));
+
+        characterPlayer.setSpecie("human");
         characterPlayer.setUpbringing("noble");
         final Upbringing upbringing = UpbringingFactory.getInstance().getElement("noble");
         for (int i = 0; i < upbringing.getCharacteristicOptions().size(); i++) {

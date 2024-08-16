@@ -87,7 +87,7 @@ public enum CharacteristicName {
     public static CharacteristicName[] getBasicCharacteristics() {
         return new CharacteristicName[]{CharacteristicName.STRENGTH, CharacteristicName.DEXTERITY,
                 CharacteristicName.ENDURANCE, CharacteristicName.WITS, CharacteristicName.PERCEPTION,
-                CharacteristicName.TECH, CharacteristicName.PRESENCE, CharacteristicName.WILL, CharacteristicName.FAITH};
+                CharacteristicName.WILL, CharacteristicName.PRESENCE, CharacteristicName.INTUITION, CharacteristicName.FAITH};
     }
 
     public static CharacteristicName get(String tag) {

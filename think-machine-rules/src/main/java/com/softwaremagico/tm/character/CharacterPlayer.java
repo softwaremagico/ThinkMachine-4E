@@ -37,9 +37,12 @@ import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.UpbringingCharacterDefinitionStepSelection;
+import com.softwaremagico.tm.exceptions.InvalidArmourException;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
+import com.softwaremagico.tm.exceptions.InvalidShieldException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
+import com.softwaremagico.tm.log.MachineLog;
 import com.softwaremagico.tm.txt.CharacterSheet;
 
 import java.util.ArrayList;
@@ -70,6 +73,21 @@ public class CharacterPlayer {
 
     public CharacterPlayer() {
         settings = new Settings();
+        reset();
+    }
+
+    private void reset() {
+        info = new CharacterInfo();
+        try {
+            setArmor(null);
+        } catch (InvalidArmourException e) {
+            MachineLog.errorMessage(this.getClass().getName(), e);
+        }
+        try {
+            setShield(null);
+        } catch (InvalidShieldException e) {
+            MachineLog.errorMessage(this.getClass().getName(), e);
+        }
     }
 
     public String getSpecie() {
@@ -262,10 +280,12 @@ public class CharacterPlayer {
 
     public String getCompleteNameRepresentation() {
         final StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(getInfo().getNameRepresentation());
-        stringBuilder.append(" ");
-        if (getInfo() != null && getInfo().getSurname() != null) {
-            stringBuilder.append(getInfo().getSurname().getName());
+        if (getInfo() != null) {
+            stringBuilder.append(getInfo().getNameRepresentation());
+            stringBuilder.append(" ");
+            if (getInfo() != null && getInfo().getSurname() != null) {
+                stringBuilder.append(getInfo().getSurname().getName());
+            }
         }
         return stringBuilder.toString().trim();
     }
@@ -327,6 +347,14 @@ public class CharacterPlayer {
 
     public Armor getArmor() {
         return armor;
+    }
+
+    public void setShield(Shield shield) {
+        this.shield = shield;
+    }
+
+    public void setArmor(Armor armor) {
+        this.armor = armor;
     }
 
     /**
