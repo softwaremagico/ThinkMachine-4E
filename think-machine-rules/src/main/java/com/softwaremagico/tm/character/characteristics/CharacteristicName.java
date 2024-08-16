@@ -50,6 +50,10 @@ public enum CharacteristicName {
 
     FAITH(CharacteristicType.SPIRIT),
 
+    PSI(CharacteristicType.OCCULTISM),
+
+    THEURGY(CharacteristicType.OCCULTISM),
+
     INITIATIVE(CharacteristicType.OTHERS),
 
     MOVEMENT(CharacteristicType.OTHERS),

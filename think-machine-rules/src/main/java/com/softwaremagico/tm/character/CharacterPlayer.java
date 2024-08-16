@@ -25,33 +25,40 @@ package com.softwaremagico.tm.character;
  */
 
 import com.softwaremagico.tm.character.callings.CallingCharacterDefinitionStepSelection;
+import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.capabilities.Capability;
 import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
+import com.softwaremagico.tm.character.characteristics.Characteristic;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.combat.CombatActionRequirement;
+import com.softwaremagico.tm.character.equipment.Equipment;
 import com.softwaremagico.tm.character.equipment.armors.Armor;
+import com.softwaremagico.tm.character.equipment.item.Item;
 import com.softwaremagico.tm.character.equipment.shields.Shield;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.factions.FactionCharacterDefinitionStepSelection;
+import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.UpbringingCharacterDefinitionStepSelection;
-import com.softwaremagico.tm.exceptions.InvalidArmourException;
+import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
-import com.softwaremagico.tm.exceptions.InvalidShieldException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
-import com.softwaremagico.tm.log.MachineLog;
 import com.softwaremagico.tm.txt.CharacterSheet;
+import com.softwaremagico.tm.xml.XmlFactory;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class CharacterPlayer {
-    private static final int INITIAL_VALUE = 3;
     private static final int MAX_INITIAL_VALUE = 8;
     private static final int BANK_INITIAL_VALUE = 5;
 
@@ -65,8 +72,7 @@ public class CharacterPlayer {
     private FactionCharacterDefinitionStepSelection faction;
     private CallingCharacterDefinitionStepSelection calling;
 
-    private Armor armor;
-    private Shield shield;
+    private Set<Equipment<?>> equipmentPurchased;
 
 
     private final Settings settings;
@@ -78,16 +84,6 @@ public class CharacterPlayer {
 
     private void reset() {
         info = new CharacterInfo();
-        try {
-            setArmor(null);
-        } catch (InvalidArmourException e) {
-            MachineLog.errorMessage(this.getClass().getName(), e);
-        }
-        try {
-            setShield(null);
-        } catch (InvalidShieldException e) {
-            MachineLog.errorMessage(this.getClass().getName(), e);
-        }
     }
 
     public String getSpecie() {
@@ -209,7 +205,7 @@ public class CharacterPlayer {
     public int getSkillValue(String skill) throws MaxInitialValueExceededException {
         int bonus = 0;
         if (SkillFactory.getInstance().getElement(skill).isNatural()) {
-            bonus += INITIAL_VALUE;
+            bonus += Skill.NATURAL_SKILL_INITIAL_VALUE;
         }
         bonus += upbringing.getSkillBonus(skill);
         bonus += faction.getSkillBonus(skill);
@@ -229,7 +225,7 @@ public class CharacterPlayer {
     }
 
     public int getCharacteristicValue(String characteristic) throws MaxInitialValueExceededException {
-        int bonus = INITIAL_VALUE;
+        int bonus = Characteristic.INITIAL_VALUE;
         bonus += upbringing.getCharacteristicBonus(characteristic);
         bonus += faction.getCharacteristicBonus(characteristic);
         bonus += calling.getCharacteristicBonus(characteristic);
@@ -341,20 +337,30 @@ public class CharacterPlayer {
         return 1;
     }
 
+    /**
+     * Gets best shield purchased and acquired with benefices.
+     *
+     * @return all weapons of the character.
+     */
     public Shield getShield() {
-        return shield;
+        final List<Shield> shields = getEquipment(Shield.class);
+        if (shields.isEmpty()) {
+            return null;
+        }
+        return Collections.max(shields, Comparator.comparing(Shield::getCost));
     }
 
+    /**
+     * Gets best armor purchased and acquired with benefices.
+     *
+     * @return all weapons of the character.
+     */
     public Armor getArmor() {
-        return armor;
-    }
-
-    public void setShield(Shield shield) {
-        this.shield = shield;
-    }
-
-    public void setArmor(Armor armor) {
-        this.armor = armor;
+        final List<Armor> armors = getEquipment(Armor.class);
+        if (armors.isEmpty()) {
+            return null;
+        }
+        return Collections.max(getEquipment(Armor.class), Comparator.comparing(Armor::getCost));
     }
 
     /**
@@ -363,7 +369,63 @@ public class CharacterPlayer {
      * @return all weapons of the character.
      */
     public List<Weapon> getWeapons() {
-        return new ArrayList<>();
+        return getEquipmentGlobal(Weapon.class);
+    }
+
+    /**
+     * Gets all items purchased and acquired with benefices.
+     *
+     * @return all weapons of the character.
+     */
+    public List<Item> getItems() {
+        return getEquipmentGlobal(Item.class);
+    }
+
+    private Set<Equipment<?>> getSelectedMaterialAwards(CharacterDefinitionStepSelection<?> definitionStepSelection, XmlFactory<?> factory) {
+        final Set<String> selected = definitionStepSelection.getMaterialAwards().stream().map(CharacterSelectedElement::getSelections)
+                .flatMap(Collection::stream).collect(Collectors.toSet());
+        return ((CharacterDefinitionStep<?>) factory.getElement(definitionStepSelection.getId())).getMaterialAwards(selected);
+    }
+
+    public List<Equipment<?>> getMaterialAwardsSelected() {
+        final List<Equipment<?>> materialAwards = new ArrayList<>();
+        materialAwards.addAll(getSelectedMaterialAwards(upbringing, UpbringingFactory.getInstance()));
+        materialAwards.addAll(getSelectedMaterialAwards(faction, FactionFactory.getInstance()));
+        materialAwards.addAll(getSelectedMaterialAwards(calling, CallingFactory.getInstance()));
+        return materialAwards;
+    }
+
+    public <T extends Equipment<?>> List<T> getEquipment(Class<T> equipmentClass) {
+        return getEquipmentPurchased().stream().filter(equipmentClass::isInstance).map(equipmentClass::cast).collect(Collectors.toList());
+    }
+
+    public Set<Equipment<?>> getEquipmentPurchased() {
+        if (equipmentPurchased == null) {
+            return new HashSet<>();
+        }
+        return equipmentPurchased;
+    }
+
+    public void addEquipmentPurchased(Equipment<?> equipmentPurchased) {
+        if (this.equipmentPurchased == null) {
+            this.equipmentPurchased = new HashSet<>();
+        }
+        this.equipmentPurchased.add(equipmentPurchased);
+    }
+
+    public void setEquipmentPurchased(Set<Equipment<?>> equipmentPurchased) {
+        this.equipmentPurchased = equipmentPurchased;
+    }
+
+    public List<Equipment<?>> getEquipmentGlobal() {
+        final List<Equipment<?>> totalEquipment = new ArrayList<>();
+        totalEquipment.addAll(getMaterialAwardsSelected());
+        totalEquipment.addAll(getEquipmentPurchased());
+        return totalEquipment;
+    }
+
+    public <T extends Equipment<?>> List<T> getEquipmentGlobal(Class<T> equipmentClass) {
+        return getEquipmentGlobal().stream().filter(equipmentClass::isInstance).map(equipmentClass::cast).collect(Collectors.toList());
     }
 
     public String getRepresentation() {

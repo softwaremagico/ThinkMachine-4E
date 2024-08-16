@@ -28,6 +28,7 @@ import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.values.IValue;
 
 public class Skill extends SkillDefinition<Skill> implements ISkillRandomDefintions, IValue {
+    public static final int NATURAL_SKILL_INITIAL_VALUE = 3;
 
     public Skill() {
         super();

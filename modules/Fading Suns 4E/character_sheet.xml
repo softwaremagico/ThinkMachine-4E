@@ -602,13 +602,13 @@
             <es>RA</es>
         </name>
     </weaponGoal>
-    <weaponSize>
-        <id>weaponSize</id>
+    <size>
+        <id>size</id>
         <name>
             <en>Size</en>
             <es>Tam</es>
         </name>
-    </weaponSize>
+    </size>
     <weaponRate>
         <id>weaponRate</id>
         <name>
@@ -924,4 +924,11 @@
             <es>impacto/Fuerza</es>
         </name>
     </impactForce>
+    <techCompulsion>
+        <id>techCompulsion</id>
+        <name>
+            <en>Tech Compulsion</en>
+            <es>Compulsión Tecgnóstica</es>
+        </name>
+    </techCompulsion>
 </translator>

@@ -26,15 +26,22 @@ package com.softwaremagico.tm.character.equipment;
 
 import com.softwaremagico.tm.character.CharacterSelectedElement;
 
+import java.util.Set;
+import java.util.stream.Collectors;
+
 public class CharacterSelectedEquipment extends CharacterSelectedElement {
     //If has been removed later. To not print it on the sheet.
-    private boolean removed;
+    private Set<String> removed;
 
-    public boolean isRemoved() {
+    public Set<String> getRemainder() {
+        return getSelections().stream().filter(e -> !removed.contains(e)).collect(Collectors.toSet());
+    }
+
+    public Set<String> getRemoved() {
         return removed;
     }
 
-    public void setRemoved(boolean removed) {
+    public void setRemoved(Set<String> removed) {
         this.removed = removed;
     }
 }

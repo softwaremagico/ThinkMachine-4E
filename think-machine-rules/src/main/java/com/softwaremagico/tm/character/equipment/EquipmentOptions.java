@@ -35,7 +35,9 @@ import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class EquipmentOptions extends XmlData {
@@ -99,6 +101,10 @@ public class EquipmentOptions extends XmlData {
             }
         }
         return finalItems;
+    }
+
+    public Set<Equipment<?>> getItems(Collection<String> items) {
+        return getItems().stream().filter(e -> items.contains(e.getId())).collect(Collectors.toSet());
     }
 
     public void setItems(List<Equipment<?>> items) {

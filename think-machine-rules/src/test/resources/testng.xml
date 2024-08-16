@@ -36,7 +36,6 @@
                 <include name="perkFactory"/>
                 <include name="techCompulsionFactory"/>
                 <include name="factoryValidation"/>
-
                 <include name="characterCreation"/>
 
                 <!--                <include name="randomDefinition"/>-->

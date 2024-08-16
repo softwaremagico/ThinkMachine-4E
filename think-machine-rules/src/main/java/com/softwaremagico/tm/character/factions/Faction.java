@@ -28,7 +28,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.softwaremagico.tm.character.CharacterDefinitionStep;
 import com.softwaremagico.tm.character.callings.CallingFactory;
-import com.softwaremagico.tm.character.equipment.EquipmentOptions;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.List;
@@ -43,8 +42,6 @@ public class Faction extends CharacterDefinitionStep<Faction> {
     private Curse curse;
     @JsonProperty("favoredCallings")
     private List<String> favoredCallings;
-    @JsonProperty("materialAwards")
-    private List<EquipmentOptions> materialAwards;
 
     public Faction() {
     }
@@ -80,14 +77,6 @@ public class Faction extends CharacterDefinitionStep<Faction> {
 
     public void setFavoredCallings(List<String> favoredCallings) {
         this.favoredCallings = favoredCallings;
-    }
-
-    public List<EquipmentOptions> getMaterialAwards() {
-        return materialAwards;
-    }
-
-    public void setMaterialAwards(List<EquipmentOptions> materialAwards) {
-        this.materialAwards = materialAwards;
     }
 
     public int getCharacteristicsTotalPoints() {

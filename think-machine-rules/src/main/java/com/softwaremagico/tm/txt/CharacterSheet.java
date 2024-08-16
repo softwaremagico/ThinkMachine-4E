@@ -29,6 +29,10 @@ import com.softwaremagico.tm.character.capabilities.Capability;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.equipment.DamageType;
 import com.softwaremagico.tm.character.equipment.DamageTypeFactory;
+import com.softwaremagico.tm.character.equipment.TechCompulsionFactory;
+import com.softwaremagico.tm.character.equipment.armors.Armor;
+import com.softwaremagico.tm.character.equipment.item.Item;
+import com.softwaremagico.tm.character.equipment.shields.Shield;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.factions.Blessing;
 import com.softwaremagico.tm.character.skills.Skill;
@@ -75,6 +79,12 @@ public class CharacterSheet {
             stringBuilder.append("\n");
         }
         final StringBuilder profession = new StringBuilder();
+        if (getCharacterPlayer().getUpbringing() != null) {
+            if (profession.length() > 0) {
+                profession.append(ELEMENT_SEPARATOR);
+            }
+            profession.append(getCharacterPlayer().getUpbringing().getName());
+        }
         if (getCharacterPlayer().getFaction() != null) {
             if (profession.length() > 0) {
                 profession.append(ELEMENT_SEPARATOR);
@@ -115,7 +125,9 @@ public class CharacterSheet {
         stringBuilder.append(TextFactory.getInstance().getElement("skills").getName()).append(": ");
         String separator = "";
         for (final Skill skill : SkillFactory.getInstance().getElements()) {
-            if (characterPlayer.getSkillValue(skill) > 0) {
+            final int skillValue = characterPlayer.getSkillValue(skill);
+            if ((skill.isNatural() && skillValue > Skill.NATURAL_SKILL_INITIAL_VALUE)
+                    || (!skill.isNatural() && skillValue > 0)) {
                 stringBuilder.append(separator);
                 representSkill(stringBuilder, skill);
                 separator = ELEMENT_SEPARATOR;
@@ -149,16 +161,12 @@ public class CharacterSheet {
 
     private void setBeneficesText(StringBuilder stringBuilder) throws InvalidXmlElementException {
         if (characterPlayer.getFaction() != null) {
-            stringBuilder.append(TextFactory.getInstance().getElement("blessingTable").getName()).append(": ");
-            String separator = "";
+            stringBuilder.append(TextFactory.getInstance().getElement("blessingTable").getName()).append(":\n");
             if (characterPlayer.getFaction().get().getBlessing() != null) {
-                stringBuilder.append(separator);
-                stringBuilder.append(getBlessingRepresentation(characterPlayer.getFaction().get().getBlessing()));
-                separator = ELEMENT_SEPARATOR;
+                stringBuilder.append("\t- ").append(getBlessingRepresentation(characterPlayer.getFaction().get().getBlessing())).append("\n");
             }
             if (characterPlayer.getFaction().get().getCurse() != null) {
-                stringBuilder.append(separator);
-                stringBuilder.append(getBlessingRepresentation(characterPlayer.getFaction().get().getCurse()));
+                stringBuilder.append("\t- ").append(getBlessingRepresentation(characterPlayer.getFaction().get().getCurse())).append("\n");
             }
             stringBuilder.append("\n");
         }
@@ -210,7 +218,7 @@ public class CharacterSheet {
 
     private void setWeapons(StringBuilder stringBuilder) {
         for (final Weapon weapon : getCharacterPlayer().getWeapons()) {
-            stringBuilder.append(weapon.getName());
+            stringBuilder.append("\t- ").append(weapon.getName());
             stringBuilder.append(" (");
             if (weapon.getWeaponDamages().get(0).getGoal() != null && !weapon.getWeaponDamages().get(0).getGoal().isEmpty()
                     && !weapon.getWeaponDamages().get(0).getGoal().equals("0")) {
@@ -244,73 +252,109 @@ public class CharacterSheet {
             }
             // Remove last separator
             stringBuilder.setLength(stringBuilder.length() - ELEMENT_SEPARATOR.length());
-            stringBuilder.append(")" + ELEMENT_SEPARATOR);
+            stringBuilder.append(")");
+            stringBuilder.append("\n");
         }
     }
 
-    private void setArmors(StringBuilder stringBuilder) {
-        if (getCharacterPlayer().getArmor() != null) {
-            stringBuilder.append(getCharacterPlayer().getArmor().getName());
+    private void setArmor(StringBuilder stringBuilder) {
+        final Armor armor = getCharacterPlayer().getArmor();
+        if (armor != null) {
+            stringBuilder.append("\t- ").append(armor.getName());
             stringBuilder.append(" (");
-            stringBuilder.append(getCharacterPlayer().getArmor().getProtection()).append("d");
+            stringBuilder.append(armor.getProtection()).append("d");
             stringBuilder.append(ELEMENT_SEPARATOR);
-            if (getCharacterPlayer().getArmor().getStandardPenalization().getDexterityModification() != 0) {
+            if (armor.getStandardPenalization().getDexterityModification() != 0) {
                 stringBuilder.append(TextFactory.getInstance().getElement(CharacteristicName.DEXTERITY.getId()).getName()).append(" ");
-                stringBuilder.append(getCharacterPlayer().getArmor().getStandardPenalization().getDexterityModification());
+                stringBuilder.append(armor.getStandardPenalization().getDexterityModification());
                 stringBuilder.append(ELEMENT_SEPARATOR);
             }
-            if (getCharacterPlayer().getArmor().getStandardPenalization().getStrengthModification() != 0) {
+            if (armor.getStandardPenalization().getStrengthModification() != 0) {
                 stringBuilder.append(TextFactory.getInstance().getElement(CharacteristicName.STRENGTH.getId()).getName()).append(" ");
-                stringBuilder.append(getCharacterPlayer().getArmor().getStandardPenalization().getStrengthModification());
+                stringBuilder.append(armor.getStandardPenalization().getStrengthModification());
                 stringBuilder.append(ELEMENT_SEPARATOR);
             }
-            if (getCharacterPlayer().getArmor().getStandardPenalization().getEnduranceModification() != 0) {
+            if (armor.getStandardPenalization().getEnduranceModification() != 0) {
                 stringBuilder.append(TextFactory.getInstance().getElement(CharacteristicName.ENDURANCE.getId()).getName()).append(" ");
-                stringBuilder.append(getCharacterPlayer().getArmor().getStandardPenalization().getEnduranceModification());
+                stringBuilder.append(armor.getStandardPenalization().getEnduranceModification());
                 stringBuilder.append(ELEMENT_SEPARATOR);
             }
-            if (getCharacterPlayer().getArmor().getStandardPenalization().getInitiativeModification() != 0) {
+            if (armor.getStandardPenalization().getInitiativeModification() != 0) {
                 stringBuilder.append(TextFactory.getInstance().getElement(CharacteristicName.INITIATIVE.getId()).getName()).append(" ");
-                stringBuilder.append(getCharacterPlayer().getArmor().getStandardPenalization().getInitiativeModification());
+                stringBuilder.append(armor.getStandardPenalization().getInitiativeModification());
                 stringBuilder.append(ELEMENT_SEPARATOR);
             }
-            final List<DamageType> damages = DamageTypeFactory.getInstance().getElements(getCharacterPlayer().getArmor().getDamageTypes());
+            final List<DamageType> damages = DamageTypeFactory.getInstance().getElements(armor.getDamageTypes());
             Collections.sort(damages);
             for (final DamageType damageType : damages) {
                 stringBuilder.append(damageType.getName());
                 stringBuilder.append(ELEMENT_SEPARATOR);
             }
             stringBuilder.setLength(stringBuilder.length() - ELEMENT_SEPARATOR.length());
-            stringBuilder.append(")" + ELEMENT_SEPARATOR);
+            stringBuilder.append(")");
+            stringBuilder.append("\n");
         }
     }
 
-    private void setShields(StringBuilder stringBuilder) {
-        if (getCharacterPlayer().getShield() != null) {
-            stringBuilder.append(getCharacterPlayer().getShield().getName());
+    private void setShield(StringBuilder stringBuilder) {
+        final Shield shield = getCharacterPlayer().getShield();
+        if (shield != null) {
+            stringBuilder.append("\t- ").append(shield.getName());
             stringBuilder.append(" (");
-            stringBuilder.append(getCharacterPlayer().getShield().getImpact());
+            stringBuilder.append(shield.getImpact());
             stringBuilder.append("/");
-            stringBuilder.append(getCharacterPlayer().getShield().getForce());
+            stringBuilder.append(shield.getForce());
             stringBuilder.append(" ");
-            stringBuilder.append(getCharacterPlayer().getShield().getHits());
+            stringBuilder.append(shield.getHits());
             stringBuilder.append(" ");
             stringBuilder.append(TextFactory.getInstance().getElement("shieldHits").getName());
-            stringBuilder.append(")" + ELEMENT_SEPARATOR);
+            stringBuilder.append(")");
+            stringBuilder.append("\n");
+        }
+    }
+
+    private void setItems(StringBuilder stringBuilder) {
+        for (final Item item : getCharacterPlayer().getItems()) {
+            stringBuilder.append("\t- ").append(item.getName());
+            final StringBuilder data = new StringBuilder();
+            String separator = "";
+            if (item.getTechLevel() > 0) {
+                data.append(separator).append(TextFactory.getInstance().getElement("techLevel").getName()).append(" ")
+                        .append(item.getTechLevel());
+                separator = ELEMENT_SEPARATOR;
+            }
+            if (item.getQuantity() > 1) {
+                data.append(separator).append(" (").append(item.getQuantity()).append(")");
+                separator = ELEMENT_SEPARATOR;
+            }
+            if (item.getSize() != null) {
+                data.append(separator).append(TextFactory.getInstance().getElement("size").getName()).append(" ")
+                        .append(item.getSize());
+                separator = ELEMENT_SEPARATOR;
+            }
+            if (item.getTechCompulsion() != null) {
+                data.append(separator).append(TextFactory.getInstance().getElement("techCompulsion").getName()).append(" ")
+                        .append(TechCompulsionFactory.getInstance().getElement(item.getTechCompulsion()).getName());
+            }
+            if (data.length() > 0) {
+                stringBuilder.append(" (");
+                stringBuilder.append(data);
+                stringBuilder.append(")");
+            }
+            stringBuilder.append("\n");
         }
     }
 
     private void setEquipment(StringBuilder stringBuilder) {
         if (!getCharacterPlayer().getWeapons().isEmpty() || getCharacterPlayer().getShield() != null
-                || getCharacterPlayer().getArmor() != null) {
-            stringBuilder.append(TextFactory.getInstance().getElement("equipment").getName()).append(": ");
+                || getCharacterPlayer().getArmor() != null || getCharacterPlayer().getItems() != null) {
+            stringBuilder.append(TextFactory.getInstance().getElement("equipment").getName()).append(":\n");
             setWeapons(stringBuilder);
-            setArmors(stringBuilder);
-            setShields(stringBuilder);
+            setArmor(stringBuilder);
+            setShield(stringBuilder);
+            setItems(stringBuilder);
 
-            // Remove last separator
-            stringBuilder.setLength(stringBuilder.length() - ELEMENT_SEPARATOR.length());
-            stringBuilder.append(".\n");
+            stringBuilder.append("\n");
         }
     }
 

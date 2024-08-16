@@ -559,10 +559,12 @@
         <materialAwards>
             <options>
                 <total>1</total>
-                <item>
-                    <id>littleFriend</id>
-                    <type>item</type>
-                </item>
+                <items>
+                    <item>
+                        <id>littleFriend</id>
+                        <type>item</type>
+                    </item>
+                </items>
             </options>
         </materialAwards>
         <restrictions>
@@ -1280,10 +1282,12 @@
             </options>
             <options>
                 <total>1</total>
-                <item>
-                    <id>saintsRelic</id>
-                    <type>item</type>
-                </item>
+                <items>
+                    <item>
+                        <id>looseSynthsilkRobes</id>
+                        <type>item</type>
+                    </item>
+                </items>
             </options>
         </materialAwards>
         <restrictions>

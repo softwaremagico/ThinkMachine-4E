@@ -24,7 +24,6 @@ package com.softwaremagico.tm.factory;
  * #L%
  */
 
-import com.softwaremagico.tm.character.equipment.item.ItemFactory;
 import com.softwaremagico.tm.character.equipment.thinkmachines.ThinkMachineFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import org.testng.Assert;
@@ -41,7 +40,7 @@ public class ThinkMachineFactoryTests {
 
     @Test
     public void getItemValues() throws InvalidXmlElementException {
-        Assert.assertEquals(ThinkMachineFactory.getInstance().getElement("crawler").getTechLevel(), 6);
+        Assert.assertEquals((int) ThinkMachineFactory.getInstance().getElement("crawler").getTechLevel(), 6);
     }
 
     @Test

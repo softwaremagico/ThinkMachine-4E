@@ -34,6 +34,8 @@ public enum CharacteristicType {
 
     SPIRIT,
 
+    OCCULTISM,
+
     OTHERS;
 
     CharacteristicType() {

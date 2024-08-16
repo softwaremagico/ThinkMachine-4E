@@ -26,12 +26,11 @@ package com.softwaremagico.tm.character.upbringing;
 
 import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
-import com.softwaremagico.tm.character.factions.FactionCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidUpbringingException;
 
-public class UpbringingCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection<FactionCharacterDefinitionStepSelection> {
+public class UpbringingCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection<UpbringingCharacterDefinitionStepSelection> {
 
     public UpbringingCharacterDefinitionStepSelection(CharacterPlayer characterPlayer, String upbringing) throws InvalidGeneratedCharacter {
         super(characterPlayer, UpbringingFactory.getInstance().getElement(upbringing));

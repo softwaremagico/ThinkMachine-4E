@@ -28,13 +28,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.characteristics.CharacteristicOption;
+import com.softwaremagico.tm.character.equipment.Equipment;
+import com.softwaremagico.tm.character.equipment.EquipmentOptions;
 import com.softwaremagico.tm.character.perks.PerkOptions;
 import com.softwaremagico.tm.character.skills.SkillOption;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class CharacterDefinitionStep<T extends Element<?>> extends Element<T> {
     private static final int TOTAL_CHARACTERISTICS_OPTIONS = 0;
@@ -48,6 +53,8 @@ public class CharacterDefinitionStep<T extends Element<?>> extends Element<T> {
     private List<SkillOption> skillOptions;
     @JsonProperty("perks")
     private List<PerkOptions> perksOptions;
+    @JsonProperty("materialAwards")
+    private List<EquipmentOptions> materialAwards;
 
 
     public List<CapabilityOptions> getCapabilityOptions() {
@@ -88,6 +95,22 @@ public class CharacterDefinitionStep<T extends Element<?>> extends Element<T> {
 
     public int getSkillsTotalPoints() {
         return TOTAL_SKILL_OPTIONS;
+    }
+
+    public Set<Equipment<?>> getMaterialAwards(Collection<String> selectedMaterialAwards) {
+        return getMaterialAwards().stream().map(m -> m.getItems(selectedMaterialAwards)).flatMap(Collection::stream)
+                .collect(Collectors.toSet());
+    }
+
+    public List<EquipmentOptions> getMaterialAwards() {
+        if (materialAwards == null) {
+            return new ArrayList<>();
+        }
+        return materialAwards;
+    }
+
+    public void setMaterialAwards(List<EquipmentOptions> materialAwards) {
+        this.materialAwards = materialAwards;
     }
 
     @Override

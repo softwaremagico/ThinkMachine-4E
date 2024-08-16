@@ -40,7 +40,7 @@ public class ItemFactoryTests {
 
     @Test
     public void getItemValues() throws InvalidXmlElementException {
-        Assert.assertEquals(ItemFactory.getInstance().getElement("estheticOrb").getTechLevel(), 6);
+        Assert.assertEquals((int) ItemFactory.getInstance().getElement("estheticOrb").getTechLevel(), 6);
     }
 
     @Test

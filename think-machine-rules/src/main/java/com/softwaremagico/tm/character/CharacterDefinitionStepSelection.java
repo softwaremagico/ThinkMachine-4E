@@ -86,6 +86,11 @@ public abstract class CharacterDefinitionStepSelection<T extends CharacterDefini
         for (int i = 0; i < characterDefinitionStep.getPerksOptions().size(); i++) {
             perksOptions.set(i, new CharacterSelectedElement());
         }
+
+        setMaterialAwards(Arrays.asList(new CharacterSelectedEquipment[characterDefinitionStep.getMaterialAwards().size()]));
+        for (int i = 0; i < characterDefinitionStep.getMaterialAwards().size(); i++) {
+            materialAwards.set(i, new CharacterSelectedEquipment());
+        }
     }
 
     public CharacterPlayer getCharacterPlayer() {

@@ -31,6 +31,9 @@ import com.softwaremagico.tm.character.Surname;
 import com.softwaremagico.tm.character.callings.Calling;
 import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
+import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
+import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
+import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
@@ -65,6 +68,19 @@ public class CharacterCreationTest {
                         .add(upbringing.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic());
             }
         }
+        for (int i = 0; i < upbringing.getSkillOptions().size(); i++) {
+            for (int j = 0; j < upbringing.getSkillOptions().get(i).getTotalOptions(); j++) {
+                characterPlayer.getUpbringing().getSkillOptions().get(i).getSelections()
+                        .add(upbringing.getSkillOptions().get(i).getSkills().get(j).getSkill());
+            }
+        }
+        for (int i = 0; i < upbringing.getMaterialAwards().size(); i++) {
+            for (int j = 0; j < upbringing.getMaterialAwards().get(i).getTotalOptions(); j++) {
+                characterPlayer.getUpbringing().getMaterialAwards().get(i).getSelections()
+                        .add(upbringing.getMaterialAwards().get(i).getItems().get(j).getId());
+            }
+        }
+
 
         characterPlayer.setFaction("decados");
         final Faction faction = FactionFactory.getInstance().getElement("decados");
@@ -72,6 +88,18 @@ public class CharacterCreationTest {
             for (int j = 0; j < faction.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
                 characterPlayer.getFaction().getCharacteristicOptions().get(i).getSelections()
                         .add(faction.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic());
+            }
+        }
+        for (int i = 0; i < faction.getSkillOptions().size(); i++) {
+            for (int j = 0; j < faction.getSkillOptions().get(i).getTotalOptions(); j++) {
+                characterPlayer.getFaction().getSkillOptions().get(i).getSelections()
+                        .add(faction.getSkillOptions().get(i).getSkills().get(j).getSkill());
+            }
+        }
+        for (int i = 0; i < faction.getMaterialAwards().size(); i++) {
+            for (int j = 0; j < faction.getMaterialAwards().get(i).getTotalOptions(); j++) {
+                characterPlayer.getFaction().getMaterialAwards().get(i).getSelections()
+                        .add(faction.getMaterialAwards().get(i).getItems().get(j).getId());
             }
         }
 
@@ -84,6 +112,24 @@ public class CharacterCreationTest {
                         .add(calling.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic());
             }
         }
+        for (int i = 0; i < calling.getSkillOptions().size(); i++) {
+            for (int j = 0; j < calling.getSkillOptions().get(i).getTotalOptions(); j++) {
+                characterPlayer.getCalling().getSkillOptions().get(i).getSelections()
+                        .add(calling.getSkillOptions().get(i).getSkills().get(j).getSkill());
+            }
+        }
+        for (int i = 0; i < calling.getMaterialAwards().size(); i++) {
+            for (int j = 0; j < calling.getMaterialAwards().get(i).getTotalOptions(); j++) {
+                characterPlayer.getCalling().getMaterialAwards().get(i).getSelections()
+                        .add(calling.getMaterialAwards().get(i).getItems().get(j).getId());
+            }
+        }
+
+
+        //Add a weapon
+        characterPlayer.addEquipmentPurchased(WeaponFactory.getInstance().getElement("soeAlembic"));
+        characterPlayer.addEquipmentPurchased(ArmorFactory.getInstance().getElement("synthsilk"));
+        characterPlayer.addEquipmentPurchased(ShieldFactory.getInstance().getElement("duelingShield"));
 
         return characterPlayer;
     }
