@@ -62,7 +62,7 @@
             <initiative>-5</initiative>
         </specialPenalizations>
         <cost>2000</cost>
-        <damageType>hard, laser, impact, shock</damageType>
+        <damageType>hard, laser, slam, shock</damageType>
         <shield>battleShield</shield>
         <others>abcProtection, powerPack</others>
     </armour>
@@ -107,7 +107,7 @@
             <initiative>-5</initiative>
         </specialPenalizations>
         <cost>10000</cost>
-        <damageType>hard, laser, impact, shock</damageType>
+        <damageType>hard, laser, slam, shock</damageType>
         <shield>battleShield</shield>
         <others>abcProtection, powerPack, lifeSupport30m, rangeFinder, radio, binoculars, radiationProtection</others>
     </armour>
@@ -330,8 +330,8 @@
         <id>heavyClothing</id>
         <type>armor</type>
         <name>
-            <en>Heavy Clothing</en>
-            <es>Ropa Pesada</es>
+            <en>Thick Clothing</en>
+            <es>Ropa Gruesa</es>
         </name>
         <description>
             <en>A heavier and stiffer fabric than padded clothing, sometimes designed as fashionable armor where thick
@@ -345,7 +345,7 @@
             </es>
         </description>
         <techLevel>0</techLevel>
-        <protection>2</protection>
+        <protection>1</protection>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>0</dexterity>
@@ -375,7 +375,7 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <protection>4</protection>
+        <protection>2</protection>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>0</dexterity>
@@ -531,7 +531,7 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <protection>3</protection>
+        <protection>2</protection>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>0</dexterity>
@@ -539,7 +539,7 @@
             <initiative>-2</initiative>
         </standardPenalizations>
         <cost>200</cost>
-        <damageType>hard, shock</damageType>
+        <damageType>hard, shock, slam</damageType>
         <shield>standardShield, duelingShield, assaultShield, battleShield</shield>
     </armour>
     <armour>
@@ -801,7 +801,7 @@
             <initiative>-2</initiative>
         </specialPenalizations>
         <cost>100</cost>
-        <damageType>hard, fire, impact, shock</damageType>
+        <damageType>hard, fire, slam, shock</damageType>
         <shield>battleShield</shield>
         <others>lifeSupport24h, abcProtection, radiationProtection</others>
     </armour>
@@ -838,7 +838,7 @@
             <initiative>-6</initiative>
         </specialPenalizations>
         <cost>50</cost>
-        <damageType>impact, shock</damageType>
+        <damageType>slam, shock</damageType>
         <shield>battleShield</shield>
         <others>lifeSupport12h, abcProtection, radiationProtection</others>
     </armour>
@@ -875,7 +875,7 @@
             <initiative>-4</initiative>
         </specialPenalizations>
         <cost>400</cost>
-        <damageType>plasma, hard, fire, impact, laser, shock</damageType>
+        <damageType>plasma, hard, fire, slam, laser, shock</damageType>
         <shield>battleShield</shield>
         <others>lifeSupport24h, abcProtection, radiationProtection</others>
     </armour>
@@ -911,7 +911,7 @@
             <initiative>-2</initiative>
         </specialPenalizations>
         <cost>1000</cost>
-        <damageType>plasma, hard, fire, impact, laser, shock</damageType>
+        <damageType>plasma, hard, fire, slam, laser, shock</damageType>
         <shield>battleShield</shield>
         <others>lifeSupport24h, abcProtection, radiationProtection</others>
     </armour>
@@ -1018,7 +1018,7 @@
             <initiative>0</initiative>
         </standardPenalizations>
         <cost>600</cost>
-        <damageType>hard, impact, shock</damageType>
+        <damageType>hard, slam, shock</damageType>
         <shield>assaultShield, battleShield</shield>
     </armour>
     <armour>
@@ -1083,7 +1083,7 @@
             <es>Armadura Sintética Multiespectro</es>
         </name>
         <description>
-            <en>Shockproof, Slamproof + choose one more -proof: Blaster-, Flame-, or Laser-; does not require an armor
+            <en>Shockproof, impactproof + choose one more -proof: Blaster-, Flame-, or Laser-; does not require an armor
                 capability.
             </en>
             <es>Protección contra Descargas, Golpes + elige una protección adicional: Bláster, Fuego o Láser; no

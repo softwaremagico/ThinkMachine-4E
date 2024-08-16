@@ -847,13 +847,13 @@
             <es>E</es>
         </name>
     </armorShockAbbreviature>
-    <armorImpactAbbreviature>
-        <id>armorImpactAbbreviature</id>
+    <armorimpactAbbreviature>
+        <id>armorimpactAbbreviature</id>
         <name>
             <en>I</en>
             <es>I</es>
         </name>
-    </armorImpactAbbreviature>
+    </armorimpactAbbreviature>
     <shield>
         <id>shield</id>
         <name>
@@ -913,8 +913,8 @@
     <impactForce>
         <id>impactForce</id>
         <name>
-            <en>Impact/Force</en>
-            <es>Impacto/Fuerza</es>
+            <en>impact/Force</en>
+            <es>impacto/Fuerza</es>
         </name>
     </impactForce>
 </translator>

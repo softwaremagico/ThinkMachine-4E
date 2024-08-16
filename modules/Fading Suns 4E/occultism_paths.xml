@@ -4094,8 +4094,8 @@
                 <duration>temporary</duration>
                 <wyrd>1</wyrd>
             </theChorusOfManyFlames>
-            <shepherdsLament>
-                <id>shepherdsLament</id>
+            <shepherdimpactent>
+                <id>shepherdimpactent</id>
                 <name>
                     <en>Shepherd's Lament</en>
                     <es>El Lamento del Pastor</es>
@@ -4107,7 +4107,7 @@
                 <range>sensory</range>
                 <duration>temporary</duration>
                 <wyrd>1</wyrd>
-            </shepherdsLament>
+            </shepherdimpactent>
             <theUpliftingWord>
                 <id>theUpliftingWord</id>
                 <name>

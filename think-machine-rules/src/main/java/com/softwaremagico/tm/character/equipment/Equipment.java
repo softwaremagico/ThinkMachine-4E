@@ -46,9 +46,14 @@ import com.softwaremagico.tm.character.equipment.thinkmachines.ThinkMachineFacto
 import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
+import com.softwaremagico.tm.character.factions.Faction;
+import com.softwaremagico.tm.character.factions.FactionFactory;
+import com.softwaremagico.tm.character.upbringing.Upbringing;
+import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -60,7 +65,7 @@ import java.util.Objects;
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Item.class, name = "item"),
         @JsonSubTypes.Type(value = CustomizedItem.class, name = "customizedItem"),
-        @JsonSubTypes.Type(value = Shield.class, name = "shield"),
+        @JsonSubTypes.Type(value = Shield.class, name = "e-shield"),
         @JsonSubTypes.Type(value = CustomizedShield.class, name = "customizedShield"),
         @JsonSubTypes.Type(value = Armor.class, name = "armor"),
         @JsonSubTypes.Type(value = CustomizedArmor.class, name = "customizedArmor"),
@@ -73,14 +78,22 @@ import java.util.Objects;
         @JsonSubTypes.Type(value = CustomizedThinkMachine.class, name = "customizedThinkMachine")
 })
 public abstract class Equipment<E extends Element<?>> extends Element<E> implements IElementWithTechnologyLevel {
+    @JsonProperty("cost")
     private float cost;
+    @JsonProperty("techLevel")
     private int techLevel;
+    @JsonProperty("size")
     private Size size;
+    @JsonProperty("traits")
     private List<String> traits;
     @JsonProperty("techCompulsion")
     private String techCompulsion;
     @JsonProperty("quantity")
     private int quantity = 1;
+    @JsonProperty("agora")
+    private Agora agora;
+    @JsonProperty("features")
+    private List<EquipmentFeature> features;
 
     public Equipment() {
         super();
@@ -165,10 +178,45 @@ public abstract class Equipment<E extends Element<?>> extends Element<E> impleme
         setTechLevel(equipment.getTechLevel());
         setSize(equipment.getSize());
         setTechCompulsion(equipment.getTechCompulsion());
+        setAgora(equipment.getAgora());
+        if (equipment.getFeatures() != null) {
+            setFeatures(new ArrayList<>(equipment.getFeatures()));
+        }
         //setQuantity(equipment.getQuantity());
         if (equipment.getTraits() != null) {
             setTraits(new ArrayList<>(equipment.getTraits()));
         }
+    }
+
+
+    public Agora getAgora() {
+        return agora;
+    }
+
+    public void setAgora(Agora agora) {
+        this.agora = agora;
+        try {
+            final Faction faction = FactionFactory.getInstance().getElement(agora.name().toLowerCase());
+            getRestrictions().setRestrictedToFactions(Collections.singleton(faction.getId()));
+        } catch (Exception ignored) {
+            //Not a faction.
+        }
+        try {
+            final Upbringing upbringing = UpbringingFactory.getInstance().getElement(agora.name().toLowerCase());
+            getRestrictions().setRestrictedToUpbringing(Collections.singleton(upbringing.getId()));
+        } catch (Exception ignored) {
+            //Not a faction.
+        }
+        getRandomDefinition().setAgoraProbabilityMultiplier(agora);
+    }
+
+
+    public List<EquipmentFeature> getFeatures() {
+        return features;
+    }
+
+    public void setFeatures(List<EquipmentFeature> features) {
+        this.features = features;
     }
 
     @Override

@@ -28,6 +28,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.capabilities.CapabilityOption;
 import com.softwaremagico.tm.character.characteristics.CharacteristicBonus;
+import com.softwaremagico.tm.character.equipment.CharacterSelectedEquipment;
 import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.character.skills.SkillBonus;
 import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
@@ -53,6 +54,8 @@ public abstract class CharacterDefinitionStepSelection<T extends CharacterDefini
     private List<CharacterSelectedElement> skillOptions;
     @JsonProperty("perks")
     private List<CharacterSelectedElement> perksOptions;
+    @JsonProperty("materialAwards")
+    private List<CharacterSelectedEquipment> materialAwards;
 
     //TODO(softwaremagico): implement this.
     private boolean raisedInSpace;
@@ -155,6 +158,14 @@ public abstract class CharacterDefinitionStepSelection<T extends CharacterDefini
         perksOptions.forEach(perkOption ->
                 selectedPerks.addAll(perkOption.getSelections()));
         return selectedPerks;
+    }
+
+    public List<CharacterSelectedEquipment> getMaterialAwards() {
+        return materialAwards;
+    }
+
+    public void setMaterialAwards(List<CharacterSelectedEquipment> materialAwards) {
+        this.materialAwards = materialAwards;
     }
 
     @Override

@@ -884,9 +884,9 @@
                 </others>
             </combatAction>
             <combatAction>
-                <id>stockSlam</id>
+                <id>stockimpact</id>
                 <name>
-                    <en>Stock Slam</en>
+                    <en>Stock impact</en>
                     <es>Culatazo</es>
                 </name>
                 <requirements>

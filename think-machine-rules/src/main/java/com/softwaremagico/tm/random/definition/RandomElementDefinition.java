@@ -26,11 +26,16 @@ package com.softwaremagico.tm.random.definition;
 
 import com.softwaremagico.tm.XmlData;
 import com.softwaremagico.tm.character.characteristics.Characteristic;
+import com.softwaremagico.tm.character.equipment.Agora;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class RandomElementDefinition extends XmlData {
+    private static final double COMMON_PROBABILITY = 100d;
+    private static final double RARE_PROBABILITY = 10d;
+    private static final double EXOTIC_PROBABILITY = 1d;
+
     private Integer staticProbability;
     private Integer minimumTechLevel;
     private Integer maximumTechLevel;
@@ -45,7 +50,7 @@ public class RandomElementDefinition extends XmlData {
     private RandomProbabilityDefinition probability;
 
     public RandomElementDefinition() {
-
+        super();
     }
 
     public RandomElementDefinition(RandomElementDefinition... randomDefinitions) {
@@ -178,8 +183,29 @@ public class RandomElementDefinition extends XmlData {
         return probabilityMultiplier;
     }
 
+    public void setAgoraProbabilityMultiplier(Agora agora) {
+        if (agora != null) {
+            switch (agora) {
+                case COMMON:
+                case KNOWN_WORLDS:
+                    this.probabilityMultiplier = COMMON_PROBABILITY;
+                    break;
+                case RARE:
+                    this.probabilityMultiplier = RARE_PROBABILITY;
+                    break;
+                case EXOTIC:
+                    this.probabilityMultiplier = EXOTIC_PROBABILITY;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
     public void setProbabilityMultiplier(Double probabilityMultiplier) {
-        this.probabilityMultiplier = probabilityMultiplier;
+        if (probabilityMultiplier != null) {
+            this.probabilityMultiplier = probabilityMultiplier;
+        }
     }
 
     public Set<String> getRestrictedFactions() {
