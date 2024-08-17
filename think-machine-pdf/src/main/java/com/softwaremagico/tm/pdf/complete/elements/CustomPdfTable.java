@@ -156,7 +156,7 @@ public abstract class CustomPdfTable extends PdfPTable {
         this.columnWidths = columnWidths;
     }
 
-    protected PdfPCell createRectangle() {
+    public static PdfPCell createRectangle() {
         final PdfPCell box = new PdfPCell();
         box.setMinimumHeight(RECTANGLE_MIN_HEIGHT);
         box.setBorder(0);
@@ -168,7 +168,7 @@ public abstract class CustomPdfTable extends PdfPTable {
         return createRectangle(value + "");
     }
 
-    protected PdfPCell createRectangle(String value) {
+    public static PdfPCell createRectangle(String value) {
         if (value == null) {
             return createRectangle();
         }

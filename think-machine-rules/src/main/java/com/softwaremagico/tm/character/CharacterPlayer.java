@@ -445,4 +445,8 @@ public class CharacterPlayer {
         }
         return super.toString();
     }
+
+    public int getStartingValue(CharacteristicName characteristicName) {
+        return Characteristic.INITIAL_VALUE;
+    }
 }

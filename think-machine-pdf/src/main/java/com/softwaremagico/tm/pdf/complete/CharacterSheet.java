@@ -29,12 +29,15 @@ import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.PageSize;
 import com.lowagie.text.Rectangle;
+import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.pdf.complete.elements.BaseElement;
 import com.softwaremagico.tm.pdf.complete.events.SheetAlternatedBackgroundEvent;
 import com.softwaremagico.tm.pdf.complete.info.CharacterBasicsCompleteTableFactory;
+import com.softwaremagico.tm.pdf.complete.skills.CharacteristicsAndSkillsTableFactory;
 
 public class CharacterSheet extends PdfDocument {
     private static final float[] REAR_TABLE_WIDTHS = {1f, 1f, 1f};
@@ -70,9 +73,10 @@ public class CharacterSheet extends PdfDocument {
     protected void createCharacterPDF(Document document, CharacterPlayer characterPlayer) throws InvalidXmlElementException, DocumentException {
         final PdfPTable mainTable = CharacterBasicsCompleteTableFactory.getCharacterBasicsTable(characterPlayer);
         document.add(mainTable);
-//        final PdfPTable characteristicsTable = CharacteristicsTableFactory.getCharacteristicsBasicsTable(
-//                characterPlayer);
-//        document.add(characteristicsTable);
+
+        final PdfPTable characteristicsTable = CharacteristicsAndSkillsTableFactory.getCharacteristicsAndSkillsBasicsTable(
+                characterPlayer);
+        document.add(characteristicsTable);
 //        final PdfPTable skillsTable = MainSkillsTableFactory.getSkillsTable(characterPlayer);
 //        document.add(skillsTable);
 //        final PdfPTable perksTable = MainPerksTableFactory.getPerksTable(characterPlayer);

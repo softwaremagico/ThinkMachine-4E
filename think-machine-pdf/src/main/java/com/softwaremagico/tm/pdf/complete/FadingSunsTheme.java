@@ -44,6 +44,8 @@ public abstract class FadingSunsTheme {
     public static final String HANDWRITTING_FONT_NAME = "ArchitectsDaughter.ttf";
 
     public static final int TITLE_FONT_SIZE = 18;
+    public static final int SECTION_TITLE_FONT_SIZE = 13;
+    public static final int SECTION_TITLE_PADDING = 20;
     public static final int CHARACTER_BASICS_FONT_SIZE = 12;
     public static final int CHARACTERISTICS_TITLE_FONT_SIZE = 14;
     public static final int CHARACTERISTICS_LINE_FONT_SIZE = 10;

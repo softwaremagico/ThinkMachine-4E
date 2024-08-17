@@ -44,8 +44,10 @@ public class BaseElement {
     private static final int TOP_PADDING = 10;
     private static final int WIDTH = 100;
     private static final int MIN_HEIGHT = 10;
+    private static final int TITLE_MIN_HEIGHT = 16;
+    private static final int TITLE_PADDING_CORRECTION = -2;
     private static final int SEPARATOR_MIN_HEIGHT = 6;
-    private static final String TRANSLATOR_FILE = "character_sheet.xml";
+    private static final int BIG_SEPARATOR_MIN_HEIGHT = 16;
 
     public static PdfPCell getCell(String text, int border, int colspan, int align, Color color, BaseFont font,
                                    float fontSize) {
@@ -144,6 +146,21 @@ public class BaseElement {
         return cell;
     }
 
+    public static PdfPCell createSectionTitle(String title, int colspan) {
+        final Font font = new Font(FadingSunsTheme.getTitleFont(), FadingSunsTheme.SECTION_TITLE_FONT_SIZE);
+        font.setColor(Color.WHITE);
+        final Phrase content = new Phrase(title, font);
+        final PdfPCell titleCell = new PdfPCell(content);
+        titleCell.setPaddingTop(TITLE_PADDING_CORRECTION);
+        titleCell.setPaddingLeft(FadingSunsTheme.SECTION_TITLE_PADDING);
+        titleCell.setColspan(colspan);
+        titleCell.setHorizontalAlignment(Element.ALIGN_LEFT);
+        titleCell.setVerticalAlignment(Element.ALIGN_TOP);
+        titleCell.setBackgroundColor(Color.BLACK);
+        titleCell.setMinimumHeight(TITLE_MIN_HEIGHT);
+        return titleCell;
+    }
+
     public static PdfPCell createBlackSeparator() {
         final PdfPCell cell = new PdfPCell();
         cell.setBackgroundColor(Color.BLACK);
@@ -152,17 +169,26 @@ public class BaseElement {
         return cell;
     }
 
-    public static PdfPCell createWhiteSeparator() {
+    public static PdfPCell createWhiteSeparator(int height) {
         final PdfPCell cell = new PdfPCell();
         cell.setBackgroundColor(Color.WHITE);
         setCellProperties(cell);
-        cell.setMinimumHeight(SEPARATOR_MIN_HEIGHT);
+        cell.setMinimumHeight(height);
         return cell;
+    }
+
+    public static PdfPCell createWhiteSeparator() {
+        return createWhiteSeparator(SEPARATOR_MIN_HEIGHT);
+    }
+
+    public static PdfPCell createBigWhiteSeparator() {
+        return createWhiteSeparator(BIG_SEPARATOR_MIN_HEIGHT);
     }
 
     public static void setTableProperties(PdfPTable table) {
         table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
         table.getDefaultCell().setVerticalAlignment(Element.ALIGN_MIDDLE);
+        table.getDefaultCell().setBorder(0);
         table.setWidthPercentage(WIDTH);
         table.setSpacingAfter(0);
         table.setSpacingBefore(0);
