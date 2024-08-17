@@ -19,7 +19,7 @@ import java.util.List;
 public class CharacteristicsColumn {
     private static final String GAP = "   ";
     private static final int ROW_WIDTH = 60;
-    private static final float[] widths = {1f, 5f};
+    private static final float[] WIDTHS = {1f, 5f};
 
     public static PdfPCell createContent(CharacterPlayer characterPlayer, CharacteristicType characteristicType) {
         final float[] widths = {3f, 0.5f, 1.5f, 0.1f};
@@ -40,7 +40,8 @@ public class CharacteristicsColumn {
                 characteristicTitle.setVerticalAlignment(Element.ALIGN_TOP);
                 table.addCell(characteristicTitle);
 
-                final PdfPCell characteristicTitleInitialValue = new PdfPCell(new Paragraph("(" + (characterPlayer == null ? GAP : characterPlayer.getStartingValue(characteristicName)) + ")",
+                final PdfPCell characteristicTitleInitialValue = new PdfPCell(new Paragraph("(" + (characterPlayer == null ? GAP
+                        : characterPlayer.getStartingValue(characteristicName)) + ")",
                         new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.CHARACTERISTICS_LINE_FONT_SIZE)));
                 characteristicTitleInitialValue.setBorder(0);
                 table.addCell(characteristicTitleInitialValue);
