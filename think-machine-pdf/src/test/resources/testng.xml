@@ -21,7 +21,7 @@
             </run>
         </groups>
         <classes>
-            <!--			<class name="com.softwaremagico.tm.export.pdf.CharacterSheetCreationTest" />-->
+            <class name="com.softwaremagico.tm.export.pdf.CharacterSheetCreationTest"/>
             <!--			<class name="com.softwaremagico.tm.export.pdf.CustomCharacters" />-->
             <!--			<class-->
             <!--				name="com.softwaremagico.tm.export.pdf.RandomCharacterSheetCreationTest" />-->

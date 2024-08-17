@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <translator>
-    <infoName>
-		<id>infoName</id>
+    <name>
+		<id>name</id>
         <name>
-            <en>Name:</en>
-            <es>Nombre:</es>
+            <en>Name</en>
+            <es>Nombre</es>
         </name>
-    </infoName>
-    <infoSurname>
-        <id>infoSurname</id>
+    </name>
+    <surname>
+        <id>surname</id>
         <name>
-            <en>Surname:</en>
-            <es>Apellido:</es>
+            <en>Surname</en>
+            <es>Apellido</es>
         </name>
-    </infoSurname>
-    <infoPlayer>
-        <id>infoPlayer</id>
+    </surname>
+    <player>
+        <id>player</id>
         <name>
-            <en>Player:</en>
-            <es>Jugador:</es>
+            <en>Player</en>
+            <es>Jugador</es>
         </name>
-    </infoPlayer>
-    <infoGender>
-        <id>infoGender</id>
+    </player>
+    <gender>
+        <id>gender</id>
         <name>
             <en>Gender</en>
             <es>Género</es>
         </name>
-    </infoGender>
+    </gender>
     <male>
         <id>male</id>
         <name>
@@ -42,41 +42,48 @@
             <es>Mujer</es>
         </name>
     </female>
-    <infoAge>
-        <id>infoAge</id>
+    <age>
+        <id>age</id>
         <name>
-            <en>Age:</en>
-            <es>Edad:</es>
+            <en>Age</en>
+            <es>Edad</es>
         </name>
-    </infoAge>
-    <infoRace>
-        <id>infoRace</id>
+    </age>
+    <specie>
+        <id>specie</id>
         <name>
-            <en>Race:</en>
-            <es>Raza:</es>
+            <en>Specie</en>
+            <es>Especie</es>
         </name>
-    </infoRace>
-    <infoPlanet>
-        <id>infoPlanet</id>
+    </specie>
+    <planet>
+        <id>planet</id>
         <name>
-            <en>Planet:</en>
-            <es>Planeta:</es>
+            <en>Planet</en>
+            <es>Planeta</es>
         </name>
-    </infoPlanet>
-    <infoFaction>
-        <id>infoFaction</id>
+    </planet>
+    <faction>
+        <id>faction</id>
         <name>
-            <en>Faction:</en>
-            <es>Facción:</es>
+            <en>Faction</en>
+            <es>Facción</es>
         </name>
-    </infoFaction>
-    <infoRank>
-        <id>infoRank</id>
+    </faction>
+    <calling>
+        <id>calling</id>
         <name>
-            <en>Rank:</en>
-            <es>Rango:</es>
+            <en>Calling</en>
+            <es>Vocación</es>
         </name>
-    </infoRank>
+    </calling>
+    <rank>
+        <id>rank</id>
+        <name>
+            <en>Rank</en>
+            <es>Rango</es>
+        </name>
+    </rank>
     <description>
         <id>description</id>
         <name>
@@ -84,13 +91,20 @@
             <es>Descripción</es>
         </name>
     </description>
-    <infoBirthdate>
-        <id>infoBirthdate</id>
+    <birthdate>
+        <id>birthdate</id>
         <name>
             <en>Birthdate</en>
             <es>Fecha de Nacimiento</es>
         </name>
-    </infoBirthdate>
+    </birthdate>
+    <upbringing>
+        <id>upbringing</id>
+        <name>
+            <en>Upbringing</en>
+            <es>Educación</es>
+        </name>
+    </upbringing>
     <infoHair>
         <id>infoHair</id>
         <name>

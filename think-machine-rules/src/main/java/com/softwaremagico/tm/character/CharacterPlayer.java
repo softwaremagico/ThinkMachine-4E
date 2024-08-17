@@ -240,9 +240,13 @@ public class CharacterPlayer {
         return null;
     }
 
-
-    public List<String> getCallings() {
-        return new ArrayList<>();
+    /**
+     * Gets the current rank of the status of a character.
+     *
+     * @return the status of the character.
+     */
+    public String getRank() {
+        return null;
     }
 
     public List<String> getPerks() {

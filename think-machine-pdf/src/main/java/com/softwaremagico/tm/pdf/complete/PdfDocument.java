@@ -44,12 +44,8 @@ public abstract class PdfDocument {
     private static final int LEFT_MARGIN = 30;
     private static final int TOP_MARGIN = 30;
     private static final int BOTTOM_MARGIN = 30;
-    private final String language;
-    private final String moduleName;
 
-    protected PdfDocument(String language, String moduleName) {
-        this.language = language;
-        this.moduleName = moduleName;
+    protected PdfDocument() {
     }
 
     protected Document addMetaData(Document document) {
@@ -65,7 +61,6 @@ public abstract class PdfDocument {
     private void generatePDF(Document document, PdfWriter writer) throws EmptyPdfBodyException, InvalidXmlElementException, DocumentException {
         addMetaData(document);
         document.open();
-        // createCharacterPDF(document);
         createContent(document);
         document.close();
     }
@@ -122,12 +117,4 @@ public abstract class PdfDocument {
     protected abstract Rectangle getPageSize();
 
     protected abstract void createCharacterPDF(Document document, CharacterPlayer character) throws Exception;
-
-    public String getLanguage() {
-        return language;
-    }
-
-    public String getModuleName() {
-        return moduleName;
-    }
 }
