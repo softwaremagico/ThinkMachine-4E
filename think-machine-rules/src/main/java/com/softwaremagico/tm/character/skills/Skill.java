@@ -39,7 +39,7 @@ public class Skill extends SkillDefinition<Skill> implements ISkillRandomDefinti
     }
 
     public boolean isNatural() {
-        return getRestrictions() == null || !getRestrictions().isRestricted();
+        return getRestrictions().isOpen();
     }
 
 }

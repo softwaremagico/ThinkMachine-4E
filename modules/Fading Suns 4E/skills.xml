@@ -4,7 +4,7 @@
         <type>skill</type>
         <id>academia</id>
         <name>
-            <en>Influence</en>
+            <en>Academia</en>
             <es>Academia</es>
         </name>
     </skill>
@@ -44,8 +44,8 @@
         <type>skill</type>
         <id>arts</id>
         <name>
-            <en>Arte</en>
-            <es>Arts</es>
+            <en>Arts</en>
+            <es>Arte</es>
         </name>
     </skill>
     <skill>

@@ -1,5 +1,29 @@
 package com.softwaremagico.tm.pdf.complete.skills;
 
+/*-
+ * #%L
+ * Think Machine 4E (PDF Sheets)
+ * %%
+ * Copyright (C) 2017 - 2024 Softwaremagico
+ * %%
+ * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
+ * <softwaremagico@gmail.com> Valencia (Spain).
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation; either version 2 of the License, or (at your option) any later
+ * version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * this program; If not, see <http://www.gnu.org/licenses/gpl-3.0.html>.
+ * #L%
+ */
+
 
 import com.lowagie.text.Element;
 import com.lowagie.text.Font;
@@ -16,10 +40,13 @@ import com.softwaremagico.tm.txt.TextFactory;
 
 import java.util.List;
 
-public class CharacteristicsColumn {
+public final class CharacteristicsColumn {
     private static final String GAP = "   ";
-    private static final int ROW_WIDTH = 60;
-    private static final float[] WIDTHS = {1f, 5f};
+    private static final int ROW_HEIGHT = 20;
+
+    private CharacteristicsColumn() {
+
+    }
 
     public static PdfPCell createContent(CharacterPlayer characterPlayer, CharacteristicType characteristicType) {
         final float[] widths = {3f, 0.5f, 1.5f, 0.1f};
@@ -36,7 +63,7 @@ public class CharacteristicsColumn {
                         new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.CHARACTERISTICS_LINE_FONT_SIZE)));
                 final PdfPCell characteristicTitle = new PdfPCell(paragraph);
                 characteristicTitle.setBorder(0);
-                characteristicTitle.setMinimumHeight(ROW_WIDTH / (float) characteristicNames.size());
+                characteristicTitle.setMinimumHeight(ROW_HEIGHT);
                 characteristicTitle.setVerticalAlignment(Element.ALIGN_TOP);
                 table.addCell(characteristicTitle);
 
