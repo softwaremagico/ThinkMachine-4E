@@ -50,6 +50,7 @@ public class BaseElement {
     private static final int TITLE_PADDING_CORRECTION = -2;
     private static final int SEPARATOR_MIN_HEIGHT = 6;
     private static final int BIG_SEPARATOR_MIN_HEIGHT = 15;
+    public static final float MARGIN_LENGTH = 0.1f;
 
     public static PdfPCell getCell(String text, int border, int colspan, int align, Color color, BaseFont font,
                                    float fontSize) {

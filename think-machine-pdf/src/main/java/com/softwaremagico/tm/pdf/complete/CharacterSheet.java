@@ -87,7 +87,7 @@ public class CharacterSheet extends PdfDocument {
 
         table.addCell(OccultismValuesTableFactory.getOccultismValuesTable(characterPlayer));
 
-        PdfPCell armorCell = new PdfPCell(new ArmorTable(characterPlayer));
+        final PdfPCell armorCell = new PdfPCell(new ArmorTable(characterPlayer));
         armorCell.setRowspan(2);
         armorCell.setBorder(0);
         table.addCell(armorCell);

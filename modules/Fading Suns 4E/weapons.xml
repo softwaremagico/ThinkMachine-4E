@@ -1423,7 +1423,7 @@
         </damageList>
         <size>L</size>
         <cost>15000</cost>
-        <damageType>plasma, hard</damageType>
+        <damageType>blaster, hard</damageType>
     </fluxSword>
     <mistSword>
         <id>mistSword</id>
@@ -1465,7 +1465,7 @@
         </damageList>
         <size>L</size>
         <cost>30000</cost>
-        <damageType>plasma, hard, psi</damageType>
+        <damageType>blaster, hard, psi</damageType>
         <random>
             <probabilityMultiplier>0.01</probabilityMultiplier>
         </random>
@@ -7047,7 +7047,7 @@
         </damageList>
         <size>S</size>
         <cost>700</cost>
-        <damageType>plasma</damageType>
+        <damageType>blaster</damageType>
         <random>
             <probabilityMultiplier>10</probabilityMultiplier>
         </random>
@@ -7094,7 +7094,7 @@
         </damageList>
         <size>M</size>
         <cost>900</cost>
-        <damageType>plasma</damageType>
+        <damageType>blaster</damageType>
         <random>
             <probabilityMultiplier>0.1</probabilityMultiplier>
         </random>
@@ -7130,7 +7130,7 @@
         </damageList>
         <size>XL</size>
         <cost>1000</cost>
-        <damageType>plasma</damageType>
+        <damageType>blaster</damageType>
         <others>stock</others>
     </soeCrucible>
     <nitobiBlasterAxe>
@@ -7187,7 +7187,7 @@
         </damageList>
         <size>XL</size>
         <cost>3000</cost>
-        <damageType>plasma</damageType>
+        <damageType>blaster</damageType>
         <others>stock</others>
         <random>
             <probabilityMultiplier>0.1</probabilityMultiplier>
@@ -7229,7 +7229,7 @@
         </damageList>
         <size>L</size>
         <cost>1200</cost>
-        <damageType>plasma</damageType>
+        <damageType>blaster</damageType>
         <others>stock</others>
         <random>
             <probabilityMultiplier>0.1</probabilityMultiplier>
@@ -7271,7 +7271,7 @@
         </damageList>
         <size>L</size>
         <cost>1400</cost>
-        <damageType>plasma</damageType>
+        <damageType>blaster</damageType>
         <others>stock</others>
         <random>
             <probabilityMultiplier>0.1</probabilityMultiplier>
@@ -8190,7 +8190,7 @@
         </damageList>
         <size>M</size>
         <cost>300</cost>
-        <damageType>plasma</damageType>
+        <damageType>blaster</damageType>
     </goboLobberJetPistol>
     <goboGarbageChucker>
         <id>goboGarbageChucker</id>
@@ -8256,7 +8256,7 @@
         </damageList>
         <size>XL</size>
         <cost>500</cost>
-        <damageType>plasma</damageType>
+        <damageType>blaster</damageType>
         <others>stock</others>
     </goboGarbageChucker>
     <musterNightstorm>
@@ -8666,7 +8666,7 @@
         </damageList>
         <size>XXL</size>
         <cost>5000</cost>
-        <damageType>plasma, hard</damageType>
+        <damageType>blaster, hard</damageType>
         <others>stock</others>
     </blasterCannon>
 
@@ -8721,7 +8721,7 @@
         </damageList>
         <size>S</size>
         <cost>20</cost>
-        <damageType>plasma</damageType>
+        <damageType>blaster</damageType>
         <random>
             <probabilityMultiplier>0.01</probabilityMultiplier>
         </random>
@@ -8960,7 +8960,7 @@
         </damageList>
         <size>S</size>
         <cost>100</cost>
-        <damageType>plasma</damageType>
+        <damageType>blaster</damageType>
     </plasmaGrenade>
     <flashBangGrenade>
         <id>flashBangGrenade</id>

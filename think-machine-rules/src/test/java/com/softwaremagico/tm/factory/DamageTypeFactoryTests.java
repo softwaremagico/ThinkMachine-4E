@@ -31,7 +31,7 @@ import org.testng.annotations.Test;
 
 @Test(groups = {"damageFactory"})
 public class DamageTypeFactoryTests {
-    private static final int DEFINED_DAMAGES = 17;
+    private static final int DEFINED_DAMAGES = 18;
 
 
     @Test

@@ -875,7 +875,7 @@
             <initiative>-4</initiative>
         </specialPenalizations>
         <cost>400</cost>
-        <damageType>plasma, hard, fire, slam, laser, shock</damageType>
+        <damageType>blaster, hard, fire, slam, laser, shock</damageType>
         <shield>battleShield</shield>
         <others>lifeSupport24h, abcProtection, radiationProtection</others>
     </armour>
@@ -911,7 +911,7 @@
             <initiative>-2</initiative>
         </specialPenalizations>
         <cost>1000</cost>
-        <damageType>plasma, hard, fire, slam, laser, shock</damageType>
+        <damageType>blaster, hard, fire, slam, laser, shock</damageType>
         <shield>battleShield</shield>
         <others>lifeSupport24h, abcProtection, radiationProtection</others>
     </armour>
