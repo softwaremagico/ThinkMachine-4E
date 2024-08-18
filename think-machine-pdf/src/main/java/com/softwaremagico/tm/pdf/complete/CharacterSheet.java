@@ -34,7 +34,7 @@ import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.pdf.complete.endurances.EnduranceTableFactory;
+import com.softwaremagico.tm.pdf.complete.resistances.ResistanceTableFactory;
 import com.softwaremagico.tm.pdf.complete.equipment.ArmorTable;
 import com.softwaremagico.tm.pdf.complete.events.SheetAlternatedBackgroundEvent;
 import com.softwaremagico.tm.pdf.complete.info.CharacterBasicsCompleteTableFactory;
@@ -92,7 +92,7 @@ public class CharacterSheet extends PdfDocument {
         armorCell.setBorder(0);
         table.addCell(armorCell);
 
-        table.addCell(EnduranceTableFactory.getEnduranceAndProtectionsBasicsTable(characterPlayer));
+        table.addCell(ResistanceTableFactory.getResistancesAndProtectionsBasicsTable(characterPlayer));
 
         document.add(table);
 

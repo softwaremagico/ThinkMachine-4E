@@ -714,6 +714,27 @@
             <es>Máx</es>
         </name>
     </maximumAbbreviation>
+    <current>
+        <id>current</id>
+        <name>
+            <en>Current</en>
+            <es>Actual</es>
+        </name>
+    </current>
+    <quantity>
+        <id>quantity</id>
+        <name>
+            <en>Rating</en>
+            <es>Cantidad</es>
+        </name>
+    </quantity>
+    <uses>
+        <id>number</id>
+        <name>
+            <en>Number</en>
+            <es>Usos</es>
+        </name>
+    </uses>
     <weaponAbbreviation>
         <id>weaponAbbreviation</id>
         <name>
