@@ -8,17 +8,17 @@ package com.softwaremagico.tm.pdf.complete.equipment;
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
  * Foundation; either version 2 of the License, or (at your option) any later
  * version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU General Public License along with
  * this program; If not, see <http://www.gnu.org/licenses/gpl-3.0.html>.
  * #L%
@@ -36,29 +36,23 @@ import com.softwaremagico.tm.pdf.complete.elements.BaseElement;
 import com.softwaremagico.tm.pdf.complete.elements.CustomPdfTable;
 import com.softwaremagico.tm.txt.TextFactory;
 
-import static com.softwaremagico.tm.pdf.complete.elements.BaseElement.createBigWhiteSeparator;
-import static com.softwaremagico.tm.pdf.complete.elements.BaseElement.createSectionTitle;
-import static com.softwaremagico.tm.pdf.complete.elements.BaseElement.setTableProperties;
+import static com.softwaremagico.tm.pdf.complete.elements.CustomPdfTable.createEmptyElementLine;
 
-public class ArmorTable extends CustomPdfTable {
-    private static final float[] WIDTHS = {1f};
+public class ArmorTableFactory extends BaseElement {
+    private static final float[] WIDTHS = {1f, 1f, 1f};
     private static final String GAP = "___________________";
     private static final int NAME_COLUMN_WIDTH = 70;
 
-    public ArmorTable(CharacterPlayer characterPlayer) throws InvalidXmlElementException {
-        super(WIDTHS);
-        getDefaultCell().setBorder(0);
+    public static PdfPTable getResistancesAndProtectionsBasicsTable(CharacterPlayer characterPlayer) throws InvalidXmlElementException {
+        final PdfPTable table = new PdfPTable(WIDTHS);
+        setTableProperties(table);
 
         final PdfPCell separator = createBigWhiteSeparator();
         separator.setColspan(WIDTHS.length);
-        addCell(separator);
+        table.addCell(separator);
 
-        addCell(createSectionTitle(TextFactory.getInstance().getElement("armor").getName().getTranslatedText(), WIDTHS.length));
+        table.addCell(createSectionTitle(TextFactory.getInstance().getElement("armor").getName().getTranslatedText(), WIDTHS.length));
 
-
-        final PdfPTable nameResistance = new PdfPTable(new float[]{3f, 2f, 1f});
-        setTableProperties(nameResistance);
-        nameResistance.getDefaultCell().setBorder(0);
         final Paragraph armor = new Paragraph();
         if (characterPlayer == null || characterPlayer.getArmor() == null) {
             armor.add(BaseElement.getChunk(GAP));
@@ -66,38 +60,35 @@ public class ArmorTable extends CustomPdfTable {
             armor.add(BaseElement.getChunk(characterPlayer.getArmor().getName().getTranslatedText(), NAME_COLUMN_WIDTH,
                     FadingSunsTheme.getHandwrittingFont(), FadingSunsTheme.ARMOUR_CONTENT_FONT_SIZE));
         }
-        PdfPCell content = new PdfPCell(armor);
-        content.setBorder(0);
-        content.setHorizontalAlignment(Element.ALIGN_CENTER);
-        content.setVerticalAlignment(Element.ALIGN_MIDDLE);
-        nameResistance.addCell(content);
+        PdfPCell armorCell = new PdfPCell(armor);
+        armorCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+        armorCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        armorCell.setBorder(0);
 
-        final Paragraph resistance = new Paragraph();
-        resistance.add(BaseElement.getChunk(TextFactory.getInstance().getElement("resistance").getName().getTranslatedText() + ": "));
-        resistance.setAlignment(Element.ALIGN_RIGHT);
-        content = new PdfPCell(resistance);
-        content.setBorder(0);
-        content.setHorizontalAlignment(Element.ALIGN_RIGHT);
-        content.setVerticalAlignment(Element.ALIGN_MIDDLE);
-        nameResistance.addCell(resistance);
+        table.addCell(armorCell);
+        table.addCell(getResistance(characterPlayer));
+        table.addCell(getPenalties(characterPlayer));
 
-        // Rectangle
-        final PdfPCell rectangle;
-        if (characterPlayer == null) {
-            rectangle = CustomPdfTable.createRectangle();
-        } else {
-            rectangle = CustomPdfTable.createRectangle(characterPlayer.getArmor().getProtection() + "");
-        }
-        rectangle.setMinimumHeight(FadingSunsTheme.ROW_HEIGHT);
-        nameResistance.addCell(rectangle);
-        addCell(nameResistance);
+        final PdfPCell damageCell = new PdfPCell(getDamageProtection(characterPlayer));
+        damageCell.setColspan(WIDTHS.length);
+        damageCell.setBorder(0);
+        table.addCell(damageCell);
 
-        final PdfPCell malusCell;
+        return table;
+    }
+
+    private static PdfPCell getPenalties(CharacterPlayer characterPlayer) {
+        final PdfPCell malusCell = new PdfPCell();
+        malusCell.setBorder(0);
+        malusCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+        malusCell.setHorizontalAlignment(Element.ALIGN_CENTER);
         if (characterPlayer == null || characterPlayer.getArmor() == null) {
-            malusCell = createEmptyElementLine(TextFactory.getInstance().getTranslatedText("strengthAbbreviation") + ":__  "
-                    + TextFactory.getInstance().getTranslatedText("dexterityAbbreviation") + ":__  "
-                    + TextFactory.getInstance().getTranslatedText("enduranceAbbreviation") + ":__ "
-                    + TextFactory.getInstance().getTranslatedText("initiativeAbbreviation") + ":__");
+            final Paragraph paragraph = new Paragraph();
+            paragraph.add(BaseElement.getChunk(TextFactory.getInstance().getTranslatedText("strengthAbbreviation") + ":__  "));
+            paragraph.add(BaseElement.getChunk(TextFactory.getInstance().getTranslatedText("dexterityAbbreviation") + ":__  "));
+            paragraph.add(BaseElement.getChunk(TextFactory.getInstance().getTranslatedText("enduranceAbbreviation") + ":__ "));
+            paragraph.add(BaseElement.getChunk(TextFactory.getInstance().getTranslatedText("initiativeAbbreviation") + ":__"));
+            malusCell.setPhrase(paragraph);
         } else {
             final Paragraph paragraph = new Paragraph();
             paragraph.add(BaseElement.getChunk(TextFactory.getInstance().getTranslatedText("strengthAbbreviation") + ":",
@@ -111,14 +102,51 @@ public class ArmorTable extends CustomPdfTable {
                     .getDexterityModification()
                     + " ", FadingSunsTheme.getHandwrittingFont(), FadingSunsTheme.ARMOUR_CONTENT_FONT_SIZE));
 
-            malusCell = createEmptyElementLine("");
-
             malusCell.setPhrase(paragraph);
         }
-        malusCell.setColspan(WIDTHS.length);
-        addCell(malusCell);
+        return malusCell;
+    }
 
-        final PdfPTable damages = new PdfPTable(new float[]{1f, 1f, 1f, 1f});
+    private static PdfPTable getResistance(CharacterPlayer characterPlayer) {
+        final PdfPTable resistanceTable = new PdfPTable(new float[]{2f, 1f});
+        setTableProperties(resistanceTable);
+
+        final Paragraph resistance = new Paragraph();
+        resistance.add(BaseElement.getChunk(TextFactory.getInstance().getElement("resistance").getName().getTranslatedText() + ": "));
+        resistance.setAlignment(Element.ALIGN_RIGHT);
+        resistanceTable.addCell(resistance);
+        // Rectangle
+        final PdfPCell rectangle;
+        if (characterPlayer == null) {
+            rectangle = CustomPdfTable.createRectangle();
+        } else {
+            rectangle = CustomPdfTable.createRectangle(characterPlayer.getArmor().getProtection() + "");
+        }
+        rectangle.setMinimumHeight(FadingSunsTheme.ROW_HEIGHT);
+        resistanceTable.addCell(rectangle);
+        return resistanceTable;
+    }
+
+    private static PdfPTable getArmorProperty(String text, boolean selected) {
+        final float[] widths = {1f, 1f};
+        final PdfPTable table = new PdfPTable(widths);
+        BaseElement.setTableProperties(table);
+        table.getDefaultCell().setBorder(0);
+        table.getDefaultCell().setPadding(0);
+        table.getDefaultCell().setVerticalAlignment(Element.ALIGN_MIDDLE);
+
+        if (!selected) {
+            table.addCell(createRectangle(""));
+        } else {
+            table.addCell(createRectangle("X"));
+        }
+        table.addCell(createEmptyElementLine(text, NAME_COLUMN_WIDTH));
+
+        return table;
+    }
+
+    private static PdfPTable getDamageProtection(CharacterPlayer characterPlayer) {
+        final PdfPTable damages = new PdfPTable(new float[]{1f, 1f, 1f, 1f, 1f, 1f, 1f});
         setTableProperties(damages);
         if (characterPlayer == null || characterPlayer.getArmor() == null) {
             damages.addCell(getArmorProperty(TextFactory.getInstance().getTranslatedText("armorHardAbbreviation"), false));
@@ -128,9 +156,6 @@ public class ArmorTable extends CustomPdfTable {
             damages.addCell(getArmorProperty(TextFactory.getInstance().getTranslatedText("armorShockAbbreviation"), false));
             damages.addCell(getArmorProperty(TextFactory.getInstance().getTranslatedText("armorSlamAbbreviation"), false));
             damages.addCell(getArmorProperty(TextFactory.getInstance().getTranslatedText("armorSonicAbbreviation"), false));
-            final PdfPCell emptyCell = new PdfPCell();
-            emptyCell.setBorder(0);
-            damages.addCell(emptyCell);
         } else {
             damages.addCell(getArmorProperty(
                     TextFactory.getInstance().getTranslatedText("armorHardAbbreviation"),
@@ -181,28 +206,7 @@ public class ArmorTable extends CustomPdfTable {
                             .getDamageTypes()
                             .contains(
                                     DamageTypeFactory.getInstance().getElement("sonic").getId())));
-            final PdfPCell emptyCell = new PdfPCell();
-            emptyCell.setBorder(0);
-            damages.addCell(emptyCell);
         }
-        addCell(damages);
-    }
-
-    private PdfPTable getArmorProperty(String text, boolean selected) {
-        final float[] widths = {1f, 1f};
-        final PdfPTable table = new PdfPTable(widths);
-        BaseElement.setTableProperties(table);
-        table.getDefaultCell().setBorder(0);
-        table.getDefaultCell().setPadding(0);
-        table.getDefaultCell().setVerticalAlignment(Element.ALIGN_MIDDLE);
-
-        if (!selected) {
-            table.addCell(createRectangle());
-        } else {
-            table.addCell(createRectangle("X"));
-        }
-        table.addCell(createEmptyElementLine(text));
-
-        return table;
+        return damages;
     }
 }

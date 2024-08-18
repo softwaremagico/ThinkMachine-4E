@@ -42,7 +42,7 @@ public class OccultismValuesTableFactory extends BaseElement {
 
 
     public static PdfPTable getOccultismValuesTable(CharacterPlayer characterPlayer) {
-        final float[] widths = {1f, 1f};
+        final float[] widths = {1f};
         final PdfPTable table = new PdfPTable(widths);
         setTableProperties(table);
 

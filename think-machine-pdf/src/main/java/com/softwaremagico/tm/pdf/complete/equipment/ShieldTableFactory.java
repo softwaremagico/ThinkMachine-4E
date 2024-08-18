@@ -8,41 +8,36 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.pdf.complete.FadingSunsTheme;
 import com.softwaremagico.tm.pdf.complete.elements.BaseElement;
-import com.softwaremagico.tm.pdf.complete.elements.CustomPdfTable;
 import com.softwaremagico.tm.txt.TextFactory;
 
-import static com.softwaremagico.tm.pdf.complete.elements.BaseElement.createBigWhiteSeparator;
-import static com.softwaremagico.tm.pdf.complete.elements.BaseElement.createSectionTitle;
-import static com.softwaremagico.tm.pdf.complete.elements.BaseElement.createWhiteSeparator;
-
-public class ShieldTable extends CustomPdfTable {
-    private static final float[] WIDTHS = {1f};
+public class ShieldTableFactory extends BaseElement {
+    private static final float[] WIDTHS = {1.5f, 1f, 1.5f};
     private static final String GAP = "______";
-    private static final int NAME_COLUMN_WIDTH = 90;
-    private static final int HITS_COLUMN_WIDTH = 90;
+    private static final int COLUMN_WIDTH = 90;
 
-    public ShieldTable(CharacterPlayer characterPlayer) throws InvalidXmlElementException {
-        super(WIDTHS);
-        getDefaultCell().setBorder(0);
+    public static PdfPTable getShieldTable(CharacterPlayer characterPlayer) throws InvalidXmlElementException {
+        final PdfPTable table = new PdfPTable(WIDTHS);
+        table.getDefaultCell().setBorder(0);
 
         final PdfPCell separator = createBigWhiteSeparator();
         separator.setColspan(WIDTHS.length);
-        addCell(separator);
+        table.addCell(separator);
 
-        addCell(createSectionTitle(TextFactory.getInstance().getElement("shield").getName().getTranslatedText(), WIDTHS.length));
+        table.addCell(createSectionTitle(TextFactory.getInstance().getElement("shield").getName().getTranslatedText(), WIDTHS.length));
 
         final PdfPCell nameCell;
         if (characterPlayer == null || characterPlayer.getShield() == null) {
-            nameCell = createEmptyElementLine(GAP + GAP, NAME_COLUMN_WIDTH);
+            nameCell = createEmptyElementLine(GAP + GAP, COLUMN_WIDTH);
         } else {
-            nameCell = createElementLine(characterPlayer.getShield().getName().getTranslatedText(), NAME_COLUMN_WIDTH,
+            nameCell = createElementLine(characterPlayer.getShield().getName().getTranslatedText(), COLUMN_WIDTH,
                     FadingSunsTheme.SHIELD_CONTENT_FONT_SIZE);
         }
-        nameCell.setColspan(WIDTHS.length);
-        addCell(nameCell);
+        nameCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+        nameCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(nameCell);
 
-        addCell(getShieldRange(characterPlayer));
-        addCell(getShieldDetails(characterPlayer));
+        table.addCell(getShieldRange(characterPlayer));
+        table.addCell(getShieldDetails(characterPlayer));
 
         final Paragraph paragraph = new Paragraph();
         paragraph.add(BaseElement.getChunk(TextFactory.getInstance().getElement("shieldHits").getName() + ": "));
@@ -52,17 +47,16 @@ public class ShieldTable extends CustomPdfTable {
             paragraph.add(BaseElement.getChunk(characterPlayer.getShield().getHits() + " - ", FadingSunsTheme
                     .getHandwrittingFont(), FadingSunsTheme.SHIELD_CONTENT_FONT_SIZE));
         }
-        final PdfPCell protectionCell = createEmptyElementLine("");
+        final PdfPCell protectionCell = new PdfPCell();
         protectionCell.setPhrase(paragraph);
         protectionCell.setHorizontalAlignment(Element.ALIGN_LEFT);
-        addCell(protectionCell);
-
-        final PdfPCell lastSeparator = createWhiteSeparator();
-        separator.setColspan(WIDTHS.length);
-        addCell(lastSeparator);
+        protectionCell.setColspan(WIDTHS.length);
+        protectionCell.setBorder(0);
+        table.addCell(protectionCell);
+        return table;
     }
 
-    private PdfPTable getShieldDetails(CharacterPlayer characterPlayer) {
+    private static PdfPTable getShieldDetails(CharacterPlayer characterPlayer) {
         final float[] widths = {1f, 1f};
         final PdfPTable table = new PdfPTable(widths);
         BaseElement.setTableProperties(table);
@@ -95,7 +89,7 @@ public class ShieldTable extends CustomPdfTable {
     }
 
 
-    private PdfPTable getShieldRange(CharacterPlayer characterPlayer) {
+    private static PdfPTable getShieldRange(CharacterPlayer characterPlayer) {
         final float[] widths = {3f, 1f, 3f};
         final PdfPTable table = new PdfPTable(widths);
         BaseElement.setTableProperties(table);
@@ -104,14 +98,14 @@ public class ShieldTable extends CustomPdfTable {
         table.getDefaultCell().setVerticalAlignment(Element.ALIGN_MIDDLE);
 
         if (characterPlayer == null || characterPlayer.getShield() == null) {
-            table.addCell(createRectangle());
+            table.addCell(createRectangle(""));
         } else {
             table.addCell(createRectangle(characterPlayer.getShield().getImpact()));
         }
         table.addCell(createEmptyElementLine("/"));
         final PdfPCell rectangle;
         if (characterPlayer == null || characterPlayer.getShield() == null) {
-            rectangle = createRectangle();
+            rectangle = createRectangle("");
         } else {
             rectangle = createRectangle(characterPlayer.getShield().getForce());
         }

@@ -30,7 +30,6 @@ import com.lowagie.text.pdf.PdfPTable;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.pdf.complete.FadingSunsTheme;
 import com.softwaremagico.tm.pdf.complete.elements.BaseElement;
-import com.softwaremagico.tm.pdf.complete.elements.CustomPdfTable;
 import com.softwaremagico.tm.txt.TextFactory;
 
 public class ResistanceTableFactory extends BaseElement {

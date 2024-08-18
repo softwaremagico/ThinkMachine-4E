@@ -892,50 +892,50 @@
     <armorHardAbbreviation>
         <id>armorHardAbbreviation</id>
         <name>
-            <en>Hr</en>
-            <es>En</es>
+            <en>Hrd</en>
+            <es>End</es>
         </name>
     </armorHardAbbreviation>
     <armorFlameAbbreviation>
         <id>armorFlameAbbreviation</id>
         <name>
-            <en>Fl</en>
-            <es>Fu</es>
+            <en>Flm</en>
+            <es>Fue</es>
         </name>
     </armorFlameAbbreviation>
     <armorLaserAbbreviation>
         <id>armorLaserAbbreviation</id>
         <name>
-            <en>Ls</en>
-            <es>Ls</es>
+            <en>Lsr</en>
+            <es>Lsr</es>
         </name>
     </armorLaserAbbreviation>
     <armorBlasterAbbreviation>
         <id>armorBlasterAbbreviation</id>
         <name>
-            <en>Bl</en>
-            <es>Bl</es>
+            <en>Bls</en>
+            <es>Bls</es>
         </name>
     </armorBlasterAbbreviation>
     <armorShockAbbreviation>
         <id>armorShockAbbreviation</id>
         <name>
-            <en>Sh</en>
-            <es>Ds</es>
+            <en>Shk</en>
+            <es>Des</es>
         </name>
     </armorShockAbbreviation>
     <armorSlamAbbreviation>
         <id>armorSlamAbbreviation</id>
         <name>
-            <en>Sl</en>
-            <es>Go</es>
+            <en>Slm</en>
+            <es>Gol</es>
         </name>
     </armorSlamAbbreviation>
     <armorSonicAbbreviation>
         <id>armorSonicAbbreviation</id>
         <name>
-            <en>So</en>
-            <es>So</es>
+            <en>Son</en>
+            <es>Son</es>
         </name>
     </armorSonicAbbreviation>
     <shield>
