@@ -32,35 +32,40 @@ import java.util.Map;
 
 public enum CharacteristicName {
 
-    STRENGTH(CharacteristicType.BODY),
+    STRENGTH(CharacteristicType.BODY, 3),
 
-    DEXTERITY(CharacteristicType.BODY),
+    DEXTERITY(CharacteristicType.BODY, 3),
 
-    ENDURANCE(CharacteristicType.BODY),
+    ENDURANCE(CharacteristicType.BODY, 3),
 
-    WITS(CharacteristicType.MIND),
+    WITS(CharacteristicType.MIND, 3),
 
-    PERCEPTION(CharacteristicType.MIND),
+    PERCEPTION(CharacteristicType.MIND, 3),
 
-    WILL(CharacteristicType.MIND),
+    WILL(CharacteristicType.MIND, 3),
 
-    PRESENCE(CharacteristicType.SPIRIT),
+    PRESENCE(CharacteristicType.SPIRIT, 3),
 
-    INTUITION(CharacteristicType.SPIRIT),
+    INTUITION(CharacteristicType.SPIRIT, 3),
 
-    FAITH(CharacteristicType.SPIRIT),
+    FAITH(CharacteristicType.SPIRIT, 3),
 
-    PSI(CharacteristicType.OCCULTISM),
+    PSI(CharacteristicType.OCCULTISM, 0),
 
-    THEURGY(CharacteristicType.OCCULTISM),
+    URGE(CharacteristicType.OCCULTISM, 0),
 
-    INITIATIVE(CharacteristicType.OTHERS),
+    THEURGY(CharacteristicType.OCCULTISM, 0),
 
-    MOVEMENT(CharacteristicType.OTHERS),
+    HUBRIS(CharacteristicType.OCCULTISM, 0),
 
-    TECH(CharacteristicType.OTHERS);
+    INITIATIVE(CharacteristicType.OTHERS, 0),
+
+    MOVEMENT(CharacteristicType.OTHERS, 5),
+
+    TECH(CharacteristicType.OTHERS, 4);
 
     private final CharacteristicType characteristicType;
+    private final int initialValue;
     private static final Map<CharacteristicType, List<CharacteristicName>> CHARACTERISTIC_TYPE_LIST;
 
     static {
@@ -71,8 +76,9 @@ public enum CharacteristicName {
         }
     }
 
-    CharacteristicName(CharacteristicType characteristicType) {
+    CharacteristicName(CharacteristicType characteristicType, int initialValue) {
         this.characteristicType = characteristicType;
+        this.initialValue = initialValue;
     }
 
     public String getId() {
@@ -105,5 +111,9 @@ public enum CharacteristicName {
 
     public static List<CharacteristicName> getCharacteristics(CharacteristicType characteristicType) {
         return CHARACTERISTIC_TYPE_LIST.get(characteristicType);
+    }
+
+    public int getInitialValue() {
+        return initialValue;
     }
 }

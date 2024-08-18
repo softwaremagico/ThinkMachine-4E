@@ -91,6 +91,10 @@ public abstract class XmlFactory<T extends Element<T>> {
         return element;
     }
 
+    public String getTranslatedText(String id) throws InvalidXmlElementException {
+        return getElement(id).getName().getTranslatedText();
+    }
+
     public List<T> getElements(Collection<String> ids) throws InvalidXmlElementException {
         return getElements().stream().filter(t -> ids.contains(t.getId())).collect(Collectors.toList());
     }

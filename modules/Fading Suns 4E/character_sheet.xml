@@ -322,6 +322,13 @@
             <es>Resistencia</es>
         </name>
     </resistance>
+    <resistances>
+        <id>resistances</id>
+        <name>
+            <en>Resistances</en>
+            <es>Resistencias</es>
+        </name>
+    </resistances>
     <bodyResistance>
         <id>bodyResistance</id>
         <name>
@@ -686,34 +693,34 @@
             <es>Cargar</es>
         </name>
     </actionCharge>
-    <diceAbbreviature>
-        <id>diceAbbreviature</id>
+    <diceAbbreviation>
+        <id>diceAbbreviation</id>
         <name>
             <en>d</en>
             <es>d</es>
         </name>
-    </diceAbbreviature>
-    <meterAbbreviature>
-        <id>meterAbbreviature</id>
+    </diceAbbreviation>
+    <meterAbbreviation>
+        <id>meterAbbreviation</id>
         <name>
             <en>m</en>
             <es>m</es>
         </name>
-    </meterAbbreviature>
-    <maximumAbbreviature>
-        <id>maximumAbbreviature</id>
+    </meterAbbreviation>
+    <maximumAbbreviation>
+        <id>maximumAbbreviation</id>
         <name>
             <en>Max</en>
             <es>Máx</es>
         </name>
-    </maximumAbbreviature>
-    <weaponAbbreviature>
-        <id>weaponAbbreviature</id>
+    </maximumAbbreviation>
+    <weaponAbbreviation>
+        <id>weaponAbbreviation</id>
         <name>
             <en>Wpn</en>
             <es>Arm</es>
         </name>
-    </weaponAbbreviature>
+    </weaponAbbreviation>
     <weaponSpecial>
         <id>weaponSpecial</id>
         <name>
@@ -721,55 +728,55 @@
             <es>Especial</es>
         </name>
     </weaponSpecial>
-    <strengthAbbreviature>
-        <id>strengthAbbreviature</id>
+    <strengthAbbreviation>
+        <id>strengthAbbreviation</id>
         <name>
             <en>Str</en>
             <es>Fu</es>
         </name>
-    </strengthAbbreviature>
-    <dexterityAbbreviature>
-        <id>dexterityAbbreviature</id>
+    </strengthAbbreviation>
+    <dexterityAbbreviation>
+        <id>dexterityAbbreviation</id>
         <name>
             <en>Dx</en>
             <es>Ds</es>
         </name>
-    </dexterityAbbreviature>
-    <enduranceAbbreviature>
-        <id>enduranceAbbreviature</id>
+    </dexterityAbbreviation>
+    <enduranceAbbreviation>
+        <id>enduranceAbbreviation</id>
         <name>
             <en>En</en>
             <es>Fr</es>
         </name>
-    </enduranceAbbreviature>
-    <vigorAbbreviature>
-        <id>vigorAbbreviature</id>
+    </enduranceAbbreviation>
+    <vigorAbbreviation>
+        <id>vigorAbbreviation</id>
         <name>
             <en>Vig</en>
             <es>Vig</es>
         </name>
-    </vigorAbbreviature>
-    <iniciativeAbbreviature>
-        <id>iniciativeAbbreviature</id>
+    </vigorAbbreviation>
+    <initiativeAbbreviation>
+        <id>initiativeAbbreviation</id>
         <name>
             <en>In</en>
             <es>In</es>
         </name>
-    </iniciativeAbbreviature>
-    <meleeAbbreviature>
-        <id>meleeAbbreviature</id>
+    </initiativeAbbreviation>
+    <meleeAbbreviation>
+        <id>meleeAbbreviation</id>
         <name>
             <en>Ml</en>
             <es>Pel</es>
         </name>
-    </meleeAbbreviature>
-    <roundAbbreviature>
-        <id>roundAbbreviature</id>
+    </meleeAbbreviation>
+    <roundAbbreviation>
+        <id>roundAbbreviation</id>
         <name>
             <en>turn</en>
             <es>turno</es>
         </name>
-    </roundAbbreviature>
+    </roundAbbreviation>
     <aimAction>
         <id>aimAction</id>
         <name>
@@ -833,48 +840,55 @@
             <es>Protección</es>
         </name>
     </armorRating>
-    <armorHardAbbreviature>
-        <id>armorHardAbbreviature</id>
+    <armorHardAbbreviation>
+        <id>armorHardAbbreviation</id>
         <name>
-            <en>H</en>
-            <es>D</es>
+            <en>Hr</en>
+            <es>En</es>
         </name>
-    </armorHardAbbreviature>
-    <armorFireAbbreviature>
-        <id>armorFireAbbreviature</id>
+    </armorHardAbbreviation>
+    <armorFlameAbbreviation>
+        <id>armorFlameAbbreviation</id>
         <name>
-            <en>F</en>
-            <es>F</es>
+            <en>Fl</en>
+            <es>Fu</es>
         </name>
-    </armorFireAbbreviature>
-    <armorLaserAbbreviature>
-        <id>armorLaserAbbreviature</id>
+    </armorFlameAbbreviation>
+    <armorLaserAbbreviation>
+        <id>armorLaserAbbreviation</id>
         <name>
-            <en>L</en>
-            <es>L</es>
+            <en>Ls</en>
+            <es>Ls</es>
         </name>
-    </armorLaserAbbreviature>
-    <armorPlasmAbbreviature>
-        <id>armorPlasmAbbreviature</id>
+    </armorLaserAbbreviation>
+    <armorBlasterAbbreviation>
+        <id>armorBlasterAbbreviation</id>
         <name>
-            <en>P</en>
-            <es>P</es>
+            <en>Bl</en>
+            <es>Bl</es>
         </name>
-    </armorPlasmAbbreviature>
-    <armorShockAbbreviature>
-        <id>armorShockAbbreviature</id>
+    </armorBlasterAbbreviation>
+    <armorShockAbbreviation>
+        <id>armorShockAbbreviation</id>
         <name>
-            <en>S</en>
-            <es>E</es>
+            <en>Sh</en>
+            <es>Ds</es>
         </name>
-    </armorShockAbbreviature>
-    <armorimpactAbbreviature>
-        <id>armorimpactAbbreviature</id>
+    </armorShockAbbreviation>
+    <armorSlamAbbreviation>
+        <id>armorSlamAbbreviation</id>
         <name>
-            <en>I</en>
-            <es>I</es>
+            <en>Sl</en>
+            <es>Go</es>
         </name>
-    </armorimpactAbbreviature>
+    </armorSlamAbbreviation>
+    <armorSonicAbbreviation>
+        <id>armorSonicAbbreviation</id>
+        <name>
+            <en>So</en>
+            <es>So</es>
+        </name>
+    </armorSonicAbbreviation>
     <shield>
         <id>shield</id>
         <name>

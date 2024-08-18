@@ -74,6 +74,7 @@ public class CharacteristicsAndSkillsTableFactory extends BaseElement {
         setTableProperties(table);
 
         table.addCell(createSectionTitle(TextFactory.getInstance().getElement("bodyCharacteristics").getName().getTranslatedText(), 1));
+        table.addCell(BaseElement.createWhiteSeparator());
         try {
             table.addCell(CharacteristicsColumn.createContent(characterPlayer, CharacteristicType.BODY));
         } catch (NullPointerException npe) {
@@ -81,6 +82,7 @@ public class CharacteristicsAndSkillsTableFactory extends BaseElement {
         }
         table.addCell(BaseElement.createBigWhiteSeparator());
         table.addCell(createSectionTitle(TextFactory.getInstance().getElement("mindCharacteristics").getName().getTranslatedText(), 1));
+        table.addCell(BaseElement.createWhiteSeparator());
         try {
             table.addCell(CharacteristicsColumn.createContent(characterPlayer, CharacteristicType.MIND));
         } catch (NullPointerException npe) {
@@ -88,6 +90,7 @@ public class CharacteristicsAndSkillsTableFactory extends BaseElement {
         }
         table.addCell(BaseElement.createBigWhiteSeparator());
         table.addCell(createSectionTitle(TextFactory.getInstance().getElement("spiritCharacteristics").getName().getTranslatedText(), 1));
+        table.addCell(BaseElement.createWhiteSeparator());
         try {
             table.addCell(CharacteristicsColumn.createContent(characterPlayer, CharacteristicType.SPIRIT));
         } catch (NullPointerException npe) {

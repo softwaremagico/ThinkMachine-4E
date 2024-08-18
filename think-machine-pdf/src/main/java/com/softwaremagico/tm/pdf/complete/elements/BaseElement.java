@@ -25,6 +25,7 @@ package com.softwaremagico.tm.pdf.complete.elements;
  */
 
 
+import com.lowagie.text.Chunk;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.Element;
 import com.lowagie.text.Font;
@@ -36,6 +37,7 @@ import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.softwaremagico.tm.pdf.complete.FadingSunsTheme;
+import com.softwaremagico.tm.pdf.complete.utils.CellUtils;
 
 import java.awt.Color;
 import java.io.IOException;
@@ -47,7 +49,7 @@ public class BaseElement {
     private static final int TITLE_MIN_HEIGHT = 16;
     private static final int TITLE_PADDING_CORRECTION = -2;
     private static final int SEPARATOR_MIN_HEIGHT = 6;
-    private static final int BIG_SEPARATOR_MIN_HEIGHT = 16;
+    private static final int BIG_SEPARATOR_MIN_HEIGHT = 15;
 
     public static PdfPCell getCell(String text, int border, int colspan, int align, Color color, BaseFont font,
                                    float fontSize) {
@@ -63,6 +65,50 @@ public class BaseElement {
 
         return cell;
     }
+
+    public static Chunk getChunk(String text, int maxWidth) {
+        return getChunk(text, maxWidth, FadingSunsTheme.TABLE_LINE_FONT_SIZE);
+    }
+
+    public static Chunk getChunk(String text, int maxWidth, int fontSize) {
+        return getChunk(text, maxWidth, null, FadingSunsTheme.getLineFont(), fontSize);
+    }
+
+    public static Chunk getChunk(String text, int maxWidth, BaseFont font, int fontSize) {
+        return getChunk(text, maxWidth, null, font, fontSize);
+    }
+
+
+    public static Chunk getChunk(String text) {
+        return getChunk(text, null, FadingSunsTheme.getLineFont(), FadingSunsTheme.TABLE_LINE_FONT_SIZE);
+    }
+
+
+    public static Chunk getChunk(String text, BaseFont font, int fontSize) {
+        return getChunk(text, null, font, fontSize);
+    }
+
+
+    public static Chunk getChunk(String text, Color color, BaseFont font, int fontSize) {
+        if (text == null) {
+            text = "";
+        }
+        final Chunk content = new Chunk(text, new Font(font, fontSize));
+        if (color != null) {
+            content.setBackground(color);
+        }
+
+        return content;
+    }
+
+    public static Chunk getChunk(String text, int maxWidth, Color color, BaseFont font, int fontSize) {
+        if (text == null || text.equals("null")) {
+            text = "";
+        }
+        final String remainingText = CellUtils.getSubStringFitsIn(text, font, fontSize, maxWidth);
+        return getChunk(remainingText, color, font, fontSize);
+    }
+
 
     public static PdfPCell getCell(Paragraph paragraph, int border, int colspan, int align, Color color) {
         final PdfPCell cell = new PdfPCell(paragraph);

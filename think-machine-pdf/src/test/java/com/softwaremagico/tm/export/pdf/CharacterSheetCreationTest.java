@@ -64,7 +64,7 @@ public class CharacterSheetCreationTest extends PdfGeneration {
         Assert.assertEquals(sheet.createFile(OUTPUT_FOLDER + "CharacterFS_ES.pdf"), 2);
     }
 
-    @AfterClass
+    @AfterClass(enabled = false)
     public void removeFolder() {
         Assert.assertTrue(deleteDirectory(new File(OUTPUT_FOLDER)));
     }

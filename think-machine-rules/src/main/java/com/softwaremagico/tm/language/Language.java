@@ -39,7 +39,7 @@ public class Language implements Comparable<Language> {
         return name;
     }
 
-    public String getAbbreviature() {
+    public String getAbbreviation() {
         return abbreviation;
     }
 

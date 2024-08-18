@@ -40,9 +40,8 @@ import com.softwaremagico.tm.txt.TextFactory;
 
 import java.util.List;
 
-public final class CharacteristicsColumn {
+public final class CharacteristicsColumn extends BaseElement {
     private static final String GAP = "   ";
-    private static final int ROW_HEIGHT = 20;
 
     private CharacteristicsColumn() {
 
@@ -63,7 +62,7 @@ public final class CharacteristicsColumn {
                         new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.CHARACTERISTICS_LINE_FONT_SIZE)));
                 final PdfPCell characteristicTitle = new PdfPCell(paragraph);
                 characteristicTitle.setBorder(0);
-                characteristicTitle.setMinimumHeight(ROW_HEIGHT);
+                characteristicTitle.setMinimumHeight(FadingSunsTheme.ROW_HEIGHT);
                 characteristicTitle.setVerticalAlignment(Element.ALIGN_TOP);
                 table.addCell(characteristicTitle);
 

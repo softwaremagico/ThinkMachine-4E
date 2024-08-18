@@ -43,6 +43,7 @@ import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.UpbringingCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
+import com.softwaremagico.tm.exceptions.InvalidCharacteristicException;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
@@ -225,7 +226,12 @@ public class CharacterPlayer {
     }
 
     public int getCharacteristicValue(String characteristic) throws MaxInitialValueExceededException {
-        int bonus = Characteristic.INITIAL_VALUE;
+        final CharacteristicName characteristicName = CharacteristicName.get(characteristic);
+        if (characteristicName == null) {
+            throw new InvalidCharacteristicException("No characteristic '" + characteristic + "' exists.");
+        }
+        int bonus = characteristicName.getInitialValue();
+        //bonus += specie.getCharacteristicBonus(characteristic);
         bonus += upbringing.getCharacteristicBonus(characteristic);
         bonus += faction.getCharacteristicBonus(characteristic);
         bonus += calling.getCharacteristicBonus(characteristic);

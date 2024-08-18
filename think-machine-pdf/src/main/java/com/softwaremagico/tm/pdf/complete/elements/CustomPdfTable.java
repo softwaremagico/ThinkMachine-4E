@@ -40,7 +40,6 @@ import java.awt.Color;
 import java.util.Arrays;
 
 public abstract class CustomPdfTable extends PdfPTable {
-    private static final String TRANSLATOR_FILE = "character_sheet.xml";
     private static final int MIN_HEIGHT = 12;
     private static final int RECTANGLE_MIN_HEIGHT = 15;
     private float[] columnWidths;
@@ -75,6 +74,14 @@ public abstract class CustomPdfTable extends PdfPTable {
     }
 
     protected static PdfPCell createEmptyElementLine(int alignment, String text) {
+        final PdfPCell cell = BaseElement.getCell(text, 0, 1, alignment, Color.WHITE,
+                FadingSunsTheme.getLineFont(), FadingSunsTheme.TABLE_LINE_FONT_SIZE);
+        cell.setMinimumHeight(MIN_HEIGHT);
+        cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+        return cell;
+    }
+
+    protected static PdfPCell createEmptyChunk(int alignment, String text) {
         final PdfPCell cell = BaseElement.getCell(text, 0, 1, alignment, Color.WHITE,
                 FadingSunsTheme.getLineFont(), FadingSunsTheme.TABLE_LINE_FONT_SIZE);
         cell.setMinimumHeight(MIN_HEIGHT);

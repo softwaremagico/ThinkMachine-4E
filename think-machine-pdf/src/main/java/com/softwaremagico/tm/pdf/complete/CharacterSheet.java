@@ -29,13 +29,19 @@ import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.PageSize;
 import com.lowagie.text.Rectangle;
+import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.pdf.complete.endurances.EnduranceTableFactory;
+import com.softwaremagico.tm.pdf.complete.equipment.ArmorTable;
 import com.softwaremagico.tm.pdf.complete.events.SheetAlternatedBackgroundEvent;
 import com.softwaremagico.tm.pdf.complete.info.CharacterBasicsCompleteTableFactory;
+import com.softwaremagico.tm.pdf.complete.occultism.OccultismValuesTableFactory;
 import com.softwaremagico.tm.pdf.complete.skills.CharacteristicsAndSkillsTableFactory;
+
+import static com.softwaremagico.tm.pdf.complete.elements.BaseElement.setTableProperties;
 
 public class CharacterSheet extends PdfDocument {
     private static final float[] REAR_TABLE_WIDTHS = {1f, 1f, 1f};
@@ -69,12 +75,28 @@ public class CharacterSheet extends PdfDocument {
 
     @Override
     protected void createCharacterPDF(Document document, CharacterPlayer characterPlayer) throws InvalidXmlElementException, DocumentException {
-        final PdfPTable mainTable = CharacterBasicsCompleteTableFactory.getCharacterBasicsTable(characterPlayer);
-        document.add(mainTable);
+        document.add(CharacterBasicsCompleteTableFactory.getCharacterBasicsTable(characterPlayer));
 
-        final PdfPTable characteristicsTable = CharacteristicsAndSkillsTableFactory.getCharacteristicsAndSkillsBasicsTable(
-                characterPlayer);
-        document.add(characteristicsTable);
+        document.add(CharacteristicsAndSkillsTableFactory.getCharacteristicsAndSkillsBasicsTable(characterPlayer));
+
+
+        final float[] widths = {2f, 1f};
+        final PdfPTable table = new PdfPTable(widths);
+        setTableProperties(table);
+        table.getDefaultCell().setBorder(0);
+
+        table.addCell(OccultismValuesTableFactory.getOccultismValuesTable(characterPlayer));
+
+        PdfPCell armorCell = new PdfPCell(new ArmorTable(characterPlayer));
+        armorCell.setRowspan(2);
+        armorCell.setBorder(0);
+        table.addCell(armorCell);
+
+        table.addCell(EnduranceTableFactory.getEnduranceAndProtectionsBasicsTable(characterPlayer));
+
+        document.add(table);
+
+
 //        final PdfPTable skillsTable = MainSkillsTableFactory.getSkillsTable(characterPlayer);
 //        document.add(skillsTable);
 //        final PdfPTable perksTable = MainPerksTableFactory.getPerksTable(characterPlayer);
