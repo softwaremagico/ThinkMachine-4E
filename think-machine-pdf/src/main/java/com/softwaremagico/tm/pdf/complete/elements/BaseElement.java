@@ -68,7 +68,7 @@ public class BaseElement {
     }
 
     public static Chunk getChunk(String text, int maxWidth) {
-        return getChunk(text, maxWidth, FadingSunsTheme.TABLE_LINE_FONT_SIZE);
+        return getChunk(text, maxWidth, FadingSunsTheme.LINE_FONT_SIZE);
     }
 
     public static Chunk getChunk(String text, int maxWidth, int fontSize) {
@@ -81,7 +81,7 @@ public class BaseElement {
 
 
     public static Chunk getChunk(String text) {
-        return getChunk(text, null, FadingSunsTheme.getLineFont(), FadingSunsTheme.TABLE_LINE_FONT_SIZE);
+        return getChunk(text, null, FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE);
     }
 
 
@@ -239,5 +239,17 @@ public class BaseElement {
         table.setWidthPercentage(WIDTH);
         table.setSpacingAfter(0);
         table.setSpacingBefore(0);
+    }
+
+    public static PdfPCell createRectangle(Integer value) {
+        // Rectangle
+        final PdfPCell rectangle;
+        if (value == null) {
+            rectangle = CustomPdfTable.createRectangle();
+        } else {
+            rectangle = CustomPdfTable.createRectangle(value + "");
+        }
+        rectangle.setMinimumHeight(FadingSunsTheme.ROW_HEIGHT);
+        return rectangle;
     }
 }

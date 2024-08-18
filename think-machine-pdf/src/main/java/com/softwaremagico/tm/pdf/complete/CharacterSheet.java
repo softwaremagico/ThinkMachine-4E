@@ -40,8 +40,10 @@ import com.softwaremagico.tm.pdf.complete.events.SheetAlternatedBackgroundEvent;
 import com.softwaremagico.tm.pdf.complete.info.CharacterBasicsCompleteTableFactory;
 import com.softwaremagico.tm.pdf.complete.occultism.OccultismValuesTableFactory;
 import com.softwaremagico.tm.pdf.complete.resistances.ResistanceTableFactory;
+import com.softwaremagico.tm.pdf.complete.resistances.VictoryPointBankTableFactory;
 import com.softwaremagico.tm.pdf.complete.skills.CharacteristicsAndSkillsTableFactory;
 
+import static com.softwaremagico.tm.pdf.complete.elements.BaseElement.createBigWhiteSeparator;
 import static com.softwaremagico.tm.pdf.complete.elements.BaseElement.setTableProperties;
 
 public class CharacterSheet extends PdfDocument {
@@ -80,24 +82,39 @@ public class CharacterSheet extends PdfDocument {
 
         document.add(CharacteristicsAndSkillsTableFactory.getCharacteristicsAndSkillsBasicsTable(characterPlayer));
 
+        document.add(createBigWhiteSeparator());
 
-        final float[] widths = {2f, 1f};
+        final float[] widths = {3f, 1f, 2f};
         final PdfPTable table = new PdfPTable(widths);
         setTableProperties(table);
         table.getDefaultCell().setBorder(0);
 
-        table.addCell(OccultismValuesTableFactory.getOccultismValuesTable(characterPlayer));
+        final PdfPTable occultismValuesTable = OccultismValuesTableFactory.getOccultismValuesTable(characterPlayer);
+        final PdfPCell occultismCell = new PdfPCell(occultismValuesTable);
+        occultismCell.setColspan(2);
+        occultismCell.setBorder(0);
+        table.addCell(occultismCell);
 
         final PdfPTable armorShieldTable = new PdfPTable(1);
         setTableProperties(armorShieldTable);
         armorShieldTable.addCell(new ArmorTable(characterPlayer));
         armorShieldTable.addCell(new ShieldTable(characterPlayer));
         final PdfPCell armorShieldCell = new PdfPCell(armorShieldTable);
-        armorShieldCell.setRowspan(2);
+        armorShieldCell.setRowspan(3);
         armorShieldCell.setBorder(0);
         table.addCell(armorShieldCell);
 
-        table.addCell(ResistanceTableFactory.getResistancesAndProtectionsBasicsTable(characterPlayer));
+        final PdfPTable resistancesAndProtectionsBasicsTable = ResistanceTableFactory.getResistancesAndProtectionsBasicsTable(characterPlayer);
+        final PdfPCell resistanceAndProtectionCell = new PdfPCell(resistancesAndProtectionsBasicsTable);
+        resistanceAndProtectionCell.setColspan(2);
+        resistanceAndProtectionCell.setBorder(0);
+        table.addCell(resistanceAndProtectionCell);
+
+        final PdfPTable victoryPointBankTable = VictoryPointBankTableFactory.getVictoryPointBankTable(characterPlayer);
+        final PdfPCell victoryPointsCell = new PdfPCell(victoryPointBankTable);
+        victoryPointsCell.setColspan(2);
+        victoryPointsCell.setBorder(0);
+        table.addCell(victoryPointsCell);
 
         document.add(table);
 

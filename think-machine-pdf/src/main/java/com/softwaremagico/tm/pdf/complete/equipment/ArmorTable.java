@@ -101,12 +101,12 @@ public class ArmorTable extends CustomPdfTable {
         } else {
             final Paragraph paragraph = new Paragraph();
             paragraph.add(BaseElement.getChunk(TextFactory.getInstance().getTranslatedText("strengthAbbreviation") + ":",
-                    FadingSunsTheme.getLineFont(), FadingSunsTheme.TABLE_LINE_FONT_SIZE));
+                    FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE));
             paragraph.add(BaseElement.getChunk(characterPlayer.getArmor().getStandardPenalization().getStrengthModification()
                     + " ", FadingSunsTheme.getHandwrittingFont(), FadingSunsTheme.ARMOUR_CONTENT_FONT_SIZE));
 
             paragraph.add(BaseElement.getChunk(" " + TextFactory.getInstance().getTranslatedText("dexterityAbbreviation") + ":",
-                    FadingSunsTheme.getLineFont(), FadingSunsTheme.TABLE_LINE_FONT_SIZE));
+                    FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE));
             paragraph.add(BaseElement.getChunk(characterPlayer.getArmor().getStandardPenalization()
                     .getDexterityModification()
                     + " ", FadingSunsTheme.getHandwrittingFont(), FadingSunsTheme.ARMOUR_CONTENT_FONT_SIZE));

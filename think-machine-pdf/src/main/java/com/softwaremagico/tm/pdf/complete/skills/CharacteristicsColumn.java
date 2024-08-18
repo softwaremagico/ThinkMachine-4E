@@ -59,7 +59,7 @@ public final class CharacteristicsColumn extends BaseElement {
             for (final CharacteristicName characteristicName : characteristicNames) {
                 final Paragraph paragraph = new Paragraph();
                 paragraph.add(new Paragraph(TextFactory.getInstance().getElement(characteristicName.getId()).getName().getTranslatedText(),
-                        new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.CHARACTERISTICS_LINE_FONT_SIZE)));
+                        new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
                 final PdfPCell characteristicTitle = new PdfPCell(paragraph);
                 characteristicTitle.setBorder(0);
                 characteristicTitle.setMinimumHeight(FadingSunsTheme.ROW_HEIGHT);
@@ -68,7 +68,7 @@ public final class CharacteristicsColumn extends BaseElement {
 
                 final PdfPCell characteristicTitleInitialValue = new PdfPCell(new Paragraph("(" + (characterPlayer == null ? GAP
                         : characterPlayer.getStartingValue(characteristicName)) + ")",
-                        new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.CHARACTERISTICS_LINE_FONT_SIZE)));
+                        new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
                 characteristicTitleInitialValue.setBorder(0);
                 table.addCell(characteristicTitleInitialValue);
 

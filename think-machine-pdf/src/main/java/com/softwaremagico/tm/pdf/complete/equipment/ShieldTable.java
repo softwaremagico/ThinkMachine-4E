@@ -13,6 +13,7 @@ import com.softwaremagico.tm.txt.TextFactory;
 
 import static com.softwaremagico.tm.pdf.complete.elements.BaseElement.createBigWhiteSeparator;
 import static com.softwaremagico.tm.pdf.complete.elements.BaseElement.createSectionTitle;
+import static com.softwaremagico.tm.pdf.complete.elements.BaseElement.createWhiteSeparator;
 
 public class ShieldTable extends CustomPdfTable {
     private static final float[] WIDTHS = {1f};
@@ -41,16 +42,9 @@ public class ShieldTable extends CustomPdfTable {
         addCell(nameCell);
 
         addCell(getShieldRange(characterPlayer));
-
+        addCell(getShieldDetails(characterPlayer));
 
         final Paragraph paragraph = new Paragraph();
-        paragraph.add(BaseElement.getChunk(TextFactory.getInstance().getElement("burnOut").getName() + ": "));
-        if (characterPlayer == null || characterPlayer.getShield() == null) {
-            BaseElement.getChunk(GAP);
-        } else {
-            paragraph.add(BaseElement.getChunk(characterPlayer.getShield().getBurnOut() + "   ", FadingSunsTheme
-                    .getHandwrittingFont(), FadingSunsTheme.SHIELD_CONTENT_FONT_SIZE));
-        }
         paragraph.add(BaseElement.getChunk(TextFactory.getInstance().getElement("shieldHits").getName() + ": "));
         if (characterPlayer == null || characterPlayer.getShield() == null) {
             BaseElement.getChunk(GAP);
@@ -62,6 +56,42 @@ public class ShieldTable extends CustomPdfTable {
         protectionCell.setPhrase(paragraph);
         protectionCell.setHorizontalAlignment(Element.ALIGN_LEFT);
         addCell(protectionCell);
+
+        final PdfPCell lastSeparator = createWhiteSeparator();
+        separator.setColspan(WIDTHS.length);
+        addCell(lastSeparator);
+    }
+
+    private PdfPTable getShieldDetails(CharacterPlayer characterPlayer) {
+        final float[] widths = {1f, 1f};
+        final PdfPTable table = new PdfPTable(widths);
+        BaseElement.setTableProperties(table);
+        table.getDefaultCell().setBorder(0);
+        table.getDefaultCell().setPadding(0);
+        table.getDefaultCell().setVerticalAlignment(Element.ALIGN_MIDDLE);
+
+
+        Paragraph paragraph = new Paragraph();
+        paragraph.add(BaseElement.getChunk(TextFactory.getInstance().getElement("burnOut").getName() + ": "));
+        if (characterPlayer == null || characterPlayer.getShield() == null) {
+            BaseElement.getChunk(GAP);
+        } else {
+            paragraph.add(BaseElement.getChunk(characterPlayer.getShield().getBurnOut() + "   ", FadingSunsTheme
+                    .getHandwrittingFont(), FadingSunsTheme.SHIELD_CONTENT_FONT_SIZE));
+        }
+        table.addCell(paragraph);
+
+        paragraph = new Paragraph();
+        paragraph.add(BaseElement.getChunk(TextFactory.getInstance().getElement("distortion").getName() + ": "));
+        if (characterPlayer == null || characterPlayer.getShield() == null) {
+            BaseElement.getChunk(GAP);
+        } else {
+            paragraph.add(BaseElement.getChunk(characterPlayer.getShield().getDistortion() + "   ", FadingSunsTheme
+                    .getHandwrittingFont(), FadingSunsTheme.SHIELD_CONTENT_FONT_SIZE));
+        }
+        table.addCell(paragraph);
+
+        return table;
     }
 
 

@@ -48,7 +48,7 @@ public abstract class FadingSunsTheme {
     public static final int SECTION_TITLE_PADDING = 20;
     public static final int CHARACTER_BASICS_FONT_SIZE = 12;
     public static final int CHARACTERISTICS_TITLE_FONT_SIZE = 14;
-    public static final int CHARACTERISTICS_LINE_FONT_SIZE = 10;
+    public static final int LINE_FONT_SIZE = 10;
     public static final int SKILLS_TITLE_FONT_SIZE = 16;
     public static final int SKILLS_LINE_FONT_SIZE = 10;
     public static final int OCCULSTISM_TITLE_FONT_SIZE = 12;

@@ -55,7 +55,7 @@ public final class SkillsColumn {
         for (final Skill skill : skills) {
             final Paragraph paragraph = new Paragraph();
             paragraph.add(new Paragraph(skill.getName().getTranslatedText(),
-                    new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.CHARACTERISTICS_LINE_FONT_SIZE)));
+                    new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
             final PdfPCell characteristicTitle = new PdfPCell(paragraph);
             characteristicTitle.setBorder(0);
             characteristicTitle.setMinimumHeight(FadingSunsTheme.ROW_HEIGHT);
@@ -63,10 +63,10 @@ public final class SkillsColumn {
             table.addCell(characteristicTitle);
 
             final Paragraph defaultValue = new Paragraph();
-            defaultValue.add(new Chunk("(", new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.CHARACTERISTICS_LINE_FONT_SIZE)));
+            defaultValue.add(new Chunk("(", new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
             defaultValue.add(new Chunk((skill.isNatural() ? Skill.NATURAL_SKILL_INITIAL_VALUE : 0) + "", new Font(FadingSunsTheme.getLineFont(),
-                    FadingSunsTheme.CHARACTERISTICS_LINE_FONT_SIZE)));
-            defaultValue.add(new Chunk(")", new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.CHARACTERISTICS_LINE_FONT_SIZE)));
+                    FadingSunsTheme.LINE_FONT_SIZE)));
+            defaultValue.add(new Chunk(")", new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
 
             final PdfPCell skillTitleInitialValue = new PdfPCell(defaultValue);
             skillTitleInitialValue.setBorder(0);

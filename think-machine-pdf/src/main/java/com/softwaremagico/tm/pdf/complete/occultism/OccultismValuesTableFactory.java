@@ -95,7 +95,7 @@ public class OccultismValuesTableFactory extends BaseElement {
         if (characteristicName != null) {
             final Paragraph paragraph = new Paragraph();
             paragraph.add(new Paragraph(TextFactory.getInstance().getElement(characteristicName.getId()).getName().getTranslatedText(),
-                    new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.CHARACTERISTICS_LINE_FONT_SIZE)));
+                    new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
             final PdfPCell characteristicTitle = new PdfPCell(paragraph);
             characteristicTitle.setBorder(0);
             characteristicTitle.setMinimumHeight(FadingSunsTheme.ROW_HEIGHT);

@@ -294,6 +294,34 @@
             <es>Banco</es>
         </name>
     </bank>
+    <victoryPointsBank>
+        <id>victoryPointsBank</id>
+        <name>
+            <en>VP Bank</en>
+            <es>Banco de PV</es>
+        </name>
+    </victoryPointsBank>
+    <capacity>
+        <id>capacity</id>
+        <name>
+            <en>Capacity</en>
+            <es>Capacidad</es>
+        </name>
+    </capacity>
+    <currentVP>
+        <id>currentVP</id>
+        <name>
+            <en>Current VP</en>
+            <es>PV Actuales</es>
+        </name>
+    </currentVP>
+    <currentWP>
+        <id>currentWP</id>
+        <name>
+            <en>Current WP</en>
+            <es>PW Actuales</es>
+        </name>
+    </currentWP>
     <wyrd>
         <id>wyrd</id>
         <name>
@@ -931,6 +959,13 @@
             <es>Agotamiento</es>
         </name>
     </burnOut>
+    <distortion>
+        <id>distortion</id>
+        <name>
+            <en>Distortion</en>
+            <es>Distorsión</es>
+        </name>
+    </distortion>
     <combat>
         <id>combat</id>
         <name>

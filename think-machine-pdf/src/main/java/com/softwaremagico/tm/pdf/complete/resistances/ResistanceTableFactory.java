@@ -64,33 +64,21 @@ public class ResistanceTableFactory extends BaseElement {
         table.addCell(createSectionTitle(TextFactory.getInstance().getElement("resistances").getName().getTranslatedText(), widths.length));
 
         table.addCell(new Paragraph(BaseElement.getChunk(TextFactory.getInstance().getElement("bodyResistance").getName().getTranslatedText(),
-                FadingSunsTheme.getHandwrittingFont(), FadingSunsTheme.ARMOUR_CONTENT_FONT_SIZE)));
+                FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
         table.addCell(createRectangle(characterPlayer != null ? characterPlayer.getBodyResistance() : null));
         table.addCell(createRectangle(null));
 
         table.addCell(new Paragraph(BaseElement.getChunk(TextFactory.getInstance().getElement("mindResistance").getName().getTranslatedText(),
-                FadingSunsTheme.getHandwrittingFont(), FadingSunsTheme.ARMOUR_CONTENT_FONT_SIZE)));
+                FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
         table.addCell(createRectangle(characterPlayer != null ? characterPlayer.getMindResistance() : null));
         table.addCell(createRectangle(null));
 
         table.addCell(new Paragraph(BaseElement.getChunk(TextFactory.getInstance().getElement("spiritResistance").getName().getTranslatedText(),
-                FadingSunsTheme.getHandwrittingFont(), FadingSunsTheme.ARMOUR_CONTENT_FONT_SIZE)));
+                FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
         table.addCell(createRectangle(characterPlayer != null ? characterPlayer.getSpiritResistance() : null));
         table.addCell(createRectangle(null));
 
         return table;
-    }
-
-    private static PdfPCell createRectangle(Integer value) {
-        // Rectangle
-        final PdfPCell rectangle;
-        if (value == null) {
-            rectangle = CustomPdfTable.createRectangle();
-        } else {
-            rectangle = CustomPdfTable.createRectangle(value + "");
-        }
-        rectangle.setMinimumHeight(FadingSunsTheme.ROW_HEIGHT);
-        return rectangle;
     }
 
     public static PdfPTable getVitalityTable(CharacterPlayer characterPlayer) {
@@ -101,10 +89,10 @@ public class ResistanceTableFactory extends BaseElement {
         table.addCell(createSectionTitle(TextFactory.getInstance().getElement("vitality").getName().getTranslatedText(), widths.length));
 
         table.addCell(new Paragraph(BaseElement.getChunk(TextFactory.getInstance().getElement("maximumAbbreviation").getName().getTranslatedText(),
-                FadingSunsTheme.getHandwrittingFont(), FadingSunsTheme.ARMOUR_CONTENT_FONT_SIZE)));
+                FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
         table.addCell(createRectangle(characterPlayer != null ? characterPlayer.getBodyResistance() : null));
         table.addCell(new Paragraph(BaseElement.getChunk(TextFactory.getInstance().getElement("current").getName().getTranslatedText(),
-                FadingSunsTheme.getHandwrittingFont(), FadingSunsTheme.ARMOUR_CONTENT_FONT_SIZE)));
+                FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
         table.addCell(createRectangle(null));
 
         return table;
@@ -118,10 +106,10 @@ public class ResistanceTableFactory extends BaseElement {
         table.addCell(createSectionTitle(TextFactory.getInstance().getElement("revivals").getName().getTranslatedText(), widths.length));
 
         table.addCell(new Paragraph(BaseElement.getChunk(TextFactory.getInstance().getElement("quantity").getName().getTranslatedText(),
-                FadingSunsTheme.getHandwrittingFont(), FadingSunsTheme.ARMOUR_CONTENT_FONT_SIZE)));
+                FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
         table.addCell(createRectangle(characterPlayer != null ? characterPlayer.getBodyResistance() : null));
         table.addCell(new Paragraph(BaseElement.getChunk(TextFactory.getInstance().getElement("number").getName().getTranslatedText(),
-                FadingSunsTheme.getHandwrittingFont(), FadingSunsTheme.ARMOUR_CONTENT_FONT_SIZE)));
+                FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
         table.addCell(createRectangle(null));
 
         return table;

@@ -42,7 +42,7 @@
         <force>9</force>
         <hits>8</hits>
         <burnOut>10</burnOut>
-        <distorsion>2</distorsion>
+        <distortion>2</distortion>
         <agora>rare</agora>
         <size>S</size>
         <features>
@@ -105,7 +105,7 @@
         <force>10</force>
         <hits>10</hits>
         <burnOut>13</burnOut>
-        <distorsion>1</distorsion>
+        <distortion>1</distortion>
         <agora>common</agora>
         <size>S</size>
         <features>
@@ -161,7 +161,7 @@
         <force>10</force>
         <hits>15</hits>
         <burnOut>13</burnOut>
-        <distorsion>0</distorsion>
+        <distortion>0</distortion>
         <agora>rare</agora>
         <cost>1000</cost>
         <size>XS</size>
@@ -229,7 +229,7 @@
         <force>15</force>
         <hits>20</hits>
         <burnOut>15</burnOut>
-        <distorsion>1</distorsion>
+        <distortion>1</distortion>
         <agora>exotic</agora>
         <size>M</size>
         <features>
@@ -285,7 +285,7 @@
         <force>20</force>
         <hits>30</hits>
         <burnOut>15</burnOut>
-        <distorsion>1</distorsion>
+        <distortion>1</distortion>
         <agora>exotic</agora>
         <size>M</size>
         <features>

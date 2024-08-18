@@ -32,6 +32,7 @@ public class Shield extends Equipment<Shield> {
     private int force;
     private int hits;
     private int burnOut;
+    private int distortion;
 
     /**
      * For creating empty elements.
@@ -73,5 +74,13 @@ public class Shield extends Equipment<Shield> {
 
     public void setBurnOut(int burnOut) {
         this.burnOut = burnOut;
+    }
+
+    public int getDistortion() {
+        return distortion;
+    }
+
+    public void setDistortion(int distortion) {
+        this.distortion = distortion;
     }
 }
