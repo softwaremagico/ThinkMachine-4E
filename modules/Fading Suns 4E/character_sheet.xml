@@ -924,6 +924,13 @@
             <es>Cargas</es>
         </name>
     </shieldHits>
+    <burnOut>
+        <id>burnOut</id>
+        <name>
+            <en>Burn Out</en>
+            <es>Agotamiento</es>
+        </name>
+    </burnOut>
     <combat>
         <id>combat</id>
         <name>

@@ -31,6 +31,7 @@ public class Shield extends Equipment<Shield> {
     private int impact;
     private int force;
     private int hits;
+    private int burnOut;
 
     /**
      * For creating empty elements.
@@ -66,4 +67,11 @@ public class Shield extends Equipment<Shield> {
         this.hits = hits;
     }
 
+    public int getBurnOut() {
+        return burnOut;
+    }
+
+    public void setBurnOut(int burnOut) {
+        this.burnOut = burnOut;
+    }
 }

@@ -10,7 +10,7 @@
 	General Public License along with this program; If not, see <http://www.gnu.org/licenses/gpl-3.0.html>. 
 	#L% -->
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="1" verbose="1" name="ThinkingMachinePdf">
+<suite thread-count="1" verbose="1" name="ThinkingMachinePdf" parallel="false">
     <test name="CharacterPdf" enabled="true" preserve-order="true">
         <groups>
             <run>

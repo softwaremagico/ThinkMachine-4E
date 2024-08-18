@@ -34,11 +34,12 @@ import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.pdf.complete.resistances.ResistanceTableFactory;
 import com.softwaremagico.tm.pdf.complete.equipment.ArmorTable;
+import com.softwaremagico.tm.pdf.complete.equipment.ShieldTable;
 import com.softwaremagico.tm.pdf.complete.events.SheetAlternatedBackgroundEvent;
 import com.softwaremagico.tm.pdf.complete.info.CharacterBasicsCompleteTableFactory;
 import com.softwaremagico.tm.pdf.complete.occultism.OccultismValuesTableFactory;
+import com.softwaremagico.tm.pdf.complete.resistances.ResistanceTableFactory;
 import com.softwaremagico.tm.pdf.complete.skills.CharacteristicsAndSkillsTableFactory;
 
 import static com.softwaremagico.tm.pdf.complete.elements.BaseElement.setTableProperties;
@@ -87,10 +88,14 @@ public class CharacterSheet extends PdfDocument {
 
         table.addCell(OccultismValuesTableFactory.getOccultismValuesTable(characterPlayer));
 
-        final PdfPCell armorCell = new PdfPCell(new ArmorTable(characterPlayer));
-        armorCell.setRowspan(2);
-        armorCell.setBorder(0);
-        table.addCell(armorCell);
+        final PdfPTable armorShieldTable = new PdfPTable(1);
+        setTableProperties(armorShieldTable);
+        armorShieldTable.addCell(new ArmorTable(characterPlayer));
+        armorShieldTable.addCell(new ShieldTable(characterPlayer));
+        final PdfPCell armorShieldCell = new PdfPCell(armorShieldTable);
+        armorShieldCell.setRowspan(2);
+        armorShieldCell.setBorder(0);
+        table.addCell(armorShieldCell);
 
         table.addCell(ResistanceTableFactory.getResistancesAndProtectionsBasicsTable(characterPlayer));
 
