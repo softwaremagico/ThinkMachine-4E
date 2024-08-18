@@ -9,10 +9,10 @@ import com.softwaremagico.tm.pdf.complete.equipment.ShieldTableFactory;
 import com.softwaremagico.tm.pdf.complete.occultism.OccultismValuesTableFactory;
 
 public class ResistancesAndProtectionsTable extends BaseElement {
+    private static final float[] WIDTHS = {1f, 1f, 1f};
 
     public static PdfPTable getResistancesAndProtectionsBasicsTable(CharacterPlayer characterPlayer) {
-        final float[] widths = {3f, 1f, 2f};
-        final PdfPTable table = new PdfPTable(widths);
+        final PdfPTable table = new PdfPTable(WIDTHS);
         setTableProperties(table);
         table.getDefaultCell().setBorder(0);
 

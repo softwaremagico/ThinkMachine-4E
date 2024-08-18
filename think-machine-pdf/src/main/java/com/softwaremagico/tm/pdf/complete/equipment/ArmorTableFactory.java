@@ -36,8 +36,6 @@ import com.softwaremagico.tm.pdf.complete.elements.BaseElement;
 import com.softwaremagico.tm.pdf.complete.elements.CustomPdfTable;
 import com.softwaremagico.tm.txt.TextFactory;
 
-import static com.softwaremagico.tm.pdf.complete.elements.CustomPdfTable.createEmptyElementLine;
-
 public class ArmorTableFactory extends BaseElement {
     private static final float[] WIDTHS = {1f, 1f, 1f};
     private static final String GAP = "___________________";
@@ -46,6 +44,7 @@ public class ArmorTableFactory extends BaseElement {
     public static PdfPTable getResistancesAndProtectionsBasicsTable(CharacterPlayer characterPlayer) throws InvalidXmlElementException {
         final PdfPTable table = new PdfPTable(WIDTHS);
         setTableProperties(table);
+        table.getDefaultCell().setBorder(0);
 
         final PdfPCell separator = createBigWhiteSeparator();
         separator.setColspan(WIDTHS.length);

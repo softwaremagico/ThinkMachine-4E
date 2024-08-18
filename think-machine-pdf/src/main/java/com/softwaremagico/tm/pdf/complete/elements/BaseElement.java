@@ -251,7 +251,7 @@ public class BaseElement {
         if (value == null) {
             rectangle = CustomPdfTable.createRectangle();
         } else {
-            rectangle = CustomPdfTable.createRectangle("");
+            rectangle = CustomPdfTable.createRectangle(value);
         }
         rectangle.setMinimumHeight(FadingSunsTheme.ROW_HEIGHT);
         return rectangle;
