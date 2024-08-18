@@ -33,29 +33,23 @@ import com.softwaremagico.tm.pdf.complete.elements.BaseElement;
 import com.softwaremagico.tm.txt.TextFactory;
 
 public class ResistanceTableFactory extends BaseElement {
+    private static final float[] WIDTHS = {1f, 1f};
 
     public static PdfPTable getResistancesAndProtectionsBasicsTable(CharacterPlayer characterPlayer) {
-        final float[] widths = {1f, 1f};
-        final PdfPTable table = new PdfPTable(widths);
+        final PdfPTable table = new PdfPTable(WIDTHS);
         setTableProperties(table);
 
         final PdfPCell separator = createBigWhiteSeparator();
-        separator.setColspan(widths.length);
+        separator.setColspan(WIDTHS.length);
         table.addCell(separator);
 
         table.addCell(getResistancesTable(characterPlayer));
-
-        final PdfPTable vitalityTable = new PdfPTable(new float[]{1f});
-        setTableProperties(vitalityTable);
-        vitalityTable.addCell(getVitalityTable(characterPlayer));
-        vitalityTable.addCell(getRevivalsTable(characterPlayer));
-
-        table.addCell(vitalityTable);
+        table.addCell(getVitalityTable(characterPlayer));
 
         return table;
     }
 
-    public static PdfPTable getResistancesTable(CharacterPlayer characterPlayer) {
+    private static PdfPTable getResistancesTable(CharacterPlayer characterPlayer) {
         final float[] widths = {1f, 0.9f, 1.1f};
         final PdfPTable table = new PdfPTable(widths);
         setTableProperties(table);
@@ -80,7 +74,15 @@ public class ResistanceTableFactory extends BaseElement {
         return table;
     }
 
-    public static PdfPTable getVitalityTable(CharacterPlayer characterPlayer) {
+    private static PdfPTable getVitalityTable(CharacterPlayer characterPlayer) {
+        final PdfPTable vitalityTable = new PdfPTable(new float[]{1f});
+        setTableProperties(vitalityTable);
+        vitalityTable.addCell(getVitalityValuesTable(characterPlayer));
+        vitalityTable.addCell(getRevivalsTable(characterPlayer));
+        return vitalityTable;
+    }
+
+    private static PdfPTable getVitalityValuesTable(CharacterPlayer characterPlayer) {
         final float[] widths = {1.1f, 0.7f, 1.1f, 1f};
         final PdfPTable table = new PdfPTable(widths);
         setTableProperties(table);
@@ -89,7 +91,7 @@ public class ResistanceTableFactory extends BaseElement {
 
         table.addCell(new Paragraph(BaseElement.getChunk(TextFactory.getInstance().getElement("maximumAbbreviation").getName().getTranslatedText(),
                 FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
-        table.addCell(createRectangle(characterPlayer != null ? characterPlayer.getBodyResistance() : null));
+        table.addCell(createRectangle(characterPlayer != null ? characterPlayer.getVitalityValue() : null));
         table.addCell(new Paragraph(BaseElement.getChunk(TextFactory.getInstance().getElement("current").getName().getTranslatedText(),
                 FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
         table.addCell(createRectangle(null));
@@ -97,7 +99,7 @@ public class ResistanceTableFactory extends BaseElement {
         return table;
     }
 
-    public static PdfPTable getRevivalsTable(CharacterPlayer characterPlayer) {
+    private static PdfPTable getRevivalsTable(CharacterPlayer characterPlayer) {
         final float[] widths = {1.1f, 0.7f, 1.1f, 1f};
         final PdfPTable table = new PdfPTable(widths);
         setTableProperties(table);

@@ -27,7 +27,7 @@ public class ResistancesAndProtectionsTable extends BaseElement {
         occultismCell.setBorder(0);
         table.addCell(occultismCell);
 
-        final PdfPTable armorTable = ArmorTableFactory.getResistancesAndProtectionsBasicsTable(characterPlayer);
+        final PdfPTable armorTable = ArmorTableFactory.getArmorTable(characterPlayer);
         final PdfPCell armorCell = new PdfPCell(armorTable);
         armorCell.setColspan(2);
         armorCell.setBorder(0);

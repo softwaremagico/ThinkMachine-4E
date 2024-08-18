@@ -37,20 +37,29 @@ import com.softwaremagico.tm.pdf.complete.elements.CustomPdfTable;
 import com.softwaremagico.tm.txt.TextFactory;
 
 public class ArmorTableFactory extends BaseElement {
-    private static final float[] WIDTHS = {1f, 1f, 1f};
+    private static final float[] WIDTHS = {1f};
     private static final String GAP = "___________________";
     private static final int NAME_COLUMN_WIDTH = 70;
 
-    public static PdfPTable getResistancesAndProtectionsBasicsTable(CharacterPlayer characterPlayer) throws InvalidXmlElementException {
+    public static PdfPTable getArmorTable(CharacterPlayer characterPlayer) throws InvalidXmlElementException {
         final PdfPTable table = new PdfPTable(WIDTHS);
         setTableProperties(table);
-        table.getDefaultCell().setBorder(0);
 
         final PdfPCell separator = createBigWhiteSeparator();
         separator.setColspan(WIDTHS.length);
         table.addCell(separator);
 
-        table.addCell(createSectionTitle(TextFactory.getInstance().getElement("armor").getName().getTranslatedText(), WIDTHS.length));
+        table.addCell(createArmorValueTable(characterPlayer));
+
+        return table;
+    }
+
+    private static PdfPTable createArmorValueTable(CharacterPlayer characterPlayer) {
+        final float[] widths = {1f, 0.9f, 1.1f};
+        final PdfPTable table = new PdfPTable(widths);
+        setTableProperties(table);
+
+        table.addCell(createSectionTitle(TextFactory.getInstance().getElement("armor").getName().getTranslatedText(), widths.length));
 
         final Paragraph armor = new Paragraph();
         if (characterPlayer == null || characterPlayer.getArmor() == null) {
@@ -69,10 +78,9 @@ public class ArmorTableFactory extends BaseElement {
         table.addCell(getPenalties(characterPlayer));
 
         final PdfPCell damageCell = new PdfPCell(getDamageProtection(characterPlayer));
-        damageCell.setColspan(WIDTHS.length);
+        damageCell.setColspan(widths.length);
         damageCell.setBorder(0);
         table.addCell(damageCell);
-
         return table;
     }
 

@@ -11,7 +11,7 @@ import com.softwaremagico.tm.pdf.complete.elements.BaseElement;
 import com.softwaremagico.tm.txt.TextFactory;
 
 public class ShieldTableFactory extends BaseElement {
-    private static final float[] WIDTHS = {1.5f, 1f, 1.5f};
+    private static final float[] WIDTHS = {1f};
     private static final String GAP = "______";
     private static final int COLUMN_WIDTH = 90;
 
@@ -23,11 +23,21 @@ public class ShieldTableFactory extends BaseElement {
         separator.setColspan(WIDTHS.length);
         table.addCell(separator);
 
-        table.addCell(createSectionTitle(TextFactory.getInstance().getElement("shield").getName().getTranslatedText(), WIDTHS.length));
+        table.addCell(createShieldValues(characterPlayer));
+
+        return table;
+    }
+
+    private static PdfPTable createShieldValues(CharacterPlayer characterPlayer) {
+        final float[] widths = {1.5f, 1f, 1.5f};
+        final PdfPTable table = new PdfPTable(widths);
+        setTableProperties(table);
+
+        table.addCell(createSectionTitle(TextFactory.getInstance().getElement("shield").getName().getTranslatedText(), widths.length));
 
         final PdfPCell nameCell;
         if (characterPlayer == null || characterPlayer.getShield() == null) {
-            nameCell = createEmptyElementLine(GAP + GAP, COLUMN_WIDTH);
+            nameCell = createEmptyElementLine(GAP + GAP + GAP, COLUMN_WIDTH);
         } else {
             nameCell = createElementLine(characterPlayer.getShield().getName().getTranslatedText(), COLUMN_WIDTH,
                     FadingSunsTheme.SHIELD_CONTENT_FONT_SIZE);
@@ -50,9 +60,10 @@ public class ShieldTableFactory extends BaseElement {
         final PdfPCell protectionCell = new PdfPCell();
         protectionCell.setPhrase(paragraph);
         protectionCell.setHorizontalAlignment(Element.ALIGN_LEFT);
-        protectionCell.setColspan(WIDTHS.length);
+        protectionCell.setColspan(widths.length);
         protectionCell.setBorder(0);
         table.addCell(protectionCell);
+
         return table;
     }
 
