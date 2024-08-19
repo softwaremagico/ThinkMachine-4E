@@ -30,7 +30,7 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.pdf.complete.elements.BaseElement;
 
 public class ArmorAndShieldTableFactory extends BaseElement {
-    private static final float[] WIDTHS = {1f, 1f};
+    private static final float[] WIDTHS = {1.2f, 1f};
 
     public static PdfPTable getArmorAndShieldTableFactory(CharacterPlayer characterPlayer) {
         final PdfPTable table = new PdfPTable(WIDTHS);

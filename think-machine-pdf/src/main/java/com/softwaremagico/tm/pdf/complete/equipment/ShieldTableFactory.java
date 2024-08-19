@@ -53,7 +53,7 @@ public class ShieldTableFactory extends BaseElement {
     }
 
     private static PdfPTable createShieldValues(CharacterPlayer characterPlayer) {
-        final float[] widths = {1.5f, 1f, 1.5f};
+        final float[] widths = {1.5f, 1f};
         final PdfPTable table = new PdfPTable(widths);
         setTableProperties(table);
 
@@ -71,7 +71,12 @@ public class ShieldTableFactory extends BaseElement {
         table.addCell(nameCell);
 
         table.addCell(getShieldRange(characterPlayer));
-        table.addCell(getShieldDetails(characterPlayer));
+
+        final PdfPTable detailsTable = getShieldDetails(characterPlayer);
+        final PdfPCell detailsCell = new PdfPCell(detailsTable);
+        detailsCell.setColspan(2);
+        detailsCell.setBorder(0);
+        table.addCell(detailsCell);
 
         final Paragraph paragraph = new Paragraph();
         paragraph.add(BaseElement.getChunk(TextFactory.getInstance().getElement("shieldHits").getName() + ": "));
@@ -81,12 +86,13 @@ public class ShieldTableFactory extends BaseElement {
             paragraph.add(BaseElement.getChunk(characterPlayer.getShield().getHits() + " - ", FadingSunsTheme
                     .getHandwrittingFont(), FadingSunsTheme.SHIELD_CONTENT_FONT_SIZE));
         }
-        final PdfPCell protectionCell = new PdfPCell();
-        protectionCell.setPhrase(paragraph);
-        protectionCell.setHorizontalAlignment(Element.ALIGN_LEFT);
-        protectionCell.setColspan(widths.length);
-        protectionCell.setBorder(0);
-        table.addCell(protectionCell);
+        final PdfPCell hitsCell = new PdfPCell();
+        hitsCell.setPhrase(paragraph);
+        hitsCell.setHorizontalAlignment(Element.ALIGN_LEFT);
+        hitsCell.setColspan(widths.length);
+        hitsCell.setBorder(0);
+        hitsCell.setPaddingLeft(FadingSunsTheme.LINE_PADDING);
+        table.addCell(hitsCell);
 
         return table;
     }
@@ -108,7 +114,10 @@ public class ShieldTableFactory extends BaseElement {
             paragraph.add(BaseElement.getChunk(characterPlayer.getShield().getBurnOut() + "   ", FadingSunsTheme
                     .getHandwrittingFont(), FadingSunsTheme.SHIELD_CONTENT_FONT_SIZE));
         }
-        table.addCell(paragraph);
+        final PdfPCell burnOutCell = new PdfPCell(paragraph);
+        burnOutCell.setBorder(0);
+        burnOutCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(burnOutCell);
 
         paragraph = new Paragraph();
         paragraph.add(BaseElement.getChunk(TextFactory.getInstance().getElement("distortion").getName() + ": "));
@@ -118,7 +127,11 @@ public class ShieldTableFactory extends BaseElement {
             paragraph.add(BaseElement.getChunk(characterPlayer.getShield().getDistortion() + "   ", FadingSunsTheme
                     .getHandwrittingFont(), FadingSunsTheme.SHIELD_CONTENT_FONT_SIZE));
         }
-        table.addCell(paragraph);
+
+        final PdfPCell distortionCell = new PdfPCell(paragraph);
+        distortionCell.setBorder(0);
+        distortionCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(distortionCell);
 
         return table;
     }

@@ -55,7 +55,7 @@ public class ArmorTableFactory extends BaseElement {
     }
 
     private static PdfPTable createArmorValueTable(CharacterPlayer characterPlayer) {
-        final float[] widths = {1f, 0.9f, 1.1f};
+        final float[] widths = {1f, 1.1f, 0.9f};
         final PdfPTable table = new PdfPTable(widths);
         setTableProperties(table);
 
