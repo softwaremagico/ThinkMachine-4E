@@ -32,7 +32,7 @@
         <weaponClass>sword</weaponClass>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>6</damage>
@@ -64,14 +64,14 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>7</damage>
                 <strength>5</strength>
             </weaponDamage>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <damageTechLevel>2</damageTechLevel>
                 <goal>0</goal>
@@ -111,7 +111,7 @@
         <weaponType>MELEE_SHIELD</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>3</damage>
@@ -157,7 +157,7 @@
         <weaponType>MELEE_SHIELD</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>3</damage>
@@ -203,7 +203,7 @@
         <weaponType>MELEE_SHIELD</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>4</damage>
@@ -245,7 +245,7 @@
         <weaponType>MELEE_SHIELD</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>1</damage>
@@ -282,7 +282,7 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>2</damage>
@@ -314,14 +314,14 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>4</damage>
                 <strength>2</strength>
             </weaponDamage>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <damageTechLevel>1</damageTechLevel>
                 <goal>0</goal>
@@ -354,14 +354,14 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>4</damage>
                 <strength>2</strength>
             </weaponDamage>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <damageTechLevel>1</damageTechLevel>
                 <goal>0</goal>
@@ -393,7 +393,7 @@
         <weaponClass>sword</weaponClass>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>6</damage>
@@ -422,14 +422,14 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>4</damage>
                 <strength>2</strength>
             </weaponDamage>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <damageTechLevel>2</damageTechLevel>
                 <goal>0</goal>
@@ -460,14 +460,14 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>4</damage>
                 <strength>4</strength>
             </weaponDamage>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <damageTechLevel>2</damageTechLevel>
                 <goal>0</goal>
@@ -504,7 +504,7 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>2/6</damage>
@@ -544,7 +544,7 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>–1</goal>
                 <damage>0</damage>
@@ -583,7 +583,7 @@
         <weaponClass>sword</weaponClass>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>6</damage>
@@ -622,7 +622,7 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>3</damage>
@@ -674,14 +674,14 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>3</damage>
                 <strength>1</strength>
             </weaponDamage>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <damageTechLevel>2</damageTechLevel>
                 <goal>0</goal>
@@ -718,7 +718,7 @@
         <weaponClass>sword</weaponClass>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>6</damage>
@@ -765,7 +765,7 @@
         <weaponClass>sword</weaponClass>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>–1</goal>
                 <damage>7</damage>
@@ -775,7 +775,8 @@
         <size>L</size>
         <cost>150</cost>
         <damageTypes>
-            <damageType>hard, vibro</damageType>
+            <damageType>hard</damageType>
+            <damageType>vibro</damageType>
         </damageTypes>
         <ammunition>
             <ammo>innactiveKossack</ammo>
@@ -803,14 +804,14 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>5</damage>
                 <strength>3</strength>
             </weaponDamage>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <damageTechLevel>2</damageTechLevel>
                 <goal>0</goal>
@@ -845,7 +846,7 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>3</damage>
@@ -877,7 +878,7 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>1</goal>
                 <damage>7</damage>
@@ -918,14 +919,14 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>5</damage>
                 <strength>3</strength>
             </weaponDamage>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <damageTechLevel>3</damageTechLevel>
                 <goal>0</goal>
@@ -965,7 +966,7 @@
         <weaponClass>sword</weaponClass>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>6</damage>
@@ -1009,14 +1010,14 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>5</damage>
                 <strength>3</strength>
             </weaponDamage>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <damageTechLevel>1</damageTechLevel>
                 <goal>0</goal>
@@ -1062,7 +1063,7 @@
         <weaponClass>sword</weaponClass>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>5</damage>
@@ -1096,14 +1097,14 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>4</damage>
                 <strength>3</strength>
             </weaponDamage>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <damageTechLevel>1</damageTechLevel>
                 <goal>0</goal>
@@ -1144,7 +1145,7 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0/+3</goal>
                 <damage>3</damage>
@@ -1178,7 +1179,7 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>3/+1</damage>
@@ -1220,14 +1221,14 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>8</damage>
                 <strength>6</strength>
             </weaponDamage>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <damageTechLevel>2</damageTechLevel>
                 <goal>0</goal>
@@ -1269,14 +1270,14 @@
         <weaponClass>sword</weaponClass>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>8</damage>
                 <strength>6</strength>
             </weaponDamage>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <damageTechLevel>2</damageTechLevel>
                 <goal>0</goal>
@@ -1314,14 +1315,14 @@
         <weaponClass>sword</weaponClass>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>6</damage>
                 <strength>4</strength>
             </weaponDamage>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <damageTechLevel>2</damageTechLevel>
                 <goal>0</goal>
@@ -1358,7 +1359,7 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>–1</goal>
                 <damage>3</damage>
@@ -1405,8 +1406,8 @@
         <weaponType>MELEE_ARTIFACT</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
-                <skill>artifactMelee</skill>
+                <characteristic>strength</characteristic>
+                <skill>melee</skill>
                 <goal>0</goal>
                 <damage>8</damage>
                 <strength>2</strength>
@@ -1444,8 +1445,8 @@
         <weaponClass>sword</weaponClass>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
-                <skill>artifactMelee</skill>
+                <characteristic>strength</characteristic>
+                <skill>melee</skill>
                 <goal>+1</goal>
                 <damage>7</damage>
                 <strength>3</strength>
@@ -1454,7 +1455,8 @@
         <size>L</size>
         <cost>15000</cost>
         <damageTypes>
-            <damageType>blaster, hard</damageType>
+            <damageType>blaster</damageType>
+            <damageType>hard</damageType>
         </damageTypes>
     </fluxSword>
     <mistSword>
@@ -1487,8 +1489,8 @@
         <weaponClass>sword</weaponClass>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
-                <skill>artifactMelee</skill>
+                <characteristic>strength</characteristic>
+                <skill>melee</skill>
                 <goal>1</goal>
                 <damage>7</damage>
                 <strength>3</strength>
@@ -1498,7 +1500,9 @@
         <size>L</size>
         <cost>30000</cost>
         <damageTypes>
-            <damageType>blaster, hard, psi</damageType>
+            <damageType>blaster</damageType>
+            <damageType>hard</damageType>
+            <damageType>psi</damageType>
         </damageTypes>
         <random>
             <probabilityMultiplier>0.01</probabilityMultiplier>
@@ -1514,7 +1518,7 @@
             <es>Dardo</es>
         </name>
         <description>
-            <en>A pointed needle with small guiding wings designed for accuracy in throwing (un-winged darts have their
+            <en>A pointed needle with small guiding wings designed for accuracy in vigor (un-winged darts have their
                 RNG halved). These are not the common variety darts found in bars, but are larger and more deadly
                 versions of the same.
             </en>
@@ -1525,11 +1529,11 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <weaponType>THROWING</weaponType>
+        <weaponType>vigor</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <goal>+1</goal>
                 <damage>1</damage>
                 <strength>1</strength>
@@ -1543,7 +1547,7 @@
                     <es>Sin alas</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <goal>0</goal>
                 <damage>1</damage>
                 <strength>1</strength>
@@ -1574,11 +1578,11 @@
             </es>
         </description>
         <techLevel>0</techLevel>
-        <weaponType>THROWING</weaponType>
+        <weaponType>vigor</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <goal>0</goal>
                 <damage>3</damage>
                 <strength>3</strength>
@@ -1588,7 +1592,7 @@
             </weaponDamage>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <damageTechLevel>1</damageTechLevel>
                 <goal>0</goal>
                 <damage>4</damage>
@@ -1620,7 +1624,7 @@
             </es>
         </description>
         <techLevel>0</techLevel>
-        <weaponType>THROWING</weaponType>
+        <weaponType>vigor</weaponType>
         <damageList>
             <weaponDamage>
                 <damageName>
@@ -1628,7 +1632,7 @@
                     <es>Ligera</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <goal>0</goal>
                 <damage>1</damage>
                 <strength>1</strength>
@@ -1643,7 +1647,7 @@
                     <es>Media</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <goal>0</goal>
                 <damage>2</damage>
                 <strength>2</strength>
@@ -1658,7 +1662,7 @@
                     <es>Pesada</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <goal>0</goal>
                 <damage>4</damage>
                 <strength>3</strength>
@@ -1673,7 +1677,7 @@
                     <es>Grande</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <goal>-1</goal>
                 <damage>6</damage>
                 <strength>5</strength>
@@ -1688,7 +1692,7 @@
                     <es>Enorme</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <goal>-1</goal>
                 <damage>8</damage>
                 <strength>5</strength>
@@ -1713,18 +1717,18 @@
         </name>
         <description>
             <en>A small disk with serrated edges designed to be thrown quickly at targets (DMG 2 for TL2+). This can
-                include any variety of shuriken ("throwing stars").
+                include any variety of shuriken ("vigor stars").
             </en>
             <es>Un pequeño disco con filos dentados diseñado para lanzarse con rapidez a los objetivos (Daño 2 en un
                 NT2+). Esta estrella puede incluir cualquier variedad de shuriken (estrellas ninja).
             </es>
         </description>
         <techLevel>1</techLevel>
-        <weaponType>THROWING</weaponType>
+        <weaponType>vigor</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <goal>-1</goal>
                 <damage>1</damage>
                 <strength>1</strength>
@@ -1734,7 +1738,7 @@
             </weaponDamage>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <damageTechLevel>2</damageTechLevel>
                 <goal>-1</goal>
                 <damage>2</damage>
@@ -1747,11 +1751,11 @@
         <size>XS</size>
         <cost>2</cost>
     </star>
-    <throwingAxe>
-        <id>throwingAxe</id>
+    <vigorAxe>
+        <id>vigorAxe</id>
         <type>weapon</type>
         <name>
-            <en>Throwing Axe</en>
+            <en>vigor Axe</en>
             <es>Hacha Arrojadiza</es>
         </name>
         <description>
@@ -1764,11 +1768,11 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <weaponType>THROWING</weaponType>
+        <weaponType>vigor</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <goal>0</goal>
                 <damage>4</damage>
                 <strength>3</strength>
@@ -1778,7 +1782,7 @@
             </weaponDamage>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <damageTechLevel>2</damageTechLevel>
                 <goal>0</goal>
                 <damage>3</damage>
@@ -1790,16 +1794,16 @@
         </damageList>
         <size>M</size>
         <cost>5</cost>
-    </throwingAxe>
-    <throwingKnife>
-        <id>throwingKnife</id>
+    </vigorAxe>
+    <vigorKnife>
+        <id>vigorKnife</id>
         <type>weapon</type>
         <name>
-            <en>Throwing Knife</en>
+            <en>vigor Knife</en>
             <es>Cuchillo Arrojadizo</es>
         </name>
         <description>
-            <en>Throwing knives are not like normal kitchen implements; they are usually specially balanced to fly
+            <en>vigor knives are not like normal kitchen implements; they are usually specially balanced to fly
                 through the air and to hit a target with the blade rather than the pommel (DMG 2 for TL2+). They can
                 also act as small knives in melee if required.
             </en>
@@ -1809,11 +1813,11 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <weaponType>THROWING</weaponType>
+        <weaponType>vigor</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <goal>0</goal>
                 <damage>3</damage>
                 <strength>2</strength>
@@ -1823,7 +1827,7 @@
             </weaponDamage>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <damageTechLevel>2</damageTechLevel>
                 <goal>0</goal>
                 <damage>2</damage>
@@ -1838,7 +1842,7 @@
         <random>
             <probabilityMultiplier>10</probabilityMultiplier>
         </random>
-    </throwingKnife>
+    </vigorKnife>
     <heavyFuthangaBow>
         <id>heavyFuthangaBow</id>
         <type>weapon</type>
@@ -1857,7 +1861,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>archery</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>10</damage>
                 <strength>7</strength>
@@ -1871,7 +1875,7 @@
                     <es>Arco Compuesto</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>archery</skill>
+                <skill>shoot</skill>
                 <goal>1</goal>
                 <damage>10</damage>
                 <strength>5</strength>
@@ -1910,7 +1914,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>archery</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>4</damage>
                 <strength>4</strength>
@@ -1924,7 +1928,7 @@
                     <es>Compuesto</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>archery</skill>
+                <skill>shoot</skill>
                 <goal>1</goal>
                 <damage>4</damage>
                 <strength>2</strength>
@@ -1962,7 +1966,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>archery</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>8</damage>
                 <strength>5</strength>
@@ -1976,7 +1980,7 @@
                     <es>Compuesto</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>archery</skill>
+                <skill>shoot</skill>
                 <goal>1</goal>
                 <damage>8</damage>
                 <strength>3</strength>
@@ -2012,7 +2016,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>archery</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>2</damage>
                 <strength>2</strength>
@@ -2026,7 +2030,7 @@
                     <es>Compuesto</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>archery</skill>
+                <skill>shoot</skill>
                 <goal>1</goal>
                 <damage>2</damage>
                 <strength>0</strength>
@@ -2061,7 +2065,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>archery</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>3</damage>
                 <strength>3</strength>
@@ -2075,7 +2079,7 @@
                     <es>Compuesto</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>archery</skill>
+                <skill>shoot</skill>
                 <goal>1</goal>
                 <damage>3</damage>
                 <strength>1</strength>
@@ -2111,7 +2115,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>archery</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>6</damage>
                 <strength>6</strength>
@@ -2125,7 +2129,7 @@
                     <es>Compuesto</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>archery</skill>
+                <skill>shoot</skill>
                 <goal>1</goal>
                 <damage>6</damage>
                 <strength>4</strength>
@@ -2158,7 +2162,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>archery</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>2</damage>
                 <strength>2</strength>
@@ -2186,7 +2190,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>archery</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>4</damage>
                 <strength>4</strength>
@@ -2221,7 +2225,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>archery</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>8</damage>
                 <strength>8</strength>
@@ -2254,7 +2258,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>archery</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>6</damage>
                 <strength>6</strength>
@@ -2292,7 +2296,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>archery</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>1</damage>
                 <strength>1</strength>
@@ -2340,7 +2344,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>-1</goal>
                 <damage>3</damage>
                 <strength>1</strength>
@@ -2389,7 +2393,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>-1</goal>
                 <damage>3</damage>
                 <strength>1</strength>
@@ -2435,7 +2439,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>-1</goal>
                 <damage>3</damage>
                 <strength>1</strength>
@@ -2481,7 +2485,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>-1</goal>
                 <damage>3</damage>
                 <strength>1</strength>
@@ -2517,7 +2521,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>4</damage>
                 <strength>2</strength>
@@ -2556,7 +2560,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>4</damage>
                 <strength>2</strength>
@@ -2592,7 +2596,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>4</damage>
                 <strength>2</strength>
@@ -2616,7 +2620,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>4</damage>
                 <strength>2</strength>
@@ -2663,7 +2667,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>4</damage>
                 <strength>2</strength>
@@ -2713,7 +2717,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>4</damage>
                 <strength>2</strength>
@@ -2760,7 +2764,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>4</damage>
                 <strength>2</strength>
@@ -2807,7 +2811,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>4</damage>
                 <strength>2</strength>
@@ -2854,7 +2858,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>4</damage>
                 <strength>2</strength>
@@ -2900,7 +2904,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>5</damage>
                 <strength>3</strength>
@@ -2949,7 +2953,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>5</damage>
                 <strength>3</strength>
@@ -2995,7 +2999,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>5</damage>
                 <strength>3</strength>
@@ -3041,7 +3045,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>5</damage>
                 <strength>3</strength>
@@ -3068,7 +3072,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>5</damage>
                 <strength>3</strength>
@@ -3114,7 +3118,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>5</damage>
                 <strength>3</strength>
@@ -3149,7 +3153,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>5</damage>
                 <strength>3</strength>
@@ -3187,7 +3191,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>5</damage>
                 <strength>2</strength>
@@ -3222,7 +3226,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>5</damage>
                 <strength>3</strength>
@@ -3257,7 +3261,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>5</damage>
                 <strength>3</strength>
@@ -3294,7 +3298,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>6</damage>
                 <strength>4</strength>
@@ -3334,7 +3338,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>6</damage>
                 <strength>5</strength>
@@ -3371,7 +3375,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>6</damage>
                 <strength>4</strength>
@@ -3408,7 +3412,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>6</damage>
                 <strength>4</strength>
@@ -3422,7 +3426,7 @@
                     <es>Espada Larga</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>1</goal>
                 <damage>6</damage>
                 <strength>4</strength>
@@ -3463,7 +3467,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>6</damage>
                 <strength>4</strength>
@@ -3503,7 +3507,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>6</damage>
                 <strength>4</strength>
@@ -3540,7 +3544,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>6</damage>
                 <strength>4</strength>
@@ -3577,7 +3581,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>6</damage>
                 <strength>4</strength>
@@ -3591,7 +3595,7 @@
                     <es>Espada Larga</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>1</goal>
                 <damage>6</damage>
                 <strength>4</strength>
@@ -3671,7 +3675,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>6</damage>
                 <strength>2</strength>
@@ -3755,7 +3759,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>6</damage>
                 <strength>2</strength>
@@ -3839,7 +3843,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>6</damage>
                 <strength>2</strength>
@@ -3919,7 +3923,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>6</damage>
                 <strength>2</strength>
@@ -3971,7 +3975,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>8</damage>
                 <strength>4</strength>
@@ -4024,7 +4028,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>8</damage>
                 <strength>4</strength>
@@ -4077,7 +4081,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>+1</goal>
                 <damage>8</damage>
                 <strength>4</strength>
@@ -4141,7 +4145,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>7</damage>
                 <strength>3</strength>
@@ -4207,7 +4211,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>6</damage>
                 <strength>2</strength>
@@ -4270,7 +4274,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>-2</goal>
                 <damage>8</damage>
                 <strength>4</strength>
@@ -4333,7 +4337,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>7</damage>
                 <strength>3</strength>
@@ -4396,7 +4400,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>6</damage>
                 <strength>2</strength>
@@ -4462,7 +4466,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>7</damage>
                 <strength>3</strength>
@@ -4530,7 +4534,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>7</damage>
                 <strength>3</strength>
@@ -4608,7 +4612,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>6</damage>
                 <strength>1</strength>
@@ -4692,7 +4696,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>5</damage>
                 <strength>0</strength>
@@ -4773,7 +4777,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>6</damage>
                 <strength>1</strength>
@@ -4854,7 +4858,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>6</damage>
                 <strength>1</strength>
@@ -4935,7 +4939,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>6</damage>
                 <strength>0</strength>
@@ -4999,7 +5003,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>5</damage>
                 <strength>1</strength>
@@ -5063,7 +5067,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>4</damage>
                 <strength>0</strength>
@@ -5124,7 +5128,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>5</damage>
                 <strength>1</strength>
@@ -5185,7 +5189,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>+1</goal>
                 <damage>5</damage>
                 <strength>1</strength>
@@ -5246,7 +5250,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>5</damage>
                 <strength>1</strength>
@@ -5307,7 +5311,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>5</damage>
                 <strength>1</strength>
@@ -5372,7 +5376,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>+1/0/-1</goal>
                 <damage>8/4/1</damage>
                 <strength>4</strength>
@@ -5386,7 +5390,7 @@
                     <es>Proyectil Sólido</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>7</damage>
                 <strength>3</strength>
@@ -5458,7 +5462,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>+1/0/-1</goal>
                 <damage>8/4/1</damage>
                 <strength>4</strength>
@@ -5472,7 +5476,7 @@
                     <es>Proyectil Sólido</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>7</damage>
                 <strength>3</strength>
@@ -5540,7 +5544,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>+1/0/-1</goal>
                 <damage>8/4/1</damage>
                 <strength>4</strength>
@@ -5554,7 +5558,7 @@
                     <es>Proyectil Sólido</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>7</damage>
                 <strength>3</strength>
@@ -5619,7 +5623,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>+1/0/-1</goal>
                 <damage>9/5/1</damage>
                 <strength>4</strength>
@@ -5684,7 +5688,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>+1/0/-1</goal>
                 <damage>8/4/1</damage>
                 <strength>4</strength>
@@ -5698,7 +5702,7 @@
                     <es>Proyectil Sólido</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>7</damage>
                 <strength>3</strength>
@@ -5770,7 +5774,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>+1/0/-1</goal>
                 <damage>8/4/1</damage>
                 <strength>4</strength>
@@ -5784,7 +5788,7 @@
                     <es>Proyectil Sólido</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>-1</goal>
                 <damage>7</damage>
                 <strength>3</strength>
@@ -5833,7 +5837,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>-1</goal>
                 <damage>3</damage>
                 <strength>2</strength>
@@ -5877,7 +5881,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>3</damage>
                 <strength>1</strength>
@@ -5943,7 +5947,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>2</damage>
                 <strength>1</strength>
@@ -6012,7 +6016,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <techLevelSpecial>true</techLevelSpecial>
                 <goal>-1</goal>
                 <damage>4</damage>
@@ -6082,7 +6086,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>+2/+1/0</goal>
                 <damage>4/3/2</damage>
                 <strength>0</strength>
@@ -6150,7 +6154,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>+1/+1/0</goal>
                 <damage>4/3/2</damage>
                 <strength>0</strength>
@@ -6220,7 +6224,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>-1</goal>
                 <damage>0/1/2/3</damage>
                 <strength>2</strength>
@@ -6229,7 +6233,7 @@
                 <rate>1</rate>
             </weaponDamage>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>-1</goal>
                 <damage>3</damage>
@@ -6299,7 +6303,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <techLevelSpecial>true</techLevelSpecial>
                 <goal>0</goal>
                 <damage>7</damage>
@@ -6314,7 +6318,7 @@
                     <es>Bajo el agua</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <techLevelSpecial>true</techLevelSpecial>
                 <goal>0</goal>
                 <damage>7/6/5</damage>
@@ -6394,7 +6398,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>3</damage>
                 <strength>1</strength>
@@ -6470,7 +6474,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>+2</goal>
                 <damage>5/4/3</damage>
                 <strength>0</strength>
@@ -6546,7 +6550,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>+1/0/-1</goal>
                 <damage>6/5/4</damage>
                 <strength>0</strength>
@@ -6560,7 +6564,7 @@
                     <es>Piedra/Hierro</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>+1/0/-1</goal>
                 <damage>5/4/3</damage>
                 <strength>0</strength>
@@ -6574,7 +6578,7 @@
                     <es>Plástico/Cristal</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>+1/0/-1</goal>
                 <damage>6/5/4</damage>
                 <strength>0</strength>
@@ -6588,7 +6592,7 @@
                     <es>Madera/Hielo</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>+1/0/-1</goal>
                 <damage>3/2/1</damage>
                 <strength>0</strength>
@@ -6638,7 +6642,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>3*</damage>
                 <strength>0</strength>
@@ -6652,7 +6656,7 @@
                     <es>Anillo Láser</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>3*</damage>
                 <strength>0</strength>
@@ -6710,7 +6714,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>+1</goal>
                 <damage>5</damage>
                 <strength>0</strength>
@@ -6764,7 +6768,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>1</goal>
                 <damage>4*</damage>
                 <strength>0</strength>
@@ -6818,7 +6822,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>1</goal>
                 <damage>4</damage>
                 <strength>0</strength>
@@ -6875,7 +6879,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>1</goal>
                 <damage>5</damage>
                 <strength>0</strength>
@@ -6936,7 +6940,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>1</goal>
                 <damage>7*</damage>
                 <strength>0</strength>
@@ -6997,7 +7001,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>1</goal>
                 <damage>7*</damage>
                 <strength>0</strength>
@@ -7061,7 +7065,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>1</goal>
                 <damage>5</damage>
                 <strength>0</strength>
@@ -7118,7 +7122,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>1</goal>
                 <damage>6</damage>
                 <strength>0</strength>
@@ -7168,7 +7172,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>1</goal>
                 <damage>8*</damage>
                 <strength>0</strength>
@@ -7215,7 +7219,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>8*</damage>
                 <strength>0</strength>
@@ -7267,7 +7271,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>7</damage>
                 <strength>3</strength>
@@ -7316,7 +7320,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>7</damage>
                 <strength>3</strength>
@@ -7354,7 +7358,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>9</damage>
                 <strength>3</strength>
@@ -7409,7 +7413,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>–1</goal>
                 <damage>9*</damage>
                 <strength>3</strength>
@@ -7418,7 +7422,7 @@
                 <rate>1</rate>
             </weaponDamage>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <damage>5</damage>
                 <strength>5</strength>
@@ -7461,7 +7465,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>+2/0/–1</goal>
                 <damage>9/7/5</damage>
                 <strength>4</strength>
@@ -7507,7 +7511,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>+2/0/–1</goal>
                 <damage>9/7/5</damage>
                 <strength>4</strength>
@@ -7582,7 +7586,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>2</goal>
                 <damage>5(3)</damage>
                 <strength>2</strength>
@@ -7653,7 +7657,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>2</goal>
                 <damage>4(4)</damage>
                 <strength>3</strength>
@@ -7697,7 +7701,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>1</goal>
                 <damage>5</damage>
                 <strength>0</strength>
@@ -7741,7 +7745,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>1</goal>
                 <damage>4</damage>
                 <strength>0</strength>
@@ -7801,7 +7805,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>1</goal>
                 <damage>4 (KO)</damage>
                 <strength>2</strength>
@@ -7858,7 +7862,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>1</goal>
                 <damage>6 (KO)</damage>
                 <strength>2</strength>
@@ -7906,7 +7910,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>1</goal>
                 <damage>15</damage>
                 <strength>4</strength>
@@ -7960,7 +7964,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>–3</goal>
                 <damage>5</damage>
                 <strength>1</strength>
@@ -7990,7 +7994,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>-2</goal>
                 <damage>4</damage>
                 <strength>1</strength>
@@ -8073,7 +8077,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>7</damage>
                 <strength>2</strength>
@@ -8129,7 +8133,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>6</damage>
                 <strength>2</strength>
@@ -8185,7 +8189,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>7</damage>
                 <strength>3</strength>
@@ -8240,7 +8244,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>9</damage>
                 <strength>5</strength>
@@ -8295,7 +8299,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>11</damage>
                 <strength>8</strength>
@@ -8345,7 +8349,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>10</damage>
                 <strength>7</strength>
@@ -8400,7 +8404,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>+1</goal>
                 <damage>10</damage>
                 <strength>7</strength>
@@ -8470,7 +8474,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>-2</goal>
                 <damage>6 (1m)</damage>
                 <strength>2</strength>
@@ -8538,7 +8542,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>-2</goal>
                 <damage>6 (2m)</damage>
                 <strength>2</strength>
@@ -8609,7 +8613,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>-2</goal>
                 <damage>9 (3m)</damage>
                 <strength>2</strength>
@@ -8680,7 +8684,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>18(3)</damage>
                 <strength>4</strength>
@@ -8754,7 +8758,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>18 (3)</damage>
                 <strength>5</strength>
@@ -8800,7 +8804,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>-2</goal>
                 <damage>Grenade</damage>
                 <strength>2</strength>
@@ -8844,7 +8848,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>–1</goal>
                 <damage>Grenade</damage>
                 <strength>2</strength>
@@ -8888,7 +8892,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>slugGuns</skill>
+                <skill>shoot</skill>
                 <goal>-2</goal>
                 <damage>Grenade</damage>
                 <strength>2</strength>
@@ -8933,7 +8937,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>+1</goal>
                 <damage>7</damage>
                 <strength>0</strength>
@@ -8975,7 +8979,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>energyGuns</skill>
+                <skill>shoot</skill>
                 <goal>0</goal>
                 <damage>15</damage>
                 <strength>7</strength>
@@ -9019,7 +9023,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <goal>0</goal>
                 <damage>3</damage>
                 <strength>1</strength>
@@ -9033,7 +9037,7 @@
                     <es>Pesado</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <goal>0</goal>
                 <damage>6 (3 m)</damage>
                 <strength>1</strength>
@@ -9077,7 +9081,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <goal>0</goal>
                 <damage>KO</damage>
                 <strength>1</strength>
@@ -9123,7 +9127,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <goal>0</goal>
                 <damage>12 (5 m)</damage>
                 <strength>1</strength>
@@ -9173,7 +9177,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <techLevelSpecial>true</techLevelSpecial>
                 <goal>0</goal>
                 <damage>4 (1 m)</damage>
@@ -9184,7 +9188,7 @@
             </weaponDamage>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <techLevelSpecial>true</techLevelSpecial>
                 <goal>0</goal>
                 <damage>5 (1 m)</damage>
@@ -9197,7 +9201,7 @@
             </weaponDamage>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <techLevelSpecial>true</techLevelSpecial>
                 <goal>0</goal>
                 <damage>6 (1 m)</damage>
@@ -9210,7 +9214,7 @@
             </weaponDamage>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <techLevelSpecial>true</techLevelSpecial>
                 <goal>0</goal>
                 <damage>7 (1 m)</damage>
@@ -9223,7 +9227,7 @@
             </weaponDamage>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <techLevelSpecial>true</techLevelSpecial>
                 <goal>0</goal>
                 <damage>8 (1 m)</damage>
@@ -9236,7 +9240,7 @@
             </weaponDamage>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <techLevelSpecial>true</techLevelSpecial>
                 <goal>0</goal>
                 <damage>9 (1 m)</damage>
@@ -9275,7 +9279,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <goal>0</goal>
                 <damage>18 (6 m)</damage>
                 <strength>1</strength>
@@ -9317,7 +9321,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <goal>0</goal>
                 <damage>*(4m)</damage>
                 <strength>1</strength>
@@ -9350,7 +9354,7 @@
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>throwing</skill>
+                <skill>vigor</skill>
                 <goal>0</goal>
                 <damage>12 (3 m)</damage>
                 <strength>1</strength>

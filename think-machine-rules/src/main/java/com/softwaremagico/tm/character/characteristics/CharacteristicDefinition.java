@@ -36,7 +36,7 @@ import java.util.Objects;
 public class CharacteristicDefinition extends Element<CharacteristicDefinition>
         implements Comparable<CharacteristicDefinition>, IValue {
 
-    private String abbreviation;
+    private Abbreviation abbreviation;
 
     @JsonProperty("characteristicType")
     private CharacteristicType type;
@@ -56,11 +56,11 @@ public class CharacteristicDefinition extends Element<CharacteristicDefinition>
         return getName().toString();
     }
 
-    public String getAbbreviation() {
+    public Abbreviation getAbbreviation() {
         return abbreviation;
     }
 
-    protected void setAbbreviation(String abbreviation) {
+    protected void setAbbreviation(Abbreviation abbreviation) {
         this.abbreviation = abbreviation;
     }
 

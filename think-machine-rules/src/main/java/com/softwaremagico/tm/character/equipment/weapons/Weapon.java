@@ -126,11 +126,6 @@ public class Weapon extends Equipment<Weapon> {
         this.special = special;
     }
 
-    public void setDamageTypes(String damageTypesContent) {
-        this.damageTypes = new HashSet<>();
-        readCommaSeparatedTokens(damageTypes, damageTypesContent);
-    }
-
     public void setDamageTypes(Set<String> damageTypes) {
         this.damageTypes = damageTypes;
     }
@@ -210,6 +205,9 @@ public class Weapon extends Equipment<Weapon> {
         }
         if (accessories != null) {
             accessories.forEach(accessory -> AccessoryFactory.getInstance().getElement(accessory));
+        }
+        for (WeaponDamage weaponDamage : getWeaponDamages()) {
+            weaponDamage.validate();
         }
     }
 }
