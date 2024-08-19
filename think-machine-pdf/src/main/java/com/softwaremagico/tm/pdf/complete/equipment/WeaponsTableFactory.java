@@ -55,7 +55,7 @@ public class WeaponsTableFactory extends BaseElement {
         final PdfPTable table = new PdfPTable(WIDTHS);
         table.getDefaultCell().setBorder(0);
 
-        final PdfPCell separator = createBigWhiteSeparator();
+        final PdfPCell separator = createWhiteSeparator();
         separator.setColspan(WIDTHS.length);
         table.addCell(separator);
 
