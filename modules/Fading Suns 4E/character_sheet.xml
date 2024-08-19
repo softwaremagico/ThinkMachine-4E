@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <translator>
     <name>
-		<id>name</id>
+        <id>name</id>
         <name>
             <en>Name</en>
             <es>Nombre</es>
@@ -343,6 +343,13 @@
             <es>Competencias</es>
         </name>
     </capabilities>
+    <perks>
+        <id>perks</id>
+        <name>
+            <en>Perks</en>
+            <es>Beneficios</es>
+        </name>
+    </perks>
     <resistance>
         <id>resistance</id>
         <name>

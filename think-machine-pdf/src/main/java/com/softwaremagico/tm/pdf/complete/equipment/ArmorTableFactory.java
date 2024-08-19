@@ -68,7 +68,7 @@ public class ArmorTableFactory extends BaseElement {
             armor.add(BaseElement.getChunk(characterPlayer.getArmor().getName().getTranslatedText(), NAME_COLUMN_WIDTH,
                     FadingSunsTheme.getHandwrittingFont(), FadingSunsTheme.ARMOUR_CONTENT_FONT_SIZE));
         }
-        PdfPCell armorCell = new PdfPCell(armor);
+        final PdfPCell armorCell = new PdfPCell(armor);
         armorCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
         armorCell.setHorizontalAlignment(Element.ALIGN_CENTER);
         armorCell.setBorder(0);

@@ -24,7 +24,7 @@ package com.softwaremagico.tm.character.factions;
  * #L%
  */
 
-import com.softwaremagico.tm.Element;
+import com.softwaremagico.tm.character.perks.Perk;
 
-public class Blessing extends Element<Blessing> {
+public class Blessing extends Perk {
 }

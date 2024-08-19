@@ -28,8 +28,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.softwaremagico.tm.character.CharacterDefinitionStep;
 import com.softwaremagico.tm.character.callings.CallingFactory;
+import com.softwaremagico.tm.character.perks.Perk;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
+import java.util.Arrays;
 import java.util.List;
 
 @JacksonXmlRootElement(localName = "faction")
@@ -65,6 +67,10 @@ public class Faction extends CharacterDefinitionStep<Faction> {
 
     public Curse getCurse() {
         return curse;
+    }
+
+    public List<Perk> getPerks() {
+        return Arrays.asList(getBlessing(), getCurse());
     }
 
     public void setCurse(Curse curse) {

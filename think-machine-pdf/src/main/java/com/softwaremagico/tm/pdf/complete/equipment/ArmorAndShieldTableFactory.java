@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.pdf.complete;
+package com.softwaremagico.tm.pdf.complete.equipment;
 
 /*-
  * #%L
@@ -28,30 +28,23 @@ import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.pdf.complete.elements.BaseElement;
-import com.softwaremagico.tm.pdf.complete.occultism.OccultismValuesTableFactory;
-import com.softwaremagico.tm.pdf.complete.resistances.ResistanceTableFactory;
-import com.softwaremagico.tm.pdf.complete.resistances.RevivalsTable;
-import com.softwaremagico.tm.pdf.complete.resistances.VictoryPointBankTableFactory;
-import com.softwaremagico.tm.pdf.complete.resistances.VitalityTable;
 
-public class RightColumn extends BaseElement {
-    private static final float[] WIDTHS = {1f};
+public class ArmorAndShieldTableFactory extends BaseElement {
+    private static final float[] WIDTHS = {1f, 1f};
 
-    public static PdfPTable getElements(CharacterPlayer characterPlayer) {
+    public static PdfPTable getArmorAndShieldTableFactory(CharacterPlayer characterPlayer) {
         final PdfPTable table = new PdfPTable(WIDTHS);
         setTableProperties(table);
         table.getDefaultCell().setBorder(0);
 
-        final PdfPCell separator = createWhiteSeparator();
-        table.addCell(separator);
+        final PdfPTable armorTable = ArmorTableFactory.getArmorTable(characterPlayer);
+        final PdfPCell armorCell = new PdfPCell(armorTable);
+        armorCell.setBorder(0);
+        table.addCell(armorCell);
 
-
-        table.addCell(OccultismValuesTableFactory.getOccultismValuesTable(characterPlayer));
-        table.addCell(ResistanceTableFactory.getResistancesTable(characterPlayer));
-        table.addCell(VictoryPointBankTableFactory.getVictoryPointBankTable(characterPlayer));
-        table.addCell(VitalityTable.getVitalityTable(characterPlayer));
-        table.addCell(RevivalsTable.getRevivalsTable(characterPlayer));
-
+        final PdfPCell shieldTable = new PdfPCell(ShieldTableFactory.getShieldTable(characterPlayer));
+        shieldTable.setBorder(0);
+        table.addCell(shieldTable);
 
         return table;
     }

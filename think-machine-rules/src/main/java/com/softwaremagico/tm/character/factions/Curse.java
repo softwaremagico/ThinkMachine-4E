@@ -25,4 +25,9 @@ package com.softwaremagico.tm.character.factions;
  */
 
 public class Curse extends Blessing {
+
+    @Override
+    public boolean isAffliction() {
+        return true;
+    }
 }

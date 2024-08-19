@@ -104,7 +104,7 @@ public abstract class PdfDocument {
             final PdfWriter writer = PdfWriter.getInstance(document, Files.newOutputStream(Paths.get(path)));
             addEvent(writer);
             generatePDF(document, writer);
-            return writer.getPageNumber();
+            return writer.getPageNumber() - 1;
         } catch (Exception e) {
             PdfExporterLog.errorMessage(this.getClass().getName(), e);
             return 0;
