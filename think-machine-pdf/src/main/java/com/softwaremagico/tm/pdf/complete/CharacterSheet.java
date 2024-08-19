@@ -35,7 +35,6 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.pdf.complete.events.SheetAlternatedBackgroundEvent;
 import com.softwaremagico.tm.pdf.complete.info.CharacterBasicsCompleteTableFactory;
-import com.softwaremagico.tm.pdf.complete.resistances.ResistancesAndProtectionsTable;
 import com.softwaremagico.tm.pdf.complete.skills.CharacteristicsAndSkillsTableFactory;
 
 import static com.softwaremagico.tm.pdf.complete.elements.BaseElement.createBigWhiteSeparator;
@@ -78,7 +77,7 @@ public class CharacterSheet extends PdfDocument {
 
         document.add(createBigWhiteSeparator());
 
-        document.add(ResistancesAndProtectionsTable.getResistancesAndProtectionsBasicsTable(characterPlayer));
+        document.add(ResistancesCapabilitiesAndProtectionsTable.getResistancesAndProtectionsBasicsTable(characterPlayer));
 
 
 //        final PdfPTable skillsTable = MainSkillsTableFactory.getSkillsTable(characterPlayer);

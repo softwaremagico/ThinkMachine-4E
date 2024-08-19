@@ -7,7 +7,6 @@ import com.lowagie.text.pdf.PdfPTable;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.pdf.complete.FadingSunsTheme;
 import com.softwaremagico.tm.pdf.complete.elements.BaseElement;
-import com.softwaremagico.tm.pdf.complete.elements.CustomPdfTable;
 import com.softwaremagico.tm.txt.TextFactory;
 
 public class VictoryPointBankTableFactory extends BaseElement {
@@ -29,17 +28,11 @@ public class VictoryPointBankTableFactory extends BaseElement {
 
         table.addCell(new Paragraph(TextFactory.getInstance().getElement("currentVP").getName().getTranslatedText(),
                 new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
-        table.addCell(createRectangle(null));
+        table.addCell(createRectangle());
 
         table.addCell(new Paragraph(TextFactory.getInstance().getElement("currentWP").getName().getTranslatedText(),
                 new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
-        table.addCell(createRectangle(null));
-
-
-        final PdfPCell lastSeparator = createWhiteSeparator();
-        separator.setColspan(widths.length);
-        table.addCell(lastSeparator);
-        table.addCell(lastSeparator);
+        table.addCell(createRectangle());
 
         return table;
     }

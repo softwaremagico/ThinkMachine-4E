@@ -135,10 +135,10 @@ public class CharacterSheet {
         }
     }
 
-    private void setCompetencesText(StringBuilder stringBuilder) throws InvalidXmlElementException {
+    private void setCapabilitiesText(StringBuilder stringBuilder) throws InvalidXmlElementException {
         final Set<Capability> characterCapabilities = characterPlayer.getCapabilities();
         if (!characterCapabilities.isEmpty()) {
-            stringBuilder.append(TextFactory.getInstance().getElement("competences").getName()).append(": ");
+            stringBuilder.append(TextFactory.getInstance().getElement("capabilities").getName()).append(": ");
             String separator = "";
             for (final Capability capability : characterCapabilities) {
                 stringBuilder.append(separator);
@@ -367,7 +367,7 @@ public class CharacterSheet {
             stringBuilder.append("\n");
             setSkillsText(stringBuilder);
             stringBuilder.append("\n");
-            setCompetencesText(stringBuilder);
+            setCapabilitiesText(stringBuilder);
             stringBuilder.append("\n");
             setBeneficesText(stringBuilder);
             stringBuilder.append("\n");

@@ -33,9 +33,9 @@ import com.softwaremagico.tm.pdf.complete.elements.BaseElement;
 import com.softwaremagico.tm.txt.TextFactory;
 
 public class ResistanceTableFactory extends BaseElement {
-    private static final float[] WIDTHS = {1f, 1f};
+    private static final float[] WIDTHS = {1f};
 
-    public static PdfPTable getResistancesAndProtectionsBasicsTable(CharacterPlayer characterPlayer) {
+    public static PdfPTable getResistancesTable(CharacterPlayer characterPlayer) {
         final PdfPTable table = new PdfPTable(WIDTHS);
         setTableProperties(table);
 
@@ -43,13 +43,12 @@ public class ResistanceTableFactory extends BaseElement {
         separator.setColspan(WIDTHS.length);
         table.addCell(separator);
 
-        table.addCell(getResistancesTable(characterPlayer));
-        table.addCell(getVitalityTable(characterPlayer));
+        table.addCell(getResistancesValue(characterPlayer));
 
         return table;
     }
 
-    private static PdfPTable getResistancesTable(CharacterPlayer characterPlayer) {
+    private static PdfPTable getResistancesValue(CharacterPlayer characterPlayer) {
         final float[] widths = {1f, 0.9f, 1.1f};
         final PdfPTable table = new PdfPTable(widths);
         setTableProperties(table);
@@ -59,59 +58,17 @@ public class ResistanceTableFactory extends BaseElement {
         table.addCell(new Paragraph(BaseElement.getChunk(TextFactory.getInstance().getElement("bodyResistance").getName().getTranslatedText(),
                 FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
         table.addCell(createRectangle(characterPlayer != null ? characterPlayer.getBodyResistance() : null));
-        table.addCell(createRectangle(null));
+        table.addCell(createRectangle());
 
         table.addCell(new Paragraph(BaseElement.getChunk(TextFactory.getInstance().getElement("mindResistance").getName().getTranslatedText(),
                 FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
         table.addCell(createRectangle(characterPlayer != null ? characterPlayer.getMindResistance() : null));
-        table.addCell(createRectangle(null));
+        table.addCell(createRectangle());
 
         table.addCell(new Paragraph(BaseElement.getChunk(TextFactory.getInstance().getElement("spiritResistance").getName().getTranslatedText(),
                 FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
         table.addCell(createRectangle(characterPlayer != null ? characterPlayer.getSpiritResistance() : null));
-        table.addCell(createRectangle(null));
-
-        return table;
-    }
-
-    private static PdfPTable getVitalityTable(CharacterPlayer characterPlayer) {
-        final PdfPTable vitalityTable = new PdfPTable(new float[]{1f});
-        setTableProperties(vitalityTable);
-        vitalityTable.addCell(getVitalityValuesTable(characterPlayer));
-        vitalityTable.addCell(getRevivalsTable(characterPlayer));
-        return vitalityTable;
-    }
-
-    private static PdfPTable getVitalityValuesTable(CharacterPlayer characterPlayer) {
-        final float[] widths = {1.1f, 0.7f, 1.1f, 1f};
-        final PdfPTable table = new PdfPTable(widths);
-        setTableProperties(table);
-
-        table.addCell(createSectionTitle(TextFactory.getInstance().getElement("vitality").getName().getTranslatedText(), widths.length));
-
-        table.addCell(new Paragraph(BaseElement.getChunk(TextFactory.getInstance().getElement("maximumAbbreviation").getName().getTranslatedText(),
-                FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
-        table.addCell(createRectangle(characterPlayer != null ? characterPlayer.getVitalityValue() : null));
-        table.addCell(new Paragraph(BaseElement.getChunk(TextFactory.getInstance().getElement("current").getName().getTranslatedText(),
-                FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
-        table.addCell(createRectangle(null));
-
-        return table;
-    }
-
-    private static PdfPTable getRevivalsTable(CharacterPlayer characterPlayer) {
-        final float[] widths = {1.1f, 0.7f, 1.1f, 1f};
-        final PdfPTable table = new PdfPTable(widths);
-        setTableProperties(table);
-
-        table.addCell(createSectionTitle(TextFactory.getInstance().getElement("revivals").getName().getTranslatedText(), widths.length));
-
-        table.addCell(new Paragraph(BaseElement.getChunk(TextFactory.getInstance().getElement("quantity").getName().getTranslatedText(),
-                FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
-        table.addCell(createRectangle(characterPlayer != null ? characterPlayer.getBodyResistance() : null));
-        table.addCell(new Paragraph(BaseElement.getChunk(TextFactory.getInstance().getElement("number").getName().getTranslatedText(),
-                FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
-        table.addCell(createRectangle(null));
+        table.addCell(createRectangle());
 
         return table;
     }

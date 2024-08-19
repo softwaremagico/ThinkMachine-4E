@@ -46,8 +46,7 @@ public class OccultismValuesTableFactory extends BaseElement {
         final PdfPTable table = new PdfPTable(widths);
         setTableProperties(table);
 
-        final PdfPCell separator = createBigWhiteSeparator();
-        separator.setColspan(widths.length);
+        final PdfPCell separator = createWhiteSeparator();
         table.addCell(separator);
 
         table.addCell(createSectionTitle(TextFactory.getInstance().getElement("occultism").getName().getTranslatedText(), widths.length));

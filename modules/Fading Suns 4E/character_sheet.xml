@@ -336,13 +336,13 @@
             <es>Habilidades</es>
         </name>
     </skills>
-    <competences>
-        <id>competences</id>
+    <capabilities>
+        <id>capabilities</id>
         <name>
-            <en>Competences</en>
+            <en>Capabilities</en>
             <es>Competencias</es>
         </name>
-    </competences>
+    </capabilities>
     <resistance>
         <id>resistance</id>
         <name>

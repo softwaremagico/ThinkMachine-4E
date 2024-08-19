@@ -241,8 +241,16 @@ public class BaseElement {
         table.setSpacingBefore(0);
     }
 
-    public static PdfPCell createRectangle(int value) {
-        return createRectangle(value + "");
+    public static PdfPCell createRectangle() {
+        return createRectangle((String) null);
+    }
+
+    public static PdfPCell createRectangle(Integer value) {
+        if (value == null) {
+            return createRectangle((String) null);
+        } else {
+            return createRectangle(value + "");
+        }
     }
 
     public static PdfPCell createRectangle(String value) {
