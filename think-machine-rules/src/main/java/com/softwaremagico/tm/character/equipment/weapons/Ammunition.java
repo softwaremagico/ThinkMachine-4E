@@ -76,16 +76,6 @@ public class Ammunition extends Element<Ammunition> {
         return range;
     }
 
-    public String getStrengthOrRange() {
-        if (range == null) {
-            if (strength != null) {
-                return strength + "";
-            }
-            return "--";
-        }
-        return range;
-    }
-
     public Integer getCost() {
         return cost;
     }

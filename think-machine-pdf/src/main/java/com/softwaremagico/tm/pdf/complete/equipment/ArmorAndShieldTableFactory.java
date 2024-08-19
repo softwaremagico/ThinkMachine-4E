@@ -46,6 +46,11 @@ public class ArmorAndShieldTableFactory extends BaseElement {
         shieldTable.setBorder(0);
         table.addCell(shieldTable);
 
+        final PdfPCell weaponsTable = new PdfPCell(WeaponsTableFactory.getWeaponsTable(characterPlayer));
+        weaponsTable.setBorder(0);
+        weaponsTable.setColspan(2);
+        table.addCell(weaponsTable);
+
         return table;
     }
 }

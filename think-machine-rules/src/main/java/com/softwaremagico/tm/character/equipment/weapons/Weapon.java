@@ -45,6 +45,7 @@ public class Weapon extends Equipment<Weapon> {
     private String special;
     @JsonProperty("weaponClass")
     private String weaponClass;
+    @JsonProperty("damageList")
     private Set<String> damageTypes;
     @JsonProperty("weaponType")
     private WeaponType type;

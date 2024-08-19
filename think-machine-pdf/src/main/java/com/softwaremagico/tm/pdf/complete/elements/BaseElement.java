@@ -36,6 +36,7 @@ import com.lowagie.text.Phrase;
 import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
+import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.pdf.complete.FadingSunsTheme;
 import com.softwaremagico.tm.pdf.complete.utils.CellUtils;
 
@@ -193,6 +194,10 @@ public class BaseElement {
         return cell;
     }
 
+    public static PdfPCell createSectionTitle(TranslatedText title, int colspan) {
+        return createSectionTitle(title.getTranslatedText(), colspan);
+    }
+
     public static PdfPCell createSectionTitle(String title, int colspan) {
         final Font font = new Font(FadingSunsTheme.getTitleFont(), FadingSunsTheme.SECTION_TITLE_FONT_SIZE);
         font.setColor(Color.WHITE);
@@ -206,6 +211,28 @@ public class BaseElement {
         titleCell.setBackgroundColor(Color.BLACK);
         titleCell.setMinimumHeight(TITLE_MIN_HEIGHT);
         return titleCell;
+    }
+
+    protected static PdfPCell createTableSubtitleElement(TranslatedText text) {
+        return createTableSubtitleElement(text.getTranslatedText(), FadingSunsTheme.SECTION_SUBTITLE_HIGH);
+    }
+
+    protected static PdfPCell createTableSubtitleElement(String text) {
+        return createTableSubtitleElement(text, FadingSunsTheme.SECTION_SUBTITLE_HIGH);
+    }
+
+    protected static PdfPCell createTableSubtitleElement(String text, int height) {
+        final PdfPCell cell = BaseElement.getCell(text, 0, 1, Element.ALIGN_CENTER,
+                Color.WHITE, FadingSunsTheme.getSubtitleFont(), FadingSunsTheme.TABLE_LINE_FONT_SIZE);
+        cell.setMinimumHeight(height);
+        cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+        return cell;
+    }
+
+    protected static PdfPCell createFirstElementLine(String text, int maxWidth, int fontSize) {
+        final PdfPCell cell = createElementLine(text, maxWidth, fontSize);
+        cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+        return cell;
     }
 
     public static PdfPCell createBlackSeparator() {
