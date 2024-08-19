@@ -45,7 +45,7 @@ public class Weapon extends Equipment<Weapon> {
     private String special;
     @JsonProperty("weaponClass")
     private String weaponClass;
-    @JsonProperty("damageList")
+    @JsonProperty("damageTypes")
     private Set<String> damageTypes;
     @JsonProperty("weaponType")
     private WeaponType type;
@@ -139,18 +139,8 @@ public class Weapon extends Equipment<Weapon> {
         this.type = type;
     }
 
-    public void setAmmunition(String ammunitionContent) {
-        this.ammunition = new HashSet<>();
-        readCommaSeparatedTokens(ammunition, ammunitionContent);
-    }
-
     public void setAmmunition(Set<String> ammunition) {
         this.ammunition = ammunition;
-    }
-
-    public void setAccessories(String accessoriesContent) {
-        this.accessories = new HashSet<>();
-        readCommaSeparatedTokens(accessories, accessoriesContent);
     }
 
     public String getWeaponClass() {

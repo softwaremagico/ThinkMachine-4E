@@ -120,8 +120,13 @@
         </damageList>
         <size>L</size>
         <cost>15</cost>
-        <others>armour1</others>
-        <ammunition>plasticBodyShield, bodyShieldRazorEdged</ammunition>
+        <others>
+            <other>armour1</other>
+        </others>
+        <ammunition>
+            <ammo>plasticBodyShield</ammo>
+            <ammo>bodyShieldRazorEdged</ammo>
+        </ammunition>
     </bodyShield0>
     <bodyShield1>
         <id>bodyShield1</id>
@@ -161,8 +166,13 @@
         </damageList>
         <size>L</size>
         <cost>15</cost>
-        <others>armour2</others>
-        <ammunition>plasticBodyShield, bodyShieldRazorEdged</ammunition>
+        <others>
+            <other>armour2</other>
+        </others>
+        <ammunition>
+            <ammo>plasticBodyShield</ammo>
+            <ammo>bodyShieldRazorEdged</ammo>
+        </ammunition>
     </bodyShield1>
     <bodyShield2>
         <id>bodyShield2</id>
@@ -202,8 +212,13 @@
         </damageList>
         <size>L</size>
         <cost>15</cost>
-        <others>armour3</others>
-        <ammunition>plasticBodyShield, bodyShieldRazorEdged</ammunition>
+        <others>
+            <other>armour3</other>
+        </others>
+        <ammunition>
+            <ammo>plasticBodyShield</ammo>
+            <ammo>bodyShieldRazorEdged</ammo>
+        </ammunition>
     </bodyShield2>
     <buckler>
         <id>buckler</id>
@@ -239,7 +254,10 @@
         </damageList>
         <size>M</size>
         <cost>7</cost>
-        <ammunition>plasticBodyShield, bodyShieldRazorEdged</ammunition>
+        <ammunition>
+            <ammo>plasticBodyShield</ammo>
+            <ammo>bodyShieldRazorEdged</ammo>
+        </ammunition>
     </buckler>
     <cestus>
         <id>cestus</id>
@@ -613,7 +631,9 @@
         </damageList>
         <size>M</size>
         <cost>50</cost>
-        <others>poison5</others>
+        <others>
+            <other>poison5</other>
+        </others>
         <random>
             <probabilityMultiplier>0.01</probabilityMultiplier>
         </random>
@@ -707,7 +727,9 @@
         </damageList>
         <size>L</size>
         <cost>45</cost>
-        <ammunition>legSheath</ammunition>
+        <ammunition>
+            <ammo>legSheath</ammo>
+        </ammunition>
         <random>
             <probabilityMultiplier>0.01</probabilityMultiplier>
         </random>
@@ -752,8 +774,12 @@
         </damageList>
         <size>L</size>
         <cost>150</cost>
-        <damageType>hard, vibro</damageType>
-        <ammunition>innactiveKossack</ammunition>
+        <damageTypes>
+            <damageType>hard, vibro</damageType>
+        </damageTypes>
+        <ammunition>
+            <ammo>innactiveKossack</ammo>
+        </ammunition>
         <random>
             <probabilityMultiplier>0.1</probabilityMultiplier>
         </random>
@@ -860,7 +886,9 @@
         </damageList>
         <size>L</size>
         <cost>5</cost>
-        <damageType>hard</damageType>
+        <damageTypes>
+            <damageType>hard</damageType>
+        </damageTypes>
         <random>
             <probabilityMultiplier>0.1</probabilityMultiplier>
         </random>
@@ -1386,7 +1414,9 @@
         </damageList>
         <size>L</size>
         <cost>10000</cost>
-        <damageType>ignoreArmour</damageType>
+        <damageTypes>
+            <damageType>ignoreArmour</damageType>
+        </damageTypes>
     </wireblade>
     <fluxSword>
         <id>fluxSword</id>
@@ -1423,7 +1453,9 @@
         </damageList>
         <size>L</size>
         <cost>15000</cost>
-        <damageType>blaster, hard</damageType>
+        <damageTypes>
+            <damageType>blaster, hard</damageType>
+        </damageTypes>
     </fluxSword>
     <mistSword>
         <id>mistSword</id>
@@ -1465,7 +1497,9 @@
         </damageList>
         <size>L</size>
         <cost>30000</cost>
-        <damageType>blaster, hard, psi</damageType>
+        <damageTypes>
+            <damageType>blaster, hard, psi</damageType>
+        </damageTypes>
         <random>
             <probabilityMultiplier>0.01</probabilityMultiplier>
         </random>
@@ -2163,7 +2197,9 @@
         </damageList>
         <size>S</size>
         <cost>6</cost>
-        <others>stock</others>
+        <others>
+            <other>stock</other>
+        </others>
     </lightCrossbow>
     <heavyCrossbow>
         <id>heavyCrossbow</id>
@@ -2196,7 +2232,9 @@
         </damageList>
         <size>L</size>
         <cost>15</cost>
-        <others>stock</others>
+        <others>
+            <other>stock</other>
+        </others>
     </heavyCrossbow>
     <mediumCrossbow>
         <id>mediumCrossbow</id>
@@ -2227,7 +2265,9 @@
         </damageList>
         <size>M</size>
         <cost>10</cost>
-        <others>stock</others>
+        <others>
+            <other>stock</other>
+        </others>
     </mediumCrossbow>
     <wristCrossbow>
         <id>wristCrossbow</id>
@@ -3012,7 +3052,9 @@
         </damageList>
         <size>M</size>
         <cost>350</cost>
-        <others>sight2</others>
+        <others>
+            <other>sight2</other>
+        </others>
     </mitchauQuarryGun>
     <mitchauThunderer>
         <id>mitchauThunderer</id>
@@ -3392,7 +3434,9 @@
         </damageList>
         <size>M</size>
         <cost>250</cost>
-        <others>retractableStock</others>
+        <others>
+            <other>retractableStock</other>
+        </others>
     </sumpterUlik>
     <typicalHvyAutofeed>
         <id>typicalHvyAutofeed</id>
@@ -3559,7 +3603,9 @@
         </damageList>
         <size>M</size>
         <cost>300</cost>
-        <others>retractableStock</others>
+        <others>
+            <other>retractableStock</other>
+        </others>
     </sumpterUrthquake>
     <typicalManfeedRifle>
         <id>typicalManfeedRifle</id>
@@ -3636,7 +3682,11 @@
         </damageList>
         <size>XL</size>
         <cost>200</cost>
-        <others>stock, boltfeed, leverfeed</others>
+        <others>
+            <other>stock</other>
+            <other>boltfeed</other>
+            <other>leverfeed</other>
+        </others>
         <random>
             <probabilityMultiplier>10</probabilityMultiplier>
         </random>
@@ -3716,7 +3766,11 @@
         </damageList>
         <size>XL</size>
         <cost>150</cost>
-        <others>stock, boltfeed, leverfeed</others>
+        <others>
+            <other>stock</other>
+            <other>boltfeed</other>
+            <other>leverfeed</other>
+        </others>
         <random>
             <probabilityMultiplier>10</probabilityMultiplier>
         </random>
@@ -3796,7 +3850,10 @@
         </damageList>
         <size>XL</size>
         <cost>200</cost>
-        <others>stock, boltfeed</others>
+        <others>
+            <other>stock</other>
+            <other>boltfeed</other>
+        </others>
     </dragonfly>
     <imperialRifle>
         <id>imperialRifle</id>
@@ -3873,7 +3930,10 @@
         </damageList>
         <size>XL</size>
         <cost>200</cost>
-        <others>stock, boltfeed</others>
+        <others>
+            <other>stock</other>
+            <other>boltfeed</other>
+        </others>
     </imperialRifle>
     <typicalSniperRifle>
         <id>typicalSniperRifle</id>
@@ -3922,7 +3982,11 @@
         </damageList>
         <size>XL</size>
         <cost>700</cost>
-        <others>stock, boltfeed, sight3</others>
+        <others>
+            <other>stock</other>
+            <other>boltfeed</other>
+            <other>sight3</other>
+        </others>
     </typicalSniperRifle>
     <hyramGlory>
         <id>hyramGlory</id>
@@ -3971,7 +4035,11 @@
         </damageList>
         <size>XL</size>
         <cost>1000</cost>
-        <others>stock, boltfeed, sight2</others>
+        <others>
+            <other>stock</other>
+            <other>boltfeed</other>
+            <other>sight2</other>
+        </others>
     </hyramGlory>
     <radirLongshot>
         <id>radirLongshot</id>
@@ -4020,7 +4088,11 @@
         </damageList>
         <size>XL</size>
         <cost>1500</cost>
-        <others>stock, boltfeed, sight4</others>
+        <others>
+            <other>stock</other>
+            <other>boltfeed</other>
+            <other>sight4</other>
+        </others>
     </radirLongshot>
     <typicalAutoRifle>
         <id>typicalAutoRifle</id>
@@ -4080,7 +4152,10 @@
         </damageList>
         <size>XL</size>
         <cost>500</cost>
-        <others>stock, autofeed</others>
+        <others>
+            <other>stock</other>
+            <other>autofeed</other>
+        </others>
         <random>
             <probabilityMultiplier>10</probabilityMultiplier>
         </random>
@@ -4143,7 +4218,10 @@
         </damageList>
         <size>XL</size>
         <cost>400</cost>
-        <others>stock, autofeed</others>
+        <others>
+            <other>stock</other>
+            <other>autofeed</other>
+        </others>
     </blueLionM3>
     <hyramSplendor>
         <id>hyramSplendor</id>
@@ -4203,7 +4281,10 @@
         </damageList>
         <size>XL</size>
         <cost>600</cost>
-        <others>stock, autofeed</others>
+        <others>
+            <other>stock</other>
+            <other>autofeed</other>
+        </others>
     </hyramSplendor>
     <massariStomper>
         <id>massariStomper</id>
@@ -4263,7 +4344,10 @@
         </damageList>
         <size>XL</size>
         <cost>500</cost>
-        <others>stock, autofeed</others>
+        <others>
+            <other>stock</other>
+            <other>autofeed</other>
+        </others>
     </massariStomper>
     <hazatModel68>
         <id>hazatModel68</id>
@@ -4323,7 +4407,10 @@
         </damageList>
         <size>XL</size>
         <cost>500</cost>
-        <others>stock, autofeed</others>
+        <others>
+            <other>stock</other>
+            <other>autofeed</other>
+        </others>
         <random>
             <restrictedFactions>hazat</restrictedFactions>
         </random>
@@ -4386,7 +4473,12 @@
         </damageList>
         <size>XL</size>
         <cost>850</cost>
-        <others>stock, autofeed, bipod, gunTechKit4</others>
+        <others>
+            <other>stock</other>
+            <other>autofeed</other>
+            <other>bipod</other>
+            <other>gunTechKit4</other>
+        </others>
         <random>
             <restrictedFactions>muster</restrictedFactions>
         </random>
@@ -4449,7 +4541,10 @@
         </damageList>
         <size>XL</size>
         <cost>500</cost>
-        <others>stock, autofeed</others>
+        <others>
+            <other>stock</other>
+            <other>autofeed</other>
+        </others>
     </vamGelderThracker>
     <typicalCaselessRifle>
         <id>typicalCaselessRifle</id>
@@ -4524,8 +4619,13 @@
         </damageList>
         <size>L</size>
         <cost>800</cost>
-        <damageType>hard</damageType>
-        <others>stock, autofeed</others>
+        <damageTypes>
+            <damageType>hard</damageType>
+        </damageTypes>
+        <others>
+            <other>stock</other>
+            <other>autofeed</other>
+        </others>
         <random>
             <probabilityMultiplier>10</probabilityMultiplier>
         </random>
@@ -4603,8 +4703,13 @@
         </damageList>
         <size>L</size>
         <cost>1000</cost>
-        <damageType>hard</damageType>
-        <others>stock, autofeed</others>
+        <damageTypes>
+            <damageType>hard</damageType>
+        </damageTypes>
+        <others>
+            <other>stock</other>
+            <other>autofeed</other>
+        </others>
     </gleelanMRC>
     <laylandCaseless>
         <id>laylandCaseless</id>
@@ -4679,8 +4784,13 @@
         </damageList>
         <size>L</size>
         <cost>800</cost>
-        <damageType>hard</damageType>
-        <others>stock, autofeed</others>
+        <damageTypes>
+            <damageType>hard</damageType>
+        </damageTypes>
+        <others>
+            <other>stock</other>
+            <other>autofeed</other>
+        </others>
     </laylandCaseless>
     <kMMR12>
         <id>kMMR12</id>
@@ -4755,8 +4865,13 @@
         </damageList>
         <size>L</size>
         <cost>800</cost>
-        <damageType>hard</damageType>
-        <others>stock, autofeed</others>
+        <damageTypes>
+            <damageType>hard</damageType>
+        </damageTypes>
+        <others>
+            <other>stock</other>
+            <other>autofeed</other>
+        </others>
     </kMMR12>
     <kMMR12v3>
         <id>kMMR12v3</id>
@@ -4831,8 +4946,13 @@
         </damageList>
         <size>L</size>
         <cost>900</cost>
-        <damageType>hard</damageType>
-        <others>stock, autofeed</others>
+        <damageTypes>
+            <damageType>hard</damageType>
+        </damageTypes>
+        <others>
+            <other>stock</other>
+            <other>autofeed</other>
+        </others>
     </kMMR12v3>
     <typicalSMG>
         <id>typicalSMG</id>
@@ -4890,7 +5010,10 @@
         </damageList>
         <size>L</size>
         <cost>350</cost>
-        <others>stock, autofeed</others>
+        <others>
+            <other>stock</other>
+            <other>autofeed</other>
+        </others>
         <random>
             <probabilityMultiplier>10</probabilityMultiplier>
         </random>
@@ -4951,7 +5074,10 @@
         </damageList>
         <size>L</size>
         <cost>500</cost>
-        <others>stock, autofeed</others>
+        <others>
+            <other>stock</other>
+            <other>autofeed</other>
+        </others>
     </herstalProject98>
     <jahnisakMuffler>
         <id>jahnisakMuffler</id>
@@ -5009,7 +5135,10 @@
         </damageList>
         <size>L</size>
         <cost>350</cost>
-        <others>stock, autofeed</others>
+        <others>
+            <other>stock</other>
+            <other>autofeed</other>
+        </others>
     </jahnisakMuffler>
     <kmsm7>
         <id>kmsm7</id>
@@ -5067,7 +5196,10 @@
         </damageList>
         <size>L</size>
         <cost>500</cost>
-        <others>stock, autofeed</others>
+        <others>
+            <other>stock</other>
+            <other>autofeed</other>
+        </others>
     </kmsm7>
     <lankStinger>
         <id>lankStinger</id>
@@ -5125,7 +5257,10 @@
         </damageList>
         <size>L</size>
         <cost>400</cost>
-        <others>stock, autofeed</others>
+        <others>
+            <other>stock</other>
+            <other>autofeed</other>
+        </others>
     </lankStinger>
     <martechCobraZ81>
         <id>martechCobraZ81</id>
@@ -5183,7 +5318,10 @@
         </damageList>
         <size>L</size>
         <cost>400</cost>
-        <others>retractableStock, autofeed</others>
+        <others>
+            <other>retractableStock</other>
+            <other>autofeed</other>
+        </others>
     </martechCobraZ81>
     <typicalShotgun>
         <id>typicalShotgun</id>
@@ -5260,8 +5398,13 @@
         <size>L</size>
         <cost>300</cost>
         <special>pumpfeed</special>
-        <ammunition>solidSlug</ammunition>
-        <others>stock, pumpfeed</others>
+        <ammunition>
+            <ammo>solidSlug</ammo>
+        </ammunition>
+        <others>
+            <other>stock</other>
+            <other>pumpfeed</other>
+        </others>
         <random>
             <probabilityMultiplier>10</probabilityMultiplier>
         </random>
@@ -5340,7 +5483,10 @@
         </damageList>
         <size>L</size>
         <cost>200</cost>
-        <others>stock, breakfeed</others>
+        <others>
+            <other>stock</other>
+            <other>breakfeed</other>
+        </others>
         <random>
             <probabilityMultiplier>10</probabilityMultiplier>
         </random>
@@ -5419,7 +5565,10 @@
         </damageList>
         <size>L</size>
         <cost>325</cost>
-        <others>stock, pumpfeed</others>
+        <others>
+            <other>stock</other>
+            <other>pumpfeed</other>
+        </others>
     </dreskelBoomer>
     <dreskelGatling>
         <id>dreskelGatling</id>
@@ -5481,7 +5630,10 @@
         </damageList>
         <size>L</size>
         <cost>450</cost>
-        <others>stock, autofeed</others>
+        <others>
+            <other>stock</other>
+            <other>autofeed</other>
+        </others>
     </dreskelGatling>
     <mHazatRiot>
         <id>mHazatRiot</id>
@@ -5557,8 +5709,13 @@
         </damageList>
         <size>L</size>
         <cost>400</cost>
-        <others>stock, autofeed</others>
-        <ammunition>riotSolidSlug</ammunition>
+        <others>
+            <other>stock</other>
+            <other>autofeed</other>
+        </others>
+        <ammunition>
+            <ammo>riotSolidSlug</ammo>
+        </ammunition>
         <random>
             <probabilityMultiplier>0.1</probabilityMultiplier>
             <restrictedFactions>hazat</restrictedFactions>
@@ -5638,8 +5795,14 @@
         </damageList>
         <size>L</size>
         <cost>275</cost>
-        <others>stock, leverfeed, sawed</others>
-        <ammunition>xienSolidSlug</ammunition>
+        <others>
+            <other>stock</other>
+            <other>leverfeed</other>
+            <other>sawed</other>
+        </others>
+        <ammunition>
+            <ammo>xienSolidSlug</ammo>
+        </ammunition>
     </xienShortBarrel>
     <typicalFirelockPistol>
         <id>typicalFirelockPistol</id>
@@ -5681,7 +5844,9 @@
         </damageList>
         <size>M</size>
         <cost>40</cost>
-        <others>muzzlefeed</others>
+        <others>
+            <other>muzzlefeed</other>
+        </others>
     </typicalFirelockPistol>
     <typicalFirelockRifle>
         <id>typicalFirelockRifle</id>
@@ -5723,7 +5888,10 @@
         </damageList>
         <size>L</size>
         <cost>100</cost>
-        <others>muzzlefeed, stock</others>
+        <others>
+            <other>muzzlefeed</other>
+            <other>stock</other>
+        </others>
     </typicalFirelockRifle>
     <cancanaghDartgunPistol>
         <id>cancanaghDartgunPistol</id>
@@ -5786,7 +5954,10 @@
         </damageList>
         <size>S</size>
         <cost>100</cost>
-        <others>syringe, muzzlefeed</others>
+        <others>
+            <other>syringe</other>
+            <other>muzzlefeed</other>
+        </others>
         <random>
             <probabilityMultiplier>0.01</probabilityMultiplier>
         </random>
@@ -5853,7 +6024,9 @@
         </damageList>
         <size>M</size>
         <cost>150</cost>
-        <others>hidden</others>
+        <others>
+            <other>hidden</other>
+        </others>
         <random>
             <probabilityMultiplier>0.01</probabilityMultiplier>
             <restrictedFactions>decados</restrictedFactions>
@@ -5920,7 +6093,9 @@
         </damageList>
         <size>M</size>
         <cost>200</cost>
-        <others>flechette</others>
+        <others>
+            <other>flechette</other>
+        </others>
         <random>
             <probabilityMultiplier>0.01</probabilityMultiplier>
         </random>
@@ -5986,7 +6161,10 @@
         </damageList>
         <size>M</size>
         <cost>300</cost>
-        <others>autofeed, flechette</others>
+        <others>
+            <other>autofeed</other>
+            <other>flechette</other>
+        </others>
         <random>
             <probabilityMultiplier>0.01</probabilityMultiplier>
             <restrictedUpbringings>merchant</restrictedUpbringings>
@@ -6148,8 +6326,13 @@
         </damageList>
         <size>XL</size>
         <cost>800</cost>
-        <others>stock, boltfeed</others>
-        <ammunition>capekUnderWater</ammunition>
+        <others>
+            <other>stock</other>
+            <other>boltfeed</other>
+        </others>
+        <ammunition>
+            <ammo>capekUnderWater</ammo>
+        </ammunition>
         <random>
             <probabilityMultiplier>0.01</probabilityMultiplier>
         </random>
@@ -6222,7 +6405,10 @@
         </damageList>
         <size>XL</size>
         <cost>200</cost>
-        <others>muzzlefeed, syringe</others>
+        <others>
+            <other>muzzlefeed</other>
+            <other>syringe</other>
+        </others>
         <random>
             <probabilityMultiplier>0.01</probabilityMultiplier>
         </random>
@@ -6295,7 +6481,10 @@
         </damageList>
         <size>L</size>
         <cost>500</cost>
-        <others>muzzlefeed, syringe</others>
+        <others>
+            <other>muzzlefeed</other>
+            <other>syringe</other>
+        </others>
         <random>
             <probabilityMultiplier>0.01</probabilityMultiplier>
         </random>
@@ -6410,8 +6599,16 @@
         </damageList>
         <size>XL</size>
         <cost>2000</cost>
-        <others>stock, autofeed, compressedAir</others>
-        <ammunition>sabotHiron, sabotPlastic, sabotWood</ammunition>
+        <others>
+            <other>stock</other>
+            <other>autofeed</other>
+            <other>compressedAir</other>
+        </others>
+        <ammunition>
+            <ammo>sabotHiron</ammo>
+            <ammo>sabotPlastic</ammo>
+            <ammo>sabotWood</ammo>
+        </ammunition>
         <random>
             <probabilityMultiplier>0.01</probabilityMultiplier>
         </random>
@@ -6467,7 +6664,9 @@
         </damageList>
         <size>XS</size>
         <cost>200</cost>
-        <damageType>laser</damageType>
+        <damageTypes>
+            <damageType>laser</damageType>
+        </damageTypes>
         <random>
             <probabilityMultiplier>0.01</probabilityMultiplier>
         </random>
@@ -6522,7 +6721,9 @@
         </damageList>
         <size>S</size>
         <cost>300</cost>
-        <damageType>laser</damageType>
+        <damageTypes>
+            <damageType>laser</damageType>
+        </damageTypes>
     </martechGold>
     <martechAmber>
         <id>martechAmber</id>
@@ -6574,7 +6775,9 @@
         </damageList>
         <size>S</size>
         <cost>300</cost>
-        <damageType>laser</damageType>
+        <damageTypes>
+            <damageType>laser</damageType>
+        </damageTypes>
     </martechAmber>
     <bannerCabalXaserPistol>
         <id>bannerCabalXaserPistol</id>
@@ -6626,7 +6829,9 @@
         </damageList>
         <size>S</size>
         <cost>500</cost>
-        <damageType>xaser</damageType>
+        <damageTypes>
+            <damageType>xaser</damageType>
+        </damageTypes>
         <random>
             <probabilityMultiplier>0.01</probabilityMultiplier>
         </random>
@@ -6681,7 +6886,9 @@
         </damageList>
         <size>S</size>
         <cost>900</cost>
-        <damageType>graser</damageType>
+        <damageTypes>
+            <damageType>graser</damageType>
+        </damageTypes>
         <random>
             <probabilityMultiplier>0.001</probabilityMultiplier>
         </random>
@@ -6740,8 +6947,12 @@
         </damageList>
         <size>XL</size>
         <cost>500</cost>
-        <damageType>laser</damageType>
-        <others>stock</others>
+        <damageTypes>
+            <damageType>laser</damageType>
+        </damageTypes>
+        <others>
+            <other>stock</other>
+        </others>
     </martechIndigo>
     <martechSafireSniper>
         <id>martechSafireSniper</id>
@@ -6797,8 +7008,12 @@
         </damageList>
         <size>XL</size>
         <cost>600</cost>
-        <damageType>laser</damageType>
-        <others>stock</others>
+        <damageTypes>
+            <damageType>laser</damageType>
+        </damageTypes>
+        <others>
+            <other>stock</other>
+        </others>
         <random>
             <probabilityMultiplier>0.1</probabilityMultiplier>
         </random>
@@ -6857,8 +7072,12 @@
         </damageList>
         <size>XL</size>
         <cost>1000</cost>
-        <damageType>xaser</damageType>
-        <others>stock</others>
+        <damageTypes>
+            <damageType>xaser</damageType>
+        </damageTypes>
+        <others>
+            <other>stock</other>
+        </others>
         <random>
             <probabilityMultiplier>0.01</probabilityMultiplier>
         </random>
@@ -6910,8 +7129,12 @@
         </damageList>
         <size>XL</size>
         <cost>2000</cost>
-        <damageType>graser</damageType>
-        <others>stock</others>
+        <damageTypes>
+            <damageType>graser</damageType>
+        </damageTypes>
+        <others>
+            <other>stock</other>
+        </others>
         <random>
             <probabilityMultiplier>0.001</probabilityMultiplier>
         </random>
@@ -6956,8 +7179,12 @@
         </damageList>
         <size>XL</size>
         <cost>700</cost>
-        <damageType>laser</damageType>
-        <others>stock</others>
+        <damageTypes>
+            <damageType>laser</damageType>
+        </damageTypes>
+        <others>
+            <other>stock</other>
+        </others>
     </martechRed>
     <varstenBlacklight>
         <id>varstenBlacklight</id>
@@ -6999,8 +7226,12 @@
         </damageList>
         <size>XL</size>
         <cost>700</cost>
-        <damageType>laser</damageType>
-        <others>stock</others>
+        <damageTypes>
+            <damageType>laser</damageType>
+        </damageTypes>
+        <others>
+            <other>stock</other>
+        </others>
         <random>
             <probabilityMultiplier>0.01</probabilityMultiplier>
         </random>
@@ -7047,7 +7278,9 @@
         </damageList>
         <size>S</size>
         <cost>700</cost>
-        <damageType>blaster</damageType>
+        <damageTypes>
+            <damageType>blaster</damageType>
+        </damageTypes>
         <random>
             <probabilityMultiplier>10</probabilityMultiplier>
         </random>
@@ -7094,7 +7327,9 @@
         </damageList>
         <size>M</size>
         <cost>900</cost>
-        <damageType>blaster</damageType>
+        <damageTypes>
+            <damageType>blaster</damageType>
+        </damageTypes>
         <random>
             <probabilityMultiplier>0.1</probabilityMultiplier>
         </random>
@@ -7130,8 +7365,12 @@
         </damageList>
         <size>XL</size>
         <cost>1000</cost>
-        <damageType>blaster</damageType>
-        <others>stock</others>
+        <damageTypes>
+            <damageType>blaster</damageType>
+        </damageTypes>
+        <others>
+            <other>stock</other>
+        </others>
     </soeCrucible>
     <nitobiBlasterAxe>
         <id>nitobiBlasterAxe</id>
@@ -7187,8 +7426,12 @@
         </damageList>
         <size>XL</size>
         <cost>3000</cost>
-        <damageType>blaster</damageType>
-        <others>stock</others>
+        <damageTypes>
+            <damageType>blaster</damageType>
+        </damageTypes>
+        <others>
+            <other>stock</other>
+        </others>
         <random>
             <probabilityMultiplier>0.1</probabilityMultiplier>
         </random>
@@ -7229,8 +7472,12 @@
         </damageList>
         <size>L</size>
         <cost>1200</cost>
-        <damageType>blaster</damageType>
-        <others>stock</others>
+        <damageTypes>
+            <damageType>blaster</damageType>
+        </damageTypes>
+        <others>
+            <other>stock</other>
+        </others>
         <random>
             <probabilityMultiplier>0.1</probabilityMultiplier>
         </random>
@@ -7271,8 +7518,12 @@
         </damageList>
         <size>L</size>
         <cost>1400</cost>
-        <damageType>blaster</damageType>
-        <others>stock</others>
+        <damageTypes>
+            <damageType>blaster</damageType>
+        </damageTypes>
+        <others>
+            <other>stock</other>
+        </others>
         <random>
             <probabilityMultiplier>0.1</probabilityMultiplier>
         </random>
@@ -7342,7 +7593,9 @@
         </damageList>
         <size>L</size>
         <cost>150</cost>
-        <damageType>fire</damageType>
+        <damageTypes>
+            <damageType>fire</damageType>
+        </damageTypes>
         <random>
             <probabilityMultiplier>0.001</probabilityMultiplier>
             <recommendedFactions>avestites</recommendedFactions>
@@ -7411,7 +7664,9 @@
         </damageList>
         <size>XL</size>
         <cost>150</cost>
-        <damageType>fire</damageType>
+        <damageTypes>
+            <damageType>fire</damageType>
+        </damageTypes>
         <random>
             <probabilityMultiplier>0.001</probabilityMultiplier>
         </random>
@@ -7453,7 +7708,9 @@
         </damageList>
         <size>S</size>
         <cost>300</cost>
-        <damageType>sonic</damageType>
+        <damageTypes>
+            <damageType>sonic</damageType>
+        </damageTypes>
         <random>
             <probabilityMultiplier>0.001</probabilityMultiplier>
         </random>
@@ -7495,7 +7752,9 @@
         </damageList>
         <size>XS</size>
         <cost>300</cost>
-        <damageType>sonic</damageType>
+        <damageTypes>
+            <damageType>sonic</damageType>
+        </damageTypes>
         <random>
             <probabilityMultiplier>0.001</probabilityMultiplier>
         </random>
@@ -7658,7 +7917,9 @@
         </damageList>
         <size>XL</size>
         <cost>5000</cost>
-        <others>stock</others>
+        <others>
+            <other>stock</other>
+        </others>
         <random>
             <probabilityMultiplier>0.001</probabilityMultiplier>
         </random>
@@ -7710,7 +7971,9 @@
         </damageList>
         <size>M</size>
         <cost>3000</cost>
-        <damageType>neural</damageType>
+        <damageTypes>
+            <damageType>neural</damageType>
+        </damageTypes>
         <random>
             <probabilityMultiplier>0.0001</probabilityMultiplier>
         </random>
@@ -7738,7 +8001,9 @@
         </damageList>
         <size>L</size>
         <cost>3700</cost>
-        <damageType>neural</damageType>
+        <damageTypes>
+            <damageType>neural</damageType>
+        </damageTypes>
         <random>
             <probabilityMultiplier>0.0001</probabilityMultiplier>
         </random>
@@ -7819,7 +8084,11 @@
         </damageList>
         <size>XL</size>
         <cost>750</cost>
-        <others>stock, bipod, beltfeed</others>
+        <others>
+            <other>stock</other>
+            <other>bipod</other>
+            <other>beltfeed</other>
+        </others>
     </typicalLtMg>
     <jahnisak040MG>
         <id>jahnisak040MG</id>
@@ -7871,7 +8140,11 @@
         </damageList>
         <size>XL</size>
         <cost>700</cost>
-        <others>stock, bipod, beltfeed</others>
+        <others>
+            <other>stock</other>
+            <other>bipod</other>
+            <other>beltfeed</other>
+        </others>
     </jahnisak040MG>
     <jahnisak051MG>
         <id>jahnisak051MG</id>
@@ -7923,7 +8196,10 @@
         </damageList>
         <size>XL</size>
         <cost>900</cost>
-        <others>tripod, beltfeed</others>
+        <others>
+            <other>tripod</other>
+            <other>beltfeed</other>
+        </others>
     </jahnisak051MG>
     <jahniAutocannon>
         <id>jahniAutocannon</id>
@@ -7975,7 +8251,10 @@
         </damageList>
         <size>XL</size>
         <cost>1200</cost>
-        <others>tripod, beltfeed</others>
+        <others>
+            <other>tripod</other>
+            <other>beltfeed</other>
+        </others>
     </jahniAutocannon>
     <furystormChaingun>
         <id>furystormChaingun</id>
@@ -8027,7 +8306,9 @@
         </damageList>
         <size>XXL</size>
         <cost>1500</cost>
-        <others>beltfeed</others>
+        <others>
+            <other>beltfeed</other>
+        </others>
     </furystormChaingun>
     <deamasineTerrakin>
         <id>deamasineTerrakin</id>
@@ -8075,8 +8356,14 @@
         </damageList>
         <size>XL</size>
         <cost>1000</cost>
-        <damageType>hard</damageType>
-        <others>stock, bipod, sight2</others>
+        <damageTypes>
+            <damageType>hard</damageType>
+        </damageTypes>
+        <others>
+            <other>stock</other>
+            <other>bipod</other>
+            <other>sight2</other>
+        </others>
     </deamasineTerrakin>
     <bosarkCannoneer>
         <id>bosarkCannoneer</id>
@@ -8124,7 +8411,11 @@
         </damageList>
         <size>XL</size>
         <cost>2000</cost>
-        <others>stock, bipod, sight4</others>
+        <others>
+            <other>stock</other>
+            <other>bipod</other>
+            <other>sight4</other>
+        </others>
     </bosarkCannoneer>
     <goboLobberJetPistol>
         <id>goboLobberJetPistol</id>
@@ -8190,7 +8481,9 @@
         </damageList>
         <size>M</size>
         <cost>300</cost>
-        <damageType>blaster</damageType>
+        <damageTypes>
+            <damageType>blaster</damageType>
+        </damageTypes>
     </goboLobberJetPistol>
     <goboGarbageChucker>
         <id>goboGarbageChucker</id>
@@ -8256,8 +8549,12 @@
         </damageList>
         <size>XL</size>
         <cost>500</cost>
-        <damageType>blaster</damageType>
-        <others>stock</others>
+        <damageTypes>
+            <damageType>blaster</damageType>
+        </damageTypes>
+        <others>
+            <other>stock</other>
+        </others>
     </goboGarbageChucker>
     <musterNightstorm>
         <id>musterNightstorm</id>
@@ -8323,7 +8620,9 @@
         </damageList>
         <size>XL</size>
         <cost>500</cost>
-        <others>stock</others>
+        <others>
+            <other>stock</other>
+        </others>
         <random>
             <restrictedFactions>muster</restrictedFactions>
         </random>
@@ -8392,8 +8691,12 @@
         </damageList>
         <size>XL</size>
         <cost>800</cost>
-        <damageType>hard</damageType>
-        <ammunition>panzerBreakerShell</ammunition>
+        <damageTypes>
+            <damageType>hard</damageType>
+        </damageTypes>
+        <ammunition>
+            <ammo>panzerBreakerShell</ammo>
+        </ammunition>
         <random>
             <restrictedFactions>hazat</restrictedFactions>
         </random>
@@ -8462,8 +8765,12 @@
         </damageList>
         <size>XL</size>
         <cost>750</cost>
-        <damageType>hard</damageType>
-        <ammunition>panzerBreakerShell</ammunition>
+        <damageTypes>
+            <damageType>hard</damageType>
+        </damageTypes>
+        <ammunition>
+            <ammo>panzerBreakerShell</ammo>
+        </ammunition>
     </dreskelBazooka>
     <dreskelBombardier>
         <id>dreskelBombardier</id>
@@ -8504,7 +8811,10 @@
         </damageList>
         <size>XL</size>
         <cost>500</cost>
-        <others>stock, revolver</others>
+        <others>
+            <other>stock</other>
+            <other>revolver</other>
+        </others>
     </dreskelBombardier>
     <hawkwoodLionRoar>
         <id>hawkwoodLionRoar</id>
@@ -8545,7 +8855,10 @@
         </damageList>
         <size>M</size>
         <cost>500</cost>
-        <others>stock, pumpfeed</others>
+        <others>
+            <other>stock</other>
+            <other>pumpfeed</other>
+        </others>
     </hawkwoodLionRoar>
     <masseriDevastator>
         <id>masseriDevastator</id>
@@ -8586,7 +8899,10 @@
         </damageList>
         <size>M</size>
         <cost>450</cost>
-        <others>stock, pumpfeed</others>
+        <others>
+            <other>stock</other>
+            <other>pumpfeed</other>
+        </others>
     </masseriDevastator>
 
 
@@ -8628,8 +8944,12 @@
         </damageList>
         <size>XL</size>
         <cost>2500</cost>
-        <damageType>laser</damageType>
-        <others>stock</others>
+        <damageTypes>
+            <damageType>laser</damageType>
+        </damageTypes>
+        <others>
+            <other>stock</other>
+        </others>
     </gatlingLaser>
     <blasterCannon>
         <id>blasterCannon</id>
@@ -8666,8 +8986,12 @@
         </damageList>
         <size>XXL</size>
         <cost>5000</cost>
-        <damageType>blaster, hard</damageType>
-        <others>stock</others>
+        <damageTypes>
+            <damageType>blaster, hard</damageType>
+        </damageTypes>
+        <others>
+            <other>stock</other>
+        </others>
     </blasterCannon>
 
 
@@ -8721,7 +9045,9 @@
         </damageList>
         <size>S</size>
         <cost>20</cost>
-        <damageType>blaster</damageType>
+        <damageTypes>
+            <damageType>blaster</damageType>
+        </damageTypes>
         <random>
             <probabilityMultiplier>0.01</probabilityMultiplier>
         </random>
@@ -8960,7 +9286,9 @@
         </damageList>
         <size>S</size>
         <cost>100</cost>
-        <damageType>blaster</damageType>
+        <damageTypes>
+            <damageType>blaster</damageType>
+        </damageTypes>
     </plasmaGrenade>
     <flashBangGrenade>
         <id>flashBangGrenade</id>
@@ -9033,7 +9361,9 @@
         </damageList>
         <size>S</size>
         <cost>80</cost>
-        <damageType>halveArmour</damageType>
+        <damageTypes>
+            <damageType>halveArmour</damageType>
+        </damageTypes>
     </wireGrenade>
 </weapons>
 

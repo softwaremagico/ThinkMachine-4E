@@ -35,13 +35,13 @@ import java.util.Set;
 
 public class Armor extends Equipment<Armor> {
     private int protection;
-    @JsonProperty("damageType")
+    @JsonProperty("damageTypes")
     private Set<String> damageTypes;
     @JsonProperty("standardPenalizations")
     private ArmourPenalization standardPenalization;
     @JsonProperty("specialPenalizations")
     private ArmourPenalization specialPenalization;
-    @JsonProperty("shield")
+    @JsonProperty("shields")
     private Set<String> allowedShields;
     @JsonProperty("others")
     private Set<String> specifications;
@@ -88,11 +88,6 @@ public class Armor extends Equipment<Armor> {
         this.protection = protection;
     }
 
-    public void setDamageTypes(String damageTypesContent) {
-        damageTypes = new HashSet<>();
-        readCommaSeparatedTokens(damageTypes, damageTypesContent);
-    }
-
     public void setDamageTypes(Set<String> damageTypes) {
         this.damageTypes = damageTypes;
     }
@@ -105,18 +100,8 @@ public class Armor extends Equipment<Armor> {
         this.specialPenalization = specialPenalization;
     }
 
-    public void setAllowedShields(String allowedShieldsContent) {
-        allowedShields = new HashSet<>();
-        readCommaSeparatedTokens(allowedShields, allowedShieldsContent);
-    }
-
     public void setAllowedShields(Set<String> allowedShields) {
         this.allowedShields = allowedShields;
-    }
-
-    public void setSpecifications(String specificationsContent) {
-        specifications = new HashSet<>();
-        readCommaSeparatedTokens(specifications, specificationsContent);
     }
 
     public void setSpecifications(Set<String> specifications) {

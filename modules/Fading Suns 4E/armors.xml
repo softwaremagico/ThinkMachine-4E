@@ -62,9 +62,19 @@
             <initiative>-5</initiative>
         </specialPenalizations>
         <cost>2000</cost>
-        <damageType>hard, laser, slam, shock</damageType>
-        <shield>battleShield</shield>
-        <others>abcProtection, powerPack</others>
+        <damageTypes>
+            <damageType>hard</damageType>
+            <damageType>laser</damageType>
+            <damageType>slam</damageType>
+            <damageType>shock</damageType>
+        </damageTypes>
+        <shields>
+            <shield>battleShield</shield>
+        </shields>
+        <others>
+            <other>abcProtection</other>
+            <other>powerPack</other>
+        </others>
     </armour>
     <armour>
         <id>adeptRobes</id>
@@ -107,9 +117,24 @@
             <initiative>-5</initiative>
         </specialPenalizations>
         <cost>10000</cost>
-        <damageType>hard, laser, slam, shock</damageType>
-        <shield>battleShield</shield>
-        <others>abcProtection, powerPack, lifeSupport30m, rangeFinder, radio, binoculars, radiationProtection</others>
+        <damageTypes>
+            <damageType>hard</damageType>
+            <damageType>laser</damageType>
+            <damageType>slam</damageType>
+            <damageType>shock</damageType>
+        </damageTypes>
+        <shields>
+            <shield>battleShield</shield>
+        </shields>
+        <others>
+            <other>abcProtection</other>
+            <other>powerPack</other>
+            <other>lifeSupport30m</other>
+            <other>rangeFinder</other>
+            <other>radio</other>
+            <other>binoculars</other>
+            <other>radiationProtection</other>
+        </others>
     </armour>
     <armour>
         <id>chainMailMetal</id>
@@ -136,9 +161,16 @@
             <initiative>-2</initiative>
         </standardPenalizations>
         <cost>50</cost>
-        <damageType>hard</damageType>
-        <shield>assaultShield, battleShield</shield>
-        <others>metal</others>
+        <damageTypes>
+            <damageType>hard</damageType>
+        </damageTypes>
+        <shields>
+            <shield>assaultShield</shield>
+            <shield>battleShield</shield>
+        </shields>
+        <others>
+            <other>metal</other>
+        </others>
     </armour>
     <armour>
         <id>chainMailPlastic</id>
@@ -165,8 +197,14 @@
             <initiative>-1</initiative>
         </standardPenalizations>
         <cost>80</cost>
-        <damageType>soft, shock</damageType>
-        <shield>assaultShield, battleShield</shield>
+        <damageTypes>
+            <damageType>soft</damageType>
+            <damageType>shock</damageType>
+        </damageTypes>
+        <shields>
+            <shield>assaultShield</shield>
+            <shield>battleShield</shield>
+        </shields>
     </armour>
     <armour>
         <id>chainMailPlasteel</id>
@@ -193,8 +231,14 @@
             <initiative>0</initiative>
         </standardPenalizations>
         <cost>100</cost>
-        <damageType>soft, shock</damageType>
-        <shield>assaultShield, battleShield</shield>
+        <damageTypes>
+            <damageType>soft</damageType>
+            <damageType>shock</damageType>
+        </damageTypes>
+        <shields>
+            <shield>assaultShield</shield>
+            <shield>battleShield</shield>
+        </shields>
     </armour>
     <armour>
         <id>frictionlessGel</id>
@@ -232,8 +276,13 @@
             <initiative>0</initiative>
         </standardPenalizations>
         <cost>500</cost>
-        <damageType>hard</damageType>
-        <shield>assaultShield, battleShield</shield>
+        <damageTypes>
+            <damageType>hard</damageType>
+        </damageTypes>
+        <shields>
+            <shield>assaultShield</shield>
+            <shield>battleShield</shield>
+        </shields>
     </armour>
     <armour>
         <id>halfPlateMetal</id>
@@ -262,9 +311,15 @@
             <initiative>-3</initiative>
         </standardPenalizations>
         <cost>30</cost>
-        <damageType>hard</damageType>
-        <shield>battleShield</shield>
-        <others>metal</others>
+        <damageTypes>
+            <damageType>hard</damageType>
+        </damageTypes>
+        <shields>
+            <shield>battleShield</shield>
+        </shields>
+        <others>
+            <other>metal</other>
+        </others>
     </armour>
     <armour>
         <id>halfPlatePlastic</id>
@@ -293,8 +348,13 @@
             <initiative>-2</initiative>
         </standardPenalizations>
         <cost>60</cost>
-        <damageType>soft, shock</damageType>
-        <shield>battleShield</shield>
+        <damageTypes>
+            <damageType>soft</damageType>
+            <damageType>shock</damageType>
+        </damageTypes>
+        <shields>
+            <shield>battleShield</shield>
+        </shields>
     </armour>
     <armour>
         <id>halfPlatePlasteel</id>
@@ -323,8 +383,13 @@
             <initiative>-1</initiative>
         </standardPenalizations>
         <cost>100</cost>
-        <damageType>hard, shock</damageType>
-        <shield>battleShield</shield>
+        <damageTypes>
+            <damageType>hard</damageType>
+            <damageType>shock</damageType>
+        </damageTypes>
+        <shields>
+            <shield>battleShield</shield>
+        </shields>
     </armour>
     <armour>
         <id>heavyClothing</id>
@@ -353,8 +418,16 @@
             <initiative>-2</initiative>
         </standardPenalizations>
         <cost>4</cost>
-        <damageType>soft, shock</damageType>
-        <shield>standardShield, duelingShield, assaultShield, battleShield</shield>
+        <damageTypes>
+            <damageType>soft</damageType>
+            <damageType>shock</damageType>
+        </damageTypes>
+        <shields>
+            <shield>standardShield</shield>
+            <shield>duelingShield</shield>
+            <shield>assaultShield</shield>
+            <shield>battleShield</shield>
+        </shields>
     </armour>
     <armour>
         <id>leatherJerkin</id>
@@ -383,8 +456,14 @@
             <initiative>-1</initiative>
         </standardPenalizations>
         <cost>5</cost>
-        <damageType>soft, shock</damageType>
-        <shield>assaultShield, battleShield</shield>
+        <damageTypes>
+            <damageType>soft</damageType>
+            <damageType>shock</damageType>
+        </damageTypes>
+        <shields>
+            <shield>assaultShield</shield>
+            <shield>battleShield</shield>
+        </shields>
     </armour>
     <armour>
         <id>leatherJerkinStuddedMetal</id>
@@ -413,9 +492,16 @@
             <initiative>-2</initiative>
         </standardPenalizations>
         <cost>8</cost>
-        <damageType>soft</damageType>
-        <shield>assaultShield, battleShield</shield>
-        <others>metal</others>
+        <damageTypes>
+            <damageType>soft</damageType>
+        </damageTypes>
+        <shields>
+            <shield>assaultShield</shield>
+            <shield>battleShield</shield>
+        </shields>
+        <others>
+            <other>metal</other>
+        </others>
     </armour>
     <armour>
         <id>leatherJerkinStuddedPlastic</id>
@@ -444,8 +530,14 @@
             <initiative>-1</initiative>
         </standardPenalizations>
         <cost>15</cost>
-        <damageType>soft, shock</damageType>
-        <shield>assaultShield, battleShield</shield>
+        <damageTypes>
+            <damageType>soft</damageType>
+            <damageType>shock</damageType>
+        </damageTypes>
+        <shields>
+            <shield>assaultShield</shield>
+            <shield>battleShield</shield>
+        </shields>
     </armour>
     <armour>
         <id>leatherJerkinStuddedPlasteel</id>
@@ -474,8 +566,14 @@
             <initiative>0</initiative>
         </standardPenalizations>
         <cost>30</cost>
-        <damageType>hard, shock</damageType>
-        <shield>assaultShield, battleShield</shield>
+        <damageTypes>
+            <damageType>hard</damageType>
+            <damageType>shock</damageType>
+        </damageTypes>
+        <shields>
+            <shield>assaultShield</shield>
+            <shield>battleShield</shield>
+        </shields>
     </armour>
     <armour>
         <id>paddedClothing</id>
@@ -504,8 +602,15 @@
             <initiative>-1</initiative>
         </standardPenalizations>
         <cost>2</cost>
-        <damageType>soft</damageType>
-        <shield>standardShield, duelingShield, assaultShield, battleShield</shield>
+        <damageTypes>
+            <damageType>soft</damageType>
+        </damageTypes>
+        <shields>
+            <shield>standardShield</shield>
+            <shield>duelingShield</shield>
+            <shield>assaultShield</shield>
+            <shield>battleShield</shield>
+        </shields>
     </armour>
     <armour>
         <id>polymerKnit</id>
@@ -539,8 +644,17 @@
             <initiative>-2</initiative>
         </standardPenalizations>
         <cost>200</cost>
-        <damageType>hard, shock, slam</damageType>
-        <shield>standardShield, duelingShield, assaultShield, battleShield</shield>
+        <damageTypes>
+            <damageType>hard</damageType>
+            <damageType>shock</damageType>
+            <damageType>slam</damageType>
+        </damageTypes>
+        <shields>
+            <shield>standardShield</shield>
+            <shield>duelingShield</shield>
+            <shield>assaultShield</shield>
+            <shield>battleShield</shield>
+        </shields>
     </armour>
     <armour>
         <id>plateMailSuitMetal</id>
@@ -572,9 +686,15 @@
             <initiative>-4</initiative>
         </standardPenalizations>
         <cost>70</cost>
-        <damageType>hard</damageType>
-        <shield>battleShield</shield>
-        <others>metal</others>
+        <damageTypes>
+            <damageType>hard</damageType>
+        </damageTypes>
+        <shields>
+            <shield>battleShield</shield>
+        </shields>
+        <others>
+            <other>metal</other>
+        </others>
     </armour>
     <armour>
         <id>plateMailSuitPlastic</id>
@@ -606,9 +726,16 @@
             <initiative>-3</initiative>
         </standardPenalizations>
         <cost>100</cost>
-        <damageType>soft, shock</damageType>
-        <shield>battleShield</shield>
-        <others>abcProtection</others>
+        <damageTypes>
+            <damageType>soft</damageType>
+            <damageType>shock</damageType>
+        </damageTypes>
+        <shields>
+            <shield>battleShield</shield>
+        </shields>
+        <others>
+            <other>abcProtection</other>
+        </others>
     </armour>
     <armour>
         <id>plateMailSuitPlasteel</id>
@@ -640,9 +767,16 @@
             <initiative>-2</initiative>
         </standardPenalizations>
         <cost>150</cost>
-        <damageType>hard, shock</damageType>
-        <shield>battleShield</shield>
-        <others>abcProtection</others>
+        <damageTypes>
+            <damageType>hard</damageType>
+            <damageType>shock</damageType>
+        </damageTypes>
+        <shields>
+            <shield>battleShield</shield>
+        </shields>
+        <others>
+            <other>abcProtection</other>
+        </others>
     </armour>
     <armour>
         <id>psiCloak</id>
@@ -681,7 +815,10 @@
             <initiative>0</initiative>
         </standardPenalizations>
         <cost>3000</cost>
-        <others>occult, neural</others>
+        <others>
+            <other>occult</other>
+            <other>neural</other>
+        </others>
     </armour>
     <armour>
         <id>scaleMailMetal</id>
@@ -708,9 +845,15 @@
             <initiative>-2</initiative>
         </standardPenalizations>
         <cost>20</cost>
-        <damageType>hard</damageType>
-        <shield>battleShield</shield>
-        <others>metal</others>
+        <damageTypes>
+            <damageType>hard</damageType>
+        </damageTypes>
+        <shields>
+            <shield>battleShield</shield>
+        </shields>
+        <others>
+            <other>metal</other>
+        </others>
     </armour>
     <armour>
         <id>scaleMailPlastic</id>
@@ -737,8 +880,13 @@
             <initiative>0</initiative>
         </standardPenalizations>
         <cost>50</cost>
-        <damageType>soft, shock</damageType>
-        <shield>battleShield</shield>
+        <damageTypes>
+            <damageType>soft</damageType>
+            <damageType>shock</damageType>
+        </damageTypes>
+        <shields>
+            <shield>battleShield</shield>
+        </shields>
     </armour>
     <armour>
         <id>scaleMailPlasteel</id>
@@ -765,8 +913,13 @@
             <initiative>0</initiative>
         </standardPenalizations>
         <cost>80</cost>
-        <damageType>hard, shock</damageType>
-        <shield>battleShield</shield>
+        <damageTypes>
+            <damageType>hard</damageType>
+            <damageType>shock</damageType>
+        </damageTypes>
+        <shields>
+            <shield>battleShield</shield>
+        </shields>
     </armour>
     <armour>
         <id>spacesuit</id>
@@ -801,9 +954,20 @@
             <initiative>-2</initiative>
         </specialPenalizations>
         <cost>100</cost>
-        <damageType>hard, fire, slam, shock</damageType>
-        <shield>battleShield</shield>
-        <others>lifeSupport24h, abcProtection, radiationProtection</others>
+        <damageTypes>
+            <damageType>hard</damageType>
+            <damageType>fire</damageType>
+            <damageType>slam</damageType>
+            <damageType>shock</damageType>
+        </damageTypes>
+        <shields>
+            <shield>battleShield</shield>
+        </shields>
+        <others>
+            <other>lifeSupport24h</other>
+            <other>abcProtection</other>
+            <other>radiationProtection</other>
+        </others>
     </armour>
     <armour>
         <id>antiquarianSpacesuit</id>
@@ -838,9 +1002,18 @@
             <initiative>-6</initiative>
         </specialPenalizations>
         <cost>50</cost>
-        <damageType>slam, shock</damageType>
-        <shield>battleShield</shield>
-        <others>lifeSupport12h, abcProtection, radiationProtection</others>
+        <damageTypes>
+            <damageType>slam</damageType>
+            <damageType>shock</damageType>
+        </damageTypes>
+        <shields>
+            <shield>battleShield</shield>
+        </shields>
+        <others>
+            <other>lifeSupport12h</other>
+            <other>abcProtection</other>
+            <other>radiationProtection</other>
+        </others>
     </armour>
     <armour>
         <id>armoredSpacesuit</id>
@@ -875,9 +1048,22 @@
             <initiative>-4</initiative>
         </specialPenalizations>
         <cost>400</cost>
-        <damageType>blaster, hard, fire, slam, laser, shock</damageType>
-        <shield>battleShield</shield>
-        <others>lifeSupport24h, abcProtection, radiationProtection</others>
+        <damageTypes>
+            <damageType>blaster</damageType>
+            <damageType>hard</damageType>
+            <damageType>fire</damageType>
+            <damageType>slam</damageType>
+            <damageType>laser</damageType>
+            <damageType>shock</damageType>
+        </damageTypes>
+        <shields>
+            <shield>battleShield</shield>
+        </shields>
+        <others>
+            <other>lifeSupport24h</other>
+            <other>abcProtection</other>
+            <other>radiationProtection</other>
+        </others>
     </armour>
     <armour>
         <id>marauderSpacesuit</id>
@@ -911,9 +1097,22 @@
             <initiative>-2</initiative>
         </specialPenalizations>
         <cost>1000</cost>
-        <damageType>blaster, hard, fire, slam, laser, shock</damageType>
-        <shield>battleShield</shield>
-        <others>lifeSupport24h, abcProtection, radiationProtection</others>
+        <damageTypes>
+            <damageType>blaster</damageType>
+            <damageType>hard</damageType>
+            <damageType>fire</damageType>
+            <damageType>slam</damageType>
+            <damageType>laser</damageType>
+            <damageType>shock</damageType>
+        </damageTypes>
+        <shields>
+            <shield>battleShield</shield>
+        </shields>
+        <others>
+            <other>lifeSupport24h</other>
+            <other>abcProtection</other>
+            <other>radiationProtection</other>
+        </others>
     </armour>
     <armour>
         <id>synthsilk</id>
@@ -949,8 +1148,16 @@
             <initiative>0</initiative>
         </standardPenalizations>
         <cost>300</cost>
-        <damageType>soft, shock</damageType>
-        <shield>standardShield, duelingShield, assaultShield, battleShield</shield>
+        <damageTypes>
+            <damageType>soft</damageType>
+            <damageType>shock</damageType>
+        </damageTypes>
+        <shields>
+            <shield>standardShield</shield>
+            <shield>duelingShield</shield>
+            <shield>assaultShield</shield>
+            <shield>battleShield</shield>
+        </shields>
     </armour>
     <armour>
         <id>stiffsynth</id>
@@ -988,8 +1195,14 @@
             <initiative>0</initiative>
         </standardPenalizations>
         <cost>500</cost>
-        <damageType>hard, shock</damageType>
-        <shield>assaultShield, battleShield</shield>
+        <damageTypes>
+            <damageType>hard</damageType>
+            <damageType>shock</damageType>
+        </damageTypes>
+        <shields>
+            <shield>assaultShield</shield>
+            <shield>battleShield</shield>
+        </shields>
     </armour>
     <armour>
         <id>smartsynth</id>
@@ -1018,8 +1231,15 @@
             <initiative>0</initiative>
         </standardPenalizations>
         <cost>600</cost>
-        <damageType>hard, slam, shock</damageType>
-        <shield>assaultShield, battleShield</shield>
+        <damageTypes>
+            <damageType>hard</damageType>
+            <damageType>slam</damageType>
+            <damageType>shock</damageType>
+        </damageTypes>
+        <shields>
+            <shield>assaultShield</shield>
+            <shield>battleShield</shield>
+        </shields>
     </armour>
     <armour>
         <id>synthsilkCape</id>
@@ -1040,7 +1260,12 @@
             <endurance>0</endurance>
             <initiative>0</initiative>
         </standardPenalizations>
-        <shield>standardShield, duelingShield, assaultShield, battleShield</shield>
+        <shields>
+            <shield>standardShield</shield>
+            <shield>duelingShield</shield>
+            <shield>assaultShield</shield>
+            <shield>battleShield</shield>
+        </shields>
         <size>L</size>
         <restrictions>
             <factions>
@@ -1067,7 +1292,12 @@
             <endurance>0</endurance>
             <initiative>0</initiative>
         </standardPenalizations>
-        <shield>standardShield, duelingShield, assaultShield, battleShield</shield>
+        <shields>
+            <shield>standardShield</shield>
+            <shield>duelingShield</shield>
+            <shield>assaultShield</shield>
+            <shield>battleShield</shield>
+        </shields>
         <size>L</size>
         <restrictions>
             <factions>
@@ -1098,7 +1328,12 @@
             <endurance>0</endurance>
             <initiative>0</initiative>
         </standardPenalizations>
-        <shield>standardShield, duelingShield, assaultShield, battleShield</shield>
+        <shields>
+            <shield>standardShield</shield>
+            <shield>duelingShield</shield>
+            <shield>assaultShield</shield>
+            <shield>battleShield</shield>
+        </shields>
         <size>L</size>
         <techCompulsion>protective</techCompulsion>
         <restrictions>
