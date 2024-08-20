@@ -46,7 +46,6 @@ import java.io.IOException;
 public class BaseElement {
     private static final int TOP_PADDING = 10;
     private static final int WIDTH = 100;
-    private static final int MIN_HEIGHT = 10;
     private static final int TITLE_MIN_HEIGHT = 16;
     private static final int TITLE_PADDING_CORRECTION = -2;
     private static final int SEPARATOR_MIN_HEIGHT = 6;
@@ -239,7 +238,7 @@ public class BaseElement {
         final PdfPCell cell = new PdfPCell();
         cell.setBackgroundColor(Color.BLACK);
         setCellProperties(cell);
-        cell.setMinimumHeight(MIN_HEIGHT);
+        cell.setMinimumHeight(FadingSunsTheme.ROW_HEIGHT);
         return cell;
     }
 
@@ -299,7 +298,7 @@ public class BaseElement {
     protected static PdfPCell createEmptyElementLine(int alignment, String text) {
         final PdfPCell cell = BaseElement.getCell(text, 0, 1, alignment, Color.WHITE,
                 FadingSunsTheme.getLineFont(), FadingSunsTheme.TABLE_LINE_FONT_SIZE);
-        cell.setMinimumHeight(MIN_HEIGHT);
+        cell.setMinimumHeight(FadingSunsTheme.ROW_HEIGHT);
         cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
         return cell;
     }
@@ -307,7 +306,7 @@ public class BaseElement {
     protected static PdfPCell createEmptyChunk(int alignment, String text) {
         final PdfPCell cell = BaseElement.getCell(text, 0, 1, alignment, Color.WHITE,
                 FadingSunsTheme.getLineFont(), FadingSunsTheme.TABLE_LINE_FONT_SIZE);
-        cell.setMinimumHeight(MIN_HEIGHT);
+        cell.setMinimumHeight(FadingSunsTheme.ROW_HEIGHT);
         cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
         return cell;
     }
@@ -354,7 +353,7 @@ public class BaseElement {
     private static PdfPCell createBasicElementLine(String text, int fontSize, int horizontalAlignment, BaseFont font) {
         final PdfPCell cell = BaseElement.getCell(text, 0, 1, horizontalAlignment, Color.WHITE,
                 font, fontSize);
-        cell.setMinimumHeight(MIN_HEIGHT);
+        cell.setMinimumHeight(FadingSunsTheme.ROW_HEIGHT);
         cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
         return cell;
     }

@@ -31,11 +31,11 @@ import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
 import com.softwaremagico.tm.character.characteristics.Characteristic;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.combat.CombatActionRequirement;
+import com.softwaremagico.tm.character.equipment.CharacterSelectedEquipment;
 import com.softwaremagico.tm.character.equipment.Equipment;
 import com.softwaremagico.tm.character.equipment.armors.Armor;
 import com.softwaremagico.tm.character.equipment.item.Item;
 import com.softwaremagico.tm.character.equipment.shields.Shield;
-import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.factions.FactionCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.factions.FactionFactory;
@@ -392,17 +392,28 @@ public class CharacterPlayer {
         return getEquipment(Item.class);
     }
 
-    private Set<Equipment<?>> getSelectedMaterialAwards(CharacterDefinitionStepSelection<?> definitionStepSelection, XmlFactory<?> factory) {
-        final Set<String> selected = definitionStepSelection.getMaterialAwards().stream().map(CharacterSelectedElement::getSelections)
-                .flatMap(Collection::stream).collect(Collectors.toSet());
+    private Set<Equipment<?>> getSelectedMaterialAwards(CharacterDefinitionStepSelection<?> definitionStepSelection, XmlFactory<?> factory,
+                                                        boolean ignoreRemoved) {
+        final Set<String> selected;
+        if (ignoreRemoved) {
+            selected = definitionStepSelection.getMaterialAwards().stream().map(CharacterSelectedEquipment::getSelections)
+                    .flatMap(Collection::stream).collect(Collectors.toSet());
+        } else {
+            selected = definitionStepSelection.getMaterialAwards().stream().map(CharacterSelectedEquipment::getRemainder)
+                    .flatMap(Collection::stream).collect(Collectors.toSet());
+        }
         return ((CharacterDefinitionStep<?>) factory.getElement(definitionStepSelection.getId())).getMaterialAwards(selected);
     }
 
     public List<Equipment<?>> getMaterialAwardsSelected() {
+        return getMaterialAwardsSelected(false);
+    }
+
+    public List<Equipment<?>> getMaterialAwardsSelected(boolean ignoreRemoved) {
         final List<Equipment<?>> materialAwards = new ArrayList<>();
-        materialAwards.addAll(getSelectedMaterialAwards(upbringing, UpbringingFactory.getInstance()));
-        materialAwards.addAll(getSelectedMaterialAwards(faction, FactionFactory.getInstance()));
-        materialAwards.addAll(getSelectedMaterialAwards(calling, CallingFactory.getInstance()));
+        materialAwards.addAll(getSelectedMaterialAwards(upbringing, UpbringingFactory.getInstance(), ignoreRemoved));
+        materialAwards.addAll(getSelectedMaterialAwards(faction, FactionFactory.getInstance(), ignoreRemoved));
+        materialAwards.addAll(getSelectedMaterialAwards(calling, CallingFactory.getInstance(), ignoreRemoved));
         return materialAwards;
     }
 
