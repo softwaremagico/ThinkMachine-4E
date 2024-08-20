@@ -58,6 +58,10 @@ public abstract class CharacterBasicsTableFactory extends BaseElement {
                     table.addCell(getHandwrittingCell(characterPlayer.getCompleteNameRepresentation(), Element.ALIGN_LEFT,
                             fontSize - 1, maxWidth));
                     break;
+                case "gender":
+                    table.addCell(getHandwrittingCell(TextFactory.getInstance().getElement(characterPlayer.getInfo().getGender().name().toLowerCase())
+                            .getName(), Element.ALIGN_LEFT, fontSize - 1, maxWidth));
+                    break;
                 case "specie":
                     if (characterPlayer.getSpecie() != null) {
                         table.addCell(getHandwrittingCell(SpecieFactory.getInstance().getElement(characterPlayer.getSpecie()).getName(),
@@ -69,6 +73,9 @@ public abstract class CharacterBasicsTableFactory extends BaseElement {
                 case "age":
                     table.addCell(getHandwrittingCell(characterPlayer.getInfo().getAge() + "", Element.ALIGN_LEFT,
                             fontSize - 1, maxWidth));
+                    break;
+                case "level":
+                    table.addCell(getHandwrittingCell(String.valueOf(characterPlayer.getLevel()), Element.ALIGN_LEFT, fontSize - 1, maxWidth));
                     break;
                 case "upbringing":
                     if (characterPlayer.getUpbringing() != null) {

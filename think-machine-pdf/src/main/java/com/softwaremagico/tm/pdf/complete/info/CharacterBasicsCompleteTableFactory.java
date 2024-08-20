@@ -41,6 +41,11 @@ public class CharacterBasicsCompleteTableFactory extends CharacterBasicsTableFac
         final float[] widths = {1f, 1f, 1f};
         final PdfPTable table = new PdfPTable(widths);
         setTableProperties(table);
+
+        final PdfPCell separator = createWhiteSeparator();
+        separator.setColspan(widths.length);
+        table.addCell(separator);
+
         table.addCell(getFirstColumnTable(characterPlayer));
         table.addCell(getSecondColumnTable(characterPlayer));
         table.addCell(getLogoColumnTable());
@@ -53,6 +58,7 @@ public class CharacterBasicsCompleteTableFactory extends CharacterBasicsTableFac
         setTableProperties(table);
 
         table.addCell(createField(characterPlayer, "name", FadingSunsTheme.CHARACTER_BASICS_FONT_SIZE, MAX_VALUE_LENGTH));
+        table.addCell(createField(characterPlayer, "gender", FadingSunsTheme.CHARACTER_BASICS_FONT_SIZE, MAX_VALUE_LENGTH));
         table.addCell(createField(characterPlayer, "specie", FadingSunsTheme.CHARACTER_BASICS_FONT_SIZE,
                 MAX_VALUE_LENGTH));
         table.addCell(createField(characterPlayer, "planet", FadingSunsTheme.CHARACTER_BASICS_FONT_SIZE,
@@ -72,6 +78,7 @@ public class CharacterBasicsCompleteTableFactory extends CharacterBasicsTableFac
         final PdfPTable table = new PdfPTable(widths);
         setTableProperties(table);
 
+        table.addCell(createField(characterPlayer, "level", FadingSunsTheme.CHARACTER_BASICS_FONT_SIZE, MAX_VALUE_LENGTH));
         table.addCell(createField(characterPlayer, "upbringing", FadingSunsTheme.CHARACTER_BASICS_FONT_SIZE, MAX_VALUE_LENGTH));
         table.addCell(createField(characterPlayer, "faction", FadingSunsTheme.CHARACTER_BASICS_FONT_SIZE, MAX_VALUE_LENGTH));
         table.addCell(createField(characterPlayer, "calling", FadingSunsTheme.CHARACTER_BASICS_FONT_SIZE, MAX_VALUE_LENGTH));

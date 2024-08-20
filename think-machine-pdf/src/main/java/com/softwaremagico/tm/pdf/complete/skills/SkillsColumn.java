@@ -38,6 +38,8 @@ import com.softwaremagico.tm.pdf.complete.elements.CustomPdfTable;
 
 import java.util.List;
 
+import static com.softwaremagico.tm.pdf.complete.elements.BaseElement.createBigWhiteSeparator;
+
 public final class SkillsColumn {
     private static final String GAP = "   ";
 
@@ -51,6 +53,10 @@ public final class SkillsColumn {
         BaseElement.setTableProperties(table);
         table.getDefaultCell().setBorder(0);
         table.getDefaultCell().setVerticalAlignment(Element.ALIGN_TOP);
+
+        final PdfPCell separator = createBigWhiteSeparator();
+        separator.setColspan(widths.length);
+        table.addCell(separator);
 
         for (final Skill skill : skills) {
             final Paragraph paragraph = new Paragraph();

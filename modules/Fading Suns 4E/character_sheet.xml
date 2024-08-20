@@ -1099,4 +1099,11 @@
             <es>Objeto</es>
         </name>
     </items>
+    <level>
+        <id>level</id>
+        <name>
+            <en>Level</en>
+            <es>Nivel</es>
+        </name>
+    </level>
 </translator>

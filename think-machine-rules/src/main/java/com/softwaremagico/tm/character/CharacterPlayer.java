@@ -68,7 +68,7 @@ public class CharacterPlayer {
     private CharacterInfo info;
 
     private String specie;
-    private int level = 0;
+    private int level = 1;
 
     private UpbringingCharacterDefinitionStepSelection upbringing;
     private FactionCharacterDefinitionStepSelection faction;
@@ -453,6 +453,10 @@ public class CharacterPlayer {
     public String getRepresentation() {
         final CharacterSheet characterSheet = new CharacterSheet(this);
         return characterSheet.toString();
+    }
+
+    public int getTechgnosisLevel() {
+        return getLevel();
     }
 
     @Override
