@@ -35,6 +35,7 @@ import com.softwaremagico.tm.character.equipment.Equipment;
 import com.softwaremagico.tm.character.equipment.armors.Armor;
 import com.softwaremagico.tm.character.equipment.item.Item;
 import com.softwaremagico.tm.character.equipment.shields.Shield;
+import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.factions.FactionCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.factions.FactionFactory;
@@ -370,7 +371,7 @@ public class CharacterPlayer {
         if (armors.isEmpty()) {
             return null;
         }
-        return Collections.max(getEquipment(Armor.class), Comparator.comparing(Armor::getCost));
+        return Collections.max(armors, Comparator.comparing(Armor::getCost));
     }
 
     /**
@@ -379,7 +380,7 @@ public class CharacterPlayer {
      * @return all weapons of the character.
      */
     public List<Weapon> getWeapons() {
-        return getEquipmentGlobal(Weapon.class);
+        return getEquipment(Weapon.class);
     }
 
     /**
@@ -388,7 +389,7 @@ public class CharacterPlayer {
      * @return all weapons of the character.
      */
     public List<Item> getItems() {
-        return getEquipmentGlobal(Item.class);
+        return getEquipment(Item.class);
     }
 
     private Set<Equipment<?>> getSelectedMaterialAwards(CharacterDefinitionStepSelection<?> definitionStepSelection, XmlFactory<?> factory) {
@@ -405,7 +406,7 @@ public class CharacterPlayer {
         return materialAwards;
     }
 
-    public <T extends Equipment<?>> List<T> getEquipment(Class<T> equipmentClass) {
+    public <T extends Equipment<?>> List<T> getEquipmentPurchased(Class<T> equipmentClass) {
         return getEquipmentPurchased().stream().filter(equipmentClass::isInstance).map(equipmentClass::cast).collect(Collectors.toList());
     }
 
@@ -427,15 +428,15 @@ public class CharacterPlayer {
         this.equipmentPurchased = equipmentPurchased;
     }
 
-    public List<Equipment<?>> getEquipmentGlobal() {
+    public List<Equipment<?>> getEquipment() {
         final List<Equipment<?>> totalEquipment = new ArrayList<>();
         totalEquipment.addAll(getMaterialAwardsSelected());
         totalEquipment.addAll(getEquipmentPurchased());
         return totalEquipment;
     }
 
-    public <T extends Equipment<?>> List<T> getEquipmentGlobal(Class<T> equipmentClass) {
-        return getEquipmentGlobal().stream().filter(equipmentClass::isInstance).map(equipmentClass::cast).collect(Collectors.toList());
+    public <T extends Equipment<?>> List<T> getEquipment(Class<T> equipmentClass) {
+        return getEquipment().stream().filter(equipmentClass::isInstance).map(equipmentClass::cast).collect(Collectors.toList());
     }
 
     public String getRepresentation() {

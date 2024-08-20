@@ -27,6 +27,7 @@ package com.softwaremagico.tm.character.equipment.weapons;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.character.equipment.item.Quality;
 import com.softwaremagico.tm.character.equipment.item.Status;
+import com.softwaremagico.tm.txt.TextFactory;
 
 public class CustomizedWeapon extends Weapon {
 
@@ -61,5 +62,27 @@ public class CustomizedWeapon extends Weapon {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    @Override
+    public String getWeaponOthersText() {
+        final StringBuilder stringBuilder = new StringBuilder();
+
+        if (quality != null && quality != Quality.STANDARD) {
+            stringBuilder.append(TextFactory.getInstance().getElement(quality.name().toLowerCase()));
+        }
+        if (stringBuilder.length() > 0) {
+            stringBuilder.append(", ");
+        }
+        if (status != null) {
+            stringBuilder.append(TextFactory.getInstance().getElement(status.name().toLowerCase()));
+        }
+
+        final String standardOthers = super.getWeaponOthersText();
+        if (stringBuilder.length() > 0 && !standardOthers.isEmpty()) {
+            stringBuilder.append(", ");
+            stringBuilder.append(standardOthers);
+        }
+        return stringBuilder.toString();
     }
 }

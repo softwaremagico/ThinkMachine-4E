@@ -33,7 +33,7 @@ import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.pdf.complete.equipment.ArmorAndShieldTableFactory;
+import com.softwaremagico.tm.pdf.complete.equipment.ItemsPackFactory;
 import com.softwaremagico.tm.pdf.complete.events.SheetAlternatedBackgroundEvent;
 import com.softwaremagico.tm.pdf.complete.info.CharacterBasicsCompleteTableFactory;
 import com.softwaremagico.tm.pdf.complete.skills.CharacteristicsAndSkillsTableFactory;
@@ -82,7 +82,7 @@ public class CharacterSheet extends PdfDocument {
 
         document.newPage();
 
-        document.add(ArmorAndShieldTableFactory.getArmorAndShieldTableFactory(characterPlayer));
+        document.add(ItemsPackFactory.getItemsPack(characterPlayer));
 
 
 //        final PdfPTable skillsTable = MainSkillsTableFactory.getSkillsTable(characterPlayer);

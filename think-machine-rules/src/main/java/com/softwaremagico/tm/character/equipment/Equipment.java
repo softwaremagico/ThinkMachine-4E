@@ -81,7 +81,7 @@ public abstract class Equipment<E extends Element<?>> extends Element<E> impleme
     @JsonProperty("cost")
     private float cost;
     @JsonProperty("techLevel")
-    private int techLevel;
+    private Integer techLevel;
     @JsonProperty("size")
     private Size size;
     @JsonProperty("traits")
@@ -106,7 +106,7 @@ public abstract class Equipment<E extends Element<?>> extends Element<E> impleme
     }
 
     @Override
-    public int getTechLevel() {
+    public Integer getTechLevel() {
         return techLevel;
     }
 

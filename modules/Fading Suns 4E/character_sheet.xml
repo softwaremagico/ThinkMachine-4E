@@ -675,8 +675,8 @@
     <weaponsOthers>
         <id>weaponsOthers</id>
         <name>
-            <en>Others</en>
-            <es>Otros</es>
+            <en>Features</en>
+            <es>Características</es>
         </name>
     </weaponsOthers>
     <weaponsAction>
@@ -686,6 +686,62 @@
             <es>Acción</es>
         </name>
     </weaponsAction>
+    <premium>
+        <id>premium</id>
+        <name>
+            <en>Premium</en>
+            <es>Excelente</es>
+        </name>
+    </premium>
+    <masterwork>
+        <id>masterwork</id>
+        <name>
+            <en>Masterwork</en>
+            <es>Maestra</es>
+        </name>
+    </masterwork>
+    <superior>
+        <id>superior</id>
+        <name>
+            <en>Superior</en>
+            <es>Buena</es>
+        </name>
+    </superior>
+    <poorWorkmanship>
+        <id>poor_workmanship</id>
+        <name>
+            <en>Poor Workmanship</en>
+            <es>Mediocre</es>
+        </name>
+    </poorWorkmanship>
+    <unreliable>
+        <id>unreliable</id>
+        <name>
+            <en>Unreliable</en>
+            <es>Deficiente</es>
+        </name>
+    </unreliable>
+    <disrepair>
+        <id>disrepair</id>
+        <name>
+            <en>Disrepair</en>
+            <es>Deteriorada</es>
+        </name>
+    </disrepair>
+    <elegant>
+        <id>elegant</id>
+        <name>
+            <en>Elegant</en>
+            <es>Elegant</es>
+        </name>
+    </elegant>
+    <blessed>
+        <id>blessed</id>
+        <name>
+            <en>Blessed</en>
+            <es>Bendito</es>
+        </name>
+    </blessed>
     <actionStrike>
         <id>actionStrike</id>
         <name>
@@ -1029,4 +1085,18 @@
             <es>Compulsión Tecgnóstica</es>
         </name>
     </techCompulsion>
+    <items>
+        <id>items</id>
+        <name>
+            <en>Equipment</en>
+            <es>Equipo</es>
+        </name>
+    </items>
+    <items>
+        <id>item</id>
+        <name>
+            <en>item</en>
+            <es>Objeto</es>
+        </name>
+    </items>
 </translator>

@@ -29,13 +29,19 @@ import com.lowagie.text.pdf.PdfPTable;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.pdf.complete.elements.BaseElement;
 
-public class ArmorAndShieldTableFactory extends BaseElement {
+public class ItemsPackFactory extends BaseElement {
     private static final float[] WIDTHS = {1.2f, 1f};
 
-    public static PdfPTable getArmorAndShieldTableFactory(CharacterPlayer characterPlayer) {
+    public static PdfPTable getItemsPack(CharacterPlayer characterPlayer) {
         final PdfPTable table = new PdfPTable(WIDTHS);
         setTableProperties(table);
         table.getDefaultCell().setBorder(0);
+
+        final PdfPTable itemsTable = ItemsTableFactory.getItemsTable(characterPlayer);
+        final PdfPCell itemsCell = new PdfPCell(itemsTable);
+        itemsCell.setBorder(0);
+        itemsCell.setColspan(2);
+        table.addCell(itemsCell);
 
         final PdfPTable armorTable = ArmorTableFactory.getArmorTable(characterPlayer);
         final PdfPCell armorCell = new PdfPCell(armorTable);

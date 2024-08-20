@@ -25,6 +25,7 @@ package com.softwaremagico.tm.txt;
  */
 
 
+import com.softwaremagico.tm.character.CharacterExamples;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.language.Translator;
 import com.softwaremagico.tm.rules.CharacterCreationTest;
@@ -43,7 +44,7 @@ public class ExportTxtTests {
     @Test
     public void checkCustomCharacter() throws URISyntaxException, IOException {
         Translator.setLanguage(LANGUAGE);
-        final CharacterPlayer player = CharacterCreationTest.generateHumanNobleDecadosCommander();
+        final CharacterPlayer player = CharacterExamples.generateHumanNobleDecadosCommander();
         final CharacterSheet characterSheet = new CharacterSheet(player);
 
         final String text = new String(Files.readAllBytes(Paths.get(getClass().getClassLoader()

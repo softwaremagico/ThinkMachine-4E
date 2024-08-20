@@ -24,19 +24,13 @@ package com.softwaremagico.tm.rules;
  * #L%
  */
 
+import com.softwaremagico.tm.character.CharacterExamples;
 import com.softwaremagico.tm.character.CharacterPlayer;
-import com.softwaremagico.tm.character.Gender;
-import com.softwaremagico.tm.character.Name;
-import com.softwaremagico.tm.character.Surname;
 import com.softwaremagico.tm.character.callings.Calling;
 import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
-import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
-import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
-import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
-import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.character.upbringing.Upbringing;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidCallingException;
@@ -48,91 +42,6 @@ import org.testng.annotations.Test;
 
 @Test(groups = "characterCreation")
 public class CharacterCreationTest {
-
-    public static CharacterPlayer generateHumanNobleDecadosCommander() {
-        CharacterPlayer characterPlayer = new CharacterPlayer();
-
-        characterPlayer.getInfo().addName(new Name("Oliver", Gender.MALE, null));
-        characterPlayer.getInfo().setSurname(new Surname("Queen", null));
-        characterPlayer.getInfo().setPlayer("Player 1");
-        characterPlayer.getInfo().setGender(Gender.MALE);
-        characterPlayer.getInfo().setAge(31);
-        characterPlayer.getInfo().setPlanet(PlanetFactory.getInstance().getElement("sutek"));
-
-        characterPlayer.setSpecie("human");
-        characterPlayer.setUpbringing("noble");
-        final Upbringing upbringing = UpbringingFactory.getInstance().getElement("noble");
-        for (int i = 0; i < upbringing.getCharacteristicOptions().size(); i++) {
-            for (int j = 0; j < upbringing.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getUpbringing().getCharacteristicOptions().get(i).getSelections()
-                        .add(upbringing.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic());
-            }
-        }
-        for (int i = 0; i < upbringing.getSkillOptions().size(); i++) {
-            for (int j = 0; j < upbringing.getSkillOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getUpbringing().getSkillOptions().get(i).getSelections()
-                        .add(upbringing.getSkillOptions().get(i).getSkills().get(j).getSkill());
-            }
-        }
-        for (int i = 0; i < upbringing.getMaterialAwards().size(); i++) {
-            for (int j = 0; j < upbringing.getMaterialAwards().get(i).getTotalOptions(); j++) {
-                characterPlayer.getUpbringing().getMaterialAwards().get(i).getSelections()
-                        .add(upbringing.getMaterialAwards().get(i).getItems().get(j).getId());
-            }
-        }
-
-
-        characterPlayer.setFaction("decados");
-        final Faction faction = FactionFactory.getInstance().getElement("decados");
-        for (int i = 0; i < faction.getCharacteristicOptions().size(); i++) {
-            for (int j = 0; j < faction.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getFaction().getCharacteristicOptions().get(i).getSelections()
-                        .add(faction.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic());
-            }
-        }
-        for (int i = 0; i < faction.getSkillOptions().size(); i++) {
-            for (int j = 0; j < faction.getSkillOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getFaction().getSkillOptions().get(i).getSelections()
-                        .add(faction.getSkillOptions().get(i).getSkills().get(j).getSkill());
-            }
-        }
-        for (int i = 0; i < faction.getMaterialAwards().size(); i++) {
-            for (int j = 0; j < faction.getMaterialAwards().get(i).getTotalOptions(); j++) {
-                characterPlayer.getFaction().getMaterialAwards().get(i).getSelections()
-                        .add(faction.getMaterialAwards().get(i).getItems().get(j).getId());
-            }
-        }
-
-
-        characterPlayer.setCalling("commander");
-        final Calling calling = CallingFactory.getInstance().getElement("commander");
-        for (int i = 0; i < calling.getCharacteristicOptions().size(); i++) {
-            for (int j = 0; j < calling.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getCalling().getCharacteristicOptions().get(i).getSelections()
-                        .add(calling.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic());
-            }
-        }
-        for (int i = 0; i < calling.getSkillOptions().size(); i++) {
-            for (int j = 0; j < calling.getSkillOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getCalling().getSkillOptions().get(i).getSelections()
-                        .add(calling.getSkillOptions().get(i).getSkills().get(j).getSkill());
-            }
-        }
-        for (int i = 0; i < calling.getMaterialAwards().size(); i++) {
-            for (int j = 0; j < calling.getMaterialAwards().get(i).getTotalOptions(); j++) {
-                characterPlayer.getCalling().getMaterialAwards().get(i).getSelections()
-                        .add(calling.getMaterialAwards().get(i).getItems().get(j).getId());
-            }
-        }
-
-
-        //Add a weapon
-        characterPlayer.addEquipmentPurchased(WeaponFactory.getInstance().getElement("soeAlembic"));
-        characterPlayer.addEquipmentPurchased(ArmorFactory.getInstance().getElement("synthsilk"));
-        characterPlayer.addEquipmentPurchased(ShieldFactory.getInstance().getElement("duelingShield"));
-
-        return characterPlayer;
-    }
 
 
     @Test(expectedExceptions = InvalidUpbringingException.class)
@@ -218,7 +127,7 @@ public class CharacterCreationTest {
 
     @Test
     public void checkHumanNobleDecadosCommander() throws MaxInitialValueExceededException {
-        CharacterPlayer characterPlayer = generateHumanNobleDecadosCommander();
+        CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleDecadosCommander();
 
         Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.STRENGTH), 3);
         Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.DEXTERITY), 5);

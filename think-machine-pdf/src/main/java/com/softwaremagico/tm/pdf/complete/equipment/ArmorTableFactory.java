@@ -40,6 +40,7 @@ public class ArmorTableFactory extends BaseElement {
     private static final float[] WIDTHS = {1f};
     private static final String GAP = "___________________";
     private static final int NAME_COLUMN_WIDTH = 70;
+    private static final int DAMAGE_HEIGHT = 28;
 
     public static PdfPTable getArmorTable(CharacterPlayer characterPlayer) throws InvalidXmlElementException {
         final PdfPTable table = new PdfPTable(WIDTHS);
@@ -80,6 +81,7 @@ public class ArmorTableFactory extends BaseElement {
         final PdfPCell damageCell = new PdfPCell(getDamageProtection(characterPlayer));
         damageCell.setColspan(widths.length);
         damageCell.setBorder(0);
+        damageCell.setMinimumHeight(DAMAGE_HEIGHT);
         table.addCell(damageCell);
         return table;
     }

@@ -8991,7 +8991,8 @@
         <size>XXL</size>
         <cost>5000</cost>
         <damageTypes>
-            <damageType>blaster, hard</damageType>
+            <damageType>blaster</damageType>
+            <damageType>hard</damageType>
         </damageTypes>
         <others>
             <other>stock</other>

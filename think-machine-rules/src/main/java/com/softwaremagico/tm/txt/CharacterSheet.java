@@ -318,7 +318,7 @@ public class CharacterSheet {
             stringBuilder.append("\t- ").append(item.getName());
             final StringBuilder data = new StringBuilder();
             String separator = "";
-            if (item.getTechLevel() > 0) {
+            if (item.getTechLevel() != null) {
                 data.append(separator).append(TextFactory.getInstance().getElement("techLevel").getName()).append(" ")
                         .append(item.getTechLevel());
                 separator = ELEMENT_SEPARATOR;
