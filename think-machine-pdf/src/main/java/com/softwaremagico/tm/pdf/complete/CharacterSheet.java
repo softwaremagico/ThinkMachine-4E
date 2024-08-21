@@ -36,6 +36,7 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.pdf.complete.equipment.ItemsPackFactory;
 import com.softwaremagico.tm.pdf.complete.events.SheetAlternatedBackgroundEvent;
 import com.softwaremagico.tm.pdf.complete.info.CharacterBasicsCompleteTableFactory;
+import com.softwaremagico.tm.pdf.complete.info.DescriptionAndAnnotationsTableFactory;
 import com.softwaremagico.tm.pdf.complete.skills.CharacteristicsAndSkillsTableFactory;
 
 public class CharacterSheet extends PdfDocument {
@@ -78,6 +79,8 @@ public class CharacterSheet extends PdfDocument {
         document.add(ResistancesCapabilitiesAndProtectionsTable.getResistancesAndProtectionsBasicsTable(characterPlayer));
 
         document.newPage();
+
+        document.add(DescriptionAndAnnotationsTableFactory.getDescriptionAndAnnotationsTable(characterPlayer));
 
         document.add(ItemsPackFactory.getItemsPack(characterPlayer));
 

@@ -37,7 +37,7 @@ import com.softwaremagico.tm.file.Version;
 import com.softwaremagico.tm.pdf.complete.FadingSunsTheme;
 
 public class FooterEvent extends PdfPageEventHelper {
-    private static final int PADDING = 20;
+    private static final int PADDING = 10;
 
     /**
      * Adds a footer to every page
@@ -49,7 +49,7 @@ public class FooterEvent extends PdfPageEventHelper {
             final Phrase footer = new Phrase("Created using 'Think Machine 4E'" + (Version.getVersion() != null ? " v" + Version.getVersion() : ""),
                     new Font(FadingSunsTheme.getFooterFont(), FadingSunsTheme.FOOTER_FONT_SIZE));
             ColumnText.showTextAligned(cb, Element.ALIGN_CENTER, footer, (document.right() - document.left()) / 2 + document.leftMargin(),
-                    document.bottom() + PADDING, 0);
+                    document.bottom() - PADDING, 0);
         }
     }
 }

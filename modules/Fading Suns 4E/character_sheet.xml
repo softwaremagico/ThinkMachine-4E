@@ -105,48 +105,48 @@
             <es>Educación</es>
         </name>
     </upbringing>
-    <infoHair>
-        <id>infoHair</id>
+    <hair>
+        <id>hair</id>
         <name>
             <en>Hair</en>
             <es>Cabello</es>
         </name>
-    </infoHair>
-    <infoEyes>
-        <id>infoEyes</id>
+    </hair>
+    <eyes>
+        <id>eyes</id>
         <name>
             <en>Eyes</en>
             <es>Ojos</es>
         </name>
-    </infoEyes>
-    <infoWeight>
-        <id>infoWeight</id>
+    </eyes>
+    <weight>
+        <id>weight</id>
         <name>
             <en>Weight</en>
             <es>Peso</es>
         </name>
-    </infoWeight>
-    <infoHeight>
-        <id>infoHeight</id>
+    </weight>
+    <height>
+        <id>height</id>
         <name>
             <en>Height</en>
             <es>Estatura</es>
         </name>
-    </infoHeight>
-    <infoComplexion>
-        <id>infoComplexion</id>
+    </height>
+    <complexion>
+        <id>complexion</id>
         <name>
             <en>Complexion</en>
             <es>Complexión</es>
         </name>
-    </infoComplexion>
-    <infoAppearance>
-        <id>infoAppearance</id>
+    </complexion>
+    <appearance>
+        <id>appearance</id>
         <name>
             <en>Appearance</en>
             <es>Imagen</es>
         </name>
-    </infoAppearance>
+    </appearance>
     <properties>
         <id>properties</id>
         <name>

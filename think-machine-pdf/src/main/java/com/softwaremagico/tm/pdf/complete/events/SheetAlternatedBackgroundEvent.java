@@ -56,7 +56,7 @@ public class SheetAlternatedBackgroundEvent extends PdfPageEventHelper {
             rightCorner = Image.getInstance(
                     SheetAlternatedBackgroundEvent.class.getResource("/" + FadingSunsTheme.RIGHT_CORNER_IMAGE));
             rightCorner.setAbsolutePosition(document.getPageSize().getWidth() - IMAGE_WIDTH,
-                    document.getPageSize().getHeight() - IMAGE_HEIGHT - IMAGE_TOP_BORDER);
+                    IMAGE_TOP_BORDER);
             rightCorner.scaleToFit(IMAGE_WIDTH, IMAGE_HEIGHT);
         } catch (BadElementException | IOException e) {
             PdfExporterLog.errorMessage(this.getClass().getName(), e);
@@ -97,7 +97,7 @@ public class SheetAlternatedBackgroundEvent extends PdfPageEventHelper {
             // IMAGE_BORDER);
             final float barWidth = document.getPageSize().getWidth() - IMAGE_WIDTH - IMAGE_BORDER * 2f;
             mainTitleLeft.setAbsolutePosition(IMAGE_BORDER * 2f + TITLE_BORDER,
-                    document.getPageSize().getHeight() - BAR_HEIGHT - IMAGE_TOP_BORDER - 2);
+                    BAR_HEIGHT - 3);
             mainTitleLeft.scaleAbsolute(barWidth, BAR_HEIGHT);
         } catch (BadElementException | IOException e) {
             PdfExporterLog.errorMessage(this.getClass().getName(), e);
@@ -110,10 +110,10 @@ public class SheetAlternatedBackgroundEvent extends PdfPageEventHelper {
         try {
             if (writer.getPageNumber() % 2 != 0) {
                 writer.getDirectContent().addImage(leftCorner);
-                writer.getDirectContent().addImage(mainTitleRight);
+                //writer.getDirectContent().addImage(mainTitleRight);
             } else {
                 writer.getDirectContent().addImage(rightCorner);
-                writer.getDirectContent().addImage(mainTitleLeft);
+                //writer.getDirectContent().addImage(mainTitleLeft);
             }
         } catch (DocumentException e) {
             PdfExporterLog.errorMessage(this.getClass().getName(), e);
