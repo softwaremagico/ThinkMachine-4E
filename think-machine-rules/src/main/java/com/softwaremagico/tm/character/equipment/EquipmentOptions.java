@@ -27,6 +27,7 @@ package com.softwaremagico.tm.character.equipment;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.XmlData;
+import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.equipment.item.handheldshield.CustomizedHandheldShield;
 import com.softwaremagico.tm.character.equipment.item.handheldshield.HandheldShield;
 import com.softwaremagico.tm.character.equipment.item.handheldshield.HandheldShieldFactory;
@@ -103,8 +104,9 @@ public class EquipmentOptions extends XmlData {
         return finalItems;
     }
 
-    public Set<Equipment<?>> getItems(Collection<String> items) {
-        return getItems().stream().filter(e -> items.contains(e.getId())).collect(Collectors.toSet());
+    public Set<Equipment<?>> getItems(Collection<Selection> items) {
+        return getItems().stream().filter(e -> items.stream().map(Selection::getId).collect(Collectors.toList())
+                .contains(e.getId())).collect(Collectors.toSet());
     }
 
     public void setItems(List<Equipment<?>> items) {

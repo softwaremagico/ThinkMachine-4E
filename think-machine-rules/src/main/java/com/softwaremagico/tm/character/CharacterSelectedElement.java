@@ -28,13 +28,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CharacterSelectedElement {
-    private List<String> selections = new ArrayList<>();
+    private List<Selection> selections = new ArrayList<>();
 
-    public List<String> getSelections() {
+    public List<Selection> getSelections() {
         return selections;
     }
 
-    public void setSelections(List<String> selections) {
+    public void setSelections(List<Selection> selections) {
         this.selections = selections;
     }
 }

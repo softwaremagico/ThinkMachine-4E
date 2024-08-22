@@ -13,7 +13,9 @@
                 <capabilities>
                     <capability>
                         <id>factionLore</id>
-                        <specialization>alMalik</specialization>
+                        <specialization>
+                            <id>alMalik</id>
+                        </specialization>
                     </capability>
                 </capabilities>
             </options>
@@ -43,7 +45,9 @@
                     </capability>
                     <capability>
                         <id>speak</id>
-                        <specialization>gracefulTongue</specialization>
+                        <specialization>
+                            <id>gracefulTongue</id>
+                        </specialization>
                     </capability>
                 </capabilities>
             </options>
@@ -367,7 +371,9 @@
                 <capabilities>
                     <capability>
                         <id>factionLore</id>
-                        <specialization>decados</specialization>
+                        <specialization>
+                            <id>decados</id>
+                        </specialization>
                     </capability>
                 </capabilities>
             </options>
@@ -610,7 +616,9 @@
                 <capabilities>
                     <capability>
                         <id>factionLore</id>
-                        <specialization>hazat</specialization>
+                        <specialization>
+                            <id>hazat</id>
+                        </specialization>
                     </capability>
                 </capabilities>
             </options>
@@ -839,7 +847,9 @@
                 <capabilities>
                     <capability>
                         <id>factionLore</id>
-                        <specialization>hazat</specialization>
+                        <specialization>
+                            <id>hazat</id>
+                        </specialization>
                     </capability>
                 </capabilities>
             </options>
@@ -1099,7 +1109,9 @@
                 <capabilities>
                     <capability>
                         <id>factionLore</id>
-                        <specialization>liHalan</specialization>
+                        <specialization>
+                            <id>liHalan</id>
+                        </specialization>
                     </capability>
                 </capabilities>
             </options>
@@ -1342,7 +1354,9 @@
                 <capabilities>
                     <capability>
                         <id>factionLore</id>
-                        <specialization>brotherBattle</specialization>
+                        <specialization>
+                            <id>brotherBattle</id>
+                        </specialization>
                     </capability>
                 </capabilities>
             </options>
@@ -1545,7 +1559,9 @@
                 <capabilities>
                     <capability>
                         <id>factionLore</id>
-                        <specialization>eskatonic</specialization>
+                        <specialization>
+                            <id>eskatonic</id>
+                        </specialization>
                     </capability>
                 </capabilities>
             </options>
@@ -1753,7 +1769,9 @@
                 <total>1</total>
                 <capability>
                     <id>factionLore</id>
-                    <specialization>sanctuaryAeon</specialization>
+                    <specialization>
+                        <id>sanctuaryAeon</id>
+                    </specialization>
                 </capability>
             </options>
             <options>
@@ -1969,7 +1987,9 @@
                 <capabilities>
                     <capability>
                         <id>factionLore</id>
-                        <specialization>alMalik</specialization>
+                        <specialization>
+                            <id>alMalik</id>
+                        </specialization>
                     </capability>
                 </capabilities>
             </options>
@@ -2195,11 +2215,15 @@
                 <capabilities>
                     <capability>
                         <id>read</id>
-                        <specialization>latin</specialization>
+                        <specialization>
+                            <id>latin</id>
+                        </specialization>
                     </capability>
                     <capability>
                         <id>speak</id>
-                        <specialization>latin</specialization>
+                        <specialization>
+                            <id>latin</id>
+                        </specialization>
                     </capability>
                 </capabilities>
             </options>
@@ -2208,7 +2232,9 @@
                 <capabilities>
                     <capability>
                         <id>factionLore</id>
-                        <specialization>orthodox</specialization>
+                        <specialization>
+                            <id>orthodox</id>
+                        </specialization>
                     </capability>
                 </capabilities>
             </options>
@@ -2387,7 +2413,9 @@
                 <capabilities>
                     <capability>
                         <id>factionLore</id>
-                        <specialization>charioteers</specialization>
+                        <specialization>
+                            <id>charioteers</id>
+                        </specialization>
                     </capability>
                 </capabilities>
             </options>
@@ -2559,7 +2587,9 @@
                 <capabilities>
                     <capability>
                         <id>factionLore</id>
-                        <specialization>engineers</specialization>
+                        <specialization>
+                            <id>engineers</id>
+                        </specialization>
                     </capability>
                 </capabilities>
             </options>
@@ -2734,7 +2764,9 @@
                 <capabilities>
                     <capability>
                         <id>factionLore</id>
-                        <specialization>muster</specialization>
+                        <specialization>
+                            <id>muster</id>
+                        </specialization>
                     </capability>
                 </capabilities>
             </options>
@@ -2929,7 +2961,9 @@
                 <capabilities>
                     <capability>
                         <id>factionLore</id>
-                        <specialization>reeves</specialization>
+                        <specialization>
+                            <id>reeves</id>
+                        </specialization>
                     </capability>
                 </capabilities>
             </options>
@@ -3105,7 +3139,9 @@
                 <capabilities>
                     <capability>
                         <id>factionLore</id>
-                        <specialization>scravers</specialization>
+                        <specialization>
+                            <id>scravers</id>
+                        </specialization>
                     </capability>
                 </capabilities>
             </options>
@@ -3321,11 +3357,15 @@
                 <capabilities>
                     <capability>
                         <id>combatArmor</id>
-                        <specialization></specialization>
+                        <specialization>
+                            <id></id>
+                        </specialization>
                     </capability>
                     <capability>
                         <id>warArmor</id>
-                        <specialization></specialization>
+                        <specialization>
+                            <id></id>
+                        </specialization>
                     </capability>
                 </capabilities>
             </options>
@@ -3334,15 +3374,21 @@
                 <capabilities>
                     <capability>
                         <id>artillery</id>
-                        <specialization></specialization>
+                        <specialization>
+                            <id></id>
+                        </specialization>
                     </capability>
                     <capability>
                         <id>demolitions</id>
-                        <specialization></specialization>
+                        <specialization>
+                            <id></id>
+                        </specialization>
                     </capability>
                     <capability>
                         <id>gunnery</id>
-                        <specialization></specialization>
+                        <specialization>
+                            <id></id>
+                        </specialization>
                     </capability>
                 </capabilities>
             </options>
@@ -3931,7 +3977,9 @@
                 <capabilities>
                     <capability>
                         <id>speak</id>
-                        <specialization>vagabondPatois</specialization>
+                        <specialization>
+                            <id>vagabondPatois</id>
+                        </specialization>
                     </capability>
                 </capabilities>
             </options>
@@ -4129,7 +4177,9 @@
                 <capabilities>
                     <capability>
                         <id>speak</id>
-                        <specialization>vuldrish</specialization>
+                        <specialization>
+                            <id>vuldrish</id>
+                        </specialization>
                     </capability>
                 </capabilities>
             </options>
@@ -4138,7 +4188,9 @@
                 <capabilities>
                     <capability>
                         <id>factionLore</id>
-                        <specialization>vuldrok</specialization>
+                        <specialization>
+                            <id>vuldrok</id>
+                        </specialization>
                     </capability>
                     <capability>
                         <group>craftsLore</group>

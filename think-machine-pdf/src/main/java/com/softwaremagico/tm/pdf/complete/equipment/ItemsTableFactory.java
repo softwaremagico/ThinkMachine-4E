@@ -30,7 +30,7 @@ public class ItemsTableFactory extends BaseElement {
 
         table.addCell(createSectionTitle(TextFactory.getInstance().getElement("items").getName(), WIDTHS.length));
 
-        final List<Item> items = characterPlayer.getItems();
+        final List<Item> items = characterPlayer != null ? characterPlayer.getItems() : new ArrayList<>();
         final List<Item> itemsFirstColumn = items.subList(0, Math.min(items.size(), ROWS));
         List<Item> itemsSecondColumn;
         try {

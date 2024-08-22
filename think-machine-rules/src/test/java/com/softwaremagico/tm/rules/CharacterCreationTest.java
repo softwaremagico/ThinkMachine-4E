@@ -26,6 +26,7 @@ package com.softwaremagico.tm.rules;
 
 import com.softwaremagico.tm.character.CharacterExamples;
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.callings.Calling;
 import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
@@ -100,7 +101,7 @@ public class CharacterCreationTest {
         for (int i = 0; i < upbringing.getCharacteristicOptions().size(); i++) {
             for (int j = 0; j < upbringing.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
                 characterPlayer.getUpbringing().getCharacteristicOptions().get(i).getSelections()
-                        .add(upbringing.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic());
+                        .add(new Selection(upbringing.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic()));
             }
         }
 
@@ -109,7 +110,7 @@ public class CharacterCreationTest {
         for (int i = 0; i < faction.getCharacteristicOptions().size(); i++) {
             for (int j = 0; j < faction.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
                 characterPlayer.getFaction().getCharacteristicOptions().get(i).getSelections()
-                        .add(faction.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic());
+                        .add(new Selection(faction.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic()));
             }
         }
 
@@ -119,7 +120,7 @@ public class CharacterCreationTest {
         for (int i = 0; i < calling.getCharacteristicOptions().size(); i++) {
             for (int j = 0; j < calling.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
                 characterPlayer.getCalling().getCharacteristicOptions().get(i).getSelections()
-                        .add(calling.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic());
+                        .add(new Selection(calling.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic()));
             }
         }
         characterPlayer.getCharacteristicValue(CharacteristicName.PRESENCE);

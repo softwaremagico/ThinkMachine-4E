@@ -25,6 +25,7 @@ package com.softwaremagico.tm.character.equipment;
  */
 
 import com.softwaremagico.tm.character.CharacterSelectedElement;
+import com.softwaremagico.tm.character.Selection;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -32,24 +33,24 @@ import java.util.stream.Collectors;
 
 public class CharacterSelectedEquipment extends CharacterSelectedElement {
     //If has been removed later. To not print it on the sheet.
-    private Set<String> removed;
+    private Set<Selection> removed;
 
-    public Set<String> getRemainder() {
-        return getSelections().stream().filter(e -> !getRemoved().contains(e)).collect(Collectors.toSet());
+    public Set<Selection> getRemainder() {
+        return getSelections().stream().filter(e -> !getRemoved().contains(e.getId())).collect(Collectors.toSet());
     }
 
-    public Set<String> getRemoved() {
+    public Set<Selection> getRemoved() {
         if (this.removed == null) {
             this.removed = new HashSet<>();
         }
         return removed;
     }
 
-    public void setRemoved(Set<String> removed) {
+    public void setRemoved(Set<Selection> removed) {
         this.removed = removed;
     }
 
-    public void addRemoved(String removed) {
+    public void addRemoved(Selection removed) {
         if (this.removed == null) {
             this.removed = new HashSet<>();
         }

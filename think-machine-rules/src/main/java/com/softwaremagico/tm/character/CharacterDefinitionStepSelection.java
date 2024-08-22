@@ -26,11 +26,7 @@ package com.softwaremagico.tm.character;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
-import com.softwaremagico.tm.character.capabilities.CapabilityOption;
-import com.softwaremagico.tm.character.characteristics.CharacteristicBonus;
 import com.softwaremagico.tm.character.equipment.CharacterSelectedEquipment;
-import com.softwaremagico.tm.character.perks.PerkOption;
-import com.softwaremagico.tm.character.skills.SkillBonus;
 import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
 import com.softwaremagico.tm.exceptions.InvalidSelectedElementException;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
@@ -132,7 +128,7 @@ public abstract class CharacterDefinitionStepSelection<T extends CharacterDefini
     public int getCharacteristicBonus(String characteristic) {
         int bonus = 0;
         for (int i = 0; i < getCharacteristicOptions().size(); i++) {
-            if (getCharacteristicOptions().get(i).getSelections().contains(characteristic)) {
+            if (getCharacteristicOptions().get(i).getSelections().stream().map(Selection::getId).collect(Collectors.toSet()).contains(characteristic)) {
                 bonus += characterDefinitionStep.getCharacteristicOptions().get(i).getCharacteristicBonus(characteristic).getBonus();
             }
         }
@@ -143,7 +139,7 @@ public abstract class CharacterDefinitionStepSelection<T extends CharacterDefini
         int bonus = 0;
         for (int i = 0; i < getSkillOptions().size(); i++) {
             for (int j = 0; j < getSkillOptions().get(i).getSelections().size(); j++) {
-                if (getSkillOptions().get(i).getSelections().contains(skill)) {
+                if (getSkillOptions().get(i).getSelections().stream().map(Selection::getId).collect(Collectors.toSet()).contains(skill)) {
                     bonus += characterDefinitionStep.getSkillOptions().get(i).getSkillBonus(skill).getBonus();
                 }
             }
@@ -151,15 +147,15 @@ public abstract class CharacterDefinitionStepSelection<T extends CharacterDefini
         return bonus;
     }
 
-    public List<String> getSelectedCapabilities() {
-        final List<String> selectedCapabilities = new ArrayList<>();
+    public List<Selection> getSelectedCapabilities() {
+        final List<Selection> selectedCapabilities = new ArrayList<>();
         capabilityOptions.forEach(capabilityOption ->
                 selectedCapabilities.addAll(capabilityOption.getSelections()));
         return selectedCapabilities;
     }
 
-    public List<String> getSelectedPerks() {
-        final List<String> selectedPerks = new ArrayList<>();
+    public List<Selection> getSelectedPerks() {
+        final List<Selection> selectedPerks = new ArrayList<>();
         perksOptions.forEach(perkOption ->
                 selectedPerks.addAll(perkOption.getSelections()));
         return selectedPerks;
@@ -187,9 +183,9 @@ public abstract class CharacterDefinitionStepSelection<T extends CharacterDefini
                         + "' capabilities options and only '"
                         + characterDefinitionStep.getCapabilityOptions().get(i).getCapabilities().size() + "' are available.");
             }
-            final List<String> availableOptions = characterDefinitionStep.getCapabilityOptions().get(i).getCapabilities()
-                    .stream().map(CapabilityOption::getId).collect(Collectors.toList());
-            for (String selection : capabilityOptions.get(i).getSelections()) {
+            final List<Selection> availableOptions = characterDefinitionStep.getCapabilityOptions().get(i).getCapabilities()
+                    .stream().map(co -> new Selection(co.getId(), co.getSpecialization())).collect(Collectors.toList());
+            for (Selection selection : capabilityOptions.get(i).getSelections()) {
                 if (!availableOptions.contains(selection)) {
                     throw new InvalidSelectedElementException("Selected capability '" + selection + "' does not exist.", selection);
                 }
@@ -204,9 +200,9 @@ public abstract class CharacterDefinitionStepSelection<T extends CharacterDefini
                         + characterDefinitionStep.getCharacteristicOptions().get(i).getCharacteristics().size()
                         + "' are available.");
             }
-            final List<String> availableOptions = characterDefinitionStep.getCharacteristicOptions().get(i).getCharacteristics()
-                    .stream().map(CharacteristicBonus::getCharacteristic).collect(Collectors.toList());
-            for (String selection : characteristicOptions.get(i).getSelections()) {
+            final List<Selection> availableOptions = characterDefinitionStep.getCharacteristicOptions().get(i).getCharacteristics()
+                    .stream().map(co -> new Selection(co.getCharacteristic())).collect(Collectors.toList());
+            for (Selection selection : characteristicOptions.get(i).getSelections()) {
                 if (!availableOptions.contains(selection)) {
                     throw new InvalidSelectedElementException("Selected characteristic '" + selection + "' does not exist.", selection);
                 }
@@ -221,9 +217,9 @@ public abstract class CharacterDefinitionStepSelection<T extends CharacterDefini
                         + characterDefinitionStep.getSkillOptions().get(i).getSkills().size()
                         + "' are available.");
             }
-            final List<String> availableOptions = characterDefinitionStep.getSkillOptions().get(i).getSkills()
-                    .stream().map(SkillBonus::getSkill).collect(Collectors.toList());
-            for (String selection : skillOptions.get(i).getSelections()) {
+            final List<Selection> availableOptions = characterDefinitionStep.getSkillOptions().get(i).getSkills()
+                    .stream().map(so -> new Selection(so.getSkill())).collect(Collectors.toList());
+            for (Selection selection : skillOptions.get(i).getSelections()) {
                 if (!availableOptions.contains(selection)) {
                     throw new InvalidSelectedElementException("Selected skill '" + selection + "' does not exist.", selection);
                 }
@@ -238,9 +234,9 @@ public abstract class CharacterDefinitionStepSelection<T extends CharacterDefini
                         + characterDefinitionStep.getPerksOptions().get(i).getPerks().size()
                         + "' are available.");
             }
-            final List<String> availableOptions = characterDefinitionStep.getPerksOptions().get(i).getPerks()
-                    .stream().map(PerkOption::getId).collect(Collectors.toList());
-            for (String selection : perksOptions.get(i).getSelections()) {
+            final List<Selection> availableOptions = characterDefinitionStep.getPerksOptions().get(i).getPerks()
+                    .stream().map(po -> new Selection(po.getId())).collect(Collectors.toList());
+            for (Selection selection : perksOptions.get(i).getSelections()) {
                 if (!availableOptions.contains(selection)) {
                     throw new InvalidSelectedElementException("Selected perk '" + selection + "' does not exist.", selection);
                 }

@@ -33,7 +33,7 @@ public class CapabilityOption {
     @JsonProperty("group")
     private String group;
     @JsonProperty("specialization")
-    private String specialization;
+    private Specialization specialization;
 
     public CapabilityOption() {
         super();
@@ -48,7 +48,7 @@ public class CapabilityOption {
         this();
         setId(capability.getId());
         if (specialization != null) {
-            setSpecialization(specialization.getId());
+            setSpecialization(specialization);
         }
     }
 
@@ -68,16 +68,16 @@ public class CapabilityOption {
         this.group = group;
     }
 
-    public String getSpecialization() {
+    public Specialization getSpecialization() {
         return specialization;
     }
 
-    public void setSpecialization(String specialization) {
+    public void setSpecialization(Specialization specialization) {
         this.specialization = specialization;
     }
 
     @Override
     public String toString() {
-        return (id != null ? id : (group != null ? group : null)) + (specialization != null ? " (" + specialization + ")" : "");
+        return (id != null ? id : (group != null ? group : null)) + (specialization != null ? " (" + specialization.getId() + ")" : "");
     }
 }

@@ -32,7 +32,7 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.perks.Perk;
-import com.softwaremagico.tm.character.perks.PerkFactory;
+import com.softwaremagico.tm.character.perks.SpecializedPerk;
 import com.softwaremagico.tm.pdf.complete.FadingSunsTheme;
 import com.softwaremagico.tm.pdf.complete.elements.BaseElement;
 import com.softwaremagico.tm.txt.TextFactory;
@@ -68,16 +68,17 @@ public class PerksTableFactory extends BaseElement {
 
         int totalElements = 0;
         if (characterPlayer != null) {
-            final List<Perk> perks = characterPlayer.getPerks();
+            final List<SpecializedPerk> perks = characterPlayer.getPerks();
             //Faction perks
             if (characterPlayer.getFaction() != null) {
                 final Faction faction = FactionFactory.getInstance().getElement(characterPlayer.getFaction().getId());
-                perks.addAll(faction.getPerks());
+                perks.addAll(SpecializedPerk.create(faction.getPerks()));
             }
             if (!perks.isEmpty()) {
                 Collections.sort(perks);
                 for (Perk perk : perks) {
-                    final PdfPCell cell = new PdfPCell(new Paragraph(BaseElement.getChunk(perk.getName().getTranslatedText(), NAME_COLUMN_WIDTH,
+                    final String text = perk.getName().getTranslatedText();
+                    final PdfPCell cell = new PdfPCell(new Paragraph(BaseElement.getChunk(text, NAME_COLUMN_WIDTH,
                             FadingSunsTheme.getHandwrittingFont(), FadingSunsTheme.HANDWRITTING_DEFAULT_FONT_SIZE)));
                     cell.setBorder(0);
                     cell.setMinimumHeight(FadingSunsTheme.ROW_HEIGHT);

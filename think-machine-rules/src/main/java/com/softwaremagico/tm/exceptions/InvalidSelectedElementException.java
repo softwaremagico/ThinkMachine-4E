@@ -25,21 +25,23 @@ package com.softwaremagico.tm.exceptions;
  */
 
 
+import com.softwaremagico.tm.character.Selection;
+
 public class InvalidSelectedElementException extends InvalidXmlElementException {
     private static final long serialVersionUID = 194333793074549262L;
-    private final String selectedId;
+    private final Selection selection;
 
-    public InvalidSelectedElementException(String message, String selectedId) {
+    public InvalidSelectedElementException(String message, Selection selection) {
         super(message);
-        this.selectedId = selectedId;
+        this.selection = selection;
     }
 
-    public InvalidSelectedElementException(String message, Exception e, String selectedId) {
+    public InvalidSelectedElementException(String message, Exception e, Selection selection) {
         super(message, e);
-        this.selectedId = selectedId;
+        this.selection = selection;
     }
 
-    public String getSelectedId() {
-        return selectedId;
+    public Selection getSelection() {
+        return selection;
     }
 }

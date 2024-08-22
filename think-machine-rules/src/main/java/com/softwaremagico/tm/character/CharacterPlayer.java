@@ -39,8 +39,8 @@ import com.softwaremagico.tm.character.equipment.shields.Shield;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.factions.FactionCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.factions.FactionFactory;
-import com.softwaremagico.tm.character.perks.Perk;
 import com.softwaremagico.tm.character.perks.PerkFactory;
+import com.softwaremagico.tm.character.perks.SpecializedPerk;
 import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
@@ -258,18 +258,18 @@ public class CharacterPlayer {
         return null;
     }
 
-    public List<Perk> getPerks() {
-        final List<Perk> perks = new ArrayList<>();
+    public List<SpecializedPerk> getPerks() {
+        final List<SpecializedPerk> perks = new ArrayList<>();
         if (upbringing != null) {
             upbringing.getPerksOptions().forEach(perkOption ->
                     perkOption.getSelections().forEach(selection ->
-                            perks.add(PerkFactory.getInstance().getElement(selection))));
+                            perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection), selection.getSpecialization()))));
             faction.getPerksOptions().forEach(perkOption ->
                     perkOption.getSelections().forEach(selection ->
-                            perks.add(PerkFactory.getInstance().getElement(selection))));
+                            perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection), selection.getSpecialization()))));
             calling.getPerksOptions().forEach(perkOption ->
                     perkOption.getSelections().forEach(selection ->
-                            perks.add(PerkFactory.getInstance().getElement(selection))));
+                            perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection), selection.getSpecialization()))));
         }
         return perks;
     }
@@ -412,7 +412,7 @@ public class CharacterPlayer {
 
     private Set<Equipment<?>> getSelectedMaterialAwards(CharacterDefinitionStepSelection<?> definitionStepSelection, XmlFactory<?> factory,
                                                         boolean ignoreRemoved) {
-        final Set<String> selected;
+        final Set<Selection> selected;
         if (ignoreRemoved) {
             selected = definitionStepSelection.getMaterialAwards().stream().map(CharacterSelectedEquipment::getSelections)
                     .flatMap(Collection::stream).collect(Collectors.toSet());

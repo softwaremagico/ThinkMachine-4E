@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character;
+package com.softwaremagico.tm.character.perks;
 
 /*-
  * #%L
@@ -24,30 +24,22 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
+
 import com.softwaremagico.tm.character.skills.Specialization;
 
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Selection {
-    private String id;
+/**
+ * For managing character's perk selections with specializations.
+ */
+public class SpecializedPerk extends Perk {
     private Specialization specialization;
 
-    public Selection(String id) {
+    public SpecializedPerk(Perk perk, Specialization specialization) {
         super();
-        this.id = id;
-    }
-
-    public Selection(String id, Specialization specialization) {
-        this(id);
-        this.specialization = specialization;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+        copy(perk);
+        setSpecialization(specialization);
     }
 
     public Specialization getSpecialization() {
@@ -59,24 +51,13 @@ public class Selection {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        final Selection selection = (Selection) o;
-        return Objects.equals(id, selection.id) && Objects.equals(specialization, selection.specialization);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, specialization);
-    }
-
-    @Override
     public String toString() {
-        return getId() + (getSpecialization() != null ? " (" + getSpecialization() + ")" : "");
+        return getId() + (getSpecialization() != null ? " (" + getSpecialization().getId() + ")" : "");
+    }
+
+    public static List<SpecializedPerk> create(List<Perk> perks) {
+        final List<SpecializedPerk> specializedPerks = new ArrayList<>();
+        perks.forEach(perk -> specializedPerks.add(new SpecializedPerk(perk, null)));
+        return specializedPerks;
     }
 }

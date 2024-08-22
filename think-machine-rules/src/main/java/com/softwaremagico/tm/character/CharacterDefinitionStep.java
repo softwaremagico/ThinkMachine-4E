@@ -97,7 +97,7 @@ public class CharacterDefinitionStep<T extends Element<?>> extends Element<T> {
         return TOTAL_SKILL_OPTIONS;
     }
 
-    public Set<Equipment<?>> getMaterialAwards(Collection<String> selectedMaterialAwards) {
+    public Set<Equipment<?>> getMaterialAwards(Collection<Selection> selectedMaterialAwards) {
         return getMaterialAwards().stream().map(m -> m.getItems(selectedMaterialAwards)).flatMap(Collection::stream)
                 .collect(Collectors.toSet());
     }

@@ -97,7 +97,7 @@ public class SheetAlternatedBackgroundEvent extends PdfPageEventHelper {
             // IMAGE_BORDER);
             final float barWidth = document.getPageSize().getWidth() - IMAGE_WIDTH - IMAGE_BORDER * 2f;
             mainTitleLeft.setAbsolutePosition(IMAGE_BORDER * 2f + TITLE_BORDER,
-                    BAR_HEIGHT - 3);
+                    BAR_HEIGHT - TITLE_BORDER);
             mainTitleLeft.scaleAbsolute(barWidth, BAR_HEIGHT);
         } catch (BadElementException | IOException e) {
             PdfExporterLog.errorMessage(this.getClass().getName(), e);
