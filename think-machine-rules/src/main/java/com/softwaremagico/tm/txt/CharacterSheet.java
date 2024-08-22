@@ -41,9 +41,9 @@ import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineLog;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 public class CharacterSheet {
     private static final String ELEMENT_SEPARATOR = ", ";
@@ -63,18 +63,19 @@ public class CharacterSheet {
         stringBuilder.append(getCharacterPlayer().getCompleteNameRepresentation());
         stringBuilder.append("\n");
         if (getCharacterPlayer().getSpecie() != null) {
-            stringBuilder.append(SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie()).getName());
+            stringBuilder.append(SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie()).getNameRepresentation());
         }
         if (getCharacterPlayer().getInfo() != null) {
             if (getCharacterPlayer().getInfo().getGender() != null) {
-                stringBuilder.append(" ").append(TextFactory.getInstance().getElement(getCharacterPlayer().getInfo().getGender().toString()).getName());
+                stringBuilder.append(" ").append(TextFactory.getInstance().getElement(getCharacterPlayer().getInfo().getGender().toString())
+                        .getNameRepresentation());
             }
             if (getCharacterPlayer().getInfo().getAge() != null) {
                 stringBuilder.append(" ").append(getCharacterPlayer().getInfo().getAge()).append(" ")
-                        .append(TextFactory.getInstance().getElement("years").getName().getTranslatedText().toLowerCase());
+                        .append(TextFactory.getInstance().getElement("years").getNameRepresentation().toLowerCase());
             }
             if (getCharacterPlayer().getInfo().getPlanet() != null) {
-                stringBuilder.append(" (").append(getCharacterPlayer().getInfo().getPlanet().getName()).append(")");
+                stringBuilder.append(" (").append(getCharacterPlayer().getInfo().getPlanet().getNameRepresentation()).append(")");
             }
             stringBuilder.append("\n");
         }
@@ -83,19 +84,19 @@ public class CharacterSheet {
             if (profession.length() > 0) {
                 profession.append(ELEMENT_SEPARATOR);
             }
-            profession.append(getCharacterPlayer().getUpbringing().getName());
+            profession.append(getCharacterPlayer().getUpbringing().getNameRepresentation());
         }
         if (getCharacterPlayer().getFaction() != null) {
             if (profession.length() > 0) {
                 profession.append(ELEMENT_SEPARATOR);
             }
-            profession.append(getCharacterPlayer().getFaction().getName());
+            profession.append(getCharacterPlayer().getFaction().getNameRepresentation());
         }
         if (getCharacterPlayer().getCalling() != null) {
             if (profession.length() > 0) {
                 profession.append(ELEMENT_SEPARATOR);
             }
-            profession.append(getCharacterPlayer().getCalling().getName());
+            profession.append(getCharacterPlayer().getCalling().getNameRepresentation());
         }
         stringBuilder.append(profession);
         stringBuilder.append("\n");
@@ -103,11 +104,11 @@ public class CharacterSheet {
 
 
     private void setCharacteristicsText(StringBuilder stringBuilder) {
-        stringBuilder.append(TextFactory.getInstance().getElement("characteristics").getName()).append(": ");
+        stringBuilder.append(TextFactory.getInstance().getElement("characteristics").getNameRepresentation()).append(": ");
         String separator = "";
         for (final CharacteristicName characteristicName : CharacteristicName.getBasicCharacteristics()) {
             stringBuilder.append(separator);
-            stringBuilder.append(TextFactory.getInstance().getElement(characteristicName.getId()).getName());
+            stringBuilder.append(TextFactory.getInstance().getElement(characteristicName.getId()).getNameRepresentation());
             stringBuilder.append(" ");
             stringBuilder.append(getCharacterPlayer().getCharacteristicValue(characteristicName));
             separator = ELEMENT_SEPARATOR;
@@ -122,9 +123,11 @@ public class CharacterSheet {
     }
 
     private void setSkillsText(StringBuilder stringBuilder) throws InvalidXmlElementException {
-        stringBuilder.append(TextFactory.getInstance().getElement("skills").getName()).append(": ");
-        String separator = "";
-        for (final Skill skill : SkillFactory.getInstance().getElements()) {
+        stringBuilder.append(TextFactory.getInstance().getElement("skills").getNameRepresentation()).append(":");
+        String separator = " ";
+        final List<Skill> skills = SkillFactory.getInstance().getElements();
+        Collections.sort(skills);
+        for (final Skill skill : skills) {
             final int skillValue = characterPlayer.getSkillValue(skill);
             if ((skill.isNatural() && skillValue > Skill.NATURAL_SKILL_INITIAL_VALUE)
                     || (!skill.isNatural() && skillValue > 0)) {
@@ -133,18 +136,21 @@ public class CharacterSheet {
                 separator = ELEMENT_SEPARATOR;
             }
         }
+        stringBuilder.append(".\n");
     }
 
     private void setCapabilitiesText(StringBuilder stringBuilder) throws InvalidXmlElementException {
-        final Set<CapabilityWithSpecialization> characterCapabilities = characterPlayer.getCapabilitiesWithSpecialization();
+        final List<CapabilityWithSpecialization> characterCapabilities = new ArrayList<>(characterPlayer.getCapabilitiesWithSpecialization());
         if (!characterCapabilities.isEmpty()) {
-            stringBuilder.append(TextFactory.getInstance().getElement("capabilities").getName()).append(": ");
-            String separator = "";
+            stringBuilder.append(TextFactory.getInstance().getElement("capabilities").getNameRepresentation()).append(":");
+            String separator = " ";
+            Collections.sort(characterCapabilities);
             for (final CapabilityWithSpecialization capability : characterCapabilities) {
                 stringBuilder.append(separator);
                 stringBuilder.append(capability.getNameRepresentation());
                 separator = ELEMENT_SEPARATOR;
             }
+            stringBuilder.append(".\n");
         }
     }
 
@@ -161,7 +167,7 @@ public class CharacterSheet {
 
     private void setBeneficesText(StringBuilder stringBuilder) throws InvalidXmlElementException {
         if (characterPlayer.getFaction() != null) {
-            stringBuilder.append(TextFactory.getInstance().getElement("blessingTable").getName()).append(":\n");
+            stringBuilder.append(TextFactory.getInstance().getElement("blessingTable").getNameRepresentation()).append(":\n");
             if (characterPlayer.getFaction().get().getBlessing() != null) {
                 stringBuilder.append("\t- ").append(getBlessingRepresentation(characterPlayer.getFaction().get().getBlessing())).append("\n");
             }
@@ -173,26 +179,25 @@ public class CharacterSheet {
     }
 
     private void setResistancesRepresentation(StringBuilder stringBuilder) throws InvalidXmlElementException {
-        stringBuilder.append(TextFactory.getInstance().getElement("resistance").getName());
-        stringBuilder.append(": ");
-        stringBuilder.append("\n");
-        stringBuilder.append(TextFactory.getInstance().getElement("bodyResistance").getName()).append(": ")
+        stringBuilder.append(TextFactory.getInstance().getElement("resistance").getNameRepresentation());
+        stringBuilder.append(":\n");
+        stringBuilder.append(TextFactory.getInstance().getElement("bodyResistance").getNameRepresentation()).append(": ")
                 .append(characterPlayer.getBodyResistance()).append(ELEMENT_SEPARATOR);
-        stringBuilder.append(TextFactory.getInstance().getElement("mindResistance").getName()).append(": ")
+        stringBuilder.append(TextFactory.getInstance().getElement("mindResistance").getNameRepresentation()).append(": ")
                 .append(characterPlayer.getMindResistance()).append(ELEMENT_SEPARATOR);
-        stringBuilder.append(TextFactory.getInstance().getElement("spiritResistance").getName()).append(": ")
+        stringBuilder.append(TextFactory.getInstance().getElement("spiritResistance").getNameRepresentation()).append(": ")
                 .append(characterPlayer.getSpiritResistance()).append(".\n");
     }
 
     private void setBankRepresentation(StringBuilder stringBuilder) throws InvalidXmlElementException {
-        stringBuilder.append(TextFactory.getInstance().getElement("bank").getName());
+        stringBuilder.append(TextFactory.getInstance().getElement("bank").getNameRepresentation());
         stringBuilder.append(": ");
         stringBuilder.append(characterPlayer.getBank());
         stringBuilder.append("\n");
     }
 
     private void setSurgesRepresentation(StringBuilder stringBuilder) throws InvalidXmlElementException {
-        stringBuilder.append(TextFactory.getInstance().getElement("surges").getName());
+        stringBuilder.append(TextFactory.getInstance().getElement("surges").getNameRepresentation());
         stringBuilder.append(": ");
         stringBuilder.append(characterPlayer.getSurgesRating());
         stringBuilder.append("/");
@@ -202,13 +207,13 @@ public class CharacterSheet {
 
 
     private void setVitalityRepresentation(StringBuilder stringBuilder) throws InvalidXmlElementException {
-        stringBuilder.append(TextFactory.getInstance().getElement("vitality").getName());
+        stringBuilder.append(TextFactory.getInstance().getElement("vitality").getNameRepresentation());
         stringBuilder.append(": ").append(characterPlayer.getVitalityValue());
         stringBuilder.append("\n");
     }
 
     private void setRevivalsRepresentation(StringBuilder stringBuilder) throws InvalidXmlElementException {
-        stringBuilder.append(TextFactory.getInstance().getElement("revivals").getName());
+        stringBuilder.append(TextFactory.getInstance().getElement("revivals").getNameRepresentation());
         stringBuilder.append(": ").append(characterPlayer.getRevivalsRating());
         stringBuilder.append("/");
         stringBuilder.append(characterPlayer.getRevivalsNumber());
@@ -223,13 +228,11 @@ public class CharacterSheet {
             if (weapon.getWeaponDamages().get(0).getGoal() != null && !weapon.getWeaponDamages().get(0).getGoal().isEmpty()
                     && !weapon.getWeaponDamages().get(0).getGoal().equals("0")) {
                 stringBuilder.append(weapon.getWeaponDamages().get(0).getGoal());
-                stringBuilder.append(TextFactory.getInstance().getElement("weaponGoal").getName());
+                stringBuilder.append(TextFactory.getInstance().getElement("weaponGoal").getNameRepresentation());
                 stringBuilder.append(ELEMENT_SEPARATOR);
             }
+            stringBuilder.append(TextFactory.getInstance().getElement("weaponDamage").getNameRepresentation()).append(" ");
             stringBuilder.append(weapon.getWeaponDamages().get(0).getDamageWithoutArea());
-            if (!weapon.getWeaponDamages().get(0).getDamageWithoutArea().endsWith("d")) {
-                stringBuilder.append("d");
-            }
             if (weapon.getWeaponDamages().get(0).getAreaMeters() > 0) {
                 stringBuilder.append(" ");
                 stringBuilder.append(weapon.getWeaponDamages().get(0).getAreaMeters());
@@ -240,7 +243,7 @@ public class CharacterSheet {
                 stringBuilder.append(ELEMENT_SEPARATOR);
             }
             if (weapon.getWeaponDamages().get(0).getRate() != null && !weapon.getWeaponDamages().get(0).getRate().isEmpty()) {
-                stringBuilder.append(TextFactory.getInstance().getElement("weaponRate").getName());
+                stringBuilder.append(TextFactory.getInstance().getElement("weaponRate").getNameRepresentation());
                 stringBuilder.append(" ");
                 stringBuilder.append(weapon.getWeaponDamages().get(0).getRate());
                 stringBuilder.append(ELEMENT_SEPARATOR);
@@ -262,26 +265,17 @@ public class CharacterSheet {
         if (armor != null) {
             stringBuilder.append("\t- ").append(armor.getName());
             stringBuilder.append(" (");
-            stringBuilder.append(armor.getProtection()).append("d");
+            stringBuilder.append(TextFactory.getInstance().getElement("armorRating").getNameRepresentation()).append(" ");
+            stringBuilder.append(armor.getProtection());
             stringBuilder.append(ELEMENT_SEPARATOR);
             if (armor.getStandardPenalization().getDexterityModification() != 0) {
-                stringBuilder.append(TextFactory.getInstance().getElement(CharacteristicName.DEXTERITY.getId()).getName()).append(" ");
+                stringBuilder.append(TextFactory.getInstance().getElement(CharacteristicName.DEXTERITY.getId()).getNameRepresentation()).append(" ");
                 stringBuilder.append(armor.getStandardPenalization().getDexterityModification());
                 stringBuilder.append(ELEMENT_SEPARATOR);
             }
             if (armor.getStandardPenalization().getStrengthModification() != 0) {
-                stringBuilder.append(TextFactory.getInstance().getElement(CharacteristicName.STRENGTH.getId()).getName()).append(" ");
+                stringBuilder.append(TextFactory.getInstance().getElement(CharacteristicName.STRENGTH.getId()).getNameRepresentation()).append(" ");
                 stringBuilder.append(armor.getStandardPenalization().getStrengthModification());
-                stringBuilder.append(ELEMENT_SEPARATOR);
-            }
-            if (armor.getStandardPenalization().getEnduranceModification() != 0) {
-                stringBuilder.append(TextFactory.getInstance().getElement(CharacteristicName.ENDURANCE.getId()).getName()).append(" ");
-                stringBuilder.append(armor.getStandardPenalization().getEnduranceModification());
-                stringBuilder.append(ELEMENT_SEPARATOR);
-            }
-            if (armor.getStandardPenalization().getInitiativeModification() != 0) {
-                stringBuilder.append(TextFactory.getInstance().getElement(CharacteristicName.INITIATIVE.getId()).getName()).append(" ");
-                stringBuilder.append(armor.getStandardPenalization().getInitiativeModification());
                 stringBuilder.append(ELEMENT_SEPARATOR);
             }
             final List<DamageType> damages = DamageTypeFactory.getInstance().getElements(armor.getDamageTypes());
@@ -307,7 +301,7 @@ public class CharacterSheet {
             stringBuilder.append(" ");
             stringBuilder.append(shield.getHits());
             stringBuilder.append(" ");
-            stringBuilder.append(TextFactory.getInstance().getElement("shieldHits").getName());
+            stringBuilder.append(TextFactory.getInstance().getElement("shieldHits").getNameRepresentation());
             stringBuilder.append(")");
             stringBuilder.append("\n");
         }
@@ -318,8 +312,8 @@ public class CharacterSheet {
             stringBuilder.append("\t- ").append(item.getName());
             final StringBuilder data = new StringBuilder();
             String separator = "";
-            if (item.getTechLevel() != null) {
-                data.append(separator).append(TextFactory.getInstance().getElement("techLevel").getName()).append(" ")
+            if (item.getTechLevel() != null && item.getTechLevel() > 0) {
+                data.append(separator).append(TextFactory.getInstance().getElement("techLevel").getNameRepresentation()).append(" ")
                         .append(item.getTechLevel());
                 separator = ELEMENT_SEPARATOR;
             }
@@ -328,13 +322,13 @@ public class CharacterSheet {
                 separator = ELEMENT_SEPARATOR;
             }
             if (item.getSize() != null) {
-                data.append(separator).append(TextFactory.getInstance().getElement("size").getName()).append(" ")
+                data.append(separator).append(TextFactory.getInstance().getElement("size").getNameRepresentation()).append(" ")
                         .append(item.getSize());
                 separator = ELEMENT_SEPARATOR;
             }
             if (item.getTechCompulsion() != null) {
-                data.append(separator).append(TextFactory.getInstance().getElement("techCompulsion").getName()).append(" ")
-                        .append(TechCompulsionFactory.getInstance().getElement(item.getTechCompulsion()).getName());
+                data.append(separator).append(TextFactory.getInstance().getElement("techCompulsion").getNameRepresentation()).append(" ")
+                        .append(TechCompulsionFactory.getInstance().getElement(item.getTechCompulsion()).getNameRepresentation());
             }
             if (data.length() > 0) {
                 stringBuilder.append(" (");
@@ -348,7 +342,7 @@ public class CharacterSheet {
     private void setEquipment(StringBuilder stringBuilder) {
         if (!getCharacterPlayer().getWeapons().isEmpty() || getCharacterPlayer().getShield() != null
                 || getCharacterPlayer().getArmor() != null || getCharacterPlayer().getItems() != null) {
-            stringBuilder.append(TextFactory.getInstance().getElement("equipment").getName()).append(":\n");
+            stringBuilder.append(TextFactory.getInstance().getElement("equipment").getNameRepresentation()).append(":\n");
             setWeapons(stringBuilder);
             setArmor(stringBuilder);
             setShield(stringBuilder);
@@ -381,7 +375,7 @@ public class CharacterSheet {
             stringBuilder.append("\n");
             setEquipment(stringBuilder);
         } catch (InvalidXmlElementException e) {
-            MachineLog.errorMessage(this.getClass().getName(), e);
+            MachineLog.errorMessage(this.getClass(), e);
         }
         return stringBuilder.toString();
     }

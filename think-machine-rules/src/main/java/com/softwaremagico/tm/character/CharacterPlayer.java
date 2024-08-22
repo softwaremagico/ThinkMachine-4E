@@ -298,6 +298,7 @@ public class CharacterPlayer {
                     capabilityOption.getSelections().forEach(selection ->
                             capabilities.add(CapabilityWithSpecialization.from(selection))));
         }
+
         return capabilities;
     }
 

@@ -4,7 +4,9 @@ Noble, Decados, Comandante
 
 Características: Fuerza 3, Destreza 5, Constitución 4, Inteligencia 5, Percepción 4, Voluntad 6, Presencia 8, Intuición 3, Fe 4.
 
-Habilidades: Academia (6), Arts (4), Conducir (4), Cuerpo a Cuerpo (5), Disfraz (4), Disparar (4), Encanto (6), Impresionar (6), Introspección (4), Vigor (4)
+Habilidades: Academia (6), Arte (4), Conducir (4), Cuerpo a Cuerpo (5), Disfraz (4), Disparar (4), Encanto (6), Impresionar (6), Introspección (4), Vigor (4).
+
+Competencias: Armas Militares, Armas de Balas, Hablar Urthés, Leer Urthés, Monta, Pintura, Saber Enfermedades, Saber Planetario Sutek, Saber de Facción, Usos de la Corte.
 
 Bendiciones:
 	- Receloso (+2 Perception around political rivals)
@@ -15,17 +17,16 @@ Resistencia:
 Corporal: 4, Mental: 0, Espiritual: 0.
 
 Banco: 5
-Impulsos: 5/1
+Impulsos: 6/1
 
-Vitalidad: 19
-Reanimaciones: 5/1
+Vitalidad: 20
+Reanimaciones: 6/1
 
 Equipo:
-	- SOE Alembic (7d, 10/20, Ratio 1)
-	- Seda Sintética (4d, Blando, Eléctrico)
+	- SOE Alembic (Daño 7, 10/20, Ratio 1, Bláster)
+	- Seda Sintética (Protección 4, Blando, Eléctrico)
 	- Escudo de Energía de Duelo (5/10 15 Cargas)
 	- Amiguito (NT 5, Tam XS)
 	- Corcel de Guerra
 	- Espada Ceremonial (Tam L)
 	- Uniforme de Comandante Militar
-

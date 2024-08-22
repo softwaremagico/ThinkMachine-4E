@@ -44,7 +44,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -121,7 +120,6 @@ public abstract class XmlFactory<T extends Element<T>> {
         try {
             if (elementList == null) {
                 elementList = readXml(entityClass, ModuleManager.DEFAULT_MODULE);
-                Collections.sort(elementList);
             }
             return elementList;
         } catch (IOException e) {

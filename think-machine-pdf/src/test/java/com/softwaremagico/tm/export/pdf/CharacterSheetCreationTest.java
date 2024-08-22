@@ -49,13 +49,13 @@ public class CharacterSheetCreationTest extends PdfGeneration {
     @Test
     public void emptyPdfSpanish() {
         final CharacterSheet sheet = new CharacterSheet();
-        Assert.assertEquals(sheet.createFile(OUTPUT_FOLDER + "FadingSuns_ES.pdf"), 2);
+        Assert.assertEquals(sheet.createFile(OUTPUT_FOLDER + "FadingSuns_ES.pdf"), 3);
     }
 
     @Test
     public void emptyPdfEnglish() {
         final CharacterSheet sheet = new CharacterSheet();
-        Assert.assertEquals(sheet.createFile(OUTPUT_FOLDER + "FadingSuns_EN.pdf"), 2);
+        Assert.assertEquals(sheet.createFile(OUTPUT_FOLDER + "FadingSuns_EN.pdf"), 3);
     }
 
 

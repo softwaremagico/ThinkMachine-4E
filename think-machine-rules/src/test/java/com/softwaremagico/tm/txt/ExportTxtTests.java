@@ -49,6 +49,6 @@ public class ExportTxtTests {
 
         final String text = new String(Files.readAllBytes(Paths.get(getClass().getClassLoader()
                 .getResource("CustomCharacter.txt").toURI())));
-        Assert.assertEquals(characterSheet.toString(), text);
+        Assert.assertEquals(characterSheet.toString().trim(), text.trim());
     }
 }

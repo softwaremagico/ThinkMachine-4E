@@ -45,7 +45,7 @@
                 <!--                <include name="blessings"/>-->
                 <!--                <include name="benefices"/>-->
                 <!--                <include name="occultism"/>-->
-                <!--                <include name="exportTxt"/>-->
+                <include name="exportTxt"/>
                 <!--                <include name="experience"/>-->
                 <!--                <include name="costCalculator"/>-->
                 <!--                <exclude name="jsonCache"/>-->
@@ -88,8 +88,7 @@
             <!--            <class name="com.softwaremagico.tm.rules.FactionTests"/>-->
             <!--            <class name="com.softwaremagico.tm.rules.RaceTests"/>-->
             <!--            <class name="com.softwaremagico.tm.rules.SkillTests"/>-->
-            <!--            <class name="com.softwaremagico.tm.txt.ExportTxtTests"/>-->
-            <!--            <class name="com.softwaremagico.tm.txt.ExportTxtTests"/>-->
+            <class name="com.softwaremagico.tm.txt.ExportTxtTests"/>
             <!--            <class name="com.softwaremagico.tm.json.JsonTests"/>-->
             <!--            <class name="com.softwaremagico.tm.rules.CostCalculatorTests"/>-->
             <!--            <class name="com.softwaremagico.tm.json.JsonCacheLoaderTests"/>-->
