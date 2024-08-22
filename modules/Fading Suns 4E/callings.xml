@@ -670,7 +670,7 @@
                         <id>danceOfDestruction</id>
                     </perk>
                     <perk>
-                        <id>fencing</id>
+                        <group>fencing</group>
                     </perk>
                     <perk>
                         <id>marksmanship</id>
@@ -860,7 +860,7 @@
                         <id>danceOfDestruction</id>
                     </perk>
                     <perk>
-                        <id>fencing</id>
+                        <group>fencing</group>
                     </perk>
                     <perk>
                         <id>marksmanship</id>

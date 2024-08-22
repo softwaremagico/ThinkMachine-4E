@@ -39,6 +39,8 @@ import com.softwaremagico.tm.character.equipment.shields.Shield;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.factions.FactionCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.factions.FactionFactory;
+import com.softwaremagico.tm.character.perks.Perk;
+import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
@@ -256,8 +258,20 @@ public class CharacterPlayer {
         return null;
     }
 
-    public List<String> getPerks() {
-        return new ArrayList<>();
+    public List<Perk> getPerks() {
+        final List<Perk> perks = new ArrayList<>();
+        if (upbringing != null) {
+            upbringing.getPerksOptions().forEach(perkOption ->
+                    perkOption.getSelections().forEach(selection ->
+                            perks.add(PerkFactory.getInstance().getElement(selection))));
+            faction.getPerksOptions().forEach(perkOption ->
+                    perkOption.getSelections().forEach(selection ->
+                            perks.add(PerkFactory.getInstance().getElement(selection))));
+            calling.getPerksOptions().forEach(perkOption ->
+                    perkOption.getSelections().forEach(selection ->
+                            perks.add(PerkFactory.getInstance().getElement(selection))));
+        }
+        return perks;
     }
 
     public CharacterInfo getInfo() {
@@ -275,11 +289,15 @@ public class CharacterPlayer {
     public Set<Capability> getCapabilities() {
         final Set<Capability> capabilities = new HashSet<>();
         if (upbringing != null) {
-            upbringing.getCapabilityOptions().forEach(capabilityOption -> {
-                capabilityOption.getSelections().forEach(selection -> {
-                    capabilities.add(CapabilityFactory.getInstance().getElement(selection));
-                });
-            });
+            upbringing.getCapabilityOptions().forEach(capabilityOption ->
+                    capabilityOption.getSelections().forEach(selection ->
+                            capabilities.add(CapabilityFactory.getInstance().getElement(selection))));
+            faction.getCapabilityOptions().forEach(capabilityOption ->
+                    capabilityOption.getSelections().forEach(selection ->
+                            capabilities.add(CapabilityFactory.getInstance().getElement(selection))));
+            calling.getCapabilityOptions().forEach(capabilityOption ->
+                    capabilityOption.getSelections().forEach(selection ->
+                            capabilities.add(CapabilityFactory.getInstance().getElement(selection))));
         }
         return capabilities;
     }

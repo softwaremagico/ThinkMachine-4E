@@ -755,5 +755,125 @@
             </perks>
         </restrictions>
     </perk>
+    <perk>
+        <id>duello1</id>
+        <group>fencing</group>
+        <name>
+            <en>Duello 1</en>
+            <es>Duelo 1</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>duello2</id>
+        <group>fencing</group>
+        <name>
+            <en>Duello 2</en>
+            <es>Duelo 2</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <perk>duello1</perk>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>kraxi1</id>
+        <group>fencing</group>
+        <name>
+            <en>Kraxi 1</en>
+            <es>Kraxi 1</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>kraxi2</id>
+        <group>fencing</group>
+        <name>
+            <en>Kraxi 2</en>
+            <es>Kraxi 2</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <perk>kraxi1</perk>
+            </upbringings>
+        </restrictions>
+        <!-- TODO recommened to scravers-->
+    </perk>
+    <perk>
+        <id>serpentis1</id>
+        <group>fencing</group>
+        <name>
+            <en>Serpentis 1</en>
+            <es>Serpentis 1</es>
+        </name>
+        <restrictions mode="all">
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+            <capabilities>
+                <capability>dance</capability>
+            </capabilities>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>serpentis2</id>
+        <group>fencing</group>
+        <name>
+            <en>Serpentis 2</en>
+            <es>Serpentis 2</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <perk>serpentis1</perk>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>torero1</id>
+        <group>fencing</group>
+        <name>
+            <en>Torero 1</en>
+            <es>Torero 1</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>torero2</id>
+        <group>fencing</group>
+        <name>
+            <en>Torero 2</en>
+            <es>Torero 2</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <perk>torero1</perk>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>imperious</id>
+        <name>
+            <en>Imperious</en>
+            <es>Imperioso</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
 
 </perks>

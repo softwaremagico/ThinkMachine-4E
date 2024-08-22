@@ -68,7 +68,7 @@ public class PerksTableFactory extends BaseElement {
 
         int totalElements = 0;
         if (characterPlayer != null) {
-            final List<Perk> perks = PerkFactory.getInstance().getElements(characterPlayer.getPerks());
+            final List<Perk> perks = characterPlayer.getPerks();
             //Faction perks
             if (characterPlayer.getFaction() != null) {
                 final Faction faction = FactionFactory.getInstance().getElement(characterPlayer.getFaction().getId());

@@ -68,10 +68,9 @@ public class CapabilitiesTableFactory extends BaseElement {
         if (characterPlayer != null) {
             final List<Capability> capabilities = new ArrayList<>(characterPlayer.getCapabilities());
             if (!capabilities.isEmpty()) {
-
                 Collections.sort(capabilities);
                 for (Capability capability : capabilities) {
-                    final PdfPCell cell = new PdfPCell(new Paragraph(BaseElement.getChunk(capability.getName().getTranslatedText(), NAME_COLUMN_WIDTH,
+                    final PdfPCell cell = new PdfPCell(new Paragraph(BaseElement.getChunk(capability.getNameRepresentation(), NAME_COLUMN_WIDTH,
                             FadingSunsTheme.getHandwrittingFont(), FadingSunsTheme.HANDWRITTING_DEFAULT_FONT_SIZE)));
                     //cell.setPaddingLeft(FadingSunsTheme.LINE_PADDING);
                     cell.setBorder(0);

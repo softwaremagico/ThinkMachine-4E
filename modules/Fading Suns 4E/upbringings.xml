@@ -128,7 +128,7 @@
                 <total>1</total>
                 <perks>
                     <perk>
-                        <id>fencing</id>
+                        <group>fencing</group>
                     </perk>
                     <perk>
                         <id>landed</id>

@@ -125,9 +125,9 @@
             </factions>
             <upbringings>
                 <upbringing>priest</upbringing>
+                <upbringing>merchant</upbringing>
             </upbringings>
             <callings>
-                <calling>merchant</calling>
                 <calling>amateur</calling>
                 <calling>clergy</calling>
                 <calling>conspiracist</calling>
@@ -190,9 +190,9 @@
             </factions>
             <upbringings>
                 <upbringing>noble</upbringing>
+                <upbringing>merchant</upbringing>
             </upbringings>
             <callings>
-                <calling>merchant</calling>
                 <calling>explorer</calling>
                 <calling>mendicant</calling>
                 <calling>pirate</calling>

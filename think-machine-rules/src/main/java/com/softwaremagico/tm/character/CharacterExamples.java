@@ -61,10 +61,22 @@ public final class CharacterExamples {
                         .add(upbringing.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic());
             }
         }
+        for (int i = 0; i < upbringing.getCapabilityOptions().size(); i++) {
+            for (int j = 0; j < upbringing.getCapabilityOptions().get(i).getTotalOptions(); j++) {
+                characterPlayer.getUpbringing().getCapabilityOptions().get(i).getSelections()
+                        .add(upbringing.getCapabilityOptions().get(i).getCapabilities().get(j).getId());
+            }
+        }
         for (int i = 0; i < upbringing.getSkillOptions().size(); i++) {
             for (int j = 0; j < upbringing.getSkillOptions().get(i).getTotalOptions(); j++) {
                 characterPlayer.getUpbringing().getSkillOptions().get(i).getSelections()
                         .add(upbringing.getSkillOptions().get(i).getSkills().get(j).getSkill());
+            }
+        }
+        for (int i = 0; i < upbringing.getPerksOptions().size(); i++) {
+            for (int j = 0; j < upbringing.getPerksOptions().get(i).getTotalOptions(); j++) {
+                characterPlayer.getUpbringing().getPerksOptions().get(i).getSelections()
+                        .add(upbringing.getPerksOptions().get(i).getPerks().get(j).getId());
             }
         }
         for (int i = 0; i < upbringing.getMaterialAwards().size(); i++) {
@@ -83,6 +95,12 @@ public final class CharacterExamples {
                         .add(faction.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic());
             }
         }
+        for (int i = 0; i < faction.getCapabilityOptions().size(); i++) {
+            for (int j = 0; j < faction.getCapabilityOptions().get(i).getTotalOptions(); j++) {
+                characterPlayer.getFaction().getCapabilityOptions().get(i).getSelections()
+                        .add(faction.getCapabilityOptions().get(i).getCapabilities().get(j).getId());
+            }
+        }
         for (int i = 0; i < faction.getSkillOptions().size(); i++) {
             for (int j = 0; j < faction.getSkillOptions().get(i).getTotalOptions(); j++) {
                 characterPlayer.getFaction().getSkillOptions().get(i).getSelections()
@@ -95,6 +113,12 @@ public final class CharacterExamples {
                         .add(faction.getMaterialAwards().get(i).getItems().get(j).getId());
             }
         }
+        for (int i = 0; i < faction.getPerksOptions().size(); i++) {
+            for (int j = 0; j < faction.getPerksOptions().get(i).getTotalOptions(); j++) {
+                characterPlayer.getFaction().getPerksOptions().get(i).getSelections()
+                        .add(faction.getPerksOptions().get(i).getPerks().get(j).getId());
+            }
+        }
 
 
         characterPlayer.setCalling("commander");
@@ -105,10 +129,22 @@ public final class CharacterExamples {
                         .add(calling.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic());
             }
         }
+        for (int i = 0; i < calling.getCapabilityOptions().size(); i++) {
+            for (int j = 0; j < calling.getCapabilityOptions().get(i).getTotalOptions(); j++) {
+                characterPlayer.getCalling().getCapabilityOptions().get(i).getSelections()
+                        .add(calling.getCapabilityOptions().get(i).getCapabilities().get(j).getId());
+            }
+        }
         for (int i = 0; i < calling.getSkillOptions().size(); i++) {
             for (int j = 0; j < calling.getSkillOptions().get(i).getTotalOptions(); j++) {
                 characterPlayer.getCalling().getSkillOptions().get(i).getSelections()
                         .add(calling.getSkillOptions().get(i).getSkills().get(j).getSkill());
+            }
+        }
+        for (int i = 0; i < calling.getPerksOptions().size(); i++) {
+            for (int j = 0; j < calling.getPerksOptions().get(i).getTotalOptions(); j++) {
+                characterPlayer.getCalling().getPerksOptions().get(i).getSelections()
+                        .add(calling.getPerksOptions().get(i).getPerks().get(j).getId());
             }
         }
         for (int i = 0; i < calling.getMaterialAwards().size(); i++) {
