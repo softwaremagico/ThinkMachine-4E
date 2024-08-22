@@ -29,7 +29,7 @@ import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.softwaremagico.tm.character.CharacterPlayer;
-import com.softwaremagico.tm.character.capabilities.Capability;
+import com.softwaremagico.tm.character.capabilities.CapabilityWithSpecialization;
 import com.softwaremagico.tm.pdf.complete.FadingSunsTheme;
 import com.softwaremagico.tm.pdf.complete.elements.BaseElement;
 import com.softwaremagico.tm.txt.TextFactory;
@@ -66,10 +66,10 @@ public class CapabilitiesTableFactory extends BaseElement {
 
         int totalElements = 0;
         if (characterPlayer != null) {
-            final List<Capability> capabilities = new ArrayList<>(characterPlayer.getCapabilities());
+            final List<CapabilityWithSpecialization> capabilities = new ArrayList<>(characterPlayer.getCapabilitiesWithSpecialization());
             if (!capabilities.isEmpty()) {
                 Collections.sort(capabilities);
-                for (Capability capability : capabilities) {
+                for (CapabilityWithSpecialization capability : capabilities) {
                     final PdfPCell cell = new PdfPCell(new Paragraph(BaseElement.getChunk(capability.getNameRepresentation(), NAME_COLUMN_WIDTH,
                             FadingSunsTheme.getHandwrittingFont(), FadingSunsTheme.HANDWRITTING_DEFAULT_FONT_SIZE)));
                     //cell.setPaddingLeft(FadingSunsTheme.LINE_PADDING);

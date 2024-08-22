@@ -756,6 +756,98 @@
         </restrictions>
     </perk>
     <perk>
+        <id>conscript</id>
+        <name>
+            <en>Conscript</en>
+            <es>Leva</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>commander</calling>
+                <calling>lord</calling>
+<!--                <calling>nobleTitleBaronet</calling>-->
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>nobleTitleKnight</id>
+        <name>
+            <en>Noble Title (Knight)</en>
+            <es>Título Nobiliario (Caballero)</es>
+        </name>
+        <group>churchOrdination</group>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>nobleTitleBaronet</id>
+        <name>
+            <en>Noble Title (Baronet)</en>
+            <es>Título Nobiliario (Baronet)</es>
+        </name>
+        <group>nobleTitle</group>
+        <restrictions>
+            <perks>
+                <perk>nobleTitleKnight</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>nobleTitleBaron</id>
+        <name>
+            <en>Noble Title (Baron)</en>
+            <es>Título Nobiliario (Barón)</es>
+        </name>
+        <group>nobleTitle</group>
+        <restrictions>
+            <perks>
+                <perk>nobleTitleBaronet</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>nobleTitleMarquis</id>
+        <name>
+            <en>Noble Title (Marquis)</en>
+            <es>Título Nobiliario (Marqués)</es>
+        </name>
+        <group>nobleTitle</group>
+        <restrictions>
+            <perks>
+                <perk>nobleTitleBaron</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>nobleTitleCount</id>
+        <name>
+            <en>Noble Title (Count)</en>
+            <es>Título Nobiliario (Conde)</es>
+        </name>
+        <group>nobleTitle</group>
+        <restrictions>
+            <perks>
+                <perk>nobleTitleMarquis</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>nobleTitleDuke</id>
+        <name>
+            <en>Noble Title (Duke)</en>
+            <es>Título Nobiliario (Duque)</es>
+        </name>
+        <group>nobleTitle</group>
+        <restrictions>
+            <perks>
+                <perk>nobleTitleCount</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
         <id>duello1</id>
         <group>fencing</group>
         <name>

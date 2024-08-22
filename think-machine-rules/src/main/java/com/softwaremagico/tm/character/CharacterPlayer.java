@@ -26,8 +26,7 @@ package com.softwaremagico.tm.character;
 
 import com.softwaremagico.tm.character.callings.CallingCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.callings.CallingFactory;
-import com.softwaremagico.tm.character.capabilities.Capability;
-import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
+import com.softwaremagico.tm.character.capabilities.CapabilityWithSpecialization;
 import com.softwaremagico.tm.character.characteristics.Characteristic;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.combat.CombatActionRequirement;
@@ -286,18 +285,18 @@ public class CharacterPlayer {
                 + getLevel();
     }
 
-    public Set<Capability> getCapabilities() {
-        final Set<Capability> capabilities = new HashSet<>();
+    public Set<CapabilityWithSpecialization> getCapabilitiesWithSpecialization() {
+        final Set<CapabilityWithSpecialization> capabilities = new HashSet<>();
         if (upbringing != null) {
             upbringing.getCapabilityOptions().forEach(capabilityOption ->
                     capabilityOption.getSelections().forEach(selection ->
-                            capabilities.add(CapabilityFactory.getInstance().getElement(selection))));
+                            capabilities.add(CapabilityWithSpecialization.from(selection))));
             faction.getCapabilityOptions().forEach(capabilityOption ->
                     capabilityOption.getSelections().forEach(selection ->
-                            capabilities.add(CapabilityFactory.getInstance().getElement(selection))));
+                            capabilities.add(CapabilityWithSpecialization.from(selection))));
             calling.getCapabilityOptions().forEach(capabilityOption ->
                     capabilityOption.getSelections().forEach(selection ->
-                            capabilities.add(CapabilityFactory.getInstance().getElement(selection))));
+                            capabilities.add(CapabilityWithSpecialization.from(selection))));
         }
         return capabilities;
     }

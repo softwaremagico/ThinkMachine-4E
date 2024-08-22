@@ -24,8 +24,8 @@ package com.softwaremagico.tm.factory;
  * #L%
  */
 
-import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -43,6 +43,7 @@ public class CapabilityFactoryTest {
     public void checkSpecializations() throws InvalidXmlElementException {
         Assert.assertEquals(CapabilityFactory.getInstance().getElement("beastLore").getSpecializations().size(),
                 2);
+        Assert.assertFalse(CapabilityFactory.getInstance().getElement("speak").getSpecializations().isEmpty());
     }
 
     @Test

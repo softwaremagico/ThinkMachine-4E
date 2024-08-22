@@ -25,7 +25,7 @@ package com.softwaremagico.tm.txt;
  */
 
 import com.softwaremagico.tm.character.CharacterPlayer;
-import com.softwaremagico.tm.character.capabilities.Capability;
+import com.softwaremagico.tm.character.capabilities.CapabilityWithSpecialization;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.equipment.DamageType;
 import com.softwaremagico.tm.character.equipment.DamageTypeFactory;
@@ -136,11 +136,11 @@ public class CharacterSheet {
     }
 
     private void setCapabilitiesText(StringBuilder stringBuilder) throws InvalidXmlElementException {
-        final Set<Capability> characterCapabilities = characterPlayer.getCapabilities();
+        final Set<CapabilityWithSpecialization> characterCapabilities = characterPlayer.getCapabilitiesWithSpecialization();
         if (!characterCapabilities.isEmpty()) {
             stringBuilder.append(TextFactory.getInstance().getElement("capabilities").getName()).append(": ");
             String separator = "";
-            for (final Capability capability : characterCapabilities) {
+            for (final CapabilityWithSpecialization capability : characterCapabilities) {
                 stringBuilder.append(separator);
                 stringBuilder.append(capability.getNameRepresentation());
                 separator = ELEMENT_SEPARATOR;
