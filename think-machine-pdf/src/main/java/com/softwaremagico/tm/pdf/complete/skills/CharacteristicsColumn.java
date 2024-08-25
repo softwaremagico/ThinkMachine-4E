@@ -41,7 +41,7 @@ import com.softwaremagico.tm.txt.TextFactory;
 import java.util.List;
 
 public final class CharacteristicsColumn extends BaseElement {
-    private static final String GAP = "   ";
+    private static final String GAP = "  ";
 
     private CharacteristicsColumn() {
 

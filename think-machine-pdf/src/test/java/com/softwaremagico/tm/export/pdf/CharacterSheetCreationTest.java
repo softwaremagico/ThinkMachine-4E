@@ -26,6 +26,7 @@ package com.softwaremagico.tm.export.pdf;
 
 
 import com.softwaremagico.tm.character.CharacterExamples;
+import com.softwaremagico.tm.language.Translator;
 import com.softwaremagico.tm.pdf.complete.CharacterSheet;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -48,12 +49,14 @@ public class CharacterSheetCreationTest extends PdfGeneration {
 
     @Test
     public void emptyPdfSpanish() {
+        Translator.setLanguage("ES");
         final CharacterSheet sheet = new CharacterSheet();
         Assert.assertEquals(sheet.createFile(OUTPUT_FOLDER + "FadingSuns_ES.pdf"), 3);
     }
 
     @Test
     public void emptyPdfEnglish() {
+        Translator.setLanguage("EN");
         final CharacterSheet sheet = new CharacterSheet();
         Assert.assertEquals(sheet.createFile(OUTPUT_FOLDER + "FadingSuns_EN.pdf"), 3);
     }
@@ -61,12 +64,15 @@ public class CharacterSheetCreationTest extends PdfGeneration {
 
     @Test
     public void characterPdfSpanish() {
+        Translator.setLanguage("ES");
         final CharacterSheet sheet = new CharacterSheet(CharacterExamples.generateHumanNobleDecadosCommander());
         Assert.assertEquals(sheet.createFile(OUTPUT_FOLDER + "CharacterFS_ES.pdf"), 2);
     }
 
-    @AfterClass(enabled = false)
-    public void removeFolder() {
-        Assert.assertTrue(deleteDirectory(new File(OUTPUT_FOLDER)));
+    @Test
+    public void characterPdfEnglish() {
+        Translator.setLanguage("EN");
+        final CharacterSheet sheet = new CharacterSheet(CharacterExamples.generateHumanNobleDecadosCommander());
+        Assert.assertEquals(sheet.createFile(OUTPUT_FOLDER + "CharacterFS_EN.pdf"), 2);
     }
 }

@@ -29,5 +29,5 @@ think-machine-random/.checkstyle
 think-machine-rules/.checkstyle
 /.idea/
 *.iml
-modules/Fading Suns Revised Edition/json/*
+modules/Fading Suns 4E/json/*
 src/main/resources/version.txt

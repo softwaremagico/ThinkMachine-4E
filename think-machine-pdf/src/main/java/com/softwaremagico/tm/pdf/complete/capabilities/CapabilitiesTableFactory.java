@@ -41,7 +41,7 @@ import java.util.List;
 public class CapabilitiesTableFactory extends BaseElement {
     private static final float[] WIDTHS = {1f};
     private static final String GAP = "_________________________";
-    private static final int NAME_COLUMN_WIDTH = 115;
+    private static final int NAME_COLUMN_WIDTH = 110;
     private static final int TOTAL_CELLS = 21;
 
     public static PdfPTable getCapabilitiesTable(CharacterPlayer characterPlayer) {
@@ -87,6 +87,7 @@ public class CapabilitiesTableFactory extends BaseElement {
             emptyCell.setMinimumHeight(FadingSunsTheme.ROW_HEIGHT);
             emptyCell.setVerticalAlignment(Element.ALIGN_BOTTOM);
             emptyCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            emptyCell.setMinimumHeight(FadingSunsTheme.ROW_HEIGHT);
             emptyCell.setBorder(0);
             table.addCell(emptyCell);
         }

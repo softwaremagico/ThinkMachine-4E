@@ -95,6 +95,7 @@ public class PerksTableFactory extends BaseElement {
             emptyCell.setVerticalAlignment(Element.ALIGN_BOTTOM);
             emptyCell.setHorizontalAlignment(Element.ALIGN_CENTER);
             emptyCell.setBorder(0);
+            emptyCell.setMinimumHeight(FadingSunsTheme.ROW_HEIGHT);
             table.addCell(emptyCell);
         }
         return table;
