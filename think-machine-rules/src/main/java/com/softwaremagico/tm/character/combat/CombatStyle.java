@@ -27,11 +27,8 @@ package com.softwaremagico.tm.character.combat;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
-import com.softwaremagico.tm.InvalidXmlElementException;
 import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.CharacterPlayer;
-import com.softwaremagico.tm.character.benefices.BeneficeDefinition;
-import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -40,7 +37,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class CombatStyle extends Element<CombatStyle> {
     public static final int COMBAT_STYLE_COST = 5;
-    private CombatStyleGroup group;
+    private String group;
     @JsonProperty("stances")
     private List<CombatStance> combatStances;
     @JsonProperty("combatActions")
@@ -51,7 +48,7 @@ public class CombatStyle extends Element<CombatStyle> {
     }
 
     public CombatStyle(String id, TranslatedText name, TranslatedText description, String language,
-                       String moduleName, CombatStyleGroup group) {
+                       String moduleName, String group) {
         super(id, name, description, language, moduleName);
         combatActions = new ArrayList<>();
         this.group = group;
@@ -62,7 +59,7 @@ public class CombatStyle extends Element<CombatStyle> {
         return COMBAT_STYLE_COST;
     }
 
-    public CombatStyleGroup getGroup() {
+    public String getGroup() {
         return group;
     }
 
@@ -98,8 +95,8 @@ public class CombatStyle extends Element<CombatStyle> {
     }
 
     public boolean isAvailable(CharacterPlayer characterPlayer) {
-        return getRestrictedToRaces().isEmpty() || (characterPlayer.getRace() != null
-                && getRestrictedToRaces().contains(characterPlayer.getRace()));
+        return getRestrictions().getRestrictedToSpecies().isEmpty() || (characterPlayer.getSpecie() != null
+                && getRestrictions().getRestrictedToSpecies().contains(characterPlayer.getSpecie()));
     }
 
     public void addCombatAction(CombatAction combatAction) {
@@ -120,16 +117,7 @@ public class CombatStyle extends Element<CombatStyle> {
         return null;
     }
 
-    public static CombatStyle getCombatStyle(BeneficeDefinition beneficeDefinition) {
-        try {
-            return CombatStyleFactory.getInstance().getElement(beneficeDefinition.getId());
-        } catch (InvalidXmlElementException e) {
-            MachineXmlReaderLog.errorMessage(CombatStyle.class, e);
-            return null;
-        }
-    }
-
-    public void setGroup(CombatStyleGroup group) {
+    public void setGroup(String group) {
         this.group = group;
     }
 

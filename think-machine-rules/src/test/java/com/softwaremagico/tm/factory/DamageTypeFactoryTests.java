@@ -24,14 +24,14 @@ package com.softwaremagico.tm.factory;
  * #L%
  */
 
-import com.softwaremagico.tm.InvalidXmlElementException;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.character.equipment.DamageTypeFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = {"damageFactory"})
 public class DamageTypeFactoryTests {
-    private static final int DEFINED_DAMAGES = 17;
+    private static final int DEFINED_DAMAGES = 18;
 
 
     @Test

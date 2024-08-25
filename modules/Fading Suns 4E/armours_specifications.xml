@@ -1,77 +1,91 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <specifications>
-	<abcProtection>
-		<name>
-			<en>Closed Suit (ABC protection)</en>
-			<es>Traje Cerrado (Protección ABC)</es>
-		</name>
-	</abcProtection>
-	<powerPack>
-		<name>
-			<en>Power Pack (200, 24h)</en>
-			<es>Pack de Energía (200, 24h)</es>
-		</name>
-	</powerPack>
-	<lifeSupport30m>
-		<name>
-			<en>Life Support (30 min)</en>
-			<es>Soporte Vital (30min)</es>
-		</name>
-	</lifeSupport30m>
-	<lifeSupport24h>
-		<name>
-			<en>Life Support (24h)</en>
-			<es>Soporte Vital (24h)</es>
-		</name>
-	</lifeSupport24h>
-	<lifeSupport12h>
-		<name>
-			<en>Life Support (12hn)</en>
-			<es>Soporte Vital (12h)</es>
-		</name>
-	</lifeSupport12h>
-	<rangeFinder>
-		<name>
-			<en>Range-finder</en>
-			<es>Telémetro</es>
-		</name>
-	</rangeFinder>
-	<radio>
-		<name>
-			<en>Radio</en>
-			<es>Radio</es>
-		</name>
-	</radio>
-	<binoculars>
-		<name>
-			<en>10x Binoculars</en>
-			<es>Binoculares 10x</es>
-		</name>
-	</binoculars>
-	<radiationProtection>
-		<name>
-			<en>Radiation Protection</en>
-			<es>Protección contra Radiación</es>
-		</name>
-	</radiationProtection>
-	<metal>
-		<name>
-			<en>Metal</en>
-			<es>Metal</es>
-		</name>
-		<description>
-			<en>-1 success against energy weapons</en>
-			<es>-1 éxito contra armas de energía</es>
-		</description>
-	</metal>
-	<occult>
-		<name>
-			<en>Occult</en>
-			<es>Ocultista</es>
-		</name>
-	</occult>
-	<neural>
-		<en>Neural</en>
-		<es>Neuronal</es>
-	</neural>
+    <abcProtection>
+        <id>abcProtection</id>
+        <name>
+            <en>Closed Suit (ABC protection)</en>
+            <es>Traje Cerrado (Protección ABC)</es>
+        </name>
+    </abcProtection>
+    <powerPack>
+        <id>powerPack</id>
+        <name>
+            <en>Power Pack (200, 24h)</en>
+            <es>Pack de Energía (200, 24h)</es>
+        </name>
+    </powerPack>
+    <lifeSupport30m>
+        <id>lifeSupport30m</id>
+        <name>
+            <en>Life Support (30 min)</en>
+            <es>Soporte Vital (30min)</es>
+        </name>
+    </lifeSupport30m>
+    <lifeSupport12h>
+        <id>lifeSupport12h</id>
+        <name>
+            <en>Life Support (12hn)</en>
+            <es>Soporte Vital (12h)</es>
+        </name>
+    </lifeSupport12h>
+    <lifeSupport24h>
+        <id>lifeSupport24h</id>
+        <name>
+            <en>Life Support (24h)</en>
+            <es>Soporte Vital (24h)</es>
+        </name>
+    </lifeSupport24h>
+    <rangeFinder>
+        <id>rangeFinder</id>
+        <name>
+            <en>Range-finder</en>
+            <es>Telémetro</es>
+        </name>
+    </rangeFinder>
+    <radio>
+        <id>radio</id>
+        <name>
+            <en>Radio</en>
+            <es>Radio</es>
+        </name>
+    </radio>
+    <binoculars>
+        <id>binoculars</id>
+        <name>
+            <en>10x Binoculars</en>
+            <es>Binoculares 10x</es>
+        </name>
+    </binoculars>
+    <radiationProtection>
+        <id>radiationProtection</id>
+        <name>
+            <en>Radiation Protection</en>
+            <es>Protección contra Radiación</es>
+        </name>
+    </radiationProtection>
+    <metal>
+        <id>metal</id>
+        <name>
+            <en>Metal</en>
+            <es>Metal</es>
+        </name>
+        <description>
+            <en>-1 success against energy weapons</en>
+            <es>-1 éxito contra armas de energía</es>
+        </description>
+    </metal>
+    <occult>
+        <id>occult</id>
+        <name>
+            <en>Occult</en>
+            <es>Ocultista</es>
+        </name>
+    </occult>
+    <neural>
+        <id>neural</id>
+        <name>
+            <en>Neural</en>
+            <es>Neuronal</es>
+        </name>
+    </neural>
 </specifications>

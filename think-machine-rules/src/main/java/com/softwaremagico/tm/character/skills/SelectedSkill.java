@@ -28,15 +28,15 @@ package com.softwaremagico.tm.character.skills;
  * A Skill that has been chosen by a player. It has rank values and in some
  * cases a specific generalization.
  */
-public class SelectedSkill extends Skill<SelectedSkill> {
+public class SelectedSkill extends SkillDefinition<SelectedSkill> {
     private final int value;
     // Special are represented with a '*' in the character sheet. Does not count
     // for cost calculation.
     private final boolean cost;
-    private final AvailableSkill availableSkill;
+    private final Skill availableSkill;
 
-    public SelectedSkill(AvailableSkill availableSkill, int value, boolean cost) {
-        super(availableSkill.getUniqueId(), availableSkill.getCompleteName(), availableSkill.getDescription(),
+    public SelectedSkill(Skill availableSkill, int value, boolean cost) {
+        super(availableSkill.getUniqueId(), availableSkill.getName(), availableSkill.getDescription(),
                 availableSkill.getLanguage(), availableSkill.getModuleName());
         this.availableSkill = availableSkill;
         this.value = value;
@@ -47,7 +47,7 @@ public class SelectedSkill extends Skill<SelectedSkill> {
         return value;
     }
 
-    public AvailableSkill getAvailableSkill() {
+    public Skill getAvailableSkill() {
         return availableSkill;
     }
 

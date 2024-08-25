@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.softwaremagico.tm.Element;
-import com.softwaremagico.tm.InvalidXmlElementException;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.Name;
 import com.softwaremagico.tm.character.Surname;

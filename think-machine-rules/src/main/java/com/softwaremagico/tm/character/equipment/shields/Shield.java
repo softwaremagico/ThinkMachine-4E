@@ -25,13 +25,14 @@ package com.softwaremagico.tm.character.equipment.shields;
  */
 
 
-import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.equipment.Equipment;
 
 public class Shield extends Equipment<Shield> {
     private int impact;
     private int force;
     private int hits;
+    private int burnOut;
+    private int distortion;
 
     /**
      * For creating empty elements.
@@ -41,14 +42,6 @@ public class Shield extends Equipment<Shield> {
         this.impact = 0;
         this.force = 0;
         this.hits = 0;
-    }
-
-    public Shield(String shieldId, TranslatedText name, TranslatedText description, String language, String moduleName, int techLevel,
-                  int impact, int force, int hits, float cost) {
-        super(shieldId, name, description, cost, techLevel, language, moduleName);
-        this.impact = impact;
-        this.force = force;
-        this.hits = hits;
     }
 
     public int getImpact() {
@@ -75,4 +68,19 @@ public class Shield extends Equipment<Shield> {
         this.hits = hits;
     }
 
+    public int getBurnOut() {
+        return burnOut;
+    }
+
+    public void setBurnOut(int burnOut) {
+        this.burnOut = burnOut;
+    }
+
+    public int getDistortion() {
+        return distortion;
+    }
+
+    public void setDistortion(int distortion) {
+        this.distortion = distortion;
+    }
 }

@@ -26,119 +26,78 @@ package com.softwaremagico.tm.character.factions;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-import com.softwaremagico.tm.Element;
-import com.softwaremagico.tm.TranslatedText;
+import com.softwaremagico.tm.character.CharacterDefinitionStep;
+import com.softwaremagico.tm.character.callings.CallingFactory;
+import com.softwaremagico.tm.character.perks.Perk;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
-import java.util.Collections;
-import java.util.HashSet;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
-import java.util.Set;
 
 @JacksonXmlRootElement(localName = "faction")
-public class Faction extends Element<Faction> {
-    private FactionGroup factionGroup;
-    private final Set<FactionRankTranslation> ranksTranslations = new HashSet<>();
-    private Set<String> blessings = null;
-    private Set<String> benefices = null;
-    @JsonProperty("suggestedBenefices")
-    private List<BeneficeOption> suggestedBenefices = null;
-    @JsonProperty("restrictedBenefices")
-    private List<BeneficeOption> restrictedBenefices = null;
+public class Faction extends CharacterDefinitionStep<Faction> {
+    private static final int TOTAL_CHARACTERISTICS_OPTIONS = 5;
+    private static final int TOTAL_SKILL_OPTIONS = 5;
+
     private Boolean isOnlyForHuman;
+    private Blessing blessing;
+    private Curse curse;
+    @JsonProperty("favoredCallings")
+    private List<String> favoredCallings;
 
     public Faction() {
     }
 
-    public Faction(String id, TranslatedText name, TranslatedText description, FactionGroup factionGroup, String language,
-                   String moduleName) {
-        super(id, name, description, language, moduleName);
-        this.factionGroup = factionGroup;
-    }
-
-    public FactionGroup getFactionGroup() {
-        return factionGroup;
-    }
-
-    public void setFactionGroup(FactionGroup factionGroup) {
-        this.factionGroup = factionGroup;
-    }
-
-    public void addRankTranslation(FactionRankTranslation factionRank) {
-        ranksTranslations.add(factionRank);
-    }
-
-    public Set<FactionRankTranslation> getRanksTranslations() {
-        return ranksTranslations;
-    }
-
-    public FactionRankTranslation getRankTranslation(String rankId) {
-        for (final FactionRankTranslation factionRankTranslation : getRanksTranslations()) {
-            if (Objects.equals(factionRankTranslation.getId(), rankId)) {
-                return factionRankTranslation;
-            }
-        }
-        return null;
-    }
-
-    public Set<String> getBlessings() {
-        return this.blessings;
-    }
-
-
-    public Set<String> getBenefices() {
-        return this.benefices;
-    }
-
-    public List<BeneficeOption> getSuggestedBenefices() {
-        return this.suggestedBenefices;
-    }
-
-    public List<BeneficeOption> getRestrictedBenefices() {
-        return this.restrictedBenefices;
-    }
-
-    public void setBlessings(String blessings) {
-        this.blessings =  Collections.singleton(blessings);
-    }
-
-    public void setBlessings(Set<String> blessings) {
-        this.blessings = blessings;
-    }
-
-    public void setBenefices(String benefices) {
-        this.benefices =  Collections.singleton(benefices);
-    }
-
-    public void setBenefices(Set<String> benefices) {
-        this.benefices = benefices;
-    }
-
-    public void setSuggestedBenefices(List<BeneficeOption> suggestedBenefices) {
-        this.suggestedBenefices = suggestedBenefices;
-    }
-
-
-    public void setRestrictedBenefices(List<BeneficeOption> restrictedBenefices) {
-        this.restrictedBenefices = restrictedBenefices;
-    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
-
     public boolean isOnlyForHuman() {
         if (isOnlyForHuman == null) {
-            isOnlyForHuman = getRestrictedToRaces().size() == 1
-                    && getRestrictedToRaces().contains("human");
+            isOnlyForHuman = getRestrictions().getRestrictedToSpecies().size() == 1
+                    && getRestrictions().getRestrictedToSpecies().contains("human");
 
         }
         return isOnlyForHuman;
+    }
+
+    public Blessing getBlessing() {
+        return blessing;
+    }
+
+    public void setBlessing(Blessing blessing) {
+        this.blessing = blessing;
+    }
+
+    public Curse getCurse() {
+        return curse;
+    }
+
+    public List<Perk> getPerks() {
+        return Arrays.asList(getBlessing(), getCurse());
+    }
+
+    public void setCurse(Curse curse) {
+        this.curse = curse;
+    }
+
+    public List<String> getFavoredCallings() {
+        return favoredCallings;
+    }
+
+    public void setFavoredCallings(List<String> favoredCallings) {
+        this.favoredCallings = favoredCallings;
+    }
+
+    public int getCharacteristicsTotalPoints() {
+        return TOTAL_CHARACTERISTICS_OPTIONS;
+    }
+
+    public int getSkillsTotalPoints() {
+        return TOTAL_SKILL_OPTIONS;
+    }
+
+    @Override
+    public void validate() throws InvalidXmlElementException {
+        super.validate();
+        if (favoredCallings != null) {
+            favoredCallings.forEach(favoredCalling -> CallingFactory.getInstance().getElement(favoredCalling));
+        }
     }
 }

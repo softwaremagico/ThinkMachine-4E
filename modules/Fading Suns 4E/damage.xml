@@ -43,17 +43,17 @@
         </name>
     </damage>
     <damage>
-        <id>plasma</id>
+        <id>blaster</id>
         <name>
-            <en>Plasma</en>
-            <es>Plasma</es>
+            <en>Blaster</en>
+            <es>Bláster</es>
         </name>
     </damage>
     <damage>
-        <id>impact</id>
+        <id>slam</id>
         <name>
-            <en>Impact</en>
-            <es>Impacto</es>
+            <en>Slam</en>
+            <es>Golpe</es>
         </name>
     </damage>
     <damage>
@@ -61,6 +61,13 @@
         <name>
             <en>Shock</en>
             <es>Eléctrico</es>
+        </name>
+    </damage>
+    <damage>
+        <id>sonic</id>
+        <name>
+            <en>Sonic</en>
+            <es>Sónico</es>
         </name>
     </damage>
     <damage>

@@ -508,7 +508,7 @@
                     <en>MindSight allows the psychic to read another’s surface thoughts. Note that surface thoughts are
                         only what are occupying the target’s attention at that moment, and rarely involve long-range
                         plans, habitual behavior or detailed recollections. Language barriers can get in the way, as can
-                        differences in the psychology of alien races from beyond the Known Worlds.
+                        differences in the psychology of alien species from beyond the Known Worlds.
                     </en>
                     <es>La Visión Mental permite al psíquico leer los pensamientos superficiales de otra persona. Nótese
                         que los pensamientos superficiales tan solo son con los que el objetivo está ocupando su mente
@@ -4094,8 +4094,8 @@
                 <duration>temporary</duration>
                 <wyrd>1</wyrd>
             </theChorusOfManyFlames>
-            <shepherdsLament>
-                <id>shepherdsLament</id>
+            <shepherdimpactent>
+                <id>shepherdimpactent</id>
                 <name>
                     <en>Shepherd's Lament</en>
                     <es>El Lamento del Pastor</es>
@@ -4107,7 +4107,7 @@
                 <range>sensory</range>
                 <duration>temporary</duration>
                 <wyrd>1</wyrd>
-            </shepherdsLament>
+            </shepherdimpactent>
             <theUpliftingWord>
                 <id>theUpliftingWord</id>
                 <name>
@@ -4653,7 +4653,11 @@
             <es>Visión de la Muerte</es>
         </name>
         <occultismType>theurgy</occultismType>
-        <restrictedToRaces>etyri</restrictedToRaces>
+        <restrictions>
+            <species>
+                <specie>etyri</specie>
+            </species>
+        </restrictions>
         <classification>combat</classification>
         <official>false</official>
         <powers>
@@ -4790,7 +4794,11 @@
         <occultismType>psi</occultismType>
         <classification>others</classification>
         <official>false</official>
-        <restrictedToRaces>ascorbite</restrictedToRaces>
+        <restrictions>
+            <species>
+                <specie>ascorbite</specie>
+            </species>
+        </restrictions>
         <powers>
             <hiveMindPath>
                 <id>hiveMindPath</id>

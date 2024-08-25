@@ -31,7 +31,7 @@ import com.softwaremagico.tm.character.values.IValue;
 public class Characteristic extends Element<Characteristic> implements IValue {
     //Default value is 1, and later race will set as the correct minimum value.
     public static final int DEFAULT_INITIAL_VALUE = 1;
-    public static final int DEFAULT_HUMAN_INITIAL_VALUE = 3;
+    public static final int INITIAL_VALUE = 3;
     public static final int DEFAULT_INITIAL_MAX_VALUE = 8;
     public static final int MAX_VALUE = 12;
     private int value = DEFAULT_INITIAL_VALUE;

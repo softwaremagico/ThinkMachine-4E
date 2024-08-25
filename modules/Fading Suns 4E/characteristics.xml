@@ -7,10 +7,11 @@
 			<es>Fuerza</es>
 		</name>
 		<abbreviation>
-			<en>St</en>
-			<es>Fu</es>
+			<en>Str</en>
+			<es>Fue</es>
 		</abbreviation>
 		<characteristicType>body</characteristicType>
+		<function>force</function>
 		<type>characteristicDefinition</type>
 		<order>0</order>
 	</characteristicDefinition>
@@ -21,10 +22,11 @@
 			<es>Destreza</es>
 		</name>
 		<abbreviation>
-			<en>Dx</en>
-			<es>Ds</es>
+			<en>Dex</en>
+			<es>Des</es>
 		</abbreviation>
 		<characteristicType>body</characteristicType>
+		<function>finesse</function>
 		<type>characteristicDefinition</type>
 		<order>1</order>
 	</characteristicDefinition>
@@ -32,13 +34,14 @@
 		<id>endurance</id>
 		<name>
 			<en>Endurance</en>
-			<es>Fortaleza</es>
+			<es>Constitución</es>
 		</name>
 		<abbreviation>
-			<en>En</en>
-			<es>Fr</es>
+			<en>End</en>
+			<es>Con</es>
 		</abbreviation>
 		<characteristicType>body</characteristicType>
+		<function>fortitude</function>
 		<type>characteristicDefinition</type>
 		<order>2</order>
 	</characteristicDefinition>
@@ -46,13 +49,14 @@
 		<id>wits</id>
 		<name>
 			<en>Wits</en>
-			<es>Astucia</es>
+			<es>Inteligencia</es>
 		</name>
 		<abbreviation>
-			<en>Wt</en>
-			<es>As</es>
+			<en>Wits</en>
+			<es>Intl</es>
 		</abbreviation>
 		<characteristicType>mind</characteristicType>
+		<function>force</function>
 		<type>characteristicDefinition</type>
 		<order>3</order>
 	</characteristicDefinition>
@@ -63,24 +67,26 @@
 			<es>Percepción</es>
 		</name>
 		<abbreviation>
-			<en>Pe</en>
-			<es>Pe</es>
+			<en>Per</en>
+			<es>Per</es>
 		</abbreviation>
 		<characteristicType>mind</characteristicType>
+		<function>finesse</function>
 		<type>characteristicDefinition</type>
 		<order>4</order>
 	</characteristicDefinition>
 	<characteristicDefinition>
-		<id>tech</id>
+		<id>will</id>
 		<name>
-			<en>Tech</en>
-			<es>Tecnología</es>
+			<en>Will</en>
+			<es>Voluntad</es>
 		</name>
 		<abbreviation>
-			<en>Tc</en>
-			<es>Tc</es>
+			<en>Will</en>
+			<es>Vol</es>
 		</abbreviation>
 		<characteristicType>mind</characteristicType>
+		<function>fortitude</function>
 		<type>characteristicDefinition</type>
 	</characteristicDefinition>
 	<characteristicDefinition>
@@ -90,23 +96,25 @@
 			<es>Presencia</es>
 		</name>
 		<abbreviation>
-			<en>Pr</en>
-			<es>Pr</es>
+			<en>Pre</en>
+			<es>Pre</es>
 		</abbreviation>
 		<characteristicType>spirit</characteristicType>
+		<function>force</function>
 		<type>characteristicDefinition</type>
 	</characteristicDefinition>
 	<characteristicDefinition>
-		<id>will</id>
+		<id>intuition</id>
 		<name>
-			<en>Will</en>
-			<es>Voluntad</es>
+			<en>Intuition</en>
+			<es>Intuición</es>
 		</name>
 		<abbreviation>
-			<en>Wl</en>
-			<es>Vo</es>
+			<en>Int</en>
+			<es>Intc</es>
 		</abbreviation>
 		<characteristicType>spirit</characteristicType>
+		<function>finesse</function>
 		<type>characteristicDefinition</type>
 	</characteristicDefinition>
 	<characteristicDefinition>
@@ -116,10 +124,11 @@
 			<es>Fe</es>
 		</name>
 		<abbreviation>
-			<en>Ft</en>
+			<en>Fth</en>
 			<es>Fe</es>
 		</abbreviation>
 		<characteristicType>spirit</characteristicType>
+		<function>fortitude</function>
 		<type>characteristicDefinition</type>
 	</characteristicDefinition>
 	<characteristicDefinition>
@@ -149,14 +158,27 @@
 		<type>characteristicDefinition</type>
 	</characteristicDefinition>
 	<characteristicDefinition>
-		<id>defense</id>
+		<id>theurgy</id>
 		<name>
-			<en>Defense</en>
-			<es>Defensa</es>
+			<en>Theurgy</en>
+			<es>Teurgia</es>
 		</name>
 		<abbreviation>
-			<en>Df</en>
-			<es>Df</es>
+			<en>The</en>
+			<es>Teu</es>
+		</abbreviation>
+		<characteristicType>others</characteristicType>
+		<type>characteristicDefinition</type>
+	</characteristicDefinition>
+	<characteristicDefinition>
+		<id>psi</id>
+		<name>
+			<en>Psi</en>
+			<es>Psi</es>
+		</name>
+		<abbreviation>
+			<en>Psi</en>
+			<es>Psi</es>
 		</abbreviation>
 		<characteristicType>others</characteristicType>
 		<type>characteristicDefinition</type>

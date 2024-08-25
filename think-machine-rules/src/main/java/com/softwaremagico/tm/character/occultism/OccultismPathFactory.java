@@ -24,7 +24,7 @@ package com.softwaremagico.tm.character.occultism;
  * #L%
  */
 
-import com.softwaremagico.tm.InvalidXmlElementException;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
 import com.softwaremagico.tm.xml.XmlFactory;
 
@@ -65,10 +65,9 @@ public final class OccultismPathFactory extends XmlFactory<OccultismPath> {
         //Update power values related to rites.
         occultismPaths.forEach(occultismPath -> {
             occultismPath.getOccultismPowersElements().forEach(occultismPower -> {
-                occultismPower.setRestrictedToRaces(occultismPath.getRestrictedToRaces());
-                occultismPower.setRestrictedToFactions(occultismPath.getRestrictedToFactions());
-                occultismPower.setRestricted(occultismPath.isRestricted());
-                occultismPower.setRestrictedToFactionGroup(occultismPath.getRestrictedToFactionGroup());
+                occultismPower.getRestrictions().setRestrictedToSpecies(occultismPath.getRestrictions().getRestrictedToSpecies());
+                occultismPower.getRestrictions().setRestrictedToFactions(occultismPath.getRestrictions().getRestrictedToFactions());
+                occultismPower.getRestrictions().setRestrictedToUpbringing(occultismPath.getRestrictions().getRestrictedToUpbringing());
                 occultismPower.setOfficial(occultismPath.isOfficial());
             });
         });

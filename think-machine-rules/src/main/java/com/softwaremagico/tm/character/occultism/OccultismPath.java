@@ -30,7 +30,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.ElementClassification;
 import com.softwaremagico.tm.TranslatedText;
-import com.softwaremagico.tm.character.factions.FactionGroup;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -162,42 +161,26 @@ public class OccultismPath extends Element<OccultismPath> {
         this.occultismPowersElements = occultismPowersElements;
     }
 
-    @Override
-    public int hashCode() {
-        return super.hashCode();
+    public void setRestrictedToSpecies(String restrictedToSpeciesContent) {
+        readCommaSeparatedTokens(super.getRestrictions().getRestrictedToSpecies(), restrictedToSpeciesContent);
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
-
-    public void setRestrictedToRaces(String restrictedToRacesContent) {
-        readCommaSeparatedTokens(super.getRestrictedToRaces(), restrictedToRacesContent);
-    }
-
-    @Override
-    public void setRestrictedToRaces(Set<String> restrictedToRaces) {
-        super.setRestrictedToRaces(restrictedToRaces);
+    public void setRestrictedToSpecies(Set<String> restrictedToSpecies) {
+        super.getRestrictions().setRestrictedToSpecies(restrictedToSpecies);
     }
 
     public void setRestrictedToFactions(String restrictedToFactionsContent) {
-        readCommaSeparatedTokens(super.getRestrictedToFactions(), restrictedToFactionsContent);
+        readCommaSeparatedTokens(super.getRestrictions().getRestrictedToFactions(), restrictedToFactionsContent);
     }
 
-    @Override
+
     public void setRestrictedToFactions(Set<String> restrictedToFactions) {
-        super.setRestrictedToFactions(restrictedToFactions);
+        super.getRestrictions().setRestrictedToFactions(restrictedToFactions);
     }
 
-    @Override
-    public void setRestricted(boolean restricted) {
-        super.setRestricted(restricted);
-    }
 
-    @Override
-    public void setRestrictedToFactionGroup(FactionGroup factionGroup) {
-        super.setRestrictedToFactionGroup(factionGroup);
+    public void setRestrictedToFactionGroup(Set<String> upbringings) {
+        super.getRestrictions().setRestrictedToUpbringing(upbringings);
     }
 
     @Override

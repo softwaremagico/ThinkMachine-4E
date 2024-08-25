@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<techCompulsions>
+    <techCompulsion>
+        <id>acquisitive</id>
+        <name>
+            <en>Acquisitive</en>
+            <es>Adquisitivo</es>
+        </name>
+        <description>
+            <en>You need to collect things, even things you really don’t need. Once per scene, while the compulsion
+                persists, you must acquire at least one item that has attracted your eye. The monk’s staff, the
+                princess’ necklace, the gambler’s deck of cards — you choose what it is, although acquiring it should be
+                a bit of a challenge (and that’s where the compulsion comes in: if it were easy, it wouldn’t be a
+                compulsion). At the very least, you might need to use some persuasion influence to talk the item off its
+                current owner. You won’t necessarily attack them for it (unless that’s kind of your thing anyway), but
+                you’ll help yourself to a five-fingered discount if other means won’t get it for you.
+            </en>
+            <es>Sientes la necesidad de coleccionar cosas, incluso las que no te hacen falta. Una vez por escena,
+                mientras la compulsión persista, debes adquirir al menos un objeto que te haya llamado la atención: el
+                báculo del monje, el collar de la princesa, la baraja del tahúr... tú eliges el qué, pero adquirirlo
+                debería suponer cierto desafío (si fuera sencillo, no sería una compulsión). Como mínimo, tendrás que
+                usar la persuasión para birlarle el objeto a su dueño actual. No hace falta que lo ataques (a menos que
+                sea tu método preferido), pero recurrirás a un descuento de cinco dedos si falla el resto de métodos.
+            </es>
+        </description>
+    </techCompulsion>
+    <techCompulsion>
+        <id>bloodthisty</id>
+        <name>
+            <en>Bloodthisty</en>
+            <es>Sanguinario</es>
+        </name>
+        <description>
+            <en>You won’t feel satisfied until you’ve literally drawn blood from an enemy. Whenever someone has raised
+                your ire or actively opposed you, you must pay in blood. You must wound someone (preferably with the
+                tech that causes this compulsion) enough to cause bleeding or bruising. Inflicting 1 Vitality of damage
+                from a sharp or piercing weapon is good enough. For a blunt weapon, you must inflict at least 2 Vitality
+                of damage. If the person gets away or the scene ends without you gaining satisfaction (in blood), you
+                spend the next scene in the Penalized state.
+            </en>
+            <es>No te sentirás satisfecho hasta que hayas hecho sangrar a tu enemigo. Literalmente. Cuando alguien
+                provoque tu ira o se oponga activamente a ti, lo pagará con su sangre. Debes herir a alguien
+                (preferiblemente con la tecnología que ha causado la compulsión) lo suficiente como para que sangre o le
+                quede un moratón. Basta con infligir 1 punto de daño con un arma cortante o perforante. Si el arma es
+                contundente, tendrás que infligir como mínimo 2 puntos de daño. En caso de que la persona logre escapar
+                o la escena acabe sin que hayas conseguido quedar satisfecho (con sangre), tendrás el estado Penalizado
+                durante la siguiente escena.
+            </es>
+        </description>
+    </techCompulsion>
+    <techCompulsion>
+        <id>cruel</id>
+        <name>
+            <en>Cruel</en>
+            <es>Cruel</es>
+        </name>
+        <description>
+            <en>You get a sick thrill watching another person’s torment. If another person within sight is in pain (such
+                as the Tormented state), you get distracted watching it: you suffer -2 goal for any action not directed
+                at that person. If an opponent is especially vulnerable (such as in the Stunned state) or fearful
+                (Afraid or Terrified), you might very well throw honor to the wind and take advantage of their state,
+                inflicting emotional pain by making a castigate or humiliate influence attack. If that fails to twist
+                the knife, you physically attack them to inflict bodily pain.
+            </en>
+            <es>Sientes una perversa satisfacción viendo a otros sufrir. Si hay una persona al alcance de la vista que
+                esté sintiendo dolor (por ejemplo, con el estado Atormentado), te distraes observándola y sufres un
+                penalizador de –2 a la meta de cualquier acción que no se dirija a esa persona. Si un oponente se
+                encuentra especialmente vulnerable (por ejemplo, tiene el estado Aturdido) o tiene miedo (está Asustado
+                o Aterrorizado), podrías prescindir de tu honor y aprovecharte de su estado, infligiéndole dolor
+                emocional con un ataque de influencia con la maniobra presionar o humillar. Si con ello no consigues
+                hacerle sentir dolor, lo atacarás físicamente para que sufra dolor físico.
+            </es>
+        </description>
+    </techCompulsion>
+    <techCompulsion>
+        <id>destructive</id>
+        <name>
+            <en>Destructive</en>
+            <es>Destructivo</es>
+        </name>
+        <description>
+            <en>While many people get a vicarious thrill from watching things break or burn, you feel the need to enact
+                it firsthand. You are rough on your equipment: a critical miss means you might break it. Also, anytime
+                you make a successful attack, you must spend VP to increase the damage. The amount of VP can’t be lower
+                than your lowest force characteristic (Strength, Wits, or Presence). If you cannot spend this minimum
+                amount, your frustration causes your next roll (of any kind) to be unfavorable.
+            </en>
+            <es>A mucha gente le gusta ver cómo las cosas se rompen o se queman, pero tú necesitas ser quien las
+                destruya. Por eso maltratas todo tu equipo y, con un fallo crítico, podrías hasta romperlo. Además, cada
+                vez que tienes éxito en un ataque, debes gastar PV para aumentar el daño. La cantidad de PV no puede ser
+                inferior a tu característica de potencia más baja (Fuerza, Inteligencia o Presencia). Si no puedes
+                gastar esta cantidad mínima, tu frustración hará que tu próxima tirada (cualquiera) sea desfavorable.
+            </es>
+        </description>
+    </techCompulsion>
+    <techCompulsion>
+        <id>heedless</id>
+        <name>
+            <en>Heedless</en>
+            <es>Despreocupado</es>
+        </name>
+        <description>
+            <en>You seek daredevil thrills. When confronted with terrible odds or a situation that would cause others to
+                pause — a rickety bridge across a deep chasm, a leap across an alley filled with gunfire, an honor
+                challenge from a far-better duelist than you, a scriptural debate with the Patriarch — you won’t
+                hesitate: you dive right in. On the bright side, you can’t be Daunted.
+            </en>
+            <es>Buscas sensaciones fuertes. Cuando te enfrentes a un momento crítico o una situación que daría que
+                pensar a los demás (cruzar un puente desvencijado sobre un abismo, pasar por un callejón donde hay un
+                tiroteo, un desafío de honor de un duelista mejor que tú, un debate de escrituras con el patriarca), no
+                dudarás en lanzarte de cabeza. Lo bueno es que no puedes recibir el estado Intimidado.
+            </es>
+        </description>
+    </techCompulsion>
+    <techCompulsion>
+        <id>hypercritical</id>
+        <name>
+            <en>Hypercritical</en>
+            <es>Criticón</es>
+        </name>
+        <description>
+            <en>You just have to criticize everything. You critically evaluate whatever people, places, and things you
+                interact with and have trouble keeping your judgments to yourself. This need drives you to seek out the
+                creative endeavors of your fellow sentients — plays, magic lantern shows, dance recitals — and weigh in.
+                If you don’t like something, you won’t hold back in announcing it. While this can win you respect now
+                and then for calling others on their bullshit, it more often makes you a boor and can win you sworn
+                enemies. The GM can declare your persuasion influence rolls to be unfavorable, depending on whether
+                you’re speaking truth to power or disparaging the countess’s tacky shantor ceramics collection.
+            </en>
+            <es>Lo criticas todo. Sientes la necesidad de evaluar a todas las personas, lugares y cosas con las que
+                interactúas, y te cuesta guardarte las críticas. Esto te impulsa a buscar los esfuerzos creativos de
+                otros seres racionales (obras teatrales, espectáculos de linterna mágica, bailes) y dar tu opinión. Si
+                algo no te gusta, no tendrás ningún problema en hacerlo saber. Quizás te ganes el respeto de los demás
+                de vez en cuando, pero por lo general tu comportamiento te convierte en un maleducado y quizás te valga
+                enemigos acérrimos. El DJ podría declarar tus tiradas de persuasión desfavorables, todo depende de si le
+                dices la verdad a alguien poderoso o sencillamente desprecias la colección de cerámica shantor de la
+                condesa y la llamas hortera.
+            </es>
+        </description>
+    </techCompulsion>
+    <techCompulsion>
+        <id>indiscreet</id>
+        <name>
+            <en>Indiscreet</en>
+            <es>Indiscreto</es>
+        </name>
+        <description>
+            <en>You have trouble keeping things to yourself. Whether it’s sharing with too-much-information about
+                something private or gossiping about the rector’s secret tryst or the local Scraver boss’s bizarre
+                hobbies, you just can’t help blurting out information that should remain secret. This can make your
+                Knavery-skill deceive attempts unfavorable, as well as befriend attempts against those whose
+                confidential info you’ve divulged.
+            </en>
+            <es>Te cuesta guardarte las cosas. Quizás compartas demasiada información sobre algo privado o cotillees
+                sobre el romance secreto del rector o las extrañas aficiones del jefe Carroñero local; pero, sea como
+                sea, no puedes evitar que se te escape información que debería permanecer en secreto. Tus intentos de
+                engañar podrían ser desfavorables, así como los intentos de trabar amistad con aquellas personas cuya
+                información confidencial has divulgado.
+            </es>
+        </description>
+    </techCompulsion>
+    <techCompulsion>
+        <id>industrious</id>
+        <name>
+            <en>Industrious</en>
+            <es>Diligente</es>
+        </name>
+        <description>
+            <en>You’re always in need of a hands-on project. You’re always seeking an undertaking you can throw yourself
+                into, whether it’s fixing that clock, reconfiguring the nav computer, or writing your memoirs. Once you
+                start on a task, you must finish it. When you finish that task, you’ll soon find another, so long as you
+                can keep yourself busy. Interruptions and side-projects are to be expected, but if you are kept from
+                working on your key project for too long, you become anxious. The GM might declare your influence and
+                non-combat rolls unfavorable until you get at least 10 minutes in on your project.
+            </en>
+            <es>Necesitas estar siempre trabajando en algún proyecto. Estás constantemente buscando algo que hacer, ya
+                sea reparar un reloj, reconfigurar el ordenador de a bordo o escribir tus memorias. Una vez que empiezas
+                una tarea, tienes que acabarla. Cuando la acabes, pronto encontrarás otra que te mantenga ocupado. Las
+                interrupciones y los proyectos en paralelo son de esperar, pero si pasas demasiado tiempo sin trabajar
+                en tu proyecto principal, te entrará ansiedad. El DJ puede declarar las tiradas de influencia y las
+                tiradas que no tengan que ver con el combate desfavorables hasta que pases al menos 10 minutos
+                trabajando en tu proyecto.
+            </es>
+        </description>
+    </techCompulsion>
+    <techCompulsion>
+        <id>inerrant</id>
+        <name>
+            <en>Inerrant</en>
+            <es>Infalible</es>
+        </name>
+        <description>
+            <en>You are obsessed with accuracy in all things. You simply must succeed with precision and correct the
+                inaccuracies of others — their mispronunciations, misspelled words, misstated facts, etc. Besides being
+                overly pedantic in social situations, whenever you make an attack, whether physical or influential, you
+                must spend VP to either increase the goal number or completely overcome the target’s Resistance. If your
+                target gets into a bidding war over boosting Resistance, you must spend an amount in your final bid at
+                least equal to your lowest finesse characteristic (Dexterity, Perception, or Intuition). If you cannot
+                spend this minimum amount, your frustration causes your next roll (of any kind) to be unfavorable.
+            </en>
+            <es>Estás obsesionado con el rigor en todos los ámbitos. Debes conseguirlo todo con precisión y corregir las
+                inexactitudes de los demás: su mala pronunciación, los errores que han cometido, los datos inexactos,
+                etc. Además de mostrarte extremadamente pedante en situaciones sociales, cuando hagas un ataque, ya sea
+                físico o de influencia, debes gastar PV para aumentar el número meta o superar por completo la
+                Resistencia del objetivo. Si tu objetivo comienza una guerra de apuestas aumentando su Resistencia, tu
+                apuesta final debe ser una cantidad de PV equivalente como mínimo a tu puntuación más baja en una
+                característica de agilidad (Destreza, Percepción o Intuición). Si no puedes gastar esta cantidad como
+                mínimo, tu frustración hará que tu próxima tirada (cualquiera) sea desfavorable.
+            </es>
+        </description>
+    </techCompulsion>
+    <techCompulsion>
+        <id>pretentious</id>
+        <name>
+            <en>Pretentious</en>
+            <es>Pretencioso</es>
+        </name>
+        <description>
+            <en>You’re a show-off who craves attention. You need others to notice some quality about you or some item
+                that you feel would make them jealous, so you flaunt it. Unfortunately, others notice that you’re trying
+                too hard. While your initial persuasion influence attempts against a target are normal, successive
+                attempts against them become unfavorable — and you will keep trying until you either succeed or they
+                acknowledge your quality or cool thing. You also suffer -2 goal on Sneak rolls; skulking about is just
+                not your style.
+            </en>
+            <es>Te gusta alardear y buscas la atención de los demás. Necesitas que se den cuenta de alguna de tus
+                cualidades, o alguno de los objetos que llevas y que podría darles envidia, así que presumes de ello.
+                Por desgracia, los demás acaban dándose cuenta de esta actitud forzada. Tus intentos iniciales de
+                persuadir a un objetivo no tienen penalización, pero los intentos sucesivos se vuelven desfavorables...
+                y seguirás intentándolo hasta que lo consigas o la persona reconozca tu cualidad o el objeto del que
+                presumías. También sufres un penalizador de –2 a tus tiradas de Sigilo. No te pega andar por ahí de
+                puntillas.
+            </es>
+        </description>
+    </techCompulsion>
+    <techCompulsion>
+        <id>protective</id>
+        <name>
+            <en>Protective</en>
+            <es>Protector</es>
+        </name>
+        <description>
+            <en>You’d take a bullet for people who are important to you, such as troupe members or close faction
+                associates. This isn’t just figurative — you will literally leap in the way of a physical attack against
+                them. Their protection is more important to you than your own health. You won’t outright die for them,
+                but you will defend them from physical attacks (unless you have your own immediate attacker to deal
+                with). If they’re being emotionally abused (such as by coercion influence), you’ll intervene to draw the
+                attention toward you instead, even if it means escalating a situation. You will be the last one out of a
+                burning building and the one who gives up the last parachute so that your friend can live another day.
+            </en>
+            <es>Serías capaz de llevarte una bala por las personas que te importan, como los miembros de tu compañía o
+                tus socios de facción más cercanos. No es una forma de hablar: interceptarás literalmente un ataque
+                físico contra ellos. Su protección te importa más que tu propia salud. Aunque no llegarías a morir por
+                ellos, los defenderás de ataques físicos (a menos que tú también tengas un atacante del que ocuparte).
+                Si están siendo maltratados emocionalmente (influencia de coacción), intervendrás para redirigir la
+                atención hacia a ti, incluso aunque eso empeore la situación. Eres el último que sale de un edificio en
+                llamas y el que entrega el último paracaídas a su amigo para que pueda vivir para contarlo.
+            </es>
+        </description>
+    </techCompulsion>
+    <techCompulsion>
+        <id>reckless</id>
+        <name>
+            <en>Reckless</en>
+            <es>Imprudente</es>
+        </name>
+        <description>
+            <en>You throw all caution to the wind. You gain initiative edge, but you cannot spend VP to boost your
+                Resistance unless you take a primary action to do so. In addition, when the GM tests for instinctual
+                perception, your Perception is halved (round down). When your direct attention is focused on one thing,
+                you can’t quite focus on anything else.
+            </en>
+            <es>Prescindes de toda cautela y ganas ventaja de iniciativa, pero no puedes gastar PV para aumentar tu
+                Resistencia a menos que lo hagas con tu acción primaria. Además, cuando el DJ ponga a prueba tu
+                percepción instintiva, tu Percepción queda reducida a la mitad (redondeando hacia abajo). Cuando estás
+                centrado en algo, no consigues centrarte en nada más.
+            </es>
+        </description>
+    </techCompulsion>
+    <techCompulsion>
+        <id>Solicitous</id>
+        <name>
+            <en>solicitous</en>
+            <es>Solícito</es>
+        </name>
+        <description>
+            <en>You look out for others at the cost of your own needs. You hover around them, always checking to make
+                sure they’ve got what they need and are comfortable. If they evince a need, or if a need is obvious to
+                you, you’ll interrupt what you’re doing to tend to that need: bind a wound, give a hug, provide a
+                sympathetic ear, or even just fetch a drink. You will hesitate to attack anyone, and if forced to do so,
+                you would prefer to subdue them, if possible, rather than injuring or killing.
+            </en>
+            <es>Te preocupas por los demás a costa de tus propias necesidades. Siempre estás a su lado, asegurándote de
+                que tienen todo lo que necesitan y están cómodos. Si mencionan alguna necesidad o si te parece que
+                tienen alguna necesidad obvia, interrumpirás lo que estés haciendo para atenderla (vendar una herida,
+                dar un abrazo, escuchar sus penas o incluso traer una bebida). También dudarás a la hora de atacar a
+                alguien y, si te ves obligado a hacerlo, preferirás someterlo si es posible, en vez de herirlo o
+                matarlo.
+            </es>
+        </description>
+    </techCompulsion>
+</techCompulsions>

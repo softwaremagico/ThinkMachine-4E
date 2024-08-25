@@ -25,7 +25,7 @@ package com.softwaremagico.tm.file.configurator;
  */
 
 import com.softwaremagico.tm.file.FileManager;
-import com.softwaremagico.tm.file.configurator.exceptions.PropertyNotStoredException;
+import com.softwaremagico.tm.exceptions.PropertyNotStoredException;
 import com.softwaremagico.tm.log.MachineLog;
 
 import java.io.BufferedInputStream;

@@ -24,7 +24,7 @@ package com.softwaremagico.tm.file.modules;
  * #L%
  */
 
-import com.softwaremagico.tm.file.InvalidJarFileException;
+import com.softwaremagico.tm.exceptions.InvalidJarFileException;
 import com.softwaremagico.tm.file.PathManager;
 import com.softwaremagico.tm.file.configurator.MachineConfigurationReader;
 import com.softwaremagico.tm.log.MachineModulesLog;

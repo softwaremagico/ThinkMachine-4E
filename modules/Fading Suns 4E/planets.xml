@@ -182,7 +182,7 @@
 			<en>De Moley</en>
 			<es>De Moley</es>
 		</name>
-		<factions>brotherBattle</factions>
+		 <factions><faction>brotherBattle</faction></factions>
 	</planet>
 	<planet>
 		<id>holyTerra</id>

@@ -34,9 +34,15 @@ public enum CharacteristicType {
 
     SPIRIT,
 
+    OCCULTISM,
+
     OTHERS;
 
     CharacteristicType() {
+    }
+
+    public String getId() {
+        return name().toLowerCase();
     }
 
     public static CharacteristicType getType(String name) {

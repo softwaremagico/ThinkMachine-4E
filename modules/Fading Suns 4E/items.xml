@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<equipments>
+    <equipment>
+        <id>estheticOrb</id>
+        <type>item</type>
+        <name>
+            <en>Aesthetic Orb</en>
+            <es>Orbe Estético</es>
+        </name>
+        <description>
+            <en>Floating baseball-sized orb; can follow its user and produce soft lighting and mood music from a library
+                of themes.
+            </en>
+            <es>Un orbe flotante del tamaño de una pelota de béisbol; puede se guir a su propietario y emitir una suave
+                luz y música ambiental con una variedad de temas para elegir.
+            </es>
+        </description>
+        <techLevel>6</techLevel>
+        <size>XS</size>
+        <traits>
+            <trait>curio</trait>
+        </traits>
+        <restrictions>
+            <factions>
+                <faction>alMalik</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>littleFriend</id>
+        <type>item</type>
+        <name>
+            <en>Little Friend</en>
+            <es>Amiguito</es>
+        </name>
+        <description>
+            <en>Skin patch worn at the base of the neck; choose a specific skill when receiving this award: +1 goal to
+                that skill once per scene, but your next physical action roll is -1 goal from nervous system overload.
+            </en>
+            <es>Parche de piel en la base del cuello; elige una habilidad cuando recibas este premio y obtienes +1 a la
+                meta una vez por escena cuando uses esa habilidad, pero tu próxima tirada de acción física recibe –1 a
+                la meta por una sobrecarga del sistema nervioso.
+            </es>
+        </description>
+        <techLevel>5</techLevel>
+        <size>XS</size>
+        <traits>
+            <trait>curio</trait>
+        </traits>
+        <restrictions>
+            <factions>
+                <faction>decados</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>saintsRelic</id>
+        <type>item</type>
+        <name>
+            <en>Saint’s relic</en>
+            <es>Reliquia de santo</es>
+        </name>
+        <description>
+            <en>Associated with a Gar den Worlds saint.</en>
+            <es>Asociada con un santo de un Mundo Jardín</es>
+        </description>
+        <size>XS</size>
+        <restrictions>
+            <factions>
+                <faction>liHalan</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>apocryphaOfHorace</id>
+        <type>item</type>
+        <name>
+            <en>Apocrypha of Horace</en>
+            <es>Evangelios Apócrifos de Horacio</es>
+        </name>
+        <description>
+            <en>Associated with a Gar den Worlds saint.</en>
+            <es>Asociada con un santo de un Mundo Jardín</es>
+        </description>
+        <size>S</size>
+        <restrictions>
+            <factions>
+                <faction>eskatonic</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>saintHoraceTheLearnedTexts</id>
+        <type>item</type>
+        <name>
+            <en>Saint Horace the Learned Texts</en>
+            <es>Textos sobre San Horacio el Docto</es>
+        </name>
+        <description>
+            <en>Texts that were rejected by the Church (citing alleged false authorship and theological error).</en>
+            <es>Textos que la Iglesia rechazó (citando una supuesta falsa autoría y errores teológicos).</es>
+        </description>
+        <size>S</size>
+        <restrictions>
+            <factions>
+                <faction>eskatonic</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>mercifulTechnal</id>
+        <type>item</type>
+        <name>
+            <en>Merciful Technal</en>
+            <es>Tecnal Misericordioso</es>
+        </name>
+        <description>
+            <en>A medical scanner or surgery kit. Grants +2 goal to Remedy rolls.</en>
+            <es>Un escáner médico o instrumentos de cirugía. Meta +2 a tiradas de Curar</es>
+        </description>
+        <techLevel>5</techLevel>
+        <size>M</size>
+        <traits>
+            <trait>device</trait>
+        </traits>
+        <restrictions>
+            <factions>
+                <faction>sanctuaryAeon</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>avestitePendant</id>
+        <type>item</type>
+        <name>
+            <en>Avestite Pendant</en>
+            <es>Pendiente Avestita</es>
+        </name>
+        <description>
+            <en>A pendant bearing the symbol of the Holy Flame. With the flick of a switch, this symbol becomes a
+                searing brand which an Avestite can use to brand sinners’ foreheads.
+            </en>
+            <es>Un colgante con el símbolo de la Llama Sagrada. En un abrir y cerrar de ojos, el símbolo se convierte en
+                un hierro al rojo vivo con el que un avestita puede marcar las frentes de los pecadores.
+            </es>
+        </description>
+        <size>S</size>
+        <restrictions>
+            <factions>
+                <faction>avestites</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>omegaGospels</id>
+        <type>item</type>
+        <name>
+            <en>Omega Gospels</en>
+            <es>Evangelios Omega</es>
+        </name>
+        <description>
+            <en>A copy of the Omega Gospels.</en>
+            <es>Una copia de los Evangelios Omega.</es>
+        </description>
+        <size>S</size>
+    </equipment>
+    <equipment>
+        <id>silverJumpCross</id>
+        <type>item</type>
+        <name>
+            <en>Silver Jump Cross</en>
+            <es>Cruz de Salto Plateada</es>
+        </name>
+        <description>
+            <en>A simple silver jump cross.</en>
+            <es>Una simple cruz de salto plateada.</es>
+        </description>
+        <size>S</size>
+    </equipment>
+    <equipment>
+        <id>jumpkey</id>
+        <type>item</type>
+        <name>
+            <en>Jumpkey</en>
+            <es>Llave de Salto</es>
+        </name>
+        <description>
+            <en>Penlight-sized cylinder; holds jumproute coordinates for a single route between two planets.</en>
+            <es>Un cilindro del tamaño de una linterna de bolsillo; tiene las coordenadas de una ruta entre dos
+                planetas.
+            </es>
+        </description>
+        <techLevel>7</techLevel>
+        <size>S</size>
+        <traits>
+            <trait>curio</trait>
+        </traits>
+        <restrictions>
+            <factions>
+                <faction>charioteers</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>multitool</id>
+        <type>item</type>
+        <name>
+            <en>Multitool</en>
+            <es>Multiherramienta</es>
+        </name>
+        <description>
+            <en>Produces an array of tools and meters for most tech redemption needs, one tool at a time;
+                screw-driver-sized.
+            </en>
+            <es>Incluye herramientas y medidores que cubren la mayoría de necesidades tecnorredentoras y se pueden usar
+                de uno en uno; del tamaño de un destornillador.
+            </es>
+        </description>
+        <techLevel>7</techLevel>
+        <size>S</size>
+        <techCompulsion>industrious</techCompulsion>
+        <traits>
+            <trait>nanotech</trait>
+        </traits>
+        <restrictions>
+            <factions>
+                <faction>engineers</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>guestKey</id>
+        <type>item</type>
+        <name>
+            <en>Guest Key</en>
+            <es>Llave de invitados</es>
+        </name>
+        <description>
+            <en>Universal key. When inserted into a simple mechanical lock, key conforms to shape needed to unlock it,
+                bypassing need for certain Intrusion rolls.
+            </en>
+            <es>Llave maestra. Cuando se introduce en un cerrojo mecánico, adquiere la forma necesaria para abrirlo,
+                volviendo innecesarias ciertas tiradas de Intrusión.
+            </es>
+        </description>
+        <techLevel>7</techLevel>
+        <size>S</size>
+        <techCompulsion>industrious</techCompulsion>
+        <traits>
+            <trait>nanotech</trait>
+        </traits>
+        <restrictions>
+            <factions>
+                <faction>scravers</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>militarySquawker</id>
+        <type>item</type>
+        <name>
+            <en>Military Squawker</en>
+            <es>Altavoz Militar</es>
+        </name>
+        <description>
+            <en>Radio planetwide range + 1 AU interstellar.</en>
+            <es>Radio de alcance planetario + 1 UA interestelar.</es>
+        </description>
+        <techLevel>6</techLevel>
+        <size>M</size>
+        <techCompulsion>indiscreet</techCompulsion>
+        <restrictions>
+            <factions>
+                <faction>theDispossessed</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>scramblerKey</id>
+        <type>item</type>
+        <name>
+            <en>Scrambler Key</en>
+            <es>Llave Amorfa</es>
+        </name>
+        <description>
+            <en>Lockpick device. Used to unchain enslaved aliens.</en>
+            <es>Dispositivo ganzúa. Utilizada para liberar alienígenas.</es>
+        </description>
+        <techLevel>6</techLevel>
+        <size>XS</size>
+        <techCompulsion>industrious</techCompulsion>
+        <restrictions>
+            <factions>
+                <faction>far</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>societyOfStPaulusExpeditionGuide</id>
+        <type>item</type>
+        <name>
+            <en>The Society of St. Paulus Expedition Guide</en>
+            <es>La Guía de Expediciones de la Sociedad de San Pablo</es>
+        </name>
+        <description>
+            <en>Provides a broad (but relatively shallow) Known Worlds Lore capability</en>
+            <es>Ofrece una competencia amplia de Saber sobre los Mundos Conocidos (aunque bastante superficial).</es>
+        </description>
+        <techLevel>6</techLevel>
+        <size>XS</size>
+        <restrictions>
+            <factions>
+                <faction>societyOfStPaulus</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>firebirds</id>
+        <type>item</type>
+        <name>
+            <en>Firebirds</en>
+            <es>Fénix</es>
+        </name>
+        <size>XS</size>
+    </equipment>
+    <equipment>
+        <id>militaryCommandersUniform</id>
+        <type>item</type>
+        <name>
+            <en>Military Commander’s Uniform</en>
+            <es>Uniforme de Comandante Militar</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>commander</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>destrier</id>
+        <type>item</type>
+        <name>
+            <en>Destrier</en>
+            <es>Corcel de Guerra</es>
+        </name>
+        <description>
+            <en>Trained war horse.</en>
+            <es>Corcel de guerra.</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>dressSword</id>
+        <type>item</type>
+        <name>
+            <en>Dress Sword</en>
+            <es>Espada Ceremonial</es>
+        </name>
+        <size>L</size>
+    </equipment>
+    <equipment>
+        <id>courtOutfit</id>
+        <type>item</type>
+        <name>
+            <en>Noble Court Outfit</en>
+            <es>Traje de Corte</es>
+        </name>
+    </equipment>
+    <equipment>
+        <id>churchPageantryOutfit</id>
+        <type>item</type>
+        <name>
+            <en>Church Pageantry Outfit</en>
+            <es>Traje de Celebración Religiosa</es>
+        </name>
+    </equipment>
+    <equipment>
+        <id>agoraShoppingOutfit</id>
+        <type>item</type>
+        <name>
+            <en>Agora Shopping Outfit</en>
+            <es>Traje de Celebración Religiosa</es>
+        </name>
+    </equipment>
+    <equipment>
+        <id>officialOccasionOutfit</id>
+        <type>item</type>
+        <name>
+            <en>Official Occasion Outfit</en>
+            <es>Traje Oficial</es>
+        </name>
+    </equipment>
+    <equipment>
+        <id>huntingOutfit</id>
+        <type>item</type>
+        <name>
+            <en>Hunting Outfit</en>
+            <es>Traje de Caza</es>
+        </name>
+    </equipment>
+    <equipment>
+        <id>diningOutfit</id>
+        <type>item</type>
+        <name>
+            <en>Dining Outfit</en>
+            <es>Traje de Cena</es>
+        </name>
+    </equipment>
+</equipments>

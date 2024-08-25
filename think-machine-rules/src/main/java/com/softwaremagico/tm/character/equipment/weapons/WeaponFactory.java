@@ -25,13 +25,19 @@ package com.softwaremagico.tm.character.equipment.weapons;
  */
 
 
-import com.softwaremagico.tm.InvalidXmlElementException;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.xml.XmlFactory;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public final class WeaponFactory extends XmlFactory<Weapon> {
     private static final String XML_FILE = "weapons.xml";
+
+    private static Map<WeaponType, List<Weapon>> weaponsByType;
+    private static Map<String, List<Weapon>> weaponsByClass;
 
     private static final class WeaponFactoryInit {
         public static final WeaponFactory INSTANCE = new WeaponFactory();
@@ -39,6 +45,30 @@ public final class WeaponFactory extends XmlFactory<Weapon> {
 
     public static WeaponFactory getInstance() {
         return WeaponFactoryInit.INSTANCE;
+    }
+
+    public List<Weapon> getWeapons(WeaponType type) {
+        if (weaponsByType == null) {
+            weaponsByType = new HashMap<>();
+            getElements().forEach(weapon -> {
+                weaponsByType.computeIfAbsent(weapon.getType(), k -> new ArrayList<>());
+                weaponsByType.get(weapon.getType()).add(weapon);
+            });
+        }
+        return weaponsByType.get(type);
+    }
+
+    public List<Weapon> getWeaponsByClass(String weaponClass) {
+        if (weaponsByClass == null) {
+            weaponsByClass = new HashMap<>();
+            getElements().forEach(weapon -> {
+                weaponsByClass.computeIfAbsent(weaponClass, k -> new ArrayList<>());
+                if (weapon.getWeaponClass() != null) {
+                    weaponsByClass.get(weapon.getWeaponClass()).add(weapon);
+                }
+            });
+        }
+        return weaponsByClass.get(weaponClass);
     }
 
 

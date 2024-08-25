@@ -28,8 +28,9 @@ import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
-import com.softwaremagico.tm.character.skills.AvailableSkill;
+import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.values.IValue;
+import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
 
 import java.util.Objects;
 import java.util.Set;
@@ -73,13 +74,17 @@ public class CombatAction extends Element<CombatAction> {
         for (final CombatActionRequirement requirement : getRequirements()) {
             boolean allowed = false;
             for (final IValue restriction : requirement.getRequirements()) {
-                if (restriction instanceof AvailableSkill) {
-                    if (characterPlayer.getSkillTotalRanks((AvailableSkill) restriction) >= requirement.getValue()) {
+                if (restriction instanceof Skill) {
+                    try {
+                        if (characterPlayer.getSkillValue((Skill) restriction) >= requirement.getValue()) {
+                            allowed = true;
+                        }
+                    } catch (MaxInitialValueExceededException e) {
                         allowed = true;
                     }
                 } else if (restriction instanceof CharacteristicDefinition) {
-                    if (characterPlayer.getCharacteristic(restriction.getId()) != null
-                            && characterPlayer.getCharacteristic(restriction.getId()).getValue() >= requirement.getValue()) {
+                    if (characterPlayer.getCharacteristicCombatValue(restriction.getId()) != null
+                            && characterPlayer.getCharacteristicCombatValue(restriction.getId()).getValue() >= requirement.getValue()) {
                         allowed = true;
                     }
                 }
@@ -94,7 +99,7 @@ public class CombatAction extends Element<CombatAction> {
     private boolean checkRestriction(String skillId) {
         for (final CombatActionRequirement requirement : getRequirements()) {
             for (final IValue restriction : requirement.getRequirements()) {
-                if (restriction instanceof AvailableSkill) {
+                if (restriction instanceof Skill) {
                     if (Objects.equals(restriction.getId(), skillId)) {
                         return true;
                     }

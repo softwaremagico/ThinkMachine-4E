@@ -24,8 +24,8 @@ package com.softwaremagico.tm.file.configurator;
  * #L%
  */
 
-import com.softwaremagico.tm.file.configurator.exceptions.PropertyNotStoredException;
-import com.softwaremagico.tm.file.configurator.exceptions.ResurceNotFoundException;
+import com.softwaremagico.tm.exceptions.PropertyNotStoredException;
+import com.softwaremagico.tm.exceptions.ResurceNotFoundException;
 import com.softwaremagico.tm.file.watcher.FileWatcher;
 import com.softwaremagico.tm.file.watcher.FileWatcher.FileModifiedListener;
 import com.softwaremagico.tm.log.ConfigurationLog;

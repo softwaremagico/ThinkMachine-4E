@@ -24,6 +24,8 @@ package com.softwaremagico.tm;
  * #L%
  */
 
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+
 public interface IElementRetriever<T extends Element<T>> {
 
     T getElement(String elementId) throws InvalidXmlElementException;

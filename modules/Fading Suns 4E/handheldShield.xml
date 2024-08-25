@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<handheldShields>
+    <handheldShield>
+        <id>bodyShield</id>
+        <type>handheldShield</type>
+    </handheldShield>
+</handheldShields>

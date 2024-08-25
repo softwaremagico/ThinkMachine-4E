@@ -26,28 +26,31 @@ package com.softwaremagico.tm.random.definition;
 
 import com.softwaremagico.tm.XmlData;
 import com.softwaremagico.tm.character.characteristics.Characteristic;
-import com.softwaremagico.tm.character.factions.FactionGroup;
+import com.softwaremagico.tm.character.equipment.Agora;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.StringTokenizer;
 
 public class RandomElementDefinition extends XmlData {
+    private static final double COMMON_PROBABILITY = 100d;
+    private static final double RARE_PROBABILITY = 10d;
+    private static final double EXOTIC_PROBABILITY = 1d;
+
     private Integer staticProbability;
     private Integer minimumTechLevel;
     private Integer maximumTechLevel;
     private Double probabilityMultiplier;
     private Set<String> restrictedFactions = new HashSet<>();
     private Set<String> recommendedFactions = new HashSet<>();
-    private Set<String> forbiddenRaces = new HashSet<>();
-    private Set<String> restrictedRaces = new HashSet<>();
-    private Set<String> recommendedRaces = new HashSet<>();
-    private Set<FactionGroup> restrictedFactionGroups = new HashSet<>();
-    private Set<FactionGroup> recommendedFactionGroups = new HashSet<>();
+    private Set<String> forbiddenSpecies = new HashSet<>();
+    private Set<String> restrictedSpecies = new HashSet<>();
+    private Set<String> recommendedSpecies = new HashSet<>();
+    private Set<String> restrictedUpbringing = new HashSet<>();
+    private Set<String> recommendedUpbringings = new HashSet<>();
     private RandomProbabilityDefinition probability;
 
     public RandomElementDefinition() {
-
+        super();
     }
 
     public RandomElementDefinition(RandomElementDefinition... randomDefinitions) {
@@ -78,25 +81,25 @@ public class RandomElementDefinition extends XmlData {
             recommendedFactions.clear();
             recommendedFactions.addAll(randomDefinition.getRecommendedFactions());
         }
-        if (randomDefinition.getRecommendedRaces() != null && !randomDefinition.getRecommendedRaces().isEmpty()) {
-            recommendedRaces.clear();
-            recommendedRaces.addAll(randomDefinition.getRecommendedRaces());
+        if (randomDefinition.getRecommendedSpecies() != null && !randomDefinition.getRecommendedSpecies().isEmpty()) {
+            recommendedSpecies.clear();
+            recommendedSpecies.addAll(randomDefinition.getRecommendedSpecies());
         }
-        if (randomDefinition.getForbiddenRaces() != null && !randomDefinition.getForbiddenRaces().isEmpty()) {
-            forbiddenRaces.clear();
-            forbiddenRaces.addAll(randomDefinition.getForbiddenRaces());
+        if (randomDefinition.getForbiddenSpecies() != null && !randomDefinition.getForbiddenSpecies().isEmpty()) {
+            forbiddenSpecies.clear();
+            forbiddenSpecies.addAll(randomDefinition.getForbiddenSpecies());
         }
-        if (randomDefinition.getRestrictedRaces() != null && !randomDefinition.getRestrictedRaces().isEmpty()) {
-            restrictedRaces.clear();
-            restrictedRaces.addAll(randomDefinition.getRestrictedRaces());
+        if (randomDefinition.getRestrictedSpecies() != null && !randomDefinition.getRestrictedSpecies().isEmpty()) {
+            restrictedSpecies.clear();
+            restrictedSpecies.addAll(randomDefinition.getRestrictedSpecies());
         }
-        if (randomDefinition.getRestrictedFactionGroups() != null && !randomDefinition.getRestrictedFactionGroups().isEmpty()) {
-            restrictedFactionGroups.clear();
-            restrictedFactionGroups.addAll(randomDefinition.getRestrictedFactionGroups());
+        if (randomDefinition.getRestrictedUpbringing() != null && !randomDefinition.getRestrictedUpbringing().isEmpty()) {
+            restrictedUpbringing.clear();
+            restrictedUpbringing.addAll(randomDefinition.getRestrictedUpbringing());
         }
-        if (randomDefinition.getRecommendedFactionsGroups() != null && !randomDefinition.getRecommendedFactionsGroups().isEmpty()) {
-            recommendedFactionGroups.clear();
-            recommendedFactionGroups.addAll(randomDefinition.getRecommendedFactionsGroups());
+        if (randomDefinition.getRecommendedUpbringings() != null && !randomDefinition.getRecommendedUpbringings().isEmpty()) {
+            recommendedUpbringings.clear();
+            recommendedUpbringings.addAll(randomDefinition.getRecommendedUpbringings());
         }
         if (randomDefinition.getProbability() != null) {
             setProbability(randomDefinition.getProbability());
@@ -118,14 +121,10 @@ public class RandomElementDefinition extends XmlData {
         return recommendedFactions;
     }
 
-    public void addRecommendedFactionGroup(FactionGroup recommendedFactionGroup) {
+    public void addRecommendedFactionGroup(String recommendedFactionGroup) {
         if (recommendedFactionGroup != null) {
-            recommendedFactionGroups.add(recommendedFactionGroup);
+            recommendedUpbringings.add(recommendedFactionGroup);
         }
-    }
-
-    public Set<FactionGroup> getRecommendedFactionsGroups() {
-        return recommendedFactionGroups;
     }
 
     public void addRecommendedFaction(String faction) {
@@ -134,9 +133,9 @@ public class RandomElementDefinition extends XmlData {
         }
     }
 
-    public void addRecommendedRaces(String race) {
+    public void addRecommendedSpecies(String race) {
         if (race != null) {
-            restrictedRaces.add(race);
+            restrictedSpecies.add(race);
         }
     }
 
@@ -150,12 +149,12 @@ public class RandomElementDefinition extends XmlData {
 
     public void addRecommendedRace(String race) {
         if (race != null) {
-            recommendedRaces.add(race);
+            recommendedSpecies.add(race);
         }
     }
 
-    public Set<String> getRecommendedRaces() {
-        return recommendedRaces;
+    public Set<String> getRecommendedSpecies() {
+        return recommendedSpecies;
     }
 
     public Integer getMaximumTechLevel() {
@@ -184,42 +183,63 @@ public class RandomElementDefinition extends XmlData {
         return probabilityMultiplier;
     }
 
+    public void setAgoraProbabilityMultiplier(Agora agora) {
+        if (agora != null) {
+            switch (agora) {
+                case COMMON:
+                case KNOWN_WORLDS:
+                    this.probabilityMultiplier = COMMON_PROBABILITY;
+                    break;
+                case RARE:
+                    this.probabilityMultiplier = RARE_PROBABILITY;
+                    break;
+                case EXOTIC:
+                    this.probabilityMultiplier = EXOTIC_PROBABILITY;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
     public void setProbabilityMultiplier(Double probabilityMultiplier) {
-        this.probabilityMultiplier = probabilityMultiplier;
+        if (probabilityMultiplier != null) {
+            this.probabilityMultiplier = probabilityMultiplier;
+        }
     }
 
     public Set<String> getRestrictedFactions() {
         return restrictedFactions;
     }
 
-    public void addRestrictedFactionGroup(FactionGroup restrictedFactionGroup) {
+    public void addRestrictedFactionGroup(String restrictedFactionGroup) {
         if (restrictedFactionGroup != null) {
-            restrictedFactionGroups.add(restrictedFactionGroup);
+            restrictedUpbringing.add(restrictedFactionGroup);
         }
     }
 
     public void addRestrictedRace(String restrictedRace) {
         if (restrictedRace != null) {
-            restrictedRaces.add(restrictedRace);
+            restrictedSpecies.add(restrictedRace);
         }
     }
 
-    public Set<String> getRestrictedRaces() {
-        return restrictedRaces;
+    public Set<String> getRestrictedSpecies() {
+        return restrictedSpecies;
     }
 
     public void addForbiddenRace(String forbiddenRace) {
         if (forbiddenRace != null) {
-            forbiddenRaces.add(forbiddenRace);
+            forbiddenSpecies.add(forbiddenRace);
         }
     }
 
-    public Set<String> getForbiddenRaces() {
-        return forbiddenRaces;
+    public Set<String> getForbiddenSpecies() {
+        return forbiddenSpecies;
     }
 
-    public Set<FactionGroup> getRestrictedFactionGroups() {
-        return restrictedFactionGroups;
+    public Set<String> getRestrictedUpbringing() {
+        return restrictedUpbringing;
     }
 
     public void setRestrictedFactions(String restrictedFactionsContent) {
@@ -240,59 +260,43 @@ public class RandomElementDefinition extends XmlData {
         this.recommendedFactions = recommendedFactions;
     }
 
-    public void setForbiddenRaces(String forbiddenRacesContent) {
-        forbiddenRaces = new HashSet<>();
-        readCommaSeparatedTokens(forbiddenRaces, forbiddenRacesContent);
+    public void setForbiddenSpecies(String forbiddenSpeciesContent) {
+        forbiddenSpecies = new HashSet<>();
+        readCommaSeparatedTokens(forbiddenSpecies, forbiddenSpeciesContent);
     }
 
-    public void setForbiddenRaces(Set<String> forbiddenRaces) {
-        this.forbiddenRaces = forbiddenRaces;
+    public void setForbiddenSpecies(Set<String> forbiddenSpecies) {
+        this.forbiddenSpecies = forbiddenSpecies;
     }
 
-    public void setRestrictedRaces(String restrictedRacesContent) {
-        restrictedRaces = new HashSet<>();
-        readCommaSeparatedTokens(restrictedRaces, restrictedRacesContent);
+    public void setRestrictedSpecies(String restrictedSpeciesContent) {
+        restrictedSpecies = new HashSet<>();
+        readCommaSeparatedTokens(restrictedSpecies, restrictedSpeciesContent);
     }
 
-    public void setRestrictedRaces(Set<String> restrictedRaces) {
-        this.restrictedRaces = restrictedRaces;
+    public void setRestrictedSpecies(Set<String> restrictedSpecies) {
+        this.restrictedSpecies = restrictedSpecies;
     }
 
-    public void setRecommendedRaces(String recommendedRacesContent) {
-        recommendedRaces = new HashSet<>();
-        readCommaSeparatedTokens(recommendedRaces, recommendedRacesContent);
+    public void setRecommendedSpecies(String recommendedSpeciesContent) {
+        recommendedSpecies = new HashSet<>();
+        readCommaSeparatedTokens(recommendedSpecies, recommendedSpeciesContent);
     }
 
-    public void setRecommendedRaces(Set<String> recommendedRaces) {
-        this.recommendedRaces = recommendedRaces;
+    public void setRecommendedSpecies(Set<String> recommendedSpecies) {
+        this.recommendedSpecies = recommendedSpecies;
     }
 
-    public void setRestrictedFactionGroups(String restrictedFactionGroupsContent) {
-        restrictedFactionGroups = new HashSet<>();
-        final StringTokenizer restrictedFactionGroupsTokenizer = new StringTokenizer(restrictedFactionGroupsContent, ",");
-        while (restrictedFactionGroupsTokenizer.hasMoreTokens()) {
-            restrictedFactionGroups.add(FactionGroup.get(restrictedFactionGroupsTokenizer.nextToken().trim()));
-        }
+    public void setRestrictedFactionGroups(Set<String> restrictedUpbringing) {
+        this.restrictedUpbringing = restrictedUpbringing;
     }
 
-    public void setRestrictedFactionGroups(Set<FactionGroup> restrictedFactionGroups) {
-        this.restrictedFactionGroups = restrictedFactionGroups;
+    public Set<String> getRecommendedUpbringings() {
+        return recommendedUpbringings;
     }
 
-    public Set<FactionGroup> getRecommendedFactionGroups() {
-        return recommendedFactionGroups;
-    }
-
-    public void setRecommendedFactionGroups(String recommendedFactionGroupsContent) {
-        recommendedFactionGroups = new HashSet<>();
-        final StringTokenizer recommendedFactionGroupsTokenizer = new StringTokenizer(recommendedFactionGroupsContent, ",");
-        while (recommendedFactionGroupsTokenizer.hasMoreTokens()) {
-            recommendedFactionGroups.add(FactionGroup.get(recommendedFactionGroupsTokenizer.nextToken().trim()));
-        }
-    }
-
-    public void setRecommendedFactionGroups(Set<FactionGroup> recommendedFactionGroups) {
-        this.recommendedFactionGroups = recommendedFactionGroups;
+    public void setRecommendedUpbringings(Set<String> recommendedUpbringings) {
+        this.recommendedUpbringings = recommendedUpbringings;
     }
 
     @Override

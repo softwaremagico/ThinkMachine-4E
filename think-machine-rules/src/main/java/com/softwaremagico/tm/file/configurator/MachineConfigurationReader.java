@@ -25,8 +25,8 @@ package com.softwaremagico.tm.file.configurator;
  */
 
 import com.softwaremagico.tm.file.FileManager;
-import com.softwaremagico.tm.file.configurator.exceptions.PropertyNotFoundException;
-import com.softwaremagico.tm.file.configurator.exceptions.PropertyNotStoredException;
+import com.softwaremagico.tm.exceptions.PropertyNotFoundException;
+import com.softwaremagico.tm.exceptions.PropertyNotStoredException;
 import com.softwaremagico.tm.file.modules.ModuleManager;
 import com.softwaremagico.tm.file.watcher.FileWatcher;
 import com.softwaremagico.tm.file.watcher.FileWatcher.FileModifiedListener;

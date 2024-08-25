@@ -42,6 +42,12 @@ public class Name extends Element<Name> {
         this.faction = faction;
     }
 
+    public Name(String name, Gender gender, String faction) {
+        super(name, new TranslatedText(name), null, null, null);
+        this.gender = gender;
+        this.faction = faction;
+    }
+
     public String getFaction() {
         return faction;
     }

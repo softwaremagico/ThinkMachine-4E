@@ -25,10 +25,9 @@ package com.softwaremagico.tm.character.values;
  */
 
 
-import com.softwaremagico.tm.InvalidXmlElementException;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
-import com.softwaremagico.tm.character.skills.AvailableSkillsFactory;
-import com.softwaremagico.tm.character.skills.SkillDefinitionFactory;
+import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
 public class Bonification {
@@ -63,10 +62,8 @@ public class Bonification {
 
     public void setAffects(String affectsContent) {
         try {
-            if (AvailableSkillsFactory.getInstance().getElement(affectsContent) != null) {
-                this.affects = AvailableSkillsFactory.getInstance().getElement(affectsContent);
-            } else if (SkillDefinitionFactory.getInstance().getElement(affectsContent) != null) {
-                this.affects = SkillDefinitionFactory.getInstance().getElement(affectsContent);
+            if (SkillFactory.getInstance().getElement(affectsContent) != null) {
+                this.affects = SkillFactory.getInstance().getElement(affectsContent);
             } else if (CharacteristicsDefinitionFactory.getInstance().getElement(affectsContent) != null) {
                 this.affects = CharacteristicsDefinitionFactory.getInstance().getElement(affectsContent);
             }

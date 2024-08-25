@@ -24,8 +24,8 @@ package com.softwaremagico.tm.file.configurator;
  * #L%
  */
 
-import com.softwaremagico.tm.file.configurator.exceptions.PropertyNotFoundException;
-import com.softwaremagico.tm.file.configurator.exceptions.PropertyNotStoredException;
+import com.softwaremagico.tm.exceptions.PropertyNotFoundException;
+import com.softwaremagico.tm.exceptions.PropertyNotStoredException;
 import com.softwaremagico.tm.log.ConfigurationLog;
 
 import java.io.File;

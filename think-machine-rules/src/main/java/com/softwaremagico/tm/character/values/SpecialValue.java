@@ -24,22 +24,22 @@ package com.softwaremagico.tm.character.values;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
-import com.softwaremagico.tm.InvalidXmlElementException;
-import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
-import com.softwaremagico.tm.character.skills.SkillDefinitionFactory;
+import com.softwaremagico.tm.character.skills.SkillFactory;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.Set;
 
 public class SpecialValue extends Element<SpecialValue> implements IValue {
     public static final String VITALITY = "vitality";
 
-    private final Set<IValue> affects;
+    @JsonProperty("affects")
+    private Set<IValue> affects;
 
-    public SpecialValue(String id, TranslatedText name, TranslatedText description, String language, String moduleName, Set<IValue> affects) {
-        super(id, name, description, language, moduleName);
-        this.affects = affects;
+    public SpecialValue() {
+        super();
     }
 
     public Set<IValue> getAffects() {
@@ -54,7 +54,7 @@ public class SpecialValue extends Element<SpecialValue> implements IValue {
         } catch (InvalidXmlElementException e) {
             // Is a skill??
             try {
-                return SkillDefinitionFactory.getInstance().getElement(valueName);
+                return SkillFactory.getInstance().getElement(valueName);
             } catch (InvalidXmlElementException e2) {
                 // Is something else?
                 try {
@@ -66,14 +66,7 @@ public class SpecialValue extends Element<SpecialValue> implements IValue {
         }
     }
 
-    @Override
-    public int hashCode() {
-        return super.hashCode();
+    public void setAffects(Set<IValue> affects) {
+        this.affects = affects;
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
-
 }

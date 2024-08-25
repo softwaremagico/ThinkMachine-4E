@@ -27,5 +27,5 @@ package com.softwaremagico.tm.character.equipment;
 
 public interface IElementWithTechnologyLevel {
 
-    int getTechLevel();
+    Integer getTechLevel();
 }

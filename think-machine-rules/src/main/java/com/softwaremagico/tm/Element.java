@@ -2,16 +2,14 @@ package com.softwaremagico.tm;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.softwaremagico.tm.character.CharacterPlayer;
-import com.softwaremagico.tm.character.factions.FactionFactory;
-import com.softwaremagico.tm.character.factions.FactionGroup;
-import com.softwaremagico.tm.log.MachineXmlReaderLog;
+import com.softwaremagico.tm.character.skills.Specialization;
+import com.softwaremagico.tm.exceptions.InvalidSpecializationException;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 
-import java.util.Collections;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 /*-
  * #%L
@@ -38,7 +36,6 @@ import java.util.Set;
  */
 
 public class Element<T extends Element<?>> extends XmlData implements Comparable<T> {
-    public static final String DEFAULT_NULL_ID = "null";
 
     @JsonProperty("id")
     private String id;
@@ -56,15 +53,15 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
     @JsonProperty("random")
     private RandomElementDefinition randomDefinition;
 
-    private boolean restricted = false;
+    @JsonProperty("restrictions")
+    private Restrictions restrictions;
+
+
+    private List<Specialization> specializations;
 
     private boolean official = true;
 
-    private Set<String> restrictedToRaces = new HashSet<>();
-
-    private FactionGroup restrictedToFactionGroup = null;
-
-    private Set<String> restrictedToFactions = new HashSet<>();
+    private String group;
 
     //Only fort sheet representation.
     @JsonIgnore
@@ -74,13 +71,11 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
      * For creating empty elements.
      */
     public Element() {
-        this.id = DEFAULT_NULL_ID;
         this.name = new TranslatedText();
         this.description = new TranslatedText();
         this.moduleName = "";
         this.language = "";
         this.randomDefinition = new RandomElementDefinition();
-        this.restricted = false;
     }
 
     public Element(String id, TranslatedText name, TranslatedText description, String language, String moduleName) {
@@ -113,8 +108,18 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
         return description;
     }
 
-    public TranslatedText getNameRepresentation() {
-        return getName();
+    public String getNameRepresentation() {
+        if (getName() != null) {
+            return getName().getTranslatedText();
+        }
+        return "";
+    }
+
+    public String getDescriptionRepresentation() {
+        if (getDescription() != null) {
+            return getDescription().getTranslatedText();
+        }
+        return "";
     }
 
     public String getId() {
@@ -145,11 +150,36 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
         this.order = order;
     }
 
+    public List<Specialization> getSpecializations() {
+        return specializations;
+    }
+
+    public Specialization getSpecialization(String specialization) {
+        return specializations.stream().filter(s -> Objects.equals(s.getId(), specialization)).findFirst().orElseThrow(() ->
+                new InvalidSpecializationException("Specialization '" + specialization + "' not found on capability '" + getId() + "'."));
+    }
+
+    public void setSpecializations(List<Specialization> specializations) {
+        this.specializations = specializations;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
     @Override
     public int compareTo(T element) {
         if (getName() == null) {
             if (element.getName() == null) {
-                return 0;
+                if (getId() != null) {
+                    return getId().compareTo(element.getId());
+                } else {
+                    return 0;
+                }
             }
             return -1;
         }
@@ -203,35 +233,15 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
         return moduleName;
     }
 
-    public static boolean isNull(Element<?> element) {
-        if (element == null) {
-            return true;
+    public Restrictions getRestrictions() {
+        if (restrictions == null) {
+            restrictions = new Restrictions();
         }
-        return Objects.equals(element.getId(), DEFAULT_NULL_ID);
+        return restrictions;
     }
 
-    public boolean isRestricted() {
-        return restricted;
-    }
-
-    public boolean isRestricted(CharacterPlayer characterPlayer) {
-        try {
-            return characterPlayer != null && characterPlayer.getSettings().isRestrictionsChecked()
-                    && ((!getRestrictedToRaces().isEmpty() && (characterPlayer.getRace() == null
-                    || !getRestrictedToRaces().contains(characterPlayer.getRace())))
-                    || (getRestrictedToFactionGroup() != null && (characterPlayer.getFaction() == null
-                    && !Objects.equals(getRestrictedToFactionGroup(),
-                    FactionFactory.getInstance().getElement(characterPlayer.getFaction()).getFactionGroup())))
-                    || (!getRestrictedToFactions().isEmpty() && (characterPlayer.getFaction() == null
-                    || !getRestrictedToFactions().contains(characterPlayer.getFaction()))));
-        } catch (InvalidXmlElementException e) {
-            MachineXmlReaderLog.errorMessage(this.getName(), e);
-        }
-        return true;
-    }
-
-    public void setRestricted(boolean restricted) {
-        this.restricted = restricted;
+    public void setRestrictions(Restrictions restrictions) {
+        this.restrictions = restrictions;
     }
 
     public boolean isOfficial() {
@@ -242,35 +252,20 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
         this.official = official;
     }
 
-    public Set<String> getRestrictedToRaces() {
-        return restrictedToRaces;
-    }
-
-    public Set<String> getRestrictedToFactions() {
-        return restrictedToFactions;
-    }
-
-    public void setRestrictedToRaces(String restrictedToRaces) {
-        this.restrictedToRaces = Collections.singleton(restrictedToRaces);
-    }
-
-    public void setRestrictedToRaces(Set<String> restrictedToRaces) {
-        this.restrictedToRaces = restrictedToRaces;
-    }
-
-    public void setRestrictedToFactions(String restrictedToFactions) {
-        this.restrictedToFactions = Collections.singleton(restrictedToFactions);
-    }
-
-    public void setRestrictedToFactions(Set<String> restrictedToFactions) {
-        this.restrictedToFactions = restrictedToFactions;
-    }
-
-    public FactionGroup getRestrictedToFactionGroup() {
-        return restrictedToFactionGroup;
-    }
-
-    public void setRestrictedToFactionGroup(FactionGroup restrictedToFactionGroup) {
-        this.restrictedToFactionGroup = restrictedToFactionGroup;
+    public void copy(Element<?> element) {
+        if (element == null) {
+            throw new InvalidXmlElementException("You cannot make a copy if there is no element defined.");
+        }
+        setId(element.getId());
+        setName(element.getName());
+        setDescription(element.getDescription());
+        setModuleName(element.getModuleName());
+        setRandomDefinition(element.getRandomDefinition());
+        setRestrictions(element.getRestrictions());
+        if (element.getSpecializations() != null) {
+            setSpecializations(new ArrayList<>(element.getSpecializations()));
+        }
+        setOfficial(element.isOfficial());
+        setGroup(element.getGroup());
     }
 }

@@ -1,11 +1,9 @@
 package com.softwaremagico.tm.character.equipment.weapons;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.softwaremagico.tm.InvalidXmlElementException;
-import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.equipment.DamageTypeFactory;
 import com.softwaremagico.tm.character.equipment.Equipment;
-import com.softwaremagico.tm.character.equipment.Size;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
 import java.util.ArrayList;
@@ -42,12 +40,14 @@ public class Weapon extends Equipment<Weapon> {
     @JsonProperty("damageList")
     private List<WeaponDamage> weaponDamages;
 
-
-    private Size size;
     private boolean techLevelSpecial;
 
     private String special;
+    @JsonProperty("weaponClass")
+    private String weaponClass;
+    @JsonProperty("damageTypes")
     private Set<String> damageTypes;
+    @JsonProperty("weaponType")
     private WeaponType type;
 
     private Set<String> ammunition;
@@ -67,21 +67,6 @@ public class Weapon extends Equipment<Weapon> {
         this.type = null;
         this.techLevelSpecial = false;
         this.special = "";
-        this.size = null;
-    }
-
-    public Weapon(String id, TranslatedText name, TranslatedText description, String language, String moduleName, WeaponType type,
-                  List<WeaponDamage> damages, int techLevel, boolean techLevelSpecial, Size size, String special,
-                  Set<String> damageTypes, float cost, Set<String> ammunition, Set<String> accessories) {
-        super(id, name, description, cost, techLevel, language, moduleName);
-        this.weaponDamages = damages;
-        this.size = size;
-        this.techLevelSpecial = techLevelSpecial;
-        this.type = type;
-        this.special = special;
-        this.damageTypes = damageTypes;
-        this.ammunition = ammunition;
-        this.accessories = accessories;
     }
 
     public WeaponType getType() {
@@ -108,10 +93,6 @@ public class Weapon extends Equipment<Weapon> {
         return false;
     }
 
-    public Size getSize() {
-        return size;
-    }
-
     public String getSpecial() {
         return special;
     }
@@ -136,9 +117,6 @@ public class Weapon extends Equipment<Weapon> {
         this.weaponDamages = weaponDamages;
     }
 
-    public void setSize(Size size) {
-        this.size = size;
-    }
 
     public void setTechLevelSpecial(boolean techLevelSpecial) {
         this.techLevelSpecial = techLevelSpecial;
@@ -146,11 +124,6 @@ public class Weapon extends Equipment<Weapon> {
 
     public void setSpecial(String special) {
         this.special = special;
-    }
-
-    public void setDamageTypes(String damageTypesContent) {
-        this.damageTypes = new HashSet<>();
-        readCommaSeparatedTokens(damageTypes, damageTypesContent);
     }
 
     public void setDamageTypes(Set<String> damageTypes) {
@@ -161,18 +134,16 @@ public class Weapon extends Equipment<Weapon> {
         this.type = type;
     }
 
-    public void setAmmunition(String ammunitionContent) {
-        this.ammunition = new HashSet<>();
-        readCommaSeparatedTokens(ammunition, ammunitionContent);
-    }
-
     public void setAmmunition(Set<String> ammunition) {
         this.ammunition = ammunition;
     }
 
-    public void setAccessories(String accessoriesContent) {
-        this.accessories = new HashSet<>();
-        readCommaSeparatedTokens(accessories, accessoriesContent);
+    public String getWeaponClass() {
+        return weaponClass;
+    }
+
+    public void setWeaponClass(String weaponClass) {
+        this.weaponClass = weaponClass;
     }
 
     public void setAccessories(Set<String> accessories) {
@@ -205,5 +176,38 @@ public class Weapon extends Equipment<Weapon> {
 
     public List<WeaponDamage> getWeaponDamages() {
         return weaponDamages;
+    }
+
+    public void copy(Weapon weapon) {
+        super.copy(weapon);
+        setWeaponDamages(weapon.getWeaponDamages());
+        setTechLevelSpecial(weapon.isTechLevelSpecial());
+        setSpecial(weapon.getSpecial());
+        setWeaponClass(weapon.getWeaponClass());
+        setDamageTypes(weapon.getDamageTypes());
+        setType(weapon.getType());
+        if (weapon.getAmmunition() != null) {
+            setAmmunition(new HashSet<>(weapon.getAmmunition()));
+        }
+        if (weapon.getAccessories() != null) {
+            setAccessories(new HashSet<>(weapon.getAccessories()));
+        }
+    }
+
+    @Override
+    public void validate() throws InvalidXmlElementException {
+        super.validate();
+        if (damageTypes != null) {
+            damageTypes.forEach(damageType -> DamageTypeFactory.getInstance().getElement(damageType));
+        }
+        if (ammunition != null) {
+            ammunition.forEach(ammo -> AmmunitionFactory.getInstance().getElement(ammo));
+        }
+        if (accessories != null) {
+            accessories.forEach(accessory -> AccessoryFactory.getInstance().getElement(accessory));
+        }
+        for (WeaponDamage weaponDamage : getWeaponDamages()) {
+            weaponDamage.validate();
+        }
     }
 }

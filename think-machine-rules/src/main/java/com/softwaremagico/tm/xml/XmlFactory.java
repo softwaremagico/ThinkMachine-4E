@@ -34,7 +34,8 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.dataformat.xml.ser.ToXmlGenerator;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.softwaremagico.tm.Element;
-import com.softwaremagico.tm.InvalidXmlElementException;
+import com.softwaremagico.tm.character.Selection;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.file.PathManager;
 import com.softwaremagico.tm.file.modules.ModuleManager;
 
@@ -46,6 +47,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
@@ -78,15 +80,38 @@ public abstract class XmlFactory<T extends Element<T>> {
         return objectMapper;
     }
 
+    public T getElement(Selection selection) throws InvalidXmlElementException {
+        if (elements == null) {
+            getElements();
+        }
+        final T element = elements.get(selection.getId());
+        if (element == null) {
+            throw new InvalidXmlElementException(this.getClass().getName() + " has no element with selection '" + selection + "'.");
+        }
+        return element;
+    }
+
     public T getElement(String id) throws InvalidXmlElementException {
         if (elements == null) {
             getElements();
         }
-        return elements.get(id);
+        final T element = elements.get(id);
+        if (element == null) {
+            throw new InvalidXmlElementException(this.getClass().getName() + " has no element with id '" + id + "'.");
+        }
+        return element;
+    }
+
+    public String getTranslatedText(String id) throws InvalidXmlElementException {
+        return getElement(id).getName().getTranslatedText();
     }
 
     public List<T> getElements(Collection<String> ids) throws InvalidXmlElementException {
         return getElements().stream().filter(t -> ids.contains(t.getId())).collect(Collectors.toList());
+    }
+
+    public List<T> getElementsByGroup(String group) throws InvalidXmlElementException {
+        return getElements().stream().filter(t -> Objects.equals(group, t.getGroup())).collect(Collectors.toList());
     }
 
     public abstract List<T> getElements() throws InvalidXmlElementException;
@@ -114,5 +139,15 @@ public abstract class XmlFactory<T extends Element<T>> {
         this.elements = new HashMap<>();
         elements.forEach(element -> this.elements.put(element.getId(), element));
         return elements;
+    }
+
+    public void validate() throws InvalidXmlElementException {
+        for (T element : getElements()) {
+            element.validate();
+        }
+    }
+
+    public List<T> getRestrictedToUpbringing(String uprising) throws InvalidXmlElementException {
+        return getElements().stream().filter(t -> t.getRestrictions().getRestrictedToUpbringing().contains(uprising)).collect(Collectors.toList());
     }
 }

@@ -6,10 +6,10 @@
 			<en>Liturgy</en>
 			<es>Liturgia</es>
 		</name>
-		<abbreviature>
+		<abbreviation>
 			<en>L</en>
 			<es>L</es>
-		</abbreviature>
+		</abbreviation>
 		<code>L</code>
 	</liturgy>
 	<gestures>
@@ -18,10 +18,10 @@
 			<en>Gestures</en>
 			<es>Gestos</es>
 		</name>
-		<abbreviature>
+		<abbreviation>
 			<en>G</en>
 			<es>G</es>
-		</abbreviature>
+		</abbreviation>
 		<code>G</code>
 	</gestures>
 	<prayer>
@@ -30,10 +30,10 @@
 			<en>Prayer</en>
 			<es>Oración</es>
 		</name>
-		<abbreviature>
+		<abbreviation>
 			<en>P</en>
 			<es>O</es>
-		</abbreviature>
+		</abbreviation>
 		<code>P</code>
 	</prayer>
 </theurgyComponents>

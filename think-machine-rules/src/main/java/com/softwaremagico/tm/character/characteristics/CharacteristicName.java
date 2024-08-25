@@ -25,38 +25,68 @@ package com.softwaremagico.tm.character.characteristics;
  * #L%
  */
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public enum CharacteristicName {
 
-    STRENGTH,
+    STRENGTH(CharacteristicType.BODY, 3),
 
-    DEXTERITY,
+    DEXTERITY(CharacteristicType.BODY, 3),
 
-    ENDURANCE,
+    ENDURANCE(CharacteristicType.BODY, 3),
 
-    WITS,
+    WITS(CharacteristicType.MIND, 3),
 
-    PERCEPTION,
+    PERCEPTION(CharacteristicType.MIND, 3),
 
-    TECH,
+    WILL(CharacteristicType.MIND, 3),
 
-    PRESENCE,
+    PRESENCE(CharacteristicType.SPIRIT, 3),
 
-    WILL,
+    INTUITION(CharacteristicType.SPIRIT, 3),
 
-    FAITH,
+    FAITH(CharacteristicType.SPIRIT, 3),
 
-    INITIATIVE,
+    PSI(CharacteristicType.OCCULTISM, 0),
 
-    MOVEMENT,
+    URGE(CharacteristicType.OCCULTISM, 0),
 
-    DEFENSE;
+    THEURGY(CharacteristicType.OCCULTISM, 0),
 
-    CharacteristicName() {
+    HUBRIS(CharacteristicType.OCCULTISM, 0),
 
+    INITIATIVE(CharacteristicType.OTHERS, 0),
+
+    MOVEMENT(CharacteristicType.OTHERS, 5),
+
+    TECH(CharacteristicType.OTHERS, 4);
+
+    private final CharacteristicType characteristicType;
+    private final int initialValue;
+    private static final Map<CharacteristicType, List<CharacteristicName>> CHARACTERISTIC_TYPE_LIST;
+
+    static {
+        CHARACTERISTIC_TYPE_LIST = new HashMap<>();
+        for (final CharacteristicName characteristic : CharacteristicName.values()) {
+            CHARACTERISTIC_TYPE_LIST.computeIfAbsent(characteristic.getCharacteristicType(), k -> new ArrayList<>());
+            CHARACTERISTIC_TYPE_LIST.get(characteristic.getCharacteristicType()).add(characteristic);
+        }
+    }
+
+    CharacteristicName(CharacteristicType characteristicType, int initialValue) {
+        this.characteristicType = characteristicType;
+        this.initialValue = initialValue;
     }
 
     public String getId() {
         return name().toLowerCase();
+    }
+
+    public CharacteristicType getCharacteristicType() {
+        return characteristicType;
     }
 
     @Override
@@ -67,7 +97,7 @@ public enum CharacteristicName {
     public static CharacteristicName[] getBasicCharacteristics() {
         return new CharacteristicName[]{CharacteristicName.STRENGTH, CharacteristicName.DEXTERITY,
                 CharacteristicName.ENDURANCE, CharacteristicName.WITS, CharacteristicName.PERCEPTION,
-                CharacteristicName.TECH, CharacteristicName.PRESENCE, CharacteristicName.WILL, CharacteristicName.FAITH};
+                CharacteristicName.WILL, CharacteristicName.PRESENCE, CharacteristicName.INTUITION, CharacteristicName.FAITH};
     }
 
     public static CharacteristicName get(String tag) {
@@ -77,5 +107,13 @@ public enum CharacteristicName {
             }
         }
         return null;
+    }
+
+    public static List<CharacteristicName> getCharacteristics(CharacteristicType characteristicType) {
+        return CHARACTERISTIC_TYPE_LIST.get(characteristicType);
+    }
+
+    public int getInitialValue() {
+        return initialValue;
     }
 }

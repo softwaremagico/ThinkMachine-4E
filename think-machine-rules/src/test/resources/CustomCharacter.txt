@@ -1,26 +1,32 @@
-Oliver Queen (Amenaza: 354)
+Oliver Queen
 Humano Varón 31 años (Sutek)
-Los Hazat
+Noble, Decados, Comandante
 
-Cuerpo: Fuerza 3, Destreza 3, Fortaleza 3.
-Mente: Astucia 4, Percepción 5, Tecnología 6.
-Espíritu: Presencia 7, Voluntad 8, Fe 9.
-Otras: Iniciativa 7, Movimiento 5, Defensa 1.
+Características: Fuerza 3, Destreza 5, Constitución 4, Inteligencia 5, Percepción 4, Voluntad 6, Presencia 8, Intuición 3, Fe 4.
 
-Habilidades Naturales: Influenciar (5!), Lanzar (3), Observar (3), Pelear (3), Saber [Sutek] (3), Saber [Los Hazat] (3), Saber [Imperio Fénix] (3), Sigilo (4), Vigor (3).
-Habilidades Adquiridas: Abrir Cerraduras (5), Armas de Energía (6!), Guerra (5), Juego (4), Saber [Bestias] (2), Saber [Red de Salto] (4).
+Habilidades: Academia (6), Arte (4), Conducir (4), Cuerpo a Cuerpo (5), Disfraz (4), Disparar (4), Encanto (6), Impresionar (6), Introspección (4), Vigor (4).
 
-Bendiciones: Curioso, Disciplinado, Elegante, Suerte en las cartas.
-Maldiciones: Tuerto, Vegativo.
+Competencias: Armas Militares, Armas de Balas, Hablar Urthés, Leer Urthés, Monta, Pintura, Saber Enfermedades, Saber Planetario Sutek, Saber de Facción, Usos de la Corte.
 
-Beneficios: Filoespada, Herencia, Pistola (Sin penalizador a dos disparos, -2 para tres disparos.), Shaidan (+1 heridas).
-Aflicciones: Estigma (+1).
+Bendiciones:
+	- Receloso (+2 Perception around political rivals)
+	- Vanidoso (Percepción –2 cuando te hacen un cumplido)
 
-Ocultismo: Psi 4, Ansia 1.
-Poderes Ocultos: Mano Lejana (Mano Levitante, Mano Lanzadora), Sexto Sentido (Sensibilidad), Soma (Fortalecer, Vigorizar, Agilizar, Endurecer).
 
-Wyrd: 9
-Vitalidad: -10/-8/-6/-4/-2/O/O/O
+Resistencia:
+Corporal: 4, Mental: 0, Espiritual: 0.
 
-Equipo: Filoespada (8d, Ignora la Armadura), Hoja Bláster Nitobi (–1RA, 9*d, 20/30, Ratio 1, Plasma), Jonás (4d, 10/20, Ratio 1), Maza (5d), Seda Sintética (4d, Blando, Eléctrico), Escudo de Asalto (5/15 20 Cargas).
-Cibernética: Jonás, Ojo de Ingeniero (Oculto).
+Banco: 5
+Impulsos: 6/1
+
+Vitalidad: 20
+Reanimaciones: 6/1
+
+Equipo:
+	- SOE Alembic (Daño 7, 10/20, Ratio 1, Bláster)
+	- Seda Sintética (Protección 4, Blando, Eléctrico)
+	- Escudo de Energía de Duelo (5/10 15 Cargas)
+	- Amiguito (NT 5, Tam XS)
+	- Corcel de Guerra
+	- Espada Ceremonial (Tam L)
+	- Uniforme de Comandante Militar
