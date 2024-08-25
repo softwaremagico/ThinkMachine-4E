@@ -8,6 +8,9 @@
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/y/softwaremagico/ThinkMachine-4E)](https://github.com/softwaremagico/ThinkMachine-4E)
 [![GitHub last commit](https://img.shields.io/github/last-commit/softwaremagico/ThinkMachine-4E)](https://github.com/softwaremagico/ThinkMachine-4E)
 [![CircleCI](https://circleci.com/gh/softwaremagico/ThinkMachine-4E.svg?style=shield)](https://circleci.com/gh/softwaremagico/ThinkMachine-4E)
-[![SonarCloud Rating](https://sonarcloud.io/api/project_badges/measure?project=softwaremagico_ThinkMachine-4E&metric=sqale_rating)](https://sonarcloud.io/component_measures?id=softwaremagico_ThinkMachine-4E&metric=sqale_rating&view=list)
-[![SonarCloud Bugs](https://sonarcloud.io/api/project_badges/measure?project=softwaremagico_ThinkMachine-4E&metric=bugs)](https://sonarcloud.io/component_measures/metric/reliability_rating/list?id=softwaremagico_ThinkMachine-4E)
-[![SonarCloud Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=softwaremagico_ThinkMachine-4E&metric=vulnerabilities)](https://sonarcloud.io/component_measures/metric/security_rating/list?id=softwaremagico_ThinkMachine-4E)
+
+[![Powered by](https://img.shields.io/badge/powered%20by%20java-orange.svg?logo=OpenJDK&logoColor=white)]()
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=softwaremagico_ThinkMachine-4E&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=softwaremagico_ThinkMachine-4E)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=softwaremagico_ThinkMachine-4E&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=softwaremagico_ThinkMachine-4E)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=softwaremagico_ThinkMachine-4E&metric=bugs)](https://sonarcloud.io/summary/new_code?id=softwaremagico_ThinkMachine-4E)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=softwaremagico_ThinkMachine-4E&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=softwaremagico_ThinkMachine-4E)
