@@ -14,3 +14,5 @@
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=softwaremagico_ThinkMachine-4E&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=softwaremagico_ThinkMachine-4E)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=softwaremagico_ThinkMachine-4E&metric=bugs)](https://sonarcloud.io/summary/new_code?id=softwaremagico_ThinkMachine-4E)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=softwaremagico_ThinkMachine-4E&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=softwaremagico_ThinkMachine-4E)
+
+This software is designed for the role play game called **Fading Suns 4E** (4th Edition). If you are looking for the Fading Suns 3E (Revised Edition), please go to this [link](https://github.com/softwaremagico/ThinkMachine).
