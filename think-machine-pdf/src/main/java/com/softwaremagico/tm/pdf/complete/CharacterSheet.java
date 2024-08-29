@@ -29,7 +29,6 @@ import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.PageSize;
 import com.lowagie.text.Rectangle;
-import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
@@ -82,95 +81,11 @@ public class CharacterSheet extends PdfDocument {
 
         document.add(DescriptionAndAnnotationsTableFactory.getDescriptionAndAnnotationsTable(characterPlayer));
 
+        document.add(FirebirdsAndOthersTable.getFirebirdsAndOthersTable(characterPlayer));
+
         document.add(ItemsPackFactory.getItemsPack(characterPlayer));
 
 
-//        final PdfPTable skillsTable = MainSkillsTableFactory.getSkillsTable(characterPlayer);
-//        document.add(skillsTable);
-//        final PdfPTable perksTable = MainPerksTableFactory.getPerksTable(characterPlayer);
-//        document.add(perksTable);
-//        document.newPage();
-//        if (characterPlayer == null || characterPlayer.getTotalSelectedPowers() < PSI_ROWS) {
-//            document.add(createRearTable());
-//        } else if (characterPlayer.getCybernetics().isEmpty()) {
-//            document.add(createRearTablePsiExtended());
-//        } else {
-//            document.add(createRearTable());
-//        }
-//        document.add(FightingManeuvers.getFightingManoeuvresTable(characterPlayer));
-//        document.add(WeaponsAndArmours.getWeaponsAndArmoursTable(characterPlayer));
-    }
-
-    private PdfPTable createRearTable() throws InvalidXmlElementException {
-        final PdfPTable mainTable = new PdfPTable(REAR_TABLE_WIDTHS);
-        mainTable.getDefaultCell().setBorder(0);
-        mainTable.setWidthPercentage(MAX_WIDTH);
-
-//        mainTable.addCell(new DescriptionTable(characterPlayer));
-//        final PdfPCell cell = new PdfPCell(new AnnotationsTable(characterPlayer));
-//        cell.setBorderWidth(0);
-//        cell.setColspan(2);
-//        mainTable.addCell(cell);
-//
-//        final PdfPCell blackSeparator = BaseElement.createBigSeparator(90);
-//        mainTable.addCell(blackSeparator);
-//
-//        final PdfPCell separatorCell = new PdfPCell(BaseElement.createWhiteSeparator());
-//        separatorCell.setColspan(2);
-//        mainTable.addCell(separatorCell);
-//
-//        mainTable.addCell(new PropertiesTable(characterPlayer));
-//
-//        final PdfPCell psiCell = new PdfPCell(new OccultismsPowerTable(characterPlayer, PSI_ROWS));
-//        psiCell.setColspan(2);
-//        mainTable.addCell(psiCell);
-//
-//        mainTable.addCell(BaseElement.createBigSeparator(90));
-//
-//        mainTable.addCell(separatorCell);
-//
-//        final PdfPTable othersTable = new OthersTable();
-//        mainTable.addCell(othersTable);
-//
-//        final PdfPCell cyberneticsCell = new PdfPCell(new CyberneticsTable(getCharacterPlayer()));
-//        cyberneticsCell.setColspan(2);
-//        mainTable.addCell(cyberneticsCell);
-
-        return mainTable;
-    }
-
-    private PdfPTable createRearTablePsiExtended() throws InvalidXmlElementException {
-        final PdfPTable mainTable = new PdfPTable(REAR_TABLE_WIDTHS);
-//        mainTable.getDefaultCell().setBorder(0);
-//        mainTable.setWidthPercentage(100);
-//
-//        mainTable.addCell(new DescriptionTable(characterPlayer));
-//        final PdfPCell cell = new PdfPCell(new AnnotationsTable(characterPlayer));
-//        cell.setBorderWidth(0);
-//        cell.setColspan(2);
-//        mainTable.addCell(cell);
-//
-//        final PdfPCell blackSeparator = BaseElement.createBigSeparator(90);
-//        mainTable.addCell(blackSeparator);
-//
-//        final PdfPCell separatorCell = new PdfPCell(BaseElement.createWhiteSeparator());
-//        separatorCell.setColspan(2);
-//        mainTable.addCell(separatorCell);
-//
-//        mainTable.addCell(new PropertiesTable(characterPlayer));
-//
-//        final PdfPCell psiCell = new PdfPCell(new OccultismsPowerTable(characterPlayer,
-//                PSI_EXTENDED_ROWS));
-//        psiCell.setColspan(2);
-//        psiCell.setRowspan(3);
-//        mainTable.addCell(psiCell);
-//
-//        mainTable.addCell(BaseElement.createBigSeparator(90));
-//
-//        final PdfPTable othersTable = new OthersTable();
-//        mainTable.addCell(othersTable);
-
-        return mainTable;
     }
 
     private CharacterPlayer getCharacterPlayer() {

@@ -77,7 +77,7 @@
 										<!-- delete old folder -->
 										<delete dir="${main.basedir}/sheets" failonerror="false" includeemptydirs="true" />
 										<!-- Copy sheets -->
-<!--										<copy file="/tmp/PdfTest/CharacterFS_EN.pdf" tofile="${main.basedir}/sheets/FadingSuns_EN.pdf" overwrite="true" />-->
+										<copy file="/tmp/PdfTest/CharacterFS_EN.pdf" tofile="${main.basedir}/sheets/FadingSuns_EN.pdf" overwrite="true" />
 										<copy file="/tmp/PdfTest/CharacterFS_ES.pdf" tofile="${main.basedir}/sheets/FadingSuns_ES.pdf" overwrite="true" />
 <!--										<copy file="/tmp/PdfTest/FadingSuns_Small_EN.pdf" tofile="${main.basedir}/sheets/FadingSuns_Small_EN.pdf" overwrite="true" />-->
 <!--										<copy file="/tmp/PdfTest/FadingSuns_Small_ES.pdf" tofile="${main.basedir}/sheets/FadingSuns_Small_ES.pdf" overwrite="true" />-->

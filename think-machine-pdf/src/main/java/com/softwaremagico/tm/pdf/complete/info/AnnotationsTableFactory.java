@@ -1,5 +1,29 @@
 package com.softwaremagico.tm.pdf.complete.info;
 
+/*-
+ * #%L
+ * Think Machine 4E (PDF Sheets)
+ * %%
+ * Copyright (C) 2017 - 2024 Softwaremagico
+ * %%
+ * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
+ * <softwaremagico@gmail.com> Valencia (Spain).
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation; either version 2 of the License, or (at your option) any later
+ * version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * this program; If not, see <http://www.gnu.org/licenses/gpl-3.0.html>.
+ * #L%
+ */
+
 
 import com.lowagie.text.Font;
 import com.lowagie.text.Paragraph;
@@ -14,7 +38,7 @@ import com.softwaremagico.tm.txt.TextFactory;
 
 public class AnnotationsTableFactory extends BaseElement {
     private static final float[] WIDTHS = {1f};
-    private static final float CELL_HEIGHT = 90;
+    private static final float CELL_HEIGHT = 80;
     private static final int DESCRIPTION_WIDTH = 2500;
 
     public static PdfPTable getAnnotationsTable(CharacterPlayer characterPlayer) throws InvalidXmlElementException {
