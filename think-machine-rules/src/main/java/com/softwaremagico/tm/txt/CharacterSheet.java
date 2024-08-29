@@ -339,6 +339,13 @@ public class CharacterSheet {
         }
     }
 
+    private void setFirebirds(StringBuilder stringBuilder) {
+        if (getCharacterPlayer().getCashMoney() > 0) {
+            stringBuilder.append(TextFactory.getInstance().getElement("firebirds").getNameRepresentation()).append(": ")
+                    .append(getCharacterPlayer().getCashMoney());
+        }
+    }
+
     private void setEquipment(StringBuilder stringBuilder) {
         if (!getCharacterPlayer().getWeapons().isEmpty() || getCharacterPlayer().getShield() != null
                 || getCharacterPlayer().getArmor() != null || getCharacterPlayer().getItems() != null) {
@@ -347,8 +354,6 @@ public class CharacterSheet {
             setArmor(stringBuilder);
             setShield(stringBuilder);
             setItems(stringBuilder);
-
-            stringBuilder.append("\n");
         }
     }
 
@@ -374,6 +379,9 @@ public class CharacterSheet {
             setRevivalsRepresentation(stringBuilder);
             stringBuilder.append("\n");
             setEquipment(stringBuilder);
+            stringBuilder.append("\n");
+            setFirebirds(stringBuilder);
+            stringBuilder.append("\n");
         } catch (InvalidXmlElementException e) {
             MachineLog.errorMessage(this.getClass(), e);
         }
