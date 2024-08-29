@@ -95,8 +95,6 @@ public class ArmorTableFactory extends BaseElement {
             final Paragraph paragraph = new Paragraph();
             paragraph.add(BaseElement.getChunk(TextFactory.getInstance().getTranslatedText("strengthAbbreviation") + ":__  "));
             paragraph.add(BaseElement.getChunk(TextFactory.getInstance().getTranslatedText("dexterityAbbreviation") + ":__  "));
-            paragraph.add(BaseElement.getChunk(TextFactory.getInstance().getTranslatedText("enduranceAbbreviation") + ":__ "));
-            paragraph.add(BaseElement.getChunk(TextFactory.getInstance().getTranslatedText("initiativeAbbreviation") + ":__"));
             malusCell.setPhrase(paragraph);
         } else {
             final Paragraph paragraph = new Paragraph();
