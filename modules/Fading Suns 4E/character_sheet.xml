@@ -956,7 +956,7 @@
         <id>armorHardAbbreviation</id>
         <name>
             <en>Hrd</en>
-            <es>End</es>
+            <es>Dur</es>
         </name>
     </armorHardAbbreviation>
     <armorFlameAbbreviation>
@@ -1106,4 +1106,18 @@
             <es>Nivel</es>
         </name>
     </level>
+    <cash>
+        <id>cash</id>
+        <name>
+            <en>Cash</en>
+            <es>Efectivo</es>
+        </name>
+    </cash>
+    <assets>
+        <id>assets</id>
+        <name>
+            <en>Assets</en>
+            <es>Recursos</es>
+        </name>
+    </assets>
 </translator>
