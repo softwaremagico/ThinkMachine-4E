@@ -17,6 +17,7 @@ public class FirebirdsFactory extends BaseElement {
     private static final int ROWS = 2;
     private static final String GAP = "_______________________________________________";
     private static final int COLUMN_WIDTH = 174;
+    private static final int TITLE_MARGIN = 10;
 
     public static PdfPTable getFirebirdsTable(CharacterPlayer characterPlayer) throws InvalidXmlElementException {
         final PdfPTable table = new PdfPTable(WIDTHS);
@@ -78,12 +79,13 @@ public class FirebirdsFactory extends BaseElement {
         paragraph.add(new Chunk(TextFactory.getInstance().getElement(tag).getName().getTranslatedText()
                 + ": ", new Font(FadingSunsTheme.getTitleFont(), FadingSunsTheme.LINE_FONT_SIZE)));
         String moneyText = "";
-        float usedWidth = 0;
+        float usedWidth = FadingSunsTheme.getTitleFont().getWidthPoint(TextFactory.getInstance().getElement(tag).getName().getTranslatedText(),
+                FadingSunsTheme.LINE_FONT_SIZE) + TITLE_MARGIN;
         if (characterPlayer != null) {
             moneyText = "  " + (value != null ? value + "- " : "");
-            usedWidth = FadingSunsTheme.getHandwrittingFont().getWidthPoint(
+            usedWidth += FadingSunsTheme.getHandwrittingFont().getWidthPoint(
                     TextFactory.getInstance().getElement(tag).getName().getTranslatedText() + moneyText,
-                    FadingSunsTheme.LINE_FONT_SIZE - 1f);
+                    FadingSunsTheme.LINE_FONT_SIZE);
             paragraph.add(new Chunk(moneyText, new Font(FadingSunsTheme.getHandwrittingFont(), FadingSunsTheme
                     .getHandWrittingFontSize(FadingSunsTheme.LINE_FONT_SIZE - 1))));
         }
