@@ -489,4 +489,8 @@ public class CharacterPlayer {
     public int getStartingValue(CharacteristicName characteristicName) {
         return Characteristic.INITIAL_VALUE;
     }
+
+    public int getCashMoney() {
+        return 0;
+    }
 }
