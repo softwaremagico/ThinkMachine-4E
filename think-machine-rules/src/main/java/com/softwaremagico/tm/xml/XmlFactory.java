@@ -24,16 +24,10 @@ package com.softwaremagico.tm.xml;
  * #L%
  */
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.fasterxml.jackson.dataformat.xml.ser.ToXmlGenerator;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.softwaremagico.tm.Element;
+import com.softwaremagico.tm.ObjectMapperFactory;
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.file.PathManager;
@@ -52,9 +46,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public abstract class XmlFactory<T extends Element<T>> {
-
-    private static XmlMapper objectMapper;
-
     //Id -> Element
     private Map<String, T> elements = null;
     private List<T> elementList = null;
@@ -66,18 +57,7 @@ public abstract class XmlFactory<T extends Element<T>> {
     public abstract String getXmlFile();
 
     public static ObjectMapper getObjectMapper() {
-        if (objectMapper == null) {
-            objectMapper = XmlMapper.builder()
-                    .configure(ToXmlGenerator.Feature.WRITE_XML_DECLARATION, true)
-                    .configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true)
-                    .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-                    .enable(SerializationFeature.INDENT_OUTPUT)
-                    .enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS).serializationInclusion(JsonInclude.Include.NON_EMPTY)
-//                    .disable(DeserializationFeature.FAIL_ON_INVALID_SUBTYPE)
-                    .addModule(new JavaTimeModule())
-                    .build();
-        }
-        return objectMapper;
+        return ObjectMapperFactory.getXmlObjectMapper();
     }
 
     public T getElement(Selection selection) throws InvalidXmlElementException {
