@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.softwaremagico</groupId>
     <artifactId>think-machine-4e</artifactId>
-    <version>4.0.2</version>
+    <version>4.0.3-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Think Machine 4E</name>
     <url>https://github.com/softwaremagico/ThinkMachine-4E</url>
@@ -22,7 +22,7 @@
         <connection>scm:git:ssh://git@github.com/softwaremagico/ThinkMachine-4E.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/softwaremagico/ThinkMachine-4E.git</developerConnection>
         <url>https://github.com/softwaremagico/ThinkMachine-4E.git</url>
-        <tag>think-machine-4e-4.0.2</tag>
+        <tag>think-machine-4e</tag>
     </scm>
 
     <issueManagement>
