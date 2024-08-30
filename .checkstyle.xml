@@ -179,7 +179,7 @@
 
         <!--        &lt;!&ndash; https://checkstyle.org/config_filters.html#SuppressionXpathFilter &ndash;&gt;-->
         <!--        <module name="SuppressionXpathFilter">-->
-        <!--            <property name="file" value="${main.basedir}/checkstyle-suppressions.xml"/>-->
+        <!--            <property name="file" value="${files.basedir}/checkstyle-suppressions.xml"/>-->
         <!--            <property name="optional" value="false"/>-->
         <!--        </module>-->
 

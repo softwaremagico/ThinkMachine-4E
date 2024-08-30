@@ -8,11 +8,11 @@
 	<parent>
 		<groupId>com.softwaremagico</groupId>
 		<artifactId>think-machine-4e</artifactId>
-		<version>4.0.2-SNAPSHOT</version>
+		<version>4.0.1-SNAPSHOT</version>
 	</parent>
 
 	<properties>
-		<main.basedir>${basedir}/..</main.basedir>
+		<files.basedir>${project.basedir}/..</files.basedir>
 		<mainClass>com.softwaremagico.tm.Main</mainClass>
 		<splashImage>images/ThinkingMachine_logo.png</splashImage>
 		<maven-jar-plugin.version>2.4</maven-jar-plugin.version>
@@ -75,12 +75,12 @@
 								<configuration>
 									<target>
 										<!-- delete old folder -->
-										<delete dir="${main.basedir}/sheets" failonerror="false" includeemptydirs="true" />
+										<delete dir="${files.basedir}/sheets" failonerror="false" includeemptydirs="true" />
 										<!-- Copy sheets -->
-										<copy file="/tmp/PdfTest/CharacterFS_EN.pdf" tofile="${main.basedir}/sheets/FadingSuns_EN.pdf" overwrite="true" />
-										<copy file="/tmp/PdfTest/CharacterFS_ES.pdf" tofile="${main.basedir}/sheets/FadingSuns_ES.pdf" overwrite="true" />
-<!--										<copy file="/tmp/PdfTest/FadingSuns_Small_EN.pdf" tofile="${main.basedir}/sheets/FadingSuns_Small_EN.pdf" overwrite="true" />-->
-<!--										<copy file="/tmp/PdfTest/FadingSuns_Small_ES.pdf" tofile="${main.basedir}/sheets/FadingSuns_Small_ES.pdf" overwrite="true" />-->
+										<copy file="/tmp/PdfTest/CharacterFS_EN.pdf" tofile="${files.basedir}/sheets/FadingSuns_EN.pdf" overwrite="true" />
+										<copy file="/tmp/PdfTest/CharacterFS_ES.pdf" tofile="${files.basedir}/sheets/FadingSuns_ES.pdf" overwrite="true" />
+<!--										<copy file="/tmp/PdfTest/CharacterFS_Small_EN.pdf" tofile="${files.basedir}/sheets/FadingSuns_Small_EN.pdf" overwrite="true" />-->
+<!--										<copy file="/tmp/PdfTest/CharacterFS_Small_ES.pdf" tofile="${files.basedir}/sheets/FadingSuns_Small_ES.pdf" overwrite="true" />-->
 									</target>
 								</configuration>
 								<goals>
@@ -109,8 +109,8 @@
 										<argument>remove</argument>
 										<argument>-density</argument>
 										<argument>600</argument>
-										<argument>${main.basedir}/sheets/FadingSuns_ES.pdf</argument>
-										<argument>${main.basedir}/sheets/FadingSuns_ES-%01d.png</argument>
+										<argument>${files.basedir}/sheets/FadingSuns_ES.pdf</argument>
+										<argument>${files.basedir}/sheets/FadingSuns_ES-%01d.png</argument>
 									</arguments>
 								</configuration>
 							</execution>
@@ -129,48 +129,8 @@
 										<argument>remove</argument>
 										<argument>-density</argument>
 										<argument>600</argument>
-										<argument>${main.basedir}/sheets/FadingSuns_EN.pdf</argument>
-										<argument>${main.basedir}/sheets/FadingSuns_EN-%01d.png</argument>
-									</arguments>
-								</configuration>
-							</execution>
-							<execution>
-								<id>PdfToPng Small (ES)</id>
-								<phase>install</phase>
-								<goals>
-									<goal>exec</goal>
-								</goals>
-								<configuration>
-									<executable>convert</executable>
-									<arguments>
-										<argument>-background</argument>
-										<argument>white</argument>
-										<argument>-alpha</argument>
-										<argument>remove</argument>
-										<argument>-density</argument>
-										<argument>600</argument>
-										<argument>${main.basedir}/sheets/FadingSuns_Small_ES.pdf</argument>
-										<argument>${main.basedir}/sheets/FadingSuns_Small_ES-%01d.png</argument>
-									</arguments>
-								</configuration>
-							</execution>
-							<execution>
-								<id>PdfToPng Small (EN)</id>
-								<phase>install</phase>
-								<goals>
-									<goal>exec</goal>
-								</goals>
-								<configuration>
-									<executable>convert</executable>
-									<arguments>
-										<argument>-background</argument>
-										<argument>white</argument>
-										<argument>-alpha</argument>
-										<argument>remove</argument>
-										<argument>-density</argument>
-										<argument>600</argument>
-										<argument>${main.basedir}/sheets/FadingSuns_Small_EN.pdf</argument>
-										<argument>${main.basedir}/sheets/FadingSuns_Small_EN-%01d.png</argument>
+										<argument>${files.basedir}/sheets/FadingSuns_EN.pdf</argument>
+										<argument>${files.basedir}/sheets/FadingSuns_EN-%01d.png</argument>
 									</arguments>
 								</configuration>
 							</execution>
