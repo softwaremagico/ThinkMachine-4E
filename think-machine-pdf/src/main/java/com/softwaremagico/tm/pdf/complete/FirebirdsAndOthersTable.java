@@ -43,7 +43,6 @@ public class FirebirdsAndOthersTable extends BaseElement {
         firebirdsCell.setBorder(0);
         table.addCell(firebirdsCell);
 
-        //final PdfPTable rightColumn = RightColumn.getElements(characterPlayer);
         final PdfPCell rightColumnCell = new PdfPCell();
         rightColumnCell.setBorder(0);
         table.addCell(rightColumnCell);
