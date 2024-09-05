@@ -493,4 +493,8 @@ public class CharacterPlayer {
     public int getCashMoney() {
         return 0;
     }
+
+    public int getRemainingCash() {
+        return 0;
+    }
 }

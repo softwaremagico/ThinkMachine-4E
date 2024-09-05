@@ -32,9 +32,15 @@ import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.file.PathManager;
 import com.softwaremagico.tm.file.modules.ModuleManager;
+import com.softwaremagico.tm.log.MachineLog;
 
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLClassLoader;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collection;
@@ -70,6 +76,15 @@ public abstract class XmlFactory<T extends Element<T>> {
         }
         return element;
     }
+
+
+    public T getElement(Element<?> e) throws InvalidXmlElementException {
+        if (e == null) {
+            return null;
+        }
+        return getElement(e.getId());
+    }
+
 
     public T getElement(String id) throws InvalidXmlElementException {
         if (elements == null) {
@@ -109,7 +124,7 @@ public abstract class XmlFactory<T extends Element<T>> {
 
     public List<T> readXml(Class<T> entityClass, String moduleName) throws IOException {
         final Path filePath = Paths.get("../" + PathManager.getModulePath(moduleName) + getXmlFile());
-        return readXml(Files.readString(filePath), entityClass);
+        return readXml(readFile(filePath.toString()), entityClass);
     }
 
     public List<T> readXml(String xmlContent, Class<T> entityClass) throws JsonProcessingException {
@@ -129,5 +144,35 @@ public abstract class XmlFactory<T extends Element<T>> {
 
     public List<T> getRestrictedToUpbringing(String uprising) throws InvalidXmlElementException {
         return getElements().stream().filter(t -> t.getRestrictions().getRestrictedToUpbringing().contains(uprising)).collect(Collectors.toList());
+    }
+
+    private static String readFile(String filePath) {
+        try {
+            final URL resource;
+            if (XmlFactory.class.getClassLoader().getResource(filePath) != null) {
+                resource = XmlFactory.class.getClassLoader().getResource(filePath);
+            } else if (new File(filePath).exists()) {
+                //It is an external folder.
+                resource = new File(filePath).toURI().toURL();
+            } else {
+                // Is inside a module.
+                resource = URLClassLoader.getSystemResource(filePath);
+            }
+            MachineLog.debug(XmlFactory.class.getName(), "Found json factory '" + filePath + "' at '" + resource + "'.");
+            final StringBuilder resultStringBuilder = new StringBuilder();
+            if (resource == null) {
+                throw new InvalidXmlElementException("Resource not found on '" + filePath + "'.");
+            }
+            try (BufferedReader read = new BufferedReader(new InputStreamReader(resource.openStream(), StandardCharsets.UTF_8))) {
+                String line;
+                while ((line = read.readLine()) != null) {
+                    resultStringBuilder.append(line).append("\n");
+                }
+            }
+            return resultStringBuilder.toString();
+        } catch (NullPointerException | IOException e) {
+            //Do nothing.
+        }
+        return null;
     }
 }

@@ -82,6 +82,7 @@
         <checkstyle.version>3.3.0</checkstyle.version>
         <spotbugs.version>4.7.3.4</spotbugs.version>
         <exec-maven-plugin.version>3.0.0</exec-maven-plugin.version>
+        <java.version>11</java.version>
     </properties>
 
     <build>
@@ -91,8 +92,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.0</version>
                 <configuration>
-                    <source>11</source>
-                    <target>11</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
             <plugin>

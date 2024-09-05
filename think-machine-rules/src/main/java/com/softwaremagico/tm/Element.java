@@ -36,6 +36,7 @@ import java.util.Objects;
  */
 
 public class Element<T extends Element<?>> extends XmlData implements Comparable<T> {
+    public static final String DEFAULT_NULL_ID = "null";
 
     @JsonProperty("id")
     private String id;
@@ -267,5 +268,12 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
         }
         setOfficial(element.isOfficial());
         setGroup(element.getGroup());
+    }
+
+    public static boolean isNull(Element<?> element) {
+        if (element == null) {
+            return true;
+        }
+        return Objects.equals(element.getId(), DEFAULT_NULL_ID);
     }
 }

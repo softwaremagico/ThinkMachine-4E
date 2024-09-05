@@ -57,7 +57,7 @@ public class CapabilityWithSpecialization extends Capability {
 
     public static CapabilityWithSpecialization from(Selection selection) {
         final CapabilityWithSpecialization capabilityWithSpecialization = new CapabilityWithSpecialization();
-        final Capability capability = CapabilityFactory.getInstance().getElement(selection.getId());
+        final Capability capability = CapabilityFactory.getInstance().getElement(selection);
         capabilityWithSpecialization.copy(capability);
         if (selection.getSpecialization() != null) {
             capabilityWithSpecialization.setSpecialization(capability.getSpecialization(selection.getSpecialization().getId()));
