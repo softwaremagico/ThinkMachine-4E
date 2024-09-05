@@ -90,6 +90,9 @@ public abstract class XmlFactory<T extends Element<T>> {
         if (elements == null) {
             getElements();
         }
+        if (id == null || id.isEmpty()) {
+            return null;
+        }
         final T element = elements.get(id);
         if (element == null) {
             throw new InvalidXmlElementException(this.getClass().getName() + " has no element with id '" + id + "'.");
