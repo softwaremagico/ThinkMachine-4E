@@ -45,7 +45,7 @@ public class CharacterInfo {
 
     private Integer age;
 
-    private Planet planet;
+    private String planet;
 
     private String birthdate;
 
@@ -122,11 +122,19 @@ public class CharacterInfo {
         }
     }
 
-    public Planet getPlanet() {
+    public String getPlanet() {
         return planet;
     }
 
     public void setPlanet(Planet planet) {
+        if (planet == null) {
+            this.planet = null;
+        } else {
+            this.planet = planet.getId();
+        }
+    }
+
+    public void setPlanet(String planet) {
         this.planet = planet;
     }
 

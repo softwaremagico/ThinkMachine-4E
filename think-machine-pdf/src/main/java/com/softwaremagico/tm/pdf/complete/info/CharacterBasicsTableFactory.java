@@ -31,6 +31,7 @@ import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.factions.FactionFactory;
+import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.pdf.complete.FadingSunsTheme;
@@ -111,7 +112,8 @@ public abstract class CharacterBasicsTableFactory extends BaseElement {
                     break;
                 case "planet":
                     if (characterPlayer.getInfo().getPlanet() != null) {
-                        table.addCell(getHandwrittingCell(characterPlayer.getInfo().getPlanet().getName(),
+                        table.addCell(getHandwrittingCell(
+                                PlanetFactory.getInstance().getElement(characterPlayer.getInfo().getPlanet()).getNameRepresentation(),
                                 Element.ALIGN_LEFT, fontSize - 1, maxWidth));
                     } else {
                         table.addCell(getHandwrittingCell("", Element.ALIGN_LEFT, fontSize - 1, maxWidth));

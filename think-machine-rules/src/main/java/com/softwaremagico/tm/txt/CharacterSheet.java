@@ -35,6 +35,7 @@ import com.softwaremagico.tm.character.equipment.item.Item;
 import com.softwaremagico.tm.character.equipment.shields.Shield;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.factions.Blessing;
+import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
@@ -75,7 +76,8 @@ public class CharacterSheet {
                         .append(TextFactory.getInstance().getElement("years").getNameRepresentation().toLowerCase());
             }
             if (getCharacterPlayer().getInfo().getPlanet() != null) {
-                stringBuilder.append(" (").append(getCharacterPlayer().getInfo().getPlanet().getNameRepresentation()).append(")");
+                stringBuilder.append(" (").append(PlanetFactory.getInstance().getElement(getCharacterPlayer().getInfo().getPlanet())
+                        .getNameRepresentation()).append(")");
             }
             stringBuilder.append("\n");
         }

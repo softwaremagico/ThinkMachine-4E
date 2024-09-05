@@ -33,8 +33,10 @@ import com.softwaremagico.tm.character.combat.CombatActionRequirement;
 import com.softwaremagico.tm.character.equipment.CharacterSelectedEquipment;
 import com.softwaremagico.tm.character.equipment.Equipment;
 import com.softwaremagico.tm.character.equipment.armors.Armor;
+import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
 import com.softwaremagico.tm.character.equipment.item.Item;
 import com.softwaremagico.tm.character.equipment.shields.Shield;
+import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.factions.FactionCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.factions.FactionFactory;
@@ -49,6 +51,8 @@ import com.softwaremagico.tm.exceptions.InvalidCharacteristicException;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
+import com.softwaremagico.tm.exceptions.RestrictedElementException;
+import com.softwaremagico.tm.exceptions.UnofficialCharacterException;
 import com.softwaremagico.tm.txt.CharacterSheet;
 import com.softwaremagico.tm.xml.XmlFactory;
 
@@ -412,6 +416,9 @@ public class CharacterPlayer {
 
     private Set<Equipment<?>> getSelectedMaterialAwards(CharacterDefinitionStepSelection<?> definitionStepSelection, XmlFactory<?> factory,
                                                         boolean ignoreRemoved) {
+        if (definitionStepSelection == null) {
+            return new HashSet<>();
+        }
         final Set<Selection> selected;
         if (ignoreRemoved) {
             selected = definitionStepSelection.getMaterialAwards().stream().map(CharacterSelectedEquipment::getSelections)
@@ -496,5 +503,91 @@ public class CharacterPlayer {
 
     public int getRemainingCash() {
         return 0;
+    }
+
+    public void checkIsOfficial() throws UnofficialCharacterException {
+        if ((getFaction() != null && !FactionFactory.getInstance().getElement(getFaction().getId()).isOfficial())) {
+            throw new UnofficialCharacterException("Faction '" + getFaction() + "' is not official.");
+        }
+        if ((getSpecie() != null && !SpecieFactory.getInstance().getElement(getSpecie()).isOfficial())) {
+            throw new UnofficialCharacterException("Specie '" + getSpecie() + "' is not official.");
+        }
+        if ((getArmor() != null && !getArmor().isOfficial())) {
+            throw new UnofficialCharacterException("Armour '" + getArmor() + "' is not official.");
+        }
+        if ((getShield() != null && !getShield().isOfficial())) {
+            throw new UnofficialCharacterException("Shield '" + getShield() + "' is not official.");
+        }
+
+//        if (!weapons.getElements().stream().allMatch(Weapon::isOfficial)) {
+//            throw new UnofficialCharacterException("Weapon '" + weapons + "' are not all official.");
+//        }
+//
+//        if (!blessings.stream().allMatch(Blessing::isOfficial)) {
+//            throw new UnofficialCharacterException("Blessings '" + blessings + "' are not all official.");
+//        }
+//
+//        if (!benefices.stream().allMatch(AvailableBenefice::isOfficial)) {
+//            throw new UnofficialCharacterException("Benefices '" + benefices + "' are not all official.");
+//        }
+//
+//        if (!cybernetics.getElements().stream().allMatch(SelectedCyberneticDevice::isOfficial)) {
+//            throw new UnofficialCharacterException("Cybernetics '" + cybernetics + "' are not all official.");
+//        }
+//
+//        for (final String occultismPathId : occultism.getSelectedPowers().keySet()) {
+//            try {
+//                if (!OccultismPathFactory.getInstance().getElement(occultismPathId, getLanguage(), getModuleName()).isOfficial()) {
+//                    throw new UnofficialCharacterException("Occultism path '" + occultismPathId + "' is not official.");
+//                }
+//            } catch (InvalidXmlElementException e) {
+//                // Ignore.
+//            }
+//        }
+    }
+
+    public void checkIsNotRestricted() throws RestrictedElementException {
+        if ((getFaction() != null && FactionFactory.getInstance().getElement(getFaction().getId()).getRestrictions().isRestricted(this))) {
+            throw new RestrictedElementException("Faction '" + getFaction() + "' is restricted.");
+        }
+        if ((getSpecie() != null && SpecieFactory.getInstance().getElement(getSpecie()).getRestrictions().isRestricted(this))) {
+            throw new RestrictedElementException("Specie '" + getSpecie() + "' is restricted.");
+        }
+        if ((getArmor() != null && ArmorFactory.getInstance().getElement(getArmor()).getRestrictions().isRestricted(this))) {
+            throw new RestrictedElementException("Armour '" + getArmor() + "' is restricted.");
+        }
+        if ((getShield() != null && ShieldFactory.getInstance().getElement(getShield()).getRestrictions().isRestricted(this))) {
+            throw new RestrictedElementException("Shield '" + getShield() + "' is restricted.");
+        }
+
+//        if (!weapons.getElements().stream().allMatch(w -> w.isRestricted(this))) {
+//            throw new RestrictedElementException("Weapon '" + weapons + "' have some restricted element.");
+//        }
+//
+//        if (!skills.values().stream().allMatch(s -> s.isRestricted(this))) {
+//            throw new RestrictedElementException("Skills '" + skills + "' have some restricted element.");
+//        }
+//
+//        if (!blessings.stream().allMatch(b -> b.isRestricted(this))) {
+//            throw new RestrictedElementException("Blessings '" + blessings + "' have some restricted element.");
+//        }
+//
+//        if (!benefices.stream().allMatch(b -> b.isRestricted(this))) {
+//            throw new RestrictedElementException("Benefices '" + benefices + "' have some restricted element.");
+//        }
+//
+//        if (!cybernetics.getElements().stream().allMatch(c -> c.isRestricted(this))) {
+//            throw new RestrictedElementException("Cybernetics '" + cybernetics + "' have some restricted element.");
+//        }
+//
+//        for (final String occultismPathId : occultism.getSelectedPowers().keySet()) {
+//            try {
+//                if (!OccultismPathFactory.getInstance().getElement(occultismPathId, getLanguage(), getModuleName()).isRestricted(this)) {
+//                    throw new RestrictedElementException("Occultism path '" + occultismPathId + "' is restricted.");
+//                }
+//            } catch (InvalidXmlElementException e) {
+//                // Ignore.
+//            }
+//        }
     }
 }
