@@ -123,7 +123,7 @@ public abstract class XmlFactory<T extends Element<T>> {
     }
 
     public List<T> readXml(Class<T> entityClass, String moduleName) throws IOException {
-        final Path filePath = Paths.get("../" + PathManager.getModulePath(moduleName) + getXmlFile());
+        final Path filePath = Paths.get(PathManager.getModulePath(moduleName) + getXmlFile());
         return readXml(readFile(filePath.toString()), entityClass);
     }
 
