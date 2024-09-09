@@ -214,9 +214,15 @@ public class CharacterPlayer {
         if (SkillFactory.getInstance().getElement(skill).isNatural()) {
             bonus += Skill.NATURAL_SKILL_INITIAL_VALUE;
         }
-        bonus += upbringing.getSkillBonus(skill);
-        bonus += faction.getSkillBonus(skill);
-        bonus += calling.getSkillBonus(skill);
+        if (upbringing != null) {
+            bonus += upbringing.getSkillBonus(skill);
+        }
+        if (faction != null) {
+            bonus += faction.getSkillBonus(skill);
+        }
+        if (calling != null) {
+            bonus += calling.getSkillBonus(skill);
+        }
         if (bonus > MAX_INITIAL_VALUE) {
             throw new MaxInitialValueExceededException("Skill '" + skill + "' has exceeded the maximum value of .",
                     bonus, MAX_INITIAL_VALUE);
@@ -237,10 +243,15 @@ public class CharacterPlayer {
             throw new InvalidCharacteristicException("No characteristic '" + characteristic + "' exists.");
         }
         int bonus = characteristicName.getInitialValue();
-        //bonus += specie.getCharacteristicBonus(characteristic);
-        bonus += upbringing.getCharacteristicBonus(characteristic);
-        bonus += faction.getCharacteristicBonus(characteristic);
-        bonus += calling.getCharacteristicBonus(characteristic);
+        if (upbringing != null) {
+            bonus += upbringing.getCharacteristicBonus(characteristic);
+        }
+        if (faction != null) {
+            bonus += faction.getCharacteristicBonus(characteristic);
+        }
+        if (calling != null) {
+            bonus += calling.getCharacteristicBonus(characteristic);
+        }
         if (bonus > MAX_INITIAL_VALUE) {
             throw new MaxInitialValueExceededException("Characteristic '" + characteristic + "' has exceeded the maximum value of .",
                     bonus, MAX_INITIAL_VALUE);
@@ -285,7 +296,7 @@ public class CharacterPlayer {
         return getCharacteristicValue(CharacteristicName.ENDURANCE)
                 + getCharacteristicValue(CharacteristicName.WILL)
                 + getCharacteristicValue(CharacteristicName.FAITH)
-                + SpecieFactory.getInstance().getElement(specie).getSize()
+                + (specie != null ? SpecieFactory.getInstance().getElement(specie).getSize() : 0)
                 + getLevel();
     }
 

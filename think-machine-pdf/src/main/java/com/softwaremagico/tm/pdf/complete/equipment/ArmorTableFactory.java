@@ -124,7 +124,7 @@ public class ArmorTableFactory extends BaseElement {
         resistanceTable.addCell(resistance);
         // Rectangle
         final PdfPCell rectangle;
-        if (characterPlayer == null) {
+        if (characterPlayer == null || characterPlayer.getArmor() == null) {
             rectangle = CustomPdfTable.createRectangle();
         } else {
             rectangle = CustomPdfTable.createRectangle(characterPlayer.getArmor().getProtection() + "");
