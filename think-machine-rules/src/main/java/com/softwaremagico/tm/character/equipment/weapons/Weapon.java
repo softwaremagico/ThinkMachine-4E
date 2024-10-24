@@ -35,7 +35,7 @@ import java.util.Set;
  * #L%
  */
 
-public class Weapon extends Equipment<Weapon> {
+public class Weapon extends Equipment {
 
     @JsonProperty("damageList")
     private List<WeaponDamage> weaponDamages;

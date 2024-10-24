@@ -27,7 +27,7 @@ package com.softwaremagico.tm.character.skills;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
 
-public class Specialization extends Element<Specialization> implements ISkillRandomDefintions {
+public class Specialization extends Element implements ISkillRandomDefintions {
 
     public Specialization() {
         super();

@@ -77,7 +77,7 @@ import java.util.Objects;
         @JsonSubTypes.Type(value = ThinkMachine.class, name = "thinkMachine"),
         @JsonSubTypes.Type(value = CustomizedThinkMachine.class, name = "customizedThinkMachine")
 })
-public abstract class Equipment<E extends Element<?>> extends Element<E> implements IElementWithTechnologyLevel {
+public abstract class Equipment extends Element implements IElementWithTechnologyLevel {
     @JsonProperty("cost")
     private float cost;
     @JsonProperty("techLevel")
@@ -150,8 +150,8 @@ public abstract class Equipment<E extends Element<?>> extends Element<E> impleme
         this.quantity = Objects.requireNonNullElse(quantity, 1);
     }
 
-    public static Equipment<?> completeItem(Equipment<?> equipment) {
-        Equipment<?> finalItem = null;
+    public static Equipment completeItem(Equipment equipment) {
+        Equipment finalItem = null;
         if (equipment instanceof Item) {
             finalItem = ItemFactory.getInstance().getElement(equipment.getId());
         } else if (equipment instanceof Weapon) {
@@ -172,7 +172,7 @@ public abstract class Equipment<E extends Element<?>> extends Element<E> impleme
         return equipment;
     }
 
-    public void copy(Equipment<?> equipment) {
+    public void copy(Equipment equipment) {
         super.copy(equipment);
         setCost(equipment.getCost());
         setTechLevel(equipment.getTechLevel());

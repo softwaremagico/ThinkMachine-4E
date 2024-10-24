@@ -26,6 +26,6 @@ package com.softwaremagico.tm.character.capabilities;
 
 import com.softwaremagico.tm.Element;
 
-public class Capability extends Element<Capability> {
+public class Capability extends Element {
 
 }

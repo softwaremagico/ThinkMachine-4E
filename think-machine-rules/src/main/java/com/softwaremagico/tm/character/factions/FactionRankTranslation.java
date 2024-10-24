@@ -28,7 +28,7 @@ package com.softwaremagico.tm.character.factions;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
 
-public class FactionRankTranslation extends Element<FactionRankTranslation> {
+public class FactionRankTranslation extends Element {
 
     public FactionRankTranslation() {
         super();

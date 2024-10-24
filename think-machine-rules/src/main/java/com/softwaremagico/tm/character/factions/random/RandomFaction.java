@@ -38,7 +38,7 @@ import java.util.List;
 import java.util.Set;
 
 @JacksonXmlRootElement(localName = "faction")
-public class RandomFaction extends Element<RandomFaction> {
+public class RandomFaction extends Element {
 
     @JsonProperty("random")
     private RandomFactionData data;

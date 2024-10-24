@@ -28,7 +28,7 @@ package com.softwaremagico.tm.character.occultism;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
 
-public class OccultismDuration extends Element<OccultismDuration> {
+public class OccultismDuration extends Element {
 
     public OccultismDuration() {
         super();

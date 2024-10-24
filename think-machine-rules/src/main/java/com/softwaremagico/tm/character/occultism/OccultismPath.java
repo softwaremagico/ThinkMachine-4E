@@ -39,7 +39,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class OccultismPath extends Element<OccultismPath> {
+public class OccultismPath extends Element {
 
     @JsonProperty("occultismType")
     private String occultismType;

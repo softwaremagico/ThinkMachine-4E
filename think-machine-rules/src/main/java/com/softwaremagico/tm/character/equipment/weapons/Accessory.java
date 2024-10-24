@@ -27,7 +27,7 @@ package com.softwaremagico.tm.character.equipment.weapons;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
 
-public class Accessory extends Element<Accessory> {
+public class Accessory extends Element {
 
     public Accessory() {
         super();

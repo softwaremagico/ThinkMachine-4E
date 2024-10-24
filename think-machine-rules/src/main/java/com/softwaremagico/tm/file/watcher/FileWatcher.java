@@ -21,7 +21,7 @@ import java.util.Set;
  * #%L
  * Think Machine (Rules)
  * %%
- * Copyright (C) 2017 - 2019 Softwaremagico
+ * Copyright (C) 2017 - 2024 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).

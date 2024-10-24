@@ -32,7 +32,7 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.Set;
 
-public class SpecialValue extends Element<SpecialValue> implements IValue {
+public class SpecialValue extends Element implements IValue {
     public static final String VITALITY = "vitality";
 
     @JsonProperty("affects")

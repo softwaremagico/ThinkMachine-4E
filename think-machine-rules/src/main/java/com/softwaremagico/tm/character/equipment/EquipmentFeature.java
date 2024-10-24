@@ -26,5 +26,5 @@ package com.softwaremagico.tm.character.equipment;
 
 import com.softwaremagico.tm.Element;
 
-public class EquipmentFeature extends Element<EquipmentFeature> {
+public class EquipmentFeature extends Element {
 }

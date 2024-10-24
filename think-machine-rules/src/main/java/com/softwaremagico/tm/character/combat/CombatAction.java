@@ -35,7 +35,7 @@ import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
 import java.util.Objects;
 import java.util.Set;
 
-public class CombatAction extends Element<CombatAction> {
+public class CombatAction extends Element {
     private String goal;
     private String damage;
     private String others;

@@ -29,7 +29,7 @@ import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.values.IValue;
 
 
-public class OccultismType extends Element<OccultismType> implements IValue {
+public class OccultismType extends Element implements IValue {
     private String darksideName;
 
     public OccultismType() {

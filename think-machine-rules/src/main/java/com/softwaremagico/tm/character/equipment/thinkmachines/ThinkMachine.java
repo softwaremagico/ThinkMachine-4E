@@ -27,6 +27,6 @@ package com.softwaremagico.tm.character.equipment.thinkmachines;
 import com.softwaremagico.tm.character.equipment.Equipment;
 import com.softwaremagico.tm.character.equipment.IElementWithTechnologyLevel;
 
-public class ThinkMachine extends Equipment<ThinkMachine> implements IElementWithTechnologyLevel {
+public class ThinkMachine extends Equipment implements IElementWithTechnologyLevel {
 
 }

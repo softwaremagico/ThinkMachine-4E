@@ -51,7 +51,7 @@ import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
-public abstract class XmlFactory<T extends Element<T>> {
+public abstract class XmlFactory<T extends Element> {
     //Id -> Element
     private Map<String, T> elements = null;
     private List<T> elementList = null;
@@ -78,7 +78,7 @@ public abstract class XmlFactory<T extends Element<T>> {
     }
 
 
-    public T getElement(Element<?> e) throws InvalidXmlElementException {
+    public T getElement(Element e) throws InvalidXmlElementException {
         if (e == null) {
             return null;
         }
@@ -161,7 +161,7 @@ public abstract class XmlFactory<T extends Element<T>> {
                 // Is inside a module.
                 resource = URLClassLoader.getSystemResource(filePath);
             }
-            MachineLog.debug(XmlFactory.class.getName(), "Found json factory '" + filePath + "' at '" + resource + "'.");
+            MachineLog.debug(XmlFactory.class.getName(), "Found xml factory '" + filePath + "' at '" + resource + "'.");
             final StringBuilder resultStringBuilder = new StringBuilder();
             if (resource == null) {
                 throw new InvalidXmlElementException("Resource not found on '" + filePath + "'.");

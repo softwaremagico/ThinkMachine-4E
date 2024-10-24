@@ -15,7 +15,7 @@ import java.util.Objects;
  * #%L
  * Think Machine (Core)
  * %%
- * Copyright (C) 2017 Softwaremagico
+ * Copyright (C) 2017 - 2024 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -35,7 +35,7 @@ import java.util.Objects;
  * #L%
  */
 
-public class Element<T extends Element<?>> extends XmlData implements Comparable<T> {
+public class Element extends XmlData implements Comparable<Element> {
     public static final String DEFAULT_NULL_ID = "null";
 
     @JsonProperty("id")
@@ -173,7 +173,7 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
     }
 
     @Override
-    public int compareTo(T element) {
+    public int compareTo(Element element) {
         if (getName() == null) {
             if (element.getName() == null) {
                 if (getId() != null) {
@@ -214,7 +214,7 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
         if (getClass() != obj.getClass()) {
             return false;
         }
-        @SuppressWarnings("unchecked") final T other = (T) obj;
+        @SuppressWarnings("unchecked") final Element other = (Element) obj;
         if (id == null) {
             return other.getId() == null;
         } else {
@@ -253,7 +253,7 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
         this.official = official;
     }
 
-    public void copy(Element<?> element) {
+    public void copy(Element element) {
         if (element == null) {
             throw new InvalidXmlElementException("You cannot make a copy if there is no element defined.");
         }
@@ -270,7 +270,7 @@ public class Element<T extends Element<?>> extends XmlData implements Comparable
         setGroup(element.getGroup());
     }
 
-    public static boolean isNull(Element<?> element) {
+    public static boolean isNull(Element element) {
         if (element == null) {
             return true;
         }

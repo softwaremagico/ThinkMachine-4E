@@ -28,7 +28,7 @@ package com.softwaremagico.tm.character.occultism;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
 
-public class Wyrd extends Element<Wyrd> {
+public class Wyrd extends Element {
     public static final String WYRD_ID = "wyrd";
     private static final String WYRD_NAME = "Wyrd";
     private int value = 0;

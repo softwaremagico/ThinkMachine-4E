@@ -33,7 +33,7 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Armor extends Equipment<Armor> {
+public class Armor extends Equipment {
     private int protection;
     @JsonProperty("damageTypes")
     private Set<String> damageTypes;

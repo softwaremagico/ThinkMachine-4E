@@ -28,7 +28,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.softwaremagico.tm.Element;
 
 @JacksonXmlRootElement(localName = "benefice")
-public class BeneficeOption extends Element<BeneficeOption> {
+public class BeneficeOption extends Element {
     private int value;
 
     public BeneficeOption() {

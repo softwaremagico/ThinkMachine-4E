@@ -26,10 +26,10 @@ package com.softwaremagico.tm.character.occultism;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
-import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
 import com.softwaremagico.tm.character.values.IValue;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
 import java.util.ArrayList;
@@ -38,7 +38,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class OccultismPower extends Element<OccultismPower> {
+public class OccultismPower extends Element {
     private String characteristic;
     private List<IValue> values;
     private int level;
@@ -158,9 +158,11 @@ public class OccultismPower extends Element<OccultismPower> {
     }
 
     @Override
-    public int compareTo(OccultismPower element) {
-        if (getLevel() != element.getLevel()) {
-            return Integer.compare(getLevel(), element.getLevel());
+    public int compareTo(Element element) {
+        if (element instanceof OccultismPower) {
+            if (getLevel() != ((OccultismPower) element).getLevel()) {
+                return Integer.compare(getLevel(), ((OccultismPower) element).getLevel());
+            }
         }
         return super.compareTo(element);
     }

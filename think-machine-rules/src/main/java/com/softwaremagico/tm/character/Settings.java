@@ -4,7 +4,7 @@ package com.softwaremagico.tm.character;
  * #%L
  * Think Machine (Rules)
  * %%
- * Copyright (C) 2017 - 2021 Softwaremagico
+ * Copyright (C) 2017 - 2024 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).

@@ -28,7 +28,7 @@ import com.softwaremagico.tm.character.values.IValue;
  * #L%
  */
 
-public class Characteristic extends Element<Characteristic> implements IValue {
+public class Characteristic extends Element implements IValue {
     //Default value is 1, and later race will set as the correct minimum value.
     public static final int DEFAULT_INITIAL_VALUE = 1;
     public static final int INITIAL_VALUE = 3;
@@ -67,7 +67,10 @@ public class Characteristic extends Element<Characteristic> implements IValue {
     }
 
     @Override
-    public int compareTo(Characteristic element) {
-        return getCharacteristicDefinition().getOrder().compareTo(element.getCharacteristicDefinition().getOrder());
+    public int compareTo(Element element) {
+        if (element instanceof Characteristic) {
+            return getCharacteristicDefinition().getOrder().compareTo(((Characteristic) element).getCharacteristicDefinition().getOrder());
+        }
+        return super.compareTo(element);
     }
 }

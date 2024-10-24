@@ -41,7 +41,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class CharacterDefinitionStep<T extends Element<?>> extends Element<T> {
+public class CharacterDefinitionStep<T extends Element> extends Element {
     private static final int TOTAL_CHARACTERISTICS_OPTIONS = 0;
     private static final int TOTAL_SKILL_OPTIONS = 0;
 
@@ -97,7 +97,7 @@ public class CharacterDefinitionStep<T extends Element<?>> extends Element<T> {
         return TOTAL_SKILL_OPTIONS;
     }
 
-    public Set<Equipment<?>> getMaterialAwards(Collection<Selection> selectedMaterialAwards) {
+    public Set<Equipment> getMaterialAwards(Collection<Selection> selectedMaterialAwards) {
         return getMaterialAwards().stream().map(m -> m.getItems(selectedMaterialAwards)).flatMap(Collection::stream)
                 .collect(Collectors.toSet());
     }
