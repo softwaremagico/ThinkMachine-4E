@@ -25,9 +25,10 @@ package com.softwaremagico.tm.character.perks;
  */
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.softwaremagico.tm.Option;
 import com.softwaremagico.tm.character.capabilities.Capability;
 
-public class PerkOption {
+public class PerkOption extends Option<Perk> {
     @JsonProperty("id")
     private String id;
 
@@ -35,7 +36,7 @@ public class PerkOption {
     private String group;
 
     public PerkOption() {
-        super();
+        super(PerkFactory.getInstance());
     }
 
     public PerkOption(Perk perk) {

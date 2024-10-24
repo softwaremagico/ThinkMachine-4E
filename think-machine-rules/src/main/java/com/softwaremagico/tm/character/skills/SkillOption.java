@@ -26,7 +26,7 @@ package com.softwaremagico.tm.character.skills;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.softwaremagico.tm.XmlData;
+import com.softwaremagico.tm.Option;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
@@ -35,7 +35,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class SkillOption extends XmlData {
+public class SkillOption extends Option<Skill> {
     @JsonProperty("total")
     private int totalOptions;
     @JsonProperty("skills")
@@ -44,6 +44,10 @@ public class SkillOption extends XmlData {
     private List<SkillBonus> finalSkills;
     @JsonIgnore
     private Map<String, SkillBonus> skillBonusById;
+
+    public SkillOption() {
+        super(SkillFactory.getInstance());
+    }
 
     public int getTotalOptions() {
         return totalOptions;

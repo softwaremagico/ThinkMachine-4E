@@ -25,9 +25,10 @@ package com.softwaremagico.tm.character.capabilities;
  */
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.softwaremagico.tm.Option;
 import com.softwaremagico.tm.character.skills.Specialization;
 
-public class CapabilityOption {
+public class CapabilityOption extends Option<Capability> {
     @JsonProperty("id")
     private String id;
     @JsonProperty("group")
@@ -36,7 +37,7 @@ public class CapabilityOption {
     private Specialization specialization;
 
     public CapabilityOption() {
-        super();
+        super(CapabilityFactory.getInstance());
     }
 
     public CapabilityOption(Capability capability) {

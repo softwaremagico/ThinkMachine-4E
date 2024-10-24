@@ -26,7 +26,7 @@ package com.softwaremagico.tm.character.characteristics;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.softwaremagico.tm.XmlData;
+import com.softwaremagico.tm.Option;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
@@ -35,7 +35,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class CharacteristicOption extends XmlData {
+public class CharacteristicOption extends Option<CharacteristicDefinition> {
     @JsonProperty("total")
     private int totalOptions;
     @JsonProperty("characteristics")
@@ -44,6 +44,10 @@ public class CharacteristicOption extends XmlData {
     private List<CharacteristicBonus> finalCharacteristics;
     @JsonIgnore
     private Map<String, CharacteristicBonus> characteristicBonusById;
+
+    public CharacteristicOption() {
+        super(CharacteristicsDefinitionFactory.getInstance());
+    }
 
     public int getTotalOptions() {
         return totalOptions;
