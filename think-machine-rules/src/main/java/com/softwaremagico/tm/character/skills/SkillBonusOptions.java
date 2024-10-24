@@ -25,8 +25,7 @@ package com.softwaremagico.tm.character.skills;
  */
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.softwaremagico.tm.XmlData;
+import com.softwaremagico.tm.OptionSelector;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
@@ -35,33 +34,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class SkillOption extends XmlData {
-    @JsonProperty("total")
-    private int totalOptions;
-    @JsonProperty("skills")
-    private List<SkillBonus> skills;
+public class SkillBonusOptions extends OptionSelector<Skill, SkillBonusOption> {
     @JsonIgnore
-    private List<SkillBonus> finalSkills;
+    private List<SkillBonusOption> finalSkills;
     @JsonIgnore
-    private Map<String, SkillBonus> skillBonusById;
+    private Map<String, SkillBonusOption> skillBonusById;
 
-    public int getTotalOptions() {
-        return totalOptions;
-    }
-
-    public void setTotalOptions(int totalOptions) {
-        this.totalOptions = totalOptions;
-    }
-
-    public List<SkillBonus> getSkills() {
+    @Override
+    public List<SkillBonusOption> getOptions() {
         if (finalSkills == null) {
             try {
-                if (skills == null || skills.isEmpty()) {
+                if (super.getOptions() == null || super.getOptions().isEmpty()) {
                     finalSkills = new ArrayList<>();
                     finalSkills.addAll(SkillFactory.getInstance().getElements().stream()
-                            .map(SkillBonus::new).collect(Collectors.toList()));
+                            .map(SkillBonusOption::new).collect(Collectors.toList()));
                 } else {
-                    finalSkills = skills;
+                    finalSkills = super.getOptions();
                 }
             } catch (InvalidXmlElementException e) {
                 MachineXmlReaderLog.errorMessage(this.getClass(), e);
@@ -70,13 +58,9 @@ public class SkillOption extends XmlData {
         return finalSkills;
     }
 
-    public void setSkills(List<SkillBonus> skills) {
-        this.skills = skills;
-    }
-
-    public SkillBonus getSkillBonus(String skill) {
+    public SkillBonusOption getSkillBonus(String skill) {
         if (skillBonusById == null) {
-            skillBonusById = getSkills().stream().collect(Collectors.toMap(SkillBonus::getSkill, item -> item));
+            skillBonusById = getOptions().stream().collect(Collectors.toMap(SkillBonusOption::getId, item -> item));
         }
         return skillBonusById.get(skill);
     }
@@ -84,8 +68,8 @@ public class SkillOption extends XmlData {
     @Override
     public String toString() {
         return "SkillOption{"
-                + "(x" + totalOptions + "): "
-                + skills
+                + "(x" + getTotalOptions() + "): "
+                + super.getOptions()
                 + '}';
     }
 }

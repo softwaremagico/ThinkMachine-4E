@@ -4,7 +4,7 @@ package com.softwaremagico.tm;
  * #%L
  * Think Machine (Core)
  * %%
- * Copyright (C) 2017 Softwaremagico
+ * Copyright (C) 2017 - 2024 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -28,12 +28,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ElementList<T extends Comparable<T>> {
+public class ElementList<T extends Element> {
 
     private List<T> elements;
 
     public ElementList() {
-        elements = new ArrayList<T>();
+        elements = new ArrayList<>();
     }
 
     public boolean addElement(T element) {

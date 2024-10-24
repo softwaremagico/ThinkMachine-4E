@@ -42,7 +42,7 @@ public class UpbringingFactoryTest {
     @Test
     public void getUpbringingOption() throws InvalidXmlElementException {
         Assert.assertEquals(UpbringingFactory.getInstance().getElement("noble").getCapabilityOptions().size(), 6);
-        Assert.assertEquals(UpbringingFactory.getInstance().getElement("noble").getCapabilityOptions().get(0).getCapabilities().size(), 7);
+        Assert.assertEquals(UpbringingFactory.getInstance().getElement("noble").getCapabilityOptions().get(0).getOptions().size(), 7);
     }
 
     @Test
@@ -60,7 +60,7 @@ public class UpbringingFactoryTest {
     @Test
     public void getPerksOption() throws InvalidXmlElementException {
         Assert.assertEquals(UpbringingFactory.getInstance().getElement("noble").getPerksOptions().size(), 2);
-        Assert.assertEquals(UpbringingFactory.getInstance().getElement("noble").getPerksOptions().get(1).getPerks().size(), 25);
+        Assert.assertEquals(UpbringingFactory.getInstance().getElement("noble").getPerksOptions().get(1).getOptions().size(), 25);
     }
 
     @Test
@@ -68,6 +68,6 @@ public class UpbringingFactoryTest {
         Assert.assertEquals(UpbringingFactory.getInstance().getElement("yeoman").getSkillOptions().size(), 5);
         Assert.assertEquals(UpbringingFactory.getInstance().getElement("yeoman").getCharacteristicOptions().size(), 5);
         Assert.assertEquals(UpbringingFactory.getInstance().getElement("yeoman").getCapabilityOptions().size(), 6);
-        Assert.assertEquals(UpbringingFactory.getInstance().getElement("yeoman").getCapabilityOptions().get(5).getCapabilities().size(), CapabilityFactoryTest.TOTAL_ELEMENTS);
+        Assert.assertEquals(UpbringingFactory.getInstance().getElement("yeoman").getCapabilityOptions().get(5).getOptions().size(), CapabilityFactoryTest.TOTAL_ELEMENTS);
     }
 }

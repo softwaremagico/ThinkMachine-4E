@@ -26,5 +26,5 @@ package com.softwaremagico.tm.txt;
 
 import com.softwaremagico.tm.Element;
 
-public class Text extends Element<Text> {
+public class Text extends Element {
 }

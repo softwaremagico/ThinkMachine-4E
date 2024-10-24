@@ -28,7 +28,7 @@ package com.softwaremagico.tm.character.equipment.armors;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
 
-public class ArmourSpecification extends Element<ArmourSpecification> {
+public class ArmourSpecification extends Element {
 
     public ArmourSpecification() {
         super();

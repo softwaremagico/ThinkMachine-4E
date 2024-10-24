@@ -43,7 +43,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @JacksonXmlRootElement(localName = "planet")
-public class Planet extends Element<Planet> {
+public class Planet extends Element {
     @JsonProperty("factions")
     private String factionData;
     @JsonIgnore

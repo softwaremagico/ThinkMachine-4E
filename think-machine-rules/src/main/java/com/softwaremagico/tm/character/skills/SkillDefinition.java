@@ -27,7 +27,7 @@ package com.softwaremagico.tm.character.skills;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
 
-public class SkillDefinition<T extends SkillDefinition<?>> extends Element<T> {
+public class SkillDefinition<T extends SkillDefinition<?>> extends Element {
 
     public SkillDefinition() {
         super();

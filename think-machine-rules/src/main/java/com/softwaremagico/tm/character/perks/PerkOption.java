@@ -24,18 +24,13 @@ package com.softwaremagico.tm.character.perks;
  * #L%
  */
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.softwaremagico.tm.Option;
 import com.softwaremagico.tm.character.capabilities.Capability;
 
-public class PerkOption {
-    @JsonProperty("id")
-    private String id;
-
-    @JsonProperty("group")
-    private String group;
+public class PerkOption extends Option<Perk> {
 
     public PerkOption() {
-        super();
+        super(PerkFactory.getInstance());
     }
 
     public PerkOption(Perk perk) {
@@ -48,24 +43,8 @@ public class PerkOption {
         setId(capability.getId());
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getGroup() {
-        return group;
-    }
-
-    public void setGroup(String group) {
-        this.group = group;
-    }
-
     @Override
     public String toString() {
-        return id != null ? id : group;
+        return getId() != null ? getId() : getGroup();
     }
 }

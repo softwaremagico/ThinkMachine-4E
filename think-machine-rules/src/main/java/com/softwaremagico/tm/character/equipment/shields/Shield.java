@@ -27,7 +27,7 @@ package com.softwaremagico.tm.character.equipment.shields;
 
 import com.softwaremagico.tm.character.equipment.Equipment;
 
-public class Shield extends Equipment<Shield> {
+public class Shield extends Equipment {
     private int impact;
     private int force;
     private int hits;

@@ -117,7 +117,7 @@ public class FactionFactoryTests {
         Assert.assertNotNull(charioteers);
         Assert.assertEquals(charioteers.getCapabilityOptions().size(), 2);
         //Known Worlds or Barbarian Worlds
-        Assert.assertEquals(charioteers.getCapabilityOptions().get(1).getCapabilities().size(), 7);
+        Assert.assertEquals(charioteers.getCapabilityOptions().get(1).getOptions().size(), 7);
     }
 
     @Test

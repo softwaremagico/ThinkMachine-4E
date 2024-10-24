@@ -45,9 +45,9 @@ public class EquipmentOptions extends XmlData {
     @JsonProperty("total")
     private int totalOptions;
     @JsonProperty("items")
-    private List<Equipment<?>> items;
+    private List<Equipment> items;
     @JsonIgnore
-    private List<Equipment<?>> finalItems;
+    private List<Equipment> finalItems;
 
     public int getTotalOptions() {
         return totalOptions;
@@ -57,13 +57,13 @@ public class EquipmentOptions extends XmlData {
         this.totalOptions = totalOptions;
     }
 
-    public List<Equipment<?>> getItems() {
+    public List<Equipment> getItems() {
         if (finalItems == null) {
             finalItems = new ArrayList<>();
             if (items != null && !items.isEmpty()) {
                 items.forEach(item -> {
                     if (item.getId() != null) {
-                        final Equipment<?> finalItem = Equipment.completeItem(item);
+                        final Equipment finalItem = Equipment.completeItem(item);
                         finalItem.setQuantity(item.getQuantity());
                         finalItems.add(finalItem);
                     } else if (item instanceof Weapon) {
@@ -104,12 +104,12 @@ public class EquipmentOptions extends XmlData {
         return finalItems;
     }
 
-    public Set<Equipment<?>> getItems(Collection<Selection> items) {
+    public Set<Equipment> getItems(Collection<Selection> items) {
         return getItems().stream().filter(e -> items.stream().map(Selection::getId).collect(Collectors.toList())
                 .contains(e.getId())).collect(Collectors.toSet());
     }
 
-    public void setItems(List<Equipment<?>> items) {
+    public void setItems(List<Equipment> items) {
         this.items = items;
     }
 }

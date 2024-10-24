@@ -35,7 +35,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class CombatStyle extends Element<CombatStyle> {
+public class CombatStyle extends Element {
     public static final int COMBAT_STYLE_COST = 5;
     private String group;
     @JsonProperty("stances")

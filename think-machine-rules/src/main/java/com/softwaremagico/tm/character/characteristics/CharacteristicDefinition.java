@@ -33,8 +33,7 @@ import com.softwaremagico.tm.character.values.IValue;
 import java.util.Objects;
 
 @JacksonXmlRootElement(localName = "characteristicDefinition")
-public class CharacteristicDefinition extends Element<CharacteristicDefinition>
-        implements Comparable<CharacteristicDefinition>, IValue {
+public class CharacteristicDefinition extends Element implements Comparable<Element>, IValue {
 
     private Abbreviation abbreviation;
 
@@ -90,8 +89,11 @@ public class CharacteristicDefinition extends Element<CharacteristicDefinition>
     }
 
     @Override
-    public int compareTo(CharacteristicDefinition characteristic) {
-        return getCharacteristicName().compareTo(characteristic.getCharacteristicName());
+    public int compareTo(Element characteristic) {
+        if (characteristic instanceof CharacteristicDefinition) {
+            return getCharacteristicName().compareTo(((CharacteristicDefinition) characteristic).getCharacteristicName());
+        }
+        return super.compareTo(characteristic);
     }
 
     @Override

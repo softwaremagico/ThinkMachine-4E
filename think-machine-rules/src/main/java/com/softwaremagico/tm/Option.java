@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.occultism;
+package com.softwaremagico.tm;
 
 /*-
  * #%L
@@ -24,35 +24,46 @@ package com.softwaremagico.tm.character.occultism;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.softwaremagico.tm.xml.XmlFactory;
 
-import com.softwaremagico.tm.Element;
-import com.softwaremagico.tm.TranslatedText;
+public class Option<T extends Element> extends Element {
 
-public class Wyrd extends Element {
-    public static final String WYRD_ID = "wyrd";
-    private static final String WYRD_NAME = "Wyrd";
-    private int value = 0;
+    private final XmlFactory<T> xmlFactory;
 
-    public Wyrd(String language, String moduleName) {
-        super(WYRD_ID, new TranslatedText(WYRD_NAME), null, language, moduleName);
+    public Option(XmlFactory<T> xmlFactory) {
+        this.xmlFactory = xmlFactory;
     }
 
-    public Wyrd(String language, String moduleName, int value) {
-        this(language, moduleName);
-        this.value = value;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
+    @JsonIgnore
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public TranslatedText getName() {
+        if (getId() != null) {
+            return xmlFactory.getElement(getId()).getName();
+        }
+        return null;
     }
 
+    @JsonIgnore
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public void setName(TranslatedText name) {
+        throw new UnsupportedOperationException();
     }
+
+    @JsonIgnore
+    @Override
+    public TranslatedText getDescription() {
+        if (getId() != null) {
+            return xmlFactory.getElement(getId()).getDescription();
+        }
+        return null;
+    }
+
+    @JsonIgnore
+    @Override
+    public void setDescription(TranslatedText description) {
+        throw new UnsupportedOperationException();
+    }
+
+
 }

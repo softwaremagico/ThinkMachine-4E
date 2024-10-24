@@ -31,7 +31,7 @@ import com.softwaremagico.tm.character.equipment.Size;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Ammunition extends Element<Ammunition> {
+public class Ammunition extends Element {
     private String goal;
     private String damage;
     private Integer strength;

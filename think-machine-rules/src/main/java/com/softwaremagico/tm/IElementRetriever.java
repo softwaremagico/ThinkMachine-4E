@@ -4,7 +4,7 @@ package com.softwaremagico.tm;
  * #%L
  * Think Machine (Rules)
  * %%
- * Copyright (C) 2017 - 2021 Softwaremagico
+ * Copyright (C) 2017 - 2024 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -26,7 +26,7 @@ package com.softwaremagico.tm;
 
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
-public interface IElementRetriever<T extends Element<T>> {
+public interface IElementRetriever<T extends Element> {
 
     T getElement(String elementId) throws InvalidXmlElementException;
 }

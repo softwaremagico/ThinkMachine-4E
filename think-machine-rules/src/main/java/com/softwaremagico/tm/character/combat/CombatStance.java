@@ -28,7 +28,7 @@ package com.softwaremagico.tm.character.combat;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
 
-public class CombatStance extends Element<CombatStance> {
+public class CombatStance extends Element {
 
     public CombatStance() {
         super();

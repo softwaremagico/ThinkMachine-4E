@@ -28,7 +28,7 @@ package com.softwaremagico.tm.character.equipment;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
 
-public class DamageType extends Element<DamageType> {
+public class DamageType extends Element {
 
     public DamageType() {
         super();

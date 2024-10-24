@@ -54,7 +54,7 @@ public class Upbringing extends CharacterDefinitionStep<Upbringing> {
                     final PerkOptions completedPerkOption = perkOptions.copy();
                     //Add Open perks
                     try {
-                        completedPerkOption.addPerks(PerkFactory.getInstance().getElements().stream().filter(perk -> perk.getRestrictions().isOpen())
+                        completedPerkOption.addOptions(PerkFactory.getInstance().getElements().stream().filter(perk -> perk.getRestrictions().isOpen())
                                 .map(PerkOption::new).collect(Collectors.toList()));
                     } catch (InvalidXmlElementException e) {
                         MachineLog.errorMessage(this.getClass(), e);

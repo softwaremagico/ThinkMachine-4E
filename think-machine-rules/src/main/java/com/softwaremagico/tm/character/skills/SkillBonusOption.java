@@ -1,8 +1,8 @@
-package com.softwaremagico.tm.log;
+package com.softwaremagico.tm.character.skills;
 
 /*-
  * #%L
- * Think Machine (Rules)
+ * Think Machine 4E (Rules)
  * %%
  * Copyright (C) 2017 - 2024 Softwaremagico
  * %%
@@ -24,19 +24,32 @@ package com.softwaremagico.tm.log;
  * #L%
  */
 
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.softwaremagico.tm.Option;
 
-@Retention(RetentionPolicy.CLASS)
-public @interface SuppressFBWarnings {
-    /**
-     * The set of FindBugs warnings that are to be suppressed in annotated element.
-     * The value can be a bug category, kind or pattern.
-     */
-    String[] value() default {};
+public class SkillBonusOption extends Option<Skill> {
+    @JsonProperty("bonus")
+    private int bonus;
 
-    /**
-     * Optional documentation of the reason why the warning is suppressed
-     */
-    String justification() default "";
+    public SkillBonusOption() {
+        super(SkillFactory.getInstance());
+    }
+
+    public SkillBonusOption(Skill skill) {
+        this();
+        setId(skill.getId());
+    }
+
+    public int getBonus() {
+        return bonus;
+    }
+
+    public void setBonus(int bonus) {
+        this.bonus = bonus;
+    }
+
+    @Override
+    public String toString() {
+        return getId() + " (+" + bonus + ")";
+    }
 }

@@ -50,7 +50,7 @@ public abstract class PdfDocument {
 
     protected Document addMetaData(Document document) {
         document.addTitle("Fading Suns Character Sheet");
-        document.addAuthor("Software Magico");
+        document.addAuthor("Software Mágico");
         document.addCreator("Think Machine 4E");
         document.addSubject("RPG");
         document.addKeywords("RPG, Fading Suns, FS");

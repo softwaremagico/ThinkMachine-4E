@@ -26,7 +26,7 @@ package com.softwaremagico.tm.character.equipment;
 
 import com.softwaremagico.tm.Element;
 
-public class TechCompulsion extends Element<TechCompulsion> {
+public class TechCompulsion extends Element {
 
 
 }

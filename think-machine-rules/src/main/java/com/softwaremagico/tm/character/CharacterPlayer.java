@@ -79,7 +79,7 @@ public class CharacterPlayer {
     private FactionCharacterDefinitionStepSelection faction;
     private CallingCharacterDefinitionStepSelection calling;
 
-    private Set<Equipment<?>> equipmentPurchased;
+    private Set<Equipment> equipmentPurchased;
 
 
     private final Settings settings;
@@ -306,14 +306,17 @@ public class CharacterPlayer {
             upbringing.getCapabilityOptions().forEach(capabilityOption ->
                     capabilityOption.getSelections().forEach(selection ->
                             capabilities.add(CapabilityWithSpecialization.from(selection))));
+        }
+        if (faction != null) {
             faction.getCapabilityOptions().forEach(capabilityOption ->
                     capabilityOption.getSelections().forEach(selection ->
                             capabilities.add(CapabilityWithSpecialization.from(selection))));
+        }
+        if (calling != null) {
             calling.getCapabilityOptions().forEach(capabilityOption ->
                     capabilityOption.getSelections().forEach(selection ->
                             capabilities.add(CapabilityWithSpecialization.from(selection))));
         }
-
         return capabilities;
     }
 
@@ -425,7 +428,7 @@ public class CharacterPlayer {
         return getEquipment(Item.class);
     }
 
-    private Set<Equipment<?>> getSelectedMaterialAwards(CharacterDefinitionStepSelection<?> definitionStepSelection, XmlFactory<?> factory,
+    private Set<Equipment> getSelectedMaterialAwards(CharacterDefinitionStepSelection<?> definitionStepSelection, XmlFactory<?> factory,
                                                         boolean ignoreRemoved) {
         if (definitionStepSelection == null) {
             return new HashSet<>();
@@ -441,48 +444,48 @@ public class CharacterPlayer {
         return ((CharacterDefinitionStep<?>) factory.getElement(definitionStepSelection.getId())).getMaterialAwards(selected);
     }
 
-    public List<Equipment<?>> getMaterialAwardsSelected() {
+    public List<Equipment> getMaterialAwardsSelected() {
         return getMaterialAwardsSelected(false);
     }
 
-    public List<Equipment<?>> getMaterialAwardsSelected(boolean ignoreRemoved) {
-        final List<Equipment<?>> materialAwards = new ArrayList<>();
+    public List<Equipment> getMaterialAwardsSelected(boolean ignoreRemoved) {
+        final List<Equipment> materialAwards = new ArrayList<>();
         materialAwards.addAll(getSelectedMaterialAwards(upbringing, UpbringingFactory.getInstance(), ignoreRemoved));
         materialAwards.addAll(getSelectedMaterialAwards(faction, FactionFactory.getInstance(), ignoreRemoved));
         materialAwards.addAll(getSelectedMaterialAwards(calling, CallingFactory.getInstance(), ignoreRemoved));
         return materialAwards;
     }
 
-    public <T extends Equipment<?>> List<T> getEquipmentPurchased(Class<T> equipmentClass) {
+    public <T extends Equipment> List<T> getEquipmentPurchased(Class<T> equipmentClass) {
         return getEquipmentPurchased().stream().filter(equipmentClass::isInstance).map(equipmentClass::cast).collect(Collectors.toList());
     }
 
-    public Set<Equipment<?>> getEquipmentPurchased() {
+    public Set<Equipment> getEquipmentPurchased() {
         if (equipmentPurchased == null) {
             return new HashSet<>();
         }
         return equipmentPurchased;
     }
 
-    public void addEquipmentPurchased(Equipment<?> equipmentPurchased) {
+    public void addEquipmentPurchased(Equipment equipmentPurchased) {
         if (this.equipmentPurchased == null) {
             this.equipmentPurchased = new HashSet<>();
         }
         this.equipmentPurchased.add(equipmentPurchased);
     }
 
-    public void setEquipmentPurchased(Set<Equipment<?>> equipmentPurchased) {
+    public void setEquipmentPurchased(Set<Equipment> equipmentPurchased) {
         this.equipmentPurchased = equipmentPurchased;
     }
 
-    public List<Equipment<?>> getEquipment() {
-        final List<Equipment<?>> totalEquipment = new ArrayList<>();
+    public List<Equipment> getEquipment() {
+        final List<Equipment> totalEquipment = new ArrayList<>();
         totalEquipment.addAll(getMaterialAwardsSelected());
         totalEquipment.addAll(getEquipmentPurchased());
         return totalEquipment;
     }
 
-    public <T extends Equipment<?>> List<T> getEquipment(Class<T> equipmentClass) {
+    public <T extends Equipment> List<T> getEquipment(Class<T> equipmentClass) {
         return getEquipment().stream().filter(equipmentClass::isInstance).map(equipmentClass::cast).collect(Collectors.toList());
     }
 

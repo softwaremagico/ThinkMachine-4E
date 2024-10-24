@@ -32,7 +32,7 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 
 
 @JacksonXmlRootElement(localName = "characteristic")
-public class SpecieCharacteristic extends Element<SpecieCharacteristic> {
+public class SpecieCharacteristic extends Element {
 
     @JsonAlias("id")
     private CharacteristicName characteristic;

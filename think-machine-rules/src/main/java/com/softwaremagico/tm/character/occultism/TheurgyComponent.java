@@ -28,7 +28,7 @@ package com.softwaremagico.tm.character.occultism;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
 
-public class TheurgyComponent extends Element<TheurgyComponent> {
+public class TheurgyComponent extends Element {
     private String abbreviation;
     private char code;
 
