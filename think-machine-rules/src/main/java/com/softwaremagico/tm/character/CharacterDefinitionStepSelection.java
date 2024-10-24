@@ -178,12 +178,12 @@ public abstract class CharacterDefinitionStepSelection<T extends CharacterDefini
 
         //Capabilities
         for (int i = 0; i < capabilityOptions.size(); i++) {
-            if (capabilityOptions.get(i).getSelections().size() > characterDefinitionStep.getCapabilityOptions().get(i).getCapabilities().size()) {
+            if (capabilityOptions.get(i).getSelections().size() > characterDefinitionStep.getCapabilityOptions().get(i).getOptions().size()) {
                 throw new TooManySelectionsException("You have selected '" + capabilityOptions.get(i).getSelections().size()
                         + "' capabilities options and only '"
-                        + characterDefinitionStep.getCapabilityOptions().get(i).getCapabilities().size() + "' are available.");
+                        + characterDefinitionStep.getCapabilityOptions().get(i).getOptions().size() + "' are available.");
             }
-            final List<Selection> availableOptions = characterDefinitionStep.getCapabilityOptions().get(i).getCapabilities()
+            final List<Selection> availableOptions = characterDefinitionStep.getCapabilityOptions().get(i).getOptions()
                     .stream().map(co -> new Selection(co.getId(), co.getSpecialization())).collect(Collectors.toList());
             for (Selection selection : capabilityOptions.get(i).getSelections()) {
                 if (!availableOptions.contains(selection)) {
@@ -194,14 +194,14 @@ public abstract class CharacterDefinitionStepSelection<T extends CharacterDefini
 
         //Characteristics
         for (int i = 0; i < characteristicOptions.size(); i++) {
-            if (characteristicOptions.get(i).getSelections().size() > characterDefinitionStep.getCharacteristicOptions().get(i).getCharacteristics().size()) {
+            if (characteristicOptions.get(i).getSelections().size() > characterDefinitionStep.getCharacteristicOptions().get(i).getOptions().size()) {
                 throw new TooManySelectionsException("You have selected '" + characteristicOptions.get(i).getSelections().size()
                         + "' characteristics options and only '"
-                        + characterDefinitionStep.getCharacteristicOptions().get(i).getCharacteristics().size()
+                        + characterDefinitionStep.getCharacteristicOptions().get(i).getOptions().size()
                         + "' are available.");
             }
-            final List<Selection> availableOptions = characterDefinitionStep.getCharacteristicOptions().get(i).getCharacteristics()
-                    .stream().map(co -> new Selection(co.getCharacteristic())).collect(Collectors.toList());
+            final List<Selection> availableOptions = characterDefinitionStep.getCharacteristicOptions().get(i).getOptions()
+                    .stream().map(co -> new Selection(co.getId())).collect(Collectors.toList());
             for (Selection selection : characteristicOptions.get(i).getSelections()) {
                 if (!availableOptions.contains(selection)) {
                     throw new InvalidSelectedElementException("Selected characteristic '" + selection + "' does not exist.", selection);
@@ -211,14 +211,14 @@ public abstract class CharacterDefinitionStepSelection<T extends CharacterDefini
 
         //Skills
         for (int i = 0; i < skillOptions.size(); i++) {
-            if (skillOptions.get(i).getSelections().size() > characterDefinitionStep.getSkillOptions().get(i).getSkills().size()) {
+            if (skillOptions.get(i).getSelections().size() > characterDefinitionStep.getSkillOptions().get(i).getOptions().size()) {
                 throw new TooManySelectionsException("You have selected '" + skillOptions.get(i).getSelections().size()
                         + "' capabilities options and only '"
-                        + characterDefinitionStep.getSkillOptions().get(i).getSkills().size()
+                        + characterDefinitionStep.getSkillOptions().get(i).getOptions().size()
                         + "' are available.");
             }
-            final List<Selection> availableOptions = characterDefinitionStep.getSkillOptions().get(i).getSkills()
-                    .stream().map(so -> new Selection(so.getSkill())).collect(Collectors.toList());
+            final List<Selection> availableOptions = characterDefinitionStep.getSkillOptions().get(i).getOptions()
+                    .stream().map(so -> new Selection(so.getId())).collect(Collectors.toList());
             for (Selection selection : skillOptions.get(i).getSelections()) {
                 if (!availableOptions.contains(selection)) {
                     throw new InvalidSelectedElementException("Selected skill '" + selection + "' does not exist.", selection);
@@ -228,13 +228,13 @@ public abstract class CharacterDefinitionStepSelection<T extends CharacterDefini
 
         //Perks
         for (int i = 0; i < perksOptions.size(); i++) {
-            if (perksOptions.get(i).getSelections().size() > characterDefinitionStep.getPerksOptions().get(i).getPerks().size()) {
+            if (perksOptions.get(i).getSelections().size() > characterDefinitionStep.getPerksOptions().get(i).getOptions().size()) {
                 throw new TooManySelectionsException("You have selected '" + perksOptions.get(i).getSelections().size()
                         + "' capabilities options and only '"
-                        + characterDefinitionStep.getPerksOptions().get(i).getPerks().size()
+                        + characterDefinitionStep.getPerksOptions().get(i).getOptions().size()
                         + "' are available.");
             }
-            final List<Selection> availableOptions = characterDefinitionStep.getPerksOptions().get(i).getPerks()
+            final List<Selection> availableOptions = characterDefinitionStep.getPerksOptions().get(i).getOptions()
                     .stream().map(po -> new Selection(po.getId())).collect(Collectors.toList());
             for (Selection selection : perksOptions.get(i).getSelections()) {
                 if (!availableOptions.contains(selection)) {

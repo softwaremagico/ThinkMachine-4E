@@ -7,17 +7,17 @@
             <es>Comandante</es>
         </name>
         <capabilities>
-            <options>
+            <capabilitiesOption>
                 <total>1</total>
-                <capabilities>
+                <options>
                     <capability>
                         <id>militaryWeapons</id>
                     </capability>
-                </capabilities>
-            </options>
-            <options>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
                 <total>1</total>
-                <capabilities>
+                <options>
                     <capability>
                         <id>beastback</id>
                     </capability>
@@ -27,40 +27,40 @@
                     <capability>
                         <id>warfareLore</id>
                     </capability>
-                </capabilities>
-            </options>
+                </options>
+            </capabilitiesOption>
         </capabilities>
         <characteristics>
-            <options>
+            <characteristicBonusOptions>
                 <total>1</total>
-                <characteristics>
+                <options>
                     <characteristic>
                         <id>endurance</id>
                         <bonus>1</bonus>
                     </characteristic>
-                </characteristics>
-            </options>
-            <options>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
                 <total>1</total>
-                <characteristics>
+                <options>
                     <characteristic>
                         <id>presence</id>
                         <bonus>2</bonus>
                     </characteristic>
-                </characteristics>
-            </options>
-            <options>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
                 <total>1</total>
-                <characteristics>
+                <options>
                     <characteristic>
                         <id>wits</id>
                         <bonus>1</bonus>
                     </characteristic>
-                </characteristics>
-            </options>
-            <options>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
                 <total>1</total>
-                <characteristics>
+                <options>
                     <characteristic>
                         <id>will</id>
                         <bonus>1</bonus>
@@ -69,13 +69,13 @@
                         <id>faith</id>
                         <bonus>1</bonus>
                     </characteristic>
-                </characteristics>
-            </options>
+                </options>
+            </characteristicBonusOptions>
         </characteristics>
         <perks>
-            <options>
+            <perkOptions>
                 <total>1</total>
-                <perks>
+                <options>
                     <perk>
                         <id>conscript</id>
                     </perk>
@@ -97,22 +97,22 @@
                     <perk>
                         <id>strategicMind</id>
                     </perk>
-                </perks>
-            </options>
+                </options>
+            </perkOptions>
         </perks>
         <skills>
-            <options>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>academia</id>
                         <bonus>1</bonus>
                     </skill>
-                </skills>
-            </options>
-            <options>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>drive</id>
                         <bonus>1</bonus>
@@ -121,53 +121,53 @@
                         <id>survival</id>
                         <bonus>1</bonus>
                     </skill>
-                </skills>
-            </options>
-            <options>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>focus</id>
                         <bonus>1</bonus>
                     </skill>
-                </skills>
-            </options>
-            <options>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>impress</id>
                         <bonus>3</bonus>
                     </skill>
-                </skills>
-            </options>
-            <options>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>melee</id>
                         <bonus>1</bonus>
                     </skill>
-                </skills>
-            </options>
-            <options>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>shoot</id>
                         <bonus>1</bonus>
                     </skill>
-                </skills>
-            </options>
-            <options>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>vigor</id>
                         <bonus>1</bonus>
                     </skill>
-                </skills>
-            </options>
+                </options>
+            </skillBonusOption>
         </skills>
         <materialAwards>
             <options>
@@ -214,9 +214,9 @@
             <es>Conspirador</es>
         </name>
         <capabilities>
-            <options>
+            <capabilitiesOption>
                 <total>1</total>
-                <capabilities>
+                <options>
                     <capability>
                         <group>medicalLore</group>
                     </capability>
@@ -226,53 +226,53 @@
                     <capability>
                         <group>artsLore</group>
                     </capability>
-                </capabilities>
-            </options>
-            <options>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
                 <total>1</total>
-                <capabilities>
+                <options>
                     <capability>
                         <id>poisonLore</id>
                     </capability>
                     <capability>
                         <group>customsLore</group>
                     </capability>
-                </capabilities>
-            </options>
+                </options>
+            </capabilitiesOption>
         </capabilities>
         <characteristics>
-            <options>
+            <characteristicBonusOptions>
                 <total>1</total>
-                <characteristics>
+                <options>
                     <characteristic>
                         <id>intuition</id>
                         <bonus>1</bonus>
                     </characteristic>
-                </characteristics>
-            </options>
-            <options>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
                 <total>1</total>
-                <characteristics>
+                <options>
                     <characteristic>
                         <id>perception</id>
                         <bonus>3</bonus>
                     </characteristic>
-                </characteristics>
-            </options>
-            <options>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
                 <total>1</total>
-                <characteristics>
+                <options>
                     <characteristic>
                         <id>presence</id>
                         <bonus>1</bonus>
                     </characteristic>
-                </characteristics>
-            </options>
+                </options>
+            </characteristicBonusOptions>
         </characteristics>
         <perks>
-            <options>
+            <perkOptions>
                 <total>1</total>
-                <perks>
+                <options>
                     <perk>
                         <id>calculating</id>
                     </perk>
@@ -294,22 +294,22 @@
                     <perk>
                         <id>webOfLies</id>
                     </perk>
-                </perks>
-            </options>
+                </options>
+            </perkOptions>
         </perks>
         <skills>
-            <options>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>academia</id>
                         <bonus>1</bonus>
                     </skill>
-                </skills>
-            </options>
-            <options>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>charm</id>
                         <bonus>2</bonus>
@@ -318,53 +318,53 @@
                         <id>impress</id>
                         <bonus>2</bonus>
                     </skill>
-                </skills>
-            </options>
-            <options>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>disguise</id>
                         <bonus>1</bonus>
                     </skill>
-                </skills>
-            </options>
-            <options>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>kanvery</id>
                         <bonus>2</bonus>
                     </skill>
-                </skills>
-            </options>
-            <options>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>observe</id>
                         <bonus>2</bonus>
                     </skill>
-                </skills>
-            </options>
-            <options>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>sleightOfHand</id>
                         <bonus>1</bonus>
                     </skill>
-                </skills>
-            </options>
-            <options>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>sneak</id>
                         <bonus>1</bonus>
                     </skill>
-                </skills>
-            </options>
+                </options>
+            </skillBonusOption>
         </skills>
         <materialAwards>
             <options>
@@ -410,9 +410,9 @@
             <es>Cortesano</es>
         </name>
         <capabilities>
-            <options>
+            <capabilitiesOption>
                 <total>1</total>
-                <capabilities>
+                <options>
                     <capability>
                         <group>medicalLore</group>
                     </capability>
@@ -422,44 +422,44 @@
                     <capability>
                         <group>artsLore</group>
                     </capability>
-                </capabilities>
-            </options>
-            <options>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
                 <total>1</total>
-                <capabilities>
+                <options>
                     <capability>
                         <id>cathedralCustoms</id>
                     </capability>
                     <capability>
                         <id>commonsCustoms</id>
                     </capability>
-                </capabilities>
-            </options>
+                </options>
+            </capabilitiesOption>
         </capabilities>
         <characteristics>
-            <options>
+            <characteristicBonusOptions>
                 <total>1</total>
-                <characteristics>
+                <options>
                     <characteristic>
                         <id>wits</id>
                         <bonus>2</bonus>
                     </characteristic>
-                </characteristics>
-            </options>
-            <options>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
                 <total>1</total>
-                <characteristics>
+                <options>
                     <characteristic>
                         <id>presence</id>
                         <bonus>3</bonus>
                     </characteristic>
-                </characteristics>
-            </options>
+                </options>
+            </characteristicBonusOptions>
         </characteristics>
         <perks>
-            <options>
+            <perkOptions>
                 <total>1</total>
-                <perks>
+                <options>
                     <perk>
                         <id>councilMember</id>
                     </perk>
@@ -478,77 +478,77 @@
                     <perk>
                         <id>viciousInsult</id>
                     </perk>
-                </perks>
-            </options>
+                </options>
+            </perkOptions>
         </perks>
         <skills>
-            <options>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>academia</id>
                         <bonus>1</bonus>
                     </skill>
-                </skills>
-            </options>
-            <options>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>arts</id>
                         <bonus>1</bonus>
                     </skill>
-                </skills>
-                <options>
-                    <total>1</total>
-                    <skills>
-                        <skill>
-                            <id>charm</id>
-                            <bonus>3</bonus>
-                        </skill>
-                    </skills>
                 </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
                 <options>
-                    <total>1</total>
-                    <skills>
-                        <skill>
-                            <id>impress</id>
-                            <bonus>2</bonus>
-                        </skill>
-                    </skills>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>3</bonus>
+                    </skill>
                 </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
                 <options>
-                    <total>1</total>
-                    <skills>
-                        <skill>
-                            <id>knavery</id>
-                            <bonus>1</bonus>
-                        </skill>
-                    </skills>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>2</bonus>
+                    </skill>
                 </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
                 <options>
-                    <total>1</total>
-                    <skills>
-                        <skill>
-                            <id>melee</id>
-                            <bonus>1</bonus>
-                        </skill>
-                        <skill>
-                            <id>shoot</id>
-                            <bonus>1</bonus>
-                        </skill>
-                    </skills>
+                    <skill>
+                        <id>knavery</id>
+                        <bonus>1</bonus>
+                    </skill>
                 </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
                 <options>
-                    <total>1</total>
-                    <skills>
-                        <skill>
-                            <id>perform</id>
-                            <bonus>1</bonus>
-                        </skill>
-                    </skills>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>1</bonus>
+                    </skill>
                 </options>
-            </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>perform</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
         </skills>
         <materialAwards>
             <options>
@@ -594,45 +594,45 @@
             <es>Duelista</es>
         </name>
         <capabilities>
-            <options>
+            <capabilitiesOption>
                 <total>1</total>
-                <capabilities>
+                <options>
                     <capability>
                         <id>militaryWeapons</id>
                     </capability>
-                </capabilities>
-            </options>
-            <options>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
                 <total>1</total>
-                <capabilities>
+                <options>
                     <capability>
                         <id>combatArmor</id>
                     </capability>
-                </capabilities>
-            </options>
+                </options>
+            </capabilitiesOption>
         </capabilities>
         <characteristics>
-            <options>
+            <characteristicBonusOptions>
                 <total>1</total>
-                <characteristics>
+                <options>
                     <characteristic>
                         <id>dexterity</id>
                         <bonus>1</bonus>
                     </characteristic>
-                </characteristics>
-            </options>
-            <options>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
                 <total>1</total>
-                <characteristics>
+                <options>
                     <characteristic>
                         <id>endurance</id>
                         <bonus>1</bonus>
                     </characteristic>
-                </characteristics>
-            </options>
-            <options>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
                 <total>1</total>
-                <characteristics>
+                <options>
                     <characteristic>
                         <id>perception</id>
                         <bonus>1</bonus>
@@ -641,22 +641,22 @@
                         <id>will</id>
                         <bonus>1</bonus>
                     </characteristic>
-                </characteristics>
-            </options>
-            <options>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
                 <total>1</total>
-                <characteristics>
+                <options>
                     <characteristic>
                         <id>strength</id>
                         <bonus>2</bonus>
                     </characteristic>
-                </characteristics>
-            </options>
+                </options>
+            </characteristicBonusOptions>
         </characteristics>
         <perks>
-            <options>
+            <perkOptions>
                 <total>1</total>
-                <perks>
+                <options>
                     <perk>
                         <id>aimAssistance</id>
                     </perk>
@@ -681,13 +681,13 @@
                     <perk>
                         <id>twoGunFighting</id>
                     </perk>
-                </perks>
-            </options>
+                </options>
+            </perkOptions>
         </perks>
         <skills>
-            <options>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>charm</id>
                         <bonus>1</bonus>
@@ -696,11 +696,11 @@
                         <id>impress</id>
                         <bonus>1</bonus>
                     </skill>
-                </skills>
-            </options>
-            <options>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>fight</id>
                         <bonus>2</bonus>
@@ -709,11 +709,11 @@
                         <id>shoot</id>
                         <bonus>2</bonus>
                     </skill>
-                </skills>
-            </options>
-            <options>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>empathy</id>
                         <bonus>1</bonus>
@@ -722,11 +722,11 @@
                         <id>focus</id>
                         <bonus>1</bonus>
                     </skill>
-                </skills>
-            </options>
-            <options>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>knavery</id>
                         <bonus>1</bonus>
@@ -735,26 +735,26 @@
                         <id>perform</id>
                         <bonus>1</bonus>
                     </skill>
-                </skills>
-            </options>
-            <options>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>melee</id>
                         <bonus>3</bonus>
                     </skill>
-                </skills>
-            </options>
-            <options>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>vigor</id>
                         <bonus>2</bonus>
                     </skill>
-                </skills>
-            </options>
+                </options>
+            </skillBonusOption>
         </skills>
         <materialAwards>
             <options>
@@ -784,45 +784,45 @@
             <es>Duelista con Pistolas</es>
         </name>
         <capabilities>
-            <options>
+            <capabilitiesOption>
                 <total>1</total>
-                <capabilities>
+                <options>
                     <capability>
                         <id>militaryWeapons</id>
                     </capability>
-                </capabilities>
-            </options>
-            <options>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
                 <total>1</total>
-                <capabilities>
+                <options>
                     <capability>
                         <id>combatArmor</id>
                     </capability>
-                </capabilities>
-            </options>
+                </options>
+            </capabilitiesOption>
         </capabilities>
         <characteristics>
-            <options>
+            <characteristicBonusOptions>
                 <total>1</total>
-                <characteristics>
+                <options>
                     <characteristic>
                         <id>dexterity</id>
                         <bonus>1</bonus>
                     </characteristic>
-                </characteristics>
-            </options>
-            <options>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
                 <total>1</total>
-                <characteristics>
+                <options>
                     <characteristic>
                         <id>endurance</id>
                         <bonus>1</bonus>
                     </characteristic>
-                </characteristics>
-            </options>
-            <options>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
                 <total>1</total>
-                <characteristics>
+                <options>
                     <characteristic>
                         <id>perception</id>
                         <bonus>1</bonus>
@@ -831,22 +831,22 @@
                         <id>will</id>
                         <bonus>1</bonus>
                     </characteristic>
-                </characteristics>
-            </options>
-            <options>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
                 <total>1</total>
-                <characteristics>
+                <options>
                     <characteristic>
                         <id>strength</id>
                         <bonus>2</bonus>
                     </characteristic>
-                </characteristics>
-            </options>
+                </options>
+            </characteristicBonusOptions>
         </characteristics>
         <perks>
-            <options>
+            <perkOptions>
                 <total>1</total>
-                <perks>
+                <options>
                     <perk>
                         <id>aimAssistance</id>
                     </perk>
@@ -871,13 +871,13 @@
                     <perk>
                         <id>twoGunFighting</id>
                     </perk>
-                </perks>
-            </options>
+                </options>
+            </perkOptions>
         </perks>
         <skills>
-            <options>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>charm</id>
                         <bonus>1</bonus>
@@ -886,11 +886,11 @@
                         <id>impress</id>
                         <bonus>1</bonus>
                     </skill>
-                </skills>
-            </options>
-            <options>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>fight</id>
                         <bonus>2</bonus>
@@ -899,11 +899,11 @@
                         <id>melee</id>
                         <bonus>2</bonus>
                     </skill>
-                </skills>
-            </options>
-            <options>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>empathy</id>
                         <bonus>1</bonus>
@@ -912,11 +912,11 @@
                         <id>focus</id>
                         <bonus>1</bonus>
                     </skill>
-                </skills>
-            </options>
-            <options>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>knavery</id>
                         <bonus>1</bonus>
@@ -925,26 +925,26 @@
                         <id>perform</id>
                         <bonus>1</bonus>
                     </skill>
-                </skills>
-            </options>
-            <options>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>shoot</id>
                         <bonus>3</bonus>
                     </skill>
-                </skills>
-            </options>
-            <options>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
-                <skills>
+                <options>
                     <skill>
                         <id>vigor</id>
                         <bonus>2</bonus>
                     </skill>
-                </skills>
-            </options>
+                </options>
+            </skillBonusOption>
         </skills>
         <materialAwards>
             <options>

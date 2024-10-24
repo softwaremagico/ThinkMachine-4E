@@ -26,20 +26,15 @@ package com.softwaremagico.tm.character.perks;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.softwaremagico.tm.XmlData;
+import com.softwaremagico.tm.OptionSelector;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineLog;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class PerkOptions extends XmlData {
-    @JsonProperty("total")
-    private int totalOptions = 1;
-    @JsonProperty("perks")
-    private List<PerkOption> perks;
+public class PerkOptions extends OptionSelector<Perk, PerkOption> {
     @JsonIgnore
     private List<PerkOption> finalPerks;
     @JsonProperty("openPerks")
@@ -49,18 +44,11 @@ public class PerkOptions extends XmlData {
         super();
     }
 
-    public int getTotalOptions() {
-        return totalOptions;
-    }
-
-    public void setTotalOptions(int totalOptions) {
-        this.totalOptions = totalOptions;
-    }
-
-    public List<PerkOption> getPerks() {
+    @Override
+    public List<PerkOption> getOptions() {
         if (finalPerks == null) {
             finalPerks = new ArrayList<>();
-            for (PerkOption perkOptions : this.perks) {
+            for (PerkOption perkOptions : super.getOptions()) {
                 if (perkOptions.getGroup() != null) {
                     try {
                         finalPerks.addAll(PerkFactory.getInstance().getElementsByGroup(perkOptions.getGroup()).stream()
@@ -76,17 +64,6 @@ public class PerkOptions extends XmlData {
         return finalPerks;
     }
 
-    public void addPerks(Collection<PerkOption> perks) {
-        if (this.perks == null) {
-            this.perks = new ArrayList<>();
-        }
-        this.perks.addAll(perks);
-    }
-
-    public void setPerks(List<PerkOption> perks) {
-        this.perks = perks;
-    }
-
     public boolean isIncludeOpenPerks() {
         return includeOpenPerks;
     }
@@ -99,8 +76,8 @@ public class PerkOptions extends XmlData {
         final PerkOptions perkOptions = new PerkOptions();
         perkOptions.setTotalOptions(this.getTotalOptions());
         perkOptions.setIncludeOpenPerks(this.isIncludeOpenPerks());
-        if (this.getPerks() != null) {
-            perkOptions.setPerks(new ArrayList<>(this.getPerks()));
+        if (super.getOptions() != null) {
+            perkOptions.setOptions(new ArrayList<>(super.getOptions()));
         }
         return perkOptions;
     }
@@ -108,8 +85,8 @@ public class PerkOptions extends XmlData {
     @Override
     public String toString() {
         return "PerkOptions{"
-                + "(x" + totalOptions + "): "
-                + perks
+                + "(x" + getTotalOptions() + "): "
+                + super.getOptions()
                 + '}';
     }
 }

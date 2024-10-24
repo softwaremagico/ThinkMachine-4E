@@ -25,28 +25,26 @@ package com.softwaremagico.tm.character.characteristics;
  */
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.softwaremagico.tm.XmlData;
+import com.softwaremagico.tm.Option;
 
-public class CharacteristicBonus extends XmlData {
+public class CharacteristicBonusOption extends Option<CharacteristicDefinition> {
     @JsonProperty("bonus")
     private int bonus;
-    @JsonProperty("id")
-    private String characteristic;
 
-    public CharacteristicBonus() {
-        super();
+    public CharacteristicBonusOption() {
+        super(CharacteristicsDefinitionFactory.getInstance());
     }
 
-    public CharacteristicBonus(CharacteristicDefinition characteristic) {
+    public CharacteristicBonusOption(CharacteristicDefinition characteristic) {
         this(characteristic.getId());
     }
 
-    public CharacteristicBonus(String characteristic) {
+    public CharacteristicBonusOption(String characteristic) {
         this();
-        setCharacteristic(characteristic);
+        setId(characteristic);
     }
 
-    public CharacteristicBonus(String characteristic, int bonus) {
+    public CharacteristicBonusOption(String characteristic, int bonus) {
         this(characteristic);
         setBonus(bonus);
     }
@@ -59,16 +57,8 @@ public class CharacteristicBonus extends XmlData {
         this.bonus = bonus;
     }
 
-    public String getCharacteristic() {
-        return characteristic;
-    }
-
-    public void setCharacteristic(String characteristic) {
-        this.characteristic = characteristic;
-    }
-
     @Override
     public String toString() {
-        return characteristic + " (+" + bonus + ")";
+        return getId() + " (+" + bonus + ")";
     }
 }

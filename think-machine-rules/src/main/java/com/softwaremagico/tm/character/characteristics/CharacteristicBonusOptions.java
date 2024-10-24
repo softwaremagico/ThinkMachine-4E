@@ -25,8 +25,7 @@ package com.softwaremagico.tm.character.characteristics;
  */
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.softwaremagico.tm.Option;
+import com.softwaremagico.tm.OptionSelector;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
@@ -35,37 +34,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class CharacteristicOption extends Option<CharacteristicDefinition> {
-    @JsonProperty("total")
-    private int totalOptions;
-    @JsonProperty("characteristics")
-    private List<CharacteristicBonus> characteristics;
+public class CharacteristicBonusOptions extends OptionSelector<CharacteristicDefinition, CharacteristicBonusOption> {
     @JsonIgnore
-    private List<CharacteristicBonus> finalCharacteristics;
+    private List<CharacteristicBonusOption> finalCharacteristics;
     @JsonIgnore
-    private Map<String, CharacteristicBonus> characteristicBonusById;
+    private Map<String, CharacteristicBonusOption> characteristicBonusById;
 
-    public CharacteristicOption() {
-        super(CharacteristicsDefinitionFactory.getInstance());
-    }
-
-    public int getTotalOptions() {
-        return totalOptions;
-    }
-
-    public void setTotalOptions(int totalOptions) {
-        this.totalOptions = totalOptions;
-    }
-
-    public List<CharacteristicBonus> getCharacteristics() {
+    @Override
+    public List<CharacteristicBonusOption> getOptions() {
         if (finalCharacteristics == null) {
             try {
-                if (characteristics == null || characteristics.isEmpty()) {
+                if (super.getOptions() == null || super.getOptions().isEmpty()) {
                     finalCharacteristics = new ArrayList<>();
                     finalCharacteristics.addAll(CharacteristicsDefinitionFactory.getInstance().getElements().stream()
-                            .map(CharacteristicBonus::new).collect(Collectors.toList()));
+                            .map(CharacteristicBonusOption::new).collect(Collectors.toList()));
                 } else {
-                    finalCharacteristics = characteristics;
+                    finalCharacteristics = super.getOptions();
                 }
             } catch (InvalidXmlElementException e) {
                 MachineXmlReaderLog.errorMessage(this.getClass(), e);
@@ -74,25 +58,21 @@ public class CharacteristicOption extends Option<CharacteristicDefinition> {
         return finalCharacteristics;
     }
 
-    public void setCharacteristics(List<CharacteristicBonus> characteristics) {
-        this.characteristics = characteristics;
-    }
-
-    public CharacteristicBonus getCharacteristicBonus(String characteristic) {
+    public CharacteristicBonusOption getCharacteristicBonus(String characteristic) {
         if (characteristicBonusById == null) {
-            characteristicBonusById = getCharacteristics().stream().collect(Collectors.toMap(CharacteristicBonus::getCharacteristic, item -> item));
+            characteristicBonusById = getOptions().stream().collect(Collectors.toMap(CharacteristicBonusOption::getId, item -> item));
         }
         if (characteristicBonusById.get(characteristic) != null) {
             return characteristicBonusById.get(characteristic);
         }
-        return new CharacteristicBonus(characteristic, 0);
+        return new CharacteristicBonusOption(characteristic, 0);
     }
 
     @Override
     public String toString() {
         return "CharacteristicOption{"
-                + "(x" + totalOptions + "): "
-                + characteristics
+                + "(x" + getTotalOptions() + "): "
+                + super.getOptions()
                 + '}';
     }
 }

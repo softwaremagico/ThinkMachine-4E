@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.skills;
+package com.softwaremagico.tm;
 
 /*-
  * #%L
@@ -25,41 +25,37 @@ package com.softwaremagico.tm.character.skills;
  */
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.softwaremagico.tm.XmlData;
 
-public class SkillBonus extends XmlData {
-    @JsonProperty("bonus")
-    private int bonus;
-    @JsonProperty("id")
-    private String skill;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
-    public SkillBonus() {
-        super();
+public class OptionSelector<E extends Element, T extends Option<E>> {
+    @JsonProperty("total")
+    private int totalOptions = 1;
+    @JsonProperty("options")
+    private List<T> options = new ArrayList<>();
+
+    public int getTotalOptions() {
+        return totalOptions;
     }
 
-    public SkillBonus(Skill skill) {
-        this();
-        setSkill(skill.getId());
+    public void setTotalOptions(int totalOptions) {
+        this.totalOptions = totalOptions;
     }
 
-    public int getBonus() {
-        return bonus;
+    public List<T> getOptions() {
+        return options;
     }
 
-    public void setBonus(int bonus) {
-        this.bonus = bonus;
+    public void setOptions(List<T> options) {
+        this.options = options;
     }
 
-    public String getSkill() {
-        return skill;
-    }
-
-    public void setSkill(String skill) {
-        this.skill = skill;
-    }
-
-    @Override
-    public String toString() {
-        return skill + " (+" + bonus + ")";
+    public void addOptions(Collection<T> options) {
+        if (getOptions() == null) {
+            setOptions(new ArrayList<>());
+        }
+        getOptions().addAll(options);
     }
 }

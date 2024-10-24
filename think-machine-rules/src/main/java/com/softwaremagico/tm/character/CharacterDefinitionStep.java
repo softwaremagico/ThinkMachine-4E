@@ -27,11 +27,11 @@ package com.softwaremagico.tm.character;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
-import com.softwaremagico.tm.character.characteristics.CharacteristicOption;
+import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOptions;
 import com.softwaremagico.tm.character.equipment.Equipment;
 import com.softwaremagico.tm.character.equipment.EquipmentOptions;
 import com.softwaremagico.tm.character.perks.PerkOptions;
-import com.softwaremagico.tm.character.skills.SkillOption;
+import com.softwaremagico.tm.character.skills.SkillBonusOptions;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.ArrayList;
@@ -48,9 +48,9 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
     @JsonProperty("capabilities")
     private List<CapabilityOptions> capabilityOptions;
     @JsonProperty("characteristics")
-    private List<CharacteristicOption> characteristicOptions;
+    private List<CharacteristicBonusOptions> characteristicBonusOptions;
     @JsonProperty("skills")
-    private List<SkillOption> skillOptions;
+    private List<SkillBonusOptions> skillBonusOptions;
     @JsonProperty("perks")
     private List<PerkOptions> perksOptions;
     @JsonProperty("materialAwards")
@@ -65,20 +65,20 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
         this.capabilityOptions = capabilityOptions;
     }
 
-    public List<CharacteristicOption> getCharacteristicOptions() {
-        return Objects.requireNonNullElseGet(characteristicOptions, ArrayList::new);
+    public List<CharacteristicBonusOptions> getCharacteristicOptions() {
+        return Objects.requireNonNullElseGet(characteristicBonusOptions, ArrayList::new);
     }
 
-    public void setCharacteristicOptions(List<CharacteristicOption> characteristicOptions) {
-        this.characteristicOptions = characteristicOptions;
+    public void setCharacteristicOptions(List<CharacteristicBonusOptions> characteristicBonusOptions) {
+        this.characteristicBonusOptions = characteristicBonusOptions;
     }
 
-    public List<SkillOption> getSkillOptions() {
-        return Objects.requireNonNullElseGet(skillOptions, ArrayList::new);
+    public List<SkillBonusOptions> getSkillOptions() {
+        return Objects.requireNonNullElseGet(skillBonusOptions, ArrayList::new);
     }
 
-    public void setSkillOptions(List<SkillOption> skillOptions) {
-        this.skillOptions = skillOptions;
+    public void setSkillOptions(List<SkillBonusOptions> skillBonusOptions) {
+        this.skillBonusOptions = skillBonusOptions;
     }
 
     public List<PerkOptions> getPerksOptions() {
@@ -118,8 +118,8 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
         super.validate();
 
         int totalCharacteristicsPoints = 0;
-        for (CharacteristicOption characteristicOption : getCharacteristicOptions()) {
-            totalCharacteristicsPoints += characteristicOption.getTotalOptions() * characteristicOption.getCharacteristics().get(0).getBonus();
+        for (CharacteristicBonusOptions characteristicBonusOptions : getCharacteristicOptions()) {
+            totalCharacteristicsPoints += characteristicBonusOptions.getTotalOptions() * characteristicBonusOptions.getOptions().get(0).getBonus();
         }
         if (totalCharacteristicsPoints > getCharacteristicsTotalPoints()) {
             throw new InvalidXmlElementException("Element '" + getId() + "' has more than '" + getCharacteristicsTotalPoints() + "' characteristics options. "
@@ -128,8 +128,8 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
 
 
         int totalSkillPoints = 0;
-        for (SkillOption skillOption : getSkillOptions()) {
-            totalSkillPoints += skillOption.getTotalOptions() * skillOption.getSkills().get(0).getBonus();
+        for (SkillBonusOptions skillBonusOptions : getSkillOptions()) {
+            totalSkillPoints += skillBonusOptions.getTotalOptions() * skillBonusOptions.getOptions().get(0).getBonus();
         }
         if (totalSkillPoints > getSkillsTotalPoints()) {
             throw new InvalidXmlElementException("Element '" + getId() + "' has more than " + getSkillsTotalPoints() + " skill options. "

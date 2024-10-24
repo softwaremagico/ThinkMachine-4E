@@ -101,7 +101,7 @@ public class CharacterCreationTest {
         for (int i = 0; i < upbringing.getCharacteristicOptions().size(); i++) {
             for (int j = 0; j < upbringing.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
                 characterPlayer.getUpbringing().getCharacteristicOptions().get(i).getSelections()
-                        .add(new Selection(upbringing.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic()));
+                        .add(new Selection(upbringing.getCharacteristicOptions().get(i).getOptions().get(j).getId()));
             }
         }
 
@@ -110,7 +110,7 @@ public class CharacterCreationTest {
         for (int i = 0; i < faction.getCharacteristicOptions().size(); i++) {
             for (int j = 0; j < faction.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
                 characterPlayer.getFaction().getCharacteristicOptions().get(i).getSelections()
-                        .add(new Selection(faction.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic()));
+                        .add(new Selection(faction.getCharacteristicOptions().get(i).getOptions().get(j).getId()));
             }
         }
 
@@ -120,7 +120,7 @@ public class CharacterCreationTest {
         for (int i = 0; i < calling.getCharacteristicOptions().size(); i++) {
             for (int j = 0; j < calling.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
                 characterPlayer.getCalling().getCharacteristicOptions().get(i).getSelections()
-                        .add(new Selection(calling.getCharacteristicOptions().get(i).getCharacteristics().get(j).getCharacteristic()));
+                        .add(new Selection(calling.getCharacteristicOptions().get(i).getOptions().get(j).getId()));
             }
         }
         characterPlayer.getCharacteristicValue(CharacteristicName.PRESENCE);

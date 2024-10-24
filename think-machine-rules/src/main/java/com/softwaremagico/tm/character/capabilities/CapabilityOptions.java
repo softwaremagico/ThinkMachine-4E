@@ -25,8 +25,7 @@ package com.softwaremagico.tm.character.capabilities;
  */
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.softwaremagico.tm.XmlData;
+import com.softwaremagico.tm.OptionSelector;
 import com.softwaremagico.tm.character.skills.Specialization;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineLog;
@@ -36,27 +35,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CapabilityOptions extends XmlData {
-    @JsonProperty("total")
-    private int totalOptions;
-    @JsonProperty("capabilities")
-    private List<CapabilityOption> capabilities;
+public class CapabilityOptions extends OptionSelector<Capability, CapabilityOption> {
     @JsonIgnore
     private List<CapabilityOption> finalCapabilities;
 
-
-    public int getTotalOptions() {
-        return totalOptions;
-    }
-
-    public void setTotalOptions(int totalOptions) {
-        this.totalOptions = totalOptions;
-    }
-
-    public List<CapabilityOption> getCapabilities() {
+    @Override
+    public List<CapabilityOption> getOptions() {
         if (finalCapabilities == null) {
             finalCapabilities = new ArrayList<>();
-            if (this.capabilities == null || this.capabilities.isEmpty()) {
+            if (super.getOptions() == null || super.getOptions().isEmpty()) {
                 try {
                     finalCapabilities.addAll(CapabilityFactory.getInstance().getElements().stream()
                             .map(CapabilityOption::new).collect(Collectors.toList()));
@@ -65,7 +52,7 @@ public class CapabilityOptions extends XmlData {
                 }
             } else {
                 //Add Groups
-                for (CapabilityOption capabilityOption : this.capabilities) {
+                for (CapabilityOption capabilityOption : super.getOptions()) {
                     if (capabilityOption.getGroup() != null) {
                         try {
                             finalCapabilities.addAll(CapabilityFactory.getInstance().getElementsByGroup(capabilityOption.getGroup()).stream()
@@ -92,15 +79,11 @@ public class CapabilityOptions extends XmlData {
         return finalCapabilities;
     }
 
-    public void setCapabilities(List<CapabilityOption> capabilities) {
-        this.capabilities = capabilities;
-    }
-
     @Override
     public String toString() {
         return "CapabilityOptions{"
-                + "(x" + totalOptions + "): "
-                + capabilities
+                + "(x" + getTotalOptions() + "): "
+                + super.getOptions()
                 + '}';
     }
 }

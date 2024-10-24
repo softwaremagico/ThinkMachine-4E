@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.perks;
+package com.softwaremagico.tm.character.skills;
 
 /*-
  * #%L
@@ -24,27 +24,32 @@ package com.softwaremagico.tm.character.perks;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Option;
-import com.softwaremagico.tm.character.capabilities.Capability;
 
-public class PerkOption extends Option<Perk> {
+public class SkillBonusOption extends Option<Skill> {
+    @JsonProperty("bonus")
+    private int bonus;
 
-    public PerkOption() {
-        super(PerkFactory.getInstance());
+    public SkillBonusOption() {
+        super(SkillFactory.getInstance());
     }
 
-    public PerkOption(Perk perk) {
+    public SkillBonusOption(Skill skill) {
         this();
-        setId(perk.getId());
+        setId(skill.getId());
     }
 
-    public PerkOption(Capability capability) {
-        this();
-        setId(capability.getId());
+    public int getBonus() {
+        return bonus;
+    }
+
+    public void setBonus(int bonus) {
+        this.bonus = bonus;
     }
 
     @Override
     public String toString() {
-        return getId() != null ? getId() : getGroup();
+        return getId() + " (+" + bonus + ")";
     }
 }
