@@ -37,7 +37,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public abstract class CharacterDefinitionStepSelection<T extends CharacterDefinitionStepSelection<?>> extends Element {
+public abstract class CharacterDefinitionStepSelection extends Element {
 
     private final CharacterPlayer characterPlayer;
     private final CharacterDefinitionStep<?> characterDefinitionStep;

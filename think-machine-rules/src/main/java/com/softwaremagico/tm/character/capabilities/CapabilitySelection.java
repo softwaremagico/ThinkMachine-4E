@@ -29,7 +29,7 @@ import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
 
-public class CapabilitySelection extends CharacterDefinitionStepSelection<CapabilitySelection> {
+public class CapabilitySelection extends CharacterDefinitionStepSelection {
     private String specialization;
 
     public CapabilitySelection(CharacterPlayer characterPlayer, String capability) throws InvalidGeneratedCharacter {

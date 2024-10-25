@@ -30,7 +30,7 @@ import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidUpbringingException;
 
-public class UpbringingCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection<UpbringingCharacterDefinitionStepSelection> {
+public class UpbringingCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection {
 
     public UpbringingCharacterDefinitionStepSelection(CharacterPlayer characterPlayer, String upbringing) throws InvalidGeneratedCharacter {
         super(characterPlayer, UpbringingFactory.getInstance().getElement(upbringing));

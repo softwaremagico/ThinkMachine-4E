@@ -30,7 +30,7 @@ import com.softwaremagico.tm.exceptions.InvalidFactionException;
 import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 
-public class FactionCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection<FactionCharacterDefinitionStepSelection> {
+public class FactionCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection {
 
     public FactionCharacterDefinitionStepSelection(CharacterPlayer characterPlayer, String faction) throws InvalidGeneratedCharacter {
         super(characterPlayer, FactionFactory.getInstance().getElement(faction));

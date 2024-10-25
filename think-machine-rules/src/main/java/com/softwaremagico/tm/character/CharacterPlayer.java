@@ -428,7 +428,7 @@ public class CharacterPlayer {
         return getEquipment(Item.class);
     }
 
-    private Set<Equipment> getSelectedMaterialAwards(CharacterDefinitionStepSelection<?> definitionStepSelection, XmlFactory<?> factory,
+    private Set<Equipment> getSelectedMaterialAwards(CharacterDefinitionStepSelection definitionStepSelection, XmlFactory<?> factory,
                                                         boolean ignoreRemoved) {
         if (definitionStepSelection == null) {
             return new HashSet<>();

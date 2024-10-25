@@ -30,7 +30,7 @@ import com.softwaremagico.tm.exceptions.InvalidCallingException;
 import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 
-public class CallingCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection<CallingCharacterDefinitionStepSelection> {
+public class CallingCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection {
 
     public CallingCharacterDefinitionStepSelection(CharacterPlayer characterPlayer, String calling) throws InvalidGeneratedCharacter {
         super(characterPlayer, CallingFactory.getInstance().getElement(calling));
