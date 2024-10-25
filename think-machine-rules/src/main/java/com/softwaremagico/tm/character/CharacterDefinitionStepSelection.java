@@ -35,6 +35,7 @@ import com.softwaremagico.tm.exceptions.TooManySelectionsException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public abstract class CharacterDefinitionStepSelection extends Element {
@@ -139,7 +140,8 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         int bonus = 0;
         for (int i = 0; i < getSkillOptions().size(); i++) {
             for (int j = 0; j < getSkillOptions().get(i).getSelections().size(); j++) {
-                if (getSkillOptions().get(i).getSelections().stream().map(Selection::getId).collect(Collectors.toSet()).contains(skill)) {
+                if (getSkillOptions().get(i).getSelections().stream().map(Selection::getId)
+                        .filter(Objects::nonNull).collect(Collectors.toSet()).contains(skill)) {
                     bonus += characterDefinitionStep.getSkillOptions().get(i).getSkillBonus(skill).getBonus();
                 }
             }
@@ -150,14 +152,16 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     public List<Selection> getSelectedCapabilities() {
         final List<Selection> selectedCapabilities = new ArrayList<>();
         capabilityOptions.forEach(capabilityOption ->
-                selectedCapabilities.addAll(capabilityOption.getSelections()));
+                selectedCapabilities.addAll(capabilityOption.getSelections().stream().filter(selection -> selection.getId() != null)
+                        .collect(Collectors.toSet())));
         return selectedCapabilities;
     }
 
     public List<Selection> getSelectedPerks() {
         final List<Selection> selectedPerks = new ArrayList<>();
         perksOptions.forEach(perkOption ->
-                selectedPerks.addAll(perkOption.getSelections()));
+                selectedPerks.addAll(perkOption.getSelections().stream().filter(selection -> selection.getId() != null)
+                        .collect(Collectors.toSet())));
         return selectedPerks;
     }
 
