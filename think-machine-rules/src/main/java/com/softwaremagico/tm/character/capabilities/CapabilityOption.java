@@ -24,9 +24,13 @@ package com.softwaremagico.tm.character.capabilities;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Option;
+import com.softwaremagico.tm.TranslatedText;
+import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.skills.Specialization;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 public class CapabilityOption extends Option<Capability> {
     @JsonProperty("specialization")
@@ -61,5 +65,18 @@ public class CapabilityOption extends Option<Capability> {
     public String toString() {
         return (getId() != null ? getId() : (getGroup() != null ? getGroup() : null))
                 + (specialization != null ? " (" + specialization.getId() + ")" : "");
+    }
+
+    @JsonIgnore
+    @Override
+    public TranslatedText getName() {
+        if (getId() != null) {
+            try {
+                return new TranslatedText(SkillFactory.getInstance().getElement(getId()).getName(), specialization.getName());
+            } catch (InvalidXmlElementException e) {
+                return new TranslatedText("{" + getId() + "}");
+            }
+        }
+        return null;
     }
 }

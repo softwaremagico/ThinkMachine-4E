@@ -278,9 +278,13 @@ public class CharacterPlayer {
             upbringing.getPerksOptions().forEach(perkOption ->
                     perkOption.getSelections().forEach(selection ->
                             perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection), selection.getSpecialization()))));
+        }
+        if (faction != null) {
             faction.getPerksOptions().forEach(perkOption ->
                     perkOption.getSelections().forEach(selection ->
                             perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection), selection.getSpecialization()))));
+        }
+        if (calling != null) {
             calling.getPerksOptions().forEach(perkOption ->
                     perkOption.getSelections().forEach(selection ->
                             perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection), selection.getSpecialization()))));
@@ -429,7 +433,7 @@ public class CharacterPlayer {
     }
 
     private Set<Equipment> getSelectedMaterialAwards(CharacterDefinitionStepSelection definitionStepSelection, XmlFactory<?> factory,
-                                                        boolean ignoreRemoved) {
+                                                     boolean ignoreRemoved) {
         if (definitionStepSelection == null) {
             return new HashSet<>();
         }

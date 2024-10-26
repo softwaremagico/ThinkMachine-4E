@@ -24,8 +24,11 @@ package com.softwaremagico.tm.character.characteristics;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Option;
+import com.softwaremagico.tm.TranslatedText;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 public class CharacteristicBonusOption extends Option<CharacteristicDefinition> {
     @JsonProperty("bonus")
@@ -60,5 +63,18 @@ public class CharacteristicBonusOption extends Option<CharacteristicDefinition> 
     @Override
     public String toString() {
         return getId() + " (+" + bonus + ")";
+    }
+
+    @JsonIgnore
+    @Override
+    public TranslatedText getName() {
+        if (getId() != null) {
+            try {
+                return new TranslatedText(CharacteristicsDefinitionFactory.getInstance().getElement(getId()).getName(), " (+" + bonus + ")");
+            } catch (InvalidXmlElementException e) {
+                return new TranslatedText("{" + getId() + "}");
+            }
+        }
+        return null;
     }
 }

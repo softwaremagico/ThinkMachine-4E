@@ -24,8 +24,11 @@ package com.softwaremagico.tm.character.skills;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Option;
+import com.softwaremagico.tm.TranslatedText;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 public class SkillBonusOption extends Option<Skill> {
     @JsonProperty("bonus")
@@ -51,5 +54,18 @@ public class SkillBonusOption extends Option<Skill> {
     @Override
     public String toString() {
         return getId() + " (+" + bonus + ")";
+    }
+
+    @JsonIgnore
+    @Override
+    public TranslatedText getName() {
+        if (getId() != null) {
+            try {
+                return new TranslatedText(SkillFactory.getInstance().getElement(getId()).getName(), " (+" + bonus + ")");
+            } catch (InvalidXmlElementException e) {
+                return new TranslatedText("{" + getId() + "}");
+            }
+        }
+        return null;
     }
 }

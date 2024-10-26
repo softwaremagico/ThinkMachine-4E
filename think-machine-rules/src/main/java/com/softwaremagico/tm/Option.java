@@ -25,6 +25,7 @@ package com.softwaremagico.tm;
  */
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.xml.XmlFactory;
 
 public class Option<T extends Element> extends Element {
@@ -39,7 +40,11 @@ public class Option<T extends Element> extends Element {
     @Override
     public TranslatedText getName() {
         if (getId() != null) {
-            return xmlFactory.getElement(getId()).getName();
+            try {
+                return xmlFactory.getElement(getId()).getName();
+            } catch (InvalidXmlElementException e) {
+                return new TranslatedText("{" + getId() + "}");
+            }
         }
         return null;
     }
@@ -54,7 +59,11 @@ public class Option<T extends Element> extends Element {
     @Override
     public TranslatedText getDescription() {
         if (getId() != null) {
-            return xmlFactory.getElement(getId()).getDescription();
+            try {
+                return xmlFactory.getElement(getId()).getDescription();
+            } catch (InvalidXmlElementException e) {
+                return null;
+            }
         }
         return null;
     }
