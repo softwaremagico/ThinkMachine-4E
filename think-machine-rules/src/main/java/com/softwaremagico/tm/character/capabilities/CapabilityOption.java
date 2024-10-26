@@ -71,7 +71,8 @@ public class CapabilityOption extends Option<Capability> {
     public TranslatedText getName() {
         if (getId() != null) {
             try {
-                return new TranslatedText(CapabilityFactory.getInstance().getElement(getId()).getName(), specialization.getName());
+                return new TranslatedText(CapabilityFactory.getInstance().getElement(getId()).getName(),
+                        specialization != null ? specialization.getName() : null);
             } catch (InvalidXmlElementException e) {
                 return new TranslatedText("{" + getId() + "}");
             }
