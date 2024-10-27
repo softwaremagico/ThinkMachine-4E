@@ -46,8 +46,10 @@ public class TranslatedText implements Comparable<TranslatedText> {
     }
 
     public TranslatedText(TranslatedText translatedText, TranslatedText suffix) {
-        spanish = (translatedText != null ? translatedText.getSpanish() : "") + (suffix != null ? "(" + suffix.getSpanish() + ")" : "");
-        english = (translatedText != null ? translatedText.getEnglish() : "") + (suffix != null ? "(" + suffix.getEnglish() + ")" : "");
+        spanish = (translatedText != null ? translatedText.getSpanish() : "")
+                + (suffix != null && !suffix.getSpanish().isEmpty() ? " (" + suffix.getSpanish() + ")" : "");
+        english = (translatedText != null ? translatedText.getEnglish() : "")
+                + (suffix != null && !suffix.getEnglish().isEmpty() ? " (" + suffix.getEnglish() + ")" : "");
     }
 
     public TranslatedText(String value) {
