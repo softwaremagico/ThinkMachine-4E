@@ -276,4 +276,17 @@ public class Element extends XmlData implements Comparable<Element> {
         }
         return Objects.equals(element.getId(), DEFAULT_NULL_ID);
     }
+
+    @Override
+    public void validate() throws InvalidXmlElementException {
+        if (specializations != null) {
+            specializations.forEach(Element::validate);
+        }
+        if (restrictions != null) {
+            restrictions.validate();
+        }
+        if (randomDefinition != null) {
+            randomDefinition.validate();
+        }
+    }
 }

@@ -26,6 +26,7 @@ package com.softwaremagico.tm.character;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
+import com.softwaremagico.tm.OptionSelector;
 import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOptions;
 import com.softwaremagico.tm.character.equipment.Equipment;
@@ -116,6 +117,22 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
     @Override
     public void validate() throws InvalidXmlElementException {
         super.validate();
+
+        if (capabilityOptions != null) {
+            capabilityOptions.forEach(OptionSelector::validate);
+        }
+        if (characteristicBonusOptions != null) {
+            characteristicBonusOptions.forEach(OptionSelector::validate);
+        }
+        if (skillBonusOptions != null) {
+            skillBonusOptions.forEach(OptionSelector::validate);
+        }
+        if (perksOptions != null) {
+            perksOptions.forEach(OptionSelector::validate);
+        }
+        if (materialAwards != null) {
+            materialAwards.forEach(EquipmentOptions::validate);
+        }
 
         int totalCharacteristicsPoints = 0;
         for (CharacteristicBonusOptions characteristicBonusOptions : getCharacteristicOptions()) {

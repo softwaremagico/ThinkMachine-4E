@@ -6,7 +6,9 @@ Características: Fuerza 3, Destreza 5, Constitución 4, Inteligencia 5, Percepc
 
 Habilidades: Academia (6), Arte (4), Conducir (4), Cuerpo a Cuerpo (5), Disfraz (4), Disparar (4), Encanto (6), Impresionar (6), Introspección (4), Vigor (4).
 
-Competencias: Armas Militares, Armas de Balas, Hablar Urthés, Leer Urthés, Monta, Pintura, Saber Enfermedades, Saber Planetario Sutek, Saber de Facción, Usos de la Corte.
+Competencias: Armas Militares, Armas de Balas, Hablar (Urthés), Leer (Urthés), Monta, Pintura, Saber Enfermedades, Saber Planetario (Sutek), Saber de Facción, Usos de la Corte.
+
+Beneficios: Duelo 1, Imperioso, Leva, Título Nobiliario (Caballero).
 
 Bendiciones:
 	- Receloso (+2 Perception around political rivals)

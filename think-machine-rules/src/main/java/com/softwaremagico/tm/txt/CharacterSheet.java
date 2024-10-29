@@ -35,6 +35,7 @@ import com.softwaremagico.tm.character.equipment.item.Item;
 import com.softwaremagico.tm.character.equipment.shields.Shield;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.factions.Blessing;
+import com.softwaremagico.tm.character.perks.SpecializedPerk;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillFactory;
@@ -165,6 +166,21 @@ public class CharacterSheet {
             stringBuilder.append(")");
         }
         return stringBuilder.toString();
+    }
+
+    private void setPerksText(StringBuilder stringBuilder) throws InvalidXmlElementException {
+        final List<SpecializedPerk> perks = new ArrayList<>(characterPlayer.getPerks());
+        if (!perks.isEmpty()) {
+            stringBuilder.append(TextFactory.getInstance().getElement("perks").getNameRepresentation()).append(":");
+            String separator = " ";
+            Collections.sort(perks);
+            for (final SpecializedPerk perk : perks) {
+                stringBuilder.append(separator);
+                stringBuilder.append(perk.getNameRepresentation());
+                separator = ELEMENT_SEPARATOR;
+            }
+            stringBuilder.append(".\n");
+        }
     }
 
     private void setBeneficesText(StringBuilder stringBuilder) throws InvalidXmlElementException {
@@ -369,6 +385,8 @@ public class CharacterSheet {
             setSkillsText(stringBuilder);
             stringBuilder.append("\n");
             setCapabilitiesText(stringBuilder);
+            stringBuilder.append("\n");
+            setPerksText(stringBuilder);
             stringBuilder.append("\n");
             setBeneficesText(stringBuilder);
             stringBuilder.append("\n");

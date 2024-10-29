@@ -59,17 +59,17 @@ public class CapabilityWithSpecialization extends Capability {
         final CapabilityWithSpecialization capabilityWithSpecialization = new CapabilityWithSpecialization();
         final Capability capability = CapabilityFactory.getInstance().getElement(selection);
         capabilityWithSpecialization.copy(capability);
+        capabilityWithSpecialization.setSpecializations(null);
         if (selection.getSpecialization() != null) {
             capabilityWithSpecialization.setSpecialization(capability.getSpecialization(selection.getSpecialization().getId()));
         }
-        capabilityWithSpecialization.setSpecializations(null);
         return capabilityWithSpecialization;
     }
 
     @Override
     public String getNameRepresentation() {
         if (getName() != null) {
-            return getName().getTranslatedText() + (getSpecialization() != null ? " " + getSpecialization().getNameRepresentation() : "");
+            return getName().getTranslatedText() + (getSpecialization() != null ? " (" + getSpecialization().getNameRepresentation() + ")" : "");
         }
         return "";
     }

@@ -54,69 +54,69 @@
             <en>Alien Friend</en>
             <es>Amigo Alienígena</es>
         </name>
-        <specialization>
+        <selectedSpecialization>
             <id>obun</id>
             <name>
                 <en>Ur-Obun</en>
                 <es>Ur-Obun</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>ukar</id>
             <name>
                 <en>Ur-Ukar</en>
                 <es>Ur-Ukar</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>vorox</id>
             <name>
                 <en>Vorox</en>
                 <es>Vorox</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>shantor</id>
             <name>
                 <en>Shantor</en>
                 <es>Shantor</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>gannok</id>
             <name>
                 <en>Gannok</en>
                 <es>Gannok</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>etyri</id>
             <name>
                 <en>Etyri</en>
                 <es>etyri</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>hironem</id>
             <name>
                 <en>Hironem</en>
                 <es>Hironem</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>ascorbite</id>
             <name>
                 <en>Ascorbite</en>
                 <es>Ascorbita</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>oroym</id>
             <name>
                 <en>Oro'ym</en>
                 <es>Oro'ym</es>
             </name>
-        </specialization>
+        </selectedSpecialization>
     </perk>
     <perk>
         <id>alienUpbringing</id>
@@ -124,69 +124,69 @@
             <en>Alien Friend</en>
             <es>Educación Alienígena</es>
         </name>
-        <specialization>
+        <selectedSpecialization>
             <id>obun</id>
             <name>
                 <en>Ur-Obun</en>
                 <es>Ur-Obun</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>ukar</id>
             <name>
                 <en>Ur-Ukar</en>
                 <es>Ur-Ukar</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>vorox</id>
             <name>
                 <en>Vorox</en>
                 <es>Vorox</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>shantor</id>
             <name>
                 <en>Shantor</en>
                 <es>Shantor</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>gannok</id>
             <name>
                 <en>Gannok</en>
                 <es>Gannok</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>etyri</id>
             <name>
                 <en>Etyri</en>
                 <es>etyri</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>hironem</id>
             <name>
                 <en>Hironem</en>
                 <es>Hironem</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>ascorbite</id>
             <name>
                 <en>Ascorbite</en>
                 <es>Ascorbita</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>oroym</id>
             <name>
                 <en>Oro'ym</en>
                 <es>Oro'ym</es>
             </name>
-        </specialization>
+        </selectedSpecialization>
     </perk>
     <perk>
         <id>allAccessPass</id>

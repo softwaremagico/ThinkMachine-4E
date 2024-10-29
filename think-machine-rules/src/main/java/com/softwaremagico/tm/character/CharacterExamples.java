@@ -65,7 +65,7 @@ public final class CharacterExamples {
             for (int j = 0; j < upbringing.getCapabilityOptions().get(i).getTotalOptions(); j++) {
                 characterPlayer.getUpbringing().getCapabilityOptions().get(i).getSelections()
                         .add(new Selection(upbringing.getCapabilityOptions().get(i).getOptions().get(j).getId(),
-                                upbringing.getCapabilityOptions().get(i).getOptions().get(j).getSpecialization()));
+                                upbringing.getCapabilityOptions().get(i).getOptions().get(j).getSelectedSpecialization()));
             }
         }
         for (int i = 0; i < upbringing.getSkillOptions().size(); i++) {

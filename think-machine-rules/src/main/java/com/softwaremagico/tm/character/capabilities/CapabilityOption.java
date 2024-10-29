@@ -32,8 +32,8 @@ import com.softwaremagico.tm.character.skills.Specialization;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 public class CapabilityOption extends Option<Capability> {
-    @JsonProperty("specialization")
-    private Specialization specialization;
+    @JsonProperty("selectedSpecialization")
+    private Specialization selectedSpecialization;
 
     public CapabilityOption() {
         super(CapabilityFactory.getInstance());
@@ -44,26 +44,26 @@ public class CapabilityOption extends Option<Capability> {
         setId(capability.getId());
     }
 
-    public CapabilityOption(Capability capability, Specialization specialization) {
+    public CapabilityOption(Capability capability, Specialization selectedSpecialization) {
         this();
         setId(capability.getId());
-        if (specialization != null) {
-            setSpecialization(specialization);
+        if (selectedSpecialization != null) {
+            setSelectedSpecialization(selectedSpecialization);
         }
     }
 
-    public Specialization getSpecialization() {
-        return specialization;
+    public Specialization getSelectedSpecialization() {
+        return selectedSpecialization;
     }
 
-    public void setSpecialization(Specialization specialization) {
-        this.specialization = specialization;
+    public void setSelectedSpecialization(Specialization selectedSpecialization) {
+        this.selectedSpecialization = selectedSpecialization;
     }
 
     @Override
     public String toString() {
         return (getId() != null ? getId() : (getGroup() != null ? getGroup() : null))
-                + (specialization != null ? " (" + specialization.getId() + ")" : "");
+                + (selectedSpecialization != null ? " (" + selectedSpecialization.getId() + ")" : "");
     }
 
     @JsonIgnore
@@ -72,11 +72,22 @@ public class CapabilityOption extends Option<Capability> {
         if (getId() != null) {
             try {
                 return new TranslatedText(CapabilityFactory.getInstance().getElement(getId()).getName(),
-                        specialization != null ? specialization.getName() : null);
+                        selectedSpecialization != null ? selectedSpecialization.getName() : null);
             } catch (InvalidXmlElementException e) {
                 return new TranslatedText("{" + getId() + "}");
             }
         }
         return null;
+    }
+
+
+    @Override
+    public void validate() throws InvalidXmlElementException {
+        super.validate();
+        if (selectedSpecialization != null) {
+            if (!CapabilityFactory.getInstance().getElement(getId()).getSpecializations().contains(selectedSpecialization)) {
+                throw new InvalidXmlElementException("Capability " + getId() + " has not element with specialization '" + selectedSpecialization + "'.");
+            }
+        }
     }
 }

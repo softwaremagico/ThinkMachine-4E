@@ -145,7 +145,7 @@
         <capabilities>
             <capability>
                 <id>speak</id>
-                <specialization>lojmaa</specialization>
+                <selectedSpecialization>lojmaa</selectedSpecialization>
             </capability>
         </capabilities>
         <perks>

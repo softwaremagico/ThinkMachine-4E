@@ -72,8 +72,8 @@ public abstract class CharacterBasicsTableFactory extends BaseElement {
                     }
                     break;
                 case "age":
-                    table.addCell(getHandwrittingCell(characterPlayer.getInfo().getAge() + "", Element.ALIGN_LEFT,
-                            fontSize - 1, maxWidth));
+                    table.addCell(getHandwrittingCell(characterPlayer.getInfo().getAge() != null ? characterPlayer.getInfo().getAge() + ""
+                            : "", Element.ALIGN_LEFT, fontSize - 1, maxWidth));
                     break;
                 case "level":
                     table.addCell(getHandwrittingCell(String.valueOf(characterPlayer.getLevel()), Element.ALIGN_LEFT, fontSize - 1, maxWidth));

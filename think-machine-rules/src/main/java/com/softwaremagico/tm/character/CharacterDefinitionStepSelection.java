@@ -188,7 +188,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                         + characterDefinitionStep.getCapabilityOptions().get(i).getOptions().size() + "' are available.");
             }
             final List<Selection> availableOptions = characterDefinitionStep.getCapabilityOptions().get(i).getOptions()
-                    .stream().map(co -> new Selection(co.getId(), co.getSpecialization())).collect(Collectors.toList());
+                    .stream().map(co -> new Selection(co.getId(), co.getSelectedSpecialization())).collect(Collectors.toList());
             for (Selection selection : capabilityOptions.get(i).getSelections()) {
                 if (!availableOptions.contains(selection)) {
                     throw new InvalidSelectedElementException("Selected capability '" + selection + "' does not exist.", selection);

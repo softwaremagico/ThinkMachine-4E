@@ -50,9 +50,9 @@
                 <options>
                     <capability>
                         <id>read</id>
-                        <specialization>
+                        <selectedSpecialization>
                             <id>urthish</id>
-                        </specialization>
+                        </selectedSpecialization>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -61,9 +61,9 @@
                 <options>
                     <capability>
                         <id>speak</id>
-                        <specialization>
+                        <selectedSpecialization>
                             <id>urthish</id>
-                        </specialization>
+                        </selectedSpecialization>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -256,21 +256,21 @@
                     </capability>
                     <capability>
                         <id>musicalInstrument</id>
-                        <specialization>
+                        <selectedSpecialization>
                             <id>brass</id>
-                        </specialization>
-                        <specialization>
+                        </selectedSpecialization>
+                        <selectedSpecialization>
                             <id>strings</id>
-                        </specialization>
-                        <specialization>
+                        </selectedSpecialization>
+                        <selectedSpecialization>
                             <id>woodwind</id>
-                        </specialization>
-                        <specialization>
+                        </selectedSpecialization>
+                        <selectedSpecialization>
                             <id>percussion</id>
-                        </specialization>
-                        <specialization>
+                        </selectedSpecialization>
+                        <selectedSpecialization>
                             <id>keyboards</id>
-                        </specialization>
+                        </selectedSpecialization>
                     </capability>
                     <capability>
                         <id>beastback</id>
@@ -288,9 +288,9 @@
                 <options>
                     <capability>
                         <id>read</id>
-                        <specialization>
+                        <selectedSpecialization>
                             <id>urthish</id>
-                        </specialization>
+                        </selectedSpecialization>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -299,9 +299,9 @@
                 <options>
                     <capability>
                         <id>speak</id>
-                        <specialization>
+                        <selectedSpecialization>
                             <id>urthish</id>
-                        </specialization>
+                        </selectedSpecialization>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -509,9 +509,9 @@
                 <options>
                     <capability>
                         <id>read</id>
-                        <specialization>
+                        <selectedSpecialization>
                             <id>urthish</id>
-                        </specialization>
+                        </selectedSpecialization>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -520,9 +520,9 @@
                 <options>
                     <capability>
                         <id>speak</id>
-                        <specialization>
+                        <selectedSpecialization>
                             <id>urthish</id>
-                        </specialization>
+                        </selectedSpecialization>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -759,9 +759,9 @@
                 <options>
                     <capability>
                         <id>read</id>
-                        <specialization>
+                        <selectedSpecialization>
                             <id>urthish</id>
-                        </specialization>
+                        </selectedSpecialization>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -770,9 +770,9 @@
                 <options>
                     <capability>
                         <id>speak</id>
-                        <specialization>
+                        <selectedSpecialization>
                             <id>urthish</id>
-                        </specialization>
+                        </selectedSpecialization>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -919,9 +919,9 @@
                 <options>
                     <capability>
                         <id>read</id>
-                        <specialization>
+                        <selectedSpecialization>
                             <id>urthish</id>
-                        </specialization>
+                        </selectedSpecialization>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -930,9 +930,9 @@
                 <options>
                     <capability>
                         <id>speak</id>
-                        <specialization>
+                        <selectedSpecialization>
                             <id>urthish</id>
-                        </specialization>
+                        </selectedSpecialization>
                     </capability>
                 </options>
             </capabilitiesOption>

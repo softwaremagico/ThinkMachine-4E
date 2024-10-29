@@ -25,6 +25,7 @@ package com.softwaremagico.tm;
  */
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -57,5 +58,11 @@ public class OptionSelector<E extends Element, T extends Option<E>> {
             setOptions(new ArrayList<>());
         }
         getOptions().addAll(options);
+    }
+
+    public void validate() throws InvalidXmlElementException {
+        if (options != null) {
+            options.forEach(Element::validate);
+        }
     }
 }

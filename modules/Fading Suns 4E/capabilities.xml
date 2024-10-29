@@ -163,41 +163,41 @@
             <es>Instrumento Musical</es>
         </name>
         <specializations>
-            <specialization>
+            <selectedSpecialization>
                 <id>brass</id>
                 <name>
                     <en>Brass</en>
                     <es>Viento Metal</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>strings</id>
                 <name>
                     <en>Strings</en>
                     <es>Cuerda</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>woodwind</id>
                 <name>
                     <en>Woodwind</en>
                     <es>Viento Madera</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>percussion</id>
                 <name>
                     <en>Percussion</en>
                     <es>Percusión</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>keyboards</id>
                 <name>
                     <en>Keyboards</en>
                     <es>Teclado</es>
                 </name>
-            </specialization>
+            </selectedSpecialization>
         </specializations>
     </capability>
 
@@ -540,20 +540,20 @@
             <es>Saber Animal</es>
         </name>
         <specializations>
-            <specialization>
+            <selectedSpecialization>
                 <id>knownWorlds</id>
                 <name>
                     <en>Known Worlds</en>
                     <es>Mundos Conocidos</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>barbarianWorlds</id>
                 <name>
                     <en>Barbarian Worlds</en>
                     <es>Mundos Bárbaros</es>
                 </name>
-            </specialization>
+            </selectedSpecialization>
         </specializations>
     </capability>
     <capability>
@@ -564,125 +564,125 @@
             <es>Saber de Facción</es>
         </name>
         <specializations>
-            <specialization>
+            <selectedSpecialization>
                 <id>hawkwood</id>
                 <name>
                     <en>Hawkwood</en>
                     <es>Hawkwood</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>decados</id>
                 <name>
                     <en>Decados</en>
                     <es>Decados</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>hazat</id>
                 <name>
                     <en>The Hazat</en>
                     <es>Los Hazat</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>liHalan</id>
                 <name>
                     <en>Li Halan</en>
                     <es>Li Halan</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>alMalik</id>
                 <name>
                     <en>Al-Malik</en>
                     <es>Al-Malik</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>orthodox</id>
                 <name>
                     <en>Orthodox</en>
                     <es>Ortodoxos</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>brotherBattle</id>
                 <name>
                     <en>Brother Battle</en>
                     <es>Hermanos de Batalla</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>eskatonics</id>
                 <name>
                     <en>Eskatonics</en>
                     <es>Eskatónicos</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>avestites</id>
                 <name>
                     <en>Avestites</en>
                     <es>Avestitas</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>sanctuaryAeon</id>
                 <name>
                     <en>Sanctuary Aeon</en>
                     <es>Santuario de Aeón</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>mendicatnMonks</id>
                 <name>
                     <en>Mendicant Monks</en>
                     <es>Monjes Mendicantes</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>charioteers</id>
                 <name>
                     <en>Charioteers</en>
                     <es>Aurigas</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>engineers</id>
                 <name>
                     <en>Engineers</en>
                     <es>Ingenieros</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>scravers</id>
                 <name>
                     <en>Scravers</en>
                     <es>Carroñeros</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>musters</id>
                 <name>
                     <en>Musters</en>
                     <es>Esclavistas</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>reeves</id>
                 <name>
                     <en>Reeves</en>
                     <es>Magistrados</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>vuldrok</id>
                 <name>
                     <en>Vuldrok</en>
                     <es>Vuldrok</es>
                 </name>
-            </specialization>
+            </selectedSpecialization>
         </specializations>
     </capability>
     <capability>
@@ -701,20 +701,20 @@
             <es>Saber de Red de Salto</es>
         </name>
         <specializations>
-            <specialization>
+            <selectedSpecialization>
                 <id>knownWorlds</id>
                 <name>
                     <en>Known Worlds</en>
                     <es>Mundos Conocidos</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>barbarianWorlds</id>
                 <name>
                     <en>Barbarian Worlds</en>
                     <es>Mundos Bárbaros</es>
                 </name>
-            </specialization>
+            </selectedSpecialization>
         </specializations>
     </capability>
     <capability>
@@ -733,265 +733,265 @@
             <es>Saber Planetario</es>
         </name>
         <specializations>
-            <specialization>
+            <selectedSpecialization>
                 <id>sutek</id>
                 <name>
                     <en>Sutek</en>
                     <es>Sutek</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>aragon</id>
                 <name>
                     <en>Aragon</en>
                     <es>Aragón</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>veraCruz</id>
                 <name>
                     <en>Vera Cruz</en>
                     <es>Veracruz</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>hira</id>
                 <name>
                     <en>Hira</en>
                     <es>Hira</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>delphi</id>
                 <name>
                     <en>Delphi</en>
                     <es>Delphi</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>gwynneth</id>
                 <name>
                     <en>Gwynneth</en>
                     <es>Gwynneth</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>leminkainen</id>
                 <name>
                     <en>Leminkainen</en>
                     <es>Leminkainen</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>ravenna</id>
                 <name>
                     <en>Ravenna</en>
                     <es>Ravena</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>cadavus</id>
                 <name>
                     <en>Cadavus</en>
                     <es>Cadavus</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>cadiz</id>
                 <name>
                     <en>Cadiz</en>
                     <es>Cádiz</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>malignatus</id>
                 <name>
                     <en>Malignatus</en>
                     <es>Malignatius</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>pandemonium</id>
                 <name>
                     <en>Pandemonium</en>
                     <es>Pandemonium</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>severus</id>
                 <name>
                     <en>Severus</en>
                     <es>Severus</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>icon</id>
                 <name>
                     <en>Icon</en>
                     <es>Icono</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>kish</id>
                 <name>
                     <en>Kish</en>
                     <es>Kish</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>midian</id>
                 <name>
                     <en>Midian</en>
                     <es>Midian</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>rampart</id>
                 <name>
                     <en>Rampart</en>
                     <es>Baluarte</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>aylon</id>
                 <name>
                     <en>Aylon</en>
                     <es>Aylon</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>istakhr</id>
                 <name>
                     <en>Istakhr</en>
                     <es>Istakhir</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>criticorum</id>
                 <name>
                     <en>Criticorum</en>
                     <es>Criticorum</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>shaprut</id>
                 <name>
                     <en>Shaprut</en>
                     <es>Shaprut</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>artemis</id>
                 <name>
                     <en>Artemis</en>
                     <es>Artemisa</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>deMoley</id>
                 <name>
                     <en>De Moley</en>
                     <es>De Moley</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>holyTerra</id>
                 <name>
                     <en>Holy Terra</en>
                     <es>Tierra Santa</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>pentateuch</id>
                 <name>
                     <en>Pentateuch</en>
                     <es>Pentateuco</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>pyre</id>
                 <name>
                     <en>Pyre</en>
                     <es>Pira</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>bannockburn</id>
                 <name>
                     <en>Bannockburn</en>
                     <es>Bannockburn</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>leagueheim</id>
                 <name>
                     <en>Leagueheim</en>
                     <es>Ligaheim</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>madoc</id>
                 <name>
                     <en>Madoc</en>
                     <es>Madoc</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>byzantiumSecundus</id>
                 <name>
                     <en>Byzantium Secundus</en>
                     <es>Byzantium Secundus</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>nowhere</id>
                 <name>
                     <en>Nowhere</en>
                     <es>Ningunlugar</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>stigmata</id>
                 <name>
                     <en>Stigmata</en>
                     <es>Estigma</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>tethys</id>
                 <name>
                     <en>Tethys</en>
                     <es>Tetis</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>grail</id>
                 <name>
                     <en>Grail</en>
                     <es>Grial</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>kordeth</id>
                 <name>
                     <en>Kordeth</en>
                     <es>Kordeth</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>ungavorox</id>
                 <name>
                     <en>Ungavorox</en>
                     <es>Ungavorox</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>velsimil</id>
                 <name>
                     <en>Velsimil</en>
                     <es>Velisamil</es>
                 </name>
-            </specialization>
+            </selectedSpecialization>
         </specializations>
     </capability>
     <capability>
@@ -1002,21 +1002,21 @@
             <es>Leer</es>
         </name>
         <specializations>
-            <specialization>
+            <selectedSpecialization>
                 <id>urthish</id>
                 <name>
                     <en>Urthish</en>
                     <es>Urthés</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>latin</id>
                 <name>
                     <en>Latin</en>
                     <es>Latin</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>urthtech</id>
                 <name>
                     <en>Urthtech</en>
@@ -1027,7 +1027,7 @@
                         <capability>urthish</capability>
                     </capabilities>
                 </restrictions>
-            </specialization>
+            </selectedSpecialization>
         </specializations>
     </capability>
     <capability>
@@ -1038,14 +1038,14 @@
             <es>Saber Religioso</es>
         </name>
         <specializations>
-            <specialization>
+            <selectedSpecialization>
                 <id>churchOfTheCelestialSun</id>
                 <name>
                     <en>Church of the Celestial Sun</en>
                     <es>Iglesia Universal del Sol Celestial</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>erdgheist</id>
                 <name>
                     <en>Erdgheist</en>
@@ -1054,8 +1054,8 @@
                 <random>
                     <probabilityMultiplier>0.01</probabilityMultiplier>
                 </random>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>elDiin</id>
                 <name>
                     <en>El-Diin</en>
@@ -1064,8 +1064,8 @@
                 <random>
                     <probabilityMultiplier>0.01</probabilityMultiplier>
                 </random>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>gjartin</id>
                 <name>
                     <en>Gjartin</en>
@@ -1074,8 +1074,8 @@
                 <random>
                     <probabilityMultiplier>0.01</probabilityMultiplier>
                 </random>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>zuranity</id>
                 <name>
                     <en>Zuranity</en>
@@ -1084,7 +1084,7 @@
                 <random>
                     <probabilityMultiplier>0.1</probabilityMultiplier>
                 </random>
-            </specialization>
+            </selectedSpecialization>
         </specializations>
     </capability>
     <capability>
@@ -1103,49 +1103,49 @@
             <es>Hablar</es>
         </name>
         <specializations>
-            <specialization>
+            <selectedSpecialization>
                 <id>urthish</id>
                 <name>
                     <en>Urthish</en>
                     <es>Urthés</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>latin</id>
                 <name>
                     <en>Latin</en>
                     <es>Latin</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>vuldrish</id>
                 <name>
                     <en>Vuldrish</en>
                     <es>Vuldrés</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>lojmaa</id>
                 <name>
                     <en>Lojmaa</en>
                     <es>Lojmaa</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>uryari</id>
                 <name>
                     <en>Uryari</en>
                     <es>Uryari</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>voroxian</id>
                 <name>
                     <en>Voroxian</en>
                     <es>Voroxiano</es>
                 </name>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>gracefulTongue</id>
                 <name>
                     <en>Graceful Tongue</en>
@@ -1156,8 +1156,8 @@
                         <faction>alMalik</faction>
                     </factions>
                 </restrictions>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>vagabondPatois</id>
                 <name>
                     <en>Vagabond Patois</en>
@@ -1168,8 +1168,8 @@
                         <faction>vagabonds</faction>
                     </factions>
                 </restrictions>
-            </specialization>
-            <specialization>
+            </selectedSpecialization>
+            <selectedSpecialization>
                 <id>scraverCants</id>
                 <name>
                     <en>Scraver Cants</en>
@@ -1180,7 +1180,7 @@
                         <faction>scravers</faction>
                     </factions>
                 </restrictions>
-            </specialization>
+            </selectedSpecialization>
         </specializations>
     </capability>
     <capability>
@@ -1212,69 +1212,69 @@
             <en>Xeno Lore</en>
             <es>Saber Alienígena</es>
         </name>
-        <specialization>
+        <selectedSpecialization>
             <id>obun</id>
             <name>
                 <en>Ur-Obun</en>
                 <es>Ur-Obun</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>ukar</id>
             <name>
                 <en>Ur-Ukar</en>
                 <es>Ur-Ukar</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>vorox</id>
             <name>
                 <en>Vorox</en>
                 <es>Vorox</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>shantor</id>
             <name>
                 <en>Shantor</en>
                 <es>Shantor</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>gannok</id>
             <name>
                 <en>Gannok</en>
                 <es>Gannok</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>etyri</id>
             <name>
                 <en>Etyri</en>
                 <es>etyri</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>hironem</id>
             <name>
                 <en>Hironem</en>
                 <es>Hironem</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>ascorbite</id>
             <name>
                 <en>Ascorbite</en>
                 <es>Ascorbita</es>
             </name>
-        </specialization>
-        <specialization>
+        </selectedSpecialization>
+        <selectedSpecialization>
             <id>oroym</id>
             <name>
                 <en>Oro'ym</en>
                 <es>Oro'ym</es>
             </name>
-        </specialization>
+        </selectedSpecialization>
     </capability>
     <capability>
         <id>diseaseLore</id>

@@ -63,11 +63,16 @@ public class CapabilityOptions extends OptionSelector<Capability, CapabilityOpti
                     } else {
                         //add specialities if needed
                         final Capability capability = CapabilityFactory.getInstance().getElement(capabilityOption.getId());
-                        if (capability.getSpecializations() != null && !capability.getSpecializations().isEmpty()
-                                && capabilityOption.getSpecialization() == null) {
-                            //No specialization defined, can be any.
-                            for (Specialization specialization : capability.getSpecializations()) {
-                                finalCapabilities.add(new CapabilityOption(capability, specialization));
+                        if (capability.getSpecializations() != null && !capability.getSpecializations().isEmpty()) {
+                            if (capabilityOption.getSelectedSpecialization() == null) {
+                                //No specialization defined, can be any.
+                                for (Specialization specialization : capability.getSpecializations()) {
+                                    finalCapabilities.add(new CapabilityOption(capability, specialization));
+                                }
+                            } else {
+                                //Specializations defined. Can be only these.
+                                finalCapabilities.add(new CapabilityOption(capability,
+                                        capability.getSpecialization(capabilityOption.getSelectedSpecialization().getId())));
                             }
                         } else {
                             finalCapabilities.add(capabilityOption);

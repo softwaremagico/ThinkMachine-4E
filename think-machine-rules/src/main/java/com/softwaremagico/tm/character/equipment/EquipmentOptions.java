@@ -26,6 +26,7 @@ package com.softwaremagico.tm.character.equipment;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.XmlData;
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.equipment.item.handheldshield.CustomizedHandheldShield;
@@ -34,6 +35,7 @@ import com.softwaremagico.tm.character.equipment.item.handheldshield.HandheldShi
 import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -111,5 +113,13 @@ public class EquipmentOptions extends XmlData {
 
     public void setItems(List<Equipment> items) {
         this.items = items;
+    }
+
+
+    @Override
+    public void validate() throws InvalidXmlElementException {
+        if (items != null) {
+            items.forEach(Element::validate);
+        }
     }
 }
