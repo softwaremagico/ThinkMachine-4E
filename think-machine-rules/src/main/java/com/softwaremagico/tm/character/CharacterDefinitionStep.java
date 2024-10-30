@@ -29,7 +29,7 @@ import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.OptionSelector;
 import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOptions;
-import com.softwaremagico.tm.character.equipment.Equipment;
+import com.softwaremagico.tm.character.equipment.EquipmentOption;
 import com.softwaremagico.tm.character.equipment.EquipmentOptions;
 import com.softwaremagico.tm.character.perks.PerkOptions;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
@@ -98,8 +98,8 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
         return TOTAL_SKILL_OPTIONS;
     }
 
-    public Set<Equipment> getMaterialAwards(Collection<Selection> selectedMaterialAwards) {
-        return getMaterialAwards().stream().map(m -> m.getItems(selectedMaterialAwards)).flatMap(Collection::stream)
+    public Set<EquipmentOption> getMaterialAwards(Collection<Selection> selectedMaterialAwards) {
+        return getMaterialAwards().stream().map(m -> m.getOptions(selectedMaterialAwards)).flatMap(Collection::stream)
                 .collect(Collectors.toSet());
     }
 

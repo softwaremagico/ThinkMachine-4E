@@ -24,11 +24,15 @@ package com.softwaremagico.tm.character.equipment.item;
  * #L%
  */
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class CustomizedItem extends Item {
 
-    @JsonProperty("quality")
-    private Quality quality;
+    public CustomizedItem() {
+        super();
+    }
+
+    public CustomizedItem(Item item) {
+        this();
+        copy(item);
+    }
 
 }

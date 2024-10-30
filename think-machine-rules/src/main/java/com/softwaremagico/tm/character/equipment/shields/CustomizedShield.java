@@ -24,19 +24,14 @@ package com.softwaremagico.tm.character.equipment.shields;
  * #L%
  */
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.softwaremagico.tm.character.equipment.item.Quality;
-
 public class CustomizedShield extends Shield {
 
-    @JsonProperty("quality")
-    private Quality quality;
-
-    public Quality getQuality() {
-        return quality;
+    public CustomizedShield() {
+        super();
     }
 
-    public void setQuality(Quality quality) {
-        this.quality = quality;
+    public CustomizedShield(Shield shield) {
+        this();
+        copy(shield);
     }
 }

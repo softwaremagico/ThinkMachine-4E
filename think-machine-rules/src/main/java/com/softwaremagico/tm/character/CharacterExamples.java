@@ -83,7 +83,7 @@ public final class CharacterExamples {
         for (int i = 0; i < upbringing.getMaterialAwards().size(); i++) {
             for (int j = 0; j < upbringing.getMaterialAwards().get(i).getTotalOptions(); j++) {
                 characterPlayer.getUpbringing().getMaterialAwards().get(i).getSelections()
-                        .add(new Selection(upbringing.getMaterialAwards().get(i).getItems().get(j).getId()));
+                        .add(new Selection(upbringing.getMaterialAwards().get(i).getOptions().get(j).getId()));
             }
         }
 
@@ -111,7 +111,7 @@ public final class CharacterExamples {
         for (int i = 0; i < faction.getMaterialAwards().size(); i++) {
             for (int j = 0; j < faction.getMaterialAwards().get(i).getTotalOptions(); j++) {
                 characterPlayer.getFaction().getMaterialAwards().get(i).getSelections()
-                        .add(new Selection(faction.getMaterialAwards().get(i).getItems().get(j).getId()));
+                        .add(new Selection(faction.getMaterialAwards().get(i).getOptions().get(j).getId()));
             }
         }
         for (int i = 0; i < faction.getPerksOptions().size(); i++) {
@@ -151,7 +151,7 @@ public final class CharacterExamples {
         for (int i = 0; i < calling.getMaterialAwards().size(); i++) {
             for (int j = 0; j < calling.getMaterialAwards().get(i).getTotalOptions(); j++) {
                 characterPlayer.getCalling().getMaterialAwards().get(i).getSelections()
-                        .add(new Selection(calling.getMaterialAwards().get(i).getItems().get(j).getId()));
+                        .add(new Selection(calling.getMaterialAwards().get(i).getOptions().get(j).getId()));
             }
         }
 

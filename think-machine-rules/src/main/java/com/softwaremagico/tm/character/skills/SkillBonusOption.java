@@ -35,7 +35,7 @@ public class SkillBonusOption extends Option<Skill> {
     private int bonus;
 
     public SkillBonusOption() {
-        super(SkillFactory.getInstance());
+        super();
     }
 
     public SkillBonusOption(Skill skill) {
@@ -49,6 +49,12 @@ public class SkillBonusOption extends Option<Skill> {
 
     public void setBonus(int bonus) {
         this.bonus = bonus;
+    }
+
+
+    @Override
+    public Skill getElement(String id) {
+        return SkillFactory.getInstance().getElement(id);
     }
 
     @Override

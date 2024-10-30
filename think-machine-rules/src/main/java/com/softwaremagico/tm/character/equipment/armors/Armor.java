@@ -112,6 +112,16 @@ public class Armor extends Equipment {
         return specifications;
     }
 
+    public void copy(Armor armor) {
+        super.copy(armor);
+        setProtection(armor.getProtection());
+        setDamageTypes(new HashSet<>(armor.getDamageTypes()));
+        setStandardPenalization(armor.getStandardPenalization());
+        setSpecialPenalization(armor.getSpecialPenalization());
+        setAllowedShields(new HashSet<>(armor.getAllowedShields()));
+        setSpecifications(new HashSet<>(armor.getSpecifications()));
+    }
+
     @Override
     public void validate() throws InvalidXmlElementException {
         super.validate();

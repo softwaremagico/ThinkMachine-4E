@@ -24,19 +24,14 @@ package com.softwaremagico.tm.character.equipment.armors;
  * #L%
  */
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.softwaremagico.tm.character.equipment.item.Quality;
-
 public class CustomizedArmor extends Armor {
 
-    @JsonProperty("quality")
-    private Quality quality;
-
-    public Quality getQuality() {
-        return quality;
+    public CustomizedArmor() {
+        super();
     }
 
-    public void setQuality(Quality quality) {
-        this.quality = quality;
+    public CustomizedArmor(Armor armor) {
+        this();
+        copy(armor);
     }
 }

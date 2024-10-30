@@ -24,12 +24,117 @@ package com.softwaremagico.tm.character.equipment;
  * #L%
  */
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.softwaremagico.tm.Option;
+import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
+import com.softwaremagico.tm.character.equipment.armors.CustomizedArmor;
+import com.softwaremagico.tm.character.equipment.handheldshield.CustomizedHandheldShield;
+import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShieldFactory;
+import com.softwaremagico.tm.character.equipment.item.CustomizedItem;
+import com.softwaremagico.tm.character.equipment.item.ItemFactory;
+import com.softwaremagico.tm.character.equipment.item.Quality;
+import com.softwaremagico.tm.character.equipment.item.Status;
+import com.softwaremagico.tm.character.equipment.shields.CustomizedShield;
+import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
+import com.softwaremagico.tm.character.equipment.thinkmachines.CustomizedThinkMachine;
+import com.softwaremagico.tm.character.equipment.thinkmachines.ThinkMachineFactory;
+import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
+import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
 
-public class EquipmentOption {
-    @JsonProperty("id")
-    private String id;
-    @JsonProperty("type")
-    private String type;
+public class EquipmentOption extends Option<Equipment> {
 
+    private int quantity = 1;
+
+    private Quality quality;
+
+    private Status status;
+
+    public EquipmentOption() {
+        super();
+    }
+
+    public EquipmentOption(Equipment equipment) {
+        this();
+        setId(equipment.getId());
+        setQuantity(equipment.getQuantity());
+    }
+
+    public EquipmentOption(Equipment equipment, int quantity) {
+        this();
+        setId(equipment.getId());
+        setQuantity(quantity);
+    }
+
+    public EquipmentOption(Equipment equipment, Quality quality, Status status, int quantity) {
+        this();
+        setId(equipment.getId());
+        setQuantity(quantity);
+        setQuality(quality);
+        setStatus(status);
+    }
+
+
+    @Override
+    public Equipment getElement(String id) {
+        Equipment equipment;
+        try {
+            equipment = new CustomizedArmor(ArmorFactory.getInstance().getElement(id));
+        } catch (Exception e1) {
+            try {
+                equipment = new CustomizedItem(ItemFactory.getInstance().getElement(id));
+            } catch (Exception e2) {
+                try {
+                    equipment = new CustomizedShield(ShieldFactory.getInstance().getElement(id));
+                } catch (Exception e3) {
+                    try {
+                        equipment = new CustomizedHandheldShield(HandheldShieldFactory.getInstance().getElement(id));
+                    } catch (Exception e4) {
+                        try {
+                            equipment = new CustomizedThinkMachine(ThinkMachineFactory.getInstance().getElement(id));
+                        } catch (Exception e5) {
+                            try {
+                                equipment = new CustomizedWeapon(WeaponFactory.getInstance().getElement(id));
+                            } catch (Exception e6) {
+                                equipment = null;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (equipment != null) {
+            equipment.setQuantity(quantity);
+            equipment.setQuality(quality);
+            equipment.setStatus(status);
+        }
+        return equipment;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public Quality getQuality() {
+        return quality;
+    }
+
+    public void setQuality(Quality quality) {
+        this.quality = quality;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return getId() + (getQuantity() > 1 ? " (" + getQuantity() + ")" : "");
+    }
 }

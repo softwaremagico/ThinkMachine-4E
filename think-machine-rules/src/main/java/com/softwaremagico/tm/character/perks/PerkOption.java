@@ -30,7 +30,7 @@ import com.softwaremagico.tm.character.capabilities.Capability;
 public class PerkOption extends Option<Perk> {
 
     public PerkOption() {
-        super(PerkFactory.getInstance());
+        super();
     }
 
     public PerkOption(Perk perk) {
@@ -41,6 +41,11 @@ public class PerkOption extends Option<Perk> {
     public PerkOption(Capability capability) {
         this();
         setId(capability.getId());
+    }
+
+    @Override
+    public Perk getElement(String id) {
+        return PerkFactory.getInstance().getElement(id);
     }
 
     @Override

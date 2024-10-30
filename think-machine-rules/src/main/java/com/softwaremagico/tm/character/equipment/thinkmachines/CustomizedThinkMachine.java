@@ -24,12 +24,14 @@ package com.softwaremagico.tm.character.equipment.thinkmachines;
  * #L%
  */
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.softwaremagico.tm.character.equipment.item.Quality;
-
 public class CustomizedThinkMachine extends ThinkMachine {
 
-    @JsonProperty("quality")
-    private Quality quality;
+    public CustomizedThinkMachine() {
+        super();
+    }
 
+    public CustomizedThinkMachine(ThinkMachine thinkMachine) {
+        this();
+        copy(thinkMachine);
+    }
 }

@@ -24,58 +24,32 @@ package com.softwaremagico.tm.character.equipment.weapons;
  * #L%
  */
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.character.equipment.item.Quality;
-import com.softwaremagico.tm.character.equipment.item.Status;
 import com.softwaremagico.tm.txt.TextFactory;
 
 public class CustomizedWeapon extends Weapon {
-
-    @JsonProperty("quality")
-    private Quality quality;
-
-    @JsonProperty("status")
-    private Status status;
 
     public CustomizedWeapon() {
         super();
     }
 
     public CustomizedWeapon(Weapon weapon) {
-        super();
-        setAccessories(weapon.getAccessories());
-        setWeaponClass(weapon.getWeaponClass());
-
-    }
-
-    public Quality getQuality() {
-        return quality;
-    }
-
-    public void setQuality(Quality quality) {
-        this.quality = quality;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
+        this();
+        copy(weapon);
     }
 
     @Override
     public String getWeaponOthersText() {
         final StringBuilder stringBuilder = new StringBuilder();
 
-        if (quality != null && quality != Quality.STANDARD) {
-            stringBuilder.append(TextFactory.getInstance().getElement(quality.name().toLowerCase()));
+        if (getQuality() != null && getQuality() != Quality.STANDARD) {
+            stringBuilder.append(TextFactory.getInstance().getElement(getQuality().name().toLowerCase()));
         }
         if (stringBuilder.length() > 0) {
             stringBuilder.append(", ");
         }
-        if (status != null) {
-            stringBuilder.append(TextFactory.getInstance().getElement(status.name().toLowerCase()));
+        if (getStatus() != null) {
+            stringBuilder.append(TextFactory.getInstance().getElement(getStatus().name().toLowerCase()));
         }
 
         final String standardOthers = super.getWeaponOthersText();

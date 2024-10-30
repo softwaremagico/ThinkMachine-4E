@@ -35,7 +35,7 @@ public class CharacteristicBonusOption extends Option<CharacteristicDefinition> 
     private int bonus;
 
     public CharacteristicBonusOption() {
-        super(CharacteristicsDefinitionFactory.getInstance());
+        super();
     }
 
     public CharacteristicBonusOption(CharacteristicDefinition characteristic) {
@@ -58,6 +58,12 @@ public class CharacteristicBonusOption extends Option<CharacteristicDefinition> 
 
     public void setBonus(int bonus) {
         this.bonus = bonus;
+    }
+
+
+    @Override
+    public CharacteristicDefinition getElement(String id) {
+        return CharacteristicsDefinitionFactory.getInstance().getElement(id);
     }
 
     @Override

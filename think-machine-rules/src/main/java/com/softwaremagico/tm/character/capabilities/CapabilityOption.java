@@ -36,7 +36,7 @@ public class CapabilityOption extends Option<Capability> {
     private Specialization selectedSpecialization;
 
     public CapabilityOption() {
-        super(CapabilityFactory.getInstance());
+        super();
     }
 
     public CapabilityOption(Capability capability) {
@@ -58,6 +58,11 @@ public class CapabilityOption extends Option<Capability> {
 
     public void setSelectedSpecialization(Specialization selectedSpecialization) {
         this.selectedSpecialization = selectedSpecialization;
+    }
+
+    @Override
+    public Capability getElement(String id) {
+        return CapabilityFactory.getInstance().getElement(id);
     }
 
     @Override

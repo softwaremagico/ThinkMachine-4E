@@ -29,7 +29,7 @@ import com.softwaremagico.tm.character.Gender;
 import com.softwaremagico.tm.character.equipment.TechCompulsionFactory;
 import com.softwaremagico.tm.character.equipment.item.Quality;
 import com.softwaremagico.tm.character.equipment.item.Status;
-import com.softwaremagico.tm.character.equipment.item.handheldshield.CustomizedHandheldShield;
+import com.softwaremagico.tm.character.equipment.handheldshield.CustomizedHandheldShield;
 import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
@@ -96,9 +96,9 @@ public class FactionFactoryTests {
         final Faction hawkwood = FactionFactory.getInstance().getElement("hawkwood");
         Assert.assertNotNull(hawkwood);
         Assert.assertEquals(hawkwood.getMaterialAwards().size(), 1);
-        Assert.assertEquals(hawkwood.getMaterialAwards().get(0).getItems().size(), 9);
-        Assert.assertTrue(hawkwood.getMaterialAwards().get(0).getItems().get(0) instanceof CustomizedWeapon);
-        Assert.assertEquals(((CustomizedWeapon) hawkwood.getMaterialAwards().get(0).getItems().get(0)).getQuality(), Quality.PREMIUM);
+        Assert.assertEquals(hawkwood.getMaterialAwards().get(0).getOptions().size(), 9);
+        Assert.assertTrue(hawkwood.getMaterialAwards().get(0).getOptions().get(0).getElement() instanceof CustomizedWeapon);
+        Assert.assertEquals(hawkwood.getMaterialAwards().get(0).getOptions().get(0).getElement().getQuality(), Quality.PREMIUM);
     }
 
     @Test
@@ -106,9 +106,9 @@ public class FactionFactoryTests {
         final Faction brotherBattle = FactionFactory.getInstance().getElement("brotherBattle");
         Assert.assertNotNull(brotherBattle);
         Assert.assertEquals(brotherBattle.getMaterialAwards().size(), 1);
-        Assert.assertEquals(brotherBattle.getMaterialAwards().get(0).getItems().size(), 82);
-        Assert.assertTrue(brotherBattle.getMaterialAwards().get(0).getItems().get(0) instanceof CustomizedWeapon);
-        Assert.assertEquals(((CustomizedWeapon) brotherBattle.getMaterialAwards().get(0).getItems().get(0)).getStatus(), Status.BLESSED);
+        Assert.assertEquals(brotherBattle.getMaterialAwards().get(0).getOptions().size(), 82);
+        Assert.assertTrue(brotherBattle.getMaterialAwards().get(0).getOptions().get(0).getElement() instanceof CustomizedWeapon);
+        Assert.assertEquals(brotherBattle.getMaterialAwards().get(0).getOptions().get(0).getElement().getStatus(), Status.BLESSED);
     }
 
     @Test
@@ -124,7 +124,7 @@ public class FactionFactoryTests {
     public void itemTechConvulsion() throws InvalidXmlElementException {
         final Faction engineers = FactionFactory.getInstance().getElement("engineers");
         Assert.assertNotNull(engineers);
-        Assert.assertEquals(engineers.getMaterialAwards().get(0).getItems().get(0).getTechCompulsion(), "industrious");
+        Assert.assertEquals(engineers.getMaterialAwards().get(0).getOptions().get(0).getElement().getTechCompulsion(), "industrious");
         Assert.assertNotNull(TechCompulsionFactory.getInstance().getElement("industrious"));
     }
 
@@ -132,14 +132,14 @@ public class FactionFactoryTests {
     public void getFenixQuantity() throws InvalidXmlElementException {
         final Faction vagabonds = FactionFactory.getInstance().getElement("vagabonds");
         Assert.assertNotNull(vagabonds);
-        Assert.assertEquals(vagabonds.getMaterialAwards().get(0).getItems().get(0).getQuantity(), 100);
+        Assert.assertEquals(vagabonds.getMaterialAwards().get(0).getOptions().get(0).getQuantity(), 100);
     }
 
     @Test
     public void getWeaponQuality() throws InvalidXmlElementException {
         final Faction vuldrok = FactionFactory.getInstance().getElement("vuldrok");
         Assert.assertNotNull(vuldrok);
-        Assert.assertTrue(vuldrok.getMaterialAwards().get(0).getItems()
-                .get(vuldrok.getMaterialAwards().get(0).getItems().size() - 1) instanceof CustomizedHandheldShield);
+        Assert.assertTrue(vuldrok.getMaterialAwards().get(0).getOptions()
+                .get(vuldrok.getMaterialAwards().get(0).getOptions().size() - 1).getElement() instanceof CustomizedHandheldShield);
     }
 }

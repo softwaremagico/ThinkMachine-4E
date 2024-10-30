@@ -34,9 +34,11 @@ import com.softwaremagico.tm.character.equipment.armors.CustomizedArmor;
 import com.softwaremagico.tm.character.equipment.item.CustomizedItem;
 import com.softwaremagico.tm.character.equipment.item.Item;
 import com.softwaremagico.tm.character.equipment.item.ItemFactory;
-import com.softwaremagico.tm.character.equipment.item.handheldshield.CustomizedHandheldShield;
-import com.softwaremagico.tm.character.equipment.item.handheldshield.HandheldShield;
-import com.softwaremagico.tm.character.equipment.item.handheldshield.HandheldShieldFactory;
+import com.softwaremagico.tm.character.equipment.handheldshield.CustomizedHandheldShield;
+import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShield;
+import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShieldFactory;
+import com.softwaremagico.tm.character.equipment.item.Quality;
+import com.softwaremagico.tm.character.equipment.item.Status;
 import com.softwaremagico.tm.character.equipment.shields.CustomizedShield;
 import com.softwaremagico.tm.character.equipment.shields.Shield;
 import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
@@ -94,6 +96,10 @@ public abstract class Equipment extends Element implements IElementWithTechnolog
     private Agora agora;
     @JsonProperty("features")
     private List<EquipmentFeature> features;
+    @JsonProperty("quality")
+    private Quality quality;
+    @JsonProperty("status")
+    private Status status;
 
     public Equipment() {
         super();
@@ -148,6 +154,22 @@ public abstract class Equipment extends Element implements IElementWithTechnolog
 
     public void setQuantity(Integer quantity) {
         this.quantity = Objects.requireNonNullElse(quantity, 1);
+    }
+
+    public Quality getQuality() {
+        return quality;
+    }
+
+    public void setQuality(Quality quality) {
+        this.quality = quality;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public static Equipment completeItem(Equipment equipment) {

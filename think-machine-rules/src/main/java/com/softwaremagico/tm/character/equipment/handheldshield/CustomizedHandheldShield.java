@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.equipment.item.handheldshield;
+package com.softwaremagico.tm.character.equipment.handheldshield;
 
 /*-
  * #%L
@@ -24,31 +24,15 @@ package com.softwaremagico.tm.character.equipment.item.handheldshield;
  * #L%
  */
 
+public class CustomizedHandheldShield extends HandheldShield {
 
-import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.xml.XmlFactory;
-
-import java.util.List;
-
-public class HandheldShieldFactory extends XmlFactory<HandheldShield> {
-    private static final String XML_FILE = "handheldShield.xml";
-
-    private static final class HandheldShieldFactoryInit {
-        public static final HandheldShieldFactory INSTANCE = new HandheldShieldFactory();
+    public CustomizedHandheldShield() {
+        super();
     }
 
-    public static HandheldShieldFactory getInstance() {
-        return HandheldShieldFactoryInit.INSTANCE;
+    public CustomizedHandheldShield(HandheldShield handheld) {
+        this();
+        copy(handheld);
     }
 
-
-    @Override
-    public String getXmlFile() {
-        return XML_FILE;
-    }
-
-    @Override
-    public List<HandheldShield> getElements() throws InvalidXmlElementException {
-        return readXml(HandheldShield.class);
-    }
 }

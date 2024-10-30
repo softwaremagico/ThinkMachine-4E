@@ -27,11 +27,10 @@ package com.softwaremagico.tm.character.equipment;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
-import com.softwaremagico.tm.XmlData;
+import com.softwaremagico.tm.OptionSelector;
 import com.softwaremagico.tm.character.Selection;
-import com.softwaremagico.tm.character.equipment.item.handheldshield.CustomizedHandheldShield;
-import com.softwaremagico.tm.character.equipment.item.handheldshield.HandheldShield;
-import com.softwaremagico.tm.character.equipment.item.handheldshield.HandheldShieldFactory;
+import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShield;
+import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShieldFactory;
 import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
@@ -43,31 +42,20 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class EquipmentOptions extends XmlData {
-    @JsonProperty("total")
-    private int totalOptions;
+public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption> {
     @JsonProperty("items")
     private List<Equipment> items;
     @JsonIgnore
-    private List<Equipment> finalItems;
+    private List<EquipmentOption> finalItems;
 
-    public int getTotalOptions() {
-        return totalOptions;
-    }
-
-    public void setTotalOptions(int totalOptions) {
-        this.totalOptions = totalOptions;
-    }
-
-    public List<Equipment> getItems() {
+    @Override
+    public List<EquipmentOption> getOptions() {
         if (finalItems == null) {
             finalItems = new ArrayList<>();
             if (items != null && !items.isEmpty()) {
                 items.forEach(item -> {
                     if (item.getId() != null) {
-                        final Equipment finalItem = Equipment.completeItem(item);
-                        finalItem.setQuantity(item.getQuantity());
-                        finalItems.add(finalItem);
+                        finalItems.add(new EquipmentOption(item));
                     } else if (item instanceof Weapon) {
                         final List<Weapon> customizedWeapons = new ArrayList<>();
                         if (((Weapon) item).getType() != null && ((Weapon) item).getWeaponClass() != null) {
@@ -81,23 +69,18 @@ public class EquipmentOptions extends XmlData {
                             customizedWeapons.addAll(WeaponFactory.getInstance().getWeaponsByClass(((Weapon) item).getWeaponClass()));
                         }
                         customizedWeapons.forEach(weapon -> {
-                            final CustomizedWeapon customizedWeapon = new CustomizedWeapon();
-                            customizedWeapon.copy(weapon);
-                            customizedWeapon.setQuantity(item.getQuantity());
                             if (item instanceof CustomizedWeapon) {
-                                customizedWeapon.setQuality(((CustomizedWeapon) item).getQuality());
-                                customizedWeapon.setStatus(((CustomizedWeapon) item).getStatus());
+                                finalItems.add(new EquipmentOption(weapon, ((CustomizedWeapon) item).getQuality(),
+                                        ((CustomizedWeapon) item).getStatus(), item.getQuantity()));
+                            } else {
+                                finalItems.add(new EquipmentOption(weapon, item.getQuantity()));
                             }
-                            finalItems.add(customizedWeapon);
                         });
                     } else if (item instanceof HandheldShield) {
                         final List<HandheldShield> customizedHandheldShields =
                                 new ArrayList<>(HandheldShieldFactory.getInstance().getElements());
                         customizedHandheldShields.forEach(handheldShield -> {
-                            final CustomizedHandheldShield customizedHandheldShield = new CustomizedHandheldShield();
-                            customizedHandheldShield.copy(handheldShield);
-                            customizedHandheldShield.setQuantity(item.getQuantity());
-                            finalItems.add(customizedHandheldShield);
+                            finalItems.add(new EquipmentOption(handheldShield, item.getQuantity()));
                         });
                     }
                 });
@@ -106,8 +89,8 @@ public class EquipmentOptions extends XmlData {
         return finalItems;
     }
 
-    public Set<Equipment> getItems(Collection<Selection> items) {
-        return getItems().stream().filter(e -> items.stream().map(Selection::getId).collect(Collectors.toList())
+    public Set<EquipmentOption> getOptions(Collection<Selection> items) {
+        return getOptions().stream().filter(e -> items.stream().map(Selection::getId).collect(Collectors.toList())
                 .contains(e.getId())).collect(Collectors.toSet());
     }
 
@@ -115,6 +98,9 @@ public class EquipmentOptions extends XmlData {
         this.items = items;
     }
 
+    public List<Equipment> getItems() {
+        return items;
+    }
 
     @Override
     public void validate() throws InvalidXmlElementException {

@@ -34,7 +34,7 @@ import com.softwaremagico.tm.character.equipment.TechCompulsionFactory;
 import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
 import com.softwaremagico.tm.character.equipment.armors.ArmourSpecificationFactory;
 import com.softwaremagico.tm.character.equipment.item.ItemFactory;
-import com.softwaremagico.tm.character.equipment.item.handheldshield.HandheldShieldFactory;
+import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShieldFactory;
 import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
 import com.softwaremagico.tm.character.equipment.thinkmachines.ThinkMachineFactory;
 import com.softwaremagico.tm.character.equipment.weapons.AccessoryFactory;

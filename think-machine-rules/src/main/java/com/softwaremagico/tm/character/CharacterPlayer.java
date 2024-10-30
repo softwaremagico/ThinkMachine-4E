@@ -32,6 +32,7 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.combat.CombatActionRequirement;
 import com.softwaremagico.tm.character.equipment.CharacterSelectedEquipment;
 import com.softwaremagico.tm.character.equipment.Equipment;
+import com.softwaremagico.tm.character.equipment.EquipmentOption;
 import com.softwaremagico.tm.character.equipment.armors.Armor;
 import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
 import com.softwaremagico.tm.character.equipment.item.Item;
@@ -432,8 +433,8 @@ public class CharacterPlayer {
         return getEquipment(Item.class);
     }
 
-    private Set<Equipment> getSelectedMaterialAwards(CharacterDefinitionStepSelection definitionStepSelection, XmlFactory<?> factory,
-                                                     boolean ignoreRemoved) {
+    private Set<EquipmentOption> getSelectedMaterialAwards(CharacterDefinitionStepSelection definitionStepSelection, XmlFactory<?> factory,
+                                                           boolean ignoreRemoved) {
         if (definitionStepSelection == null) {
             return new HashSet<>();
         }
@@ -448,12 +449,12 @@ public class CharacterPlayer {
         return ((CharacterDefinitionStep<?>) factory.getElement(definitionStepSelection.getId())).getMaterialAwards(selected);
     }
 
-    public List<Equipment> getMaterialAwardsSelected() {
+    public List<EquipmentOption> getMaterialAwardsSelected() {
         return getMaterialAwardsSelected(false);
     }
 
-    public List<Equipment> getMaterialAwardsSelected(boolean ignoreRemoved) {
-        final List<Equipment> materialAwards = new ArrayList<>();
+    public List<EquipmentOption> getMaterialAwardsSelected(boolean ignoreRemoved) {
+        final List<EquipmentOption> materialAwards = new ArrayList<>();
         materialAwards.addAll(getSelectedMaterialAwards(upbringing, UpbringingFactory.getInstance(), ignoreRemoved));
         materialAwards.addAll(getSelectedMaterialAwards(faction, FactionFactory.getInstance(), ignoreRemoved));
         materialAwards.addAll(getSelectedMaterialAwards(calling, CallingFactory.getInstance(), ignoreRemoved));
@@ -484,7 +485,7 @@ public class CharacterPlayer {
 
     public List<Equipment> getEquipment() {
         final List<Equipment> totalEquipment = new ArrayList<>();
-        totalEquipment.addAll(getMaterialAwardsSelected());
+        totalEquipment.addAll(getMaterialAwardsSelected().stream().map(EquipmentOption::getElement).collect(Collectors.toSet()));
         totalEquipment.addAll(getEquipmentPurchased());
         return totalEquipment;
     }

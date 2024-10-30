@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.equipment.item.handheldshield;
+package com.softwaremagico.tm.character.equipment.handheldshield;
 
 /*-
  * #%L
@@ -24,19 +24,8 @@ package com.softwaremagico.tm.character.equipment.item.handheldshield;
  * #L%
  */
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.softwaremagico.tm.character.equipment.item.Quality;
+import com.softwaremagico.tm.character.equipment.Equipment;
+import com.softwaremagico.tm.character.equipment.IElementWithTechnologyLevel;
 
-public class CustomizedHandheldShield extends HandheldShield {
-
-    @JsonProperty("quality")
-    private Quality quality;
-
-    public Quality getQuality() {
-        return quality;
-    }
-
-    public void setQuality(Quality quality) {
-        this.quality = quality;
-    }
+public class HandheldShield extends Equipment implements IElementWithTechnologyLevel {
 }
