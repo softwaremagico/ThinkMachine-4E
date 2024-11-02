@@ -25,63 +25,57 @@ package com.softwaremagico.tm.character.equipment;
  */
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.OptionSelector;
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShield;
 import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShieldFactory;
-import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
-import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption> {
-    @JsonProperty("items")
-    private List<Equipment> items;
+
     @JsonIgnore
     private List<EquipmentOption> finalItems;
+
 
     @Override
     public List<EquipmentOption> getOptions() {
         if (finalItems == null) {
             finalItems = new ArrayList<>();
-            if (items != null && !items.isEmpty()) {
-                items.forEach(item -> {
+            if (super.getOptions() != null && !super.getOptions().isEmpty()) {
+                super.getOptions().forEach(item -> {
                     if (item.getId() != null) {
                         finalItems.add(new EquipmentOption(item));
-                    } else if (item instanceof Weapon) {
+                    } else if (item.getWeaponType() != null) {
                         final List<Weapon> customizedWeapons = new ArrayList<>();
-                        if (((Weapon) item).getType() != null && ((Weapon) item).getWeaponClass() != null) {
+                        if ((item.getType() != null && item.getWeaponClass() != null)) {
                             customizedWeapons.addAll(
-                                    WeaponFactory.getInstance().getWeaponsByClass(((Weapon) item).getWeaponClass()).stream().distinct()
-                                            .filter(WeaponFactory.getInstance().getWeapons(((Weapon) item).getType())::contains)
+                                    WeaponFactory.getInstance().getWeaponsByClass(item.getWeaponClass()).stream().distinct()
+                                            .filter(WeaponFactory.getInstance().getWeapons(item.getWeaponType())::contains)
                                             .collect(Collectors.toSet()));
-                        } else if (((Weapon) item).getType() != null) {
-                            customizedWeapons.addAll(WeaponFactory.getInstance().getWeapons(((Weapon) item).getType()));
-                        } else if (((Weapon) item).getWeaponClass() != null) {
-                            customizedWeapons.addAll(WeaponFactory.getInstance().getWeaponsByClass(((Weapon) item).getWeaponClass()));
+                        } else if (item.getType() != null) {
+                            customizedWeapons.addAll(WeaponFactory.getInstance().getWeapons(item.getWeaponType()));
+                        } else if (item.getWeaponClass() != null) {
+                            customizedWeapons.addAll(WeaponFactory.getInstance().getWeaponsByClass(item.getWeaponClass()));
                         }
-                        customizedWeapons.forEach(weapon -> {
-                            if (item instanceof CustomizedWeapon) {
-                                finalItems.add(new EquipmentOption(weapon, ((CustomizedWeapon) item).getQuality(),
-                                        ((CustomizedWeapon) item).getStatus(), item.getQuantity()));
-                            } else {
-                                finalItems.add(new EquipmentOption(weapon, item.getQuantity()));
-                            }
-                        });
-                    } else if (item instanceof HandheldShield) {
+                        customizedWeapons.forEach(customizedWeapon ->
+                                finalItems.add(new EquipmentOption(customizedWeapon, item.getQuality(),
+                                        item.getStatus(), item.getQuantity(), item.getWeaponType(), item.getWeaponClass(),
+                                        item.getType())));
+                    } else if (Objects.equals(item.getType(), "handheldShield")) {
                         final List<HandheldShield> customizedHandheldShields =
                                 new ArrayList<>(HandheldShieldFactory.getInstance().getElements());
-                        customizedHandheldShields.forEach(handheldShield -> {
-                            finalItems.add(new EquipmentOption(handheldShield, item.getQuantity()));
-                        });
+                        customizedHandheldShields.forEach(handheldShield ->
+                                finalItems.add(new EquipmentOption(handheldShield, item.getQuality(),
+                                        item.getStatus(), item.getQuantity(), item.getWeaponType(), item.getWeaponClass(),
+                                        item.getType())));
                     }
                 });
             }
@@ -92,20 +86,5 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
     public Set<EquipmentOption> getOptions(Collection<Selection> items) {
         return getOptions().stream().filter(e -> items.stream().map(Selection::getId).collect(Collectors.toList())
                 .contains(e.getId())).collect(Collectors.toSet());
-    }
-
-    public void setItems(List<Equipment> items) {
-        this.items = items;
-    }
-
-    public List<Equipment> getItems() {
-        return items;
-    }
-
-    @Override
-    public void validate() throws InvalidXmlElementException {
-        if (items != null) {
-            items.forEach(Element::validate);
-        }
     }
 }

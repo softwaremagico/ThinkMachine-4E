@@ -36,7 +36,8 @@ public class CharacterSelectedEquipment extends CharacterSelectedElement {
     private Set<Selection> removed;
 
     public Set<Selection> getRemainder() {
-        return getSelections().stream().filter(e -> !getRemoved().contains(e.getId())).collect(Collectors.toSet());
+        return getSelections().stream().filter(e -> !getRemoved().stream().map(Selection::getId).collect(Collectors.toSet())
+                .contains(e.getId())).collect(Collectors.toSet());
     }
 
     public Set<Selection> getRemoved() {

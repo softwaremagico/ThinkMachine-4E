@@ -25,10 +25,13 @@ package com.softwaremagico.tm;
  */
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 public abstract class Option<T extends Element> extends Element {
 
+    @JsonProperty("quantity")
+    private int quantity = 1;
 
     public T getElement() {
         return getElement(getId());
@@ -74,5 +77,11 @@ public abstract class Option<T extends Element> extends Element {
         throw new UnsupportedOperationException();
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
 
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }

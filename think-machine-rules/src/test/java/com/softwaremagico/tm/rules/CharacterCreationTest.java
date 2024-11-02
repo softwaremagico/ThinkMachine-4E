@@ -140,4 +140,33 @@ public class CharacterCreationTest {
         Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.INTUITION), 3);
         Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.FAITH), 4);
     }
+
+    @Test
+    public void materialAwardsOptions() {
+        final Faction faction = FactionFactory.getInstance().getElement("alMalik");
+        Assert.assertEquals(faction.getMaterialAwards().size(), 1);
+        Assert.assertEquals(faction.getMaterialAwards().get(0).getTotalOptions(), 1);
+        Assert.assertEquals(faction.getMaterialAwards().get(0).getOptions().size(), 1);
+        Assert.assertEquals(faction.getMaterialAwards().get(0).getOptions().get(0).getId(), "estheticOrb");
+    }
+
+    @Test
+    public void materialAwardsOptionsSpecialized() {
+        final Faction faction = FactionFactory.getInstance().getElement("hawkwood");
+        Assert.assertEquals(faction.getMaterialAwards().size(), 1);
+        Assert.assertEquals(faction.getMaterialAwards().get(0).getTotalOptions(), 1);
+        Assert.assertTrue(faction.getMaterialAwards().get(0).getOptions().size() > 8);
+        Assert.assertEquals(faction.getMaterialAwards().get(0).getOptions().get(0).getId(), "glankesh");
+    }
+
+    @Test
+    public void materialAwardsOptionsSpecialized2() {
+        final Faction faction = FactionFactory.getInstance().getElement("vuldrok");
+        Assert.assertEquals(faction.getMaterialAwards().size(), 1);
+        Assert.assertEquals(faction.getMaterialAwards().get(0).getTotalOptions(), 1);
+        Assert.assertTrue(faction.getMaterialAwards().get(0).getOptions().size() > 25);
+        Assert.assertEquals(faction.getMaterialAwards().get(0).getOptions()
+                .get(faction.getMaterialAwards().get(0).getOptions().size() - 1)
+                .getType(), "handheldShield");
+    }
 }

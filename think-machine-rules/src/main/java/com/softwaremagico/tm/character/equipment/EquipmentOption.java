@@ -24,6 +24,7 @@ package com.softwaremagico.tm.character.equipment;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Option;
 import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
 import com.softwaremagico.tm.character.equipment.armors.CustomizedArmor;
@@ -39,10 +40,18 @@ import com.softwaremagico.tm.character.equipment.thinkmachines.CustomizedThinkMa
 import com.softwaremagico.tm.character.equipment.thinkmachines.ThinkMachineFactory;
 import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
+import com.softwaremagico.tm.character.equipment.weapons.WeaponType;
 
 public class EquipmentOption extends Option<Equipment> {
 
-    private int quantity = 1;
+    @JsonProperty("weaponType")
+    private WeaponType weaponType;
+
+    @JsonProperty("type")
+    private String type;
+
+    @JsonProperty("weaponClass")
+    private String weaponClass;
 
     private Quality quality;
 
@@ -50,6 +59,12 @@ public class EquipmentOption extends Option<Equipment> {
 
     public EquipmentOption() {
         super();
+    }
+
+    public EquipmentOption(Option<Equipment> equipment) {
+        this();
+        setId(equipment.getId());
+        setQuantity(equipment.getQuantity());
     }
 
     public EquipmentOption(Equipment equipment) {
@@ -64,14 +79,41 @@ public class EquipmentOption extends Option<Equipment> {
         setQuantity(quantity);
     }
 
-    public EquipmentOption(Equipment equipment, Quality quality, Status status, int quantity) {
+    public EquipmentOption(Equipment equipment, Quality quality, Status status, int quantity, WeaponType weaponType,
+                           String weaponClass, String type) {
         this();
         setId(equipment.getId());
         setQuantity(quantity);
         setQuality(quality);
         setStatus(status);
+        setWeaponType(weaponType);
+        setWeaponClass(weaponClass);
+        setType(type);
     }
 
+    public WeaponType getWeaponType() {
+        return weaponType;
+    }
+
+    public void setWeaponType(WeaponType weaponType) {
+        this.weaponType = weaponType;
+    }
+
+    public String getWeaponClass() {
+        return weaponClass;
+    }
+
+    public void setWeaponClass(String weaponClass) {
+        this.weaponClass = weaponClass;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     @Override
     public Equipment getElement(String id) {
@@ -102,19 +144,11 @@ public class EquipmentOption extends Option<Equipment> {
             }
         }
         if (equipment != null) {
-            equipment.setQuantity(quantity);
+            equipment.setQuantity(getQuantity());
             equipment.setQuality(quality);
             equipment.setStatus(status);
         }
         return equipment;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
     }
 
     public Quality getQuality() {

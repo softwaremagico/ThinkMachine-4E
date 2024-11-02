@@ -203,13 +203,15 @@
             <calling>enthusiast</calling>
         </favoredCallings>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <item>
-                    <id>estheticOrb</id>
-                    <type>item</type>
-                </item>
-            </options>
+                <options>
+                    <item>
+                        <id>estheticOrb</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -563,15 +565,15 @@
             <calling>sybarite</calling>
         </favoredCallings>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>littleFriend</id>
                         <type>item</type>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -764,17 +766,17 @@
             <calling>commander</calling>
         </favoredCallings>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <weaponClass>sword</weaponClass>
                         <weaponType>melee</weaponType>
                         <type>customizedWeapon</type>
                         <quality>premium</quality>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -1019,15 +1021,15 @@
             <calling>duelist</calling>
         </favoredCallings>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>synthsilkCape</id>
                         <type>armor</type>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -1283,24 +1285,24 @@
             <calling>courtier</calling>
         </favoredCallings>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>saintsRelic</id>
                         <type>item</type>
                     </item>
-                </items>
-            </options>
-            <options>
+                </options>
+            </materialAwardOption>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>looseSynthsilkRobes</id>
                         <type>item</type>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -1518,9 +1520,9 @@
             <calling>brotherBattle</calling>
         </favoredCallings>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <weaponClass>sword</weaponClass>
                         <weaponType>melee</weaponType>
@@ -1532,8 +1534,8 @@
                         <type>customizedWeapon</type>
                         <status>blessed</status>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -1710,24 +1712,24 @@
             <calling>occultist</calling>
         </favoredCallings>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>apocryphaOfHorace</id>
                         <type>item</type>
                     </item>
-                </items>
-            </options>
-            <options>
+                </options>
+            </materialAwardOption>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>saintHoraceTheLearnedTexts</id>
                         <type>item</type>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -1933,15 +1935,15 @@
             <calling>healer</calling>
         </favoredCallings>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>mercifulTechnal</id>
                         <type>item</type>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -2157,15 +2159,15 @@
             <calling>Inquisitor</calling>
         </favoredCallings>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id></id>
                         <type></type>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -2370,24 +2372,24 @@
             <calling>clergy</calling>
         </favoredCallings>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>omegaGospels</id>
                         <type>item</type>
                     </item>
-                </items>
-            </options>
-            <options>
+                </options>
+            </materialAwardOption>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>silverJumpCross</id>
                         <type>item</type>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -2554,15 +2556,15 @@
             <calling>starPilot</calling>
         </favoredCallings>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>jumpkey</id>
                         <type>item</type>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -2731,14 +2733,14 @@
             <calling>techRedemeer</calling>
         </favoredCallings>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>multitool</id>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -2927,15 +2929,15 @@
             <calling>mercenary</calling>
         </favoredCallings>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>muSpASuit</id>
                         <type>armor</type>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -3105,15 +3107,15 @@
             <calling>lawyer</calling>
         </favoredCallings>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>crawler</id>
                         <type>thinkMachine</type>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -3324,15 +3326,15 @@
             <calling>thief</calling>
         </favoredCallings>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>guestKey</id>
                         <type>item</type>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -3521,15 +3523,15 @@
             <calling>mercenary</calling>
         </favoredCallings>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>militarySquawker</id>
                         <type>item</type>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -3712,9 +3714,9 @@
             <calling>lawyer</calling>
         </favoredCallings>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>scramblerKey</id>
                         <type>item</type>
@@ -3723,8 +3725,8 @@
                         <id>translator</id>
                         <type>thinkMachine</type>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -3934,15 +3936,15 @@
             <calling>explorer</calling>
         </favoredCallings>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>societyOfStPaulusExpeditionGuide</id>
                         <type>item</type>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <random>
             <probabilityMultiplier>20</probabilityMultiplier>
@@ -4128,16 +4130,16 @@
             <calling>amateur</calling>
         </favoredCallings>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>firebirds</id>
                         <type>item</type>
                         <quantity>100</quantity>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -4359,9 +4361,9 @@
             <calling>pirate</calling>
         </favoredCallings>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <weaponType>melee</weaponType>
                         <type>customizedWeapon</type>
@@ -4371,8 +4373,8 @@
                         <type>handheldShield</type>
                         <quality>premium</quality>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>
