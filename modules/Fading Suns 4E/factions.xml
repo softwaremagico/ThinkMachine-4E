@@ -518,25 +518,29 @@
             </skillBonusOption>
             <skillBonusOption>
                 <total>1</total>
-                <skill>
-                    <id>melee</id>
-                    <bonus>1</bonus>
-                </skill>
-                <skill>
-                    <id>shoot</id>
-                    <bonus>1</bonus>
-                </skill>
+                <options>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
             </skillBonusOption>
             <skillBonusOption>
                 <total>1</total>
-                <skill>
-                    <id>observer</id>
-                    <bonus>1</bonus>
-                </skill>
-                <skill>
-                    <id>sneak</id>
-                    <bonus>1</bonus>
-                </skill>
+                <options>
+                    <skill>
+                        <id>observer</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>sneak</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
             </skillBonusOption>
         </skills>
         <blessing>
