@@ -533,7 +533,7 @@
                 <total>1</total>
                 <options>
                     <skill>
-                        <id>observer</id>
+                        <id>observe</id>
                         <bonus>1</bonus>
                     </skill>
                     <skill>
