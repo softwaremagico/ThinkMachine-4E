@@ -119,7 +119,7 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
         super.validate();
 
         if (capabilityOptions != null) {
-            capabilityOptions.forEach(OptionSelector::validate);
+            capabilityOptions.forEach(CapabilityOptions::validate);
         }
         if (characteristicBonusOptions != null) {
             characteristicBonusOptions.forEach(OptionSelector::validate);

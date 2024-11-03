@@ -603,7 +603,7 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <id>beastBack</id>
+                        <id>beastback</id>
                     </capability>
                     <capability>
                         <id>shipboardOperations</id>

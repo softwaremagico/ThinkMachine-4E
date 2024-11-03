@@ -30,5 +30,4 @@ Equipo:
 	- Escudo de Energía de Duelo (5/10 15 Cargas)
 	- Amiguito (NT 5, Tam XS)
 	- Corcel de Guerra
-	- Espada Ceremonial (Tam L)
 	- Uniforme de Comandante Militar

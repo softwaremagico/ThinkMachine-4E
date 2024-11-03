@@ -75,4 +75,17 @@ public class CharacteristicBonusOptions extends OptionSelector<CharacteristicDef
                 + super.getOptions()
                 + '}';
     }
+
+
+    @Override
+    public void validate() throws InvalidXmlElementException {
+        super.validate();
+        if (getOptions() != null) {
+            getOptions().forEach(option -> {
+                if (option.getId() != null) {
+                    CharacteristicsDefinitionFactory.getInstance().getElement(option.getId());
+                }
+            });
+        }
+    }
 }

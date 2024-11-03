@@ -89,4 +89,16 @@ public class PerkOptions extends OptionSelector<Perk, PerkOption> {
                 + super.getOptions()
                 + '}';
     }
+
+    @Override
+    public void validate() throws InvalidXmlElementException {
+        super.validate();
+        if (getOptions() != null) {
+            getOptions().forEach(option -> {
+                if (option.getId() != null) {
+                    PerkFactory.getInstance().getElement(option.getId());
+                }
+            });
+        }
+    }
 }

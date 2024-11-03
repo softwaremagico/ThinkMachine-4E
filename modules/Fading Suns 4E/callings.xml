@@ -170,34 +170,34 @@
             </skillBonusOption>
         </skills>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>militaryCommandersUniform</id>
                         <type>item</type>
                         <status>elegant</status>
                     </item>
-                </items>
-            </options>
-            <options>
+                </options>
+            </materialAwardOption>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>dressSword</id>
                         <type>item</type>
                     </item>
-                </items>
-            </options>
-            <options>
+                </options>
+            </materialAwardOption>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>destrier</id>
                         <type>item</type>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -367,33 +367,33 @@
             </skillBonusOption>
         </skills>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>courtOutfit</id>
                         <type>item</type>
                     </item>
-                </items>
-            </options>
-            <options>
+                </options>
+            </materialAwardOption>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>churchPageantryOutfit</id>
                         <type>item</type>
                     </item>
-                </items>
-            </options>
-            <options>
+                </options>
+            </materialAwardOption>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>agoraShoppingOutfit</id>
                         <type>item</type>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -551,33 +551,33 @@
             </skillBonusOption>
         </skills>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>officialOccasionOutfit</id>
                         <type>item</type>
                     </item>
-                </items>
-            </options>
-            <options>
+                </options>
+            </materialAwardOption>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>huntingOutfit</id>
                         <type>item</type>
                     </item>
-                </items>
-            </options>
-            <options>
+                </options>
+            </materialAwardOption>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <id>diningOutfit</id>
                         <type>item</type>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -757,17 +757,17 @@
             </skillBonusOption>
         </skills>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <weaponClass>sword</weaponClass>
                         <weaponType>melee</weaponType>
                         <type>customizedWeapon</type>
                         <quality>premium</quality>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>
@@ -947,17 +947,17 @@
             </skillBonusOption>
         </skills>
         <materialAwards>
-            <options>
+            <materialAwardOption>
                 <total>1</total>
-                <items>
+                <options>
                     <item>
                         <weaponClass>pistol</weaponClass>
                         <weaponType>melee</weaponType>
                         <type>customizedWeapon</type>
                         <quality>premium</quality>
                     </item>
-                </items>
-            </options>
+                </options>
+            </materialAwardOption>
         </materialAwards>
         <restrictions>
             <upbringings>

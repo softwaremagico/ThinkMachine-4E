@@ -72,4 +72,16 @@ public class SkillBonusOptions extends OptionSelector<Skill, SkillBonusOption> {
                 + super.getOptions()
                 + '}';
     }
+
+    @Override
+    public void validate() throws InvalidXmlElementException {
+        super.validate();
+        if (getOptions() != null) {
+            getOptions().forEach(option -> {
+                if (option.getId() != null) {
+                    SkillFactory.getInstance().getElement(option.getId());
+                }
+            });
+        }
+    }
 }

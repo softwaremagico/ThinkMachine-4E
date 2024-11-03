@@ -31,6 +31,7 @@ import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShield;
 import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShieldFactory;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -86,5 +87,19 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
     public Set<EquipmentOption> getOptions(Collection<Selection> items) {
         return getOptions().stream().filter(e -> items.stream().map(Selection::getId).collect(Collectors.toList())
                 .contains(e.getId())).collect(Collectors.toSet());
+    }
+
+    @Override
+    public void validate() throws InvalidXmlElementException {
+        super.validate();
+        if (getOptions() != null) {
+            getOptions().forEach(option -> {
+                if (option.getId() != null) {
+                    if (option.getElement(option.getId()) == null) {
+                        throw new InvalidXmlElementException("Option with id " + option.getId() + " does not exist");
+                    }
+                }
+            });
+        }
     }
 }
