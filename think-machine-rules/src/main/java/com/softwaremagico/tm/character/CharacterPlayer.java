@@ -54,6 +54,7 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
 import com.softwaremagico.tm.exceptions.RestrictedElementException;
 import com.softwaremagico.tm.exceptions.UnofficialCharacterException;
+import com.softwaremagico.tm.log.MachineLog;
 import com.softwaremagico.tm.txt.CharacterSheet;
 import com.softwaremagico.tm.xml.XmlFactory;
 
@@ -235,7 +236,12 @@ public class CharacterPlayer {
         if (characteristic == null) {
             return 0;
         }
-        return getCharacteristicValue(characteristic.getId());
+        try {
+            return getCharacteristicValue(characteristic.getId());
+        } catch (MaxInitialValueExceededException e) {
+            MachineLog.warning(this.getClass(), e.getMessage());
+            return MAX_INITIAL_VALUE;
+        }
     }
 
     public int getCharacteristicValue(String characteristic) throws MaxInitialValueExceededException {
@@ -253,9 +259,9 @@ public class CharacterPlayer {
         if (calling != null) {
             bonus += calling.getCharacteristicBonus(characteristic);
         }
-        if (bonus > MAX_INITIAL_VALUE) {
-            throw new MaxInitialValueExceededException("Characteristic '" + characteristic + "' has exceeded the maximum value of .",
-                    bonus, MAX_INITIAL_VALUE);
+        if (getLevel() < 2 && bonus > MAX_INITIAL_VALUE) {
+            throw new MaxInitialValueExceededException("Characteristic '" + characteristic + "' has exceeded the maximum value of '"
+                    + bonus + "' with '" + MAX_INITIAL_VALUE + "'.", bonus, MAX_INITIAL_VALUE);
         }
         return bonus;
     }

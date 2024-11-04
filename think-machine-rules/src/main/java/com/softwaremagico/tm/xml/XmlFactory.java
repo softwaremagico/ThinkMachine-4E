@@ -43,6 +43,7 @@ import java.net.URLClassLoader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -105,6 +106,9 @@ public abstract class XmlFactory<T extends Element> {
     }
 
     public List<T> getElements(Collection<String> ids) throws InvalidXmlElementException {
+        if (ids == null) {
+            return new ArrayList<>();
+        }
         return getElements().stream().filter(t -> ids.contains(t.getId())).collect(Collectors.toList());
     }
 

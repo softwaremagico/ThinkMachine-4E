@@ -123,7 +123,7 @@ public class CharacterCreationTest {
                         .add(new Selection(calling.getCharacteristicOptions().get(i).getOptions().get(j).getId()));
             }
         }
-        characterPlayer.getCharacteristicValue(CharacteristicName.PRESENCE);
+        characterPlayer.getCharacteristicValue(CharacteristicName.PRESENCE.getId());
     }
 
     @Test
