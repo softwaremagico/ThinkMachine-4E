@@ -63,10 +63,10 @@ public class ArmorTableFactory extends BaseElement {
         table.addCell(createSectionTitle(TextFactory.getInstance().getElement("armor").getName().getTranslatedText(), widths.length));
 
         final Paragraph armor = new Paragraph();
-        if (characterPlayer == null || characterPlayer.getArmor() == null) {
+        if (characterPlayer == null || characterPlayer.getBestArmor() == null) {
             armor.add(BaseElement.getChunk(GAP));
         } else {
-            armor.add(BaseElement.getChunk(characterPlayer.getArmor().getName().getTranslatedText(), NAME_COLUMN_WIDTH,
+            armor.add(BaseElement.getChunk(characterPlayer.getBestArmor().getName().getTranslatedText(), NAME_COLUMN_WIDTH,
                     FadingSunsTheme.getHandwrittingFont(), FadingSunsTheme.ARMOUR_CONTENT_FONT_SIZE));
         }
         final PdfPCell armorCell = new PdfPCell(armor);
@@ -91,7 +91,7 @@ public class ArmorTableFactory extends BaseElement {
         malusCell.setBorder(0);
         malusCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
         malusCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-        if (characterPlayer == null || characterPlayer.getArmor() == null) {
+        if (characterPlayer == null || characterPlayer.getBestArmor() == null) {
             final Paragraph paragraph = new Paragraph();
             paragraph.add(BaseElement.getChunk(TextFactory.getInstance().getTranslatedText("strengthAbbreviation") + ":__  "));
             paragraph.add(BaseElement.getChunk(TextFactory.getInstance().getTranslatedText("dexterityAbbreviation") + ":__  "));
@@ -100,12 +100,12 @@ public class ArmorTableFactory extends BaseElement {
             final Paragraph paragraph = new Paragraph();
             paragraph.add(BaseElement.getChunk(TextFactory.getInstance().getTranslatedText("strengthAbbreviation") + ":",
                     FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE));
-            paragraph.add(BaseElement.getChunk(characterPlayer.getArmor().getStandardPenalization().getStrengthModification()
+            paragraph.add(BaseElement.getChunk(characterPlayer.getBestArmor().getStandardPenalization().getStrengthModification()
                     + " ", FadingSunsTheme.getHandwrittingFont(), FadingSunsTheme.ARMOUR_CONTENT_FONT_SIZE));
 
             paragraph.add(BaseElement.getChunk(" " + TextFactory.getInstance().getTranslatedText("dexterityAbbreviation") + ":",
                     FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE));
-            paragraph.add(BaseElement.getChunk(characterPlayer.getArmor().getStandardPenalization()
+            paragraph.add(BaseElement.getChunk(characterPlayer.getBestArmor().getStandardPenalization()
                     .getDexterityModification()
                     + " ", FadingSunsTheme.getHandwrittingFont(), FadingSunsTheme.ARMOUR_CONTENT_FONT_SIZE));
 
@@ -124,10 +124,10 @@ public class ArmorTableFactory extends BaseElement {
         resistanceTable.addCell(resistance);
         // Rectangle
         final PdfPCell rectangle;
-        if (characterPlayer == null || characterPlayer.getArmor() == null) {
+        if (characterPlayer == null || characterPlayer.getBestArmor() == null) {
             rectangle = CustomPdfTable.createRectangle();
         } else {
-            rectangle = CustomPdfTable.createRectangle(characterPlayer.getArmor().getProtection() + "");
+            rectangle = CustomPdfTable.createRectangle(characterPlayer.getBestArmor().getProtection() + "");
         }
         rectangle.setMinimumHeight(FadingSunsTheme.ROW_HEIGHT);
         resistanceTable.addCell(rectangle);
@@ -155,7 +155,7 @@ public class ArmorTableFactory extends BaseElement {
     private static PdfPTable getDamageProtection(CharacterPlayer characterPlayer) {
         final PdfPTable damages = new PdfPTable(new float[]{1f, 1f, 1f, 1f, 1f, 1f, 1f});
         setTableProperties(damages);
-        if (characterPlayer == null || characterPlayer.getArmor() == null) {
+        if (characterPlayer == null || characterPlayer.getBestArmor() == null) {
             damages.addCell(getArmorProperty(TextFactory.getInstance().getTranslatedText("armorHardAbbreviation"), false));
             damages.addCell(getArmorProperty(TextFactory.getInstance().getTranslatedText("armorFlameAbbreviation"), false));
             damages.addCell(getArmorProperty(TextFactory.getInstance().getTranslatedText("armorLaserAbbreviation"), false));
@@ -167,49 +167,49 @@ public class ArmorTableFactory extends BaseElement {
             damages.addCell(getArmorProperty(
                     TextFactory.getInstance().getTranslatedText("armorHardAbbreviation"),
                     characterPlayer
-                            .getArmor()
+                            .getBestArmor()
                             .getDamageTypes()
                             .contains(
                                     DamageTypeFactory.getInstance().getElement("hard").getId())));
             damages.addCell(getArmorProperty(
                     TextFactory.getInstance().getTranslatedText("armorFlameAbbreviation"),
                     characterPlayer
-                            .getArmor()
+                            .getBestArmor()
                             .getDamageTypes()
                             .contains(
                                     DamageTypeFactory.getInstance().getElement("fire").getId())));
             damages.addCell(getArmorProperty(
                     TextFactory.getInstance().getTranslatedText("armorLaserAbbreviation"),
                     characterPlayer
-                            .getArmor()
+                            .getBestArmor()
                             .getDamageTypes()
                             .contains(
                                     DamageTypeFactory.getInstance().getElement("laser").getId())));
             damages.addCell(getArmorProperty(
                     TextFactory.getInstance().getTranslatedText("armorBlasterAbbreviation"),
                     characterPlayer
-                            .getArmor()
+                            .getBestArmor()
                             .getDamageTypes()
                             .contains(
                                     DamageTypeFactory.getInstance().getElement("blaster").getId())));
             damages.addCell(getArmorProperty(
                     TextFactory.getInstance().getTranslatedText("armorShockAbbreviation"),
                     characterPlayer
-                            .getArmor()
+                            .getBestArmor()
                             .getDamageTypes()
                             .contains(
                                     DamageTypeFactory.getInstance().getElement("shock").getId())));
             damages.addCell(getArmorProperty(
                     TextFactory.getInstance().getTranslatedText("armorSlamAbbreviation"),
                     characterPlayer
-                            .getArmor()
+                            .getBestArmor()
                             .getDamageTypes()
                             .contains(
                                     DamageTypeFactory.getInstance().getElement("slam").getId())));
             damages.addCell(getArmorProperty(
                     TextFactory.getInstance().getTranslatedText("armorSonicAbbreviation"),
                     characterPlayer
-                            .getArmor()
+                            .getBestArmor()
                             .getDamageTypes()
                             .contains(
                                     DamageTypeFactory.getInstance().getElement("sonic").getId())));

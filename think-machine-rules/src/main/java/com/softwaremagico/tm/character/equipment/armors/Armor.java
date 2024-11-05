@@ -38,9 +38,9 @@ public class Armor extends Equipment {
     @JsonProperty("damageTypes")
     private Set<String> damageTypes;
     @JsonProperty("standardPenalizations")
-    private ArmourPenalization standardPenalization;
+    private ArmorPenalization standardPenalization;
     @JsonProperty("specialPenalizations")
-    private ArmourPenalization specialPenalization;
+    private ArmorPenalization specialPenalization;
     @JsonProperty("shields")
     private Set<String> allowedShields;
     @JsonProperty("others")
@@ -53,8 +53,8 @@ public class Armor extends Equipment {
         super();
         this.protection = 0;
         this.damageTypes = new HashSet<>();
-        this.standardPenalization = new ArmourPenalization(0, 0, 0, 0);
-        this.specialPenalization = new ArmourPenalization(0, 0, 0, 0);
+        this.standardPenalization = new ArmorPenalization(0, 0, 0, 0);
+        this.specialPenalization = new ArmorPenalization(0, 0, 0, 0);
         this.allowedShields = new HashSet<>();
         this.specifications = new HashSet<>();
     }
@@ -67,11 +67,11 @@ public class Armor extends Equipment {
         return damageTypes;
     }
 
-    public ArmourPenalization getStandardPenalization() {
+    public ArmorPenalization getStandardPenalization() {
         return standardPenalization;
     }
 
-    public ArmourPenalization getSpecialPenalization() {
+    public ArmorPenalization getSpecialPenalization() {
         return specialPenalization;
     }
 
@@ -92,11 +92,11 @@ public class Armor extends Equipment {
         this.damageTypes = damageTypes;
     }
 
-    public void setStandardPenalization(ArmourPenalization standardPenalization) {
+    public void setStandardPenalization(ArmorPenalization standardPenalization) {
         this.standardPenalization = standardPenalization;
     }
 
-    public void setSpecialPenalization(ArmourPenalization specialPenalization) {
+    public void setSpecialPenalization(ArmorPenalization specialPenalization) {
         this.specialPenalization = specialPenalization;
     }
 

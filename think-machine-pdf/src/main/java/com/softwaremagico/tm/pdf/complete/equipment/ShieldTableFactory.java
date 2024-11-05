@@ -60,10 +60,10 @@ public class ShieldTableFactory extends BaseElement {
         table.addCell(createSectionTitle(TextFactory.getInstance().getElement("shield").getName().getTranslatedText(), widths.length));
 
         final PdfPCell nameCell;
-        if (characterPlayer == null || characterPlayer.getShield() == null) {
+        if (characterPlayer == null || characterPlayer.getBestShield() == null) {
             nameCell = createEmptyElementLine(GAP + GAP + GAP, COLUMN_WIDTH);
         } else {
-            nameCell = createElementLine(characterPlayer.getShield().getName().getTranslatedText(), COLUMN_WIDTH,
+            nameCell = createElementLine(characterPlayer.getBestShield().getName().getTranslatedText(), COLUMN_WIDTH,
                     FadingSunsTheme.SHIELD_CONTENT_FONT_SIZE);
         }
         nameCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
@@ -80,10 +80,10 @@ public class ShieldTableFactory extends BaseElement {
 
         final Paragraph paragraph = new Paragraph();
         paragraph.add(BaseElement.getChunk(TextFactory.getInstance().getElement("shieldHits").getName() + ": "));
-        if (characterPlayer == null || characterPlayer.getShield() == null) {
+        if (characterPlayer == null || characterPlayer.getBestShield() == null) {
             BaseElement.getChunk(GAP);
         } else {
-            paragraph.add(BaseElement.getChunk(characterPlayer.getShield().getHits() + " - ", FadingSunsTheme
+            paragraph.add(BaseElement.getChunk(characterPlayer.getBestShield().getHits() + " - ", FadingSunsTheme
                     .getHandwrittingFont(), FadingSunsTheme.SHIELD_CONTENT_FONT_SIZE));
         }
         final PdfPCell hitsCell = new PdfPCell();
@@ -108,10 +108,10 @@ public class ShieldTableFactory extends BaseElement {
 
         Paragraph paragraph = new Paragraph();
         paragraph.add(BaseElement.getChunk(TextFactory.getInstance().getElement("burnOut").getName() + ": "));
-        if (characterPlayer == null || characterPlayer.getShield() == null) {
+        if (characterPlayer == null || characterPlayer.getBestShield() == null) {
             BaseElement.getChunk(GAP);
         } else {
-            paragraph.add(BaseElement.getChunk(characterPlayer.getShield().getBurnOut() + "   ", FadingSunsTheme
+            paragraph.add(BaseElement.getChunk(characterPlayer.getBestShield().getBurnOut() + "   ", FadingSunsTheme
                     .getHandwrittingFont(), FadingSunsTheme.SHIELD_CONTENT_FONT_SIZE));
         }
         final PdfPCell burnOutCell = new PdfPCell(paragraph);
@@ -121,10 +121,10 @@ public class ShieldTableFactory extends BaseElement {
 
         paragraph = new Paragraph();
         paragraph.add(BaseElement.getChunk(TextFactory.getInstance().getElement("distortion").getName() + ": "));
-        if (characterPlayer == null || characterPlayer.getShield() == null) {
+        if (characterPlayer == null || characterPlayer.getBestShield() == null) {
             BaseElement.getChunk(GAP);
         } else {
-            paragraph.add(BaseElement.getChunk(characterPlayer.getShield().getDistortion() + "   ", FadingSunsTheme
+            paragraph.add(BaseElement.getChunk(characterPlayer.getBestShield().getDistortion() + "   ", FadingSunsTheme
                     .getHandwrittingFont(), FadingSunsTheme.SHIELD_CONTENT_FONT_SIZE));
         }
 
@@ -145,17 +145,17 @@ public class ShieldTableFactory extends BaseElement {
         table.getDefaultCell().setPadding(0);
         table.getDefaultCell().setVerticalAlignment(Element.ALIGN_MIDDLE);
 
-        if (characterPlayer == null || characterPlayer.getShield() == null) {
+        if (characterPlayer == null || characterPlayer.getBestShield() == null) {
             table.addCell(createRectangle(""));
         } else {
-            table.addCell(createRectangle(characterPlayer.getShield().getImpact()));
+            table.addCell(createRectangle(characterPlayer.getBestShield().getImpact()));
         }
         table.addCell(createEmptyElementLine("/"));
         final PdfPCell rectangle;
-        if (characterPlayer == null || characterPlayer.getShield() == null) {
+        if (characterPlayer == null || characterPlayer.getBestShield() == null) {
             rectangle = createRectangle("");
         } else {
-            rectangle = createRectangle(characterPlayer.getShield().getForce());
+            rectangle = createRectangle(characterPlayer.getBestShield().getForce());
         }
         rectangle.setMinimumHeight(FadingSunsTheme.ROW_HEIGHT);
         table.addCell(rectangle);

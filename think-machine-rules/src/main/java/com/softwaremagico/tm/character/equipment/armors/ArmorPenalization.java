@@ -27,7 +27,7 @@ package com.softwaremagico.tm.character.equipment.armors;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class ArmourPenalization {
+public class ArmorPenalization {
     @JsonProperty("dexterity")
     private int dexterityModification;
     @JsonProperty("strength")
@@ -37,11 +37,11 @@ public class ArmourPenalization {
     @JsonProperty("endurance")
     private int enduranceModification;
 
-    public ArmourPenalization() {
+    public ArmorPenalization() {
         super();
     }
 
-    public ArmourPenalization(int dexterityModification, int strengthModification, int initiativeModification, int enduranceModification) {
+    public ArmorPenalization(int dexterityModification, int strengthModification, int initiativeModification, int enduranceModification) {
         this.dexterityModification = dexterityModification;
         this.strengthModification = strengthModification;
         this.initiativeModification = initiativeModification;

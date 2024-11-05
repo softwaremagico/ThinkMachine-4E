@@ -279,7 +279,7 @@ public class CharacterSheet {
     }
 
     private void setArmor(StringBuilder stringBuilder) {
-        final Armor armor = getCharacterPlayer().getArmor();
+        final Armor armor = getCharacterPlayer().getBestArmor();
         if (armor != null) {
             stringBuilder.append("\t- ").append(armor.getName());
             stringBuilder.append(" (");
@@ -309,7 +309,7 @@ public class CharacterSheet {
     }
 
     private void setShield(StringBuilder stringBuilder) {
-        final Shield shield = getCharacterPlayer().getShield();
+        final Shield shield = getCharacterPlayer().getBestShield();
         if (shield != null) {
             stringBuilder.append("\t- ").append(shield.getName());
             stringBuilder.append(" (");
@@ -365,8 +365,8 @@ public class CharacterSheet {
     }
 
     private void setEquipment(StringBuilder stringBuilder) {
-        if (!getCharacterPlayer().getWeapons().isEmpty() || getCharacterPlayer().getShield() != null
-                || getCharacterPlayer().getArmor() != null || getCharacterPlayer().getItems() != null) {
+        if (!getCharacterPlayer().getWeapons().isEmpty() || getCharacterPlayer().getBestShield() != null
+                || getCharacterPlayer().getBestArmor() != null || getCharacterPlayer().getItems() != null) {
             stringBuilder.append(TextFactory.getInstance().getElement("equipment").getNameRepresentation()).append(":\n");
             setWeapons(stringBuilder);
             setArmor(stringBuilder);

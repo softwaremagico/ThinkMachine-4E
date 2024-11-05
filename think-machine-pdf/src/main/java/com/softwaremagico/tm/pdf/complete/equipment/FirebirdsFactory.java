@@ -36,12 +36,15 @@ import com.softwaremagico.tm.pdf.complete.elements.BaseElement;
 import com.softwaremagico.tm.pdf.complete.utils.CellUtils;
 import com.softwaremagico.tm.txt.TextFactory;
 
+import java.text.DecimalFormat;
+
 public class FirebirdsFactory extends BaseElement {
     private static final float[] WIDTHS = {1f};
     private static final int ROWS = 2;
     private static final String GAP = "_______________________________________________";
     private static final int COLUMN_WIDTH = 174;
     private static final int TITLE_MARGIN = 10;
+    private static final DecimalFormat MONEY_FORMAT = new DecimalFormat("#.#");
 
     public static PdfPTable getFirebirdsTable(CharacterPlayer characterPlayer) throws InvalidXmlElementException {
         final PdfPTable table = new PdfPTable(WIDTHS);
@@ -98,7 +101,7 @@ public class FirebirdsFactory extends BaseElement {
         return getMoneyValue(characterPlayer, "assets", null);
     }
 
-    private static Paragraph getMoneyValue(CharacterPlayer characterPlayer, String tag, Integer value) {
+    private static Paragraph getMoneyValue(CharacterPlayer characterPlayer, String tag, Float value) {
         final Paragraph paragraph = new Paragraph();
         paragraph.add(new Chunk(TextFactory.getInstance().getElement(tag).getName().getTranslatedText()
                 + ": ", new Font(FadingSunsTheme.getTitleFont(), FadingSunsTheme.LINE_FONT_SIZE)));
@@ -106,7 +109,7 @@ public class FirebirdsFactory extends BaseElement {
         float usedWidth = FadingSunsTheme.getTitleFont().getWidthPoint(TextFactory.getInstance().getElement(tag).getName().getTranslatedText(),
                 FadingSunsTheme.LINE_FONT_SIZE) + TITLE_MARGIN;
         if (characterPlayer != null) {
-            moneyText = "  " + (value != null ? value + "- " : "");
+            moneyText = "  " + (value != null ? MONEY_FORMAT.format(value) + "- " : "");
             usedWidth += FadingSunsTheme.getHandwrittingFont().getWidthPoint(
                     TextFactory.getInstance().getElement(tag).getName().getTranslatedText() + moneyText,
                     FadingSunsTheme.LINE_FONT_SIZE);

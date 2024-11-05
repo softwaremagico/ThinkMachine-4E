@@ -274,7 +274,7 @@ public class Element extends XmlData implements Comparable<Element> {
         if (element == null) {
             return true;
         }
-        return Objects.equals(element.getId(), DEFAULT_NULL_ID);
+        return element.getId() == null || Objects.equals(element.getId(), DEFAULT_NULL_ID);
     }
 
     @Override

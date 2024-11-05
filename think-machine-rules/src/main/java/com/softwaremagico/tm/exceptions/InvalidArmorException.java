@@ -25,14 +25,14 @@ package com.softwaremagico.tm.exceptions;
  */
 
 
-public class InvalidArmourException extends InvalidXmlElementException {
+public class InvalidArmorException extends InvalidXmlElementException {
     private static final long serialVersionUID = 1243337930745480002L;
 
-    public InvalidArmourException(String message) {
+    public InvalidArmorException(String message) {
         super(message);
     }
 
-    public InvalidArmourException(String message, Exception e) {
+    public InvalidArmorException(String message, Exception e) {
         super(message, e);
     }
 }

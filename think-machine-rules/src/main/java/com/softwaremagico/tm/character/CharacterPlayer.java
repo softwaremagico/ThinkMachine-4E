@@ -54,6 +54,7 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
 import com.softwaremagico.tm.exceptions.RestrictedElementException;
 import com.softwaremagico.tm.exceptions.UnofficialCharacterException;
+import com.softwaremagico.tm.exceptions.UnofficialElementNotAllowedException;
 import com.softwaremagico.tm.log.MachineLog;
 import com.softwaremagico.tm.txt.CharacterSheet;
 import com.softwaremagico.tm.xml.XmlFactory;
@@ -64,6 +65,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -345,8 +347,8 @@ public class CharacterPlayer {
     }
 
     public int getBodyResistance() {
-        if (getArmor() != null) {
-            return getArmor().getProtection();
+        if (getBestArmor() != null) {
+            return getBestArmor().getProtection();
         }
         return 0;
     }
@@ -395,31 +397,6 @@ public class CharacterPlayer {
         return 1;
     }
 
-    /**
-     * Gets best shield purchased and acquired with benefices.
-     *
-     * @return all weapons of the character.
-     */
-    public Shield getShield() {
-        final List<Shield> shields = getEquipment(Shield.class);
-        if (shields.isEmpty()) {
-            return null;
-        }
-        return Collections.max(shields, Comparator.comparing(Shield::getCost));
-    }
-
-    /**
-     * Gets best armor purchased and acquired with benefices.
-     *
-     * @return all weapons of the character.
-     */
-    public Armor getArmor() {
-        final List<Armor> armors = getEquipment(Armor.class);
-        if (armors.isEmpty()) {
-            return null;
-        }
-        return Collections.max(armors, Comparator.comparing(Armor::getCost));
-    }
 
     /**
      * Gets all weapons purchased and acquired with benefices.
@@ -489,6 +466,96 @@ public class CharacterPlayer {
         this.equipmentPurchased = equipmentPurchased;
     }
 
+    /**
+     * Gets best armor purchased and acquired with benefices.
+     *
+     * @return all weapons of the character.
+     */
+    public Armor getBestArmor() {
+        final List<Armor> armors = getEquipment(Armor.class);
+        if (armors.isEmpty()) {
+            return null;
+        }
+        return Collections.max(armors, Comparator.comparing(Armor::getCost));
+    }
+
+    public Armor getPurchasedArmor() {
+        return getEquipmentPurchased(Armor.class).stream().findFirst().orElse(null);
+    }
+
+    public void setPurchasedArmor(Armor armor) throws UnofficialElementNotAllowedException {
+        if (armor != null && !armor.isOfficial() && getSettings().isOnlyOfficialAllowed()) {
+            throw new UnofficialElementNotAllowedException("Armor '" + armor + "' is not official and cannot be added due "
+                    + "to configuration limitations.");
+        }
+        getEquipmentPurchased(Armor.class).forEach(e -> getEquipmentPurchased().remove(e));
+        getEquipmentPurchased().add(armor);
+    }
+
+    /**
+     * Gets best shield purchased and acquired with benefices.
+     *
+     * @return all weapons of the character.
+     */
+    public Shield getBestShield() {
+        final List<Shield> shields = getEquipment(Shield.class);
+        if (shields.isEmpty()) {
+            return null;
+        }
+        return Collections.max(shields, Comparator.comparing(Shield::getCost));
+    }
+
+    public Shield getPurchasedShield() {
+        return getEquipmentPurchased(Shield.class).stream().findFirst().orElse(null);
+    }
+
+    public void setPurchasedShield(Shield shield) throws UnofficialElementNotAllowedException {
+        if (shield != null && !shield.isOfficial() && getSettings().isOnlyOfficialAllowed()) {
+            throw new UnofficialElementNotAllowedException("Shield '" + shield + "' is not official and cannot be added due "
+                    + "to configuration limitations.");
+        }
+        getEquipmentPurchased(Shield.class).forEach(e -> getEquipmentPurchased().remove(e));
+        getEquipmentPurchased().add(shield);
+    }
+
+    public List<Weapon> getPurchasedMeleeWeapons() {
+        return getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isMeleeWeapon).collect(Collectors.toList());
+    }
+
+    public void setPurchasedMeleeWeapons(List<Weapon> weapons) throws UnofficialElementNotAllowedException {
+        if (getSettings().isOnlyOfficialAllowed()) {
+            for (Weapon weapon : weapons) {
+                if (!weapon.isOfficial()) {
+                    throw new UnofficialElementNotAllowedException("Weapon '" + weapon + "' is not official and cannot be added due "
+                            + "to configuration limitations.");
+                }
+            }
+        }
+        getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isMeleeWeapon).forEach(e -> getEquipmentPurchased().remove(e));
+        getEquipmentPurchased().addAll(weapons);
+    }
+
+    public List<Weapon> getPurchasedRangedWeapons() {
+        return getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isRangedWeapon).collect(Collectors.toList());
+    }
+
+    public void setPurchasedRangedWeapons(List<Weapon> weapons) throws UnofficialElementNotAllowedException {
+        if (getSettings().isOnlyOfficialAllowed()) {
+            for (Weapon weapon : weapons) {
+                if (!weapon.isOfficial()) {
+                    throw new UnofficialElementNotAllowedException("Weapon '" + weapon + "' is not official and cannot be added due "
+                            + "to configuration limitations.");
+                }
+            }
+        }
+        getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isRangedWeapon).forEach(e -> getEquipmentPurchased().remove(e));
+        getEquipmentPurchased().addAll(weapons);
+    }
+
+    public boolean hasWeapon(Weapon weapon) {
+        return getEquipmentPurchased(Weapon.class).stream().anyMatch(w -> Objects.equals(w, weapon));
+    }
+
     public List<Equipment> getEquipment() {
         final List<Equipment> totalEquipment = new ArrayList<>();
         totalEquipment.addAll(getMaterialAwardsSelected().stream().map(EquipmentOption::getElement).collect(Collectors.toSet()));
@@ -509,6 +576,10 @@ public class CharacterPlayer {
         return getLevel();
     }
 
+    public int getTechLevel() {
+        return 1;
+    }
+
     @Override
     public String toString() {
         final String name = getCompleteNameRepresentation();
@@ -522,12 +593,20 @@ public class CharacterPlayer {
         return Characteristic.INITIAL_VALUE;
     }
 
-    public int getCashMoney() {
+    public float getCashMoney() {
         return 0;
     }
 
-    public int getRemainingCash() {
-        return 0;
+    public float getRemainingCash() {
+        return getCashMoney() - getSpentCash();
+    }
+
+    public float getSpentCash() {
+        float total = 0;
+        for (Equipment equipment : getEquipmentPurchased()) {
+            total += equipment.getCost();
+        }
+        return total;
     }
 
     public void checkIsOfficial() throws UnofficialCharacterException {
@@ -537,11 +616,11 @@ public class CharacterPlayer {
         if ((getSpecie() != null && !SpecieFactory.getInstance().getElement(getSpecie()).isOfficial())) {
             throw new UnofficialCharacterException("Specie '" + getSpecie() + "' is not official.");
         }
-        if ((getArmor() != null && !getArmor().isOfficial())) {
-            throw new UnofficialCharacterException("Armour '" + getArmor() + "' is not official.");
+        if ((getBestArmor() != null && !getBestArmor().isOfficial())) {
+            throw new UnofficialCharacterException("Armour '" + getBestArmor() + "' is not official.");
         }
-        if ((getShield() != null && !getShield().isOfficial())) {
-            throw new UnofficialCharacterException("Shield '" + getShield() + "' is not official.");
+        if ((getBestShield() != null && !getBestShield().isOfficial())) {
+            throw new UnofficialCharacterException("Shield '" + getBestShield() + "' is not official.");
         }
 
 //        if (!weapons.getElements().stream().allMatch(Weapon::isOfficial)) {
@@ -578,11 +657,11 @@ public class CharacterPlayer {
         if ((getSpecie() != null && SpecieFactory.getInstance().getElement(getSpecie()).getRestrictions().isRestricted(this))) {
             throw new RestrictedElementException("Specie '" + getSpecie() + "' is restricted.");
         }
-        if ((getArmor() != null && ArmorFactory.getInstance().getElement(getArmor()).getRestrictions().isRestricted(this))) {
-            throw new RestrictedElementException("Armour '" + getArmor() + "' is restricted.");
+        if ((getBestArmor() != null && ArmorFactory.getInstance().getElement(getBestArmor()).getRestrictions().isRestricted(this))) {
+            throw new RestrictedElementException("Armour '" + getBestArmor() + "' is restricted.");
         }
-        if ((getShield() != null && ShieldFactory.getInstance().getElement(getShield()).getRestrictions().isRestricted(this))) {
-            throw new RestrictedElementException("Shield '" + getShield() + "' is restricted.");
+        if ((getBestShield() != null && ShieldFactory.getInstance().getElement(getBestShield()).getRestrictions().isRestricted(this))) {
+            throw new RestrictedElementException("Shield '" + getBestShield() + "' is restricted.");
         }
 
 //        if (!weapons.getElements().stream().allMatch(w -> w.isRestricted(this))) {
