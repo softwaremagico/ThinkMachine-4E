@@ -450,7 +450,7 @@ public class CharacterPlayer {
 
     public Set<Equipment> getEquipmentPurchased() {
         if (equipmentPurchased == null) {
-            return new HashSet<>();
+            equipmentPurchased = new HashSet<>();
         }
         return equipmentPurchased;
     }
@@ -604,7 +604,9 @@ public class CharacterPlayer {
     public float getSpentCash() {
         float total = 0;
         for (Equipment equipment : getEquipmentPurchased()) {
-            total += equipment.getCost();
+            if (equipment != null) {
+                total += equipment.getCost();
+            }
         }
         return total;
     }
