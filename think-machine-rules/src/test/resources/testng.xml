@@ -35,29 +35,13 @@
                 <include name="thinkMachineFactory"/>
                 <include name="perkFactory"/>
                 <include name="techCompulsionFactory"/>
+                <include name="timeFactory"/>
                 <exclude name="factoryValidation"/>
                 <include name="characterCreation"/>
-
-                <!--                <include name="randomDefinition"/>-->
-                <!--                <include name="randomCharacter"/>-->
-                <!--                <include name="cybernetics"/>-->
-                <!--                <include name="jsonExporter"/>-->
-                <!--                <include name="blessings"/>-->
-                <!--                <include name="benefices"/>-->
-                <!--                <include name="occultism"/>-->
                 <include name="exportTxt"/>
-                <!--                <include name="experience"/>-->
-                <!--                <include name="costCalculator"/>-->
-                <!--                <exclude name="jsonCache"/>-->
-                <!--                <include name="moduleEnforcer"/>-->
-                <!--                <include name="faction"/>-->
-                <!--                <include name="specie"/>-->
-                <!--                <include name="skills"/>-->
             </run>
         </groups>
         <classes>
-            <!--            <class name="com.softwaremagico.tm.file.ModuleManagerTests"/>-->
-            <!--            <class name="com.softwaremagico.tm.file.configurator.ConfigurationTests"/>-->
             <class name="com.softwaremagico.tm.factory.SkillsFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.SpecieFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.DamageTypeFactoryTests"/>
@@ -79,20 +63,10 @@
             <class name="com.softwaremagico.tm.factory.ValidateFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.EquipmentTraitsFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.TechCompulsionFactoryTests"/>
+            <class name="com.softwaremagico.tm.factory.OccultismFactoryTests"/>
+            <class name="com.softwaremagico.tm.factory.TimeFactoryTests"/>
             <class name="com.softwaremagico.tm.rules.CharacterCreationTest"/>
-            <!--            <class name="com.softwaremagico.tm.rules.BlessingTests"/>-->
-            <!--            <class name="com.softwaremagico.tm.rules.BeneficeTests"/>-->
-            <!--            <class name="com.softwaremagico.tm.rules.OccultismTests"/>-->
-            <!--            <class name="com.softwaremagico.tm.rules.CyberneticsTests"/>-->
-            <!--            <class name="com.softwaremagico.tm.rules.ExperienceTests"/>-->
-            <!--            <class name="com.softwaremagico.tm.rules.FactionTests"/>-->
-            <!--            <class name="com.softwaremagico.tm.rules.RaceTests"/>-->
-            <!--            <class name="com.softwaremagico.tm.rules.SkillTests"/>-->
             <class name="com.softwaremagico.tm.txt.ExportTxtTests"/>
-            <!--            <class name="com.softwaremagico.tm.json.JsonTests"/>-->
-            <!--            <class name="com.softwaremagico.tm.rules.CostCalculatorTests"/>-->
-            <!--            <class name="com.softwaremagico.tm.json.JsonCacheLoaderTests"/>-->
-            <!--            <class name="com.softwaremagico.tm.file.ModuleManagerTests"/>-->
         </classes>
     </test>
 </suite>

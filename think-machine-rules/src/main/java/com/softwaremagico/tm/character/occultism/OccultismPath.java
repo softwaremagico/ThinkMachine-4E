@@ -25,11 +25,13 @@ package com.softwaremagico.tm.character.occultism;
  */
 
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
-import com.softwaremagico.tm.ElementClassification;
 import com.softwaremagico.tm.TranslatedText;
+import com.softwaremagico.tm.character.factions.FactionFactory;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,24 +46,16 @@ public class OccultismPath extends Element {
     @JsonProperty("occultismType")
     private String occultismType;
     @JsonProperty("powers")
-    private Set<OccultismPower> occultismPowersElements;
+    private List<OccultismPower> occultismPowersElements;
     @JsonIgnore
     private Map<String, OccultismPower> occultismPowers;
     @JsonProperty("factions")
     private Set<String> factionsAllowed;
-    @JsonProperty("classification")
-    private ElementClassification classification;
+    @JsonAlias({"elementalUse", "charismata"})
+    private TranslatedText elementalUse;
 
     public OccultismPath() {
         super();
-    }
-
-    public OccultismPath(String id, TranslatedText name, TranslatedText description, String language, String moduleName, String occultismType,
-                         Set<String> allowedFactions, ElementClassification classification) {
-        super(id, name, description, language, moduleName);
-        this.occultismType = occultismType;
-        this.factionsAllowed = allowedFactions;
-        this.classification = classification;
     }
 
     public String getOccultismType() {
@@ -128,10 +122,6 @@ public class OccultismPath extends Element {
         return factionsAllowed;
     }
 
-    public ElementClassification getClassification() {
-        return classification;
-    }
-
     public void setOccultismType(String occultismType) {
         this.occultismType = occultismType;
     }
@@ -149,15 +139,11 @@ public class OccultismPath extends Element {
         this.factionsAllowed = factionsAllowed;
     }
 
-    public void setClassification(ElementClassification classification) {
-        this.classification = classification;
-    }
-
-    public Set<OccultismPower> getOccultismPowersElements() {
+    public List<OccultismPower> getOccultismPowersElements() {
         return occultismPowersElements;
     }
 
-    public void setOccultismPowersElements(Set<OccultismPower> occultismPowersElements) {
+    public void setOccultismPowersElements(List<OccultismPower> occultismPowersElements) {
         this.occultismPowersElements = occultismPowersElements;
     }
 
@@ -183,8 +169,19 @@ public class OccultismPath extends Element {
         super.getRestrictions().setRestrictedToUpbringing(upbringings);
     }
 
+    public TranslatedText getElementalUse() {
+        return elementalUse;
+    }
+
+    public void setElementalUse(TranslatedText elementalUse) {
+        this.elementalUse = elementalUse;
+    }
+
     @Override
-    public void setOfficial(boolean official) {
-        super.setOfficial(official);
+    public void validate() throws InvalidXmlElementException {
+        super.validate();
+        OccultismTypeFactory.getInstance().getElement(occultismType);
+        occultismPowersElements.forEach(OccultismPower::validate);
+        FactionFactory.getInstance().getElements(factionsAllowed);
     }
 }

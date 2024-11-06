@@ -36,6 +36,7 @@ public class RandomElementDefinition extends XmlData {
     private static final double RARE_PROBABILITY = 10d;
     private static final double EXOTIC_PROBABILITY = 1d;
 
+    private ElementClassification classification;
     private Integer staticProbability;
     private Integer minimumTechLevel;
     private Integer maximumTechLevel;
@@ -297,6 +298,14 @@ public class RandomElementDefinition extends XmlData {
 
     public void setRecommendedUpbringings(Set<String> recommendedUpbringings) {
         this.recommendedUpbringings = recommendedUpbringings;
+    }
+
+    public ElementClassification getClassification() {
+        return classification;
+    }
+
+    public void setClassification(ElementClassification classification) {
+        this.classification = classification;
     }
 
     @Override

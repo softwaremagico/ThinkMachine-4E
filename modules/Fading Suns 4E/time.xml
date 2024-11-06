@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<durations>
+	<duration>
+		<id>instantaneous</id>
+		<name>
+			<en>Instantaneous</en>
+			<es>Instantáneo</es>
+		</name>
+		<description>
+			<en>primary action</en>
+			<es>acción primaria</es>
+		</description>
+	</duration>
+	<duration>
+		<id>instantaneousAdditionalPrimaryAction</id>
+		<name>
+			<en>Instantaneous</en>
+			<es>Instantáneo</es>
+		</name>
+		<description>
+			<en>bonus primary action</en>
+			<es>acción primaria adicional</es>
+		</description>
+	</duration>
+	<duration>
+		<id>instantaneousPrimaryActionPlusSecondary</id>
+		<name>
+			<en>Instantaneous</en>
+			<es>Instantáneo</es>
+		</name>
+		<description>
+			<en>primary + reflexive action</en>
+			<es>acción primaria + secundaria</es>
+		</description>
+	</duration>
+	<duration>
+		<id>presentTense</id>
+		<name>
+			<en>Present Tense</en>
+			<es>Presente</es>
+		</name>
+	</duration>
+	<duration>
+		<id>presentTense1min</id>
+		<name>
+			<en>Present Tense</en>
+			<es>Presente</es>
+		</name>
+		<description>
+			<en>1 minut</en>
+			<es>1 minuto</es>
+		</description>
+	</duration>
+	<duration>
+		<id>presentTense5min</id>
+		<name>
+			<en>Present Tense</en>
+			<es>Presente</es>
+		</name>
+		<description>
+			<en>5 minutes</en>
+			<es>5 minutos</es>
+		</description>
+	</duration>
+	<duration>
+		<id>presentTense10min</id>
+		<name>
+			<en>Present Tense</en>
+			<es>Presente</es>
+		</name>
+		<description>
+			<en>10 minutes</en>
+			<es>10 minutos</es>
+		</description>
+	</duration>
+	<duration>
+		<id>presentTense15min</id>
+		<name>
+			<en>Present Tense</en>
+			<es>Presente</es>
+		</name>
+		<description>
+			<en>15 minutes</en>
+			<es>15 minutos</es>
+		</description>
+	</duration>
+	<duration>
+		<id>presentTense30min</id>
+		<name>
+			<en>Present Tense</en>
+			<es>Presente</es>
+		</name>
+		<description>
+			<en>30 minutes</en>
+			<es>30 minutos</es>
+		</description>
+	</duration>
+	<duration>
+		<id>narrated1day</id>
+		<name>
+			<en>Narrated</en>
+			<es>Narrado</es>
+		</name>
+		<description>
+			<en>1 day</en>
+			<es>1 día</es>
+		</description>
+	</duration>
+
+	
+</durations>

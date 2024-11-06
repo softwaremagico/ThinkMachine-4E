@@ -1,8 +1,8 @@
-package com.softwaremagico.tm.character.occultism;
+package com.softwaremagico.tm.random.definition;
 
 /*-
  * #%L
- * Think Machine 4E (Rules)
+ * Think Machine (Rules)
  * %%
  * Copyright (C) 2017 - 2024 Softwaremagico
  * %%
@@ -24,27 +24,24 @@ package com.softwaremagico.tm.character.occultism;
  * #L%
  */
 
+import java.util.Objects;
 
-import com.softwaremagico.tm.Element;
-import com.softwaremagico.tm.TranslatedText;
+public enum ElementClassification {
 
-public class OccultismRange extends Element {
+    COMBAT,
 
-    public OccultismRange() {
-        super();
-    }
+    ENHANCEMENT,
 
-    public OccultismRange(String id, TranslatedText name, TranslatedText description, String language, String moduleName) {
-        super(id, name, description, language, moduleName);
-    }
+    ALTERATION,
 
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
+    OTHERS;
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public static ElementClassification get(String typeName) {
+        for (final ElementClassification type : ElementClassification.values()) {
+            if (Objects.equals(type.name().toLowerCase(), typeName.toLowerCase())) {
+                return type;
+            }
+        }
+        return null;
     }
 }

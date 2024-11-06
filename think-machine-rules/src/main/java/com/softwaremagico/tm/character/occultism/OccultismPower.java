@@ -27,7 +27,9 @@ package com.softwaremagico.tm.character.occultism;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
+import com.softwaremagico.tm.character.TimeFactory;
 import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
+import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.values.IValue;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
@@ -40,45 +42,22 @@ import java.util.Set;
 
 public class OccultismPower extends Element {
     private String characteristic;
+    private String skill;
     private List<IValue> values;
+    @JsonProperty("psiLevel")
     private int level;
-    private String range;
-    private String duration;
-    @JsonProperty("wyrd")
-    private String cost;
+    private String time;
     private Set<String> components;
+    private TranslatedText cost;
+    private TranslatedText resistance;
+    private TranslatedText impact;
 
     public OccultismPower() {
         super();
     }
 
-    public OccultismPower(String id, TranslatedText name, TranslatedText description, String language, String moduleName,
-                          String characteristic, List<IValue> values, int level, String range,
-                          String duration, String cost, Set<String> components) {
-        super(id, name, description, language, moduleName);
-        this.characteristic = characteristic;
-        this.values = values;
-        this.level = level;
-        this.range = range;
-        this.duration = duration;
-        this.cost = cost;
-        this.components = components;
-    }
-
     public int getLevel() {
         return level;
-    }
-
-    public String getRange() {
-        return range;
-    }
-
-    public String getDuration() {
-        return duration;
-    }
-
-    public String getCost() {
-        return cost;
     }
 
     public String getCharacteristic() {
@@ -136,18 +115,6 @@ public class OccultismPower extends Element {
         this.level = level;
     }
 
-    public void setRange(String range) {
-        this.range = range;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
-    }
-
-    public void setCost(String cost) {
-        this.cost = cost;
-    }
-
     public void setComponents(String componentsContent) {
         this.components = new HashSet<>();
         readCommaSeparatedTokens(components, componentsContent);
@@ -155,6 +122,46 @@ public class OccultismPower extends Element {
 
     public void setComponents(Set<String> components) {
         this.components = components;
+    }
+
+    public String getSkill() {
+        return skill;
+    }
+
+    public void setSkill(String skill) {
+        this.skill = skill;
+    }
+
+    public TranslatedText getResistance() {
+        return resistance;
+    }
+
+    public void setResistance(TranslatedText resistance) {
+        this.resistance = resistance;
+    }
+
+    public TranslatedText getImpact() {
+        return impact;
+    }
+
+    public void setImpact(TranslatedText impact) {
+        this.impact = impact;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public TranslatedText getCost() {
+        return cost;
+    }
+
+    public void setCost(TranslatedText cost) {
+        this.cost = cost;
     }
 
     @Override
@@ -165,6 +172,14 @@ public class OccultismPower extends Element {
             }
         }
         return super.compareTo(element);
+    }
+
+    @Override
+    public void validate() throws InvalidXmlElementException {
+        super.validate();
+        SkillFactory.getInstance().getElement(getSkill());
+        CharacteristicsDefinitionFactory.getInstance().getElement(getCharacteristic());
+        TimeFactory.getInstance().getElement(getTime());
     }
 
 }

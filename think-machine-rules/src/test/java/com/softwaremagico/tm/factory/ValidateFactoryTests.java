@@ -40,9 +40,7 @@ import com.softwaremagico.tm.character.equipment.thinkmachines.ThinkMachineFacto
 import com.softwaremagico.tm.character.equipment.weapons.AccessoryFactory;
 import com.softwaremagico.tm.character.equipment.weapons.AmmunitionFactory;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
-import com.softwaremagico.tm.character.occultism.OccultismDurationFactory;
 import com.softwaremagico.tm.character.occultism.OccultismPathFactory;
-import com.softwaremagico.tm.character.occultism.OccultismRangeFactory;
 import com.softwaremagico.tm.character.occultism.OccultismTypeFactory;
 import com.softwaremagico.tm.character.occultism.TheurgyComponentFactory;
 import com.softwaremagico.tm.character.perks.PerkFactory;
@@ -127,8 +125,6 @@ public class ValidateFactoryTests {
     @Test
     public void validateOccultismFactoryFactory() throws InvalidXmlElementException {
         OccultismPathFactory.getInstance().validate();
-        OccultismRangeFactory.getInstance().validate();
-        OccultismDurationFactory.getInstance().validate();
         OccultismTypeFactory.getInstance().validate();
     }
 

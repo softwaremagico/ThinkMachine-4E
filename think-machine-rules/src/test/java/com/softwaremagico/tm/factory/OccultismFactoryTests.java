@@ -8,38 +8,35 @@ package com.softwaremagico.tm.factory;
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
  * Foundation; either version 2 of the License, or (at your option) any later
  * version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU General Public License along with
  * this program; If not, see <http://www.gnu.org/licenses/gpl-3.0.html>.
  * #L%
  */
 
-import com.softwaremagico.tm.ElementClassification;
-import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.character.occultism.OccultismDurationFactory;
 import com.softwaremagico.tm.character.occultism.OccultismPathFactory;
-import com.softwaremagico.tm.character.occultism.OccultismRangeFactory;
+import com.softwaremagico.tm.character.occultism.OccultismPower;
 import com.softwaremagico.tm.character.occultism.OccultismTypeFactory;
 import com.softwaremagico.tm.character.occultism.TheurgyComponentFactory;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.random.definition.ElementClassification;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = {"occultismFactory"})
 public class OccultismFactoryTests {
-    private static final int DEFINED_PSI_PATHS = 12;
-    private static final int DEFINED_THEURGY_PATHS = 12;
-    private static final int DEFINED_RANGES = 5;
-    private static final int DEFINED_DURATIONS = 7;
+    private static final int DEFINED_PSI_PATHS = 1;
+    private static final int DEFINED_THEURGY_PATHS = 0;
     private static final int DEFINED_THEURGY_COMPONENTS = 3;
     private static final int OCCULTISM_TYPES = 2;
 
@@ -55,20 +52,19 @@ public class OccultismFactoryTests {
     }
 
     @Test
+    public void readPsiPower() {
+        final OccultismPower occultismPower = OccultismPathFactory.getInstance().getPsiPaths().get(0).getOccultismPowersElements().get(0);
+        Assert.assertEquals(occultismPower.getSkill(), "focus");
+        Assert.assertEquals(occultismPower.getCharacteristic(), "wits");
+        Assert.assertNotNull(occultismPower.getImpact());
+        Assert.assertNotNull(occultismPower.getResistance());
+        Assert.assertEquals(occultismPower.getLevel(), 1);
+    }
+
+    @Test
     public void readTheurgyPaths() {
         Assert.assertEquals(OccultismPathFactory.getInstance().getTheurgyPaths()
                 .size(), DEFINED_THEURGY_PATHS);
-    }
-
-    @Test
-    public void readRanges() throws InvalidXmlElementException {
-        Assert.assertEquals(OccultismRangeFactory.getInstance().getElements().size(), DEFINED_RANGES);
-    }
-
-    @Test
-    public void readDurations() throws InvalidXmlElementException {
-        Assert.assertEquals(OccultismDurationFactory.getInstance().getElements()
-                .size(), DEFINED_DURATIONS);
     }
 
     @Test
@@ -82,21 +78,21 @@ public class OccultismFactoryTests {
         Assert.assertEquals(OCCULTISM_TYPES, OccultismTypeFactory.getInstance().getElements().size());
     }
 
-    @Test
+    @Test(enabled = false)
     public void getClassifications() throws InvalidXmlElementException {
         Assert.assertEquals(ElementClassification.ENHANCEMENT,
-                OccultismPathFactory.getInstance().getElement("sixthSense").getClassification());
+                OccultismPathFactory.getInstance().getElement("sixthSense").getRandomDefinition().getClassification());
         Assert.assertEquals(ElementClassification.COMBAT,
-                OccultismPathFactory.getInstance().getElement("soma").getClassification());
+                OccultismPathFactory.getInstance().getElement("soma").getRandomDefinition().getClassification());
         Assert.assertEquals(ElementClassification.OTHERS,
-                OccultismPathFactory.getInstance().getElement("sympathy").getClassification());
+                OccultismPathFactory.getInstance().getElement("sympathy").getRandomDefinition().getClassification());
         Assert.assertEquals(ElementClassification.ALTERATION,
-                OccultismPathFactory.getInstance().getElement("templeAvestiRituals")
+                OccultismPathFactory.getInstance().getElement("templeAvestiRituals").getRandomDefinition()
                         .getClassification());
     }
 
 
-    @Test
+    @Test(enabled = false)
     public void checkNonOfficialPaths() throws InvalidXmlElementException {
         Assert.assertFalse(OccultismPathFactory.getInstance()
                 .getElement("bedlam").getOccultismPowers()

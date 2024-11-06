@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.occultism;
+package com.softwaremagico.tm.character;
 
 /*-
  * #%L
@@ -28,13 +28,13 @@ package com.softwaremagico.tm.character.occultism;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
 
-public class OccultismDuration extends Element {
+public class Time extends Element {
 
-    public OccultismDuration() {
+    public Time() {
         super();
     }
 
-    public OccultismDuration(String id, TranslatedText name, TranslatedText description, String language, String moduleName) {
+    public Time(String id, TranslatedText name, TranslatedText description, String language, String moduleName) {
         super(id, name, description, language, moduleName);
     }
 }

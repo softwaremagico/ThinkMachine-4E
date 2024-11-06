@@ -28,6 +28,7 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
 import com.softwaremagico.tm.xml.XmlFactory;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -37,8 +38,8 @@ import java.util.Set;
 public final class OccultismPathFactory extends XmlFactory<OccultismPath> {
     private static final String XML_FILE = "occultism_paths.xml";
 
-    private final Set<OccultismPath> psiPaths = new HashSet<>();
-    private final Set<OccultismPath> theurgyPaths = new HashSet<>();
+    private final List<OccultismPath> psiPaths = new ArrayList<>();
+    private final List<OccultismPath> theurgyPaths = new ArrayList<>();
 
     private static final class OccultismPathFactoryInit {
         public static final OccultismPathFactory INSTANCE = new OccultismPathFactory();
@@ -87,7 +88,7 @@ public final class OccultismPathFactory extends XmlFactory<OccultismPath> {
         return null;
     }
 
-    public Set<OccultismPath> getPsiPaths() {
+    public List<OccultismPath> getPsiPaths() {
         if (psiPaths.isEmpty()) {
             try {
                 for (final OccultismPath path : getElements()) {
@@ -101,10 +102,10 @@ public final class OccultismPathFactory extends XmlFactory<OccultismPath> {
                 MachineXmlReaderLog.errorMessage(this.getClass().getName(), e);
             }
         }
-        return Collections.unmodifiableSet(psiPaths);
+        return Collections.unmodifiableList(psiPaths);
     }
 
-    public Set<OccultismPath> getTheurgyPaths() {
+    public List<OccultismPath> getTheurgyPaths() {
         if (theurgyPaths.isEmpty()) {
             try {
                 for (final OccultismPath path : getElements()) {
@@ -118,6 +119,6 @@ public final class OccultismPathFactory extends XmlFactory<OccultismPath> {
                 MachineXmlReaderLog.errorMessage(this.getClass().getName(), e);
             }
         }
-        return Collections.unmodifiableSet(theurgyPaths);
+        return Collections.unmodifiableList(theurgyPaths);
     }
 }

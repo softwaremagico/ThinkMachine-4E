@@ -1,8 +1,8 @@
-package com.softwaremagico.tm;
+package com.softwaremagico.tm.character;
 
 /*-
  * #%L
- * Think Machine (Rules)
+ * Think Machine 4E (Rules)
  * %%
  * Copyright (C) 2017 - 2024 Softwaremagico
  * %%
@@ -24,24 +24,29 @@ package com.softwaremagico.tm;
  * #L%
  */
 
-import java.util.Objects;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.xml.XmlFactory;
 
-public enum ElementClassification {
+import java.util.List;
 
-    COMBAT,
+public final class TimeFactory extends XmlFactory<Time> {
+    private static final String XML_FILE = "time.xml";
 
-    ENHANCEMENT,
+    private static final class TimeFactoryInit {
+        public static final TimeFactory INSTANCE = new TimeFactory();
+    }
 
-    ALTERATION,
+    public static TimeFactory getInstance() {
+        return TimeFactoryInit.INSTANCE;
+    }
 
-    OTHERS;
+    @Override
+    public String getXmlFile() {
+        return XML_FILE;
+    }
 
-    public static ElementClassification get(String typeName) {
-        for (final ElementClassification type : ElementClassification.values()) {
-            if (Objects.equals(type.name().toLowerCase(), typeName.toLowerCase())) {
-                return type;
-            }
-        }
-        return null;
+    @Override
+    public List<Time> getElements() throws InvalidXmlElementException {
+        return readXml(Time.class);
     }
 }
