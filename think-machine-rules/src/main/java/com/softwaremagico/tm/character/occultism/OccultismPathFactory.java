@@ -30,10 +30,8 @@ import com.softwaremagico.tm.xml.XmlFactory;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 public final class OccultismPathFactory extends XmlFactory<OccultismPath> {
     private static final String XML_FILE = "occultism_paths.xml";

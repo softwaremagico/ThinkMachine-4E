@@ -23,6 +23,11 @@
                     </es>
                 </description>
                 <psiLevel>1</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP + 1 VP per turn extended duration</en>
+                    <es>1 PV + 1 PV por turno de duración extendida</es>
+                </cost>
                 <characteristic>wits</characteristic>
                 <skill>focus</skill>
                 <resistance>
@@ -47,6 +52,445 @@
                         Cada turno, puedes mantener el poder activo gastando 1 PV. A lo largo de su duración, es posible
                         usar una acción secundaria para mantener el objeto flotando y moverlo hasta 1 metro por cada
                         punto de Psi. Una vez que la duración acabe, el objeto cae como si lo soltases desde esa altura.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>throwingHand</id>
+                <name>
+                    <en>Throwing Hand</en>
+                    <es>Mano Arrojadora</es>
+                </name>
+                <description>
+                    <en>You propel an object you have lifted with considerable force. You must first use Lifting Hand to
+                        pick up the object; throwing it with this power is then a bonus primary action.
+                    </en>
+                    <es>Lanzas con una fuerza considerable un objeto que hayas alzado. Primero debes usar Mano Alzadora
+                        para elevar el objeto y después una acción primaria adicional para lanzarlo.
+                    </es>
+                </description>
+                <psiLevel>2</psiLevel>
+                <time>instantaneousAdditionalPrimaryAction</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>perception</characteristic>
+                <skill>focus</skill>
+                <resistance>
+                    <en>Equals the target’s Body Resistance; if the target is an object, the GM determines its
+                        Resistance.
+                    </en>
+                    <es>Equivalente a la Resistencia Corporal del objetivo; si el objetivo es un objeto, el DJ determina
+                        la Resistencia.
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You fling your psychokinetically lifted object at a target (a person, thing, or location). The
+                        GM determines the base damage delivered by the ob ject, based on its size, weight, sharpness,
+                        etc. If it’s a weapon, use the weapon’s damage.\n
+                        The target must be within 1 meter per Psi rating. This range can be increased by 1 meter per 1
+                        VP you spend.\n
+                        You cannot extend the duration of this power. If you want to throw the object again, you’ll need
+                        to first use Lifting Hand again and then this power.
+                    </en>
+                    <es>Lanzas el objeto que has elevado psicoquinéticamente hacia un objetivo (persona, cosa o lugar).
+                        El DJ determina el daño base que provoca el objeto según su tamaño, su peso, lo afilado que sea,
+                        etc. Si es un arma, utiliza el daño del arma.\n
+                        El objetivo debe estar como máximo a una distancia de 1 metro por punto de Psi. Puedes aumentar
+                        esta dis tancia en 1 metro por cada PV que gastes. \n
+                        Sin embargo, no puedes aumentar la duración del poder. Si quieres volver a lanzar el mismo
+                        objeto, primero tendrás que usar de nuevo Mano Alzadora y después este poder.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>crushinHand</id>
+                <name>
+                    <en>Crushing Hand</en>
+                    <es>Mano Aplastante</es>
+                </name>
+                <description>
+                    <en>You can hold a target in place and exert crushing force.
+                    </en>
+                    <es>Mantienes a tu objetivo en su sitio y le aplicas una fuerza aplastante.
+                    </es>
+                </description>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP + 1 VP per turn extended duration</en>
+                    <es>1 PV + 1 PV por turno de duración extendida</es>
+                </cost>
+                <psiLevel>3</psiLevel>
+                <characteristic>wits</characteristic>
+                <skill>fights</skill>
+                <resistance>
+                    <en>Against a person, the target’s armor does not provide Body Resistance, but they can use their
+                        Strength as Resistance (e.g., a person with a Strength of 5 would get 5 Resistance). Against an
+                        object, the GM determines the Resistance based on toughness.
+                    </en>
+                    <es>Contra una persona, la armadura del objetivo no proporciona Resistencia Corporal, pero la
+                        persona puede usar su Fuerza como Resistencia (por ejemplo, una persona con Fuerza 5 ofrecería
+                        Resistencia 5). Contra un objeto, el DJ determina la Resistencia basándose en su robustez.
+                    </es>
+                </resistance>
+                <impact>
+                    <en>Inflicts 3 base damage, and the target is Hindered until your psychokinetic hold is broken. Once
+                        a Crushing Hand hold is victorious, you can maintain the duration by spending 1 VP each turn.
+                        You can opt to inflict damage each successive turn as a primary action without needing to make
+                        another roll; you spend VP to inflict this damage. During a Crushing Hand hold, you can consider
+                        three sub-maneuvers: clinch, restrain, or escape.\n
+
+                        Clinch: Instead of inflicting damage, you can opt to clinch your psychokinetic hold by making
+                        another roll each turn as a primary action. This improves your hold — it grants you VP. If the
+                        clinch roll fails, you still have hold of your target, but the target can make a reflexive roll
+                        to escape (see below). If the clinch roll is a critical miss, the hold is broken.
+
+                        Restrain: Instead of inflicting damage, you can try to restrain your victim. This can only be
+                        done on turns after the turn in which the hold was established. You spend 2 VP to impose the
+                        Immobilized state. On the following turn, you can spend 2 VP to try to render the target
+                        Incapacitated (if they fail a reflexive secondary-action
+                        Vigor + Will roll vs. your Psi as Resistance).\n
+
+                        Escape: The character who is grappled can take a primary action to break free, rolling Fight +
+                        Strength vs. Resistance equal to your Psi. If successful, they are free from the Crushing Hand
+                        hold and can take their movement action. If the roll fails, they are still Hindered (or
+                        Immobilized, if they were restrained). If you failed a clinch roll, the victim can make an
+                        escape roll as a reflexive action.
+                    </en>
+                    <es>Inflige 3 puntos de daño base y el objetivo queda Obstaculizado hasta que interrumpas tu acción
+                        psicoquinética. Una vez que consigas iniciar la Mano Aplastante, puedes mantener la duración
+                        gastando 1 PV por turno. Puedes continuar provocando daño en cada turno sucesivo como acción
+                        primaria sin necesidad de más tiradas, pero gastando PV. Durante el agarre de la Mano
+                        Aplastante, puedes llevar a cabo tres submaniobras: afianzar, contener o escapar.\n
+
+                        Afianzar: En vez de hacer daño, puedes optar por afianzar la presa psicoquinética, haciendo otra
+                        tirada cada turno como acción primaria. Esto mejora tu agarre; es decir, te ofrece PV. En caso
+                        de que falles la tirada de afianzar, tu objetivo todavía está bajo tu control, pero puede hacer
+                        una tirada refleja para escapar (a continuación). Si la tirada de afianzar es un fallo crítico,
+                        la presa queda interrumpida.
+
+                        Contener: En vez de hacer daño, intentas contener a tu oponente. Solo puedes hacer esto en los
+                        turnos posteriores al turno en el que has establecido la presa. Gasta 2 PV para imponer el
+                        estado Inmovilizado. En el siguiente turno, puedes gastar 2 PV para dejar a tu objetivo
+                        Incapacitado (si falla una acción secundaria refleja de
+                        Vigor + Voluntad contra tu Psi como Resistencia).\n
+
+                        Escapar: El personaje apresado debe usar una acción primaria para liberarse, haciendo una tirada
+                        de Pelear + Fuerza contra una Resistencia igual a tu Psi. Si tiene éxito, se libera de la Mano
+                        Aplastante y puede llevar a cabo su acción de movimiento. Si la tirada falla, seguirá
+                        Obstaculizado (o Inmovilizado si estaba contenido). En caso de que falles la tirada de afianzar,
+                        la víctima podrá hacer una tirada de escapar como acción refleja.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>duelingHand</id>
+                <name>
+                    <en>Dueling Hand</en>
+                    <es>Mano Duelista</es>
+                </name>
+                <description>
+                    <en>You can make a tool or weapon on your person leap into the air, perform an action, and then
+                        either return to your person or hover, ready to act again in subsequent turns.
+                    </en>
+                    <es>Haces que una herramienta o arma que lleves encima se eleve en el aire, lleve a cabo una acción
+                        y después, o bien vuelva a ti, o bien se quede flotando, lista para volver a actuar el próximo
+                        turno.
+                    </es>
+                </description>
+                <psiLevel>4</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP + 1 VP per turn extended duration</en>
+                    <es>1 PV + 1 PV por turno de duración extendida</es>
+                </cost>
+                <characteristic>wits</characteristic>
+                <skill>*</skill>
+                <resistance>
+                    <en>As per the task you perform with the item.</en>
+                    <es>Dependiendo de la tarea que lleves a cabo con el objeto.</es>
+                </resistance>
+                <impact>
+                    <en>The item can move up to 1 meter per Psi rating, plus 1 meter 1 VP spent.\n
+
+                        If you’re using the psychokinetically controlled object as a weapon, treat it like a normal
+                        attack, except that it’s at range.\n
+
+                        After the action is complete, the item returns to where it came from (holster, belt, etc.),
+                        unless you extend the duration (1 VP per turn), in which case the item hovers in place until you
+                        direct it again. (Hovering is a secondary action; using it again to perform a task is a primary
+                        action.)
+                    </en>
+                    <es>El objeto se puede mover 1 metro por cada punto de Psi, más 1 metro por PV gastado.\n
+
+                        Si usas el objeto controlado psicoquinéticamente como arma, considéralo un ataque normal, salvo
+                        que es a distancia.\n
+
+                        Después de completar la acción, el objeto vuelve al lugar de donde vino
+                        (funda de pistola, cinturón, etc.) a menos que amplíes la duración (1 PV por turno), en cuyo
+                        caso el objeto se queda flotando en el sitio hasta que vuelvas a dirigirlo (flotar es una acción
+                        secundaria y usarlo otra vez para llevar a cabo una tarea es una acción primaria).
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>focusedHand</id>
+                <name>
+                    <en>Focused Hand</en>
+                    <es>Mano Concentrada</es>
+                </name>
+                <description>
+                    <en>Focusing your mind, you can perform great feats of strength, such as lifting an object of
+                        incredible weight or raising multiple items into the air. You can also perform delicate tasks
+                        from a distance.
+                    </en>
+                    <es>Si te concentras, puedes llevar a cabo hazañas de fuerza, como levantar un objeto de un peso
+                        descomunal o elevar varios objetos en el aire. También puedes realizar tareas delicadas a
+                        distancia.
+                    </es>
+                </description>
+                <psiLevel>5</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP + 1 VP per turn extended duration</en>
+                    <es>1 PV + 1 PV por turno de duración extendida</es>
+                </cost>
+                <characteristic>wits</characteristic>
+                <skill>focus</skill>
+                <resistance>
+                    <en>When lifting a single object, Resistance is 1 per 200 kg of weight. If someone is holding the
+                        object, they can resist your psychokinetic pull as a reflexive secondary action; add that
+                        person’s Strength to the Resistance. You can spend VP to overcome the object’s Resistance.\n
+
+                        When lifting multiple objects, Resistance is 1 per 100 kg of weight.\n
+
+                        When performing a skilled task, use the guidelines for the skill’s maneuvers in Chapter 3:
+                        Traits, but generally, the Resistance is raised by one step (say, from Demanding to Tough).
+                    </en>
+                    <es>Cuando levantes un solo objeto, la Resistencia es 1 por cada 200 kg de peso. Si alguien está
+                        agarrando el objeto, puede resistir tu empuje psicoquinético con una acción secundaria refleja;
+                        suma su Fuerza a la Resistencia. Para superar la Resistencia del objeto puedes gastar PV.\n
+
+                        Cuando levantes varios objetos, la Resistencia es 1 por cada 100 kg de peso.\n
+
+                        Si llevas a cabo una tarea que requiera habilidad, guíate por las reglas de las maniobras en el
+                        Capítulo 3: Atributos, aunque, por lo general, la Resistencia aumenta en uno (por ejemplo, de
+                        Exigente a Ardua).
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You can lift one item, lift more items, or achieve a task. \n
+
+                        Lift: You can either lift an object of immense weight, lift a multitude of items into the air,
+                        or move everything not nailed down away from you. This operates like Lifting Hand with the
+                        exceptions listed under Resistance (shown above), as well as the ability to lift more than one
+                        item. You can also employ Throwing Hand with the objects you have lifted (as a bonus primary
+                        action; as per the Throwing Hand rules). You can use Dueling Hand with your multiple objects,
+                        but they must all perform the same action against the same target; otherwise, it costs you 2 VP
+                        per additional action/target.\n
+
+                        Task: You can perform a skill maneuver from a distance (within sight). Use the guidelines for
+                        the skill from Chapter 3: Traits, but the GM will determine how well you can really perform
+                        here. You might be able to type on a think machine’s keyboard from across the room, but that
+                        doesn’t mean you can read the screen well enough to know if you’re getting the results you
+                        intend. Combining this with a Sixth Sense power such as Far Self might lower the Resistance back
+                        to normal.
+                    </en>
+                    <es>Puedes levantar un objeto, varios o llevar a cabo una tarea.
+
+                        Levantar: Puedes levantar un objeto de enorme peso, elevar varios objetos en el aire o mover
+                        todo lo que no esté sujeto al suelo para apartarlo de ti. Esto funciona como Mano Alzadora,
+                        salvo por la capacidad de levantar más de un objeto y con las excepciones que aparecen en
+                        Resistencia. También puedes usar la Mano Arrojadora con los objetos que has levantado (como
+                        acción primaria adicional, tal como indican las reglas de la Mano Arrojadora). Para levantar
+                        varios objetos puedes usar la Mano Duelista, pero todos deben realizar la misma acción contra el
+                        mismo objetivo; de lo contrario, te costará 2 PV por acción/objetivo adicional.
+
+                        Tarea: Puedes realizar una maniobra a distancia (siempre que esté a tu alcance visual). Utiliza
+                        las reglas de habilidades del Capítulo 3: Atributos, aunque lo bien que la hagas dependerá de lo
+                        que decida el DJ según las circunstancias. Quizás seas capaz de escribir con el teclado de una
+                        máquina pensante desde la otra punta de la habitación, pero eso no quiere decir que puedas leer
+                        la pantalla lo suficientemente bien como para saber si estás consiguiendo los resultados
+                        deseados. Combinar este poder con un poder de Sexto Sentido, como Presencia Lejana, podría
+                        reducir la Resistencia a un nivel normal.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>farWall</id>
+                <name>
+                    <en>Far Wall</en>
+                    <es>Muro Lejano</es>
+                </name>
+                <description>
+                    <en>You create a force field barrier similar to one generated by energy shield technology.
+                    </en>
+                    <es>Creas un campo de fuerza parecido al que genera la tecnología de los escudos de energía.
+                    </es>
+                </description>
+                <psiLevel>6</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP + 1 VP per activation</en>
+                    <es>1 PV + 1 PV por activación.</es>
+                </cost>
+                <characteristic>will</characteristic>
+                <skill>vigor</skill>
+                <resistance>
+                    <en>Hard Resistance.</en>
+                    <es>Resistencia Difícil.</es>
+                </resistance>
+                <impact>
+                    <en>Psi rating, plus 1 sq. meter per 1 VP spent. Anyone behind the field gains its protection, as if
+                        they were wearing a personal energy shield device.
+
+                        The Far Wall behaves equivalent to an energy shield. Its lower threshold is equal to 3 + your
+                        Urge rating, while its upper limit is 10 + your Psi rating. (For example, if your Urge is 2 and
+                        your Psi is 6, your force field’s protection is 5/16.)
+
+                        The Far Wall lasts for the remainder of the scene, but each “shield” activation costs you 1 VP.
+                        If you can’t spend the VP, the power is still active, but it doesn’t have enough energy to
+                        activate the shielding effect until you can spend VP.
+                    </en>
+                    <es>Creas un campo de fuerza de 1 m² por punto de Psi + 1 m² por cada PV que gastes. Cualquiera que
+                        esté detrás del campo recibe su protección como si llevase encima un escudo de energía personal.
+
+                        El Muro Lejano se comporta como un escudo de energía. Su umbral mínimo es 3 + tu puntuación de
+                        Ansia, mientras que su umbral máximo es 10 + tu puntuación de Psi. Por ejemplo, si tu Ansia es 2
+                        y tu Psi 6, la protección de tu campo de fuerza es 5/16).
+
+                        El Muro Lejano dura el resto de la escena, pero cada activación del «escudo» te cuesta 1 PV. Si
+                        no tienes PV, el poder seguirá activo, pero no tendrá suficiente energía como para activar el
+                        efecto protector hasta que puedas gastar más PV.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>airStride</id>
+                <name>
+                    <en>Air Stride</en>
+                    <es>Zancada Aérea</es>
+                </name>
+                <description>
+                    <en>Focusing your directional forces on yourself, you can hover over the ground or take to the
+                        air.
+                    </en>
+                    <es>Al concentrar las fuerzas direccionales en ti mismo, puedes flotar sobre el suelo o elevarte en
+                        el aire.
+                    </es>
+                </description>
+                <psiLevel>7</psiLevel>
+                <time>instantaneous</time>
+                <characteristic>wits</characteristic>
+                <skill>focus</skill>
+                <resistance>
+                    <en>Equals your Size rating (5 for humans) + 1 for every 100 kg of equipment/objects/creatures you
+                        carry.
+                    </en>
+                    <es>Equivalente a tu tamaño (5 para humanos) + 1 por cada 100 kg de equipo/objetos/criaturas que
+                        lleves.
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You hover up above the ground, and you can fly through the air for the remainder of the scene as
+                        your movement action. Your base speed is 10 meters per turn. You can increase this by 5 meters
+                        per turn per 2 VP you spend.
+                    </en>
+                    <es>Flotas sobre el suelo y puedes volar durante el resto la de la escena usando tu acción de
+                        movimiento. Tu velocidad base es 10 metros por turno. Auméntala 5 metros por turno por cada 2 PV
+                        que gastes.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>demolishingHand</id>
+                <name>
+                    <en>Demolishing Hand</en>
+                    <es>Mano Demoledora</es>
+                </name>
+                <description>
+                    <en>By compressing an energy field and releasing it at a single point, you can create a big hole in
+                        something… or someone.
+                    </en>
+                    <es>Comprimir el campo de energía después de liberarlo en un único punto te permite crear un gran
+                        agujero en algo... o alguien.
+                    </es>
+                </description>
+                <psiLevel>8</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>perception</characteristic>
+                <skill>focus</skill>
+                <resistance>
+                    <en>Equals target’s Body Resistance (ignores armor).
+                    </en>
+                    <es>Equivalente a la Resistencia Corporal del objetivo (ignora armadura).
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You compress and release a wave of force right next to a target, like uncoiling a spring. The
+                        force ignores Body Resistance from physical armor; it’s considered a broad-impact strike against
+                        energy shields (check for burnout). Base damage is equal to your Will rating and can be
+                        increased by 1 per 2 VP spent.\n
+
+                        Any target that suffers damage from this blast must make a reflexive secondary-action Endurance
+                        + Vigor roll vs. Resistance equal to the amount of damage taken. Victory means they are Stunned
+                        for their next turn. Failure means they are Unconscious for 1 turn per point of damage.
+                    </en>
+                    <es>Comprimes y liberas una oleada de fuerza junto a tu objetivo, como si soltases un resorte. La
+                        fuerza ignora la Resistencia Corporal de la armadura física; se considera un golpe contundente
+                        contra escudos de energía (comprueba si se agota). El daño base es equivalente a tu Voluntad y
+                        se puede aumentar en 1 por cada 2 PV que gastes.\n
+
+                        Cualquier objetivo que sufra daño de esta explosión debe llevar a cabo una acción secundaria
+                        refleja de Constitución + Vigor contra una Resistencia equivalente a la cantidad de daño
+                        sufrido. Una victoria implica quedar Aturdido durante su próximo turno, mientras que un fallo
+                        implica quedar Inconsciente durante 1 turno por cada punto de daño.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>airDance</id>
+                <name>
+                    <en>Air Dance</en>
+                    <es>Danza Aérea</es>
+                </name>
+                <description>
+                    <en>You may use Air Stride on others, even if they’re unwilling.
+                    </en>
+                    <es>Puedes usar la Zancada Aérea con otras personas, incluso aunque no quieran.
+                    </es>
+                </description>
+                <psiLevel>9</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP + 1 VP per additional target after the first (max limit = Psi)</en>
+                    <es>1 PV + 1 PV por cada objetivo adicional (máximo = Psi)</es>
+                </cost>
+                <characteristic>wits</characteristic>
+                <skill>focus</skill>
+                <resistance>
+                    <en>Figure the Size ratings + 1 per 100 kg of equipment carried for each target and apply it as
+                        Resistance; you can lift up those whose Resistance you overcome.
+                    </en>
+                    <es>Calcula el tamaño + 1 por cada 100 kg de equipo por cada objetivo y aplícalo como Resistencia;
+                        puedes levantar a aquellos cuya Resistencia hayas superado.
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You bestow the Air Stride power on one or more willing targets, who are each in control of their
+                        own flight (although either you or they must spend VP to increase base speed). Unwilling targets
+                        can attempt a reflexive primary-action dodge maneuver (using Vigor skill); if they fail, you
+                        control their flight as a secondary action.
+                    </en>
+                    <es>Confieres el poder Zancada Aérea a uno o varios objetivos voluntarios, y cada uno controla su
+                        propio vuelo (aunque ellos o tú tendréis que gastar PV para aumentar la velocidad base). Los
+                        objetivos forzados podrán intentar una maniobra de esquivar con una acción primaria refleja
+                        (utilizando la habilidad Vigor); si fallan, controlarás su vuelo con una acción secundaria.
                     </es>
                 </impact>
             </power>
@@ -75,6 +519,356 @@
         </elementalUse>
         <random>
             <classification>combat</classification>
+        </random>
+    </path>
+
+    <path>
+        <id>omen</id>
+        <name>
+            <en>Omen</en>
+            <es>Augurio</es>
+        </name>
+        <occultismType>psi</occultismType>
+        <powers>
+            <power>
+                <id>shadowsGoneBy</id>
+                <name>
+                    <en>Shadows Gone By</en>
+                    <es>Sombras Que Fueron</es>
+                </name>
+                <description>
+                    <en>Attuning yourself to an object, you may “read” it to get a vision of the past surrounding it.
+                    </en>
+                    <es>Al sintonizarte con un objeto, puedes «leerlo» para obtener una visión de su pasado.
+                    </es>
+                </description>
+                <psiLevel>6</psiLevel>
+                <time></time>
+                <cost>
+                    <en>2 VP</en>
+                    <es>2 PV</es>
+                </cost>
+                <characteristic>intuition</characteristic>
+                <skill>focus</skill>
+                <resistance>
+                    <en>Hard+ (see Impact)
+                    </en>
+                    <es>Difícil+ (mira Impacto).
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You call forth an event from the past surrounding an object you are touching. You can attempt to
+                        see a particular time (“what happened 8 hours ago”) or a particular event (“when Dame Julia was
+                        murdered”).\n
+
+                        You experience the event as a flashback that lasts around 30 seconds with sight, sound, and the
+                        general feelings of those around the object. The GM will establish the total Resistance based on
+                        the distance in the past and the significance of the event. Seeing a year or two in the past
+                        might be Hard; going back to the Second Republic could easily be considered Miraculous. The
+                        significance of the event can also affect the Resistance: the less significant it is, the harder
+                        it is to call forth. If the object was used to murder someone during the event, it wouldn’t
+                        increase the Resistance, but if the object was only present during the murder, it could increase
+                        Resistance by one step or more. Someone just passing by the object and not notably interacting
+                        with it could increase Resistance by two or more steps.
+                    </en>
+                    <es>Revives un evento del pasado relacionado con un objeto que estés tocando. Puedes intentar ver un
+                        momento concreto («lo que ocurrió hace ocho horas») o un evento concreto («cuando la dama Julia
+                        fue asesinada»). Contemplas el evento como un flashback que dura unos 30 segundos e incluye
+                        imagen, sonido y sentimientos generales de quienes estaban cerca del objeto. \n
+
+                        El DJ determinará la Resistencia total según el tiempo que haya pasado y la importancia del
+                        evento. Por ejemplo, rememorar un evento de hace un año o dos podría ser Difícil, mientras que
+                        ver un suceso de la Segunda República se considera Milagroso. La importancia del evento también
+                        puede afectar a la Resistencia: cuanto menos importante, más costará revivirlo. Si el objeto fue
+                        utilizado para asesinar a alguien durante el evento, la Resistencia no aumenta, pero, si el
+                        objeto solo estaba presente durante el asesinato, podría incrementarse en un nivel o más. Si
+                        alguien pasa junto a un objeto sin interaccionar con él, es posible que la Resistencia aumente
+                        en dos niveles o más.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>shadowsToCome</id>
+                <name>
+                    <en>Shadows to Come</en>
+                    <es>Sombras por Venir</es>
+                </name>
+                <description>
+                    <en>Turning your inner sight from the present, you may now gaze into the future and its possible
+                        outcomes.
+                    </en>
+                    <es>Tu visión interna se abstrae del presente y mira hacia el futuro y las posibilidades por venir.
+                    </es>
+                </description>
+                <psiLevel>7</psiLevel>
+                <time></time>
+                <cost>
+                    <en>2 VP</en>
+                    <es>2 PV</es>
+                </cost>
+                <characteristic>intuition</characteristic>
+                <skill>focus</skill>
+                <resistance>
+                    <en>Hard+ (see Impact)
+                    </en>
+                    <es>Difícil+ (mira Impacto).
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You can see, hear, and feel a scene from the future surrounding a person, place, or object. This
+                        can be a specific event or time (such as “the coronation of Bishop Vigaro de Aragorn” or “in
+                        this courtyard at midnight three days hence”). The Resistance is decided by the GM based on the
+                        distance into the future. An hour or two may only be Hard Resistance, while a week might be
+                        Tough or worse. You see a potential future but a very likely one. The glimpse of the future
+                        lasts for 30 seconds
+                    </en>
+                    <es>Ves, oyes y sientes una escena del futuro relacionada con una persona, lugar u objeto. Esta
+                        escena puede ser un evento o momento concreto (como «la coronación del obispo Vigaro de Aragón»
+                        o «en este patio a medianoche dentro de tres días»). El DJ decide la Resistencia según lo
+                        distante que esté en el futuro. Una hora o dos podría ser Difícil, mientras que una semana sería
+                        como mínimo Ardua. Durante 30 segundos ves un futuro potencial, aunque muy probable.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>voiceFromThePast</id>
+                <name>
+                    <en>Voice from the Past</en>
+                    <es>Voz del Pasado</es>
+                </name>
+                <description>
+                    <en>You can channel the personality of someone long dead to speak through you and impart
+                        information.
+                    </en>
+                    <es>Puedes canalizar la personalidad de alguien muerto desde hace mucho para que ofrezca
+                        información.
+                    </es>
+                </description>
+                <psiLevel>8</psiLevel>
+                <time>presentTense</time>
+                <cost>
+                    <en>2 VP</en>
+                    <es>2 PV</es>
+                </cost>
+                <characteristic>presence</characteristic>
+                <skill>focus</skill>
+                <resistance>
+                    <en>Demanding (Severe if the subject is unwilling)
+                    </en>
+                    <es>Exigente (Tenaz si la persona no quiere)
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You summon and channel a deceased entity to have it answer one question through your
+                        voice. You may ask one additional question per 2 VP spent.
+
+                        Some courts in the Known Worlds have allowed use of this power to take testimony from the dead
+                        in murder cases. The Church maintains, however, that these are not ghosts; allegedly, this power
+                        calls forth demons or the psychic’s own twisted mind.
+                    </en>
+                    <es>Invocas y canalizas una entidad fallecida para que responda a una pregunta con tu voz. Por cada
+                        2 PV que gastes, responderá a una pregunta adicional.
+
+                        Algunas cortes de los Mundos Conocidos han permitido usar este poder para que las personas
+                        asesinadas puedan testificar. No obstante, la Iglesia sostiene que no son fantasmas, sino
+                        demonios o la propia mente retorcida del psíquico.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>oracle</id>
+                <name>
+                    <en>Oracle</en>
+                    <es>Oráculo</es>
+                </name>
+                <description>
+                    <en>By entering a trance-like state, you can give cryptic foretellings of the future.
+                    </en>
+                    <es>Quedas en un estado de trance que te permite ofrecer predicciones crípticas.
+                    </es>
+                </description>
+                <psiLevel>9</psiLevel>
+                <time>presentTense</time>
+                <cost>
+                    <en>3 VP</en>
+                    <es>3 PV</es>
+                </cost>
+                <characteristic>presence</characteristic>
+                <skill>focus</skill>
+                <resistance>
+                    <en>Severe
+                    </en>
+                    <es>Tenaz
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You may answer one question posed to you during your trance, and you will be given an answer. As
+                        with the answers of the ancient Urth Delphic Oracle, the psychic’s answer is always in the form
+                        of metaphors, riddles, or abstractions, and it must be interpreted. The GM is the voice of the
+                        omen, and they should use the power to reveal a possible future for the troupe.
+                    </en>
+                    <es>Debes responder a una pregunta que te hagan durante tu trance con la respuesta que recibas. Como
+                        ocurría con el antiguo oráculo de Delfos, en Urth, la respuesta del psíquico siempre está llena
+                        de metáforas, enigmas o abstracciones, y debe ser interpretada. El DJ es la voz del augurio, y
+                        debería usar el poder para revelar un futuro posible de la compañía.
+                    </es>
+                </impact>
+            </power>
+        </powers>
+        <random>
+            <classification></classification>
+        </random>
+    </path>
+
+    <path>
+        <id></id>
+        <name>
+            <en></en>
+            <es></es>
+        </name>
+        <occultismType>psi</occultismType>
+        <powers>
+            <power>
+                <id></id>
+                <name>
+                    <en></en>
+                    <es></es>
+                </name>
+                <description>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </description>
+                <psiLevel>1</psiLevel>
+                <time></time>
+                <cost>
+                    <en></en>
+                    <es></es>
+                </cost>
+                <characteristic></characteristic>
+                <skill></skill>
+                <resistance>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </resistance>
+                <impact>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id></id>
+                <name>
+                    <en></en>
+                    <es></es>
+                </name>
+                <description>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </description>
+                <psiLevel>1</psiLevel>
+                <time></time>
+                <cost>
+                    <en></en>
+                    <es></es>
+                </cost>
+                <characteristic></characteristic>
+                <skill></skill>
+                <resistance>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </resistance>
+                <impact>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id></id>
+                <name>
+                    <en></en>
+                    <es></es>
+                </name>
+                <description>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </description>
+                <psiLevel>1</psiLevel>
+                <time></time>
+                <cost>
+                    <en></en>
+                    <es></es>
+                </cost>
+                <characteristic></characteristic>
+                <skill></skill>
+                <resistance>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </resistance>
+                <impact>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id></id>
+                <name>
+                    <en></en>
+                    <es></es>
+                </name>
+                <description>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </description>
+                <psiLevel>1</psiLevel>
+                <time></time>
+                <cost>
+                    <en></en>
+                    <es></es>
+                </cost>
+                <characteristic></characteristic>
+                <skill></skill>
+                <resistance>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </resistance>
+                <impact>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </impact>
+            </power>
+        </powers>
+        <elementalUse>
+            <en>
+            </en>
+            <es>
+            </es>
+        </elementalUse>
+        <random>
+            <classification></classification>
         </random>
     </path>
 </occultism>

@@ -455,20 +455,27 @@
             <es>Tirada</es>
         </name>
     </occultismTableRoll>
-    <occultismTableRange>
-        <id>occultismTableRange</id>
+    <occultismTableResistance>
+        <id>occultismTableResistance</id>
         <name>
-            <en>Range</en>
-            <es>Alcance</es>
+            <en>Resistance</en>
+            <es>Resistencia</es>
         </name>
-    </occultismTableRange>
-    <occultismTableDuration>
-        <id>occultismTableDuration</id>
+    </occultismTableResistance>
+    <occultismTableImpact>
+        <id>occultismTableImpact</id>
         <name>
-            <en>Duration</en>
-            <es>Duración</es>
+            <en>Impact</en>
+            <es>Impacto</es>
         </name>
-    </occultismTableDuration>
+    </occultismTableImpact>
+    <occultismTableTime>
+        <id>occultismTableTime</id>
+        <name>
+            <en>Time</en>
+            <es>Tiempo</es>
+        </name>
+    </occultismTableTime>
     <occultismTableRequirements>
         <id>occultismTableRequirements</id>
         <name>

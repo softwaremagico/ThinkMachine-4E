@@ -35,7 +35,7 @@ import org.testng.annotations.Test;
 
 @Test(groups = {"occultismFactory"})
 public class OccultismFactoryTests {
-    private static final int DEFINED_PSI_PATHS = 1;
+    private static final int DEFINED_PSI_PATHS = 3;
     private static final int DEFINED_THEURGY_PATHS = 0;
     private static final int DEFINED_THEURGY_COMPONENTS = 3;
     private static final int OCCULTISM_TYPES = 2;
@@ -57,6 +57,8 @@ public class OccultismFactoryTests {
         Assert.assertEquals(occultismPower.getSkill(), "focus");
         Assert.assertEquals(occultismPower.getCharacteristic(), "wits");
         Assert.assertNotNull(occultismPower.getImpact());
+        Assert.assertNotNull(occultismPower.getTime());
+        Assert.assertNotNull(occultismPower.getCost());
         Assert.assertNotNull(occultismPower.getResistance());
         Assert.assertEquals(occultismPower.getLevel(), 1);
     }

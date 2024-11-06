@@ -30,6 +30,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
+import com.softwaremagico.tm.character.Time;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
@@ -53,6 +54,10 @@ public class OccultismPath extends Element {
     private Set<String> factionsAllowed;
     @JsonAlias({"elementalUse", "charismata"})
     private TranslatedText elementalUse;
+    @JsonProperty("time")
+    private Time time;
+    @JsonProperty("cost")
+    private TranslatedText cost;
 
     public OccultismPath() {
         super();
@@ -175,6 +180,22 @@ public class OccultismPath extends Element {
 
     public void setElementalUse(TranslatedText elementalUse) {
         this.elementalUse = elementalUse;
+    }
+
+    public Time getTime() {
+        return time;
+    }
+
+    public void setTime(Time time) {
+        this.time = time;
+    }
+
+    public TranslatedText getCost() {
+        return cost;
+    }
+
+    public void setCost(TranslatedText cost) {
+        this.cost = cost;
     }
 
     @Override
