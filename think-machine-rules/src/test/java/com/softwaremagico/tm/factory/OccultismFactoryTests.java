@@ -60,7 +60,7 @@ public class OccultismFactoryTests {
         Assert.assertNotNull(occultismPower.getTime());
         Assert.assertNotNull(occultismPower.getCost());
         Assert.assertNotNull(occultismPower.getResistance());
-        Assert.assertEquals(occultismPower.getLevel(), 1);
+        Assert.assertEquals(occultismPower.getOccultismLevel(), 1);
     }
 
     @Test

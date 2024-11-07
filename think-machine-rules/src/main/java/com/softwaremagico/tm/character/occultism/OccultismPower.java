@@ -45,8 +45,8 @@ public class OccultismPower extends Element {
     @JsonProperty("skills")
     private List<String> skills;
     private List<IValue> values;
-    @JsonProperty("psiLevel")
-    private int level;
+    @JsonProperty("occultismLevel")
+    private int occultismLevel;
     private String time;
     private Set<String> components;
     private TranslatedText cost;
@@ -57,8 +57,8 @@ public class OccultismPower extends Element {
         super();
     }
 
-    public int getLevel() {
-        return level;
+    public int getOccultismLevel() {
+        return occultismLevel;
     }
 
     public String getCharacteristic() {
@@ -112,8 +112,8 @@ public class OccultismPower extends Element {
         this.values = values;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
+    public void setOccultismLevel(int occultismLevel) {
+        this.occultismLevel = occultismLevel;
     }
 
     public void setComponents(String componentsContent) {
@@ -168,8 +168,8 @@ public class OccultismPower extends Element {
     @Override
     public int compareTo(Element element) {
         if (element instanceof OccultismPower) {
-            if (getLevel() != ((OccultismPower) element).getLevel()) {
-                return Integer.compare(getLevel(), ((OccultismPower) element).getLevel());
+            if (getOccultismLevel() != ((OccultismPower) element).getOccultismLevel()) {
+                return Integer.compare(getOccultismLevel(), ((OccultismPower) element).getOccultismLevel());
             }
         }
         return super.compareTo(element);

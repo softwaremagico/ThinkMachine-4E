@@ -100,16 +100,16 @@ public class OccultismPath extends Element {
 
         // Sort by level inverse.
         powersOfPath.sort((power0, power1) -> {
-            if (power0.getLevel() != power1.getLevel()) {
-                return power1.getLevel() - power0.getLevel();
+            if (power0.getOccultismLevel() != power1.getOccultismLevel()) {
+                return power1.getOccultismLevel() - power0.getOccultismLevel();
             }
             return power1.compareTo(power0);
         });
 
         // From up to down.
         for (final OccultismPower next : powersOfPath) {
-            if (next.getLevel() < power.getLevel()) {
-                return next.getLevel();
+            if (next.getOccultismLevel() < power.getOccultismLevel()) {
+                return next.getOccultismLevel();
             }
         }
         return null;
@@ -118,7 +118,7 @@ public class OccultismPath extends Element {
     public Set<OccultismPower> getPowersOfLevel(int level) {
         final Set<OccultismPower> powersOfLevel = new HashSet<>();
         for (final OccultismPower power : getOccultismPowers().values()) {
-            if (power.getLevel() == level) {
+            if (power.getOccultismLevel() == level) {
                 powersOfLevel.add(power);
             }
         }

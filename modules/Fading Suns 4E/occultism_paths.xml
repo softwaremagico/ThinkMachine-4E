@@ -22,7 +22,7 @@
                         objetos, empujarlos o tirar de ellos.
                     </es>
                 </description>
-                <psiLevel>1</psiLevel>
+                <occultismLevel>1</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP + 1 VP per turn extended duration</en>
@@ -71,7 +71,7 @@
                         para elevar el objeto y después una acción primaria adicional para lanzarlo.
                     </es>
                 </description>
-                <psiLevel>2</psiLevel>
+                <occultismLevel>2</occultismLevel>
                 <time>instantaneousAdditionalPrimaryAction</time>
                 <cost>
                     <en>1 VP</en>
@@ -125,7 +125,7 @@
                     <en>1 VP + 1 VP per turn extended duration</en>
                     <es>1 PV + 1 PV por turno de duración extendida</es>
                 </cost>
-                <psiLevel>3</psiLevel>
+                <occultismLevel>3</occultismLevel>
                 <characteristic>wits</characteristic>
                 <skills>
                     <skill>fights</skill>
@@ -205,7 +205,7 @@
                         turno.
                     </es>
                 </description>
-                <psiLevel>4</psiLevel>
+                <occultismLevel>4</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP + 1 VP per turn extended duration</en>
@@ -258,7 +258,7 @@
                         distancia.
                     </es>
                 </description>
-                <psiLevel>5</psiLevel>
+                <occultismLevel>5</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP + 1 VP per turn extended duration</en>
@@ -339,7 +339,7 @@
                     <es>Creas un campo de fuerza parecido al que genera la tecnología de los escudos de energía.
                     </es>
                 </description>
-                <psiLevel>6</psiLevel>
+                <occultismLevel>6</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP + 1 VP per activation</en>
@@ -392,7 +392,7 @@
                         el aire.
                     </es>
                 </description>
-                <psiLevel>7</psiLevel>
+                <occultismLevel>7</occultismLevel>
                 <time>instantaneous</time>
                 <characteristic>wits</characteristic>
                 <skills>
@@ -431,7 +431,7 @@
                         agujero en algo... o alguien.
                     </es>
                 </description>
-                <psiLevel>8</psiLevel>
+                <occultismLevel>8</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP</en>
@@ -481,7 +481,7 @@
                     <es>Puedes usar la Zancada Aérea con otras personas, incluso aunque no quieran.
                     </es>
                 </description>
-                <psiLevel>9</psiLevel>
+                <occultismLevel>9</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP + 1 VP per additional target after the first (max limit = Psi)</en>
@@ -560,8 +560,8 @@
                     <es>Al sintonizarte con un objeto, puedes «leerlo» para obtener una visión de su pasado.
                     </es>
                 </description>
-                <psiLevel>6</psiLevel>
-                <time></time>
+                <occultismLevel>6</occultismLevel>
+                <time>presentTense</time>
                 <cost>
                     <en>2 VP</en>
                     <es>2 PV</es>
@@ -620,8 +620,8 @@
                     <es>Tu visión interna se abstrae del presente y mira hacia el futuro y las posibilidades por venir.
                     </es>
                 </description>
-                <psiLevel>7</psiLevel>
-                <time></time>
+                <occultismLevel>7</occultismLevel>
+                <time>presentTense</time>
                 <cost>
                     <en>2 VP</en>
                     <es>2 PV</es>
@@ -666,7 +666,7 @@
                         información.
                     </es>
                 </description>
-                <psiLevel>8</psiLevel>
+                <occultismLevel>8</occultismLevel>
                 <time>presentTense</time>
                 <cost>
                     <en>2 VP</en>
@@ -711,7 +711,7 @@
                     <es>Quedas en un estado de trance que te permite ofrecer predicciones crípticas.
                     </es>
                 </description>
-                <psiLevel>9</psiLevel>
+                <occultismLevel>9</occultismLevel>
                 <time>presentTense</time>
                 <cost>
                     <en>3 VP</en>
@@ -768,7 +768,7 @@
                         comunicarte con ellos en silencio.
                     </es>
                 </description>
-                <psiLevel>1</psiLevel>
+                <occultismLevel>1</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP + 1 VP per additional target after the first</en>
@@ -823,7 +823,7 @@
                     <es>Extiendes tus sentidos mentales para leer el estado emocional de una persona a la vista.
                     </es>
                 </description>
-                <psiLevel>2</psiLevel>
+                <occultismLevel>2</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP +1 VP per 10 turns extended duration</en>
@@ -884,7 +884,7 @@
                         las mentes de los demás.
                     </es>
                 </description>
-                <psiLevel>3</psiLevel>
+                <occultismLevel>3</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP + 1 VP per + 1 Resistance against shake it off attempts</en>
@@ -939,7 +939,7 @@
                         superficiales, como si estuviese diciendo lo que piensa en voz alta.
                     </es>
                 </description>
-                <psiLevel>4</psiLevel>
+                <occultismLevel>4</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP + 1 VP per 10 turns extended duration</en>
@@ -1005,7 +1005,7 @@
                         preguntas.
                     </es>
                 </description>
-                <psiLevel>5</psiLevel>
+                <occultismLevel>5</occultismLevel>
                 <time>presentTense</time>
                 <cost>
                     <en>1 VP + 1 VP per + 1 Resistance against shake it off attempts</en>
@@ -1055,7 +1055,7 @@
                         que seguir tus instrucciones.
                     </es>
                 </description>
-                <psiLevel>6</psiLevel>
+                <occultismLevel>6</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP +1 VP per +1 Resistance against shake it off attempts</en>
@@ -1114,7 +1114,7 @@
                         medio del control mental.
                     </es>
                 </description>
-                <psiLevel>7</psiLevel>
+                <occultismLevel>7</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP + 2 VP per point of damage dealt</en>
@@ -1173,7 +1173,7 @@
                         Resistencia adicional contra poderes de la Psique.
                     </es>
                 </description>
-                <psiLevel>8</psiLevel>
+                <occultismLevel>8</occultismLevel>
                 <time>presentTense15min</time>
                 <cost>
                     <en>1 VP + 1 VP per additional target</en>
@@ -1221,7 +1221,7 @@
                     <es>Utilizas la telepatía para tomar el control de otra persona, poseyéndola por completo.
                     </es>
                 </description>
-                <psiLevel>9</psiLevel>
+                <occultismLevel>9</occultismLevel>
                 <time>instantaneousPrimaryActionPlusSecondary</time>
                 <cost>
                     <en>1 VP + 1 VP per 10 turns extended duration</en>
@@ -1342,7 +1342,7 @@
                         demás sabores.
                     </es>
                 </description>
-                <psiLevel>1</psiLevel>
+                <occultismLevel>1</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP</en>
@@ -1394,7 +1394,7 @@
                     <es>Afinas tus sentidos para ver el aura psíquica de tu objetivo.
                     </es>
                 </description>
-                <psiLevel>2</psiLevel>
+                <occultismLevel>2</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP + 2 VP for aura motion, + 2 VP for aura shape</en>
@@ -1446,8 +1446,8 @@
                         daño antes de que te afecte.
                     </es>
                 </description>
-                <psiLevel>3</psiLevel>
-                <time></time>
+                <occultismLevel>3</occultismLevel>
+                <time>instantaneous</time>
                 <cost>
                     <en>1 VP</en>
                     <es>1 PV</es>
@@ -1515,8 +1515,8 @@
                         lugar lejano como si estuvieses en él.
                     </es>
                 </description>
-                <psiLevel>4</psiLevel>
-                <time></time>
+                <occultismLevel>4</occultismLevel>
+                <time>presentTense1min</time>
                 <cost>
                     <en>1 VP</en>
                     <es>1 PV</es>
@@ -1618,7 +1618,7 @@
                         percepción mental está totalmente presente y te permite usar otros poderes psíquicos.
                     </es>
                 </description>
-                <psiLevel>5</psiLevel>
+                <occultismLevel>5</occultismLevel>
                 <time>presentTense1min</time>
                 <cost>
                     <en>1 VP</en>
@@ -1665,7 +1665,7 @@
                         sentidos.
                     </es>
                 </description>
-                <psiLevel>6</psiLevel>
+                <occultismLevel>6</occultismLevel>
                 <time>presentTense1min</time>
                 <cost>
                     <en>1 VP</en>
@@ -1722,7 +1722,7 @@
                         teúrgicos y emanaciones de tecnología alienígena.
                     </es>
                 </description>
-                <psiLevel>7</psiLevel>
+                <occultismLevel>7</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP</en>
@@ -1773,7 +1773,7 @@
                         cosa, incluso a gran distancia, percibiendo la zona a su alrededor.
                     </es>
                 </description>
-                <psiLevel>8</psiLevel>
+                <occultismLevel>8</occultismLevel>
                 <time>presentTense10min</time>
                 <cost>
                     <en>1 VP</en>
@@ -1832,7 +1832,7 @@
                         sensaciones intensas.
                     </es>
                 </description>
-                <psiLevel>9</psiLevel>
+                <occultismLevel>9</occultismLevel>
                 <time>instantaneousPrimaryActionPlusSecondary</time>
                 <cost>
                     <en>1 VP + 1 VP per +1 Resistance to shake it off attempts</en>
@@ -1912,7 +1912,7 @@
                     <es>Usas el poder de tu mente sobre la materia para aumentar tu Constitución.
                     </es>
                 </description>
-                <psiLevel>1</psiLevel>
+                <occultismLevel>1</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP + 2 VP per + 1 Endurance</en>
@@ -1952,7 +1952,7 @@
                     <es>Usas el poder de tu mente sobre la materia para aumentar tu Fuerza.
                     </es>
                 </description>
-                <psiLevel>2</psiLevel>
+                <occultismLevel>2</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP + 2 VP per +1 Strength</en>
@@ -1991,7 +1991,7 @@
                     <es>Usas el poder de tu mente sobre la materia para aumentar tu Destreza.
                     </es>
                 </description>
-                <psiLevel>3</psiLevel>
+                <occultismLevel>3</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP + 2 VP per + 1 Dexterity</en>
@@ -2032,7 +2032,7 @@
                         el acero, consiguiendo que actúe como una armadura.
                     </es>
                 </description>
-                <psiLevel>4</psiLevel>
+                <occultismLevel>4</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP</en>
@@ -2070,7 +2070,7 @@
                     <es>En un impresionante alarde de control sobre la materia, eres capaz de cambiar tus dimensiones.
                     </es>
                 </description>
-                <psiLevel>5</psiLevel>
+                <occultismLevel>5</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP</en>
@@ -2126,7 +2126,7 @@
                     <es>Controlas tu apariencia alterando físicamente tus rasgos faciales.
                     </es>
                 </description>
-                <psiLevel>6</psiLevel>
+                <occultismLevel>6</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP</en>
@@ -2169,7 +2169,7 @@
                     <es>Reparas y regeneras tu cuerpo para recuperarte de heridas con tan solo pensarlo.
                     </es>
                 </description>
-                <psiLevel>7</psiLevel>
+                <occultismLevel>7</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP + 2 VP per + 1 Vitality healed</en>
@@ -2216,7 +2216,7 @@
                         estado de hibernación que se confunde con facilidad con la muerte.
                     </es>
                 </description>
-                <psiLevel>8</psiLevel>
+                <occultismLevel>8</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP</en>
@@ -2277,7 +2277,7 @@
                         submarinos, calor extremo o el vacío del espacio.
                     </es>
                 </description>
-                <psiLevel>9</psiLevel>
+                <occultismLevel>9</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP</en>
@@ -2371,7 +2371,7 @@
                         de energía y rastrear su origen.
                     </es>
                 </description>
-                <psiLevel>1</psiLevel>
+                <occultismLevel>1</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP</en>
@@ -2427,7 +2427,7 @@
                         para así conseguir que el dispositivo que la utiliza deje de funcionar durante un tiempo.
                     </es>
                 </description>
-                <psiLevel>2</psiLevel>
+                <occultismLevel>2</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>See Impact</en>
@@ -2486,7 +2486,7 @@
                         abrirla.
                     </es>
                 </description>
-                <psiLevel>3</psiLevel>
+                <occultismLevel>3</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP</en>
@@ -2546,7 +2546,7 @@
                     <es>Con un toque, lanzas una descarga de alto voltaje procedente de tu propio campo bioeléctrico.
                     </es>
                 </description>
-                <psiLevel>4</psiLevel>
+                <occultismLevel>4</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP</en>
@@ -2594,7 +2594,7 @@
                         proteja del daño.
                     </es>
                 </description>
-                <psiLevel>5</psiLevel>
+                <occultismLevel>5</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP + 2 VP per 5 additional hits</en>
@@ -2645,7 +2645,7 @@
                     <es>Diriges un proyectil de energía (como el que dispara un bláster) a un objetivo a la vista.
                     </es>
                 </description>
-                <psiLevel>6</psiLevel>
+                <occultismLevel>6</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP</en>
@@ -2692,7 +2692,7 @@
                         estelares.
                     </es>
                 </description>
-                <psiLevel>7</psiLevel>
+                <occultismLevel>7</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>See Impact</en>
@@ -2753,7 +2753,7 @@
                     <es>Creas una explosión que azota todo lo que esté en las inmediaciones con energía pura.
                     </es>
                 </description>
-                <psiLevel>8</psiLevel>
+                <occultismLevel>8</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 VP</en>
@@ -2800,7 +2800,7 @@
                         puntos de victoria con otras personas.
                     </es>
                 </description>
-                <psiLevel>9</psiLevel>
+                <occultismLevel>9</occultismLevel>
                 <time>instantaneous</time>
                 <cost>
                     <en>1 PV</en>
@@ -2888,7 +2888,7 @@
                     particular.
                 </es>
             </description>
-            <psiLevel>1</psiLevel>
+            <occultismLevel>1</occultismLevel>
             <time>instantaneous</time>
             <cost>
                 <en>1 VP</en>
@@ -2952,7 +2952,7 @@
                 <es>Recitas un pasaje inspirador de los Evangelios Omega para aumentar la moral de tus aliados.
                 </es>
             </description>
-            <psiLevel>2</psiLevel>
+            <occultismLevel>2</occultismLevel>
             <time>instantaneous</time>
             <cost>
                 <en>1 VP</en>
@@ -2998,7 +2998,7 @@
                     camaradas heridos con tan solo tocarlos.
                 </es>
             </description>
-            <psiLevel>3</psiLevel>
+            <occultismLevel>3</occultismLevel>
             <time>instantaneous</time>
             <cost>
                 <en>1 VP</en>
@@ -3041,7 +3041,7 @@
                     estado procedente de un poder oculto que aflija a un fiel.
                 </es>
             </description>
-            <psiLevel>3</psiLevel>
+            <occultismLevel>3</occultismLevel>
             <time>instantaneous</time>
             <cost>
                 <en>1 VP</en>
@@ -3102,7 +3102,7 @@
                     muestra de la desaprobación divina.
                 </es>
             </description>
-            <psiLevel>4</psiLevel>
+            <occultismLevel>4</occultismLevel>
             <time>instantaneous</time>
             <cost>
                 <en>1 VP</en>
@@ -3146,7 +3146,7 @@
                     social sobre quienes te escuchan.
                 </es>
             </description>
-            <psiLevel>5</psiLevel>
+            <occultismLevel>5</occultismLevel>
             <time>instantaneous</time>
             <cost>
                 <en>1 VP</en>
@@ -3192,7 +3192,7 @@
                     santos.
                 </es>
             </description>
-            <psiLevel>5</psiLevel>
+            <occultismLevel>5</occultismLevel>
             <time>presentTense30min</time>
             <cost>
                 <en>1 VP + 1 VP spent by each person who makes the oath</en>
@@ -3252,7 +3252,7 @@
                 <es>Entiendes y hablas casi cualquier idioma que no hayas aprendido.
                 </es>
             </description>
-            <psiLevel>6</psiLevel>
+            <occultismLevel>6</occultismLevel>
             <time>instantaneous</time>
             <cost>
                 <en>1 VP + 2 VP per additional person</en>
@@ -3309,7 +3309,7 @@
                 <es>Impones una penitencia a un pecador.
                 </es>
             </description>
-            <psiLevel>7</psiLevel>
+            <occultismLevel>7</occultismLevel>
             <time>instantaneous</time>
             <cost>
                 <en>1 VP</en>
@@ -3398,7 +3398,7 @@
                 <es>Santificas un objeto eclesiástico común para que te ayude místicamente en tus ritos teúrgicos.
                 </es>
             </description>
-            <psiLevel>7</psiLevel>
+            <occultismLevel>7</occultismLevel>
             <time>narrated1day</time>
             <cost>
                 <en>2 VP</en>
@@ -3443,7 +3443,7 @@
                 <es>Creas un escudo místico para que te proteja del daño.
                 </es>
             </description>
-            <psiLevel>8</psiLevel>
+            <occultismLevel>8</occultismLevel>
             <time>instantaneous</time>
             <cost>
                 <en>You can create a mystical shield to protect you against damage.</en>
@@ -3505,8 +3505,8 @@
                     <es>Tú o un objetivo de tu elección puede escapar del peligro gracias a la intervención divina.
                     </es>
                 </description>
-                <psiLevel>9</psiLevel>
-                <time></time>
+                <occultismLevel>9</occultismLevel>
+                <time>instantaneous</time>
                 <cost>
                     <en>1 VP</en>
                     <es>1 PV</es>
@@ -3574,6 +3574,430 @@
 
 
     <path>
+        <id>brotherBattleRituals</id>
+        <name>
+            <en>Brother Battle Rituals</en>
+            <es>Ritos de los Hermanos de Batalla</es>
+        </name>
+        <occultismType>theurgy</occultismType>
+        <powers>
+            <power>
+                <id>soulsVessel</id>
+                <name>
+                    <en>Soul's Vessel</en>
+                    <es>Receptáculo del Alma</es>
+                </name>
+                <description>
+                    <en>You can perfect your physical body into an instrument of the Pancreator.
+                    </en>
+                    <es>Perfeccionas tu cuerpo para convertirlo en un instrumento del Pancreator.
+                    </es>
+                </description>
+                <occultismLevel>1</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>will</characteristic>
+                <skills>
+                    <skill>vigor</skill>
+                </skills>
+                <components>
+                    <component>P</component>
+                </components>
+                <resistance>
+                    <en>Easy
+                    </en>
+                    <es>Fácil
+                    </es>
+                </resistance>
+                <impact>
+                    <en>This ritual aids you by making favorable your rolls for all non-attack actions involving your
+                        Body characteristics — this includes lifting, climbing, and even the evade maneuver. It lasts
+                        for the scene.
+                    </en>
+                    <es>El rito te ayuda a conseguir tiradas favorables en todas las acciones que incluyan tus
+                        características de Cuerpo (que no sean ataques), incluyendo alzar un objeto, trepar e incluso la
+                        maniobra evadir. Este efecto dura hasta el final de la escena.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>rightlyGuidedHand</id>
+                <name>
+                    <en>Rightly Guided Hand</en>
+                    <es>Mano Guiada por la Justicia</es>
+                </name>
+                <description>
+                    <en>You can improve your combat skills.
+                    </en>
+                    <es>Mejoras tus habilidades de combate.
+                    </es>
+                </description>
+                <occultismLevel>2</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>faith</characteristic>
+                <skills>
+                    <skill>fight</skill>
+                    <skill>melee</skill>
+                    <skill>shoot</skill>
+                </skills>
+                <components>
+                    <component>LG</component>
+                </components>
+                <resistance>
+                    <en>Easy
+                    </en>
+                    <es>Fácil
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You can steady your hand under fire. Your combat skill rolls are favorable for 1 turn (beginning
+                        on the next turn after the casting) per your Theurgy rating, but only for the skill used to cast
+                        this rite.
+                    </en>
+                    <es>Tu mano se mantiene certera en combate. Tus tiradas de combate son favorables durante 1 turno (a
+                        partir del siguiente turno después del lanzamiento) por punto de Teúrgia, pero solo con la
+                        habilidad que hayas utilizado para lanzar este rito.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>armorOfThePancreator</id>
+                <name>
+                    <en>Armor of the Pancreator</en>
+                    <es>Armadura del Pancreator</es>
+                </name>
+                <description>
+                    <en>You can protect yourself or another from physical harm.
+                    </en>
+                    <es>Te proteges a ti o a otra persona del daño físico.
+                    </es>
+                </description>
+                <occultismLevel>3</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP + 2 VP per 5 additional hits</en>
+                    <es>1 PV + 2 PV por cada 5 impactos adicionales</es>
+                </cost>
+                <characteristic>faith</characteristic>
+                <skills>
+                    <skill>empathy</skill>
+                    <skill>focus</skill>
+                </skills>
+                <components>
+                    <component>LG</component>
+                </components>
+                <resistance>
+                    <en>Easy
+                    </en>
+                    <es>Fácil
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You produce a force field that protects its target. The target is a single individual, whether
+                        that’s you or someone else, but it must be declared before the ritual is cast. Otherwise, it
+                        acts like the ecumenical Shield of Faith rite, although it only protects its target, not
+                        an area around the caster.
+                    </en>
+                    <es>Creas un campo de fuerza que protege a un único individuo, ya seas tú u otra persona; pero debes
+                        declararlo antes de lanzar el rito. De lo contrario, funcionará como el rito ecuménico Escudo de
+                        Fe, aunque solo protegerá a su objetivo, no la zona alrededor de quien lo lanza.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>righteousFervor</id>
+                <name>
+                    <en>Righteous Fervor</en>
+                    <es>Fervor de los Justos</es>
+                </name>
+                <description>
+                    <en>You can resist temptation
+                    </en>
+                    <es>Resistes a la tentación.
+                    </es>
+                </description>
+                <occultismLevel>4</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>will</characteristic>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
+                <components>
+                    <component>L</component>
+                </components>
+                <resistance>
+                    <en>Hard
+                    </en>
+                    <es>Difícil
+                    </es>
+                </resistance>
+                <impact>
+                    <en>For the next act, you can intensify your stoicism by declaring your duty (such as “No harm shall
+                        come to the bishop under my watch” or “I shall safely deliver the writ to the Hierophant on
+                        Byzantium Secundus”). You become immune to any mental or social obstacles that would hinder you
+                        in the performance of this duty (such as the orders of the bishop to step down, the knavery of
+                        the Decados marquis, the lamentation of a peasant to free his trapped brother out from under a
+                        fallen ox-cart, etc.). In rules terms, influence actions against you that would deter you from
+                        your duty are unfavorable, and your rolls to stonewall them are favorable.\n
+
+                        Furthermore, your Observe actions to notice physical obstacles (such as cutpurses, assassins
+                        sneaking through the crowd, etc.) are favorable, and you gain +2 Perception on instinctual
+                        perception tests.\n
+
+                        Of course, the effect of this ritual has some drawbacks, as you can become quite callous to
+                        pleas for help if they would hinder your stated duty. In such cases, you must later confess your
+                        refusal within a week of the ritual’s conclusion or risk gaining Hubris.
+                    </en>
+                    <es>Durante el próximo acto, puedes aumentar tu estoicismo declarando tu deber (por ejemplo, «No
+                        permitiré que recaiga ningún daño sobre el obispo mientras esté bajo mi protección» o «Entregaré
+                        el decreto al hierofante de Byzantium Secundus»). Gracias a este rito, te vuelves inmune a
+                        cualquier obstáculo mental o social que se interponga entre tú y tu deber (por ejemplo, una
+                        orden del obispo de abandonar tu misión, la charlatanería del marqués Decados, la súplica de un
+                        campesino para que ayudes a su hermano atrapado bajo un carro de bueyes volcado, etc.). En
+                        términos de reglas, las acciones de influencia que pretendan empujarte a abandonar tu deber son
+                        desfavorables, y tus tiradas para eludirlas son favorables.\n
+
+                        Además, tus acciones de Observar para darte cuenta de obstáculos físicos (como ladrones,
+                        asesinos infiltrados en la muchedumbre, etc.) son favorables, y añades +2 a las pruebas de
+                        Percepción y percepción instintiva.\n
+
+                        Obviamente, los efectos de Fervor de los Justos también tienen desventajas. El rito te mueve a
+                        mostrarte insensible y rechazar las peticiones de ayuda cuando suponen un obstáculo a tu deber.
+                        En ese caso, tendrás que confesar tu rechazo en un plazo de una semana después de que el rito
+                        concluya si no quieres arriesgarte a ganar Hubris.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id></id>
+                <name>
+                    <en></en>
+                    <es></es>
+                </name>
+                <description>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </description>
+                <occultismLevel>5</occultismLevel>
+                <time></time>
+                <cost>
+                    <en></en>
+                    <es></es>
+                </cost>
+                <characteristic></characteristic>
+                <skills>
+                    <skill></skill>
+                </skills>
+                <components>
+                    <component>G</component>
+                </components>
+                <resistance>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </resistance>
+                <impact>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id></id>
+                <name>
+                    <en></en>
+                    <es></es>
+                </name>
+                <description>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </description>
+                <occultismLevel>6</occultismLevel>
+                <time></time>
+                <cost>
+                    <en></en>
+                    <es></es>
+                </cost>
+                <characteristic></characteristic>
+                <skills>
+                    <skill></skill>
+                </skills>
+                <components>
+                    <component>G</component>
+                </components>
+                <resistance>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </resistance>
+                <impact>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id></id>
+                <name>
+                    <en></en>
+                    <es></es>
+                </name>
+                <description>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </description>
+                <occultismLevel>7</occultismLevel>
+                <time></time>
+                <cost>
+                    <en></en>
+                    <es></es>
+                </cost>
+                <characteristic></characteristic>
+                <skills>
+                    <skill></skill>
+                </skills>
+                <components>
+                    <component>G</component>
+                </components>
+                <resistance>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </resistance>
+                <impact>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id></id>
+                <name>
+                    <en></en>
+                    <es></es>
+                </name>
+                <description>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </description>
+                <occultismLevel>8</occultismLevel>
+                <time></time>
+                <cost>
+                    <en></en>
+                    <es></es>
+                </cost>
+                <characteristic></characteristic>
+                <skills>
+                    <skill></skill>
+                </skills>
+                <components>
+                    <component>G</component>
+                </components>
+                <resistance>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </resistance>
+                <impact>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id></id>
+                <name>
+                    <en></en>
+                    <es></es>
+                </name>
+                <description>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </description>
+                <occultismLevel>9</occultismLevel>
+                <time></time>
+                <cost>
+                    <en></en>
+                    <es></es>
+                </cost>
+                <characteristic></characteristic>
+                <skills>
+                    <skill></skill>
+                </skills>
+                <components>
+                    <component>G</component>
+                </components>
+                <resistance>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </resistance>
+                <impact>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </impact>
+            </power>
+        </powers>
+        <elementalUse>
+            <en>With Theurgy 1, your charism grants you +1 Body Resistance against all attacks that round.\n
+
+                At Theurgy 5, you gain +1 Body Resistance against all attacks for 10 rounds.\n
+
+                At Theurgy 9, you gain +1 Body Resistance against all attacks for the scene.
+            </en>
+            <es>Con Teúrgia 1, tu carisma te permite añadir +1 a tu Resistencia Corporal contra todos los ataques de la
+                ronda.\n
+
+                Con Teúrgia 5, tu carisma te permite añadir +1 a tu Resistencia Corporal contra todos los ataques
+                durante 10 rondas.\n
+
+                Con Teúrgia 9, tu carisma te permite añadir +1 a tu Resistencia Corporal contra todos los ataques hasta
+                el final de la escena.
+            </es>
+        </elementalUse>
+        <random>
+            <classification>combat</classification>
+        </random>
+        <restrictions>
+            <factions>
+                <faction>brotherBattle</faction>
+            </factions>
+        </restrictions>
+    </path>
+
+    <path>
         <id></id>
         <name>
             <en></en>
@@ -3593,7 +4017,7 @@
                     <es>
                     </es>
                 </description>
-                <psiLevel>1</psiLevel>
+                <occultismLevel>1</occultismLevel>
                 <time></time>
                 <cost>
                     <en></en>
@@ -3631,7 +4055,7 @@
                     <es>
                     </es>
                 </description>
-                <psiLevel>2</psiLevel>
+                <occultismLevel>2</occultismLevel>
                 <time></time>
                 <cost>
                     <en></en>
@@ -3669,7 +4093,7 @@
                     <es>
                     </es>
                 </description>
-                <psiLevel>3</psiLevel>
+                <occultismLevel>3</occultismLevel>
                 <time></time>
                 <cost>
                     <en></en>
@@ -3707,7 +4131,7 @@
                     <es>
                     </es>
                 </description>
-                <psiLevel>4</psiLevel>
+                <occultismLevel>4</occultismLevel>
                 <time></time>
                 <cost>
                     <en></en>
@@ -3745,7 +4169,7 @@
                     <es>
                     </es>
                 </description>
-                <psiLevel>5</psiLevel>
+                <occultismLevel>5</occultismLevel>
                 <time></time>
                 <cost>
                     <en></en>
@@ -3783,7 +4207,7 @@
                     <es>
                     </es>
                 </description>
-                <psiLevel>6</psiLevel>
+                <occultismLevel>6</occultismLevel>
                 <time></time>
                 <cost>
                     <en></en>
@@ -3821,7 +4245,7 @@
                     <es>
                     </es>
                 </description>
-                <psiLevel>7</psiLevel>
+                <occultismLevel>7</occultismLevel>
                 <time></time>
                 <cost>
                     <en></en>
@@ -3859,7 +4283,7 @@
                     <es>
                     </es>
                 </description>
-                <psiLevel>8</psiLevel>
+                <occultismLevel>8</occultismLevel>
                 <time></time>
                 <cost>
                     <en></en>
@@ -3897,7 +4321,7 @@
                     <es>
                     </es>
                 </description>
-                <psiLevel>9</psiLevel>
+                <occultismLevel>9</occultismLevel>
                 <time></time>
                 <cost>
                     <en></en>
