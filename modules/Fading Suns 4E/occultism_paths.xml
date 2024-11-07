@@ -716,7 +716,2055 @@
             </power>
         </powers>
         <random>
-            <classification></classification>
+            <classification>others</classification>
+        </random>
+    </path>
+
+    <path>
+        <id>psyche</id>
+        <name>
+            <en>Psyche</en>
+            <es>Psique</es>
+        </name>
+        <occultismType>psi</occultismType>
+        <powers>
+            <power>
+                <id>mindSpeech</id>
+                <name>
+                    <en>Mind Speech</en>
+                    <es>Habla Mental</es>
+                </name>
+                <description>
+                    <en>You can project your thoughts into the mind of others and hear their responses, effectively
+                        allowing you to communicate silently.
+                    </en>
+                    <es>Proyectas tus pensamientos en la mente de los demás y escuchas sus respuestas, lo que te permite
+                        comunicarte con ellos en silencio.
+                    </es>
+                </description>
+                <psiLevel>1</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP + 1 VP per additional target after the first</en>
+                    <es>1 PV + 1 PV por cada objetivo adicional</es>
+                </cost>
+                <characteristic>presence</characteristic>
+                <skill>focus</skill>
+                <resistance>
+                    <en>Hard +1 per additional target.
+                    </en>
+                    <es>Difícil +1 por objetivo adicional
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You can project your thoughts directly into the mind of another person in your sight for the
+                        rest of the scene, as if you were talking directly into their ear, and they may project thoughts
+                        to you in the same fashion. This communication is silent and undetectable, except by other Psi
+                        powers. You only receive what the participants want to send, so you cannot in any way read their
+                        thoughts with this power.
+
+                        You may spend additional VP to contact multiple targets at once, up to your Psi rating. This
+                        also increases the Resistance for the action.
+
+                        If the target is unwilling, the base Resistance is their Spirit Resistance. If you’re
+                        successful, they can try to shake it off (Easy Resistance) to sever your Mind Speech connection.
+                    </en>
+                    <es>Proyectas tus pensamientos en la mente de otra persona que esté en tu campo de visión durante el
+                        resto de la escena, como si estuvieses hablando directamente a su oído. La persona puede
+                        proyectar pensamientos en tu mente de la misma manera. Esta comunicación es silenciosa e
+                        indetectable, excepto si se usan otros poderes de Psi. Solo recibes lo que el participante
+                        quiera enviarte, por lo que este poder no permite leer sus pensamientos.\n
+
+                        Puedes gastar PV adicionales para contactar con varios objetivos a la vez, hasta un máximo
+                        equivalente a tu puntuación de Psi. Esto aumenta la Resistencia de la acción.\n
+
+                        Si el objetivo no quiere que te comuniques con él, utiliza como base su Resistencia Espiritual.
+                        Si la superas, podrá intentar quitárselo de encima (Resistencia Fácil) para cortar la conexión.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>intuit</id>
+                <name>
+                    <en>Intuit</en>
+                    <es>Intuir</es>
+                </name>
+                <description>
+                    <en>By extending your mental senses, you can read the emotional state of a person within sight.
+                    </en>
+                    <es>Extiendes tus sentidos mentales para leer el estado emocional de una persona a la vista.
+                    </es>
+                </description>
+                <psiLevel>2</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP +1 VP per 10 turns extended duration</en>
+                    <es>1 PV + 1 PV por 10 turnos de duración extendida</es>
+                </cost>
+                <characteristic>intuition</characteristic>
+                <skill>empathy</skill>
+                <resistance>
+                    <en>Equals target’s Spirit Resistance.
+                    </en>
+                    <es>Equivalente a la Resistencia Espiritual del objetivo.
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You can subtly sense the target’s current emotional state as a secondary action for the next 10
+                        turns. You understand the emotions they’re feeling but not necessarily the cause of the emotion.
+                        If you’re not in turn-based time, 1 VP will extend the duration for 10 minutes (Present Tense)
+                        or 1 hour (Narrated). Emotional insight allows for much easier manipulation of your target, as
+                        you quickly know if you’re on the right track. You get favorable rolls for most influence
+                        attempts against the target, as well as therapeutic actions (such as the Empathy minister
+                        maneuver).\n
+
+                        You can probe the target’s emotions to determine if they’re genuinely theirs or the result of an
+                        occult intrusion caused by powers such as Emote, Head Shackle, or Puppetry. Roll Empathy + Wits
+                        vs. Resistance equal to the Psi (or Theurgy) rank of the power. Victory does not tell you what
+                        the power is (although if you possess that power yourself, you can recognize it), only that the
+                        target’s emotion is a result of a power.
+                    </en>
+                    <es>Con una acción secundaria, consigues sentir sutilmente el estado emocional actual de tu objetivo
+                        durante los próximos 10 turnos. Aunque entiendes sus emociones, no tienes por qué comprender lo
+                        que las causa. Si no estáis jugando por turnos, 1 PV extenderá la duración a 10 minutos
+                        (Presente) o 1 hora (Narrado). Esta percepción emocional te permite manipular mucho más
+                        fácilmente a tu objetivo porque sabrás si vas por el buen camino. Consigues tiradas favorables
+                        para la mayoría de intentos de influencia contra tu objetivo, así como acciones terapéuticas
+                        (como la maniobra escuchar confesión de Empatía).\n
+
+                        Puedes indagar en las emociones de tu objetivo para determinar si son genuinas o el resultado de
+                        una intrusión oculta provocada por poderes como Crear Sentimientos, Grilletes Mentales o
+                        Titiritero. Tira Empatía + Inteligencia contra una Resistencia equivalente a la puntuación de
+                        Psi (o Teúrgia) del poder. Una victoria no te dirá lo que es el poder (aunque, si lo posees,
+                        podrás reconocerlo), solo que la emoción de tu objetivo ha sido provocada por un poder.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>emote</id>
+                <name>
+                    <en>Emote</en>
+                    <es>Crear Sentimientos</es>
+                </name>
+                <description>
+                    <en>By unleashing the baser aspects of your mind, you can create emotional states in the minds of
+                        others.
+                    </en>
+                    <es>Al dar rienda suelta a los aspectos más básicos de tu mente, puedes crear un estado emocional en
+                        las mentes de los demás.
+                    </es>
+                </description>
+                <psiLevel>3</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP + 1 VP per + 1 Resistance against shake it off attempts</en>
+                    <es>1 PV + 1 PV para añadir + 1 de Resistencia contra intentos de quitárselo de encima</es>
+                </cost>
+                <characteristic>presence</characteristic>
+                <skill>empathy</skill>
+                <resistance>
+                    <en>Equals target’s Spirit Resistance.
+                    </en>
+                    <es>Equivalente a la Resistencia Espiritual del objetivo.
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You create a base emotion in the target, expressed as a state. Choose either Angered, Confused,
+                        or Daunted.\n
+
+                        You can spend additional VP to choose a more intense state instead:\n
+                        2 VP = Afraid or Reckless\n
+                        4 VP = Berserk, Penalized, or Terrified\n
+
+                        Emotions are transitory by nature — artificial ones, even more so. The state applied is
+                        temporary (it lasts for the scene), but additional VP spent during activation can make it more
+                        difficult to shake it off: +1 Resistance per 1 VP.
+                    </en>
+                    <es>Creas una emoción base en tu objetivo, expresada por un estado. Elige entre Confuso, Enfadado o
+                        Intimidado.\n
+
+                        Puedes gastar PV adicionales para elegir un estado más intenso:\n
+                        2 PV = Asustado o Imprudente\n
+                        4 PV = Aterrorizado, Berserk o Penalizado\n
+
+                        Las emociones son transitorias por naturaleza, y las artificiales aún más. El estado se aplica
+                        temporalmente (dura la escena), pero puedes hacer que sea más difícil quitárselo de encima
+                        durante su activación gastando 1 PV por cada punto adicional de Resistencia.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>mindSight</id>
+                <name>
+                    <en>Mind Sight</en>
+                    <es>Visión Mental</es>
+                </name>
+                <description>
+                    <en>You can now peer deeper into a target’s mind to read surface thoughts; it’s as if the target was
+                        speaking their mind out loud for you to hear.
+                    </en>
+                    <es>Eres capaz de observar más de cerca la mente de tu objetivo para leer pensamientos
+                        superficiales, como si estuviese diciendo lo que piensa en voz alta.
+                    </es>
+                </description>
+                <psiLevel>4</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP + 1 VP per 10 turns extended duration</en>
+                    <es>1 PV + 1 PV por 10 turnos de duración extendida</es>
+                </cost>
+                <characteristic>presence</characteristic>
+                <skill>impress</skill>
+                <resistance>
+                    <en>Equals target’s Spirit Resistance.
+                    </en>
+                    <es>Equivalente a la Resistencia Espiritual del objetivo.
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You can read the surface thoughts of a target within sight as a secondary action for the next 10
+                        turns. If you’re not in turn-based time, you can extend the duration for 10 minutes (Present
+                        Tense) or 1 hour (Narrated).
+
+                        You can get the target of this power to think about a particular subject by making a successful
+                        telepathic influence action (such as a command or entreat maneuver) as a primary action. The
+                        result is inherently subjective, however, as someone’s thoughts about any subject are usually
+                        about how it relates to themselves.
+
+                        Your dodge or evade maneuvers against the target’s attacks are favorable, as you read their
+                        intentions moments before they act. You can instead shout a warning (as a primary reflexive
+                        action) to anyone else the target is attacking, giving them a favorable defensive roll.
+
+                        Finally, you can probe the target’s thoughts to determine if they’re genuinely theirs or the
+                        result of an occult intrusion, as with the Intuit power (listed above).
+                    </en>
+                    <es>Lees los pensamientos superficiales de un objetivo a la vista como acción secundaria durante los
+                        próximos 10 turnos. Si no estáis jugando por turnos, 1 PV extenderá la duración a 10 minutos
+                        (Presente) o 1 hora (Narrado).
+
+                        Puedes conseguir que tu objetivo piense sobre un tema en concreto si superas una tirada de
+                        influencia telepática (como dar una orden o pedir) con tu acción primaria. No obstante, los
+                        pensamientos de una persona sobre cualquier tema suelen estar relacionados consigo misma, por lo
+                        que el resultado será subjetivo.
+
+                        Además, como lees sus intenciones antes de que actúe, tus maniobras de esquivar y evadir contra
+                        los ataques de tu objetivo son favorables. Otra opción es gritar un aviso (como acción primaria
+                        refleja) a cualquiera otra persona que vaya a recibir el ataque para que tenga una tirada
+                        defensiva favorable.
+
+                        Por último, puedes indagar en los pensamientos de tu objetivo para determinar si son realmente
+                        suyos o el resultado de una intrusión oculta, como la del poder Intuir, que aparece en esta
+                        página.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>mindSearch</id>
+                <name>
+                    <en>Mind Search</en>
+                    <es>Búsqueda Mental</es>
+                </name>
+                <description>
+                    <en>You can now delve deeply into a person’s mind to extract answers to your questions.
+                    </en>
+                    <es>Te adentras en las profundidades de la mente de otra persona para extraer respuestas a tus
+                        preguntas.
+                    </es>
+                </description>
+                <psiLevel>5</psiLevel>
+                <time>presentTense</time>
+                <cost>
+                    <en>1 VP + 1 VP per + 1 Resistance against shake it off attempts</en>
+                    <es>1 PV + 1 PV para añadir + 1 de Resistencia contra intentos de quitárselo de encima</es>
+                </cost>
+                <characteristic>presence</characteristic>
+                <skill>charm</skill>
+                <resistance>
+                    <en>Equals target’s Spirit Resistance.
+                    </en>
+                    <es>Equivalente a la Resistencia Espiritual del objetivo.
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You may dig the answer to a single question out of a person’s mind. Every 2 VP spent on impact
+                        allows you to ask one additional question. Especially sensitive topics or secrets can trigger a
+                        subconscious shake it off attempt from the target, which cancels this power if successful. You
+                        may spend VP before the roll to increase the Resistance to shake it off attempts.\n
+
+                        This power is only partially subtle: the target is not aware of the questions asked of them, but
+                        they do experience thinking the answer to the questions.
+                    </en>
+                    <es>Extraes de la mente de otra persona la respuesta a una pregunta sencilla. Cada 2 PV que gastes
+                        en el impacto te permitirán hacer una pregunta adicional. Los temas especialmente sensibles o
+                        secretos podrían desencadenar un intento del subconsciente de quitarse de encima tu presencia,
+                        lo que cancelaría este poder si tiene éxito. Puedes gastar PV antes de la tirada para aumentar
+                        la Resistencia contra intentos de quitárselo de encima.\n
+
+                        Este poder solo es sutil en parte: el objetivo no es consciente de las preguntas que se le
+                        hacen, pero sí se da cuenta de que está pensando sobre la respuesta a la pregunta.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>headShackle</id>
+                <name>
+                    <en>Head Shackle</en>
+                    <es>Grilletes Mentales</es>
+                </name>
+                <description>
+                    <en>You can implant suggestions directly into the mind of others who have no choice but to follow
+                        these instructions.
+                    </en>
+                    <es>Implantas sugerencias directamente en la mente de los demás, a los que no les queda más remedio
+                        que seguir tus instrucciones.
+                    </es>
+                </description>
+                <psiLevel>6</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP +1 VP per +1 Resistance against shake it off attempts</en>
+                    <es>1 PV +1 PV para añadir +1 de Resistencia contra intentos de quitárselo de encima</es>
+                </cost>
+                <characteristic>presence</characteristic>
+                <skill>impress</skill>
+                <resistance>
+                    <en>Equals target’s Spirit Resistance +1 (if non-sentient) or +2 (if sentient).
+                    </en>
+                    <es>Equivalente a la Resistencia Espiritual del objetivo +1 (si no es racional) o +2 (si es
+                        racional).
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You dominate the mind of another, compelling them to perform an action or series of actions. You
+                        may specify the next action they take. Each additional 2 VP spent on impact allows you to
+                        specify a subsequent action they’ll take, but all the actions in the series must be specified
+                        when this power is activated. You can’t direct them turn-by-turn like a puppet (see Puppetry,
+                        below).\n
+
+                        Regardless of the number of actions in the series, after the target finishes the first action,
+                        their subconscious will attempt to shake it off as a secondary action, which cancels this power
+                        if it’s successful. You may spend VP upon activation to increase the Resistance to the target’s
+                        attempts shake it off. The target cannot inflict harm on themselves directly, and actions that
+                        harm loved ones or go against strong held beliefs might trigger another shake it off secondary
+                        action.
+                    </en>
+                    <es>Dominas la mente de otra persona, forzándola a realizar una o varias acciones. Decide su próxima
+                        acción. Cada 2 PV adicionales que gastes en el impacto te permitirán determinar una acción
+                        sucesiva, pero debes especificar todas las acciones al activar el poder; no puedes dirigirlo
+                        turno por turno como una marioneta (consulta el poder Titiritero en esta página).\n
+
+                        Sin importar la cantidad de acciones que deba hacer, una vez que el objetivo acabe la primera,
+                        su subconsciente intentará quitarse de encima la obligación con una acción secundaria que, si
+                        tiene éxito, anulará el poder. Puedes gastar PV cuando actives el poder para aumentar la
+                        Resistencia contra intentos de quitárselo de encima. El objetivo no puede hacerse daño
+                        directamente, y las acciones que perjudiquen a sus seres queridos o vayan en contra de sus
+                        creencias más arraigadas podrían provocar otra acción secundaria para quitárselo de encima.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>brainBlast</id>
+                <name>
+                    <en>Brain Blast</en>
+                    <es>Estallido Cerebral</es>
+                </name>
+                <description>
+                    <en>You can strike at a target’s brain directly, inflicting damage and imposing physical states on
+                        them with pure mental control.
+                    </en>
+                    <es>Atacas directamente el cerebro de tu objetivo, provocando daño e imponiendo estados físicos por
+                        medio del control mental.
+                    </es>
+                </description>
+                <psiLevel>7</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP + 2 VP per point of damage dealt</en>
+                    <es>1 PV + 2 PV por punto de daño infligido</es>
+                </cost>
+                <characteristic>presence</characteristic>
+                <skill>focus</skill>
+                <resistance>
+                    <en>Equals target’s Spirit Resistance.
+                    </en>
+                    <es>Equivalente a la Resistencia Espiritual del objetivo.
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You blast the target’s mind for 1 point of damage per 2 VP spent, up to your Psi rating.
+                        Additionally, you can inflict a physical state on your target by spending VP:\n
+
+                        2 VP = Fatigued or Hindered\n
+
+                        4 VP = Disoriented or Stunned\n
+
+                        6 VP = Immobilized, Paralyzed, or Unconscious\n
+
+                        These states last for 10 turns. The Resistance to shake it off attempts is increased by the
+                        amount of damage this power dealt.
+                    </en>
+                    <es>Dañas la mente de tu objetivo, causando 1 punto de daño por cada 2 PV que gastes, hasta un
+                        máximo
+                        equivalente a tu puntuación de Psi. Además, puedes infligir un estado físico a tu objetivo
+                        gastando PV.\n
+
+                        2 PV = Cansado u Obstaculizado\n
+
+                        4 PV = Desorientado o Aturdido\n
+
+                        6 PV = Inconsciente, Inmovilizado o Paralizado\n
+
+                        Este estado dura 10 turnos. La Resistencia a intentos de quitárselo de encima aumenta en una
+                        cantidad equivalente al daño que ha causado este poder.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>sympaticus</id>
+                <name>
+                    <en>Sympaticus</en>
+                    <es>Simpatía</es>
+                </name>
+                <description>
+                    <en>Create a telepathic network with others, allowing each to communicate with one another and share
+                        extra resistance against Psyche powers.
+                    </en>
+                    <es>Creas una red telepática con otras personas que os permite comunicaros entre sí y compartir una
+                        Resistencia adicional contra poderes de la Psique.
+                    </es>
+                </description>
+                <psiLevel>8</psiLevel>
+                <time>presentTense15min</time>
+                <cost>
+                    <en>1 VP + 1 VP per additional target</en>
+                    <es>1 PV + 1 PV por cada objetivo adicional</es>
+                </cost>
+                <characteristic></characteristic>
+                <skill></skill>
+                <resistance>
+                    <en>Equals the highest Spirit Resistance of all targets.
+                    </en>
+                    <es>Equivalente a la Resistencia Espiritual más
+                        alta de todos los objetivos.
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You create a gestalt network linking all the targets to yourself, bonding you together. Any
+                        member can share thoughts or emotions with other members regardless of distance, so long as
+                        they’re in the same solar system. Members can leave the group at will, and you can end the
+                        effect at any time; otherwise, the effect persists among the members for the remainder of the
+                        drama, so long as each member remains in the same solar system as you. Additionally, when within
+                        sight, any member can spend VP from their cache to increase any other members’ Resistance to
+                        Psyche powers.
+                    </en>
+                    <es>Creas una red gestalt que conecta a todos tus objetivos contigo. Cualquier miembro puede
+                        compartir pensamientos y emociones con otros miembros sin importar la distancia, siempre que
+                        estén en el mismo sistema solar. Los miembros pueden abandonar el grupo cuando quieran, y
+                        también puedes anular el efecto en cualquier momento; de lo contrario, el efecto persistirá
+                        durante el resto de la obra, siempre que cada miembro permanezca en el mismo sistema solar que
+                        tú. Además, si están al alcance de la vista, cualquier miembro puede gastar PV de su depósito
+                        para aumentar la Resistencia de otro miembro contra poderes de Psique.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>puppetry</id>
+                <name>
+                    <en>Puppetry</en>
+                    <es>Titiritero</es>
+                </name>
+                <description>
+                    <en>You can telepathically take control of another person, possessing them completely.
+                    </en>
+                    <es>Utilizas la telepatía para tomar el control de otra persona, poseyéndola por completo.
+                    </es>
+                </description>
+                <psiLevel>9</psiLevel>
+                <time>instantaneousPrimaryActionPlusSecondary</time>
+                <cost>
+                    <en>1 VP + 1 VP per 10 turns extended duration</en>
+                    <es>1 PV + 1 PV por 10 turnos de duración extendida</es>
+                </cost>
+                <characteristic>presence</characteristic>
+                <skill>focus</skill>
+                <resistance>
+                    <en>Equals target’s Spirit Resistance.
+                    </en>
+                    <es>Equivalente a la Resistencia Espiritual del objetivo.
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You can touch a target and completely possess them with your will for the next 10 turns. If the
+                        target is resisting your touch, you need to roll Fight + Dexterity as a primary action vs. their
+                        Body Resistance (although you ignore armor — you’re not trying to penetrate, just touch). If
+                        successful, you can activate Puppetry as a reflexive action.\n
+
+                        Your consciousness leaves your body, leaving it inactive for the duration of the power. While
+                        you are controlling the target’s body, you may perform actions with it, but you use the target’s
+                        traits instead of your own. You may spend 1 VP as a secondary action to have your own body make
+                        a movement action (but it cannot make rolls). If your own body suffers more Vitality damage from
+                        a single attack than your Size rating, you must spend 1 VP to maintain this power. If your body
+                        is rendered Unconscious or Dying, your mind is flung back into your body in that state.\n
+
+                        During the time you possess the body, the target can do nothing but watch what’s happening to
+                        its body. There’s one exception: If the target is a psychic with any Psyche powers, they can
+                        attempt a shake if off attempt (rolling Focus + Psi) as a primary action vs. your Psi as
+                        Resistance to evict you from their body. A psychic with Head Shackle or Puppetry can attempt to
+                        force you out using those powers against you, and if they were in Sympaticus with the target
+                        before it was possessed, they can make shake it off attempts for them.\n
+
+                        If you try to make the body do something that would endanger it or the target’s loved ones, the
+                        target gets to make a reflexive shake it off attempt as a secondary action. If successful, the
+                        Puppetry is canceled.
+                    </en>
+                    <es>Puedes tocar a un objetivo y poseerlo por completo con tu voluntad durante los próximos 10
+                        turnos. Si el objetivo se resiste a que lo toques, tendrás que tirar Pelear + Destreza como
+                        acción primaria contra su Resistencia Corporal (aunque ignoras armadura porque no estás
+                        intentando atravesarla, solo tocar). Si tienes éxito, activas Titiritero como acción refleja.\n
+
+                        Tu consciencia abandona tu cuerpo, dejándolo inactivo mientras dure el poder. Mientras controlas
+                        el cuerpo de tu objetivo puedes llevar a cabo acciones con él, pero utilizas los atributos del
+                        objetivo en vez de los tuyos propios. Puedes gastar 1 PV en una acción secundaria para que tu
+                        cuerpo haga una acción de movimiento (pero sin tiradas). Si tu cuerpo sufre más cantidad de daño
+                        de un solo ataque que tu tamaño, deberás gastar 1 PV para mantener este poder. Si tu cuerpo
+                        queda Inconsciente o Moribundo, tu mente volverá a tu cuerpo en este estado.\n
+
+                        Durante el tiempo que poseas el cuerpo, el objetivo no puede hacer nada más que observar lo que
+                        le ocurre. Con una excepción: si es un psíquico con poderes de Psique, puede intentar quitárselo
+                        de encima (tirada de Introspección + Psi) como acción primaria contra tu Psi como Resistencia
+                        para echarte de su cuerpo. Un psíquico con Grilletes Mentales o Titiritero puede intentar
+                        forzarte a abandonar el cuerpo utilizando los mismos poderes contra ti; y, si estaba en el
+                        estado Simpatía con el objetivo antes de que quedase poseído, puede hacer intentos de quitárselo
+                        de encima por él.\n
+
+                        Si intentas que el cuerpo haga algo que lo ponga en peligro a él o a sus seres queridos, el
+                        objetivo puede hacer un intento de quitárselo de encima como acción secundaria. Si tiene éxito,
+                        anula Titiritero.
+                    </es>
+                </impact>
+            </power>
+        </powers>
+        <elementalUse>
+            <en>With Psi 1, you can use this power elementally (by spending 1 VP) to send a simple thought (a short
+                sentence or iconic image) to another person within sight as a secondary action.\n
+
+                At Psi 5, you can spend 1 VP as a secondary action to increase the effects of your successful Mind
+                Speech: you create a “channel”’ where all the targets can communicate with one another.\n
+
+                At Psi 9, you can send thoughts by Mind Speech to anyone in sight at no cost (but you still need Mind
+                Speech to allow them to respond mentally to you).
+            </en>
+            <es>Con Psi 1, puedes usar este poder de forma elemental (gastando 1 PV) para enviar un pensamiento
+                sencillo, como una frase corta o una imagen icónica, a otra persona al alcance de la vista usando una
+                acción secundaria.\n
+
+                Con Psi 5, puedes gastar 1 PV como acción secundaria para aumentar los efectos de tu Habla Mental y
+                crear un «canal» en el que todos los objetivos se puedan comunicar entre sí.\n
+
+                Con Psi 9, puedes enviar pensamientos con Habla Mental a todo el mundo a tu alcance visual sin pagar
+                ningún coste (aunque necesitas Habla Mental para que te puedan responder).
+            </es>
+        </elementalUse>
+        <random>
+            <classification>alteration</classification>
+        </random>
+    </path>
+
+    <path>
+        <id>sixthSense</id>
+        <name>
+            <en>Sixth Sense</en>
+            <es>Sexto Sentido</es>
+        </name>
+        <occultismType>psi</occultismType>
+        <powers>
+            <power>
+                <id>shapeSenses</id>
+                <name>
+                    <en>Shape Senses</en>
+                    <es>Aguzar Sentidos</es>
+                </name>
+                <description>
+                    <en>You shape one or more of your normal senses to offset limitations imposed by your environment.
+                        You can tune out frequencies of sound to ignore the grinding of machinery as you try to hear the
+                        footsteps of someone sneaking around you, or you can alter your eyesight to perceive infrared
+                        light and ignore darkness. You can even filter out the taste of salt to better understand what
+                        other tastes might lie beneath it.
+                    </en>
+                    <es>Aguzas uno o varios de tus sentidos para compensar las limitaciones de tu entorno. Puedes
+                        ignorar frecuencias de sonido para evitar el ruido de la maquinaria cuando intentes escuchar los
+                        pasos de alguien que está infiltrándose, alterar tu vista para percibir luz infrarroja y no
+                        verte afectado por la oscuridad o incluso filtrar el sabor de la sal para percibir mejor los
+                        demás sabores.
+                    </es>
+                </description>
+                <psiLevel>1</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>perception</characteristic>
+                <skill>focus</skill>
+                <resistance>
+                    <en>Hard
+                    </en>
+                    <es>Difícil
+                    </es>
+                </resistance>
+                <impact>
+                    <en>Declare which sense you’re honing — sight, sound, smell, taste, or touch — when you activate
+                        this power. Until the end of the scene, you are allowed an instinctual perception test, even
+                        when normal senses would normally disallow it, whether that’s due to distance, a deleterious
+                        condition, or similar impediments. You ignore either the Visually Impaired or Hearing Impaired
+                        state (depending on which sense was shaped). At the GM’s discretion, you can treat Blinded or
+                        Deafened states as Visually Impaired or Hearing Impaired, respectfully. You can spend 2 VP to
+                        ignore one of those states entirely.\n
+
+                        You can activate this power again within the same scene to hone additional senses (one extra
+                        sense per additional use).
+                    </en>
+                    <es>Declara qué sentido aguzas (vista, oído, gusto, olfato o tacto) cuando actives el poder. Hasta
+                        el final de la escena, puedes hacer una prueba de percepción instintiva incluso cuando tus
+                        sentidos no lo permitan, ya sea debido a la distancia, a algún efecto nocivo, etc. Ignora el
+                        estado Visión Reducida o Audición Reducida (según el sentido que hayas aguzado). Si el DJ te lo
+                        permite, puedes considerar los estados Cegado y Ensordecido como Visión Reducida y Audición
+                        Reducida, y si gastas 2 PV, podrás ignorar uno de esos estados por completo.\n
+
+                        Puedes activar el poder de nuevo durante la misma escena para aguzar sentidos adicionales (un
+                        sentido más por cada uso adicional).
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>subtleSight</id>
+                <name>
+                    <en>Subtle Sight</en>
+                    <es>Visión Sutil</es>
+                </name>
+                <description>
+                    <en>You tune your senses to see the psychic aura of your target.
+                    </en>
+                    <es>Afinas tus sentidos para ver el aura psíquica de tu objetivo.
+                    </es>
+                </description>
+                <psiLevel>2</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP + 2 VP for aura motion, + 2 VP for aura shape</en>
+                    <es>1 PV + 2 PV para movimiento del aura, + 2 PV para forma del aura</es>
+                </cost>
+                <characteristic>perception</characteristic>
+                <skill>observe</skill>
+                <resistance>
+                    <en>Equals the target’s Spirit Resistance.
+                    </en>
+                    <es>Equivalente a la Resistencia Espiritual
+                        del objetivo.
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You tune your senses to see the psychic aura of your target. This aura can reveal the target’s
+                        general emotions and state of mind, as well as their species and the presence of psychic
+                        activity acting on them or inherent in them. Auras do not reveal specific thoughts, but extra
+                        VPs spent can give you telling clues through the motion and shapes of the aura.\n
+
+                        You can see a target’s aura type and color. By spending 2 additional VP, you can discern the
+                        motion of the target’s aura, which conveys the target’s state of mind; spending another 2 VP
+                        allows you to also see its shape, which conveys the target’s thoughts.
+                    </en>
+                    <es>Afinas tus sentidos para ver el aura psíquica de tu objetivo. Esta aura puede revelar sus
+                        emociones y estado de ánimo general, así como la especie y la presencia de actividad psíquica
+                        que esté influyendo en el objetivo o que forme parte de él. Las auras no revelan pensamientos
+                        concretos, pero con PV adicionales podrás obtener pistas a través de su forma y movimiento.
+                        Puedes ver el tipo y el color del aura de tu objetivo.\n
+
+                        Si gastas 2 PV adicionales podrás discernir el movimiento del aura, que expresa su estado de
+                        ánimo; y, si gastas 2 PV más, podrás ver también su forma, que expresa sus pensamientos.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>premonition</id>
+                <name>
+                    <en>Premonition</en>
+                    <es>Premonición</es>
+                </name>
+                <description>
+                    <en>Your senses extend slightly into the future, allowing you to potentially respond to danger
+                        before it harms you.
+                    </en>
+                    <es>Tus sentidos se expanden ligeramente hacia el futuro, permitiéndote reaccionar potencialmente al
+                        daño antes de que te afecte.
+                    </es>
+                </description>
+                <psiLevel>3</psiLevel>
+                <time></time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>perception</characteristic>
+                <skill>observe</skill>
+                <resistance>
+                    <en>Demanding
+                    </en>
+                    <es>Exigente
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You consciously spread your senses into the world of potential futures; you then receive a
+                        psychic warning when there’s imminent danger. Once
+                        active, this power lasts for the rest of the scene. You
+                        will feel the presence of danger and the direction it
+                        will come from, though not exactly what will happen. You might be able to tell that soon extreme
+                        danger will come from the direction of the engine
+                        room on a starship but not that the stardrive will
+                        soon explode. Such vagaries will require you to investigate to discover the threat.\n
+
+                        In combat, the dangers are usually discernible,
+                        and the warnings are quite effective at helping you
+                        avoid deadly attacks. You gain a superior initiative
+                        edge (this beats normal initiative edges) and can
+                        more easily boost Resistance against physical or occult attacks: +2 Body or Spirit Resistance
+                        per 1 VP.
+                        Influence actions are usually too subtle for Premonition to detect.\n
+
+                        Note that this power only reveals and aids against imminent dangers. For instance, a traitor in
+                        your entourage who isn’t poised to strike won’t be revealed.
+                    </en>
+                    <es>Expandes conscientemente tus sentidos hacia los futuros potenciales para recibir un aviso
+                        psíquico cuando haya algún peligro inminente. Una vez activo, el poder dura hasta el final de la
+                        escena. Sentirás la presencia del peligro y la dirección desde la que vendrá, pero no
+                        exactamente lo que va a pasar. Por ejemplo, puedes saber que pronto estarás en grave peligro y
+                        que este vendrá de la sala de motores de la nave, pero no que el motor explotará pronto. Estos
+                        detalles tendrás que investigarlos para descubrir la amenaza.\n
+
+                        En combate, el peligro suele ser evidente y las advertencias bastante efectivas para ayudarte a
+                        evitar ataques letales. Gracias al poder obtienes ventaja de iniciativa (que supera a la ventaja
+                        de iniciativa normal) y puedes aumentar tu Resistencia más fácilmente contra ataques físicos u
+                        ocultos. Gasta 1 PV para añadir +2 a la Resistencia Espiritual o Corporal. Las acciones de
+                        influencia suelen ser demasiado sutiles para que las detecte la Premonición.\n
+
+                        Ten en cuenta que este poder solo suele revelar peligros inminentes. Por ejemplo, no revelará a
+                        un traidor que tengas cerca pero que no esté a punto de atacar.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>farSight</id>
+                <name>
+                    <en>Far Sight</en>
+                    <es>Visión Lejana</es>
+                </name>
+                <description>
+                    <en>Sometimes known by the old Phavian designation “clairvoyance,” this power allows you to see a
+                        distant place as if you stood there presently.
+                    </en>
+                    <es>Este poder, a veces conocido por su antiguo nombre faviano («clarividencia»), te permite ver un
+                        lugar lejano como si estuvieses en él.
+                    </es>
+                </description>
+                <psiLevel>4</psiLevel>
+                <time></time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>intuition</characteristic>
+                <skill>observe</skill>
+                <resistance>
+                    <en>See Impact
+                    </en>
+                    <es>Mira Impacto
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You can project your vision to another location, seeing as if your own eyes were present; as a
+                        primary action, you may move your point of view slowly (1 m per Psi rating per turn). Once you
+                        have established the power, you can maintain it until the end of the scene. You may use other
+                        powers from the Sixth Sense path, but your mental awareness is not quite present, so you cannot
+                        use powers such as Psyche or Far Hand.\n
+
+                        You must know the target place to some degree. Preferably, you’ve been there or have heard a lot
+                        about it, but even an address or mark on the map might be good enough to find it with your
+                        psychic senses. However, the Resistance is based on your familiarity of the target place.\n
+
+                        Hard = You try to see your home or living quarters; you know exactly where it is.\n
+
+                        Demanding = You try to see your hometown or a regular haunt, somewhere you know quite well.
+                        Tough = You try to see a place you are somewhat familiar with and have been before.\n
+
+                        Severe = You try to see an unfamiliar place; you know about it, but haven’t necessarily visited
+                        there (e.g., a famous public space or building). This could instead be somewhere you have
+                        studied through maps or detailed records.\n
+
+                        Herculean = You try to see a place you don’t know, but you have some personal link (e.g. a
+                        warehouse where a friend is being held captive). You still need to know where the place is (the
+                        personal link lets you target it).\n
+
+                        Miraculous = You try to see a completely unknown place with which you have no connection, but
+                        you know where it is (e.g. the thieves’ lair or the Duke’s clandestine club).\n
+
+                        The place must be on the same planet. If you’re in space, it must be within 1 AU per your Psi
+                        rating.\n
+
+                        If you do not know the place, but you want to see it (e.g., you want to find where the captive
+                        Duke is currently being held), you will need the Finding power (listed below).\n
+                    </en>
+                    <es>Proyectas tu visión hacia otro lugar para ver como si estuvieses presente; usa una acción
+                        primaria para mover tu punto de vista poco a poco (1 m por punto de Psi por turno). Una vez que
+                        has establecido el poder, lo podrás mantener hasta que acabe la escena. Puedes usar otros
+                        poderes de la senda Sexto Sentido, pero tu percepción mental no estará tan presente, por lo que
+                        no podrás usar los poderes de la Mano Lejana o la Psique.\n
+
+                        Además, debes conocer hasta cierto punto el lugar objetivo. Lo ideal sería que hubieses estado
+                        allí o conozcas mucho sobre el lugar, pero incluso una dirección o una señal en el mapa pueden
+                        ser suficientes para encontrarlo con tus sentidos psíquicos. No obstante, la Resistencia se basa
+                        en lo familiarizado que estés con el lugar.\n
+
+                        Difícil = Intentas ver tu casa o el lugar donde te alojas; sabes exactamente dónde está.\n
+
+                        Exigente = Intentas ver tu ciudad de residencia o el lugar que frecuentas, un sitio que conoces
+                        bastante bien.\n
+
+                        Ardua = Intentas ver un lugar que te resulta vagamente familiar y en el que ya has estado
+                        antes.\n
+
+                        Tenaz = Intentas ver un lugar con el que no estás familiarizado; sabes cosas sobre él, pero no
+                        tienes por qué haberlo visitado (por ejemplo, un espacio famoso o edificio público). También
+                        podría ser un lugar del que has estudiado mapas o documentos detallados.\n
+
+                        Hercúlea = Intentas ver un lugar que no conoces, pero con el que tienes algún vínculo personal
+                        (por ejemplo, un almacén donde mantienen como rehén a un amigo tuyo). Para que funcione,
+                        necesitas saber dónde está el lugar (el vínculo personal te permite alcanzarlo).\n
+
+                        Milagrosa = Intentas ver un lugar totalmente desconocido con el que no tienes ningún vínculo,
+                        pero sabes dónde está (por ejemplo, la guarida de los ladrones o el club clandestino del
+                        duque).\n
+
+                        El lugar debe estar en el mismo planeta. Si estás en el espacio, debe encontrarse en un radio de
+                        1 UA por punto de Psi.\n
+
+                        Si no sabes dónde está el lugar pero quieres verlo (por ejemplo, si quieres saber dónde está el
+                        duque secuestrado), necesitarás el poder Búsqueda (más adelante).
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>farSelf</id>
+                <name>
+                    <en>Far Self</en>
+                    <es>Presencia Lejana</es>
+                </name>
+                <description>
+                    <en>You can now expand your awareness of a distant location to include all the other senses,
+                        including hearing and smell; in addition, your mental awareness is fully present, allowing for
+                        other psychic powers to be used.
+                    </en>
+                    <es>Expandes tu consciencia a un lugar lejano, lo que incluye todos los sentidos; además, tu
+                        percepción mental está totalmente presente y te permite usar otros poderes psíquicos.
+                    </es>
+                </description>
+                <psiLevel>5</psiLevel>
+                <time>presentTense1min</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>intuition</characteristic>
+                <skill>observe</skill>
+                <resistance>
+                    <en>See Impact
+                    </en>
+                    <es>Mira Impacto
+                    </es>
+                </resistance>
+                <impact>
+                    <en>As with Far Sight, you can project your awareness to another location (with the same range
+                        limitations), and you can employ all your senses. You are also fully mentally present, so you
+                        can use other psychic powers as if you were there in the location, although these are slightly
+                        more taxing: increase the cost of any power by 1 VP.\n
+
+                        This power uses the same Resistance as Far Sight.
+                    </en>
+                    <es>Como ocurría con Visión Lejana, proyectas tu consciencia hacia otro lugar (con las mismas
+                        limitaciones de distancia), pero puedes usar todos tus sentidos. Además, estás totalmente
+                        presente, por lo que puedes utilizar otros poderes como si estuvieses físicamente en el lugar,
+                        aunque te costará un poco más utilizarlos. Aumenta el coste de cualquier poder en 1 PV.\n
+
+                        Presencia Lejana usa la misma Resistencia que Visión Lejana.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>sharedSense</id>
+                <name>
+                    <en>Shared Sense</en>
+                    <es>Sentidos Compartidos</es>
+                </name>
+                <description>
+                    <en>You create a sensory conduit between you and a target, hitching a ride on their senses and
+                        experiencing the world through them.
+                    </en>
+                    <es>Creas un conducto sensorial entre tu objetivo y tú para experimentar el mundo a través de sus
+                        sentidos.
+                    </es>
+                </description>
+                <psiLevel>6</psiLevel>
+                <time>presentTense1min</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>intuition</characteristic>
+                <skill>empathy</skill>
+                <resistance>
+                    <en>Equals the target’s Spirit Resistance (or Easy against willing and knowing targets).
+                    </en>
+                    <es>Equivalente a la Resistencia Espiritual del objetivo (o Fácil contra objetivos voluntarios).
+                    </es>
+                </resistance>
+                <impact>
+                    <en>For the rest of the scene, you can link your senses to those of another living target in sight
+                        (or within your Far Sight’s vision). Once bonded in this way, as a secondary action, you can
+                        close your eyes and experience the world through their senses, even if they leave your visual
+                        range after you’ve established contact.\n
+
+                        You are also fully mentally present with these senses, so you can use other psychic powers based
+                        on the target’s sensory ranges. For example, you could use Premonition to protect them from
+                        danger or Far Hand’s Air Stride to allow them to fly.\n
+
+                        The target does not necessarily know you’re hitching a ride in their sensorium. Any time you do
+                        something weird, like use a psychic power while riding their senses, they might get a clue.
+                    </en>
+                    <es>Durante el resto de la escena, conectas tus sentidos con los de otro objetivo vivo a la vista (o
+                        al alcance de tu Visión Lejana). Una vez unidos, utiliza una acción secundaria para cerrar los
+                        ojos y experimentar el mundo a través de sus sentidos, incluso aunque abandone tu campo visual
+                        después de haber establecido contacto.\n
+
+                        Como estás presente mentalmente, puedes usar otros poderes psíquicos basándote en el alcance
+                        sensorial del objetivo. Por ejemplo, podrías usar Premonición para protegerlo del peligro o
+                        Zancada Aérea de Mano Lejana para que pueda volar.\n
+
+                        El objetivo no tiene por qué saber que estás usando sus sentidos, pero si haces algo extraño,
+                        como utilizar un poder psíquico, podría darse cuenta.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>wyrdSight</id>
+                <name>
+                    <en>Wyrd Sight</en>
+                    <es>Visión Wyrd</es>
+                </name>
+                <description>
+                    <en>You open your perceptions to the invisible world of occult energies, revealing psychic powers,
+                        theurgic rites, and emanations from alien technology.
+                    </en>
+                    <es>Abres tu percepción al mundo invisible de energías ocultas, revelando poderes psíquicos, ritos
+                        teúrgicos y emanaciones de tecnología alienígena.
+                    </es>
+                </description>
+                <psiLevel>7</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>perception</characteristic>
+                <skill>focus</skill>
+                <resistance>
+                    <en>Demanding
+                    </en>
+                    <es>Exigente
+                    </es>
+                </resistance>
+                <impact>
+                    <en>Using this refined alternative to Subtle Sight, you can gaze deeper into the astral spectrum,
+                        where you may perceive the hidden world of occult powers for the remainder of the scene. You
+                        might sense mental control as a light emanating from the psychic’s head to his target, or
+                        perhaps you may witness the same light woven into the flesh of a Soma master, enhancing their
+                        strength. Theurgic activity appears as an unflickering candle-flame with the top point
+                        stretching off to infinity. Other powers can appear as a shifting darkness or spiraling colors.
+                        The GM is urged to be creative in describing Wyrd Sight, as well as the broad occult forces at
+                        work in any given scene.
+                    </en>
+                    <es>Al utilizar esta refinada alternativa de Visión Sutil, consigues adentrarte en el espectro
+                        astral, donde percibes el mundo arcano de los poderes ocultos durante el resto de la escena.
+                        Podrías sentir el control mental como una luz que emana de la cabeza del psíquico hacia su
+                        objetivo, o tal vez esa misma luz aparezca entretejida en la carne de un maestro del Soma para
+                        aumentar su fuerza. La actividad teúrgica es una llama de vela que no titila y cuyo extremo se
+                        alarga hasta el infinito. Otros poderes pueden aparecer como una oscuridad cambiante o una
+                        espiral de colores. Recomendamos al DJ que sea creativo a la hora de describir la Visión Wyrd,
+                        así como la amplitud de fuerzas ocultas que forman parte de cualquier escena.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>finding</id>
+                <name>
+                    <en>Finding</en>
+                    <es>Búsqueda</es>
+                </name>
+                <description>
+                    <en>Using your ability to sense astral energies, you can search for and locate a person or thing,
+                        even at great distances, gaining awareness of the area around them.
+                    </en>
+                    <es>Gracias a tu capacidad para sentir energías astrales, puedes buscar y localizar a una persona o
+                        cosa, incluso a gran distancia, percibiendo la zona a su alrededor.
+                    </es>
+                </description>
+                <psiLevel>8</psiLevel>
+                <time>presentTense10min</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>perception</characteristic>
+                <skill>focus</skill>
+                <resistance>
+                    <en>Equals target’s Spirit Resistance or your familiarity (see below).
+                    </en>
+                    <es>Equivalente a la Resistencia Espiritual del objetivo (a continuación).
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You concentrate your senses into the astral spectrum, sending your awareness to find a specific
+                        person or thing, regardless of distance. You are completely unaware of your surroundings while
+                        this search is on, as your mind leaps from place to place following unknowable threads of
+                        connection that strain from your person to the target. When they are found (or it is located),
+                        you become aware of your target’s surroundings as if you were within a meter of your objective;
+                        all your senses are present there, giving you a general idea of their state.\n
+
+                        The higher a person’s Spirit Resistance, the more slippery and hard it is to find the thread
+                        that leads to them. An object can’t resist, but your familiarity with it can affect its
+                        Resistance. An important personal object may only be Hard, while an object described to you by
+                        another might be Severe. Locating an object you have only read about might offer you Herculean
+                        Resistance.
+                    </en>
+                    <es>Concentras tus sentidos en el espectro astral y envías tu percepción para encontrar a una
+                        persona o cosa concreta, sin importar la distancia. Mientras dure la búsqueda no eres consciente
+                        de lo que te rodea, dado que tu mente va de un lugar a otro, siguiendo hilos desconocidos que te
+                        unen a tu objetivo. Cuando lo encuentres, te volverás consciente del entorno de tu objetivo como
+                        si estuvieses a un metro de él; todos tus sentidos están presentes y te dan una idea general de
+                        su estado.\n
+
+                        Cuanto mayor sea la Resistencia Espiritual de la persona, más difícil será encontrar el hilo que
+                        lleve hasta ella. Un objeto no puede resistirse, pero lo familiarizado que estés con él afectará
+                        a la Resistencia. Por ejemplo, un objeto personal sería Difícil, mientras que un objeto que
+                        alguien te haya descrito sería más bien Tenaz, y un objeto del que solo hayas leído algo podría
+                        ofrecer una Resistencia Hercúlea.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>sensesShock</id>
+                <name>
+                    <en>Senses Shock</en>
+                    <es>Descarga Sensorial</es>
+                </name>
+                <description>
+                    <en>You can open the senses of another, throwing them into confusion and stupefying them with
+                        intense sensations.
+                    </en>
+                    <es>Abres los sentidos de otra persona para sumirla en una gran confusión y aturdirla con
+                        sensaciones intensas.
+                    </es>
+                </description>
+                <psiLevel>9</psiLevel>
+                <time>instantaneousPrimaryActionPlusSecondary</time>
+                <cost>
+                    <en>1 VP + 1 VP per +1 Resistance to shake it off attempts</en>
+                    <es>1 PV + 1 PV para añadir +1 de Resistencia contra intentos de quitárselo de encima</es>
+                </cost>
+                <characteristic>perception</characteristic>
+                <skill>focus</skill>
+                <resistance>
+                    <en>Equals your target’s Spirit Resistance.
+                    </en>
+                    <es>Equivalente a la Resistencia Espiritual del objetivo.
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You break down the target’s ability to adjust their sensory input and intensity, causing normal
+                        sensations to overload their mental capacity for the next 10 turns. The target is put into the
+                        Senses Shocked physical state. This is a single state, but it includes the effects of the
+                        Blinded, Deafened, and Disoriented states.\n
+
+                        On their first turn after being affected, the target can attempt a shake it off maneuver to
+                        cancel this power’s effect on them
+                    </en>
+                    <es>Anulas la capacidad del objetivo de ajustar sus receptores sensoriales, provocando que las
+                        sensaciones normales sobrecarguen su capacidad mental durante los próximos 10 turnos. El
+                        objetivo queda en el estado físico Sentidos Aturdidos. Este estado reúne los efectos de los
+                        estados Cegado, Desorientado y Ensordecido.\n
+
+                        Durante el primer turno en el que se vea afectado, puede intentar una maniobra de quitárselo de
+                        encima para anu lar los efectos de este poder.
+                    </es>
+                </impact>
+            </power>
+        </powers>
+        <elementalUse>
+            <en>With Psi 1, you can spend 1 VP to make a shake it off attempt as a reflexive secondary-action against
+                any sensory-inhibiting state imposed by sensory overload (such as a bright flash or thunderous sound).\n
+
+                With Psi 5, you can spend 1 VP to add your Psi to your Perception for instinctual perception tests,
+                effective for the rest of the scene.\n
+
+                With Psi 9, your Shape Senses power hones all five senses instead of just one.
+            </en>
+            <es>Con Psi 1 puedes gastar 1 PV y usar una acción secundaria refleja para quitarte de encima un estado que
+                aturda los sentidos impuesto por una sobrecarga sensorial (como una luz brillante o un sonido
+                atronador).\n
+
+                Con Psi 5 puedes gastar 1 PV para añadir tu Psi a tu Percepción en las pruebas de percepción instintiva
+                durante el resto de la escena.\n
+
+                Con Psi 9, el poder aguza los cinco sentidos en vez de uno.
+            </es>
+        </elementalUse>
+        <random>
+            <classification>others</classification>
+        </random>
+    </path>
+
+    <path>
+        <id>soma</id>
+        <name>
+            <en>Soma (Body Control)</en>
+            <es>Soma (Control Corporal)</es>
+        </name>
+        <occultismType>psi</occultismType>
+        <powers>
+            <power>
+                <id>toughening</id>
+                <name>
+                    <en>Toughening</en>
+                    <es>Robustecer</es>
+                </name>
+                <description>
+                    <en>You use the power of mind over matter to increase your Endurance.
+                    </en>
+                    <es>Usas el poder de tu mente sobre la materia para aumentar tu Constitución.
+                    </es>
+                </description>
+                <psiLevel>1</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP + 2 VP per + 1 Endurance</en>
+                    <es>1 PV + 2 PV por cada + 1 de Constitución</es>
+                </cost>
+                <characteristic>will</characteristic>
+                <skill>vigor</skill>
+                <resistance>
+                    <en>Hard + 1 per +1 added to Endurance</en>
+                    <es>Difícil + 1 por cada +1 añadido a Constitución
+                    </es>
+                </resistance>
+                <impact>
+                    <en>
+                    </en>
+                    <es>Añades 2 puntos a tu Constitución hasta el final de la escena. Cuando actives el poder, puedes
+                        intentar aumentar este bonificador, pero cada punto adicional aumentará el coste en PV y la
+                        Resistencia.\n
+
+                        Robustecer no afecta directamente a tu Vitalidad, sino que te permite ignorar las dos primeras
+                        heridas de Vitalidad (más una por cada punto de Constitución adicional que hayas añadido) que
+                        recibas una vez que hayas activado el poder.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>strengthening</id>
+                <name>
+                    <en>Strengthening</en>
+                    <es>Fortalecer</es>
+                </name>
+                <description>
+                    <en>You use the power of mind over matter to increase your Strength.
+                    </en>
+                    <es>Usas el poder de tu mente sobre la materia para aumentar tu Fuerza.
+                    </es>
+                </description>
+                <psiLevel>2</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP + 2 VP per +1 Strength</en>
+                    <es>1 PV + 2 PV por cada +1 de Fuerza</es>
+                </cost>
+                <characteristic>wits</characteristic>
+                <skill>vigor</skill>
+                <resistance>
+                    <en>Hard + 1 per +1 added to Strength
+                    </en>
+                    <es>Difícil + 1 por cada +1 añadido a Fuerza
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You add 2 ranks to your Strength rating for the rest of the scene. You can attempt to increase
+                        this bonus when you activate the power, but each additional rank increases the VP cost and the
+                        Resistance.
+                    </en>
+                    <es>Añades 2 puntos a tu Fuerza hasta el final de la escena. Cuando actives el poder, puedes
+                        intentar aumentar este bonificador, pero cada punto adicional incrementará el coste en PV y la
+                        Resistencia.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>quickening</id>
+                <name>
+                    <en>Quickening</en>
+                    <es>Agilizar</es>
+                </name>
+                <description>
+                    <en>You use the power of mind over matter to increase your Dexterity.
+                    </en>
+                    <es>Usas el poder de tu mente sobre la materia para aumentar tu Destreza.
+                    </es>
+                </description>
+                <psiLevel>3</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP + 2 VP per + 1 Dexterity</en>
+                    <es>1 PV + 2 PV por cada + 1 de Destreza</es>
+                </cost>
+                <characteristic>perception</characteristic>
+                <skill>vigor</skill>
+                <resistance>
+                    <en>Hard + 1 per +1 added to Dexterity
+                    </en>
+                    <es>Difícil + 1 por cada +1 añadido a Destreza
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You add 2 ranks to your Dexterity rating for the rest of the scene. You can attempt to increase
+                        this bonus when you activate the power, but each additional rank increases the VP cost and the
+                        Resistance.
+                    </en>
+                    <es>Añades 2 puntos a tu Destreza hasta el final de la escena. Cuando actives el poder, puedes
+                        intentar aumentar este bonificador, pero cada punto adicional incrementará el coste en PV y la
+                        Resistencia.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>hardening</id>
+                <name>
+                    <en>Hardening</en>
+                    <es>Endurecer</es>
+                </name>
+                <description>
+                    <en>You use the power of mind over matter to harden your skin to the consistency of steel, allowing
+                        it to act as armor.
+                    </en>
+                    <es>Utilizas el poder de tu mente sobre la materia para endurecer tu piel hasta volverla dura como
+                        el acero, consiguiendo que actúe como una armadura.
+                    </es>
+                </description>
+                <psiLevel>4</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>will</characteristic>
+                <skill>vigor</skill>
+                <resistance>
+                    <en>Hard
+                    </en>
+                    <es>Difícil
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You gain +2 Body Resistance. You can harden even more during activation: +1 Body Resistance per
+                        2 VP spent, up to a maximum Body Resistance bonus equal to your Psi rating.
+                    </en>
+                    <es>Ganas Resistencia Corporal +2. Puedes endurecerte aún más durante la activación gastando 2 PV
+                        por cada +1 que quieras añadir a tu Resistencia Corporal, hasta un máximo equivalente a tu
+                        puntuación de Psi.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>sizing</id>
+                <name>
+                    <en>Sizing</en>
+                    <es>Moldear</es>
+                </name>
+                <description>
+                    <en>In an amazing feat of mind over matter, you change your size and/or dimensions.
+                    </en>
+                    <es>En un impresionante alarde de control sobre la materia, eres capaz de cambiar tus dimensiones.
+                    </es>
+                </description>
+                <psiLevel>5</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>endurance</characteristic>
+                <skill>vigor</skill>
+                <resistance>
+                    <en>Hard
+                    </en>
+                    <es>Difícil
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You can modify your shape and size and weight. You can adjust your height and weight up or down
+                        by 20%, plus 20% more for each 2 VP you spend on impact. Every 20% up or down in height and
+                        weight changes your Size rating by 1.\n
+
+                        For every rank of Size you lower, reduce your movement speed by 1 meter and subtract 1 from
+                        Vitality.\n
+
+                        For every rank of Size you increase, add 1 to your movement speed and 1 your Vitality.\n
+
+                        This power only allows for a maximum of 60% change in any direction. Thus, a human (Size 5)
+                        could get to Size 2 or Size 8, maximum.
+                    </en>
+                    <es>Puedes modificar tu forma, tamaño y peso. Ajusta tu altura y tu peso en un 20 %, más otro 20 %
+                        por cada 2 PV que gastes en impacto. Cada 20 % de altura y peso que aumentes o reduzcas
+                        modificará tu tamaño en 1. \n
+
+                        Por cada nivel de tamaño que bajes, reduce tu velo cidad de movimiento en 1 metro y quítate 1
+                        punto de Vitalidad.
+
+                        Por cada nivel de tamaño que subas, añade 1 metro a tu velocidad de movimiento y 1 punto a tu
+                        Vitalidad.\n
+
+                        Como máximo, podrás aumentar o reducir tu cuerpo en un 60 %, por lo que un humano (tamaño 5)
+                        será como máximo de tamaño 2 u 8.\n
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>masking</id>
+                <name>
+                    <en>Masking</en>
+                    <es>Enmascarar</es>
+                </name>
+                <description>
+                    <en>You can control your appearance by physically altering your facial features.
+                    </en>
+                    <es>Controlas tu apariencia alterando físicamente tus rasgos faciales.
+                    </es>
+                </description>
+                <psiLevel>6</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>endurance</characteristic>
+                <skill>disguise</skill>
+                <resistance>
+                    <en>Hard
+                    </en>
+                    <es>Difícil
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You can physically change your appearance — bone structure, facial features, eye color, hair
+                        color and length, skin tone and texture, etc. This change lasts for one act, although it can be
+                        extended repeatedly before it expires by spending 1 VP. If you are attempting to impersonate
+                        someone specific, every 2 VP spent on impact provides a +1 goal to Disguise and Knavery actions
+                        based on impersonating that person
+                    </en>
+                    <es>Cambias físicamente tu apariencia (estructura ósea, rasgos faciales, color de ojos, color y
+                        longitud del pelo, tonalidad y textura de la piel, etc.). El cambio dura un acto, aunque se
+                        puede ampliar repetidamente antes de que acabe gastando 1 PV. Si lo que buscas es imitar a una
+                        persona concreta, cada 2 PV que gastes en el impacto añadirán +1 a la meta de acciones de
+                        Disfraz y Charlatanería para hacerse pasar por esa persona.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>recovering</id>
+                <name>
+                    <en>Recovering</en>
+                    <es>Recuperar</es>
+                </name>
+                <description>
+                    <en>You can repair and regrow your body, recovering from injuries with a thought.
+                    </en>
+                    <es>Reparas y regeneras tu cuerpo para recuperarte de heridas con tan solo pensarlo.
+                    </es>
+                </description>
+                <psiLevel>7</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP + 2 VP per + 1 Vitality healed</en>
+                    <es>1 PV + 2 PV por cada + 1 punto de Vitalidad curado</es>
+                </cost>
+                <characteristic>endurance</characteristic>
+                <skill>vigor</skill>
+                <resistance>
+                    <en>Hard
+                    </en>
+                    <es>Difícil
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You recover 1 Vitality wound, plus 1 for every 2 VP spent. You can also spend 2 VP to remove the
+                        Mangled state. You can reattach a severed finger, toe, ear, or even limb, so long as you use
+                        this power within the same act that it was severed.\n
+
+                        There are rumors of a higher-ranked version of this power that allows psychics to regrow severed
+                        or damaged body parts or organs.
+                    </en>
+                    <es>Recuperas 1 punto de Vitalidad, más 1 por cada 2 PV que gastes. También puedes gastar 2 PV para
+                        anular el estado Malherido. Eres capaz de volver a colocarte un dedo, oreja o miembro amputado,
+                        siempre que utilices el poder durante el mismo acto en el que lo hayas perdido.\n
+
+                        Existen rumores de que las versiones más potentes de este poder permiten a los psíquicos hacer
+                        crecer órganos o partes de su cuerpo que estén dañadas o amputadas.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>slowing</id>
+                <name>
+                    <en>Slowing</en>
+                    <es>Ralentizar</es>
+                </name>
+                <description>
+                    <en>You have such amazing control over your body and its functions that you may enter a
+                        hibernation-like state that can be easily mistaken for death.
+                    </en>
+                    <es>Posees un control tan impresionante sobre tu cuerpo y sus funciones que puedes entrar en un
+                        estado de hibernación que se confunde con facilidad con la muerte.
+                    </es>
+                </description>
+                <psiLevel>8</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>endurance</characteristic>
+                <skill>focus</skill>
+                <resistance>
+                    <en>Hard
+                    </en>
+                    <es>Difícil
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You can slow down your body’s processes and operations to an almost undetectable rate. When that
+                        occurs, you are in the Soma Coma state. You cannot move or take actions, Observe rolls are
+                        unfavorable, and your Perception is 1 for the purposes of instinctual perception tests. However,
+                        you are immune to inhaled gases and most poisons, use 10x less oxygen, and need no food or
+                        water. You use your Endurance as Resistance against any attempts to detect you as a living being
+                        — this can even apply to psychic means of detection, if they use mental activity or the like.\n
+
+                        When you exit this state, you are fully aware of your surroundings and fully awake. You can
+                        specify some sort of stimulation or a condition that will bring you out of this state, such as a
+                        chronopiece alarm or someone speaking a special phrase. If you take more than 1 Vitality in
+                        damage, you will awaken from this state. If the conditions are not met by the end of the scene,
+                        you can prolong this state by spending 1 VP per additional scene.
+                    </en>
+                    <es>Puedes ralentizar las funciones de tu cuerpo hasta que se vuelvan casi indetectables. Cuando
+                        esto ocurra, quedas en el estado Coma. En este estado no puedes llevar a cabo acciones, las
+                        tiradas de Observar son desfavorables y tu Percepción es 1 en pruebas de percepción instintiva.
+                        No obstante, eres inmune a los gases inhalados, a la mayoría de venenos, gastas diez veces menos
+                        oxígeno y no necesitas comer ni beber. Utiliza tu Constitución como Resistencia contra cualquier
+                        intento de detectar que estás vivo (incluidos intentos psíquicos).\n
+
+                        Cuando salgas de este estado, serás totalmente consciente de lo que te rodea y estarás
+                        totalmente despierto. Puedes especificar algún tipo de estímulo o condición que te saque de tu
+                        estado, como una alarma o una frase específica. Si tu Vitalidad sufre más de 1 punto de daño, te
+                        despertarás. Si ninguna de estas condiciones se aplica antes del final de la escena, puedes
+                        prolongar el estado gastando 1 PV por cada escena adicional.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>adapting</id>
+                <name>
+                    <en>Adapting</en>
+                    <es>Adaptar</es>
+                </name>
+                <description>
+                    <en>You are able to modify your body to function in extreme environments, as if you have evolved to
+                        do so. Surviving underwater realms, extreme heat, or even the vacuum of space is no problem for
+                        you.
+                    </en>
+                    <es>Eres capaz de modificar tu cuerpo para que funcione en entornos extremos como si hubieses
+                        evolucionado para adaptarte a ellos. No te supone ningún problema sobrevivir en entornos
+                        submarinos, calor extremo o el vacío del espacio.
+                    </es>
+                </description>
+                <psiLevel>9</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>endurance</characteristic>
+                <skill>vigor</skill>
+                <resistance>
+                    <en>See impact
+                    </en>
+                    <es>Mira Impacto
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You can withstand extreme heat and cold. If you wish to extend this to other environments
+                        or effects, you must spend additional VP when you activate the power. (If your environment
+                        changes for the worse after activation, you’re only protected against the level of effects that
+                        you paid for.): underwater or biological poisons (+2VP), acid and chemical poisons (+2VP) and
+                        full vacuum and extreme pressures (+4 VP).\n
+
+                        Once adapted, you treat the conditions as if they were part of your native environment. You do
+                        not suffer from damage or debilitation based on your exposure. This only adapts you enough so
+                        that you’re not killed by the environment — you could breathe clouds of chlorine gas, but you
+                        still can’t see through it. Also, non-environmental effects still apply: if you’re adapted to an
+                        extremely hot climate, you’re still just as vulnerable to a flamegun as ever.
+                    </en>
+                    <es>Aguantas el calor y el frío extremos. Si quieres ampliar este poder a otro tipo de entornos o
+                        efectos, deberás gastar PV adicionales cuando lo actives, y, si tu entorno empeora después de
+                        que lo actives, solo quedarás protegido contra los efectos que hayas pagado: submarino o venenos
+                        biológicos (+2PV), ácido o venenos químicos (+2 PV), vacío y presiones extremas (+4 PV).\n
+
+
+                        Una vez que te hayas adaptado, tratas las condiciones de tu entorno como si fuesen parte de tu
+                        entorno nativo. Al exponerte a él no sufres daño ni te debilitas, pero el poder solo te permite
+                        adaptarte lo suficiente como para no morir; es decir, podrías respirar en una nube de cloro,
+                        pero seguirás sin poder ver a través de ella. Además, el resto de efectos que no procedan del
+                        entorno siguen afectándote. Si te has adaptado a un clima extremadamente caliente, sigues siendo
+                        tan vulnerable como siempre a un lanzallamas.
+                    </es>
+                </impact>
+            </power>
+        </powers>
+        <elementalUse>
+            <en>At Psi 1, you can use this power elementally by spending 1 VP to attempt a shake it off maneuver to
+                overcome the effects of drugs or poisons, even when no such attempt is normally allowed.\n
+
+                At Psi 5, you can use this power elementally (by spending 1 VP) to automatically succeed at a shake it
+                off maneuver to overcome the effects of a drug or poison.\n
+
+                At Psi 9, thanks to this elemental power, you automatically know when a chemical is about to affect your
+                body; thus, you can choose to ignore any effect you do not want, essentially making you immune to
+                poisons or drugs… except for the effects you want.
+            </en>
+            <es>Con Psi 1, gasta 1 PV para intentar una maniobra de quitárselo de encima que te permita superar los
+                efectos de una droga o veneno, incluso cuando normalmente no esté permitido.\n
+
+                Con Psi 5, gasta 1 PV para superar automáticamente una maniobra de quitárselo de encima para superar los
+                efectos de una droga o veneno.\n
+
+                Con Psi 9, sabes automáticamente cuándo una sustancia química va a afectar a tu cuerpo, por lo que
+                puedes ignorar cualquier efecto indeseado. Esto significa que eres inmune a los venenos y drogas...
+                salvo que quieras sus efectos.
+            </es>
+        </elementalUse>
+        <random>
+            <classification>enhancement</classification>
+        </random>
+    </path>
+
+    <path>
+        <id>visCraft</id>
+        <name>
+            <en>Vis Craft (Energy Control)</en>
+            <es>Arte Vis (Control de Energía)</es>
+        </name>
+        <occultismType>psi</occultismType>
+        <powers>
+            <power>
+                <id>visEye</id>
+                <name>
+                    <en>Vis Eye</en>
+                    <es>Ojo Vis</es>
+                </name>
+                <description>
+                    <en>You can visually perceive the energy fields around you, allowing you to identify types of energy
+                        and trace them back to their sources.
+                    </en>
+                    <es>Percibes visualmente los campos de energía a tu alrededor, lo que te permite identificar tipos
+                        de energía y rastrear su origen.
+                    </es>
+                </description>
+                <psiLevel>1</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>perception</characteristic>
+                <skill>focus</skill>
+                <resistance>
+                    <en>Hard
+                    </en>
+                    <es>Difícil
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You gain the ability to sense energy fields for the rest of the scene. Your rolls involving the
+                        Tech Lore capabilities tend to be favorable, so long as they involve working on power system and
+                        sensing energy.\n
+
+                        You may also sense invisible energies, such as a laser sensor or an electronic tracking emission
+                        (like the ones used in tracking devices that someone might have planted on you or your stuff).
+                        The GM should use your Focus skill ranks for instinctual perception tests to detect such
+                        energies, and you can make a spot or search maneuver using Focus instead of Observe to detect
+                        and identify energies; however, this roll is unfavorable unless you have the relevant Tech Lore
+                        capability for the energy source.
+                    </en>
+                    <es>Obtienes la capacidad de sentir campos de energía durante el resto de la escena. Tus tiradas
+                        relacionadas con las competencias de Saber Tecnológico tienden a ser favorables, siempre que
+                        impliquen trabajar con sistemas de energía o sentir energía.\n
+
+                        También puedes sentir energía invisible, como sensores láser o emisiones de seguimiento
+                        electrónico (como las que utilizan los dispositivos de seguimiento que alguien podría haber
+                        plantado en tu ropa o en tus cosas). El DJ utilizará tus puntos en la habilidad Introspección en
+                        pruebas de percepción instintiva para detectar este tipo de energía. También puedes hacer una
+                        maniobra de localizar o buscar con Introspección en vez de Observar para detectar e identificar
+                        energía. No obstante, la tirada es desfavorable a menos que tengas la competencia de Saber
+                        Tecnológico relacionada con el tipo de energía.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>visDrain</id>
+                <name>
+                    <en>Vis Drain</en>
+                    <es>Drenaje Vis</es>
+                </name>
+                <description>
+                    <en>You can ground, drain, or cut off the flow of power from a power source with a touch, so that
+                        the device drawing that power no longer operates for a time.
+                    </en>
+                    <es>Puedes poner a tierra, drenar o cortar el flujo de una fuente de energía con tan solo tocarla
+                        para así conseguir que el dispositivo que la utiliza deje de funcionar durante un tiempo.
+                    </es>
+                </description>
+                <psiLevel>2</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>See Impact</en>
+                    <es>Consulta Impacto</es>
+                </cost>
+                <characteristic>will</characteristic>
+                <skill>focus</skill>
+                <resistance>
+                    <en>Hard
+                    </en>
+                    <es>Difícil
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You drain or cut the flow of power to or from one source or another. You cannot channel or
+                        redirect this power for any use, unless you couple it with other Vis Craft powers, like Vis Flow
+                        (below).\n
+
+                        The amount of power to be drained determines the VP cost. At the GM discretion, you could break
+                        this into smaller tasks — instead of draining a small city (10 VP) with one use, you can go
+                        district by district (6 VP each) shutting down the power.\n
+
+                        This drain lasts until you break contact with the source; if you’re affecting storage devices,
+                        such as fusion cells, the drain lasts until the entire charge has been drained away.
+                    </en>
+                    <es>Drenas o cortas el flujo de energía entrante o saliente. No puedes canalizar ni redirigir esta
+                        energía de ninguna forma, a menos que la asocies a otro poder de Vis
+                        como Flujo Vis.\n
+
+                        La cantidad de energía drenada determina el coste en PV. El DJ podría dividir este poder en
+                        tareas más pequeñas, por ejemplo, en vez de drenar una ciudad pequeña (10 PV) de una vez,
+                        podrías apagar distrito a distrito (6 PV cada uno).\n
+
+                        El drenaje dura hasta que interrumpas el contacto con la fuente de energía; si estás afectando a
+                        dispositivos de almacenamiento, como células de fusión, el drenaje dura hasta que las hayas
+                        descargado por completo.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>visFlow</id>
+                <name>
+                    <en>Vis Flow</en>
+                    <es>Flujo Vis</es>
+                </name>
+                <description>
+                    <en>You can now use your body as a conduit to move energy drained from one source to another. You
+                        can recharge a fusion cell, bridge the gap between wires, or drain a laser pistol of a charge
+                        and transfer it to power an electronic lock long enough to open it.
+                    </en>
+                    <es>Puedes usar tu cuerpo como un conducto para mover la energía que hayas drenado de una fuente a
+                        otra. Esto te permite recargar una célula de fusión, puentear cables y drenar una carga de una
+                        pistola láser para transferirla a una cerradura electrónica el tiempo suficiente como para
+                        abrirla.
+                    </es>
+                </description>
+                <psiLevel>3</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>will</characteristic>
+                <skill>focus</skill>
+                <resistance>
+                    <en>Hard
+                    </en>
+                    <es>Difícil
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You may channel energy by touching the source of the energy and the item to which it’s being
+                        channeled. You can transfer as little as a single charge (such as a single shot’s worth of
+                        charge for a laser pistol’s fusion cell) or the entire source (see Vis Drain for the VP costs
+                        for large sources). For other types of transfers, such as bridging a gap, you can safely channel
+                        energy from the power source to the powered device for the rest of the scene, so long as you
+                        maintain contact.\n
+
+                        Additionally, you are now immune to mild shocks, even when not using this power, but energy
+                        attacks or extreme power surges still affect you. You can activate this power as a primary
+                        reflexive action (as with a dodge maneuver) to redirect the damage inflicted on you from an
+                        energy weapon attack. The Resistance is equal to the damage delivered. If successful, spend 1 VP
+                        per 1 damage redirected. You can direct the energy into a fusion cell you’re carrying (if it has
+                        any capacity) at a one-to-one ratio (a laser pistol shot becomes a single charge in the cell),
+                        or you can just let it ground or dissipate around you.
+                    </en>
+                    <es>Canalizas energía tocando la fuente y el objeto hacia el que quieres canalizarla. Puedes
+                        transferir algo tan pequeño como una carga (que equivale a un único disparo de una pistola
+                        láser) o la fuente entera (consulta Drenaje Vis para saber cuántos PV cuestan las fuentes
+                        mayores). Para otros tipos de transferencias, por ejemplo si quieres puentear, puedes canalizar
+                        la energía de la fuente al dispositivo que quieras alimentar durante el resto de la escena
+                        siempre que mantengas el contacto. Además, eres inmune a pequeñas descargas incluso cuando no
+                        estás usando este poder, pero los ataques de energía o las subidas de tensión extremas te siguen
+                        afectando. Puedes activar este poder con una acción primaria refleja (como una maniobra de
+                        esquivar) para redirigir el daño que recibas de un ataque con un arma de energía. La Resistencia
+                        es igual al daño. Si tienes éxito, gasta 1 PV por cada punto de daño redirigido. Puedes
+                        redirigir la energía hacia una célula de fusión que estés llevando (si no está llena) en una
+                        proporción de uno a uno (un disparo de pistola láser se convierte en una carga en la célula), o
+                        sencillamente lo desvías a tierra o dejas que se disipe.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>visShock</id>
+                <name>
+                    <en>Vis Shock</en>
+                    <es>Descarga Vis</es>
+                </name>
+                <description>
+                    <en>With a touch, you discharge a high voltage shock from your own bioelectric field.
+                    </en>
+                    <es>Con un toque, lanzas una descarga de alto voltaje procedente de tu propio campo bioeléctrico.
+                    </es>
+                </description>
+                <psiLevel>4</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>wits</characteristic>
+                <skill>fight</skill>
+                <resistance>
+                    <en>Equals your target’s Body Resistance (ignoring armor).
+                    </en>
+                    <es>Equivalente a la Resistencia Corporal del objetivo (ignora armadura).
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You pack an electric shock into a touch or Fight-skill strike. With specially designed weapons,
+                        you can even conduct this shock through a melee attack. Resolve the attack as normal using the
+                        base damage of the attack (or none for a touch). You can spend VP on impact for extra energy
+                        damage (up to a maximum of your Psi rating); this damage bypasses energy shields, unless the
+                        touch or strike caused enough base damage to activate one, in which case, it blocks all damage
+                        up to its maximum threshold.
+                    </en>
+                    <es>Concentras una descarga eléctrica en un toque o una maniobra de golpear. Si tienes armas cuerpo
+                        a cuerpo especiales, podrías incluso provocar la descarga con un ataque cuerpo a cuerpo.
+                        Resuelve el ataque de manera normal utilizando su daño base (o ninguno si es un toque). Puedes
+                        gastar PV para que el impacto provoque daño de energía adicional (hasta un máximo equivalente a
+                        tu puntuación de Psi). Este daño ignora escudos de energía, a menos que el toque o golpe
+                        provoque suficiente daño base como para activarlo, en cuyo caso bloqueará todo el daño hasta su
+                        umbral máximo.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>visShield</id>
+                <name>
+                    <en>Vis Shield</en>
+                    <es>Escudo Vis</es>
+                </name>
+                <description>
+                    <en>You manipulate your bioelectric field to act like a personal energy shield, protecting you from
+                        harm.
+                    </en>
+                    <es>Manipulas tu campo bioeléctrico para que funcione como un escudo de energía personal y te
+                        proteja del daño.
+                    </es>
+                </description>
+                <psiLevel>5</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP + 2 VP per 5 additional hits</en>
+                    <es>1 PV + 2 PV por cada 5 impactos adicionales</es>
+                </cost>
+                <characteristic>endurance</characteristic>
+                <skill>focus</skill>
+                <resistance>
+                    <en>Hard
+                    </en>
+                    <es>Difícil
+                    </es>
+                </resistance>
+                <impact>
+                    <en>For the rest of the scene, you emit a personal force field that functions like a standard energy
+                        shield. (See Energy Shields in Chapter 4: Technology.) The Vis Shield’s lower threshold is equal
+                        to 3 + your Urge rating, while its upper limit is 10 + your Psi rating. (For example, if your
+                        Urge is 2 and your Psi is 6, your force field’s protection is 5/16.) Unlike a technological
+                        energy shield, the Vis Shield doesn’t restrict the armor or equipment you can wear, nor does it
+                        suffer burnout from broad-area impacts or multiple hits in the same round.\n
+
+                        The Vis Shield can take 10 hits, plus an additional 5 hits per 2 VP spent during casting.
+                    </en>
+                    <es>Durante el resto de la escena emites un campo de fuerza personal que funciona como un escudo de
+                        energía estándar (consulta Escudos de energía en el Capítulo 4: Tecnología). El umbral mínimo
+                        del Escudo Vis es 3 + tu puntuación de Ansia, mientras que su umbral máximo es 10 + tu
+                        puntuación de Psi. Por ejemplo, si tu Ansia es 2 y tu Psi 6, la protección de tu campo de fuerza
+                        es 5/16. A diferencia de los escudos de energía tecnológicos, el Escudo Vis no es incompatible
+                        con ninguna armadura ni equipo, ni se agota con impactos de área o varios impactos en la misma
+                        ronda.\n
+
+                        El Escudo Vis puede soportar 10 impactos, más 5 adicionales por cada 2 PV que gastes al
+                        activarlo.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>visBolt</id>
+                <name>
+                    <en>Vis Bolt</en>
+                    <es>Proyectil Vis</es>
+                </name>
+                <description>
+                    <en>You direct a bolt of energy (like the one fired from a blaster weapon) at one target in sight.
+                    </en>
+                    <es>Diriges un proyectil de energía (como el que dispara un bláster) a un objetivo a la vista.
+                    </es>
+                </description>
+                <psiLevel>6</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>dexterity</characteristic>
+                <skill>shoot</skill>
+                <resistance>
+                    <en>Equals your target’s Body Resistance.
+                    </en>
+                    <es>Equivalente a la Resistencia Corporal del objetivo.
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You release a blast of energy from your hand or eyes at a target. You can target anything you
+                        can see, but the bolt has the same range as a blaster rifle (see Chapter 4: Technology). The
+                        base damage is equal to your Endurance. You can increase the damage: 1 damage per 2 VP spent, up
+                        to a maximum of your Psi rating. This unstable energy bolt can bleed through energy shields as
+                        if it were a blaster.
+                    </en>
+                    <es>Disparas un estallido de energía desde tu mano o tus ojos hacia tu objetivo. Puedes elegir como
+                        objetivo cualquier cosa que esté en tu campo visual, pero el proyectil tiene el mismo alcance
+                        que el de un fusil bláster (consulta el Capítulo 4: Tecnología). El daño base equivale a tu
+                        Constitución. Puedes aumentarlo en 1 por cada 2 PV que gastes, hasta un máximo equivalente a tu
+                        puntuación de Psi. Este proyectil de energía inestable puede penetrar escudos de energía como si
+                        fuese un bláster.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>visDynamo</id>
+                <name>
+                    <en>Vis Dynamo</en>
+                    <es>Dinamo Vis</es>
+                </name>
+                <description>
+                    <en>You can generate tremendous power on your own and deliver it with a touch. You no longer have to
+                        drain power sources to recharge fusion cells or power buildings… or even starships.
+                    </en>
+                    <es>Generas una tremenda cantidad de energía que puedes aplicar con un toque. Ya no necesitas drenar
+                        fuentes de energía para recargar células de fusión o alimentar edifi cios... o incluso naves
+                        estelares.
+                    </es>
+                </description>
+                <psiLevel>7</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>See Impact</en>
+                    <es>Mira Impacto</es>
+                </cost>
+                <characteristic>will</characteristic>
+                <skill>focus</skill>
+                <resistance>
+                    <en>Same as VP cost (see impact)
+                    </en>
+                    <es>La misma que el coste en PV (mira impacto)
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You can generate power by converting mystical energy into electrical or fusion power. You
+                        must decide the amount of power you want to generate and spend the VP cost for that power:
+                        Small room/skimmer/fusion cell (Basic victory), Small building/flitter/heavy fusion cell (2 VP),
+                        City block/small fusion generator (4VP), City district/small starship/large fusion generator (6
+                        VP), Mid-class starship/large facility (8 VP), Capital starship/small city (10 VP), Large
+                        city/starbase (12 VP).\n
+
+                        The Resistance is equal to the VP cost, as the universe literally creates resistance to this
+                        conversion. With a successful activation, the power is there at your fingertips, but you need to
+                        use a power like Vis Flow to direct it somewhere useful. Unlike the raw power generated by Vis
+                        Shock or Vis Flow, this potential power is unsuitable for combat, but it can be quite useful for
+                        overwhelming a system with a power surge. Undirected power you summon will dissipate rapidly,
+                        but otherwise, it will last for the rest of the scene unless stored longer in a fusion cell or
+                        other battery system.
+                    </en>
+                    <es>Generas energía convirtiendo el poder místico en energía eléctrica o de fusión. Debes decidir la
+                        cantidad de energía que quieres generar y gastar la cantidad de PV necesaria:
+                        Habitación pequeña/deslizador/célula de fusión (Victoria básica), Edificio
+                        pequeño/acelerador/célula de fusión pesada (2P V), Manzana/generador de fusión pequeño (4 PV),
+                        Distrito/nave estelar pequeña/generador de fusión grande (6 PV), Nave estelar mediana/edificio
+                        grande (8 PV), Nave estelar grande/ciudad grande (10 PV), Ciudad enorme/base estelar (12 PV).\n
+
+                        La Resistencia equivale al coste en PV, que representa la resistencia del universo a esta
+                        conversión. Si consigues activar el poder, tendrás la energía en la punta de los dedos, pero
+                        necesitarás usar otro poder, como Flujo Vis, para dirigirlo hacia algún lugar útil. A diferencia
+                        de la energía que creas con Descarga Vis o Flujo Vis, esta energía potencial no sirve para el
+                        combate, pero puede ser útil para sobrecargar un sistema. La energía que invocas se disipará
+                        rápidamente a menos que la redirijas, en cuyo caso dura el resto de la escena (a menos que la
+                        almacenes en una célula de fusión u otro tipo de batería).
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>visStorm</id>
+                <name>
+                    <en>Vis Storm</en>
+                    <es>Tormenta Vis</es>
+                </name>
+                <description>
+                    <en>You create an explosion that lashes everything in the immediate area with raw energy.
+                    </en>
+                    <es>Creas una explosión que azota todo lo que esté en las inmediaciones con energía pura.
+                    </es>
+                </description>
+                <psiLevel>8</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>perception</characteristic>
+                <skill>focus</skill>
+                <resistance>
+                    <en>Equals your target’s Body Resistance.
+                    </en>
+                    <es>Equivalente a la Resistencia Corporal del objetivo.
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You choose a point in space within your sight that will serve as the focal point for your
+                        explosion of energy. The radius of the blast is 10 meters from the focal point; every target
+                        inside the area whose Body Resistance is overcome is affected. The base damage dealt by the
+                        explosion is equal to your Endurance. You can increase this by 1 damage per 2 VP spent, up to a
+                        maximum of your Psi rating. This unstable energy acts like blaster plasma and can bleed through
+                        energy shields like a blaster.
+                    </en>
+                    <es>Eliges un lugar visible que servirá como epicentro de tu explosión de energía. El radio de la
+                        explosión es 10 metros alrededor del epicentro; cualquier objetivo en la zona cuya Resistencia
+                        Corporal se vea superada quedará afectado. El daño base de la explosión equivale a tu
+                        Constitución. Puedes aumentarlo en 1 por cada 2 PV que gastes, hasta un máximo equivalente a tu
+                        puntuación de Psi. La energía inestable actúa como el plasma de un bláster y puede penetrar
+                        escudos de energía.
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id>visPrime</id>
+                <name>
+                    <en>Vis Prime</en>
+                    <es>Vis Primordial</es>
+                </name>
+                <description>
+                    <en>You become a power generator for the power’s duration and can even share victory points with
+                        others.
+                    </en>
+                    <es>Te conviertes en un generador de energía mientras dure el poder y puedes incluso compartir
+                        puntos de victoria con otras personas.
+                    </es>
+                </description>
+                <psiLevel>9</psiLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 PV</en>
+                    <es>1 VP</es>
+                </cost>
+                <characteristic>intuition</characteristic>
+                <skill>vigor</skill>
+                <resistance>
+                    <en>Demanding
+                    </en>
+                    <es>Exigente
+                    </es>
+                </resistance>
+                <impact>
+                    <en>For the duration of the scene, you can add VP equal to your level to your cache per turn as a
+                        secondary action. Also, you can transfer VP (or even WP) from your cache to someone else’s by
+                        touching them. In addition, once per scene while the power is active, you may convert some of
+                        your cache or banked VP into wyrd points. You can convert them at a rate of 1 VP per 3 WP up to
+                        a WP limit of your Focus skill.
+                    </en>
+                    <es>Durante el resto de la escena, como acción secundaria en cada turno, puedes añadir a tu depósito
+                        una cantidad de PV equivalente a tu nivel. También puedes transferir PV (o incluso PW) de tu
+                        depósito al depósito de otra persona con tan solo tocarla. Además, una vez por escena, mientras
+                        el poder esté activo, puedes convertir PV de tu depósito o banco en PW, en una proporción de 1
+                        PV por 3 PW hasta un límite de PW equivalente a tu puntuación de Introspección.
+                    </es>
+                </impact>
+            </power>
+        </powers>
+        <elementalUse>
+            <en>At Psi 1, you can spend 1 VP to power a small device, such as a fusion torch or communicator, for an
+                entire scene. In the case of items that use charges from a fusion cell, such as blasters and energy
+                shields, you can spend 1 VP to provide enough power to the cell for a single charge (e.g., a single
+                blaster shot or energy shield activation).\n
+
+                At Psi 5, your Vis Eye power can also sense and discern spiritual energies, such as wyrd points or
+                symbiot lifeforce. This may require additional capabilities, most notably Occult Lore or Life Science,
+                to avoid an unfavorable roll.\n
+
+                At Psi 9, you can spend 1 VP to fully recharge a fusion cell (the kind used for energy weapons and
+                shields). Even when no battery or other power source is present, you can provide enough power (per 1 VP)
+                to fire a single shot from an energy weapon or to activate an energy shield once.
+            </en>
+            <es>Con Psi 1, puedes gastar 1 PV para alimentar un dispositivo, como una antorcha de fusión o un
+                comunicador, durante una escena entera. En el caso de objetos que se carguen con células de fusión, como
+                los blásters y los escudos de energía, puedes gastar 1 PV para transmitir la suficiente energía a la
+                célula para una carga (por ejemplo, un disparo de bláster o una activación de un escudo de energía).\n
+
+                Con Psi 5, tu Ojo Vis también puede sentir y discernir energía espiritual, como los puntos de wyrd o la
+                energía vital simbionte. Esto quizá requiera competencias adicionales, como Saber Oculto o Ciencias de
+                la Vida, para evitar tiradas desfavorables.\n
+
+                Con Psi 9, puedes gastar 1 PV para recargar por completo una célula de fusión (usada para escudos y
+                armas de energía). Aunque no haya una batería o alguna otra fuente de energía presente, puedes dar
+                suficiente energía (por 1 PV) para disparar una vez un arma de energía o activar una vez un escudo de
+                energía.
+            </es>
+        </elementalUse>
+        <random>
+            <classification>combat</classification>
         </random>
     </path>
 
@@ -726,7 +2774,7 @@
             <en></en>
             <es></es>
         </name>
-        <occultismType>psi</occultismType>
+        <occultismType>theurgy</occultismType>
         <powers>
             <power>
                 <id></id>
@@ -773,7 +2821,7 @@
                     <es>
                     </es>
                 </description>
-                <psiLevel>1</psiLevel>
+                <psiLevel>2</psiLevel>
                 <time></time>
                 <cost>
                     <en></en>
@@ -806,7 +2854,7 @@
                     <es>
                     </es>
                 </description>
-                <psiLevel>1</psiLevel>
+                <psiLevel>3</psiLevel>
                 <time></time>
                 <cost>
                     <en></en>
@@ -839,7 +2887,172 @@
                     <es>
                     </es>
                 </description>
-                <psiLevel>1</psiLevel>
+                <psiLevel>4</psiLevel>
+                <time></time>
+                <cost>
+                    <en></en>
+                    <es></es>
+                </cost>
+                <characteristic></characteristic>
+                <skill></skill>
+                <resistance>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </resistance>
+                <impact>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id></id>
+                <name>
+                    <en></en>
+                    <es></es>
+                </name>
+                <description>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </description>
+                <psiLevel>5</psiLevel>
+                <time></time>
+                <cost>
+                    <en></en>
+                    <es></es>
+                </cost>
+                <characteristic></characteristic>
+                <skill></skill>
+                <resistance>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </resistance>
+                <impact>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id></id>
+                <name>
+                    <en></en>
+                    <es></es>
+                </name>
+                <description>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </description>
+                <psiLevel>6</psiLevel>
+                <time></time>
+                <cost>
+                    <en></en>
+                    <es></es>
+                </cost>
+                <characteristic></characteristic>
+                <skill></skill>
+                <resistance>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </resistance>
+                <impact>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id></id>
+                <name>
+                    <en></en>
+                    <es></es>
+                </name>
+                <description>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </description>
+                <psiLevel>7</psiLevel>
+                <time></time>
+                <cost>
+                    <en></en>
+                    <es></es>
+                </cost>
+                <characteristic></characteristic>
+                <skill></skill>
+                <resistance>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </resistance>
+                <impact>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id></id>
+                <name>
+                    <en></en>
+                    <es></es>
+                </name>
+                <description>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </description>
+                <psiLevel>8</psiLevel>
+                <time></time>
+                <cost>
+                    <en></en>
+                    <es></es>
+                </cost>
+                <characteristic></characteristic>
+                <skill></skill>
+                <resistance>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </resistance>
+                <impact>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </impact>
+            </power>
+            <power>
+                <id></id>
+                <name>
+                    <en></en>
+                    <es></es>
+                </name>
+                <description>
+                    <en>
+                    </en>
+                    <es>
+                    </es>
+                </description>
+                <psiLevel>9</psiLevel>
                 <time></time>
                 <cost>
                     <en></en>
@@ -868,7 +3081,7 @@
             </es>
         </elementalUse>
         <random>
-            <classification></classification>
+            <classification>enhancement</classification>
         </random>
     </path>
 </occultism>
