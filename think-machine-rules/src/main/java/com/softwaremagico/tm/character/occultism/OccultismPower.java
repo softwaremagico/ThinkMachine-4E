@@ -42,7 +42,8 @@ import java.util.Set;
 
 public class OccultismPower extends Element {
     private String characteristic;
-    private String skill;
+    @JsonProperty("skills")
+    private List<String> skills;
     private List<IValue> values;
     @JsonProperty("psiLevel")
     private int level;
@@ -124,12 +125,12 @@ public class OccultismPower extends Element {
         this.components = components;
     }
 
-    public String getSkill() {
-        return skill;
+    public List<String> getSkills() {
+        return skills;
     }
 
-    public void setSkill(String skill) {
-        this.skill = skill;
+    public void setSkills(List<String> skill) {
+        this.skills = skill;
     }
 
     public TranslatedText getResistance() {
@@ -177,7 +178,7 @@ public class OccultismPower extends Element {
     @Override
     public void validate() throws InvalidXmlElementException {
         super.validate();
-        SkillFactory.getInstance().getElement(getSkill());
+        skills.forEach(skill -> SkillFactory.getInstance().getElement(skill));
         CharacteristicsDefinitionFactory.getInstance().getElement(getCharacteristic());
         TimeFactory.getInstance().getElement(getTime());
     }

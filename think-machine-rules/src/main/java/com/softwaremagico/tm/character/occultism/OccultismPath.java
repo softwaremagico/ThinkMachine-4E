@@ -58,6 +58,8 @@ public class OccultismPath extends Element {
     private Time time;
     @JsonProperty("cost")
     private TranslatedText cost;
+    @JsonProperty("components")
+    private List<String> componentsCodes;
 
     public OccultismPath() {
         super();
@@ -196,6 +198,14 @@ public class OccultismPath extends Element {
 
     public void setCost(TranslatedText cost) {
         this.cost = cost;
+    }
+
+    public List<String> getComponentsCodes() {
+        return componentsCodes;
+    }
+
+    public void setComponentsCodes(List<String> componentsCodes) {
+        this.componentsCodes = componentsCodes;
     }
 
     @Override

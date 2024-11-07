@@ -54,7 +54,7 @@ public class OccultismFactoryTests {
     @Test
     public void readPsiPower() {
         final OccultismPower occultismPower = OccultismPathFactory.getInstance().getPsiPaths().get(0).getOccultismPowersElements().get(0);
-        Assert.assertEquals(occultismPower.getSkill(), "focus");
+        Assert.assertEquals(occultismPower.getSkills().get(0), "focus");
         Assert.assertEquals(occultismPower.getCharacteristic(), "wits");
         Assert.assertNotNull(occultismPower.getImpact());
         Assert.assertNotNull(occultismPower.getTime());

@@ -29,7 +29,9 @@
                     <es>1 PV + 1 PV por turno de duración extendida</es>
                 </cost>
                 <characteristic>wits</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>An unattended object’s Resistance is 1 per 25 kg of weight. If someone is holding the object,
                         they can resist your psychokinetic pull as a reflexive secondary action; add that person’s
@@ -76,7 +78,9 @@
                     <es>1 PV</es>
                 </cost>
                 <characteristic>perception</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>Equals the target’s Body Resistance; if the target is an object, the GM determines its
                         Resistance.
@@ -123,7 +127,9 @@
                 </cost>
                 <psiLevel>3</psiLevel>
                 <characteristic>wits</characteristic>
-                <skill>fights</skill>
+                <skills>
+                    <skill>fights</skill>
+                </skills>
                 <resistance>
                     <en>Against a person, the target’s armor does not provide Body Resistance, but they can use their
                         Strength as Resistance (e.g., a person with a Strength of 5 would get 5 Resistance). Against an
@@ -206,7 +212,9 @@
                     <es>1 PV + 1 PV por turno de duración extendida</es>
                 </cost>
                 <characteristic>wits</characteristic>
-                <skill>*</skill>
+                <skills>
+                    <skill>*</skill>
+                </skills>
                 <resistance>
                     <en>As per the task you perform with the item.</en>
                     <es>Dependiendo de la tarea que lleves a cabo con el objeto.</es>
@@ -217,10 +225,10 @@
                         If you’re using the psychokinetically controlled object as a weapon, treat it like a normal
                         attack, except that it’s at range.\n
 
-                        After the action is complete, the item returns to where it came from (holster, belt, etc.),
+                        After the action is complete, the item returns to where it came from (holster, belt, etc).,
                         unless you extend the duration (1 VP per turn), in which case the item hovers in place until you
                         direct it again. (Hovering is a secondary action; using it again to perform a task is a primary
-                        action.)
+                        action).
                     </en>
                     <es>El objeto se puede mover 1 metro por cada punto de Psi, más 1 metro por PV gastado.\n
 
@@ -228,7 +236,7 @@
                         que es a distancia.\n
 
                         Después de completar la acción, el objeto vuelve al lugar de donde vino
-                        (funda de pistola, cinturón, etc.) a menos que amplíes la duración (1 PV por turno), en cuyo
+                        (funda de pistola, cinturón, etc). a menos que amplíes la duración (1 PV por turno), en cuyo
                         caso el objeto se queda flotando en el sitio hasta que vuelvas a dirigirlo (flotar es una acción
                         secundaria y usarlo otra vez para llevar a cabo una tarea es una acción primaria).
                     </es>
@@ -257,7 +265,9 @@
                     <es>1 PV + 1 PV por turno de duración extendida</es>
                 </cost>
                 <characteristic>wits</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>When lifting a single object, Resistance is 1 per 200 kg of weight. If someone is holding the
                         object, they can resist your psychokinetic pull as a reflexive secondary action; add that
@@ -336,7 +346,9 @@
                     <es>1 PV + 1 PV por activación.</es>
                 </cost>
                 <characteristic>will</characteristic>
-                <skill>vigor</skill>
+                <skills>
+                    <skill>vigor</skill>
+                </skills>
                 <resistance>
                     <en>Hard Resistance.</en>
                     <es>Resistencia Difícil.</es>
@@ -347,7 +359,7 @@
 
                         The Far Wall behaves equivalent to an energy shield. Its lower threshold is equal to 3 + your
                         Urge rating, while its upper limit is 10 + your Psi rating. (For example, if your Urge is 2 and
-                        your Psi is 6, your force field’s protection is 5/16.)
+                        your Psi is 6, your force field’s protection is 5/16).
 
                         The Far Wall lasts for the remainder of the scene, but each “shield” activation costs you 1 VP.
                         If you can’t spend the VP, the power is still active, but it doesn’t have enough energy to
@@ -383,7 +395,9 @@
                 <psiLevel>7</psiLevel>
                 <time>instantaneous</time>
                 <characteristic>wits</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>Equals your Size rating (5 for humans) + 1 for every 100 kg of equipment/objects/creatures you
                         carry.
@@ -424,7 +438,9 @@
                     <es>1 PV</es>
                 </cost>
                 <characteristic>perception</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>Equals target’s Body Resistance (ignores armor).
                     </en>
@@ -472,7 +488,9 @@
                     <es>1 PV + 1 PV por cada objetivo adicional (máximo = Psi)</es>
                 </cost>
                 <characteristic>wits</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>Figure the Size ratings + 1 per 100 kg of equipment carried for each target and apply it as
                         Resistance; you can lift up those whose Resistance you overcome.
@@ -549,7 +567,9 @@
                     <es>2 PV</es>
                 </cost>
                 <characteristic>intuition</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>Hard+ (see Impact)
                     </en>
@@ -607,7 +627,9 @@
                     <es>2 PV</es>
                 </cost>
                 <characteristic>intuition</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>Hard+ (see Impact)
                     </en>
@@ -651,7 +673,9 @@
                     <es>2 PV</es>
                 </cost>
                 <characteristic>presence</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>Demanding (Severe if the subject is unwilling)
                     </en>
@@ -694,7 +718,9 @@
                     <es>3 PV</es>
                 </cost>
                 <characteristic>presence</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>Severe
                     </en>
@@ -749,7 +775,9 @@
                     <es>1 PV + 1 PV por cada objetivo adicional</es>
                 </cost>
                 <characteristic>presence</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>Hard +1 per additional target.
                     </en>
@@ -802,7 +830,9 @@
                     <es>1 PV + 1 PV por 10 turnos de duración extendida</es>
                 </cost>
                 <characteristic>intuition</characteristic>
-                <skill>empathy</skill>
+                <skills>
+                    <skill>empathy</skill>
+                </skills>
                 <resistance>
                     <en>Equals target’s Spirit Resistance.
                     </en>
@@ -861,7 +891,9 @@
                     <es>1 PV + 1 PV para añadir + 1 de Resistencia contra intentos de quitárselo de encima</es>
                 </cost>
                 <characteristic>presence</characteristic>
-                <skill>empathy</skill>
+                <skills>
+                    <skill>empathy</skill>
+                </skills>
                 <resistance>
                     <en>Equals target’s Spirit Resistance.
                     </en>
@@ -914,7 +946,9 @@
                     <es>1 PV + 1 PV por 10 turnos de duración extendida</es>
                 </cost>
                 <characteristic>presence</characteristic>
-                <skill>impress</skill>
+                <skills>
+                    <skill>impress</skill>
+                </skills>
                 <resistance>
                     <en>Equals target’s Spirit Resistance.
                     </en>
@@ -978,7 +1012,9 @@
                     <es>1 PV + 1 PV para añadir + 1 de Resistencia contra intentos de quitárselo de encima</es>
                 </cost>
                 <characteristic>presence</characteristic>
-                <skill>charm</skill>
+                <skills>
+                    <skill>charm</skill>
+                </skills>
                 <resistance>
                     <en>Equals target’s Spirit Resistance.
                     </en>
@@ -1026,7 +1062,9 @@
                     <es>1 PV +1 PV para añadir +1 de Resistencia contra intentos de quitárselo de encima</es>
                 </cost>
                 <characteristic>presence</characteristic>
-                <skill>impress</skill>
+                <skills>
+                    <skill>impress</skill>
+                </skills>
                 <resistance>
                     <en>Equals target’s Spirit Resistance +1 (if non-sentient) or +2 (if sentient).
                     </en>
@@ -1083,7 +1121,9 @@
                     <es>1 PV + 2 PV por punto de daño infligido</es>
                 </cost>
                 <characteristic>presence</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>Equals target’s Spirit Resistance.
                     </en>
@@ -1140,7 +1180,9 @@
                     <es>1 PV + 1 PV por cada objetivo adicional</es>
                 </cost>
                 <characteristic></characteristic>
-                <skill></skill>
+                <skills>
+                    <skill></skill>
+                </skills>
                 <resistance>
                     <en>Equals the highest Spirit Resistance of all targets.
                     </en>
@@ -1186,7 +1228,9 @@
                     <es>1 PV + 1 PV por 10 turnos de duración extendida</es>
                 </cost>
                 <characteristic>presence</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>Equals target’s Spirit Resistance.
                     </en>
@@ -1305,7 +1349,9 @@
                     <es>1 PV</es>
                 </cost>
                 <characteristic>perception</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>Hard
                     </en>
@@ -1355,7 +1401,9 @@
                     <es>1 PV + 2 PV para movimiento del aura, + 2 PV para forma del aura</es>
                 </cost>
                 <characteristic>perception</characteristic>
-                <skill>observe</skill>
+                <skills>
+                    <skill>observe</skill>
+                </skills>
                 <resistance>
                     <en>Equals the target’s Spirit Resistance.
                     </en>
@@ -1405,7 +1453,9 @@
                     <es>1 PV</es>
                 </cost>
                 <characteristic>perception</characteristic>
-                <skill>observe</skill>
+                <skills>
+                    <skill>observe</skill>
+                </skills>
                 <resistance>
                     <en>Demanding
                     </en>
@@ -1472,7 +1522,9 @@
                     <es>1 PV</es>
                 </cost>
                 <characteristic>intuition</characteristic>
-                <skill>observe</skill>
+                <skills>
+                    <skill>observe</skill>
+                </skills>
                 <resistance>
                     <en>See Impact
                     </en>
@@ -1573,7 +1625,9 @@
                     <es>1 PV</es>
                 </cost>
                 <characteristic>intuition</characteristic>
-                <skill>observe</skill>
+                <skills>
+                    <skill>observe</skill>
+                </skills>
                 <resistance>
                     <en>See Impact
                     </en>
@@ -1618,7 +1672,9 @@
                     <es>1 PV</es>
                 </cost>
                 <characteristic>intuition</characteristic>
-                <skill>empathy</skill>
+                <skills>
+                    <skill>empathy</skill>
+                </skills>
                 <resistance>
                     <en>Equals the target’s Spirit Resistance (or Easy against willing and knowing targets).
                     </en>
@@ -1673,7 +1729,9 @@
                     <es>1 PV</es>
                 </cost>
                 <characteristic>perception</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>Demanding
                     </en>
@@ -1722,7 +1780,9 @@
                     <es>1 PV</es>
                 </cost>
                 <characteristic>perception</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>Equals target’s Spirit Resistance or your familiarity (see below).
                     </en>
@@ -1779,7 +1839,9 @@
                     <es>1 PV + 1 PV para añadir +1 de Resistencia contra intentos de quitárselo de encima</es>
                 </cost>
                 <characteristic>perception</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>Equals your target’s Spirit Resistance.
                     </en>
@@ -1857,7 +1919,9 @@
                     <es>1 PV + 2 PV por cada + 1 de Constitución</es>
                 </cost>
                 <characteristic>will</characteristic>
-                <skill>vigor</skill>
+                <skills>
+                    <skill>vigor</skill>
+                </skills>
                 <resistance>
                     <en>Hard + 1 per +1 added to Endurance</en>
                     <es>Difícil + 1 por cada +1 añadido a Constitución
@@ -1895,7 +1959,9 @@
                     <es>1 PV + 2 PV por cada +1 de Fuerza</es>
                 </cost>
                 <characteristic>wits</characteristic>
-                <skill>vigor</skill>
+                <skills>
+                    <skill>vigor</skill>
+                </skills>
                 <resistance>
                     <en>Hard + 1 per +1 added to Strength
                     </en>
@@ -1932,7 +1998,9 @@
                     <es>1 PV + 2 PV por cada + 1 de Destreza</es>
                 </cost>
                 <characteristic>perception</characteristic>
-                <skill>vigor</skill>
+                <skills>
+                    <skill>vigor</skill>
+                </skills>
                 <resistance>
                     <en>Hard + 1 per +1 added to Dexterity
                     </en>
@@ -1971,7 +2039,9 @@
                     <es>1 PV</es>
                 </cost>
                 <characteristic>will</characteristic>
-                <skill>vigor</skill>
+                <skills>
+                    <skill>vigor</skill>
+                </skills>
                 <resistance>
                     <en>Hard
                     </en>
@@ -2007,7 +2077,9 @@
                     <es>1 PV</es>
                 </cost>
                 <characteristic>endurance</characteristic>
-                <skill>vigor</skill>
+                <skills>
+                    <skill>vigor</skill>
+                </skills>
                 <resistance>
                     <en>Hard
                     </en>
@@ -2061,7 +2133,9 @@
                     <es>1 PV</es>
                 </cost>
                 <characteristic>endurance</characteristic>
-                <skill>disguise</skill>
+                <skills>
+                    <skill>disguise</skill>
+                </skills>
                 <resistance>
                     <en>Hard
                     </en>
@@ -2076,7 +2150,7 @@
                         based on impersonating that person
                     </en>
                     <es>Cambias físicamente tu apariencia (estructura ósea, rasgos faciales, color de ojos, color y
-                        longitud del pelo, tonalidad y textura de la piel, etc.). El cambio dura un acto, aunque se
+                        longitud del pelo, tonalidad y textura de la piel, etc). El cambio dura un acto, aunque se
                         puede ampliar repetidamente antes de que acabe gastando 1 PV. Si lo que buscas es imitar a una
                         persona concreta, cada 2 PV que gastes en el impacto añadirán +1 a la meta de acciones de
                         Disfraz y Charlatanería para hacerse pasar por esa persona.
@@ -2102,7 +2176,9 @@
                     <es>1 PV + 2 PV por cada + 1 punto de Vitalidad curado</es>
                 </cost>
                 <characteristic>endurance</characteristic>
-                <skill>vigor</skill>
+                <skills>
+                    <skill>vigor</skill>
+                </skills>
                 <resistance>
                     <en>Hard
                     </en>
@@ -2147,7 +2223,9 @@
                     <es>1 PV</es>
                 </cost>
                 <characteristic>endurance</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>Hard
                     </en>
@@ -2206,7 +2284,9 @@
                     <es>1 PV</es>
                 </cost>
                 <characteristic>endurance</characteristic>
-                <skill>vigor</skill>
+                <skills>
+                    <skill>vigor</skill>
+                </skills>
                 <resistance>
                     <en>See impact
                     </en>
@@ -2217,7 +2297,7 @@
                     <en>You can withstand extreme heat and cold. If you wish to extend this to other environments
                         or effects, you must spend additional VP when you activate the power. (If your environment
                         changes for the worse after activation, you’re only protected against the level of effects that
-                        you paid for.): underwater or biological poisons (+2VP), acid and chemical poisons (+2VP) and
+                        you paid for).: underwater or biological poisons (+2VP), acid and chemical poisons (+2VP) and
                         full vacuum and extreme pressures (+4 VP).\n
 
                         Once adapted, you treat the conditions as if they were part of your native environment. You do
@@ -2298,7 +2378,9 @@
                     <es>1 PV</es>
                 </cost>
                 <characteristic>perception</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>Hard
                     </en>
@@ -2352,7 +2434,9 @@
                     <es>Consulta Impacto</es>
                 </cost>
                 <characteristic>will</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>Hard
                     </en>
@@ -2409,7 +2493,9 @@
                     <es>1 PV</es>
                 </cost>
                 <characteristic>will</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>Hard
                     </en>
@@ -2467,7 +2553,9 @@
                     <es>1 PV</es>
                 </cost>
                 <characteristic>wits</characteristic>
-                <skill>fight</skill>
+                <skills>
+                    <skill>fight</skill>
+                </skills>
                 <resistance>
                     <en>Equals your target’s Body Resistance (ignoring armor).
                     </en>
@@ -2513,7 +2601,9 @@
                     <es>1 PV + 2 PV por cada 5 impactos adicionales</es>
                 </cost>
                 <characteristic>endurance</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>Hard
                     </en>
@@ -2522,9 +2612,9 @@
                 </resistance>
                 <impact>
                     <en>For the rest of the scene, you emit a personal force field that functions like a standard energy
-                        shield. (See Energy Shields in Chapter 4: Technology.) The Vis Shield’s lower threshold is equal
+                        shield. (See Energy Shields in Chapter 4: Technology). The Vis Shield’s lower threshold is equal
                         to 3 + your Urge rating, while its upper limit is 10 + your Psi rating. (For example, if your
-                        Urge is 2 and your Psi is 6, your force field’s protection is 5/16.) Unlike a technological
+                        Urge is 2 and your Psi is 6, your force field’s protection is 5/16). Unlike a technological
                         energy shield, the Vis Shield doesn’t restrict the armor or equipment you can wear, nor does it
                         suffer burnout from broad-area impacts or multiple hits in the same round.\n
 
@@ -2562,7 +2652,9 @@
                     <es>1 PV</es>
                 </cost>
                 <characteristic>dexterity</characteristic>
-                <skill>shoot</skill>
+                <skills>
+                    <skill>shoot</skill>
+                </skills>
                 <resistance>
                     <en>Equals your target’s Body Resistance.
                     </en>
@@ -2596,7 +2688,7 @@
                         drain power sources to recharge fusion cells or power buildings… or even starships.
                     </en>
                     <es>Generas una tremenda cantidad de energía que puedes aplicar con un toque. Ya no necesitas drenar
-                        fuentes de energía para recargar células de fusión o alimentar edifi cios... o incluso naves
+                        fuentes de energía para recargar células de fusión o alimentar edificios... o incluso naves
                         estelares.
                     </es>
                 </description>
@@ -2607,7 +2699,9 @@
                     <es>Mira Impacto</es>
                 </cost>
                 <characteristic>will</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>Same as VP cost (see impact)
                     </en>
@@ -2666,7 +2760,9 @@
                     <es>1 PV</es>
                 </cost>
                 <characteristic>perception</characteristic>
-                <skill>focus</skill>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
                 <resistance>
                     <en>Equals your target’s Body Resistance.
                     </en>
@@ -2711,7 +2807,9 @@
                     <es>1 VP</es>
                 </cost>
                 <characteristic>intuition</characteristic>
-                <skill>vigor</skill>
+                <skills>
+                    <skill>vigor</skill>
+                </skills>
                 <resistance>
                     <en>Demanding
                     </en>
@@ -2769,6 +2867,713 @@
     </path>
 
     <path>
+        <id>ecumenicalRituals</id>
+        <name>
+            <en>Ecumenical (Open) Rituals</en>
+            <es>Ritos Ecuménicos (Libres)</es>
+        </name>
+        <occultismType>theurgy</occultismType>
+        <powers>
+        <power>
+            <id>prophetsHolyBlessing</id>
+            <name>
+                <en>The Prophet's Holy Blessing</en>
+                <es>Bendición Sagrada del Profeta</es>
+            </name>
+            <description>
+                <en>By tracing a jumpgate cross on a companion’s forehead, you may aid the target in a particular
+                    task.
+                </en>
+                <es>Haces la señal de la cruz de salto en la frente de un compañero para ayudarlo en alguna tarea en
+                    particular.
+                </es>
+            </description>
+            <psiLevel>1</psiLevel>
+            <time>instantaneous</time>
+            <cost>
+                <en>1 VP</en>
+                <es>1 PV</es>
+            </cost>
+            <characteristic>faith</characteristic>
+            <skills>
+                <skill>focus</skill>
+            </skills>
+            <components>
+                <component>G</component>
+            </components>
+            <resistance>
+                <en>Easy
+                </en>
+                <es>Fácil
+                </es>
+            </resistance>
+            <impact>
+                <en>Declare a specific task for the target to achieve. Their rolls to accomplish it are favorable.
+                    The effect of this ritual lasts until the target has made a successful roll for the particular
+                    blessed task. For the purposes of this rite, the task must be a specific action accomplished
+                    with a roll. Example include: sneaking across a room, pickpocketing the keys from a guard, or
+                    frightening the new recruit (with a daunt maneuver or similar effect).\n
+
+                    You can expand the rite’s stated task to a broader definition by spending extra VP: +2 VP allows
+                    for short-term tasks like defending Baron Stoval from Sir Gondry’s attack; +4 VP can apply to
+                    long-term tasks, such as infiltrating an enemy fortress (only rolls to get inside it count as
+                    the task, not everything you do in the fort) or repairing the troupe’s broken flitter. The goal
+                    bonus only lasts until the first successful roll for the task, even when its definition has been
+                    broadened. The rite can be cast on the same person again to further aid the task, but successive
+                    castings in the same scene suffer a cumulative -2 goal penalty against the same target.
+                </en>
+                <es>Declara la tarea que quieres que consiga tu objetivo. Sus tiradas para realizarla se vuelven
+                    favorables. El efecto de este rito dura hasta que el objetivo haya superado una tirada
+                    relacionada con la tarea que has bendecido. Para que funcione, la tarea debe ser una acción
+                    específica que se consigue con una tirada. Por ejemplo: moverse sigilosamente a través de una
+                    habitación, robarle las llaves a un guardia sin que se entere o asustar al nuevo recluta (con
+                    una maniobra de intimidar o algún efecto parecido).\n
+
+                    Si gastas PV adicionales, podrás ampliar la definición de la tarea: +2 PV para tareas a corto
+                    plazo, como defender al barón Stoval del ataque de sir Gondry; +4 PV para tareas a largo plazo,
+                    como reparar el acelerador averiado de la compañía o infiltrarse en una fortaleza enemiga (solo
+                    cuentan las tiradas para introducirse en el edificio, no el resto de cosas que hagas dentro). El
+                    bonificador a la meta solo dura hasta que se supere la primera tirada relacionada con la tarea,
+                    incluso aunque amplíes su definición. Una vez que supere su acción, puedes volver a lanzar el
+                    rito para seguir ayudándolo, pero los lanzamientos sucesivos durante la misma escena y al mismo
+                    objetivo sufren un penalizador acumulativo de –2 a la meta.
+                </es>
+            </impact>
+        </power>
+        <power>
+            <id>devotionalLiturgy</id>
+            <name>
+                <en>The Devotional Liturgy</en>
+                <es>Liturgia Devocional</es>
+            </name>
+            <description>
+                <en>By reciting an inspirational passage from the Omega Gospels, you can boost the morale of allies.
+                </en>
+                <es>Recitas un pasaje inspirador de los Evangelios Omega para aumentar la moral de tus aliados.
+                </es>
+            </description>
+            <psiLevel>2</psiLevel>
+            <time>instantaneous</time>
+            <cost>
+                <en>1 VP</en>
+                <es>1 PV</es>
+            </cost>
+            <characteristic>presence</characteristic>
+            <skills>
+                <skill>perform</skill>
+            </skills>
+            <components>
+                <component>L</component>
+            </components>
+            <resistance>
+                <en>Easy
+                </en>
+                <es>Fácil
+                </es>
+            </resistance>
+            <impact>
+                <en>The shake it off and stonewall maneuvers become favorable for any friend or ally within earshot
+                    for the remainder of the scene. Also, any attack, influence, or power that would impose the
+                    Afraid or Terrified states on listeners is unfavorable. The range of this ritual is not extended
+                    by technology of any sort, such as long-range communications.
+                </en>
+                <es>Cualquier amigo o aliado al alcance del oído tiene tiradas favorables para las maniobras
+                    quitárselo de encima y eludir. Además, cualquier ataque, influencia o poder que imponga el
+                    estado Asustado o Aterrorizado a los oyentes será desfavorable. El alcance de este rito no puede
+                    ampliarse con ningún tipo de tecnología (como comunicaciones a larga distancia).
+                </es>
+            </impact>
+        </power>
+        <power>
+            <id>layingOnHands</id>
+            <name>
+                <en>Laying on Hands</en>
+                <es>Imposición de Manos</es>
+            </name>
+            <description>
+                <en>By calling upon Amalthea, patron saint of healing and compassion, you may bring comfort to
+                    injured comrades with a touch.
+                </en>
+                <es>Invocas a Amaltea, santa patrona de la curación y la compasión, para que reconforte a tus
+                    camaradas heridos con tan solo tocarlos.
+                </es>
+            </description>
+            <psiLevel>3</psiLevel>
+            <time>instantaneous</time>
+            <cost>
+                <en>1 VP</en>
+                <es>1 VP</es>
+            </cost>
+            <characteristic>will</characteristic>
+            <skills>
+                <skill>empathy</skill>
+                <skill>remedy</skill>
+            </skills>
+            <components>
+                <component>P</component>
+            </components>
+            <resistance>
+                <en>Hard
+                </en>
+                <es>Difícil
+                </es>
+            </resistance>
+            <impact>
+                <en>You heal 2 points of Vitality for every point of VP spent on others; you heal 1 point of
+                    Vitality for every VP spent on yourself. This healing is even effective on Mangled wounds.
+                </en>
+                <es>Curas 2 puntos de Vitalidad a otra persona por cada PV que gastes y 1 punto de Vitalidad a ti
+                    mismo por cada PV que gastes. Esta curación funciona con heridas del estado Malherido.
+                </es>
+            </impact>
+        </power>
+        <power>
+            <id>lesserBanishment</id>
+            <name>
+                <en>Lesser Banishment</en>
+                <es>Expulsión Menor</es>
+            </name>
+            <description>
+                <en>By brandishing the jumpgate cross and rebuking the Dark, you may suppress an active occult power
+                    and/or occult-based state affecting one of the faithful.
+                </en>
+                <es>Blandes la cruz de salto y amonestas a las Tinieblas para suprimir un poder oculto activo o un
+                    estado procedente de un poder oculto que aflija a un fiel.
+                </es>
+            </description>
+            <psiLevel>3</psiLevel>
+            <time>instantaneous</time>
+            <cost>
+                <en>1 VP</en>
+                <es>1 PV</es>
+            </cost>
+            <characteristic>presence</characteristic>
+            <skills>
+                <skill>impress</skill>
+                <skill>perform</skill>
+            </skills>
+            <components>
+                <component>LG</component>
+            </components>
+            <resistance>
+                <en>Equals the Psi or Theurgy rating of the power (or the Tech Level, if it’s an artifact) plus any
+                    Resistance boost its creator added.
+                </en>
+                <es>Equivalente a la puntuación de Psi o Teúrgia del poder (o del Nivel Tecnológico, si es un
+                    artefacto) más cualquier aumento de Resistencia que añadiese su creador.
+                </es>
+            </resistance>
+            <impact>
+                <en>You must be aware of the power, and you must know that its victim is suffering from it. You
+                    cannot simply cast this on someone on a whim. You are targeting the power, not its victim. If
+                    you cannot identify the type of power at work — whether its psychic, theurgic, Antinomistic, or
+                    Ur — then your roll is unfavorable. Using other rites that allow you to directly perceive the
+                    power, such as Second Sight, can make your roll favorable.\n
+
+                    If the target is a power, it is suppressed for 1 turn per your Theurgy rating + 1 per VP you
+                    spend. If you spend 5 VP, the power is suppressed for the rest of the scene. If the occultist
+                    who created the power creates a new instance of the power, it is not affected by your
+                    banishment. (You’d have to cast a new banishment against that power).\n
+
+                    This suppression also applies to states caused by occult powers. When you spend 5 VP against a
+                    temporary state, it is canceled. If the state is enduring, it becomes temporary. If it is
+                    chronic, it becomes enduring.\n
+
+                    When your Theurgy is 7 or higher, you may cast this rite as a Greater Banishment. A victory with
+                    that rite cancels the power or state outright.
+                </en>
+                <es>
+                </es>
+            </impact>
+        </power>
+        <power>
+            <id>prophetsCensure</id>
+            <name>
+                <en>The Prophet's Censure</en>
+                <es>Reprimenda del Profeta</es>
+            </name>
+            <description>
+                <en>By reciting the first two lines of the Prophet’s Admonishment of the Unbelievers and making the
+                    sign of the barred jumpgate in their direction, you give any enemy within sight a small taste of
+                    divine displeasure.
+                </en>
+                <es>Recitas las dos primeras líneas de la Reprimenda del Profeta a los Infieles y haces la señal del
+                    portal de salto prohibido en la dirección de un enemigo a la vista para darle una pequeña
+                    muestra de la desaprobación divina.
+                </es>
+            </description>
+            <psiLevel>4</psiLevel>
+            <time>instantaneous</time>
+            <cost>
+                <en>1 VP</en>
+                <es>1 PV</es>
+            </cost>
+            <characteristic>faith</characteristic>
+            <skills>
+                <skill>focus</skill>
+            </skills>
+            <components>
+                <component>LG</component>
+            </components>
+            <resistance>
+                <en>Target’s Spirit Resistance
+                </en>
+                <es>La Resistencia Espiritual del objetivo
+                </es>
+            </resistance>
+            <impact>
+                <en>The target’s rolls to accomplish a particular task are unfavorable (see The Prophet’s Holy
+                    Blessing for the parameters of the declared task). The effect of this ritual lasts until the
+                    target is successful with a roll for the particular task you have censured.
+                </en>
+                <es>Las tiradas del objetivo para hacer una tarea concreta son desfavorables (consulta la Bendición
+                    Sagrada del Profeta para saber más sobre el tipo de tarea). El efecto del rito dura hasta que
+                    el objetivo supere una tirada de la acción que has censurado.
+                </es>
+            </impact>
+        </power>
+        <power>
+            <id>pulpitsGift</id>
+            <name>
+                <en>The Pulpit's Gift</en>
+                <es>Don del Púlpito</es>
+            </name>
+            <description>
+                <en>Drawing on your training in delivering moving homilies, you can increase your social influence
+                    over those within earshot.
+                </en>
+                <es>Gracias a tu experiencia dando homilías que emocionan a tu público, aumentas tu influencia
+                    social sobre quienes te escuchan.
+                </es>
+            </description>
+            <psiLevel>5</psiLevel>
+            <time>instantaneous</time>
+            <cost>
+                <en>1 VP</en>
+                <es>1 PV</es>
+            </cost>
+            <characteristic>will</characteristic>
+            <skills>
+                <skill>perform</skill>
+            </skills>
+            <components>
+                <component>LG</component>
+            </components>
+            <resistance>
+                <en>Equals the highest Mind Resistance of all the listeners present.
+                </en>
+                <es>Equivalente a la mayor Resistencia Mental de todos los oyentes.
+                </es>
+            </resistance>
+            <impact>
+                <en>For the remainder of the scene, you add +1 goal to any influence attempts, but only when you are
+                    directly targeting someone who heard your sermon. You can increase this goal bonus by +1 per 2
+                    VP spent on your casting.
+                </en>
+                <es>Durante el resto de la escena, añades +1 a la meta de cualquier intento de influencia, pero solo
+                    cuando tu objetivo sea alguien que ha escuchado tu sermón. Por cada 2 PV que gastes en el
+                    lanzamiento añadirás un +1 adicional.
+                </es>
+            </impact>
+        </power>
+        <power>
+            <id>oathToTheSaints</id>
+            <name>
+                <en>Oath to the Saints</en>
+                <es>Juramento a los Santos</es>
+            </name>
+            <description>
+                <en>Inspired by the Oath of Fellowship pledged by Zebulon’s eight disciples to one another, you and
+                    your troupe can similarly pledge yourselves to each other under the patronage of one of those
+                    saints.
+                </en>
+                <es>Inspirados por el Juramento de Fraternidad que se prestaron entre sí los ocho discípulos de
+                    Zebulón, tu compañía y tú también podéis juraros lealtad bajo la advocación de uno de esos
+                    santos.
+                </es>
+            </description>
+            <psiLevel>5</psiLevel>
+            <time>presentTense30min</time>
+            <cost>
+                <en>1 VP + 1 VP spent by each person who makes the oath</en>
+                <es>1 PV + 1 PV por cada persona que haga el juramento</es>
+            </cost>
+            <characteristic>faith</characteristic>
+            <skills>
+                <skill>perform</skill>
+            </skills>
+            <components>
+                <component>LGP</component>
+            </components>
+            <resistance>
+                <en>Efforless
+                </en>
+                <es>Elemental
+                </es>
+            </resistance>
+            <impact>
+                <en>You create a bond with your comrades that grants each of them (and yourself) +2 goal when
+                    casting theurgy upon one another. In addition, depending on the saint whose name is invoked,
+                    each comrade gains +1 goal (and you gain +1 goal) for certain actions related to the saint’s
+                    associated virtue.\n
+
+                    This rite requires that the oath-makers also spend VP to join its effects. (The caster, if
+                    they’re a priest with the Inspiring perk, can gift them the required amount from their own
+                    cache).\n
+
+                    The effect of this ritual lasts for the remainder of the act. If the troupe wants its effects
+                    for the next act, it must be cast again, and the caster and each oath-maker must pay their VP
+                    costs.
+                </en>
+                <es>Creas un vínculo con tus camaradas para que cada uno de vosotros se añada +2 a la meta cuando
+                    lance un rito teúrgico cuyo objetivo sea otro miembro vinculado. Además, según el santo que
+                    invoques, tanto tú como tus camaradas podéis añadir +1 a la meta de ciertas acciones
+                    relacionadas con la virtud de ese santo.\n
+
+                    Este rito requiere que los miembros juramentados gasten PV para recibir sus efectos (el líder
+                    del rito, si es un sacerdote con el beneficio Inspirador, puede regalarles la cantidad de PV
+                    necesaria de su propio depósito).
+
+                    El efecto de este rito dura hasta el final del acto. Si la compañía quiere beneficiarse de sus
+                    efectos durante el siguiente acto, deberá volver a lanzarlo, y tanto el líder como los
+                    participantes deberán pagar de nuevo el coste en PV.
+                </es>
+            </impact>
+        </power>
+        <power>
+            <id>tonguesOfBabel</id>
+            <name>
+                <en>The Tongues of Babel</en>
+                <es>Lenguas de Babel</es>
+            </name>
+            <description>
+                <en>You can understand and speak almost any language you do not already understand.
+                </en>
+                <es>Entiendes y hablas casi cualquier idioma que no hayas aprendido.
+                </es>
+            </description>
+            <psiLevel>6</psiLevel>
+            <time>instantaneous</time>
+            <cost>
+                <en>1 VP + 2 VP per additional person</en>
+                <es>1 PV + 2 PV por persona adicional</es>
+            </cost>
+            <characteristic>wits</characteristic>
+            <skills>
+                <skill>empathy</skill>
+            </skills>
+            <components>
+                <component>GP</component>
+            </components>
+            <resistance>
+                <en>Demanding
+                </en>
+                <es>Exigente
+                </es>
+            </resistance>
+            <impact>
+                <en>After hearing a language spoken frequently by natives (or a language spoken fluently by
+                    outsiders), you acquire the ability to converse in it for a scene. If linguistic or cultural
+                    barriers would normally impose goal penalties or unfavorable rolls, this rite makes them
+                    normal.\n
+
+                    This ritual does not confer the ability to read the language acquired, unless it is normally
+                    written (or is spelled out phonetically) in the Urthish alphabet. (Alien, Vuldrok, and most
+                    other barbarian or Lost World tongues do not necessarily use the Urthish alphabet.) You can,
+                    however, spend an additional 2 VP during casting to allow letters written in an alien script to
+                    speak in your mind, revealing their explicit (that is, not subtextual or coded) meaning.
+                </en>
+                <es>Después de escuchar a nativos hablar un idioma fluidamente (o extranjeros, siempre que lo hablen
+                    fluidamente), tú también adquieres la capacidad de hablarlo durante una escena. Si existen
+                    barreras lingüísticas o culturales que impongan tiradas desfavorables o penalizadores en
+                    circunstancias normales, el rito las anula.\n
+
+                    Lenguas de Babel no otorga la capacidad de leer el idioma adquirido a menos que use el alfabeto
+                    urthés (o esté transcrito fonéticamente). Tantos los idiomas alienígenas como el vuldrok y la
+                    mayoría de idiomas bárbaros o perdidos no tienen por qué usar el alfabeto urthés. No obstante,
+                    puedes gastar 2 PV adicionales durante el lanzamiento para conseguir revelar el significado
+                    explícito (es decir, no el significado implícito o en clave) de las letras escritas en un idioma
+                    incomprensible haciendo que hablen en tu mente.
+                </es>
+            </impact>
+        </power>
+        <power>
+            <id>righteousAssignationOfPenance</id>
+            <name>
+                <en>The Righteous Assignation of Penance</en>
+                <es>Justa Asignación de Penitencia</es>
+            </name>
+            <description>
+                <en>You can impose a penance upon a sinner.
+                </en>
+                <es>Impones una penitencia a un pecador.
+                </es>
+            </description>
+            <psiLevel>7</psiLevel>
+            <time>instantaneous</time>
+            <cost>
+                <en>1 VP</en>
+                <es>1 PV</es>
+            </cost>
+            <characteristic>faith</characteristic>
+            <skills>
+                <skill>empathy</skill>
+            </skills>
+            <components>
+                <component>LP</component>
+            </components>
+            <resistance>
+                <en>Easy
+                </en>
+                <es>Fácil
+                </es>
+            </resistance>
+            <impact>
+                <en>You can hear the confession of a believer and absolve them of their sins, provided they perform
+                    the penance you impose. During the next drama, so long as they work to accomplish the penance
+                    you impose, they feel free from the terrible burden of their sin. In rules terms, they no longer
+                    suffer the negative effects of any and all mental or social states — including chronic ones —
+                    that beset them when the rite was cast, so long as the states are associated with the sin
+                    they’ve confessed. (States gained subsequent to the casting are unaffected).\n
+
+                    Once the penance is complete (or when their persistence expires), the states are erased. A
+                    penance successfully completed may carry with it the removal of an Affliction or the reduction
+                    of an Urge or Hubris rating for a psychic or theurge.\n
+
+                    If the penitent purposefully leaves off the penance unfulfilled, the states return with all
+                    their effects, and the penitent becomes Penalized until they seek confession again. They suffer
+                    nightmares or worse (gaining Hubris or losing Faith), at the GM’s discretion. If they choose to
+                    divert from the path of penance for too long, their mental and social state(s) reassert
+                    themselves with greater intensity and cannot be cured through therapy or rallies; only
+                    accomplishing this rite’s penance will erase them.\n
+
+                    This ritual is central to the Church’s function in the Known Worlds, as it is the means by which
+                    believers may remove the taint of sin. The Righteous Assignation is especially vital in cases
+                    where the sins confessed are of overwhelming enormity, presenting occult implications beyond
+                    simple personal salvation. This ritual may be the only means of navigating such dark
+                    mysteries.\n
+
+                    Most imposed penances are charitable donations, community or personal service, pilgrimages, or
+                    quests, depending on the nature and severity of the sins confessed.
+                </en>
+                <es>Escuchas la confesión de un creyente y lo absuelves de sus pecados, siempre que lleve a cabo la
+                    penitencia que le impongas. Durante la próxima obra, mientras tu objetivo intente cumplir la
+                    penitencia que le has impuesto, quedará libre de la terrible carga de su pecado. En términos de
+                    reglas, tu objetivo deja de sufrir los efectos negativos de todos los estados sociales o
+                    mentales (incluidos estados crónicos) que le afligían cuando lanzases el rito, siempre que estén
+                    asociados con el pecado que ha confesado. Los estados que gane después del lanzamiento no se ven
+                    afectados.\n
+
+                    Una vez que haya completado la penitencia (o cuando su duración acabe), los estados se anulan.
+                    Completar una penitencia con éxito podría anular una aflicción o reducir el Ansia o la Hubris de
+                    un psíquico o teúrgo.\n
+
+                    Si el penitente abandona la penitencia a propósito, los estados volverán con todos sus efectos y
+                    el penitente quedará Penalizado hasta que vuelva a confesarse. Además, podría sufrir pesadillas
+                    o algo peor (como ganar Hubris o perder Fe), a discreción del DJ. En caso de que elija desviarse
+                    de la penitencia durante demasiado tiempo, sus estados sociales y mentales volverán con más
+                    intensidad y no se podrán curar por medio de terapia o restableciéndose, lo único que los
+                    anulará es la penitencia impuesta.\n
+
+                    Este rito cumple una función central para la Iglesia en los Mundos Conocidos; es la forma en la
+                    que los creyentes se liberan de la mácula del pecado. La Justa Asignación adquiere una gran
+                    importancia en casos en los que los pecados confesados son de extrema gravedad y presentan
+                    implicaciones ocultas que van más allá de una simple salvación personal. Este rito podría ser la
+                    única forma de abrirse camino por misterios tan oscuros.\n
+
+                    La mayoría de las penitencias impuestas son donaciones benéficas, servicio comunitario o
+                    personal, peregrinajes o misiones, según la naturaleza y la gravedad de los pecados confesados.
+                </es>
+            </impact>
+        </power>
+        <power>
+            <id>santification</id>
+            <name>
+                <en>Santification</en>
+                <es>Santificación</es>
+            </name>
+            <description>
+                <en>You can sanctify a common Church item so that it may mystically aid your theurgic rites.
+                </en>
+                <es>Santificas un objeto eclesiástico común para que te ayude místicamente en tus ritos teúrgicos.
+                </es>
+            </description>
+            <psiLevel>7</psiLevel>
+            <time>narrated1day</time>
+            <cost>
+                <en>2 VP</en>
+                <es>2 PV</es>
+            </cost>
+            <characteristic>faith</characteristic>
+            <skills>
+                <skill>focus</skill>
+            </skills>
+            <components>
+                <component>GP</component>
+            </components>
+            <resistance>
+                <en>Tough
+                </en>
+                <es>Ardua
+                </es>
+            </resistance>
+            <impact>
+                <en>You can turn a single object into a vestment (see Vestments) This ritual takes one day to cast,
+                    but its effects are permanent. A vestment may lose its sanctity over time and through neglect,
+                    but if it is well cared for, it will continue to function. This ritual may be used a number of
+                    times per week equal to your level.
+                </en>
+                <es>Conviertes un objeto en un ornamento (consulta Ornamentos al comienzo de esta sección). Se tarda
+                    un día en lanzar este rito, pero su efecto es permanente. Un ornamento puede perder su santidad
+                    con el tiempo y la falta de cuidados, pero, si está bien atendido, seguirá funcionando. La
+                    Santificación se puede utilizar una cantidad de veces por semana equivalente a tu nivel.
+                </es>
+            </impact>
+        </power>
+        <powers>
+        <power>
+            <id>shieldOfFaith</id>
+            <name>
+                <en>Shield of Faith</en>
+                <es>Escudo de Fe</es>
+            </name>
+            <description>
+                <en>You can create a mystical shield to protect you against damage.
+                </en>
+                <es>Creas un escudo místico para que te proteja del daño.
+                </es>
+            </description>
+            <psiLevel>8</psiLevel>
+            <time>instantaneous</time>
+            <cost>
+                <en>You can create a mystical shield to protect you against damage.</en>
+                <es>1 PV + 1 PV por metro adicional, +2 PV para 5 impactos adicionales</es>
+            </cost>
+            <characteristic>presence</characteristic>
+            <skills>
+                <skill>focus</skill>
+            </skills>
+            <components>
+                <component>G</component>
+            </components>
+            <resistance>
+                <en>Demanding
+                </en>
+                <es>Exigente
+                </es>
+            </resistance>
+            <impact>
+                <en>You create a hemispherical field with a three-meter radius around you; it moves with you. This field
+                    lasts for the rest of the scene or until its number of “hits” runs out (see below). Anyone within
+                    its radius is protected.\n
+
+                    The Shield of Faith is similar to a standard energy shield. (See Energy Shields in Chapter 4:
+                    Technology.) The Shield’s lower threshold is equal to 3 + your Hubris rating, while its upper limit
+                    is 10 + your Theurgy rating. (For example, if your Hubris is 2 and your Theurgy is 8, your force
+                    field’s protection is 5/18.) Unlike a technological energy shield, a Shield of Faith does not
+                    restrict the armor or equipment you can use, nor does it suffer burnout from broad-area impacts or
+                    multiple hits in the same round.\n
+
+                    The Shield can take 10 hits, plus an additional 5 hits per 2 VP spent during casting.
+                </en>
+                <es>Creas a tu alrededor un campo hemisférico con un radio de tres metros que se desplaza contigo. El
+                    campo dura hasta el final de la escena o hasta agotar su cantidad de impactos (a continuación).
+                    Cualquiera que esté dentro del radio de acción del escudo queda protegido.\n
+
+                    El Escudo de Fe es parecido a un escudo de energía estándar (consulta Escudos de energía en el
+                    Capítulo 4: Tecnología). El umbral mínimo del Escudo es 3 + tu puntuación de Hubris, mientras que su
+                    umbral máximo es 10 + tu puntuación de Teúrgia. Por ejemplo, si tu Hubris es 2 y tu Teúrgia 8; la
+                    protección de tu campo de fuerza es 5/18. A diferencia de los escudos de energía tecnológicos, el
+                    Escudo de Fe no es incompatible con ninguna armadura ni equipo, ni se agota con impactos de área o
+                    varios impactos en la misma ronda.\n
+
+                    El escudo puede soportar 10 impactos, más 5 impactos adicionales por cada 2 PV que gastes al
+                    activarlo.
+                </es>
+            </impact>
+        </power>
+        <powers>
+            <power>
+                <id>providentialDeliverance</id>
+                <name>
+                    <en>Providential Deliverance</en>
+                    <es>Salvación Providencial</es>
+                </name>
+                <description>
+                    <en>You or a target of your choice can escape danger through the intervention of the divine.
+                    </en>
+                    <es>Tú o un objetivo de tu elección puede escapar del peligro gracias a la intervención divina.
+                    </es>
+                </description>
+                <psiLevel>9</psiLevel>
+                <time></time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>faith</characteristic>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
+                <components>
+                    <component>LGP</component>
+                </components>
+                <resistance>
+                    <en>Easy
+                    </en>
+                    <es>Fácil
+                    </es>
+                </resistance>
+                <impact>
+                    <en>You or a target of your choice are saved from a hazardous situation in an unlikely — even
+                        miraculous — manner. The key word is “unlikely,” as this ritual does not enable the impossible
+                        to occur. Thus, an unknown assailant might attack someone who is about to kill you, or a captor
+                        might drop his keys while visiting the cell in which you are imprisoned. The GM must orchestrate
+                        events in manner that allows you to make a clean getaway from whatever imperils you.\n
+
+                        You may only cast this upon the same target (including yourself) once per scene.
+                    </en>
+                    <es>Tú o un objetivo de tu elección se salva de una situación peligrosa de una forma improbable o
+                        incluso milagrosa. La idea es que sea «improbable», no imposible. Por ejemplo, quizá un
+                        desconocido ataque a alguien que está a punto de matarte, o las llaves de tu carcelero se le
+                        caigan mientras visita la célula en la que estás encerrado. El DJ debe planear los
+                        acontecimientos de forma que sea posible escaparse del peligro.\n
+
+                        Solo puedes lanzar el rito al mismo objetivo (incluido tú mismo) una vez por escena.
+                    </es>
+                </impact>
+            </power>
+        </powers>
+        <elementalUse>
+            <en>With Theurgy 1, your charism allows you (by spending 1 VP) to bless your own or another person’s
+                next roll with a +1 goal bonus.\n
+
+                At Theurgy 5, your charism (by spending 1 VP) acts as above, but now your +1 goal blessing can
+                be applied by the blessed person to any single roll of their choice anytime within the next 10
+                turns. (You cannot use another charism blessing, or any full casting of this rite, on that
+                person until they’ve used the first one).\n
+
+                At Theurgy 9, your charism (by spending 1 VP) acts as above, but now applies for the rest of the
+                scene (or until the blessing is used).\n
+            </en>
+            <es>Con Teúrgia 1, tu carisma te permite (gastando 1 PV) bendecir tu próxima tirada o la tirada de
+                otra persona añadiendo +1 a la meta.\n
+
+                Con Teúrgia 5, tu bendición se puede aplicar a cualquier tirada que elija tu objetivo en los
+                próximos 10 turnos (no puedes utilizar otro carisma de bendición o el lanzamiento completo de
+                este rito en la misma persona hasta que haya usado la primera).\n
+
+                Con Teúrgia 9, tu bendición se puede aplicar a cualquier tirada el resto de la escena (o hasta
+                que utilice la bendición).\n
+            </es>
+        </elementalUse>
+        <random>
+            <classification>enhancement</classification>
+        </random>
+    </path>
+
+
+    <path>
         <id></id>
         <name>
             <en></en>
@@ -2795,7 +3600,12 @@
                     <es></es>
                 </cost>
                 <characteristic></characteristic>
-                <skill></skill>
+                <skills>
+                    <skill></skill>
+                </skills>
+                <components>
+                    <component>G</component>
+                </components>
                 <resistance>
                     <en>
                     </en>
@@ -2828,7 +3638,12 @@
                     <es></es>
                 </cost>
                 <characteristic></characteristic>
-                <skill></skill>
+                <skills>
+                    <skill></skill>
+                </skills>
+                <components>
+                    <component>G</component>
+                </components>
                 <resistance>
                     <en>
                     </en>
@@ -2861,7 +3676,12 @@
                     <es></es>
                 </cost>
                 <characteristic></characteristic>
-                <skill></skill>
+                <skills>
+                    <skill></skill>
+                </skills>
+                <components>
+                    <component>G</component>
+                </components>
                 <resistance>
                     <en>
                     </en>
@@ -2894,7 +3714,12 @@
                     <es></es>
                 </cost>
                 <characteristic></characteristic>
-                <skill></skill>
+                <skills>
+                    <skill></skill>
+                </skills>
+                <components>
+                    <component>G</component>
+                </components>
                 <resistance>
                     <en>
                     </en>
@@ -2927,7 +3752,12 @@
                     <es></es>
                 </cost>
                 <characteristic></characteristic>
-                <skill></skill>
+                <skills>
+                    <skill></skill>
+                </skills>
+                <components>
+                    <component>G</component>
+                </components>
                 <resistance>
                     <en>
                     </en>
@@ -2960,7 +3790,12 @@
                     <es></es>
                 </cost>
                 <characteristic></characteristic>
-                <skill></skill>
+                <skills>
+                    <skill></skill>
+                </skills>
+                <components>
+                    <component>G</component>
+                </components>
                 <resistance>
                     <en>
                     </en>
@@ -2993,7 +3828,12 @@
                     <es></es>
                 </cost>
                 <characteristic></characteristic>
-                <skill></skill>
+                <skills>
+                    <skill></skill>
+                </skills>
+                <components>
+                    <component>G</component>
+                </components>
                 <resistance>
                     <en>
                     </en>
@@ -3026,7 +3866,12 @@
                     <es></es>
                 </cost>
                 <characteristic></characteristic>
-                <skill></skill>
+                <skills>
+                    <skill></skill>
+                </skills>
+                <components>
+                    <component>G</component>
+                </components>
                 <resistance>
                     <en>
                     </en>
@@ -3059,7 +3904,12 @@
                     <es></es>
                 </cost>
                 <characteristic></characteristic>
-                <skill></skill>
+                <skills>
+                    <skill></skill>
+                </skills>
+                <components>
+                    <component>G</component>
+                </components>
                 <resistance>
                     <en>
                     </en>
@@ -3083,5 +3933,10 @@
         <random>
             <classification>enhancement</classification>
         </random>
+        <restrictions>
+            <factions>
+                <faction>brotherBattle</faction>
+            </factions>
+        </restrictions>
     </path>
 </occultism>
