@@ -23,7 +23,7 @@ public class PsychicCreationTest {
     @Test
     public void psiLevel() {
         CharacterPlayer characterPlayer = new CharacterPlayer();
-        characterPlayer.setSpecie("obun");
+        characterPlayer.setSpecie("ukar");
         characterPlayer.setUpbringing("merchant");
         characterPlayer.setFaction("societyOfStPaulus");
         characterPlayer.setCalling("psychic");
@@ -47,7 +47,7 @@ public class PsychicCreationTest {
     }
 
     @Test
-    public void obunnotCanLearnOpenTheurgyRites() {
+    public void humanCannotLearnOpenTheurgyRites() {
         CharacterPlayer characterPlayer = new CharacterPlayer();
         characterPlayer.setSpecie("human");
         Assert.assertTrue(OccultismPathFactory.getInstance().getElement("ecumenicalRituals").getRestrictions().isRestricted(characterPlayer));

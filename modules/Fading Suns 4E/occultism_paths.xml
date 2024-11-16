@@ -3604,42 +3604,42 @@
                     </es>
                 </impact>
             </power>
-            <elementalUse>
-                <en>With Theurgy 1, your charism allows you (by spending 1 VP) to bless your own or another person’s
-                    next roll with a +1 goal bonus.\n
-
-                    At Theurgy 5, your charism (by spending 1 VP) acts as above, but now your +1 goal blessing can
-                    be applied by the blessed person to any single roll of their choice anytime within the next 10
-                    turns. (You cannot use another charism blessing, or any full casting of this rite, on that
-                    person until they’ve used the first one).\n
-
-                    At Theurgy 9, your charism (by spending 1 VP) acts as above, but now applies for the rest of the
-                    scene (or until the blessing is used).\n
-                </en>
-                <es>Con Teúrgia 1, tu carisma te permite (gastando 1 PV) bendecir tu próxima tirada o la tirada de
-                    otra persona añadiendo +1 a la meta.\n
-
-                    Con Teúrgia 5, tu bendición se puede aplicar a cualquier tirada que elija tu objetivo en los
-                    próximos 10 turnos (no puedes utilizar otro carisma de bendición o el lanzamiento completo de
-                    este rito en la misma persona hasta que haya usado la primera).\n
-
-                    Con Teúrgia 9, tu bendición se puede aplicar a cualquier tirada el resto de la escena (o hasta
-                    que utilice la bendición).\n
-                </es>
-            </elementalUse>
-            <random>
-                <classification>enhancement</classification>
-            </random>
-            <restrictions mode="any">
-                <callings>
-                    <calling>theurgist</calling>
-                    <calling>brotherBattle</calling>
-                </callings>
-                <species>
-                    <specie>obun</specie>
-                </species>
-            </restrictions>
         </powers>
+        <elementalUse>
+            <en>With Theurgy 1, your charism allows you (by spending 1 VP) to bless your own or another person’s
+                next roll with a +1 goal bonus.\n
+
+                At Theurgy 5, your charism (by spending 1 VP) acts as above, but now your +1 goal blessing can
+                be applied by the blessed person to any single roll of their choice anytime within the next 10
+                turns. (You cannot use another charism blessing, or any full casting of this rite, on that
+                person until they’ve used the first one).\n
+
+                At Theurgy 9, your charism (by spending 1 VP) acts as above, but now applies for the rest of the
+                scene (or until the blessing is used).\n
+            </en>
+            <es>Con Teúrgia 1, tu carisma te permite (gastando 1 PV) bendecir tu próxima tirada o la tirada de
+                otra persona añadiendo +1 a la meta.\n
+
+                Con Teúrgia 5, tu bendición se puede aplicar a cualquier tirada que elija tu objetivo en los
+                próximos 10 turnos (no puedes utilizar otro carisma de bendición o el lanzamiento completo de
+                este rito en la misma persona hasta que haya usado la primera).\n
+
+                Con Teúrgia 9, tu bendición se puede aplicar a cualquier tirada el resto de la escena (o hasta
+                que utilice la bendición).\n
+            </es>
+        </elementalUse>
+        <random>
+            <classification>enhancement</classification>
+        </random>
+        <restrictions mode="any">
+            <callings>
+                <calling>theurgist</calling>
+                <calling>brotherBattle</calling>
+            </callings>
+            <species>
+                <specie>obun</specie>
+            </species>
+        </restrictions>
     </path>
 
 

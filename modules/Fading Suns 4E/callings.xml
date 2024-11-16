@@ -994,15 +994,15 @@
         </capabilitiesOption>
         <characteristics>
             <characteristicBonusOptions>
-                <characteristicBonusOptions>
-                    <total>1</total>
-                    <options>
-                        <characteristic>
-                            <id>psi</id>
-                            <bonus>1</bonus>
-                        </characteristic>
-                    </options>
-                </characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>psi</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
                 <total>1</total>
                 <options>
                     <characteristic>

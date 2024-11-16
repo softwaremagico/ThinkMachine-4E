@@ -26,6 +26,8 @@ package com.softwaremagico.tm.character;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
+import com.softwaremagico.tm.OptionSelector;
+import com.softwaremagico.tm.character.capabilities.CapabilityOption;
 import com.softwaremagico.tm.character.equipment.CharacterSelectedEquipment;
 import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
 import com.softwaremagico.tm.exceptions.InvalidSelectedElementException;
@@ -87,6 +89,37 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         setMaterialAwards(Arrays.asList(new CharacterSelectedEquipment[characterDefinitionStep.getMaterialAwards().size()]));
         for (int i = 0; i < characterDefinitionStep.getMaterialAwards().size(); i++) {
             materialAwards.set(i, new CharacterSelectedEquipment());
+        }
+
+        selectDefaultOptions();
+    }
+
+    public void selectDefaultOptions() {
+        setDefaultOptions(new ArrayList<>(characterDefinitionStep.getCapabilityOptions()), capabilityOptions);
+        setDefaultOptions(new ArrayList<>(characterDefinitionStep.getCharacteristicOptions()), characteristicOptions);
+        setDefaultOptions(new ArrayList<>(characterDefinitionStep.getSkillOptions()), skillOptions);
+        setDefaultOptions(new ArrayList<>(characterDefinitionStep.getPerksOptions()), perksOptions);
+    }
+
+    private void setDefaultOptions(List<OptionSelector<?, ?>> options, List<CharacterSelectedElement> selectedElements) {
+        for (int i = 0; i < options.size(); i++) {
+            if (options.get(i).getOptions().size() == 1) {
+                if (options.get(i).getOptions().get(0) instanceof CapabilityOption) {
+                    if (((CapabilityOption) options.get(i).getOptions().get(0)).getSelectedSpecialization() != null) {
+                        selectedElements.get(i).setSelections(List.of(new Selection(options
+                                .get(i).getOptions().get(0).getId(),
+                                ((CapabilityOption) options.get(i).getOptions().get(0)).getSelectedSpecialization())));
+                    }
+                } else if (options.get(i).getOptions().get(0).getSpecializations() == null
+                        || options.get(i).getOptions().get(0).getSpecializations().isEmpty()) {
+                    selectedElements.get(i).setSelections(List.of(new Selection(options
+                            .get(i).getOptions().get(0).getId())));
+                } else if (options.get(i).getOptions().get(0).getSpecializations().size() == 1) {
+                    selectedElements.get(i).setSelections(List.of(new Selection(options
+                            .get(i).getOptions().get(0).getId(), options
+                            .get(i).getOptions().get(0).getSpecializations().get(0))));
+                }
+            }
         }
     }
 
