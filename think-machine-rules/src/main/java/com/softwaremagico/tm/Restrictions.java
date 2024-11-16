@@ -159,7 +159,7 @@ public class Restrictions extends XmlData {
             return isOpen()
                     //Check Specie
                     || ((!getRestrictedToSpecies().isEmpty() && (characterPlayer.getSpecie() != null && getRestrictedToSpecies()
-                    .contains(characterPlayer.getSpecie())))
+                    .contains(characterPlayer.getSpecie().getId())))
                     // Check Faction
                     || (!getRestrictedToFactions().isEmpty() && (characterPlayer.getFaction() != null && getRestrictedToFactions()
                     .contains(characterPlayer.getFaction().getId())))
@@ -196,7 +196,7 @@ public class Restrictions extends XmlData {
             return isOpen()
                     //Check Specie
                     || ((getRestrictedToSpecies().isEmpty() || (characterPlayer.getSpecie() != null && getRestrictedToSpecies()
-                    .contains(characterPlayer.getSpecie())))
+                    .contains(characterPlayer.getSpecie().getId())))
                     // Check Faction
                     && (getRestrictedToFactions().isEmpty() || (characterPlayer.getFaction() != null && getRestrictedToFactions()
                     .contains(characterPlayer.getFaction().getId())))
@@ -232,7 +232,7 @@ public class Restrictions extends XmlData {
             return isOpen()
                     //Check Specie
                     || (((getRestrictedToSpecies().isEmpty() || (characterPlayer.getSpecie() != null && getRestrictedToSpecies()
-                    .contains(characterPlayer.getSpecie())))
+                    .contains(characterPlayer.getSpecie().getId())))
                     // Check Faction
                     || (getRestrictedToFactions().isEmpty() || (characterPlayer.getFaction() != null && getRestrictedToFactions()
                     .contains(characterPlayer.getFaction().getId())))

@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.perks;
+package com.softwaremagico.tm.character.specie;
 
 /*-
  * #%L
@@ -24,29 +24,14 @@ package com.softwaremagico.tm.character.perks;
  * #L%
  */
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.softwaremagico.tm.Element;
+import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
+import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
 
-public class Perk extends Element {
-    private boolean isAffliction = false;
-    @JsonProperty("cyberDevice")
-    private Integer cyberDeviceTechLevel;
-    @JsonProperty("repeatable")
-    private boolean repeatable = false;
+public class SpecieCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection {
 
-    public boolean isAffliction() {
-        return isAffliction;
-    }
-
-    public void setAffliction(boolean affliction) {
-        isAffliction = affliction;
-    }
-
-    public Integer getCyberDeviceTechLevel() {
-        return cyberDeviceTechLevel;
-    }
-
-    public void setCyberDeviceTechLevel(Integer cyberDeviceTechLevel) {
-        this.cyberDeviceTechLevel = cyberDeviceTechLevel;
+    public SpecieCharacterDefinitionStepSelection(CharacterPlayer characterPlayer, String specie) throws InvalidGeneratedCharacter {
+        super(characterPlayer, SpecieFactory.getInstance().getElement(specie));
+        setId(specie);
     }
 }

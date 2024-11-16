@@ -90,6 +90,10 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         }
     }
 
+    public CharacterDefinitionStep<?> getCharacterDefinitionStep() {
+        return characterDefinitionStep;
+    }
+
     public CharacterPlayer getCharacterPlayer() {
         return characterPlayer;
     }

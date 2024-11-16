@@ -32,40 +32,37 @@ import java.util.Map;
 
 public enum CharacteristicName {
 
-    STRENGTH(CharacteristicType.BODY, 3),
+    STRENGTH(CharacteristicType.BODY),
 
-    DEXTERITY(CharacteristicType.BODY, 3),
+    DEXTERITY(CharacteristicType.BODY),
 
-    ENDURANCE(CharacteristicType.BODY, 3),
+    ENDURANCE(CharacteristicType.BODY),
 
-    WITS(CharacteristicType.MIND, 3),
+    WITS(CharacteristicType.MIND),
 
-    PERCEPTION(CharacteristicType.MIND, 3),
+    PERCEPTION(CharacteristicType.MIND),
 
-    WILL(CharacteristicType.MIND, 3),
+    WILL(CharacteristicType.MIND),
 
-    PRESENCE(CharacteristicType.SPIRIT, 3),
+    PRESENCE(CharacteristicType.SPIRIT),
 
-    INTUITION(CharacteristicType.SPIRIT, 3),
+    INTUITION(CharacteristicType.SPIRIT),
 
-    FAITH(CharacteristicType.SPIRIT, 3),
+    FAITH(CharacteristicType.SPIRIT),
 
-    PSI(CharacteristicType.OCCULTISM, 0),
+    PSI(CharacteristicType.OCCULTISM),
 
-    URGE(CharacteristicType.OCCULTISM, 0),
+    URGE(CharacteristicType.OCCULTISM),
 
-    THEURGY(CharacteristicType.OCCULTISM, 0),
+    THEURGY(CharacteristicType.OCCULTISM),
 
-    HUBRIS(CharacteristicType.OCCULTISM, 0),
+    HUBRIS(CharacteristicType.OCCULTISM),
 
-    INITIATIVE(CharacteristicType.OTHERS, 0),
+    INITIATIVE(CharacteristicType.OTHERS),
 
-    MOVEMENT(CharacteristicType.OTHERS, 5),
-
-    TECH(CharacteristicType.OTHERS, 4);
+    MOVEMENT(CharacteristicType.OTHERS);
 
     private final CharacteristicType characteristicType;
-    private final int initialValue;
     private static final Map<CharacteristicType, List<CharacteristicName>> CHARACTERISTIC_TYPE_LIST;
 
     static {
@@ -76,9 +73,8 @@ public enum CharacteristicName {
         }
     }
 
-    CharacteristicName(CharacteristicType characteristicType, int initialValue) {
+    CharacteristicName(CharacteristicType characteristicType) {
         this.characteristicType = characteristicType;
-        this.initialValue = initialValue;
     }
 
     public String getId() {
@@ -111,9 +107,5 @@ public enum CharacteristicName {
 
     public static List<CharacteristicName> getCharacteristics(CharacteristicType characteristicType) {
         return CHARACTERISTIC_TYPE_LIST.get(characteristicType);
-    }
-
-    public int getInitialValue() {
-        return initialValue;
     }
 }

@@ -730,7 +730,7 @@
                         <id>jumpwebLore</id>
                     </capability>
                     <capability>
-                        <id>techLore</id>
+                        <group>techLore</group>
                     </capability>
                     <capability>
                         <id>thinkMachines</id>

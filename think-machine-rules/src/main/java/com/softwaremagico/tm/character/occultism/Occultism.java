@@ -25,9 +25,8 @@ package com.softwaremagico.tm.character.occultism;
  */
 
 
+import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Settings;
-import com.softwaremagico.tm.character.factions.Faction;
-import com.softwaremagico.tm.character.specie.Specie;
 import com.softwaremagico.tm.exceptions.InvalidFactionOfPowerException;
 import com.softwaremagico.tm.exceptions.InvalidOccultismPowerException;
 import com.softwaremagico.tm.exceptions.InvalidPowerLevelException;
@@ -43,36 +42,14 @@ import java.util.Map.Entry;
 import java.util.Objects;
 
 public class Occultism {
-    private final Map<String, Integer> psiqueValue;
     private final Map<String, Integer> darkSideValue;
-    private Wyrd extraWyrd;
 
     // Path --> Set<Power>
     private final Map<String, List<OccultismPower>> selectedPowers;
 
     public Occultism() {
         selectedPowers = new HashMap<>();
-        psiqueValue = new HashMap<>();
         darkSideValue = new HashMap<>();
-    }
-
-    public Wyrd getExtraWyrd() {
-        return extraWyrd;
-    }
-
-    public void setExtraWyrd(int extraWyrd, String language, String moduleName) {
-        if (extraWyrd > 0) {
-            this.extraWyrd = new Wyrd(language, moduleName, extraWyrd);
-        } else {
-            this.extraWyrd = null;
-        }
-    }
-
-    public int getPsiqueLevel(OccultismType occultismType) {
-        if (psiqueValue.get(occultismType.getId()) != null) {
-            return psiqueValue.get(occultismType.getId());
-        }
-        return 0;
     }
 
     public int getDarkSideLevel(OccultismType occultismType) {
@@ -104,7 +81,7 @@ public class Occultism {
         return getSelectedPowers().keySet().size();
     }
 
-    public void canAddPower(OccultismPath path, OccultismPower power, String language, Faction faction, Specie specie, Settings settings)
+    public void canAddPower(CharacterPlayer characterPlayer, OccultismPath path, OccultismPower power, String faction, String specie, Settings settings)
             throws InvalidOccultismPowerException {
         if (power == null) {
             throw new InvalidOccultismPowerException("Power cannot be null.");
@@ -114,7 +91,7 @@ public class Occultism {
         }
         // Correct level of psi or theurgy
         try {
-            if (power.getOccultismLevel() > getPsiqueLevel(OccultismTypeFactory.getInstance().getElement(path.getOccultismType()))) {
+            if (power.getOccultismLevel() > characterPlayer.getCharacteristicValue(path.getOccultismType())) {
                 throw new InvalidPsiqueLevelException("Insufficient psi/theurgy level to acquire '" + power + "'.");
             }
         } catch (InvalidXmlElementException e) {
@@ -122,13 +99,13 @@ public class Occultism {
         }
         // Limited to some factions
         if (!path.getFactionsAllowed().isEmpty() && settings.isRestrictionsChecked() && faction != null
-                && !path.getFactionsAllowed().contains(faction.getId())) {
+                && !path.getFactionsAllowed().contains(faction)) {
             throw new InvalidFactionOfPowerException("Power '" + power + "' can only be acquired by  '"
                     + path.getFactionsAllowed() + "' character faction is '" + faction + "'.");
         }
         // Limited to some species
         if (!path.getRestrictions().getRestrictedToSpecies().isEmpty() && settings.isRestrictionsChecked() && specie != null
-                && !path.getRestrictions().getRestrictedToSpecies().contains(specie.getId())) {
+                && !path.getRestrictions().getRestrictedToSpecies().contains(specie)) {
             throw new InvalidFactionOfPowerException("Power '" + power + "' can only be acquired by  '"
                     + path.getFactionsAllowed() + "' character faction is '" + faction + "'.");
         }
@@ -150,9 +127,9 @@ public class Occultism {
         }
     }
 
-    public boolean addPower(OccultismPath path, OccultismPower power, String language, Faction faction, Specie specie, Settings settings)
+    public boolean addPower(CharacterPlayer characterPlayer, OccultismPath path, OccultismPower power, String faction, String specie, Settings settings)
             throws InvalidOccultismPowerException {
-        canAddPower(path, power, language, faction, specie, settings);
+        canAddPower(characterPlayer, path, power, faction, specie, settings);
         selectedPowers.computeIfAbsent(path.getId(), k -> new ArrayList<>());
         return selectedPowers.get(path.getId()).add(power);
     }

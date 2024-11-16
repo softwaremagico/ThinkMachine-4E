@@ -24,6 +24,7 @@ package com.softwaremagico.tm.character.specie;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.character.CharacterDefinitionStep;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.perks.PerkOption;
@@ -36,14 +37,10 @@ import java.util.Set;
 
 public class Specie extends CharacterDefinitionStep<Specie> {
 
+    @JsonProperty("specieCharacteristics")
     private List<SpecieCharacteristic> specieCharacteristics;
 
     private Set<String> planets = null;
-
-    private int psi;
-    private int theurgy;
-    private int urge;
-    private int hubris;
 
     private List<PerkOption> perks;
 
@@ -51,14 +48,14 @@ public class Specie extends CharacterDefinitionStep<Specie> {
 
     private int size;
 
-    public SpecieCharacteristic getParameter(CharacteristicName characteristicName) throws InvalidSpecieException {
+    public SpecieCharacteristic getSpecieCharacteristic(CharacteristicName characteristicName) throws InvalidSpecieException {
         return specieCharacteristics.stream().filter(specieCharacteristic -> specieCharacteristic.getCharacteristic() == characteristicName).findFirst()
                 .orElseThrow(() -> new InvalidSpecieException("Characteristic '" + characteristicName + "' does not exists on race '" + getId() + "'."));
     }
 
     public void setMaximumValue(CharacteristicName characteristicName, int maxValue) {
         try {
-            getParameter(characteristicName).setMaximumValue(maxValue);
+            getSpecieCharacteristic(characteristicName).setMaximumValue(maxValue);
         } catch (NullPointerException | InvalidSpecieException npe) {
             MachineLog.severe(this.getClass().getName(), "Invalid maximum parameter '{}'.", characteristicName);
         }
@@ -66,7 +63,7 @@ public class Specie extends CharacterDefinitionStep<Specie> {
 
     public void setMaximumInitialValue(CharacteristicName characteristicName, int maxValue) {
         try {
-            getParameter(characteristicName).setMaximumInitialValue(maxValue);
+            getSpecieCharacteristic(characteristicName).setMaximumInitialValue(maxValue);
         } catch (NullPointerException | InvalidSpecieException npe) {
             MachineLog.severe(this.getClass().getName(), "Invalid maximum initial parameter '{}'.", characteristicName);
         }
@@ -74,50 +71,18 @@ public class Specie extends CharacterDefinitionStep<Specie> {
 
     public void setValue(CharacteristicName characteristicName, int value) {
         try {
-            getParameter(characteristicName).setInitialValue(value);
+            getSpecieCharacteristic(characteristicName).setInitialValue(value);
         } catch (NullPointerException | InvalidSpecieException npe) {
             MachineLog.severe(this.getClass().getName(), "Invalid value parameter '{}'.", characteristicName);
         }
     }
 
-    public SpecieCharacteristic get(CharacteristicName characteristicName) throws InvalidSpecieException {
-        return getParameter(characteristicName);
-    }
-
-    public int getPsi() {
-        return psi;
-    }
-
-    public int getTheurgy() {
-        return theurgy;
-    }
-
-    public int getUrge() {
-        return urge;
-    }
-
-    public int getHubris() {
-        return hubris;
+    public SpecieCharacteristic getSpecieCharacteristic(String characteristicName) throws InvalidSpecieException {
+        return getSpecieCharacteristic(CharacteristicName.get(characteristicName));
     }
 
     public int getCost() {
         return cost;
-    }
-
-    public void setPsi(int psi) {
-        this.psi = psi;
-    }
-
-    public void setTheurgy(int teurgy) {
-        this.theurgy = teurgy;
-    }
-
-    public void setUrge(int urge) {
-        this.urge = urge;
-    }
-
-    public void setHubris(int hubris) {
-        this.hubris = hubris;
     }
 
     public void setCost(int cost) {

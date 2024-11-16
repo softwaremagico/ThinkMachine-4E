@@ -38,6 +38,7 @@
                 <include name="timeFactory"/>
                 <exclude name="factoryValidation"/>
                 <include name="characterCreation"/>
+                <include name="psychicCreation"/>
                 <include name="exportTxt"/>
             </run>
         </groups>
@@ -66,6 +67,7 @@
             <class name="com.softwaremagico.tm.factory.OccultismFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.TimeFactoryTests"/>
             <class name="com.softwaremagico.tm.rules.CharacterCreationTest"/>
+            <class name="com.softwaremagico.tm.rules.PsychicCreationTest"/>
             <class name="com.softwaremagico.tm.txt.ExportTxtTests"/>
         </classes>
     </test>

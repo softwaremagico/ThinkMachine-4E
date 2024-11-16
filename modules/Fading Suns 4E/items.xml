@@ -405,4 +405,12 @@
             <es>Traje de Cena</es>
         </name>
     </equipment>
+    <equipment>
+        <id>lodestone</id>
+        <type>item</type>
+        <name>
+            <en>Lodestone</en>
+            <es>Imán</es>
+        </name>
+    </equipment>
 </equipments>

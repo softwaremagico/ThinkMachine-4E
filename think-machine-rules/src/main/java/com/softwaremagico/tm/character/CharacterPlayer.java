@@ -41,14 +41,23 @@ import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.factions.FactionCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.factions.FactionFactory;
+import com.softwaremagico.tm.character.factions.FactionGroup;
+import com.softwaremagico.tm.character.occultism.Occultism;
+import com.softwaremagico.tm.character.occultism.OccultismPath;
+import com.softwaremagico.tm.character.occultism.OccultismPathFactory;
+import com.softwaremagico.tm.character.occultism.OccultismPower;
+import com.softwaremagico.tm.character.occultism.OccultismType;
+import com.softwaremagico.tm.character.occultism.OccultismTypeFactory;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.perks.SpecializedPerk;
 import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillFactory;
+import com.softwaremagico.tm.character.specie.SpecieCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.UpbringingCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidCharacteristicException;
+import com.softwaremagico.tm.exceptions.InvalidOccultismPowerException;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
@@ -65,6 +74,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -76,15 +86,17 @@ public class CharacterPlayer {
     // Basic description of the character.
     private CharacterInfo info;
 
-    private String specie;
     private int level = 1;
 
+    private SpecieCharacterDefinitionStepSelection specie;
     private UpbringingCharacterDefinitionStepSelection upbringing;
     private FactionCharacterDefinitionStepSelection faction;
     private CallingCharacterDefinitionStepSelection calling;
 
-    private Set<Equipment> equipmentPurchased;
+    // All Psi/Teurgy powers
+    private Occultism occultism;
 
+    private Set<Equipment> equipmentPurchased;
 
     private final Settings settings;
 
@@ -95,14 +107,30 @@ public class CharacterPlayer {
 
     private void reset() {
         info = new CharacterInfo();
+        occultism = new Occultism();
+        specie = null;
+        upbringing = null;
+        faction = null;
+        calling = null;
+        equipmentPurchased = new HashSet<>();
     }
 
-    public String getSpecie() {
+    public SpecieCharacterDefinitionStepSelection getSpecie() {
         return specie;
     }
 
     public void setSpecie(String specie) {
-        this.specie = specie;
+        if (specie != null) {
+            this.specie = new SpecieCharacterDefinitionStepSelection(this, specie);
+            try {
+                this.specie.validate();
+            } catch (InvalidSelectionException e) {
+                this.specie = null;
+                throw e;
+            }
+        } else {
+            this.specie = null;
+        }
         try {
             if (this.upbringing != null) {
                 this.upbringing.validate();
@@ -251,7 +279,10 @@ public class CharacterPlayer {
         if (characteristicName == null) {
             throw new InvalidCharacteristicException("No characteristic '" + characteristic + "' exists.");
         }
-        int bonus = characteristicName.getInitialValue();
+        int bonus = 0;
+        if (specie != null) {
+            bonus += SpecieFactory.getInstance().getElement(getSpecie()).getSpecieCharacteristic(characteristic).getInitialValue();
+        }
         if (upbringing != null) {
             bonus += upbringing.getCharacteristicBonus(characteristic);
         }
@@ -624,32 +655,23 @@ public class CharacterPlayer {
         if ((getBestShield() != null && !getBestShield().isOfficial())) {
             throw new UnofficialCharacterException("Shield '" + getBestShield() + "' is not official.");
         }
-
-//        if (!weapons.getElements().stream().allMatch(Weapon::isOfficial)) {
-//            throw new UnofficialCharacterException("Weapon '" + weapons + "' are not all official.");
-//        }
-//
-//        if (!blessings.stream().allMatch(Blessing::isOfficial)) {
-//            throw new UnofficialCharacterException("Blessings '" + blessings + "' are not all official.");
-//        }
-//
-//        if (!benefices.stream().allMatch(AvailableBenefice::isOfficial)) {
-//            throw new UnofficialCharacterException("Benefices '" + benefices + "' are not all official.");
-//        }
+        if (!getWeapons().stream().allMatch(Equipment::isOfficial)) {
+            throw new UnofficialCharacterException("Equipment '" + getWeapons() + "' are not all official.");
+        }
 //
 //        if (!cybernetics.getElements().stream().allMatch(SelectedCyberneticDevice::isOfficial)) {
 //            throw new UnofficialCharacterException("Cybernetics '" + cybernetics + "' are not all official.");
 //        }
 //
-//        for (final String occultismPathId : occultism.getSelectedPowers().keySet()) {
-//            try {
-//                if (!OccultismPathFactory.getInstance().getElement(occultismPathId, getLanguage(), getModuleName()).isOfficial()) {
-//                    throw new UnofficialCharacterException("Occultism path '" + occultismPathId + "' is not official.");
-//                }
-//            } catch (InvalidXmlElementException e) {
-//                // Ignore.
-//            }
-//        }
+        for (final String occultismPathId : occultism.getSelectedPowers().keySet()) {
+            try {
+                if (!OccultismPathFactory.getInstance().getElement(occultismPathId).isOfficial()) {
+                    throw new UnofficialCharacterException("Occultism path '" + occultismPathId + "' is not official.");
+                }
+            } catch (InvalidXmlElementException e) {
+                // Ignore.
+            }
+        }
     }
 
     public void checkIsNotRestricted() throws RestrictedElementException {
@@ -659,6 +681,7 @@ public class CharacterPlayer {
         if ((getSpecie() != null && SpecieFactory.getInstance().getElement(getSpecie()).getRestrictions().isRestricted(this))) {
             throw new RestrictedElementException("Specie '" + getSpecie() + "' is restricted.");
         }
+
         if ((getBestArmor() != null && ArmorFactory.getInstance().getElement(getBestArmor()).getRestrictions().isRestricted(this))) {
             throw new RestrictedElementException("Armour '" + getBestArmor() + "' is restricted.");
         }
@@ -666,13 +689,9 @@ public class CharacterPlayer {
             throw new RestrictedElementException("Shield '" + getBestShield() + "' is restricted.");
         }
 
-//        if (!weapons.getElements().stream().allMatch(w -> w.isRestricted(this))) {
-//            throw new RestrictedElementException("Weapon '" + weapons + "' have some restricted element.");
-//        }
-//
-//        if (!skills.values().stream().allMatch(s -> s.isRestricted(this))) {
-//            throw new RestrictedElementException("Skills '" + skills + "' have some restricted element.");
-//        }
+        if (!getWeapons().stream().allMatch(w -> w.getRestrictions().isRestricted(this))) {
+            throw new RestrictedElementException("Weapons '" + getWeapons() + "' have some restricted element.");
+        }
 //
 //        if (!blessings.stream().allMatch(b -> b.isRestricted(this))) {
 //            throw new RestrictedElementException("Blessings '" + blessings + "' have some restricted element.");
@@ -686,14 +705,158 @@ public class CharacterPlayer {
 //            throw new RestrictedElementException("Cybernetics '" + cybernetics + "' have some restricted element.");
 //        }
 //
-//        for (final String occultismPathId : occultism.getSelectedPowers().keySet()) {
-//            try {
-//                if (!OccultismPathFactory.getInstance().getElement(occultismPathId, getLanguage(), getModuleName()).isRestricted(this)) {
-//                    throw new RestrictedElementException("Occultism path '" + occultismPathId + "' is restricted.");
-//                }
-//            } catch (InvalidXmlElementException e) {
-//                // Ignore.
-//            }
-//        }
+        for (final String occultismPathId : occultism.getSelectedPowers().keySet()) {
+            try {
+                if (!OccultismPathFactory.getInstance().getElement(occultismPathId).getRestrictions().isRestricted(this)) {
+                    throw new RestrictedElementException("Occultism path '" + occultismPathId + "' is restricted.");
+                }
+            } catch (InvalidXmlElementException e) {
+                // Ignore.
+            }
+        }
+    }
+
+
+    private Occultism getOccultism() {
+        return occultism;
+    }
+
+    private int getOccultismPointsAvailable() {
+        return (int) getPerks().stream().filter(perk -> Objects.equals(perk.getId(), "theurgicRites")
+                || Objects.equals(perk.getId(), "psychicPowers")).count();
+    }
+
+    public int getOccultismLevel(OccultismType occultismType) {
+        return getCharacteristicValue(occultismType.getId());
+    }
+
+    public int getOccultismLevel() {
+        try {
+            int level = 0;
+            for (final OccultismType occultismType : OccultismTypeFactory.getInstance().getElements()) {
+                final int typeLevel = getOccultismLevel(occultismType);
+                if (typeLevel > level) {
+                    level = typeLevel;
+                }
+            }
+            return level;
+        } catch (InvalidXmlElementException e) {
+            //Ignore
+        }
+        return 0;
+    }
+
+    public int getDarkSideLevel(OccultismType occultismType) {
+        return getOccultism().getDarkSideLevel(occultismType);
+    }
+
+    public void setDarkSideLevel(OccultismType occultismType, int darkSideValue) {
+        getOccultism().setDarkSideLevel(occultismType, darkSideValue);
+    }
+
+    public Map<String, List<OccultismPower>> getSelectedPowers() {
+        return getOccultism().getSelectedPowers();
+    }
+
+    public int getTotalSelectedPowers() {
+        return getOccultism().getTotalSelectedPowers();
+    }
+
+    public int getTotalSelectedPaths() {
+        return getOccultism().getTotalSelectedPaths();
+    }
+
+    /**
+     * Returns the selected option by the character.
+     *
+     * @return an occultism type or null if nothing has been selected.
+     */
+    public OccultismType getOccultismType() {
+        if (getFaction() != null && FactionGroup.get(getFaction().getGroup()) == FactionGroup.CHURCH
+                || FactionGroup.get(getFaction().getGroup()) == FactionGroup.MINOR_CHURCH || Objects.equals(getFaction().getId(), "sibanzi")
+                || Objects.equals(getFaction().getId(), "vagabonds") || Objects.equals(getFaction().getId(), "swordsOfLextius")) {
+            return OccultismTypeFactory.getTheurgy();
+        }
+        if (getFaction() != null && (Objects.equals(getFaction().getId(), "dervishes"))) {
+            return OccultismTypeFactory.getPsi();
+        }
+        if (getSpecie() != null && (Objects.equals(getSpecie().getId(), "ascorbite"))) {
+            return OccultismTypeFactory.getPsi();
+        }
+        try {
+            //Check if has some path purchased already. Get its occultismType;
+            if (!getOccultism().getSelectedPowers().isEmpty()) {
+                final Map.Entry<String, List<OccultismPower>> occultismPowers = getOccultism().getSelectedPowers().entrySet().iterator().next();
+                if (occultismPowers.getValue() != null && !occultismPowers.getValue().isEmpty()) {
+                    final OccultismPower occultismPower = occultismPowers.getValue().iterator().next();
+                    if (OccultismPathFactory.getInstance().getOccultismPath(occultismPower) != null) {
+                        return OccultismTypeFactory.getInstance().getElement(OccultismPathFactory.getInstance()
+                                .getOccultismPath(occultismPower).getOccultismType());
+                    }
+                }
+            }
+            //Check if has some occultism level added already.
+            for (final OccultismType occultismType : OccultismTypeFactory.getInstance().getElements()) {
+                int defaultOccultismLevel = 0;
+                if (getSpecie() != null) {
+                    if (occultismType.getId().equals(OccultismTypeFactory.PSI_TAG)) {
+                        defaultOccultismLevel = SpecieFactory.getInstance().getElement(getSpecie())
+                                .getSpecieCharacteristic(CharacteristicName.PSI).getInitialValue();
+                    }
+                    if (occultismType.getId().equals(OccultismTypeFactory.THEURGY_TAG)) {
+                        defaultOccultismLevel = SpecieFactory.getInstance().getElement(getSpecie())
+                                .getSpecieCharacteristic(CharacteristicName.THEURGY).getInitialValue();
+                    }
+                }
+                if (getCharacteristicValue(occultismType.getId()) > defaultOccultismLevel) {
+                    return occultismType;
+                }
+            }
+        } catch (InvalidXmlElementException e) {
+            MachineLog.errorMessage(this.getClass().getName(), e);
+        }
+        return null;
+    }
+
+    public boolean canAddOccultismPower(OccultismPower power) {
+        final OccultismPath path = OccultismPathFactory.getInstance().getOccultismPath(power);
+        try {
+            getOccultism().canAddPower(this, path, power, getFaction() != null ? getFaction().getId() : null, getSpecie().getId(), getSettings());
+            return true;
+        } catch (InvalidOccultismPowerException e) {
+            return false;
+        }
+    }
+
+    public void addOccultismPower(OccultismPower power) throws InvalidOccultismPowerException, UnofficialElementNotAllowedException {
+        if (power == null) {
+            throw new InvalidOccultismPowerException("Null value not allowed");
+        }
+        if (!power.isOfficial() && getSettings().isOnlyOfficialAllowed()) {
+            throw new UnofficialElementNotAllowedException("Occultism Power '" + power + "' is not official and cannot be added due "
+                    + "to configuration limitations.");
+        }
+        if (!power.getRestrictions().getRestrictedToSpecies().isEmpty() && getSettings().isRestrictionsChecked()
+                && (getSpecie() == null || !power.getRestrictions().getRestrictedToSpecies().contains(getSpecie()))) {
+            throw new InvalidOccultismPowerException("Occultism Power '" + power + "' is limited to races '"
+                    + power.getRestrictions().getRestrictedToSpecies() + "'.");
+        }
+        final OccultismPath path = OccultismPathFactory.getInstance().getOccultismPath(power);
+        getOccultism().addPower(this, path, power, getFaction() != null ? getFaction().getId() : null, getSpecie().getId(), getSettings());
+    }
+
+    public void removeOccultismPower(OccultismPower power) {
+        final OccultismPath path = OccultismPathFactory.getInstance().getOccultismPath(power);
+        getOccultism().removePower(path, power);
+
+    }
+
+    public boolean hasOccultismPower(OccultismPower power) {
+        final OccultismPath path = OccultismPathFactory.getInstance().getOccultismPath(power);
+        return getOccultism().hasPower(path, power);
+    }
+
+    public boolean hasOccultismPath(OccultismPath path) {
+        return getOccultism().hasPath(path);
     }
 }

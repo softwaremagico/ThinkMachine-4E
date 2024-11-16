@@ -292,6 +292,18 @@
         </restrictions>
     </perk>
     <perk>
+        <id>armorOfSAnctity</id>
+        <name>
+            <en>Armor of Sanctity</en>
+            <es>Armadura de Santidad</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>friar</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
         <id>attuneFetish</id>
         <name>
             <en>Attune Fetish</en>
@@ -761,14 +773,92 @@
             <en>Conscript</en>
             <es>Leva</es>
         </name>
-        <restrictions>
+        <restrictions mode="any_from_group">
             <callings>
                 <calling>commander</calling>
                 <calling>lord</calling>
-<!--                <calling>nobleTitleBaronet</calling>-->
+            </callings>
+            <perks>
+                <perk>nobleTitleBaronet</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>contact</id>
+        <name>
+            <en>Contact (Who?)</en>
+            <es>Contacto (¿Quién?)</es>
+        </name>
+    </perk>
+    <perk>
+        <id>contortionist</id>
+        <name>
+            <en>Contortionist</en>
+            <es>Contorsionista</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>artist</calling>
+                <calling>thief</calling>
             </callings>
         </restrictions>
     </perk>
+    <perk>
+        <id>councilMember</id>
+        <name>
+            <en>Council Member</en>
+            <es>Miembro del Consejo</es>
+        </name>
+        <restrictions mode="any_from_group">
+            <callings>
+                <calling>conspiracist</calling>
+                <calling>courtier</calling>
+            </callings>
+            <perks>
+                <perk>nobleTitleKnight</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>counterTheDark</id>
+        <name>
+            <en>Counter the Dark</en>
+            <es>Contrarrestar las Tinieblas</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>occultist</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>counterfeit</id>
+        <name>
+            <en>Counterfeit</en>
+            <es>Falsificador</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>clergy</calling>
+                <calling>scribe</calling>
+                <calling>spy</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>covenMembership</id>
+        <name>
+            <en>Coven Membership</en>
+            <es>Miembro de Aquellarre</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>psychic</calling>
+            </callings>
+        </restrictions>
+    </perk>
+
+
     <perk>
         <id>nobleTitleKnight</id>
         <name>
@@ -965,6 +1055,40 @@
             <upbringings>
                 <upbringing>noble</upbringing>
             </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>psychicPowers</id>
+        <name>
+            <en>Psychic Powers</en>
+            <es>Poderes Psíquicos</es>
+        </name>
+        <repeatable>true</repeatable>
+        <restrictions mode="any">
+            <callings>
+                <calling>psychic</calling>
+            </callings>
+            <species>
+                <specie>ukar</specie>
+                <specie>obun</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>theurgicRites</id>
+        <name>
+            <en>Theurgic Rites</en>
+            <es>Ritos Teúrgicos</es>
+        </name>
+        <repeatable>true</repeatable>
+        <restrictions mode="any">
+            <callings>
+                <calling>theurgist</calling>
+                <calling>brotherBattle</calling>
+            </callings>
+            <species>
+                <specie>obun</specie>
+            </species>
         </restrictions>
     </perk>
 
