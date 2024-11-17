@@ -818,6 +818,10 @@ public class CharacterPlayer {
         return null;
     }
 
+    public int getOccultismPoints() {
+        return (int) getPerks().stream().filter(perk -> Objects.equals(perk.getId(), "psychicPowers")).count();
+    }
+
     public boolean canAddOccultismPower(OccultismPower power) {
         final OccultismPath path = OccultismPathFactory.getInstance().getOccultismPath(power);
         try {

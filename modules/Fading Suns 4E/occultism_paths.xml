@@ -5551,9 +5551,9 @@
                     <en>1 VP</en>
                     <es>1 PV</es>
                 </cost>
-                <characteristic>impress</characteristic>
+                <characteristic>presence</characteristic>
                 <skills>
-                    <skill>presence</skill>
+                    <skill>impress</skill>
                 </skills>
                 <components>
                     <component>LG</component>
@@ -5607,7 +5607,7 @@
                     <en>1 VP</en>
                     <es>1 PV</es>
                 </cost>
-                <characteristic>presencia</characteristic>
+                <characteristic>presence</characteristic>
                 <skills>
                     <skill>focus</skill>
                 </skills>
@@ -5812,7 +5812,7 @@
                     <en>1 VP</en>
                     <es>1 PV</es>
                 </cost>
-                <characteristic>presebce</characteristic>
+                <characteristic>presence</characteristic>
                 <skills>
                     <skill>impress</skill>
                 </skills>

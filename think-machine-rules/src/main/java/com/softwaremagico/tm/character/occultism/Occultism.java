@@ -28,6 +28,7 @@ package com.softwaremagico.tm.character.occultism;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Settings;
 import com.softwaremagico.tm.exceptions.InvalidFactionOfPowerException;
+import com.softwaremagico.tm.exceptions.InvalidNumberOfPowersException;
 import com.softwaremagico.tm.exceptions.InvalidOccultismPowerException;
 import com.softwaremagico.tm.exceptions.InvalidPowerLevelException;
 import com.softwaremagico.tm.exceptions.InvalidPsiqueLevelException;
@@ -35,11 +36,13 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
+
 
 public class Occultism {
     private final Map<String, Integer> darkSideValue;
@@ -97,8 +100,13 @@ public class Occultism {
         } catch (InvalidXmlElementException e) {
             MachineXmlReaderLog.errorMessage(this.getClass(), e);
         }
+        //Enough capability points.
+        if (characterPlayer.getOccultismPoints() <= countPowers()) {
+            throw new InvalidNumberOfPowersException("Invalid perk numbers for acquiring a new occultism power. Allowed points are '" + characterPlayer.getOccultismPoints()
+                    + "' and current number of powers is '" + countPowers() + "'");
+        }
         // Limited to some factions
-        if (!path.getFactionsAllowed().isEmpty() && settings.isRestrictionsChecked() && faction != null
+        if (path.getFactionsAllowed() != null && !path.getFactionsAllowed().isEmpty() && settings.isRestrictionsChecked() && faction != null
                 && !path.getFactionsAllowed().contains(faction)) {
             throw new InvalidFactionOfPowerException("Power '" + power + "' can only be acquired by  '"
                     + path.getFactionsAllowed() + "' character faction is '" + faction + "'.");
@@ -149,5 +157,9 @@ public class Occultism {
 
     public boolean hasPath(OccultismPath path) {
         return selectedPowers.containsKey(path.getId());
+    }
+
+    public int countPowers() {
+        return (int) selectedPowers.values().stream().mapToLong(Collection::size).sum();
     }
 }

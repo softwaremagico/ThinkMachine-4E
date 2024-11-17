@@ -1,6 +1,7 @@
 package com.softwaremagico.tm.rules;
 
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.occultism.OccultismPathFactory;
 import com.softwaremagico.tm.character.perks.PerkFactory;
@@ -55,23 +56,44 @@ public class PsychicCreationTest {
 
     @Test
     public void occultismPathCannotBeAddedWithoutPerks() {
-        Assert.fail();
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("obun");
+        characterPlayer.setUpbringing("merchant");
+        characterPlayer.setFaction("societyOfStPaulus");
+        characterPlayer.setCalling("psychic");
+        Assert.assertFalse(characterPlayer.canAddOccultismPower(OccultismPathFactory.getInstance().getElement("farHand").getOccultismPowers().get("liftingHand")));
     }
 
 
     @Test
     public void perksGivesOccultismPowerLevels() {
-        Assert.fail();
-    }
-
-    @Test
-    public void perksGivesTheurgyRitesLevels() {
-        Assert.fail();
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("obun");
+        characterPlayer.setUpbringing("merchant");
+        characterPlayer.setFaction("societyOfStPaulus");
+        characterPlayer.setCalling("psychic");
+        characterPlayer.getCalling().getPerksOptions().get(0).getSelections().add(new Selection("psychicPowers"));
+        Assert.assertTrue(characterPlayer.canAddOccultismPower(OccultismPathFactory.getInstance().getElement("farHand").getOccultismPowers().get("liftingHand")));
     }
 
     @Test
     public void priestWithoutTheurgistCallingCannotHaveRites() {
-        Assert.fail();
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("priest");
+        characterPlayer.setFaction("avestites");
+        characterPlayer.setCalling("spy");
+        Assert.assertFalse(characterPlayer.canAddOccultismPower(OccultismPathFactory.getInstance().getElement("templeAvestiRituals").getOccultismPowers().get("knowingTheFalseHeart")));
+    }
+
+    @Test
+    public void perksGivesTheurgyRitesLevels() {
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("priest");
+        characterPlayer.setFaction("avestites");
+        characterPlayer.setCalling("theurgist");
+        Assert.assertTrue(characterPlayer.canAddOccultismPower(OccultismPathFactory.getInstance().getElement("templeAvestiRituals").getOccultismPowers().get("knowingTheFalseHeart")));
     }
 
 

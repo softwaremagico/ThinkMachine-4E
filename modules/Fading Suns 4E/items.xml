@@ -413,4 +413,28 @@
             <es>Imán</es>
         </name>
     </equipment>
+    <equipment>
+        <id>vestments</id>
+        <type>item</type>
+        <name>
+            <en>Vestments</en>
+            <es>Vestiduras</es>
+        </name>
+        <description>
+            <en>miter, crosier, robes, censor, jumpgate cross, water, rosary</en>
+            <es>mitra, báculo, túnica, incensario, cruz de salto, agua, rosario</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>religiousImplements</id>
+        <type>item</type>
+        <name>
+            <en>Religious Implements</en>
+            <es>Complementos Religiosos</es>
+        </name>
+        <description>
+            <en>prayer book, incense, candles</en>
+            <es>libro de oraciones, incienso, velas</es>
+        </description>
+    </equipment>
 </equipments>

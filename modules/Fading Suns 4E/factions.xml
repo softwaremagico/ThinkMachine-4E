@@ -2175,7 +2175,7 @@
         </materialAwards>
         <restrictions>
             <upbringings>
-                <upbringing></upbringing>
+                <upbringing>priest</upbringing>
             </upbringings>
         </restrictions>
         <random>
@@ -2748,7 +2748,7 @@
         </materialAwards>
         <restrictions>
             <upbringings>
-                <upbringing></upbringing>
+                <upbringing>merchant</upbringing>
             </upbringings>
         </restrictions>
         <random>

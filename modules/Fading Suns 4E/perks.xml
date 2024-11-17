@@ -857,6 +857,18 @@
             </callings>
         </restrictions>
     </perk>
+    <perk>
+        <id>ingenious</id>
+        <name>
+            <en>Ingenious</en>
+            <es>Ingenioso</es>
+        </name>
+        <restrictions>
+            <upbrinfings>
+                <upbringing>merchant</upbringing>
+            </upbrinfings>
+        </restrictions>
+    </perk>
 
 
     <perk>
@@ -865,10 +877,10 @@
             <en>Noble Title (Knight)</en>
             <es>Título Nobiliario (Caballero)</es>
         </name>
-        <group>churchOrdination</group>
+        <group>nobleTitle</group>
         <restrictions>
             <upbringings>
-                <upbringing>priest</upbringing>
+                <upbringing>noble</upbringing>
             </upbringings>
         </restrictions>
     </perk>
@@ -937,6 +949,73 @@
             </perks>
         </restrictions>
     </perk>
+    <perk>
+        <id>professionalReputationRookie</id>
+        <name>
+            <en>Professional Reputation (Rookie)</en>
+            <es>Reputación Profesional (Novato)</es>
+        </name>
+        <group>professionalReputation</group>
+        <restrictions>
+            <upbringings>
+                <upbringing>merchant</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>professionalReputationJourneyman</id>
+        <name>
+            <en>Professional Reputation (Journeyman)</en>
+            <es>Reputación Profesional (Oficial)</es>
+        </name>
+        <group>professionalReputation</group>
+        <restrictions>
+            <perks>
+                <perk>professionalReputationRookie</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>professionalReputationExpert</id>
+        <name>
+            <en>Professional Reputation (Expert)</en>
+            <es>Reputación Profesional (Experto)</es>
+        </name>
+        <group>professionalReputation</group>
+        <restrictions>
+            <perks>
+                <perk>professionalReputationJourneyman</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>professionalReputationSavant</id>
+        <name>
+            <en>Professional Reputation (Savant)</en>
+            <es>Reputación Profesional (Sabio)</es>
+        </name>
+        <group>professionalReputation</group>
+        <restrictions>
+            <perks>
+                <perk>professionalReputationExpert</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>professionalReputationMaster</id>
+        <name>
+            <en>Professional Reputation (Master)</en>
+            <es>Reputación Profesional (Maestro)</es>
+        </name>
+        <group>professionalReputation</group>
+        <restrictions>
+            <perks>
+                <perk>professionalReputationSavant</perk>
+            </perks>
+        </restrictions>
+    </perk>
+
+
     <perk>
         <id>duello1</id>
         <group>fencing</group>
