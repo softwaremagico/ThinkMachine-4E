@@ -27,7 +27,6 @@ package com.softwaremagico.tm.character.occultism;
 
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Settings;
-import com.softwaremagico.tm.exceptions.InvalidFactionOfPowerException;
 import com.softwaremagico.tm.exceptions.InvalidNumberOfPowersException;
 import com.softwaremagico.tm.exceptions.InvalidOccultismPowerException;
 import com.softwaremagico.tm.exceptions.InvalidPowerLevelException;
@@ -105,17 +104,9 @@ public class Occultism {
             throw new InvalidNumberOfPowersException("Invalid perk numbers for acquiring a new occultism power. Allowed points are '" + characterPlayer.getOccultismPoints()
                     + "' and current number of powers is '" + countPowers() + "'");
         }
-        // Limited to some factions
-        if (path.getFactionsAllowed() != null && !path.getFactionsAllowed().isEmpty() && settings.isRestrictionsChecked() && faction != null
-                && !path.getFactionsAllowed().contains(faction)) {
-            throw new InvalidFactionOfPowerException("Power '" + power + "' can only be acquired by  '"
-                    + path.getFactionsAllowed() + "' character faction is '" + faction + "'.");
-        }
-        // Limited to some species
-        if (!path.getRestrictions().getRestrictedToSpecies().isEmpty() && settings.isRestrictionsChecked() && specie != null
-                && !path.getRestrictions().getRestrictedToSpecies().contains(specie)) {
-            throw new InvalidFactionOfPowerException("Power '" + power + "' can only be acquired by  '"
-                    + path.getFactionsAllowed() + "' character faction is '" + faction + "'.");
+
+        if (path.getRestrictions().isRestricted(characterPlayer)) {
+            throw new InvalidOccultismPowerException("Power '" + power + "' is restricted to  '" + path.getRestrictions() + "'.");
         }
 
         // Psi must have previous level.

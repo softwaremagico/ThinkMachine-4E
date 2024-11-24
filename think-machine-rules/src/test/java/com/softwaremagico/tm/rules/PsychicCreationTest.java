@@ -79,7 +79,7 @@ public class PsychicCreationTest {
     @Test
     public void priestWithoutTheurgistCallingCannotHaveRites() {
         CharacterPlayer characterPlayer = new CharacterPlayer();
-        characterPlayer.setSpecie("human");
+        characterPlayer.setSpecie("obun");
         characterPlayer.setUpbringing("priest");
         characterPlayer.setFaction("avestites");
         characterPlayer.setCalling("spy");
@@ -89,16 +89,23 @@ public class PsychicCreationTest {
     @Test
     public void perksGivesTheurgyRitesLevels() {
         CharacterPlayer characterPlayer = new CharacterPlayer();
-        characterPlayer.setSpecie("human");
+        characterPlayer.setSpecie("obun");
         characterPlayer.setUpbringing("priest");
         characterPlayer.setFaction("avestites");
         characterPlayer.setCalling("theurgist");
+        characterPlayer.getCalling().getPerksOptions().get(0).getSelections().add(new Selection("theurgicRites"));
         Assert.assertTrue(characterPlayer.canAddOccultismPower(OccultismPathFactory.getInstance().getElement("templeAvestiRituals").getOccultismPowers().get("knowingTheFalseHeart")));
     }
 
 
     @Test
     public void dervishCalling() {
-        Assert.fail();
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("noble");
+        characterPlayer.setFaction("hazat");
+        characterPlayer.setCalling("dervish");
+        characterPlayer.getCalling().getPerksOptions().get(0).getSelections().add(new Selection("psychicPowers"));
+        Assert.assertTrue(characterPlayer.canAddOccultismPower(OccultismPathFactory.getInstance().getElement("farHand").getOccultismPowers().get("liftingHand")));
     }
 }

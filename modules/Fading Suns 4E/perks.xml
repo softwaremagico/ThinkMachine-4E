@@ -768,6 +768,71 @@
         </restrictions>
     </perk>
     <perk>
+        <id>dervishRankRecruit</id>
+        <name>
+            <en>Shurtah (Recruit)</en>
+            <es>Shurtah (Recluta)</es>
+        </name>
+        <group>dervishRank</group>
+        <restrictions>
+            <callings>
+                <calling>dervish</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>dervishRankSoldier</id>
+        <name>
+            <en>Hajib (Soldier)</en>
+            <es>Hajib (Soldado)</es>
+        </name>
+        <group>dervishRank</group>
+        <restrictions>
+            <perks>
+                <perk>dervishRankRecruit</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>dervishRankCaptain</id>
+        <name>
+            <en>Irfan (Captain)</en>
+            <es>Irfan (Capitán)</es>
+        </name>
+        <group>dervishRank</group>
+        <restrictions>
+            <perks>
+                <perk>dervishRankSoldier</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>dervishRankJudge</id>
+        <name>
+            <en>Hadith (Judge)</en>
+            <es>Hadith (Juez)</es>
+        </name>
+        <group>dervishRank</group>
+        <restrictions>
+            <perks>
+                <perk>dervishRankCaptain</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>dervishRankSeer</id>
+        <name>
+            <en>Ma’rifah (Wandering Seer)</en>
+            <es>Ma’rifah (Adivino Errante)</es>
+        </name>
+        <group>dervishRank</group>
+        <restrictions>
+            <perks>
+                <perk>dervishRankJudge</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
         <id>conscript</id>
         <name>
             <en>Conscript</en>

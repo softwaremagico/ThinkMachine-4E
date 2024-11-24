@@ -163,7 +163,7 @@ public class Restrictions extends XmlData {
                     // Check Faction
                     || (!getRestrictedToFactions().isEmpty() && (characterPlayer.getFaction() != null && getRestrictedToFactions()
                     .contains(characterPlayer.getFaction().getId())))
-                    // Check Uprising
+                    // Check upbringing
                     || (!getRestrictedToUpbringing().isEmpty() && (characterPlayer.getUpbringing() != null && getRestrictedToUpbringing()
                     .contains(characterPlayer.getUpbringing().getId())))
                     //Check Callings
@@ -200,7 +200,7 @@ public class Restrictions extends XmlData {
                     // Check Faction
                     && (getRestrictedToFactions().isEmpty() || (characterPlayer.getFaction() != null && getRestrictedToFactions()
                     .contains(characterPlayer.getFaction().getId())))
-                    // Check Uprising
+                    // Check upbringing
                     && (getRestrictedToUpbringing().isEmpty() || (characterPlayer.getUpbringing() != null && getRestrictedToUpbringing()
                     .contains(characterPlayer.getUpbringing().getId())))
                     //Check Callings
@@ -236,7 +236,7 @@ public class Restrictions extends XmlData {
                     // Check Faction
                     || (getRestrictedToFactions().isEmpty() || (characterPlayer.getFaction() != null && getRestrictedToFactions()
                     .contains(characterPlayer.getFaction().getId())))
-                    // Check Uprising
+                    // Check upbringing
                     || (getRestrictedToUpbringing().isEmpty() || (characterPlayer.getUpbringing() != null && getRestrictedToUpbringing()
                     .contains(characterPlayer.getUpbringing().getId())))
                     //Check Callings
@@ -296,5 +296,20 @@ public class Restrictions extends XmlData {
         for (String capability : restrictedToCapabilities) {
             CapabilityFactory.getInstance().getElement(capability);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Restrictions{"
+                + "restricted=" + restricted
+                + ", restrictedToSpecies=" + restrictedToSpecies
+                + ", restrictedToUpbringing=" + restrictedToUpbringing
+                + ", restrictedToFactions=" + restrictedToFactions
+                + ", restrictedToCallings=" + restrictedToCallings
+                + ", restrictedToCapabilities=" + restrictedToCapabilities
+                + ", restrictedPerks=" + restrictedPerks
+                + ", restrictedToPerksGroups=" + restrictedToPerksGroups
+                + ", mode=" + mode
+                + '}';
     }
 }

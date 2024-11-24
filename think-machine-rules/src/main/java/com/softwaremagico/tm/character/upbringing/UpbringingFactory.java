@@ -32,12 +32,12 @@ import java.util.List;
 public class UpbringingFactory extends XmlFactory<Upbringing> {
     private static final String XML_FILE = "upbringings.xml";
 
-    private static final class UprisingFactoryInit {
+    private static final class upbringingFactoryInit {
         public static final UpbringingFactory INSTANCE = new UpbringingFactory();
     }
 
     public static UpbringingFactory getInstance() {
-        return UprisingFactoryInit.INSTANCE;
+        return upbringingFactoryInit.INSTANCE;
     }
 
 

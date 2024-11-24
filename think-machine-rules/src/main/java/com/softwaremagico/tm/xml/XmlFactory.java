@@ -149,8 +149,8 @@ public abstract class XmlFactory<T extends Element> {
         }
     }
 
-    public List<T> getRestrictedToUpbringing(String uprising) throws InvalidXmlElementException {
-        return getElements().stream().filter(t -> t.getRestrictions().getRestrictedToUpbringing().contains(uprising)).collect(Collectors.toList());
+    public List<T> getRestrictedToUpbringing(String upbringing) throws InvalidXmlElementException {
+        return getElements().stream().filter(t -> t.getRestrictions().getRestrictedToUpbringing().contains(upbringing)).collect(Collectors.toList());
     }
 
     private static String readFile(String filePath) {

@@ -316,18 +316,33 @@ public class CharacterPlayer {
         final List<SpecializedPerk> perks = new ArrayList<>();
         if (upbringing != null) {
             upbringing.getPerksOptions().forEach(perkOption ->
-                    perkOption.getSelections().forEach(selection ->
-                            perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection), selection.getSpecialization()))));
+                    perkOption.getSelections().forEach(selection -> {
+                        try {
+                            perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection), selection.getSpecialization()));
+                        } catch (Exception e) {
+                            MachineLog.warning(this.getClass(), e.getMessage());
+                        }
+                    }));
         }
         if (faction != null) {
             faction.getPerksOptions().forEach(perkOption ->
-                    perkOption.getSelections().forEach(selection ->
-                            perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection), selection.getSpecialization()))));
+                    perkOption.getSelections().forEach(selection -> {
+                        try {
+                            perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection), selection.getSpecialization()));
+                        } catch (Exception e) {
+                            MachineLog.warning(this.getClass(), e.getMessage());
+                        }
+                    }));
         }
         if (calling != null) {
             calling.getPerksOptions().forEach(perkOption ->
-                    perkOption.getSelections().forEach(selection ->
-                            perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection), selection.getSpecialization()))));
+                    perkOption.getSelections().forEach(selection -> {
+                        try {
+                            perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection), selection.getSpecialization()));
+                        } catch (Exception e) {
+                            MachineLog.warning(this.getClass(), e.getMessage());
+                        }
+                    }));
         }
         return perks;
     }
@@ -386,6 +401,7 @@ public class CharacterPlayer {
 
     public int getMindResistance() {
         //return perks.
+        //TODO(softwaremagico): dervish rank gives mind resitance.
         return 0;
     }
 
@@ -819,7 +835,8 @@ public class CharacterPlayer {
     }
 
     public int getOccultismPoints() {
-        return (int) getPerks().stream().filter(perk -> Objects.equals(perk.getId(), "psychicPowers")).count();
+        return (int) getPerks().stream().filter(perk -> Objects.equals(perk.getId(), "psychicPowers") || Objects.equals(perk.getId(), "theurgicRites"))
+                .count();
     }
 
     public boolean canAddOccultismPower(OccultismPower power) {

@@ -541,6 +541,7 @@
         <restrictions mode="any">
             <callings>
                 <calling>psychic</calling>
+                <calling>dervish</calling>
             </callings>
             <species>
                 <specie>ukar</specie>
@@ -756,6 +757,7 @@
         <restrictions mode="any">
             <callings>
                 <calling>psychic</calling>
+                <calling>dervish</calling>
             </callings>
             <species>
                 <specie>ukar</specie>
@@ -1333,6 +1335,7 @@
         <restrictions mode="any">
             <callings>
                 <calling>psychic</calling>
+                <calling>dervish</calling>
             </callings>
             <species>
                 <specie>ukar</specie>
@@ -1920,6 +1923,7 @@
         <restrictions mode="any">
             <callings>
                 <calling>psychic</calling>
+                <calling>dervish</calling>
             </callings>
             <species>
                 <specie>ukar</specie>
@@ -2386,6 +2390,7 @@
         <restrictions mode="any">
             <callings>
                 <calling>psychic</calling>
+                <calling>dervish</calling>
             </callings>
             <species>
                 <specie>ukar</specie>
@@ -2912,6 +2917,7 @@
         <restrictions mode="any">
             <callings>
                 <calling>psychic</calling>
+                <calling>dervish</calling>
             </callings>
             <species>
                 <specie>ukar</specie>
