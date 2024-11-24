@@ -35,6 +35,10 @@ import com.softwaremagico.tm.character.equipment.item.Item;
 import com.softwaremagico.tm.character.equipment.shields.Shield;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.factions.Blessing;
+import com.softwaremagico.tm.character.occultism.OccultismPath;
+import com.softwaremagico.tm.character.occultism.OccultismPathFactory;
+import com.softwaremagico.tm.character.occultism.OccultismPower;
+import com.softwaremagico.tm.character.occultism.OccultismTypeFactory;
 import com.softwaremagico.tm.character.perks.SpecializedPerk;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.character.skills.Skill;
@@ -238,6 +242,66 @@ public class CharacterSheet {
         stringBuilder.append("\n");
     }
 
+    private void setOccultism(StringBuilder stringBuilder) {
+        if (getCharacterPlayer().getOccultismLevel(OccultismTypeFactory.getTheurgy()) > 0 || getCharacterPlayer()
+                .getOccultismLevel(OccultismTypeFactory.getPsi()) > 0) {
+            stringBuilder.append("\n");
+            stringBuilder.append(TextFactory.getInstance().getElement("occultism").getNameRepresentation() + ": ");
+            String separator = "";
+            OccultismTypeFactory.getInstance();
+            if (getCharacterPlayer()
+                    .getOccultismLevel(OccultismTypeFactory.getPsi()) > 0) {
+                stringBuilder.append(TextFactory.getInstance().getElement("psi").getNameRepresentation() + " ");
+                stringBuilder.append(getCharacterPlayer()
+                        .getOccultismLevel(OccultismTypeFactory.getPsi()));
+                stringBuilder.append(ELEMENT_SEPARATOR);
+                stringBuilder.append(TextFactory.getInstance().getElement("urge").getNameRepresentation() + " ");
+                stringBuilder.append(getCharacterPlayer()
+                        .getDarkSideLevel(OccultismTypeFactory.getPsi()));
+                separator = ELEMENT_SEPARATOR;
+            }
+            OccultismTypeFactory.getInstance();
+            if (getCharacterPlayer()
+                    .getOccultismLevel(OccultismTypeFactory.getTheurgy()) > 0) {
+                stringBuilder.append(separator);
+                stringBuilder.append(TextFactory.getInstance().getElement("theurgy").getNameRepresentation() + " ");
+                stringBuilder.append(getCharacterPlayer()
+                        .getOccultismLevel(OccultismTypeFactory.getTheurgy()));
+                stringBuilder.append(ELEMENT_SEPARATOR);
+                stringBuilder.append(TextFactory.getInstance().getElement("hubris").getNameRepresentation() + " ");
+                stringBuilder.append(getCharacterPlayer()
+                        .getDarkSideLevel(OccultismTypeFactory.getTheurgy()));
+            }
+            stringBuilder.append(".\n");
+        }
+    }
+
+    private void setOccultismPowers(StringBuilder stringBuilder) throws InvalidXmlElementException {
+        String separator = "";
+        if (!getCharacterPlayer().getSelectedPowers().isEmpty()) {
+            stringBuilder.append(TextFactory.getInstance().getElement("occultismPowers").getNameRepresentation() + ": ");
+            final List<String> paths = new ArrayList<>(getCharacterPlayer().getSelectedPowers().keySet());
+            Collections.sort(paths);
+            for (final String powersPath : paths) {
+                stringBuilder.append(separator);
+                final OccultismPath occultismPath = OccultismPathFactory.getInstance().getElement(powersPath);
+                stringBuilder.append(occultismPath.getName().getTranslatedText());
+                stringBuilder.append(" (");
+                String powerSeparator = "";
+                final List<OccultismPower> powers = new ArrayList<>(getCharacterPlayer().getSelectedPowers().get(powersPath));
+                Collections.sort(powers);
+                for (final OccultismPower occultismPower : powers) {
+                    stringBuilder.append(powerSeparator);
+                    stringBuilder.append(occultismPower.getName().getTranslatedText());
+                    powerSeparator = ELEMENT_SEPARATOR;
+                }
+                stringBuilder.append(")");
+                separator = ELEMENT_SEPARATOR;
+            }
+            stringBuilder.append(".\n");
+        }
+    }
+
 
     private void setWeapons(StringBuilder stringBuilder) {
         for (final Weapon weapon : getCharacterPlayer().getWeapons()) {
@@ -389,6 +453,8 @@ public class CharacterSheet {
             setPerksText(stringBuilder);
             stringBuilder.append("\n");
             setBeneficesText(stringBuilder);
+            setOccultism(stringBuilder);
+            setOccultismPowers(stringBuilder);
             stringBuilder.append("\n");
             setResistancesRepresentation(stringBuilder);
             stringBuilder.append("\n");

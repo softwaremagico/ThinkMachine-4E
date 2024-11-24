@@ -47,15 +47,15 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
     private static final int TOTAL_SKILL_OPTIONS = 0;
 
     @JsonProperty("capabilities")
-    private List<CapabilityOptions> capabilityOptions;
+    private List<CapabilityOptions> capabilityOptions = new ArrayList<>();
     @JsonProperty("characteristics")
-    private List<CharacteristicBonusOptions> characteristicBonusOptions;
+    private List<CharacteristicBonusOptions> characteristicBonusOptions = new ArrayList<>();
     @JsonProperty("skills")
-    private List<SkillBonusOptions> skillBonusOptions;
+    private List<SkillBonusOptions> skillBonusOptions = new ArrayList<>();
     @JsonProperty("perks")
-    private List<PerkOptions> perksOptions;
+    private List<PerkOptions> perksOptions = new ArrayList<>();
     @JsonProperty("materialAwards")
-    private List<EquipmentOptions> materialAwards;
+    private List<EquipmentOptions> materialAwards = new ArrayList<>();
 
 
     public List<CapabilityOptions> getCapabilityOptions() {

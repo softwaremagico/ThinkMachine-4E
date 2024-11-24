@@ -441,6 +441,13 @@
             <es>Poder/Rito</es>
         </name>
     </occultismTablePower>
+    <occultismTableGoal>
+        <id>occultismTableGoal</id>
+        <name>
+            <en>Goal</en>
+            <es>Meta</es>
+        </name>
+    </occultismTableGoal>
     <occultismTableLevel>
         <id>occultismTableLevel</id>
         <name>
@@ -448,6 +455,13 @@
             <es>Nivel</es>
         </name>
     </occultismTableLevel>
+    <occultismTableCost>
+        <id>occultismTableCost</id>
+        <name>
+            <en>Cost</en>
+            <es>Coste</es>
+        </name>
+    </occultismTableCost>
     <occultismTableRoll>
         <id>occultismTableRoll</id>
         <name>
@@ -483,13 +497,6 @@
             <es>Requisitos</es>
         </name>
     </occultismTableRequirements>
-    <occultismTableCost>
-        <id>occultismTableCost</id>
-        <name>
-            <en>Wyrd</en>
-            <es>Coste</es>
-        </name>
-    </occultismTableCost>
     <othersTable>
         <id>othersTable</id>
         <name>
@@ -662,7 +669,7 @@
         <id>weaponGoal</id>
         <name>
             <en>Goal</en>
-            <es>RA</es>
+            <es>Meta</es>
         </name>
     </weaponGoal>
     <size>

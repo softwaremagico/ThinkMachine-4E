@@ -27,10 +27,16 @@ package com.softwaremagico.tm.character.equipment;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.softwaremagico.tm.OptionSelector;
 import com.softwaremagico.tm.character.Selection;
+import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
 import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShield;
 import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShieldFactory;
+import com.softwaremagico.tm.character.equipment.item.ItemFactory;
+import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
+import com.softwaremagico.tm.character.equipment.thinkmachines.ThinkMachineFactory;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
+import com.softwaremagico.tm.character.skills.SkillBonusOption;
+import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.ArrayList;
@@ -79,6 +85,21 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
                                         item.getType())));
                     }
                 });
+            } else {
+                //Can be any
+                finalItems = new ArrayList<>();
+                finalItems.addAll(ItemFactory.getInstance().getElements().stream()
+                        .map(EquipmentOption::new).collect(Collectors.toList()));
+                finalItems.addAll(WeaponFactory.getInstance().getElements().stream()
+                        .map(EquipmentOption::new).collect(Collectors.toList()));
+                finalItems.addAll(ArmorFactory.getInstance().getElements().stream()
+                        .map(EquipmentOption::new).collect(Collectors.toList()));
+                finalItems.addAll(ShieldFactory.getInstance().getElements().stream()
+                        .map(EquipmentOption::new).collect(Collectors.toList()));
+                finalItems.addAll(HandheldShieldFactory.getInstance().getElements().stream()
+                        .map(EquipmentOption::new).collect(Collectors.toList()));
+                finalItems.addAll(ThinkMachineFactory.getInstance().getElements().stream()
+                        .map(EquipmentOption::new).collect(Collectors.toList()));
             }
         }
         return finalItems;

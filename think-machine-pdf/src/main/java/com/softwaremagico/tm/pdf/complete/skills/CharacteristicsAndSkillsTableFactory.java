@@ -35,6 +35,7 @@ import com.softwaremagico.tm.log.PdfExporterLog;
 import com.softwaremagico.tm.pdf.complete.elements.BaseElement;
 import com.softwaremagico.tm.txt.TextFactory;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class CharacteristicsAndSkillsTableFactory extends BaseElement {
@@ -62,6 +63,7 @@ public class CharacteristicsAndSkillsTableFactory extends BaseElement {
         table.addCell(createSectionTitle(TextFactory.getInstance().getElement("skills").getName().getTranslatedText(), widths.length));
 
         final List<Skill> skills = SkillFactory.getInstance().getElements();
+        skills.sort(Comparator.comparing(o -> o.getName().getTranslatedText()));
         table.addCell(SkillsColumn.createContent(characterPlayer, skills.subList(0, (skills.size() / 2))));
         table.addCell(SkillsColumn.createContent(characterPlayer, skills.subList(skills.size() / 2, skills.size())));
 

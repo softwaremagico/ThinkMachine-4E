@@ -29,6 +29,7 @@ import com.lowagie.text.pdf.PdfPTable;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.pdf.complete.elements.BaseElement;
 import com.softwaremagico.tm.pdf.complete.equipment.FirebirdsFactory;
+import com.softwaremagico.tm.pdf.complete.occultism.OccultismPowerTable;
 
 public class FirebirdsAndOthersTable extends BaseElement {
     private static final float[] WIDTHS = {1f, 2f};
@@ -43,9 +44,10 @@ public class FirebirdsAndOthersTable extends BaseElement {
         firebirdsCell.setBorder(0);
         table.addCell(firebirdsCell);
 
-        final PdfPCell rightColumnCell = new PdfPCell();
-        rightColumnCell.setBorder(0);
-        table.addCell(rightColumnCell);
+        final PdfPTable occultismPowerTable = OccultismPowerTable.getOccultismTable(characterPlayer);
+        final PdfPCell occultismPowerCell = new PdfPCell(occultismPowerTable);
+        occultismPowerCell.setBorder(0);
+        table.addCell(occultismPowerTable);
 
         return table;
     }

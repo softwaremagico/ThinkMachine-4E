@@ -27,6 +27,7 @@ package com.softwaremagico.tm.character.occultism;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
+import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.TimeFactory;
 import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
 import com.softwaremagico.tm.character.skills.SkillFactory;
@@ -84,6 +85,22 @@ public class OccultismPower extends Element {
             stringBuilder.append(values.get(i).getName());
         }
         return stringBuilder.toString();
+    }
+
+    public int getGoal(CharacterPlayer characterPlayer) {
+        if (characterPlayer == null) {
+            return 0;
+        }
+
+        int skillValue = 0;
+        for (String skill : skills) {
+            if (characterPlayer.getSkillValue(skill) > skillValue) {
+                skillValue = characterPlayer.getSkillValue(skill);
+            }
+        }
+
+        return characterPlayer.getCharacteristicValue(getCharacteristic())
+                + skillValue;
     }
 
     public Set<String> getComponents() {
