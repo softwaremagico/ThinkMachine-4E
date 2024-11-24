@@ -1616,6 +1616,184 @@
     </calling>
 
     <calling>
+        <id>merchantSpy</id>
+        <name>
+            <en>Spy</en>
+            <es>Espía</es>
+        </name>
+        <capabilitiesOption>
+            <total>1</total>
+            <options>
+                <capability>
+                    <id>poisonLore</id>
+                </capability>
+                <capability>
+                    <id>streetwiseLore</id>
+                </capability>
+                <capability>
+                    <id>tortureLore</id>
+                </capability>
+            </options>
+        </capabilitiesOption>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>perception</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>presence</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>wits</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <id>martialArts</id>
+                    </perk>
+                </options>
+                <options>
+                    <perk>
+                        <id>mimic</id>
+                    </perk>
+                </options>
+                <options>
+                    <perk>
+                        <id>rabbleRouse</id>
+                    </perk>
+                </options>
+                <options>
+                    <perk>
+                        <id>ruthless</id>
+                    </perk>
+                </options>
+                <options>
+                    <perk>
+                        <id>secondSkin</id>
+                    </perk>
+                </options>
+                <options>
+                    <perk>
+                        <id>secretAgent</id>
+                    </perk>
+                </options>
+                <options>
+                    <perk>
+                        <id>viciousInsult</id>
+                    </perk>
+                </options>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>empathy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>sneak1</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>knavery</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>observe</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+            </materialAwardOption>
+        </materialAwards>
+    </calling>
+
+    <calling>
         <id>theurgist</id>
         <name>
             <en>Theurgist</en>
@@ -2152,4 +2330,64 @@
             </materialAwardOption>
         </materialAwards>
     </calling>
+
+
+    <!--    <calling>-->
+    <!--        <id></id>-->
+    <!--        <name>-->
+    <!--            <en></en>-->
+    <!--            <es></es>-->
+    <!--        </name>-->
+    <!--        <capabilitiesOption>-->
+    <!--            <total>1</total>-->
+    <!--            <options>-->
+    <!--                <capability>-->
+    <!--                    <group></group>-->
+    <!--                </capability>-->
+    <!--            </options>-->
+    <!--        </capabilitiesOption>-->
+    <!--        <characteristics>-->
+    <!--            <characteristicBonusOptions>-->
+    <!--                <total>1</total>-->
+    <!--                <options>-->
+    <!--                    <characteristic>-->
+    <!--                        <id></id>-->
+    <!--                        <bonus>1</bonus>-->
+    <!--                    </characteristic>-->
+    <!--                </options>-->
+    <!--            </characteristicBonusOptions>-->
+    <!--        </characteristics>-->
+    <!--        <perks>-->
+    <!--            <perkOptions>-->
+    <!--                <total>1</total>-->
+    <!--                <options>-->
+    <!--                    <perk>-->
+    <!--                        <id></id>-->
+    <!--                    </perk>-->
+    <!--                </options>-->
+    <!--            </perkOptions>-->
+    <!--        </perks>-->
+    <!--        <skills>-->
+    <!--            <skillBonusOption>-->
+    <!--                <total>1</total>-->
+    <!--                <options>-->
+    <!--                    <skill>-->
+    <!--                        <id></id>-->
+    <!--                        <bonus></bonus>-->
+    <!--                    </skill>-->
+    <!--                </options>-->
+    <!--            </skillBonusOption>-->
+    <!--        </skills>-->
+    <!--        <materialAwards>-->
+    <!--            <materialAwardOption>-->
+    <!--                <total>1</total>-->
+    <!--                <options>-->
+    <!--                    <item>-->
+    <!--                        <id></id>-->
+    <!--                        <type></type>-->
+    <!--                    </item>-->
+    <!--                </options>-->
+    <!--            </materialAwardOption>-->
+    <!--        </materialAwards>-->
+    <!--    </calling>-->
 </callings>
