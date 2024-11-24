@@ -47,6 +47,12 @@ public class SpecieCharacteristic extends Element {
         super();
     }
 
+    @Override
+    public void setId(String id) {
+        super.setId(id);
+        setCharacteristic(CharacteristicName.get(id));
+    }
+
     public CharacteristicName getCharacteristic() {
         return characteristic;
     }

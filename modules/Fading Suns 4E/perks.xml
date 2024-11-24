@@ -292,6 +292,18 @@
         </restrictions>
     </perk>
     <perk>
+        <id>armorOfSAnctity</id>
+        <name>
+            <en>Armor of Sanctity</en>
+            <es>Armadura de Santidad</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>friar</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
         <id>attuneFetish</id>
         <name>
             <en>Attune Fetish</en>
@@ -756,29 +768,184 @@
         </restrictions>
     </perk>
     <perk>
+        <id>dervishRankRecruit</id>
+        <name>
+            <en>Shurtah (Recruit)</en>
+            <es>Shurtah (Recluta)</es>
+        </name>
+        <group>dervishRank</group>
+        <restrictions>
+            <callings>
+                <calling>dervish</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>dervishRankSoldier</id>
+        <name>
+            <en>Hajib (Soldier)</en>
+            <es>Hajib (Soldado)</es>
+        </name>
+        <group>dervishRank</group>
+        <restrictions>
+            <perks>
+                <perk>dervishRankRecruit</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>dervishRankCaptain</id>
+        <name>
+            <en>Irfan (Captain)</en>
+            <es>Irfan (Capitán)</es>
+        </name>
+        <group>dervishRank</group>
+        <restrictions>
+            <perks>
+                <perk>dervishRankSoldier</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>dervishRankJudge</id>
+        <name>
+            <en>Hadith (Judge)</en>
+            <es>Hadith (Juez)</es>
+        </name>
+        <group>dervishRank</group>
+        <restrictions>
+            <perks>
+                <perk>dervishRankCaptain</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>dervishRankSeer</id>
+        <name>
+            <en>Ma’rifah (Wandering Seer)</en>
+            <es>Ma’rifah (Adivino Errante)</es>
+        </name>
+        <group>dervishRank</group>
+        <restrictions>
+            <perks>
+                <perk>dervishRankJudge</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
         <id>conscript</id>
         <name>
             <en>Conscript</en>
             <es>Leva</es>
         </name>
-        <restrictions>
+        <restrictions mode="any_from_group">
             <callings>
                 <calling>commander</calling>
                 <calling>lord</calling>
-<!--                <calling>nobleTitleBaronet</calling>-->
+            </callings>
+            <perks>
+                <perk>nobleTitleBaronet</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>contact</id>
+        <name>
+            <en>Contact (Who?)</en>
+            <es>Contacto (¿Quién?)</es>
+        </name>
+    </perk>
+    <perk>
+        <id>contortionist</id>
+        <name>
+            <en>Contortionist</en>
+            <es>Contorsionista</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>artist</calling>
+                <calling>thief</calling>
             </callings>
         </restrictions>
     </perk>
+    <perk>
+        <id>councilMember</id>
+        <name>
+            <en>Council Member</en>
+            <es>Miembro del Consejo</es>
+        </name>
+        <restrictions mode="any_from_group">
+            <callings>
+                <calling>conspiracist</calling>
+                <calling>courtier</calling>
+            </callings>
+            <perks>
+                <perk>nobleTitleKnight</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>counterTheDark</id>
+        <name>
+            <en>Counter the Dark</en>
+            <es>Contrarrestar las Tinieblas</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>occultist</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>counterfeit</id>
+        <name>
+            <en>Counterfeit</en>
+            <es>Falsificador</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>clergy</calling>
+                <calling>scribe</calling>
+                <calling>spy</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>covenMembership</id>
+        <name>
+            <en>Coven Membership</en>
+            <es>Miembro de Aquellarre</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>psychic</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>ingenious</id>
+        <name>
+            <en>Ingenious</en>
+            <es>Ingenioso</es>
+        </name>
+        <restrictions>
+            <upbrinfings>
+                <upbringing>merchant</upbringing>
+            </upbrinfings>
+        </restrictions>
+    </perk>
+
+
     <perk>
         <id>nobleTitleKnight</id>
         <name>
             <en>Noble Title (Knight)</en>
             <es>Título Nobiliario (Caballero)</es>
         </name>
-        <group>churchOrdination</group>
+        <group>nobleTitle</group>
         <restrictions>
             <upbringings>
-                <upbringing>priest</upbringing>
+                <upbringing>noble</upbringing>
             </upbringings>
         </restrictions>
     </perk>
@@ -847,6 +1014,73 @@
             </perks>
         </restrictions>
     </perk>
+    <perk>
+        <id>professionalReputationRookie</id>
+        <name>
+            <en>Professional Reputation (Rookie)</en>
+            <es>Reputación Profesional (Novato)</es>
+        </name>
+        <group>professionalReputation</group>
+        <restrictions>
+            <upbringings>
+                <upbringing>merchant</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>professionalReputationJourneyman</id>
+        <name>
+            <en>Professional Reputation (Journeyman)</en>
+            <es>Reputación Profesional (Oficial)</es>
+        </name>
+        <group>professionalReputation</group>
+        <restrictions>
+            <perks>
+                <perk>professionalReputationRookie</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>professionalReputationExpert</id>
+        <name>
+            <en>Professional Reputation (Expert)</en>
+            <es>Reputación Profesional (Experto)</es>
+        </name>
+        <group>professionalReputation</group>
+        <restrictions>
+            <perks>
+                <perk>professionalReputationJourneyman</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>professionalReputationSavant</id>
+        <name>
+            <en>Professional Reputation (Savant)</en>
+            <es>Reputación Profesional (Sabio)</es>
+        </name>
+        <group>professionalReputation</group>
+        <restrictions>
+            <perks>
+                <perk>professionalReputationExpert</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>professionalReputationMaster</id>
+        <name>
+            <en>Professional Reputation (Master)</en>
+            <es>Reputación Profesional (Maestro)</es>
+        </name>
+        <group>professionalReputation</group>
+        <restrictions>
+            <perks>
+                <perk>professionalReputationSavant</perk>
+            </perks>
+        </restrictions>
+    </perk>
+
+
     <perk>
         <id>duello1</id>
         <group>fencing</group>
@@ -965,6 +1199,40 @@
             <upbringings>
                 <upbringing>noble</upbringing>
             </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>psychicPowers</id>
+        <name>
+            <en>Psychic Powers</en>
+            <es>Poderes Psíquicos</es>
+        </name>
+        <repeatable>true</repeatable>
+        <restrictions mode="any">
+            <callings>
+                <calling>psychic</calling>
+            </callings>
+            <species>
+                <specie>ukar</specie>
+                <specie>obun</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>theurgicRites</id>
+        <name>
+            <en>Theurgic Rites</en>
+            <es>Ritos Teúrgicos</es>
+        </name>
+        <repeatable>true</repeatable>
+        <restrictions mode="any">
+            <callings>
+                <calling>theurgist</calling>
+                <calling>brotherBattle</calling>
+            </callings>
+            <species>
+                <specie>obun</specie>
+            </species>
         </restrictions>
     </perk>
 

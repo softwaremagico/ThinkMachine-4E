@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uprisings>
-    <uprising>
+<upbringings>
+    <upbringing>
         <id>noble</id>
         <name>
             <en>Noble</en>
@@ -219,10 +219,10 @@
                 <specie>vorox</specie>
             </species>
         </restrictions>
-    </uprising>
+    </upbringing>
 
 
-    <uprising>
+    <upbringing>
         <id>priest</id>
         <name>
             <en>Priest</en>
@@ -477,8 +477,8 @@
                 </options>
             </skillBonusOption>
         </skills>
-    </uprising>
-    <uprising>
+    </upbringing>
+    <upbringing>
         <id>brotherBattle</id>
         <name>
             <en>Brother Battle Monastery</en>
@@ -699,8 +699,8 @@
                 </options>
             </skillBonusOption>
         </skills>
-    </uprising>
-    <uprising>
+    </upbringing>
+    <upbringing>
         <id>merchant</id>
         <name>
             <en>Merchant</en>
@@ -730,7 +730,7 @@
                         <id>jumpwebLore</id>
                     </capability>
                     <capability>
-                        <id>techLore</id>
+                        <group>techLore</group>
                     </capability>
                     <capability>
                         <id>thinkMachines</id>
@@ -886,8 +886,9 @@
                 </options>
             </skillBonusOption>
         </skills>
-    </uprising>
-    <uprising>
+    </upbringing>
+
+    <upbringing>
         <id>yeoman</id>
         <name>
             <en>Yeoman</en>
@@ -1039,5 +1040,5 @@
                 </options>
             </skillBonusOption>
         </skills>
-    </uprising>
-</uprisings>
+    </upbringing>
+</upbringings>

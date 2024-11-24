@@ -1,8 +1,8 @@
-package com.softwaremagico.tm.character.occultism;
+package com.softwaremagico.tm.character.factions;
 
 /*-
  * #%L
- * Think Machine 4E (Rules)
+ * Think Machine (Core)
  * %%
  * Copyright (C) 2017 - 2024 Softwaremagico
  * %%
@@ -24,35 +24,33 @@ package com.softwaremagico.tm.character.occultism;
  * #L%
  */
 
+public enum FactionGroup {
+    GUILD,
 
-import com.softwaremagico.tm.Element;
-import com.softwaremagico.tm.TranslatedText;
+    MINOR_GUILD,
 
-public class Wyrd extends Element {
-    public static final String WYRD_ID = "wyrd";
-    private static final String WYRD_NAME = "Wyrd";
-    private int value = 0;
+    NOBILITY,
 
-    public Wyrd(String language, String moduleName) {
-        super(WYRD_ID, new TranslatedText(WYRD_NAME), null, language, moduleName);
-    }
+    CHURCH,
 
-    public Wyrd(String language, String moduleName, int value) {
-        this(language, moduleName);
-        this.value = value;
-    }
+    MINOR_CHURCH,
 
-    public int getValue() {
-        return value;
-    }
+    KNIGHTLY_ORDERS,
 
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
+    BARBARIAN,
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    XENO,
+
+    MILITARY,
+
+    NONE;
+
+    public static FactionGroup get(String groupName) {
+        for (final FactionGroup factionGroup : FactionGroup.values()) {
+            if (factionGroup.name().equalsIgnoreCase(groupName)) {
+                return factionGroup;
+            }
+        }
+        return FactionGroup.NONE;
     }
 }

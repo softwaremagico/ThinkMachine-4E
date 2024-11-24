@@ -35,8 +35,8 @@ import org.testng.annotations.Test;
 
 @Test(groups = {"occultismFactory"})
 public class OccultismFactoryTests {
-    private static final int DEFINED_PSI_PATHS = 3;
-    private static final int DEFINED_THEURGY_PATHS = 0;
+    private static final int DEFINED_PSI_PATHS = 6;
+    private static final int DEFINED_THEURGY_PATHS = 6;
     private static final int DEFINED_THEURGY_COMPONENTS = 3;
     private static final int OCCULTISM_TYPES = 2;
 

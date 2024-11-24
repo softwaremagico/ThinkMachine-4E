@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.perks;
+package com.softwaremagico.tm.exceptions;
 
 /*-
  * #%L
@@ -24,29 +24,13 @@ package com.softwaremagico.tm.character.perks;
  * #L%
  */
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.softwaremagico.tm.Element;
 
-public class Perk extends Element {
-    private boolean isAffliction = false;
-    @JsonProperty("cyberDevice")
-    private Integer cyberDeviceTechLevel;
-    @JsonProperty("repeatable")
-    private boolean repeatable = false;
+public class InvalidNumberOfPowersException extends InvalidOccultismPowerException {
 
-    public boolean isAffliction() {
-        return isAffliction;
+    private static final long serialVersionUID = 8678165192852006762L;
+
+    public InvalidNumberOfPowersException(String message) {
+        super(message);
     }
 
-    public void setAffliction(boolean affliction) {
-        isAffliction = affliction;
-    }
-
-    public Integer getCyberDeviceTechLevel() {
-        return cyberDeviceTechLevel;
-    }
-
-    public void setCyberDeviceTechLevel(Integer cyberDeviceTechLevel) {
-        this.cyberDeviceTechLevel = cyberDeviceTechLevel;
-    }
 }

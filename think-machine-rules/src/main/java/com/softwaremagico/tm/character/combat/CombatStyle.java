@@ -96,7 +96,7 @@ public class CombatStyle extends Element {
 
     public boolean isAvailable(CharacterPlayer characterPlayer) {
         return getRestrictions().getRestrictedToSpecies().isEmpty() || (characterPlayer.getSpecie() != null
-                && getRestrictions().getRestrictedToSpecies().contains(characterPlayer.getSpecie()));
+                && getRestrictions().getRestrictedToSpecies().contains(characterPlayer.getSpecie().getId()));
     }
 
     public void addCombatAction(CombatAction combatAction) {
