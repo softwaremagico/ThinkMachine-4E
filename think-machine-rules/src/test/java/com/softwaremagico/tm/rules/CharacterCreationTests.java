@@ -42,7 +42,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = "characterCreation")
-public class CharacterCreationTest {
+public class CharacterCreationTests {
 
 
     @Test(expectedExceptions = InvalidUpbringingException.class)

@@ -48,7 +48,13 @@
             </es>
         </description>
         <techLevel>6</techLevel>
-        <protection>14</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>14</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>0</dexterity>
@@ -103,7 +109,13 @@
             </es>
         </description>
         <techLevel>6</techLevel>
-        <protection>14</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>14</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>2</strength>
             <dexterity>1</dexterity>
@@ -153,7 +165,13 @@
             </es>
         </description>
         <techLevel>2</techLevel>
-        <protection>8</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>8</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>-1</dexterity>
@@ -189,7 +207,13 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <protection>8</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>8</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>-1</dexterity>
@@ -223,7 +247,13 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <protection>8</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>8</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>-1</dexterity>
@@ -268,7 +298,13 @@
             </es>
         </description>
         <techLevel>7</techLevel>
-        <protection>6</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>6</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>-2</dexterity>
@@ -303,7 +339,13 @@
             </es>
         </description>
         <techLevel>2</techLevel>
-        <protection>6</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>6</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>-1</dexterity>
@@ -340,7 +382,13 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <protection>6</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>6</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>0</dexterity>
@@ -375,7 +423,13 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <protection>0</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>0</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>0</dexterity>
@@ -410,7 +464,13 @@
             </es>
         </description>
         <techLevel>0</techLevel>
-        <protection>1</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>1</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>0</dexterity>
@@ -448,7 +508,13 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <protection>2</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>0</dexterity>
@@ -484,7 +550,13 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <protection>5</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>5</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>-1</dexterity>
@@ -522,7 +594,13 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <protection>5</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>5</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>0</dexterity>
@@ -558,7 +636,13 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <protection>5</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>5</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>0</dexterity>
@@ -594,7 +678,13 @@
             </es>
         </description>
         <techLevel>0</techLevel>
-        <protection>1</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>1</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>0</dexterity>
@@ -636,7 +726,13 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <protection>2</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>0</dexterity>
@@ -678,7 +774,13 @@
             </es>
         </description>
         <techLevel>2</techLevel>
-        <protection>10</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>10</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>-1</strength>
             <dexterity>-2</dexterity>
@@ -718,7 +820,13 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <protection>10</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>10</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>-1</dexterity>
@@ -759,7 +867,13 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <protection>10</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>10</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>-1</dexterity>
@@ -807,7 +921,13 @@
             </es>
         </description>
         <techLevel>8</techLevel>
-        <protection>10</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>10</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>0</dexterity>
@@ -837,7 +957,13 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <protection>7</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>7</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>-1</dexterity>
@@ -872,7 +998,13 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <protection>7</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>7</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>-1</dexterity>
@@ -905,7 +1037,13 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <protection>7</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>7</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>-1</dexterity>
@@ -940,7 +1078,13 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <protection>3</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>3</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>0</dexterity>
@@ -988,7 +1132,13 @@
             </es>
         </description>
         <techLevel>4</techLevel>
-        <protection>1</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>1</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>-2</strength>
             <dexterity>-3</dexterity>
@@ -1034,7 +1184,13 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <protection>8</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>8</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>-1</dexterity>
@@ -1083,7 +1239,13 @@
             </es>
         </description>
         <techLevel>6</techLevel>
-        <protection>9</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>9</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>-1</dexterity>
@@ -1140,7 +1302,13 @@
             </es>
         </description>
         <techLevel>5</techLevel>
-        <protection>4</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>4</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>0</dexterity>
@@ -1187,7 +1355,13 @@
             </es>
         </description>
         <techLevel>6</techLevel>
-        <protection>7</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>7</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>-1</dexterity>
@@ -1223,7 +1397,13 @@
             </es>
         </description>
         <techLevel>7</techLevel>
-        <protection>7</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>7</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>0</dexterity>
@@ -1253,7 +1433,13 @@
             <es>Resistencia Corporal +3, compatible con escudo de energía.</es>
         </description>
         <techLevel>5</techLevel>
-        <protection>3</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>3</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>0</dexterity>
@@ -1285,7 +1471,13 @@
             <es>Resistencia Corporal +3, compatible con escudo de energía.</es>
         </description>
         <techLevel>5</techLevel>
-        <protection>3</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>3</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>0</dexterity>
@@ -1321,7 +1513,13 @@
             </es>
         </description>
         <techLevel>6</techLevel>
-        <protection>4</protection>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>item</category>
+                <bonus>4</bonus>
+            </resistance>
+        </resistances>
         <standardPenalizations>
             <strength>0</strength>
             <dexterity>0</dexterity>

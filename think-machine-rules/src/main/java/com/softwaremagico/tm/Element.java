@@ -2,6 +2,8 @@ package com.softwaremagico.tm;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.softwaremagico.tm.character.resistances.Resistance;
+import com.softwaremagico.tm.character.resistances.ResistanceType;
 import com.softwaremagico.tm.character.skills.Specialization;
 import com.softwaremagico.tm.exceptions.InvalidSpecializationException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
@@ -10,6 +12,7 @@ import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 /*-
  * #%L
@@ -57,6 +60,8 @@ public class Element extends XmlData implements Comparable<Element> {
     @JsonProperty("restrictions")
     private Restrictions restrictions;
 
+    @JsonProperty("resistances")
+    private List<Resistance> resistances;
 
     private List<Specialization> specializations;
 
@@ -268,6 +273,9 @@ public class Element extends XmlData implements Comparable<Element> {
         }
         setOfficial(element.isOfficial());
         setGroup(element.getGroup());
+        if (element.getResistances() != null) {
+            setResistances(new ArrayList<>(element.getResistances()));
+        }
     }
 
     public static boolean isNull(Element element) {
@@ -288,5 +296,21 @@ public class Element extends XmlData implements Comparable<Element> {
         if (randomDefinition != null) {
             randomDefinition.validate();
         }
+    }
+
+    public List<Resistance> getResistances() {
+        if (resistances == null) {
+            resistances = new ArrayList<>();
+        }
+        return resistances;
+    }
+
+    public void setResistances(List<Resistance> resistances) {
+        this.resistances = resistances;
+    }
+
+    public int getResistanceValue(ResistanceType resistanceType) {
+        final Optional<Resistance> resistance = getResistances().stream().filter(r -> r.getType() == resistanceType).findAny();
+        return resistance.map(Resistance::getBonus).orElse(0);
     }
 }

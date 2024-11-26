@@ -41,10 +41,13 @@ import com.softwaremagico.tm.character.occultism.OccultismPower;
 import com.softwaremagico.tm.character.occultism.OccultismTypeFactory;
 import com.softwaremagico.tm.character.perks.SpecializedPerk;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
+import com.softwaremagico.tm.character.resistances.Resistance;
+import com.softwaremagico.tm.character.resistances.ResistanceType;
 import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
 import com.softwaremagico.tm.log.MachineLog;
 
 import java.util.ArrayList;
@@ -125,7 +128,16 @@ public class CharacterSheet {
 
     private void representSkill(StringBuilder stringBuilder, Skill skill) {
         stringBuilder.append(skill.getName()).append(" (");
-        stringBuilder.append(characterPlayer.getSkillValue(skill));
+
+        int skillValue;
+        try {
+            skillValue = characterPlayer.getSkillValue(skill);
+        } catch (MaxInitialValueExceededException e) {
+            MachineLog.warning(this.getClass(), e.getMessage());
+            skillValue = CharacterPlayer.MAX_INITIAL_VALUE;
+        }
+
+        stringBuilder.append(skillValue);
         stringBuilder.append(")");
     }
 
@@ -135,7 +147,12 @@ public class CharacterSheet {
         final List<Skill> skills = SkillFactory.getInstance().getElements();
         Collections.sort(skills);
         for (final Skill skill : skills) {
-            final int skillValue = characterPlayer.getSkillValue(skill);
+            int skillValue;
+            try {
+                skillValue = characterPlayer.getSkillValue(skill);
+            } catch (MaxInitialValueExceededException e) {
+                skillValue = CharacterPlayer.MAX_INITIAL_VALUE;
+            }
             if ((skill.isNatural() && skillValue > Skill.NATURAL_SKILL_INITIAL_VALUE)
                     || (!skill.isNatural() && skillValue > 0)) {
                 stringBuilder.append(separator);
@@ -348,7 +365,7 @@ public class CharacterSheet {
             stringBuilder.append("\t- ").append(armor.getName());
             stringBuilder.append(" (");
             stringBuilder.append(TextFactory.getInstance().getElement("armorRating").getNameRepresentation()).append(" ");
-            stringBuilder.append(armor.getProtection());
+            stringBuilder.append(Resistance.getBonus(ResistanceType.BODY, armor));
             stringBuilder.append(ELEMENT_SEPARATOR);
             if (armor.getStandardPenalization().getDexterityModification() != 0) {
                 stringBuilder.append(TextFactory.getInstance().getElement(CharacteristicName.DEXTERITY.getId()).getNameRepresentation()).append(" ");

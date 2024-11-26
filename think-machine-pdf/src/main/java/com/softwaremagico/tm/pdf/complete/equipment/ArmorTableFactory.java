@@ -30,6 +30,7 @@ import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.equipment.DamageTypeFactory;
+import com.softwaremagico.tm.character.resistances.ResistanceType;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.pdf.complete.FadingSunsTheme;
 import com.softwaremagico.tm.pdf.complete.elements.BaseElement;
@@ -127,7 +128,7 @@ public class ArmorTableFactory extends BaseElement {
         if (characterPlayer == null || characterPlayer.getBestArmor() == null) {
             rectangle = CustomPdfTable.createRectangle();
         } else {
-            rectangle = CustomPdfTable.createRectangle(characterPlayer.getBestArmor().getProtection() + "");
+            rectangle = CustomPdfTable.createRectangle(characterPlayer.getBestArmor().getResistanceValue(ResistanceType.BODY) + "");
         }
         rectangle.setMinimumHeight(FadingSunsTheme.ROW_HEIGHT);
         resistanceTable.addCell(rectangle);

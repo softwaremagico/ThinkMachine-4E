@@ -106,18 +106,18 @@ public abstract class CharacterDefinitionStepSelection extends Element {
             if (options.get(i).getOptions().size() == 1) {
                 if (options.get(i).getOptions().get(0) instanceof CapabilityOption) {
                     if (((CapabilityOption) options.get(i).getOptions().get(0)).getSelectedSpecialization() != null) {
-                        selectedElements.get(i).setSelections(List.of(new Selection(options
+                        selectedElements.get(i).setSelections(new ArrayList<>(List.of(new Selection(options
                                 .get(i).getOptions().get(0).getId(),
-                                ((CapabilityOption) options.get(i).getOptions().get(0)).getSelectedSpecialization())));
+                                ((CapabilityOption) options.get(i).getOptions().get(0)).getSelectedSpecialization()))));
                     }
                 } else if (options.get(i).getOptions().get(0).getSpecializations() == null
                         || options.get(i).getOptions().get(0).getSpecializations().isEmpty()) {
-                    selectedElements.get(i).setSelections(List.of(new Selection(options
-                            .get(i).getOptions().get(0).getId())));
+                    selectedElements.get(i).setSelections(new ArrayList<>(List.of(new Selection(options
+                            .get(i).getOptions().get(0).getId()))));
                 } else if (options.get(i).getOptions().get(0).getSpecializations().size() == 1) {
-                    selectedElements.get(i).setSelections(List.of(new Selection(options
+                    selectedElements.get(i).setSelections(new ArrayList<>(List.of(new Selection(options
                             .get(i).getOptions().get(0).getId(), options
-                            .get(i).getOptions().get(0).getSpecializations().get(0))));
+                            .get(i).getOptions().get(0).getSpecializations().get(0)))));
                 }
             }
         }

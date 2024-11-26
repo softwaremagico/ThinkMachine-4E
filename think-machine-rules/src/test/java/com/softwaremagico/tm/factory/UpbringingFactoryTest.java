@@ -31,12 +31,13 @@ import org.testng.annotations.Test;
 
 @Test(groups = {"upbringingFactory"})
 public class UpbringingFactoryTest {
-    private static final int DEFINED_upbringings = 5;
+    private static final int DEFINED_UPBRINGINGS= 5;
+
 
     @Test
     public void checkTotalElements() throws InvalidXmlElementException {
         Assert.assertEquals(UpbringingFactory.getInstance().getElements().size(),
-                DEFINED_upbringings);
+                DEFINED_UPBRINGINGS);
     }
 
     @Test
@@ -60,7 +61,7 @@ public class UpbringingFactoryTest {
     @Test
     public void getPerksOption() throws InvalidXmlElementException {
         Assert.assertEquals(UpbringingFactory.getInstance().getElement("noble").getPerksOptions().size(), 2);
-        Assert.assertEquals(UpbringingFactory.getInstance().getElement("noble").getPerksOptions().get(1).getOptions().size(), 25);
+        Assert.assertEquals(UpbringingFactory.getInstance().getElement("noble").getPerksOptions().get(1).getOptions().size(), 27);
     }
 
     @Test

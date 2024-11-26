@@ -28,9 +28,9 @@ public class MaxInitialValueExceededException extends RuntimeException {
     private final int bonus;
     private final int maxValue;
 
-    public MaxInitialValueExceededException(String message, int bouns, int maxValue) {
+    public MaxInitialValueExceededException(String message, int bonus, int maxValue) {
         super(message);
-        this.bonus = bouns;
+        this.bonus = bonus;
         this.maxValue = maxValue;
     }
 

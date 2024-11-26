@@ -34,7 +34,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Armor extends Equipment {
-    private int protection;
     @JsonProperty("damageTypes")
     private Set<String> damageTypes;
     @JsonProperty("standardPenalizations")
@@ -51,16 +50,11 @@ public class Armor extends Equipment {
      */
     public Armor() {
         super();
-        this.protection = 0;
         this.damageTypes = new HashSet<>();
         this.standardPenalization = new ArmorPenalization(0, 0, 0, 0);
         this.specialPenalization = new ArmorPenalization(0, 0, 0, 0);
         this.allowedShields = new HashSet<>();
         this.specifications = new HashSet<>();
-    }
-
-    public int getProtection() {
-        return protection;
     }
 
     public Set<String> getDamageTypes() {
@@ -82,10 +76,6 @@ public class Armor extends Equipment {
     public boolean isHeavy() {
         return standardPenalization.getDexterityModification() > 0 || standardPenalization.getStrengthModification() > 0
                 || standardPenalization.getEnduranceModification() > 0;
-    }
-
-    public void setProtection(int protection) {
-        this.protection = protection;
     }
 
     public void setDamageTypes(Set<String> damageTypes) {
@@ -114,7 +104,6 @@ public class Armor extends Equipment {
 
     public void copy(Armor armor) {
         super.copy(armor);
-        setProtection(armor.getProtection());
         setDamageTypes(new HashSet<>(armor.getDamageTypes()));
         setStandardPenalization(armor.getStandardPenalization());
         setSpecialPenalization(armor.getSpecialPenalization());
