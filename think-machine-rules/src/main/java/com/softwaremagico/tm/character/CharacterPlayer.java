@@ -733,12 +733,20 @@ public class CharacterPlayer {
         return occultism;
     }
 
-    private int getOccultismPointsAvailable() {
+    public int getOccultismPointsAvailable() {
         return (int) getPerks().stream().filter(perk -> Objects.equals(perk.getId(), "theurgicRites")
                 || Objects.equals(perk.getId(), "psychicPowers")).count();
     }
 
+    public int getOccultismPointsSpent() {
+        return getTotalSelectedPaths();
+    }
+
     public int getOccultismLevel(OccultismType occultismType) {
+        return getCharacteristicValue(occultismType.getId());
+    }
+
+    public int setOccultismLevel(OccultismType occultismType, int newValue) {
         return getCharacteristicValue(occultismType.getId());
     }
 
@@ -784,9 +792,9 @@ public class CharacterPlayer {
      * @return an occultism type or null if nothing has been selected.
      */
     public OccultismType getOccultismType() {
-        if (getFaction() != null && FactionGroup.get(getFaction().getGroup()) == FactionGroup.CHURCH
+        if (getFaction() != null && (FactionGroup.get(getFaction().getGroup()) == FactionGroup.CHURCH
                 || FactionGroup.get(getFaction().getGroup()) == FactionGroup.MINOR_CHURCH || Objects.equals(getFaction().getId(), "sibanzi")
-                || Objects.equals(getFaction().getId(), "vagabonds") || Objects.equals(getFaction().getId(), "swordsOfLextius")) {
+                || Objects.equals(getFaction().getId(), "vagabonds") || Objects.equals(getFaction().getId(), "swordsOfLextius"))) {
             return OccultismTypeFactory.getTheurgy();
         }
         if (getFaction() != null && (Objects.equals(getFaction().getId(), "dervishes"))) {
@@ -838,7 +846,9 @@ public class CharacterPlayer {
     public boolean canAddOccultismPower(OccultismPower power) {
         final OccultismPath path = OccultismPathFactory.getInstance().getOccultismPath(power);
         try {
-            getOccultism().canAddPower(this, path, power, getFaction() != null ? getFaction().getId() : null, getSpecie().getId(), getSettings());
+            getOccultism().canAddPower(this, path, power,
+                    getFaction() != null ? getFaction().getId() : null,
+                    getSpecie() != null ? getSpecie().getId() : null, getSettings());
             return true;
         } catch (InvalidOccultismPowerException e) {
             return false;

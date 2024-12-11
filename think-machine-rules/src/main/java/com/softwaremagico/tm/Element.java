@@ -10,6 +10,7 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -312,5 +313,16 @@ public class Element extends XmlData implements Comparable<Element> {
     public int getResistanceValue(ResistanceType resistanceType) {
         final Optional<Resistance> resistance = getResistances().stream().filter(r -> r.getType() == resistanceType).findAny();
         return resistance.map(Resistance::getBonus).orElse(0);
+    }
+
+    public void copyRestrictions(Element element) {
+        getRestrictions().setRestrictedToSpecies(new HashSet<>(element.getRestrictions().getRestrictedToSpecies()));
+        getRestrictions().setRestrictedToFactions(new HashSet<>(element.getRestrictions().getRestrictedToFactions()));
+        getRestrictions().setRestrictedToUpbringing(new HashSet<>(element.getRestrictions().getRestrictedToUpbringing()));
+        getRestrictions().setRestrictedToCallings(new HashSet<>(element.getRestrictions().getRestrictedToCallings()));
+        getRestrictions().setRestrictedToCapabilities(new HashSet<>(element.getRestrictions().getRestrictedToCapabilities()));
+        getRestrictions().setRestrictedToPerksGroups(new HashSet<>(element.getRestrictions().getRestrictedToPerksGroups()));
+        getRestrictions().setRestrictedPerks(new HashSet<>(element.getRestrictions().getRestrictedPerks()));
+        setOfficial(element.isOfficial());
     }
 }
