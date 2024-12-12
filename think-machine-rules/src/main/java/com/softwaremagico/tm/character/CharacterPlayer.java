@@ -30,6 +30,7 @@ import com.softwaremagico.tm.character.capabilities.CapabilityWithSpecialization
 import com.softwaremagico.tm.character.characteristics.Characteristic;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.combat.CombatActionRequirement;
+import com.softwaremagico.tm.character.cybernetics.Cyberdevice;
 import com.softwaremagico.tm.character.cybernetics.Cybernetics;
 import com.softwaremagico.tm.character.equipment.CharacterSelectedEquipment;
 import com.softwaremagico.tm.character.equipment.Equipment;
@@ -886,6 +887,9 @@ public class CharacterPlayer {
         return getOccultism().hasPath(path);
     }
 
+    public Cybernetics getCybernetics() {
+        return cybernetics;
+    }
 
     public int getCyberneticsPointsAvailable() {
         return (int) getPerks().stream().filter(perk -> Objects.equals(perk.getId(), "cyberdevice"))
@@ -894,5 +898,14 @@ public class CharacterPlayer {
 
     public int getCyberneticsPointsSpent() {
         return cybernetics.getElements().size();
+    }
+
+    public boolean canAddCyberdevice(Cyberdevice cyberdevice) {
+        try {
+            getCybernetics().canAddDevice(this, cyberdevice, getSettings());
+            return true;
+        } catch (InvalidOccultismPowerException e) {
+            return false;
+        }
     }
 }

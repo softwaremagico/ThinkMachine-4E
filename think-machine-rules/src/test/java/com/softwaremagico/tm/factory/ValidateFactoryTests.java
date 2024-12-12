@@ -28,13 +28,14 @@ import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
 import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
 import com.softwaremagico.tm.character.combat.CombatStyleFactory;
+import com.softwaremagico.tm.character.cybernetics.CyberdeviceFactory;
 import com.softwaremagico.tm.character.equipment.DamageTypeFactory;
 import com.softwaremagico.tm.character.equipment.EquipmentTraitFactory;
 import com.softwaremagico.tm.character.equipment.TechCompulsionFactory;
 import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
 import com.softwaremagico.tm.character.equipment.armors.ArmourSpecificationFactory;
-import com.softwaremagico.tm.character.equipment.item.ItemFactory;
 import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShieldFactory;
+import com.softwaremagico.tm.character.equipment.item.ItemFactory;
 import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
 import com.softwaremagico.tm.character.equipment.thinkmachines.ThinkMachineFactory;
 import com.softwaremagico.tm.character.equipment.weapons.AccessoryFactory;
@@ -182,5 +183,10 @@ public class ValidateFactoryTests {
     @Test
     public void validateWeaponFactory() throws InvalidXmlElementException {
         WeaponFactory.getInstance().validate();
+    }
+
+    @Test
+    public void validateCyberdeviceFactory() throws InvalidXmlElementException {
+        CyberdeviceFactory.getInstance().validate();
     }
 }

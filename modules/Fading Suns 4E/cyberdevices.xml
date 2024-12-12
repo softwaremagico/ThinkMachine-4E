@@ -28,6 +28,7 @@
                 cosmopolitas). Por lo general, cada Saber cuesta 100 fénix.
             </es>
         </benefice>
+        <techLevel>6</techLevel>
         <techCompulsion>inerrant</techCompulsion>
     </cyberdevice>
 
@@ -61,6 +62,7 @@
                 ilegal. Además, usarlo en duelos oficiales se considera hacer trampas.
             </es>
         </benefice>
+        <techLevel>7</techLevel>
         <techCompulsion>bloodthirsty</techCompulsion>
         <restrictions>
             <callings>
@@ -95,6 +97,7 @@
                 tenga esa información).
             </es>
         </benefice>
+        <techLevel>6</techLevel>
         <techCompulsion>inerrant</techCompulsion>
         <restrictions>
             <callings>
@@ -148,6 +151,7 @@
                 apunten a tu nave. En términos de juego, el efecto hace que tus tiradas de Interfaz sean favorables.
             </es>
         </benefice>
+        <techLevel>7</techLevel>
         <techCompulsion>inerrant</techCompulsion>
         <restrictions>
             <callings>
@@ -182,6 +186,7 @@
                 habilidad Introspección, son favorables siempre que conozcas la competencia requerida para la tirada.
             </es>
         </benefice>
+        <techLevel>6</techLevel>
         <techCompulsion>inerrant</techCompulsion>
         <restrictions>
             <callings>

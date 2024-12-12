@@ -1,22 +1,25 @@
 package com.softwaremagico.tm.character.cybernetics;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.softwaremagico.tm.character.equipment.Size;
 import com.softwaremagico.tm.character.equipment.TechCompulsionFactory;
 import com.softwaremagico.tm.character.perks.Perk;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 public class Cyberdevice extends Perk {
-    @JsonProperty("cyberdevice")
-    private Integer cyberDeviceTechLevel;
+    @JsonProperty("techLevel")
+    private Integer techLevel;
     @JsonProperty("techCompulsion")
     private String techCompulsion;
+    @JsonProperty("size")
+    private Size size;
 
-    public Integer getCyberDeviceTechLevel() {
-        return cyberDeviceTechLevel;
+    public Integer getTechLevel() {
+        return techLevel;
     }
 
-    public void setCyberDeviceTechLevel(Integer cyberDeviceTechLevel) {
-        this.cyberDeviceTechLevel = cyberDeviceTechLevel;
+    public void setTechLevel(Integer techLevel) {
+        this.techLevel = techLevel;
     }
 
     public String getTechCompulsion() {
@@ -27,10 +30,18 @@ public class Cyberdevice extends Perk {
         this.techCompulsion = techCompulsion;
     }
 
+    public Size getSize() {
+        return size;
+    }
+
+    public void setSize(Size size) {
+        this.size = size;
+    }
+
     @Override
     public void validate() throws InvalidXmlElementException {
         super.validate();
-        if (cyberDeviceTechLevel == null) {
+        if (techLevel == null) {
             throw new InvalidXmlElementException("cyberDeviceTechLevel is required");
         }
         if (techCompulsion == null) {

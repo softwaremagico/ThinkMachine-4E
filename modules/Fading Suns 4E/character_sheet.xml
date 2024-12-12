@@ -1134,4 +1134,11 @@
             <es>Recursos</es>
         </name>
     </assets>
+    <assets>
+        <id>cyberdevices</id>
+        <name>
+            <en>Cyberdevices</en>
+            <es>Ciberdispositivos</es>
+        </name>
+    </assets>
 </translator>
