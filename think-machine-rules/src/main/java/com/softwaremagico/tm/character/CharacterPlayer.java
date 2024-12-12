@@ -30,6 +30,7 @@ import com.softwaremagico.tm.character.capabilities.CapabilityWithSpecialization
 import com.softwaremagico.tm.character.characteristics.Characteristic;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.combat.CombatActionRequirement;
+import com.softwaremagico.tm.character.cybernetics.Cybernetics;
 import com.softwaremagico.tm.character.equipment.CharacterSelectedEquipment;
 import com.softwaremagico.tm.character.equipment.Equipment;
 import com.softwaremagico.tm.character.equipment.EquipmentOption;
@@ -98,6 +99,8 @@ public class CharacterPlayer {
     // All Psi/Teurgy powers
     private Occultism occultism;
 
+    private Cybernetics cybernetics;
+
     private Set<Equipment> equipmentPurchased;
 
     private final Settings settings;
@@ -110,6 +113,7 @@ public class CharacterPlayer {
     private void reset() {
         info = new CharacterInfo();
         occultism = new Occultism();
+        cybernetics = new Cybernetics();
         specie = null;
         upbringing = null;
         faction = null;
@@ -838,11 +842,6 @@ public class CharacterPlayer {
         return null;
     }
 
-    public int getOccultismPoints() {
-        return (int) getPerks().stream().filter(perk -> Objects.equals(perk.getId(), "psychicPowers") || Objects.equals(perk.getId(), "theurgicRites"))
-                .count();
-    }
-
     public boolean canAddOccultismPower(OccultismPower power) {
         final OccultismPath path = OccultismPathFactory.getInstance().getOccultismPath(power);
         try {
@@ -885,5 +884,15 @@ public class CharacterPlayer {
 
     public boolean hasOccultismPath(OccultismPath path) {
         return getOccultism().hasPath(path);
+    }
+
+
+    public int getCyberneticsPointsAvailable() {
+        return (int) getPerks().stream().filter(perk -> Objects.equals(perk.getId(), "cyberdevice"))
+                .count();
+    }
+
+    public int getCyberneticsPointsSpent() {
+        return cybernetics.getElements().size();
     }
 }

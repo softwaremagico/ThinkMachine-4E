@@ -100,9 +100,9 @@ public class Occultism {
             MachineXmlReaderLog.errorMessage(this.getClass(), e);
         }
         //Enough capability points.
-        if (characterPlayer.getOccultismPoints() <= countPowers()) {
+        if (characterPlayer.getOccultismPointsAvailable() <= countPowers()) {
             throw new InvalidNumberOfPowersException("Invalid perk numbers for acquiring a new occultism power. Allowed points are '"
-                    + characterPlayer.getOccultismPoints() + "' and current number of powers is '" + countPowers() + "'");
+                    + characterPlayer.getOccultismPointsAvailable() + "' and current number of powers is '" + countPowers() + "'");
         }
 
         if (path.getRestrictions().isRestricted(characterPlayer)) {

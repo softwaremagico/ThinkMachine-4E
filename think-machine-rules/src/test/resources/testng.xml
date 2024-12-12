@@ -36,6 +36,7 @@
                 <include name="perkFactory"/>
                 <include name="techCompulsionFactory"/>
                 <include name="timeFactory"/>
+                <include name="cyberdevicesFactory"/>
                 <exclude name="factoryValidation"/>
                 <include name="characterCreation"/>
                 <include name="psychicCreation"/>
@@ -67,6 +68,7 @@
             <class name="com.softwaremagico.tm.factory.TechCompulsionFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.OccultismFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.TimeFactoryTests"/>
+            <class name="com.softwaremagico.tm.factory.CyberdevicesFactoryTests"/>
             <class name="com.softwaremagico.tm.rules.CharacterCreationTests"/>
             <class name="com.softwaremagico.tm.rules.PsychicCreationTests"/>
             <class name="com.softwaremagico.tm.rules.FreeOptionsSelectionTests"/>

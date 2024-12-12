@@ -1401,5 +1401,13 @@
             </species>
         </restrictions>
     </perk>
+    <perk>
+        <id>cyberdevice</id>
+        <name>
+            <en>Cyberdevice</en>
+            <es>Ciberdispositivo</es>
+        </name>
+        <repeatable>true</repeatable>
+    </perk>
 
 </perks>
