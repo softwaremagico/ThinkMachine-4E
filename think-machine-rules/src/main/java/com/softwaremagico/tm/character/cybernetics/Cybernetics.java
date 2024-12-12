@@ -24,12 +24,24 @@ package com.softwaremagico.tm.character.cybernetics;
  * #L%
  */
 
-import com.softwaremagico.tm.ElementList;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Settings;
 import com.softwaremagico.tm.exceptions.InvalidCyberdeviceException;
 
-public class Cybernetics extends ElementList<Cyberdevice> {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Cybernetics {
+
+    private List<Cyberdevice> elements = new ArrayList<>();
+
+    public List<Cyberdevice> getElements() {
+        return elements;
+    }
+
+    public void setElements(List<Cyberdevice> elements) {
+        this.elements = elements;
+    }
 
     public void canAddDevice(CharacterPlayer characterPlayer, Cyberdevice cyberdevice, Settings settings)
             throws InvalidCyberdeviceException {
@@ -46,5 +58,9 @@ public class Cybernetics extends ElementList<Cyberdevice> {
         if (cyberdevice.getRestrictions().isRestricted(characterPlayer)) {
             throw new InvalidCyberdeviceException("Cyberdevice '" + cyberdevice + "' is restricted to  '" + cyberdevice.getRestrictions() + "'.");
         }
+    }
+
+    public boolean hasDevice(Cyberdevice cyberdevice) {
+        return getElements().contains(cyberdevice);
     }
 }

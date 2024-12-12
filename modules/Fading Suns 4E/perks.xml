@@ -13,28 +13,6 @@
         </restrictions>
     </perk>
     <perk>
-        <id>advisor</id>
-        <name>
-            <en>Advisor</en>
-            <es>Consejero</es>
-        </name>
-        <cyberDevice>6</cyberDevice>
-    </perk>
-    <perk>
-        <id>aimAssistance</id>
-        <name>
-            <en>Aim Assistance</en>
-            <es>Puntería Asistida</es>
-        </name>
-        <cyberDevice>7</cyberDevice>
-        <restrictions>
-            <callings>
-                <calling>duelist</calling>
-                <calling>pirate</calling>
-            </callings>
-        </restrictions>
-    </perk>
-    <perk>
         <id>aimWhereItHurts</id>
         <name>
             <en>Aim where it Hurts</en>

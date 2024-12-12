@@ -118,6 +118,10 @@ public abstract class XmlFactory<T extends Element> {
 
     public abstract List<T> getElements() throws InvalidXmlElementException;
 
+    public List<T> getOpenElements() {
+        return getElements().stream().filter(Element::isOpen).collect(Collectors.toList());
+    }
+
     public List<T> readXml(Class<T> entityClass) throws InvalidXmlElementException {
         try {
             if (elementList == null) {

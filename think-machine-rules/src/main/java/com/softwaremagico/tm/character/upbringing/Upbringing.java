@@ -24,50 +24,12 @@ package com.softwaremagico.tm.character.upbringing;
  * #L%
  */
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.softwaremagico.tm.character.CharacterDefinitionStep;
-import com.softwaremagico.tm.character.perks.PerkFactory;
-import com.softwaremagico.tm.character.perks.PerkOption;
-import com.softwaremagico.tm.character.perks.PerkOptions;
-import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.log.MachineLog;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class Upbringing extends CharacterDefinitionStep<Upbringing> {
 
     private static final int TOTAL_CHARACTERISTICS_OPTIONS = 5;
     private static final int TOTAL_SKILL_OPTIONS = 5;
-
-    @JsonIgnore
-    private List<PerkOptions> finalPerkOptions;
-
-    @Override
-    public List<PerkOptions> getPerksOptions() {
-        if (finalPerkOptions == null) {
-            //No perks defined.
-            finalPerkOptions = new ArrayList<>();
-            for (PerkOptions perkOptions : super.getPerksOptions()) {
-                if (perkOptions.isIncludeOpenPerks()) {
-                    final PerkOptions completedPerkOption = perkOptions.copy();
-                    //Add Open perks
-                    try {
-                        completedPerkOption.addOptions(PerkFactory.getInstance().getElements().stream().filter(perk -> perk.getRestrictions().isOpen())
-                                .map(PerkOption::new).collect(Collectors.toList()));
-                    } catch (InvalidXmlElementException e) {
-                        MachineLog.errorMessage(this.getClass(), e);
-                    }
-                    finalPerkOptions.add(completedPerkOption);
-                } else {
-                    finalPerkOptions.add(perkOptions);
-                }
-            }
-        }
-        return finalPerkOptions;
-    }
-
 
     public int getCharacteristicsTotalPoints() {
         return TOTAL_CHARACTERISTICS_OPTIONS;

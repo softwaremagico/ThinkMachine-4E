@@ -58,7 +58,7 @@ public class ItemsTableFactory extends BaseElement {
 
         final List<Element> items = new ArrayList<>();
 
-        items.addAll(characterPlayer != null ? new ArrayList<>(characterPlayer.getCybernetics().getElements()) : new ArrayList<>());
+        items.addAll(characterPlayer != null ? new ArrayList<>(characterPlayer.getCyberdevices()) : new ArrayList<>());
         items.addAll(characterPlayer != null ? new ArrayList<>(characterPlayer.getItems()) : new ArrayList<>());
         final List<Element> itemsFirstColumn = items.subList(0, Math.min(items.size(), ROWS));
         List<Element> itemsSecondColumn;

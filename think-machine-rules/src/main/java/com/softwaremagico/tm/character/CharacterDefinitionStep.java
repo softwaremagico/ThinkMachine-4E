@@ -24,6 +24,7 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.OptionSelector;
@@ -31,9 +32,12 @@ import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOptions;
 import com.softwaremagico.tm.character.equipment.EquipmentOption;
 import com.softwaremagico.tm.character.equipment.EquipmentOptions;
+import com.softwaremagico.tm.character.perks.PerkFactory;
+import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.character.perks.PerkOptions;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.log.MachineLog;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -56,6 +60,9 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
     private List<PerkOptions> perksOptions = new ArrayList<>();
     @JsonProperty("materialAwards")
     private List<EquipmentOptions> materialAwards = new ArrayList<>();
+
+    @JsonIgnore
+    private List<PerkOptions> finalPerkOptions;
 
 
     public List<CapabilityOptions> getCapabilityOptions() {
@@ -83,7 +90,26 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
     }
 
     public List<PerkOptions> getPerksOptions() {
-        return perksOptions;
+        if (finalPerkOptions == null) {
+            //No perks defined.
+            finalPerkOptions = new ArrayList<>();
+            for (PerkOptions perkOptions : perksOptions) {
+                if (perkOptions.isIncludeOpenPerks()) {
+                    final PerkOptions completedPerkOption = perkOptions.copy();
+                    //Add Open perks
+                    try {
+                        completedPerkOption.addOptions(PerkFactory.getInstance().getOpenElements().stream()
+                                .map(PerkOption::new).collect(Collectors.toList()));
+                    } catch (InvalidXmlElementException e) {
+                        MachineLog.errorMessage(this.getClass(), e);
+                    }
+                    finalPerkOptions.add(completedPerkOption);
+                } else {
+                    finalPerkOptions.add(perkOptions);
+                }
+            }
+        }
+        return finalPerkOptions;
     }
 
     public void setPerksOptions(List<PerkOptions> perksOptions) {

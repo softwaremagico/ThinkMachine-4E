@@ -61,6 +61,7 @@ import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.UpbringingCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidCharacteristicException;
+import com.softwaremagico.tm.exceptions.InvalidCyberdeviceException;
 import com.softwaremagico.tm.exceptions.InvalidOccultismPowerException;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
@@ -843,6 +844,11 @@ public class CharacterPlayer {
         return null;
     }
 
+    public boolean hasOccultismPower(OccultismPower power) {
+        final OccultismPath path = OccultismPathFactory.getInstance().getOccultismPath(power);
+        return getOccultism().hasPower(path, power);
+    }
+
     public boolean canAddOccultismPower(OccultismPower power) {
         final OccultismPath path = OccultismPathFactory.getInstance().getOccultismPath(power);
         try {
@@ -875,19 +881,13 @@ public class CharacterPlayer {
     public void removeOccultismPower(OccultismPower power) {
         final OccultismPath path = OccultismPathFactory.getInstance().getOccultismPath(power);
         getOccultism().removePower(path, power);
-
-    }
-
-    public boolean hasOccultismPower(OccultismPower power) {
-        final OccultismPath path = OccultismPathFactory.getInstance().getOccultismPath(power);
-        return getOccultism().hasPower(path, power);
     }
 
     public boolean hasOccultismPath(OccultismPath path) {
         return getOccultism().hasPath(path);
     }
 
-    public Cybernetics getCybernetics() {
+    private Cybernetics getCybernetics() {
         return cybernetics;
     }
 
@@ -900,6 +900,14 @@ public class CharacterPlayer {
         return cybernetics.getElements().size();
     }
 
+    public boolean hasDevice(Cyberdevice cyberdevice) {
+        return getCybernetics().hasDevice(cyberdevice);
+    }
+
+    public List<Cyberdevice> getCyberdevices() {
+        return getCybernetics().getElements();
+    }
+
     public boolean canAddCyberdevice(Cyberdevice cyberdevice) {
         try {
             getCybernetics().canAddDevice(this, cyberdevice, getSettings());
@@ -907,5 +915,25 @@ public class CharacterPlayer {
         } catch (InvalidOccultismPowerException e) {
             return false;
         }
+    }
+
+    public void addCyberdevice(Cyberdevice cyberdevice) throws InvalidOccultismPowerException, UnofficialElementNotAllowedException {
+        if (cyberdevice == null) {
+            throw new InvalidCyberdeviceException("Null value not allowed");
+        }
+        if (!cyberdevice.isOfficial() && getSettings().isOnlyOfficialAllowed()) {
+            throw new UnofficialElementNotAllowedException("Cyberdevice '" + cyberdevice + "' is not official and cannot be added due "
+                    + "to configuration limitations.");
+        }
+        if (!cyberdevice.getRestrictions().getRestrictedToSpecies().isEmpty() && getSettings().isRestrictionsChecked()
+                && (getSpecie() == null || !cyberdevice.getRestrictions().getRestrictedToSpecies().contains(getSpecie().getId()))) {
+            throw new InvalidCyberdeviceException("Cyberdevice '" + cyberdevice + "' is limited to races '"
+                    + cyberdevice.getRestrictions().getRestrictedToSpecies() + "'.");
+        }
+        getCybernetics().getElements().add(cyberdevice);
+    }
+
+    public void removeCyberdevice(Cyberdevice cyberdevice) {
+        getCybernetics().getElements().remove(cyberdevice);
     }
 }

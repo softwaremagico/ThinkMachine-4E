@@ -574,6 +574,13 @@
             <es>Beneficios</es>
         </name>
     </beneficesTable>
+    <benefice>
+        <id>benefice</id>
+        <name>
+            <en>Benefice</en>
+            <es>Beneficio</es>
+        </name>
+    </benefice>
     <afflictionsTable>
         <id>afflictionsTable</id>
         <name>

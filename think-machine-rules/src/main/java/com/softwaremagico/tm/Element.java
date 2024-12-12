@@ -325,4 +325,8 @@ public class Element extends XmlData implements Comparable<Element> {
         getRestrictions().setRestrictedPerks(new HashSet<>(element.getRestrictions().getRestrictedPerks()));
         setOfficial(element.isOfficial());
     }
+
+    public boolean isOpen() {
+        return getRestrictions().isOpen();
+    }
 }

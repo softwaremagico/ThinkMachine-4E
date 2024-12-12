@@ -448,9 +448,10 @@ public class CharacterSheet {
 
     private void setCyberdevices(StringBuilder stringBuilder) {
         if (getCharacterPlayer().getCyberneticsPointsSpent() > 0) {
+            stringBuilder.append("\n");
             stringBuilder.append(TextFactory.getInstance().getElement("cyberdevices").getNameRepresentation()).append(":\n");
 
-            for (final Cyberdevice cyberdevice : getCharacterPlayer().getCybernetics().getElements()) {
+            for (final Cyberdevice cyberdevice : getCharacterPlayer().getCyberdevices()) {
                 stringBuilder.append("\t- ").append(cyberdevice.getName());
                 final StringBuilder data = new StringBuilder();
                 String separator = "";
@@ -513,7 +514,6 @@ public class CharacterSheet {
             stringBuilder.append("\n");
             setVitalityRepresentation(stringBuilder);
             setRevivalsRepresentation(stringBuilder);
-            stringBuilder.append("\n");
             setCyberdevices(stringBuilder);
             stringBuilder.append("\n");
             setEquipment(stringBuilder);
