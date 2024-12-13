@@ -26,13 +26,14 @@ package com.softwaremagico.tm.character.perks;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
+import com.softwaremagico.tm.TranslatedText;
 
 public class Perk extends Element {
     private boolean isAffliction = false;
-    @JsonProperty("cyberDevice")
-    private Integer cyberDeviceTechLevel;
     @JsonProperty("repeatable")
     private boolean repeatable = false;
+    @JsonProperty("benefice")
+    private TranslatedText benefice;
 
     public boolean isAffliction() {
         return isAffliction;
@@ -42,11 +43,11 @@ public class Perk extends Element {
         isAffliction = affliction;
     }
 
-    public Integer getCyberDeviceTechLevel() {
-        return cyberDeviceTechLevel;
+    public TranslatedText getBenefice() {
+        return benefice;
     }
 
-    public void setCyberDeviceTechLevel(Integer cyberDeviceTechLevel) {
-        this.cyberDeviceTechLevel = cyberDeviceTechLevel;
+    public void setBenefice(TranslatedText benefice) {
+        this.benefice = benefice;
     }
 }

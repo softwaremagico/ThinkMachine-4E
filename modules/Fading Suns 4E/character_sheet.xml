@@ -574,6 +574,13 @@
             <es>Beneficios</es>
         </name>
     </beneficesTable>
+    <benefice>
+        <id>benefice</id>
+        <name>
+            <en>Benefice</en>
+            <es>Beneficio</es>
+        </name>
+    </benefice>
     <afflictionsTable>
         <id>afflictionsTable</id>
         <name>
@@ -1132,6 +1139,13 @@
         <name>
             <en>Assets</en>
             <es>Recursos</es>
+        </name>
+    </assets>
+    <assets>
+        <id>cyberdevices</id>
+        <name>
+            <en>Cyberdevices</en>
+            <es>Ciberdispositivos</es>
         </name>
     </assets>
 </translator>

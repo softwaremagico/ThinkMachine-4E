@@ -106,6 +106,7 @@
                         <id>nobleTitleKnight</id>
                     </perk>
                 </options>
+                <openPerks>false</openPerks>
             </perkOptions>
         </perks>
         <skills>
@@ -466,6 +467,7 @@
                         <id>nobleTitleKnight</id>
                     </perk>
                 </options>
+                <openPerks>false</openPerks>
             </perkOptions>
         </perks>
         <skills>
@@ -692,6 +694,7 @@
                         <id>nobleTitleKnight</id>
                     </perk>
                 </options>
+                <openPerks>false</openPerks>
             </perkOptions>
         </perks>
         <skills>
@@ -934,6 +937,7 @@
                         <id>nobleTitleKnight</id>
                     </perk>
                 </options>
+                <openPerks>false</openPerks>
             </perkOptions>
         </perks>
         <skills>
@@ -1198,6 +1202,7 @@
                         <id>nobleTitleKnight</id>
                     </perk>
                 </options>
+                <openPerks>false</openPerks>
             </perkOptions>
         </perks>
         <skills>
@@ -1437,6 +1442,7 @@
                         <id>churchOrdinationNovitiate</id>
                     </perk>
                 </options>
+                <openPerks>false</openPerks>
             </perkOptions>
         </perks>
         <skills>
@@ -1638,6 +1644,7 @@
                         <id>churchOrdinationNovitiate</id>
                     </perk>
                 </options>
+                <openPerks>false</openPerks>
             </perkOptions>
         </perks>
         <skills>
@@ -1861,6 +1868,7 @@
                         <id>churchOrdinationNovitiate</id>
                     </perk>
                 </options>
+                <openPerks>false</openPerks>
             </perkOptions>
         </perks>
         <skills>
@@ -2072,6 +2080,7 @@
                         <id>churchOrdinationNovitiate</id>
                     </perk>
                 </options>
+                <openPerks>false</openPerks>
             </perkOptions>
         </perks>
         <skills>
@@ -2298,6 +2307,7 @@
                         <id>churchOrdinationNovitiate</id>
                     </perk>
                 </options>
+                <openPerks>false</openPerks>
             </perkOptions>
         </perks>
         <skills>
@@ -2486,6 +2496,7 @@
                         <id>guildCommissionEnsign</id>
                     </perk>
                 </options>
+                <openPerks>false</openPerks>
             </perkOptions>
         </perks>
         <skills>
@@ -2663,6 +2674,7 @@
                         <id>guildCommissionApprentice</id>
                     </perk>
                 </options>
+                <openPerks>false</openPerks>
             </perkOptions>
         </perks>
         <skills>
@@ -2846,6 +2858,7 @@
                         <id>professionalReputationRookie</id>
                     </perk>
                 </options>
+                <openPerks>false</openPerks>
             </perkOptions>
         </perks>
         <skills>
@@ -3033,6 +3046,7 @@
                         <id>guildCommissionAssociate</id>
                     </perk>
                 </options>
+                <openPerks>false</openPerks>
             </perkOptions>
         </perks>
         <skills>
@@ -3227,6 +3241,7 @@
                         <id>guildCommissionAssociate</id>
                     </perk>
                 </options>
+                <openPerks>false</openPerks>
             </perkOptions>
         </perks>
         <skills>
@@ -3444,6 +3459,7 @@
                         <id>professionalReputationRookie</id>
                     </perk>
                 </options>
+                <openPerks>false</openPerks>
             </perkOptions>
         </perks>
         <skills>
@@ -3623,6 +3639,7 @@
                         <id>professionalReputationRookie</id>
                     </perk>
                 </options>
+                <openPerks>false</openPerks>
             </perkOptions>
         </perks>
         <skills>
@@ -3845,6 +3862,7 @@
                         <id>professionalReputationRookie</id>
                     </perk>
                 </options>
+                <openPerks>false</openPerks>
             </perkOptions>
         </perks>
         <skills>
@@ -4039,6 +4057,7 @@
                         <id>professionalReputationRookie</id>
                     </perk>
                 </options>
+                <openPerks>false</openPerks>
             </perkOptions>
         </perks>
         <skills>
@@ -4262,6 +4281,7 @@
                         <id>professionalReputationRookie</id>
                     </perk>
                 </options>
+                <openPerks>false</openPerks>
             </perkOptions>
         </perks>
         <skills>

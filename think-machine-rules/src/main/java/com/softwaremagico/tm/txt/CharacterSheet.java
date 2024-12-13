@@ -27,6 +27,7 @@ package com.softwaremagico.tm.txt;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.capabilities.CapabilityWithSpecialization;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
+import com.softwaremagico.tm.character.cybernetics.Cyberdevice;
 import com.softwaremagico.tm.character.equipment.DamageType;
 import com.softwaremagico.tm.character.equipment.DamageTypeFactory;
 import com.softwaremagico.tm.character.equipment.TechCompulsionFactory;
@@ -445,6 +446,39 @@ public class CharacterSheet {
         }
     }
 
+    private void setCyberdevices(StringBuilder stringBuilder) {
+        if (getCharacterPlayer().getCyberneticsPointsSpent() > 0) {
+            stringBuilder.append("\n");
+            stringBuilder.append(TextFactory.getInstance().getElement("cyberdevices").getNameRepresentation()).append(":\n");
+
+            for (final Cyberdevice cyberdevice : getCharacterPlayer().getCyberdevices()) {
+                stringBuilder.append("\t- ").append(cyberdevice.getName());
+                final StringBuilder data = new StringBuilder();
+                String separator = "";
+                if (cyberdevice.getTechLevel() != null && cyberdevice.getTechLevel() > 0) {
+                    data.append(separator).append(TextFactory.getInstance().getElement("techLevel").getNameRepresentation()).append(" ")
+                            .append(cyberdevice.getTechLevel());
+                    separator = ELEMENT_SEPARATOR;
+                }
+                if (cyberdevice.getSize() != null) {
+                    data.append(separator).append(TextFactory.getInstance().getElement("size").getNameRepresentation()).append(" ")
+                            .append(cyberdevice.getSize());
+                    separator = ELEMENT_SEPARATOR;
+                }
+                if (cyberdevice.getTechCompulsion() != null) {
+                    data.append(separator).append(TextFactory.getInstance().getElement("techCompulsion").getNameRepresentation()).append(" ")
+                            .append(TechCompulsionFactory.getInstance().getElement(cyberdevice.getTechCompulsion()).getNameRepresentation());
+                }
+                if (data.length() > 0) {
+                    stringBuilder.append(" (");
+                    stringBuilder.append(data);
+                    stringBuilder.append(")");
+                }
+                stringBuilder.append("\n");
+            }
+        }
+    }
+
     private void setEquipment(StringBuilder stringBuilder) {
         if (!getCharacterPlayer().getWeapons().isEmpty() || getCharacterPlayer().getBestShield() != null
                 || getCharacterPlayer().getBestArmor() != null || getCharacterPlayer().getItems() != null) {
@@ -480,6 +514,7 @@ public class CharacterSheet {
             stringBuilder.append("\n");
             setVitalityRepresentation(stringBuilder);
             setRevivalsRepresentation(stringBuilder);
+            setCyberdevices(stringBuilder);
             stringBuilder.append("\n");
             setEquipment(stringBuilder);
             stringBuilder.append("\n");

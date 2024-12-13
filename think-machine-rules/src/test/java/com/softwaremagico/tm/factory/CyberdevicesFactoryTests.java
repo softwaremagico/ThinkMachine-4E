@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.skills;
+package com.softwaremagico.tm.factory;
 
 /*-
  * #%L
@@ -25,10 +25,19 @@ package com.softwaremagico.tm.character.skills;
  */
 
 
-public class CyberneticSkill extends SelectedSkill {
+import com.softwaremagico.tm.character.combat.CombatStyleFactory;
+import com.softwaremagico.tm.character.cybernetics.CyberdeviceFactory;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
-    public CyberneticSkill(Skill availableSkill, int value, boolean special) {
-        super(availableSkill, value, special);
+@Test(groups = {"cyberdevicesFactory"})
+public class CyberdevicesFactoryTests {
+    private static final int DEFINED_CYBERDEVICES = 5;
+
+
+    @Test
+    public void readCyberdevicesStyles() throws InvalidXmlElementException {
+        Assert.assertEquals(CyberdeviceFactory.getInstance().getElements().size(), DEFINED_CYBERDEVICES);
     }
-
 }

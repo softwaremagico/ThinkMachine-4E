@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cyberdevices>
+    <cyberdevice>
+        <id>advisor</id>
+        <name>
+            <en>Advisor</en>
+            <es>Consejero</es>
+        </name>
+        <description>
+            <en>You can call on the wisdom of a tiny think machine device implanted on your person.</en>
+            <es>Puedes recurrir a la sabiduría de una diminuta máquina pensante que llevas implantada.</es>
+        </description>
+        <benefice>
+            <en>You have an innocuous TL6 think machine that appears as an earpiece or a metallic neck tattoo or
+                something relatively innocuous. Its artificial intelligence can advise you on matters by speaking into
+                your inner ear canal (but nobody else can hear it). It is a bit crude, however, and may become more
+                annoying than helpful at times. It knows the equivalent of five Lore capabilities (choose which ones
+                when you gain this perk). You can swap these out for different Lores later on, if you have access to a
+                data vendor (usually found in agoras on the more cosmopolitan worlds), generally at a cost of 100fb per
+                Lore.
+            </en>
+            <es>Tienes una máquina pensante NT6 que parece un auricular, un tatuaje metálico en el cuello o algo
+                relativamente inofensivo. Su inteligencia artificial te puede aconsejar en diversos asuntos hablándote
+                directamente en tu oído interno (pero nadie más puede oírlo). No obstante, es un poco básica, y a veces
+                podría resultar más un estorbo que una ayuda. La máquina pensante conoce el equivalente a cinco
+                competencias de Saber (elige cuáles cuando ganes este beneficio). Más adelante podrás cambiarlas por
+                otras si encuentras un vendedor de datos (que suelen encontrarse en las ágoras de los planetas más
+                cosmopolitas). Por lo general, cada Saber cuesta 100 fénix.
+            </es>
+        </benefice>
+        <techLevel>6</techLevel>
+        <techCompulsion>inerrant</techCompulsion>
+    </cyberdevice>
+
+    <cyberdevice>
+        <id>aimAssitance</id>
+        <name>
+            <en>Aim Assitance</en>
+            <es>Puntería Asistida</es>
+        </name>
+        <description>
+            <en>You seem to know where people are standing without even looking.</en>
+            <es>Parece que sabes dónde están los demás sin ni siquiera mirar.</es>
+        </description>
+        <benefice>
+            <en>You have the ability to target opponents without looking in their direction without suffering any
+                disadvantage, even when you are rendered Seeing Impaired or Blinded. If you actually look at opponents
+                while attacking, you gain +2 goal to the attack roll.\n
+                While it seems a superior feat to those watching you, it’s actually is a TL7 implanted cyberdevice that
+                provides you with positional information on your enemies through hairs on your neck, bright outlines
+                beyond your peripheral vision, or direct transmission of knowledge into your cortex. The device is
+                outlawed on most planets and can only be acquired illegally. Additionally, it is considered to be
+                cheating in official duels.
+            </en>
+            <es>Tienes la capacidad de apuntar a oponentes sin mirar en su dirección ni sufrir ninguna desventaja,
+                incluso cuando estés Cegado o con Visión Reducida. Si los miras mientras los atacas, añades +2 a la meta
+                en la tirada de ataque.\n
+                Aunque parezca una hazaña para quienes te miran, en realidad lo consigues gracias a un ciberdispositivo
+                de NT7 implantado que te ofrece información posicional sobre tus enemigos a través del vello de la nuca,
+                siluetas brillantes más allá de tu visión periférica o una transmisión directa de conocimiento al
+                córtex. El dispositivo está prohibido en la mayoría de planetas y solo se puede adquirir de forma
+                ilegal. Además, usarlo en duelos oficiales se considera hacer trampas.
+            </es>
+        </benefice>
+        <techLevel>7</techLevel>
+        <techCompulsion>bloodthirsty</techCompulsion>
+        <restrictions>
+            <callings>
+                <calling>duelist</calling>
+                <calling>pirate</calling>
+            </callings>
+        </restrictions>
+    </cyberdevice>
+
+    <cyberdevice>
+        <id>destinator</id>
+        <name>
+            <en>Destinator</en>
+            <es>Planificador de Ruta</es>
+        </name>
+        <description>
+            <en>A think-machine implant helps you find your way in unusual territories.</en>
+            <es>Una máquina pensante que tienes implantada te permite orientarte en territorios inusuales.</es>
+        </description>
+        <benefice>
+            <en>You have a small TL6 implant connected to your retina or wired directly into your cortex. It stores map
+                data for you and provides you with the best courses or paths to any destination, as long as it leads
+                through known terrain.\n
+                To acquire knowledge of terrain, you may either survey it in person, study map data visually (by look
+                ing at a map for a minute), or access it via data link (if you can get access to a terminal that can
+                provide such information).
+            </en>
+            <es>Tienes un pequeño implante NT6 conectado a tu retina o directamente a tu córtex que almacena datos y te
+                ofrece las mejores rutas a cualquier destino, siempre que pases por terreno conocido.\n
+                Para adquirir conocimiento del terreno podrías visitarlo en persona, estudiar datos visuales (mirando a
+                un mapa durante un minuto) o acceder a él con un enlace de datos (si consigues acceso a un terminal que
+                tenga esa información).
+            </es>
+        </benefice>
+        <techLevel>6</techLevel>
+        <techCompulsion>inerrant</techCompulsion>
+        <restrictions>
+            <callings>
+                <calling>explorer</calling>
+                <calling>scout</calling>
+            </callings>
+        </restrictions>
+    </cyberdevice>
+
+    <cyberdevice>
+        <id>machineSpirit</id>
+        <name>
+            <en>Machine Spirit</en>
+            <es>Espíritu Máquina</es>
+        </name>
+        <description>
+            <en>You carry an A.I. implant with the sole purpose of helping you connect to other A.I.s. It knows how they
+                tick and convinces them to assist you.
+            </en>
+            <es>Llevas un implante de una IA cuyo único propósito es facilitar la conexión con otras IA y convencerlas
+                para que te ayuden.
+            </es>
+        </description>
+        <benefice>
+            <en>Whether you have an artificial finger that hides a plug, several cables accessible behind your left ear
+                or in your neck, or a hidden flap on your lower arm, you carry an A.I. in you that helps you connect to
+                other A.I.s. This A.I. is a TL7 device and is permanently grafted into your body, connected to your
+                auditory cortex.\n
+
+                To establish a connection, you must physically attach your implant to an existing outlet. If the device
+                can accept wireless broadcast, your Machine Spirit can access it within 10 meters. Your helpful A.I.
+                will then strike up a conversation with the other think machine. You can overhear the conversation but
+                may not partake in it.\n
+
+                It is the A.I.’s goal to convince the other think machine (or sentient golem) to assist you, whether
+                that’s by circumventing password protection, disabling turrets currently aiming at your ship, or giving
+                you a discount at the checkout machine. Mechanically, the game effect makes your Interface rolls
+                favorable.
+            </en>
+            <es>Gracias a un dedo artificial que esconde un enchufe, varios cables detrás de tu oreja o cuello, o una
+                tapadera oculta en tu antebrazo, llevas contigo una IA que te ayuda a conectarte a otras IA. Se trata de
+                un dispositivo de NT7 injertado permanentemente en tu cuerpo y conectado con tu corteza auditiva.\n
+
+                Para establecer una conexión, debes conectar físicamente tu implante a una toma externa. Si el
+                dispositivo acepta una conexión inalámbrica, tu Espíritu Máquina podrá acceder a ella en un radio de 10
+                metros. A continuación, se pondrá a conversar con la otra máquina pensante. Puedes escuchar la
+                conversación, pero no intervenir en ella.\n
+
+                El objetivo de tu IA es convencer a la otra máquina pensante (o gólem racional) de que te ayude, ya sea
+                eludiendo la contraseña, ofreciéndote un descuento en la caja registradora o desactivando torretas que
+                apunten a tu nave. En términos de juego, el efecto hace que tus tiradas de Interfaz sean favorables.
+            </es>
+        </benefice>
+        <techLevel>7</techLevel>
+        <techCompulsion>inerrant</techCompulsion>
+        <restrictions>
+            <callings>
+                <calling>techRedeemer</calling>
+            </callings>
+        </restrictions>
+    </cyberdevice>
+
+    <cyberdevice>
+        <id>memoryExpander</id>
+        <name>
+            <en>Memory Expander</en>
+            <es>Extensor de Memoria</es>
+        </name>
+        <description>
+            <en>A tiny think machine in your skull helps you remember things in more detail.</en>
+            <es>Una diminuta máquina pensante en tu cerebro te ayuda a recordar todo al detalle.</es>
+        </description>
+        <benefice>
+            <en>Remembering little details is hard, and often, keeping track of them requires you to constantly take
+                notes. It’s much easier to attach a tiny thinking machine to your brain, so it can do that for you. This
+                TL6 device stores visual, auditory, and olfactory information in such a way as to act as a mnemonic aid
+                when trying to remember what you’ve seen and done — including a photographic memory of each page in the
+                books you’ve read. Your rolls for the Academia-skill enter memory palace and Focus-skill remember
+                maneuvers are favorable, so long as you know the roll’s required capability.
+            </en>
+            <es>Recordar detalles es difícil y obliga a tomar notas constantemente; es mucho más fácil incorporar una
+                máquina pensante diminuta a tu cerebro para que lo haga por ti. Este dispositivo NT6 almacena
+                información visual, auditiva y olfativa y actúa como una ayuda mnemónica cuando intentas recordar lo que
+                has visto y hecho. Incluye memoria fotográfica de cada página de los libros que has leído. Tus tiradas
+                con las maniobras entrar en el palacio de la memoria, de la habilidad Academia, y recordar, de la
+                habilidad Introspección, son favorables siempre que conozcas la competencia requerida para la tirada.
+            </es>
+        </benefice>
+        <techLevel>6</techLevel>
+        <techCompulsion>inerrant</techCompulsion>
+        <restrictions>
+            <callings>
+                <calling>scholar</calling>
+                <calling>scout</calling>
+            </callings>
+        </restrictions>
+    </cyberdevice>
+</cyberdevices>

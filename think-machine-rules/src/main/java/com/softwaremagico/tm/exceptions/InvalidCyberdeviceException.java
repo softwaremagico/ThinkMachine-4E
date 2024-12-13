@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.factory;
+package com.softwaremagico.tm.exceptions;
 
 /*-
  * #%L
@@ -25,26 +25,15 @@ package com.softwaremagico.tm.factory;
  */
 
 
-import com.softwaremagico.tm.RestrictionMode;
-import com.softwaremagico.tm.character.perks.PerkFactory;
-import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import org.testng.Assert;
-import org.testng.annotations.Test;
+public class InvalidCyberdeviceException extends InvalidXmlElementException {
 
-@Test(groups = {"perkFactory"})
-public class PerkFactoryTests {
-    private static final int DEFINED_PERKS = 86;
+    private static final long serialVersionUID = -4164268081695613524L;
 
-
-    @Test
-    public void readPerks() throws InvalidXmlElementException {
-        Assert.assertEquals(PerkFactory.getInstance().getElements().size(),
-                DEFINED_PERKS);
+    public InvalidCyberdeviceException(String message) {
+        super(message);
     }
 
-    @Test
-    public void getPerkRestrictionMode() throws InvalidXmlElementException {
-        Assert.assertEquals(PerkFactory.getInstance().getElement("chameleon").getRestrictions().getMode(),
-                RestrictionMode.ANY_FROM_GROUP);
+    public InvalidCyberdeviceException(String message, Exception e) {
+        super(message, e);
     }
 }

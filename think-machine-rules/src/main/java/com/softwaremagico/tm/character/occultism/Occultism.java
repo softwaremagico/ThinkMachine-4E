@@ -39,7 +39,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Objects;
 
 
@@ -70,13 +69,7 @@ public class Occultism {
     }
 
     public int getTotalSelectedPowers() {
-        int total = 0;
-        for (final Entry<String, List<OccultismPower>> entry : getSelectedPowers().entrySet()) {
-            if (entry.getValue() != null) {
-                total += entry.getValue().size();
-            }
-        }
-        return total;
+        return (int) selectedPowers.values().stream().mapToLong(Collection::size).sum();
     }
 
     public int getTotalSelectedPaths() {
@@ -100,9 +93,10 @@ public class Occultism {
             MachineXmlReaderLog.errorMessage(this.getClass(), e);
         }
         //Enough capability points.
-        if (characterPlayer.getOccultismPoints() <= countPowers()) {
+        if (characterPlayer.getOccultismPointsAvailable() <= characterPlayer.getTotalSelectedPowers()) {
             throw new InvalidNumberOfPowersException("Invalid perk numbers for acquiring a new occultism power. Allowed points are '"
-                    + characterPlayer.getOccultismPoints() + "' and current number of powers is '" + countPowers() + "'");
+                    + characterPlayer.getOccultismPointsAvailable() + "' and current number of powers is '"
+                    + characterPlayer.getTotalSelectedPowers() + "'");
         }
 
         if (path.getRestrictions().isRestricted(characterPlayer)) {
@@ -150,7 +144,4 @@ public class Occultism {
         return selectedPowers.containsKey(path.getId());
     }
 
-    public int countPowers() {
-        return (int) selectedPowers.values().stream().mapToLong(Collection::size).sum();
-    }
 }

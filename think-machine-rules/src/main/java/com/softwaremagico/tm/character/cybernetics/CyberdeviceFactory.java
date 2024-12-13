@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.factory;
+package com.softwaremagico.tm.character.cybernetics;
 
 /*-
  * #%L
@@ -24,27 +24,30 @@ package com.softwaremagico.tm.factory;
  * #L%
  */
 
-
-import com.softwaremagico.tm.RestrictionMode;
-import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import com.softwaremagico.tm.xml.XmlFactory;
 
-@Test(groups = {"perkFactory"})
-public class PerkFactoryTests {
-    private static final int DEFINED_PERKS = 86;
+import java.util.List;
 
+public class CyberdeviceFactory extends XmlFactory<Cyberdevice> {
+    private static final String XML_FILE = "cyberdevices.xml";
 
-    @Test
-    public void readPerks() throws InvalidXmlElementException {
-        Assert.assertEquals(PerkFactory.getInstance().getElements().size(),
-                DEFINED_PERKS);
+    private static final class CyberdeviceFactoryInit {
+        public static final CyberdeviceFactory INSTANCE = new CyberdeviceFactory();
     }
 
-    @Test
-    public void getPerkRestrictionMode() throws InvalidXmlElementException {
-        Assert.assertEquals(PerkFactory.getInstance().getElement("chameleon").getRestrictions().getMode(),
-                RestrictionMode.ANY_FROM_GROUP);
+    public static CyberdeviceFactory getInstance() {
+        return CyberdeviceFactory.CyberdeviceFactoryInit.INSTANCE;
+    }
+
+
+    @Override
+    public String getXmlFile() {
+        return XML_FILE;
+    }
+
+    @Override
+    public List<Cyberdevice> getElements() throws InvalidXmlElementException {
+        return readXml(Cyberdevice.class);
     }
 }
