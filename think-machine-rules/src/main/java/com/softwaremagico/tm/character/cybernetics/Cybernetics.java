@@ -48,13 +48,16 @@ public class Cybernetics {
         if (cyberdevice == null) {
             throw new InvalidCyberdeviceException("Cyberdevice cannot be null.");
         }
+        //Enough tech level.
+        if (cyberdevice.getTechLevel() != null && characterPlayer.getTechLevel() < cyberdevice.getTechLevel()) {
+            throw new InvalidCyberdeviceException("Cyberdevice '" + cyberdevice + "' requires a tech level of  '" + cyberdevice.getTechLevel() + "'.");
+        }
         //Enough perks points.
         if (characterPlayer.getCyberneticsPointsAvailable() <= characterPlayer.getCyberneticsPointsSpent()) {
             throw new InvalidCyberdeviceException("Invalid perk numbers for acquiring a new cyberdevice. Allowed points are '"
                     + characterPlayer.getCyberneticsPointsAvailable() + "' and current number of powers is '"
                     + characterPlayer.getCyberneticsPointsSpent() + "'");
         }
-
         if (cyberdevice.getRestrictions().isRestricted(characterPlayer)) {
             throw new InvalidCyberdeviceException("Cyberdevice '" + cyberdevice + "' is restricted to  '" + cyberdevice.getRestrictions() + "'.");
         }
