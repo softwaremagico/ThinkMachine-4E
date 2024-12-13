@@ -87,6 +87,7 @@ import java.util.stream.Collectors;
 public class CharacterPlayer {
     public static final int MAX_INITIAL_VALUE = 8;
     private static final int BANK_INITIAL_VALUE = 5;
+    private static final int INITIAL_TECH_LEVEL = 4;
 
     // Basic description of the character.
     private CharacterInfo info;
@@ -626,7 +627,8 @@ public class CharacterPlayer {
     }
 
     public int getTechLevel() {
-        return 1;
+        return INITIAL_TECH_LEVEL + (int) getCapabilitiesWithSpecialization().stream().filter(capability ->
+                capability.getId().startsWith("techLore") && Objects.equals(capability.getGroup(), "techLore")).count();
     }
 
     @Override
