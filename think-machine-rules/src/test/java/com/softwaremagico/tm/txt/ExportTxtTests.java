@@ -28,7 +28,6 @@ package com.softwaremagico.tm.txt;
 import com.softwaremagico.tm.character.CharacterExamples;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.language.Translator;
-import com.softwaremagico.tm.rules.CharacterCreationTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

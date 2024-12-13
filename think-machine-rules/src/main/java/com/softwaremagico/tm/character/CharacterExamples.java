@@ -156,7 +156,7 @@ public final class CharacterExamples {
         }
 
         //Remove a material Award. Dress Sword
-        characterPlayer.getCalling().getMaterialAwards().get(1).addRemoved(characterPlayer.getCalling().getMaterialAwards().get(1).getSelections().get(0));
+        characterPlayer.getCalling().getMaterialAwards().get(1).addRemoved(new Selection("dressSword"));
 
 
         //Add a weapon

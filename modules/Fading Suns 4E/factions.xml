@@ -2771,7 +2771,7 @@
                     <capability>
                         <id>factionLore</id>
                         <selectedSpecialization>
-                            <id>muster</id>
+                            <id>musters</id>
                         </selectedSpecialization>
                     </capability>
                 </options>
@@ -2843,7 +2843,7 @@
                 <total>1</total>
                 <options>
                     <perk>
-                        <id>guildCommissionPrivate</id>
+                        <id>professionalReputationRookie</id>
                     </perk>
                 </options>
             </perkOptions>

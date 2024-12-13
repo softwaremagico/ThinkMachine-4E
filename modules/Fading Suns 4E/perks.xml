@@ -696,6 +696,13 @@
             <es>Ordenación Religiosa (Novicio)</es>
         </name>
         <group>churchOrdination</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -709,6 +716,13 @@
             <es>Ordenación Religiosa (Canónigo)</es>
         </name>
         <group>churchOrdination</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <perks>
                 <perk>churchOrdinationNovitiate</perk>
@@ -722,6 +736,13 @@
             <es>Ordenación Religiosa (Canónigo)</es>
         </name>
         <group>churchOrdination</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <perks>
                 <perk>churchOrdinationCanon</perk>
@@ -735,6 +756,13 @@
             <es>Ordenación Religiosa (Sacerdote)</es>
         </name>
         <group>churchOrdination</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <perks>
                 <perk>churchOrdinationDeacon</perk>
@@ -748,6 +776,13 @@
             <es>Ordenación Religiosa (Obispo)</es>
         </name>
         <group>churchOrdination</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <perks>
                 <perk>churchOrdinationPriest</perk>
@@ -761,6 +796,13 @@
             <es>Ordenación Religiosa (Arzobispo)</es>
         </name>
         <group>churchOrdination</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <perks>
                 <perk>churchOrdinationBishop</perk>
@@ -774,6 +816,13 @@
             <es>Shurtah (Recluta)</es>
         </name>
         <group>dervishRank</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>1</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <callings>
                 <calling>dervish</calling>
@@ -787,6 +836,13 @@
             <es>Hajib (Soldado)</es>
         </name>
         <group>dervishRank</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>1</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <perks>
                 <perk>dervishRankRecruit</perk>
@@ -800,6 +856,13 @@
             <es>Irfan (Capitán)</es>
         </name>
         <group>dervishRank</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>1</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <perks>
                 <perk>dervishRankSoldier</perk>
@@ -813,6 +876,13 @@
             <es>Hadith (Juez)</es>
         </name>
         <group>dervishRank</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>1</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <perks>
                 <perk>dervishRankCaptain</perk>
@@ -826,6 +896,13 @@
             <es>Ma’rifah (Adivino Errante)</es>
         </name>
         <group>dervishRank</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>1</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <perks>
                 <perk>dervishRankJudge</perk>
@@ -943,6 +1020,13 @@
             <es>Título Nobiliario (Caballero)</es>
         </name>
         <group>nobleTitle</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -956,6 +1040,13 @@
             <es>Título Nobiliario (Baronet)</es>
         </name>
         <group>nobleTitle</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <perks>
                 <perk>nobleTitleKnight</perk>
@@ -969,6 +1060,13 @@
             <es>Título Nobiliario (Barón)</es>
         </name>
         <group>nobleTitle</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <perks>
                 <perk>nobleTitleBaronet</perk>
@@ -982,6 +1080,13 @@
             <es>Título Nobiliario (Marqués)</es>
         </name>
         <group>nobleTitle</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <perks>
                 <perk>nobleTitleBaron</perk>
@@ -995,6 +1100,13 @@
             <es>Título Nobiliario (Conde)</es>
         </name>
         <group>nobleTitle</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <perks>
                 <perk>nobleTitleMarquis</perk>
@@ -1008,6 +1120,13 @@
             <es>Título Nobiliario (Duque)</es>
         </name>
         <group>nobleTitle</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <perks>
                 <perk>nobleTitleCount</perk>
@@ -1021,6 +1140,13 @@
             <es>Reputación Profesional (Novato)</es>
         </name>
         <group>professionalReputation</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <upbringings>
                 <upbringing>merchant</upbringing>
@@ -1034,6 +1160,13 @@
             <es>Reputación Profesional (Oficial)</es>
         </name>
         <group>professionalReputation</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <perks>
                 <perk>professionalReputationRookie</perk>
@@ -1047,6 +1180,13 @@
             <es>Reputación Profesional (Experto)</es>
         </name>
         <group>professionalReputation</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <perks>
                 <perk>professionalReputationJourneyman</perk>
@@ -1059,6 +1199,13 @@
             <en>Professional Reputation (Savant)</en>
             <es>Reputación Profesional (Sabio)</es>
         </name>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <group>professionalReputation</group>
         <restrictions>
             <perks>
@@ -1073,6 +1220,13 @@
             <es>Reputación Profesional (Maestro)</es>
         </name>
         <group>professionalReputation</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <perks>
                 <perk>professionalReputationSavant</perk>
@@ -1198,6 +1352,18 @@
         <restrictions>
             <upbringings>
                 <upbringing>noble</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>independent</id>
+        <name>
+            <en>Independent</en>
+            <es>Autónomo</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>yeoman</upbringing>
             </upbringings>
         </restrictions>
     </perk>

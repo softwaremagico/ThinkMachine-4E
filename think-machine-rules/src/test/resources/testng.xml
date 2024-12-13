@@ -67,9 +67,9 @@
             <class name="com.softwaremagico.tm.factory.TechCompulsionFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.OccultismFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.TimeFactoryTests"/>
-            <class name="com.softwaremagico.tm.rules.CharacterCreationTest"/>
-            <class name="com.softwaremagico.tm.rules.PsychicCreationTest"/>
-            <class name="com.softwaremagico.tm.rules.FreeOptionsSelectionTest"/>
+            <class name="com.softwaremagico.tm.rules.CharacterCreationTests"/>
+            <class name="com.softwaremagico.tm.rules.PsychicCreationTests"/>
+            <class name="com.softwaremagico.tm.rules.FreeOptionsSelectionTests"/>
             <class name="com.softwaremagico.tm.txt.ExportTxtTests"/>
         </classes>
     </test>

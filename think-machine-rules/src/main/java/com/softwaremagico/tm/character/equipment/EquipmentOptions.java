@@ -35,8 +35,6 @@ import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
 import com.softwaremagico.tm.character.equipment.thinkmachines.ThinkMachineFactory;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
-import com.softwaremagico.tm.character.skills.SkillBonusOption;
-import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.ArrayList;

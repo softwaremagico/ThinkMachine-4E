@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character;
+package com.softwaremagico.tm.character.resistances;
 
 /*-
  * #%L
@@ -24,18 +24,8 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
-
-public class CharacterSelectedElement {
-    private Set<Selection> selections = new HashSet<>();
-
-    public Set<Selection> getSelections() {
-        return selections;
-    }
-
-    public void setSelections(Collection<Selection> selections) {
-        this.selections = new HashSet<>(selections);
-    }
+public enum ResistanceType {
+    BODY,
+    MIND,
+    SPIRIT;
 }

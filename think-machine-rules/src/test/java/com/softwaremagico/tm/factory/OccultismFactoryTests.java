@@ -80,6 +80,13 @@ public class OccultismFactoryTests {
         Assert.assertEquals(OCCULTISM_TYPES, OccultismTypeFactory.getInstance().getElements().size());
     }
 
+    @Test
+    public void checkRestrictions() throws InvalidXmlElementException {
+        final OccultismPower occultismPower = OccultismPathFactory.getInstance().getPsiPaths().get(0).getOccultismPowersElements().get(0);
+        Assert.assertEquals(occultismPower.getRestrictions().getRestrictedToSpecies().size(), 2);
+        Assert.assertEquals(occultismPower.getRestrictions().getRestrictedToCallings().size(), 2);
+    }
+
     @Test(enabled = false)
     public void getClassifications() throws InvalidXmlElementException {
         Assert.assertEquals(ElementClassification.ENHANCEMENT,

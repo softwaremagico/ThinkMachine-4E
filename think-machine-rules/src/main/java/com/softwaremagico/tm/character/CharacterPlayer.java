@@ -50,6 +50,8 @@ import com.softwaremagico.tm.character.occultism.OccultismType;
 import com.softwaremagico.tm.character.occultism.OccultismTypeFactory;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.perks.SpecializedPerk;
+import com.softwaremagico.tm.character.resistances.Resistance;
+import com.softwaremagico.tm.character.resistances.ResistanceType;
 import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.specie.SpecieCharacterDefinitionStepSelection;
@@ -80,7 +82,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class CharacterPlayer {
-    private static final int MAX_INITIAL_VALUE = 8;
+    public static final int MAX_INITIAL_VALUE = 8;
     private static final int BANK_INITIAL_VALUE = 5;
 
     // Basic description of the character.
@@ -256,7 +258,7 @@ public class CharacterPlayer {
             bonus += calling.getSkillBonus(skill);
         }
         if (bonus > MAX_INITIAL_VALUE) {
-            throw new MaxInitialValueExceededException("Skill '" + skill + "' has exceeded the maximum value of .",
+            throw new MaxInitialValueExceededException("Skill '" + skill + "' has exceeded the maximum value of '" + MAX_INITIAL_VALUE + "' .",
                     bonus, MAX_INITIAL_VALUE);
         }
         return bonus;
@@ -393,21 +395,15 @@ public class CharacterPlayer {
     }
 
     public int getBodyResistance() {
-        if (getBestArmor() != null) {
-            return getBestArmor().getProtection();
-        }
-        return 0;
+        return Resistance.getBonus(ResistanceType.BODY, this);
     }
 
     public int getMindResistance() {
-        //return perks.
-        //TODO(softwaremagico): dervish rank gives mind resitance.
-        return 0;
+        return Resistance.getBonus(ResistanceType.MIND, this);
     }
 
     public int getSpiritResistance() {
-        //return perks.
-        return 0;
+        return Resistance.getBonus(ResistanceType.SPIRIT, this);
     }
 
     public int getLevel() {
@@ -737,12 +733,20 @@ public class CharacterPlayer {
         return occultism;
     }
 
-    private int getOccultismPointsAvailable() {
+    public int getOccultismPointsAvailable() {
         return (int) getPerks().stream().filter(perk -> Objects.equals(perk.getId(), "theurgicRites")
                 || Objects.equals(perk.getId(), "psychicPowers")).count();
     }
 
+    public int getOccultismPointsSpent() {
+        return getTotalSelectedPaths();
+    }
+
     public int getOccultismLevel(OccultismType occultismType) {
+        return getCharacteristicValue(occultismType.getId());
+    }
+
+    public int setOccultismLevel(OccultismType occultismType, int newValue) {
         return getCharacteristicValue(occultismType.getId());
     }
 
@@ -788,9 +792,9 @@ public class CharacterPlayer {
      * @return an occultism type or null if nothing has been selected.
      */
     public OccultismType getOccultismType() {
-        if (getFaction() != null && FactionGroup.get(getFaction().getGroup()) == FactionGroup.CHURCH
+        if (getFaction() != null && (FactionGroup.get(getFaction().getGroup()) == FactionGroup.CHURCH
                 || FactionGroup.get(getFaction().getGroup()) == FactionGroup.MINOR_CHURCH || Objects.equals(getFaction().getId(), "sibanzi")
-                || Objects.equals(getFaction().getId(), "vagabonds") || Objects.equals(getFaction().getId(), "swordsOfLextius")) {
+                || Objects.equals(getFaction().getId(), "vagabonds") || Objects.equals(getFaction().getId(), "swordsOfLextius"))) {
             return OccultismTypeFactory.getTheurgy();
         }
         if (getFaction() != null && (Objects.equals(getFaction().getId(), "dervishes"))) {
@@ -842,7 +846,9 @@ public class CharacterPlayer {
     public boolean canAddOccultismPower(OccultismPower power) {
         final OccultismPath path = OccultismPathFactory.getInstance().getOccultismPath(power);
         try {
-            getOccultism().canAddPower(this, path, power, getFaction() != null ? getFaction().getId() : null, getSpecie().getId(), getSettings());
+            getOccultism().canAddPower(this, path, power,
+                    getFaction() != null ? getFaction().getId() : null,
+                    getSpecie() != null ? getSpecie().getId() : null, getSettings());
             return true;
         } catch (InvalidOccultismPowerException e) {
             return false;
@@ -858,7 +864,7 @@ public class CharacterPlayer {
                     + "to configuration limitations.");
         }
         if (!power.getRestrictions().getRestrictedToSpecies().isEmpty() && getSettings().isRestrictionsChecked()
-                && (getSpecie() == null || !power.getRestrictions().getRestrictedToSpecies().contains(getSpecie()))) {
+                && (getSpecie() == null || !power.getRestrictions().getRestrictedToSpecies().contains(getSpecie().getId()))) {
             throw new InvalidOccultismPowerException("Occultism Power '" + power + "' is limited to races '"
                     + power.getRestrictions().getRestrictedToSpecies() + "'.");
         }
