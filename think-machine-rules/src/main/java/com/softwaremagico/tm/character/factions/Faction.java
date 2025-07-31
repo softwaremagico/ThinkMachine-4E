@@ -85,10 +85,12 @@ public class Faction extends CharacterDefinitionStep<Faction> {
         this.favoredCallings = favoredCallings;
     }
 
+    @Override
     public int getCharacteristicsTotalPoints() {
         return TOTAL_CHARACTERISTICS_OPTIONS;
     }
 
+    @Override
     public int getSkillsTotalPoints() {
         return TOTAL_SKILL_OPTIONS;
     }
