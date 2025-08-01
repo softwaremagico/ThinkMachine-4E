@@ -30,8 +30,6 @@ import com.softwaremagico.tm.character.planets.Planet;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.exceptions.RestrictedElementException;
-import com.softwaremagico.tm.exceptions.UnofficialElementNotAllowedException;
 import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
@@ -40,11 +38,12 @@ import java.util.Set;
 
 public class RandomPlanet extends RandomSelector<Planet> {
     private static final int FACTION_PLANET = 50;
+    private static final int SPECIE_PLANET = 80;
     private static final int NEUTRAL_PLANET = 8;
     private static final int ENEMY_PLANET = 1;
 
     public RandomPlanet(CharacterPlayer characterPlayer, Set<IRandomPreference<?>> preferences)
-            throws InvalidXmlElementException, RestrictedElementException, UnofficialElementNotAllowedException {
+            throws InvalidXmlElementException {
         super(characterPlayer, preferences);
     }
 
@@ -61,8 +60,12 @@ public class RandomPlanet extends RandomSelector<Planet> {
     @Override
     protected int getWeight(Planet planet) {
         //By faction
-        if (planet.getFactions().contains(getCharacterPlayer().getFaction().get().getId())) {
+        if (planet.getFactions().contains(getCharacterPlayer().getFaction().getId())) {
             return FACTION_PLANET;
+        }
+        //By specie
+        if (planet.getSpecies().contains(getCharacterPlayer().getSpecie().getId())) {
+            return SPECIE_PLANET;
         }
         for (final String factionsOfPlanet : planet.getFactions()) {
             if (factionsOfPlanet != null && getCharacterPlayer().getFaction() != null

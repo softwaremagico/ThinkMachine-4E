@@ -46,8 +46,12 @@ import java.util.stream.Collectors;
 public class Planet extends Element {
     @JsonProperty("factions")
     private String factionData;
+    @JsonProperty("species")
+    private String speciesData;
     @JsonIgnore
     private Set<String> factions;
+    @JsonIgnore
+    private Set<String> species;
     private Set<String> humanFactions;
     private Set<Name> names;
     private Set<Surname> surnames;
@@ -69,6 +73,14 @@ public class Planet extends Element {
         this.factionData = factionData;
     }
 
+    public String getSpeciesData() {
+        return speciesData;
+    }
+
+    public void setSpeciesData(String speciesData) {
+        this.speciesData = speciesData;
+    }
+
     public void setFactions(Set<String> factions) {
         this.factions = factions;
     }
@@ -79,6 +91,14 @@ public class Planet extends Element {
             readCommaSeparatedTokens(factions, factionData);
         }
         return factions;
+    }
+
+    public Set<String> getSpecies() {
+        if (species == null) {
+            species = new HashSet<>();
+            readCommaSeparatedTokens(species, speciesData);
+        }
+        return species;
     }
 
     public Set<String> getHumanFactions() {

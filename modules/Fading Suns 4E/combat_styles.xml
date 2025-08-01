@@ -169,7 +169,8 @@
             </stance>
         </stances>
         <random>
-            <recommendedFactions>ukar, decados</recommendedFactions>
+            <recommendedFactions> decados</recommendedFactions>
+            <recommendedSpecies>ukar</recommendedSpecies>
         </random>
     </style>
     <style>
@@ -427,7 +428,7 @@
             </stance>
         </stances>
         <random>
-            <recommendedFactions>muster</recommendedFactions>
+            <recommendedFactions>musters</recommendedFactions>
         </random>
     </style>
     <style>
@@ -685,7 +686,8 @@
             </stance>
         </stances>
         <random>
-            <recommendedFactions>ukar, scravers</recommendedFactions>
+            <recommendedFactions>scravers</recommendedFactions>
+            <recommendedFactions>ukar</recommendedFactions>
         </random>
     </style>
     <style>
@@ -1026,7 +1028,7 @@
             <recommendedUpbringings>
                 <id>merchant</id>
             </recommendedUpbringings>
-            <recommendedFactions>muster, scravers</recommendedFactions>
+            <recommendedFactions>musters, scravers</recommendedFactions>
         </random>
     </style>
 </combat_styles>

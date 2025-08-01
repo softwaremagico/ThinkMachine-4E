@@ -27,6 +27,7 @@ package com.softwaremagico.tm.random;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Gender;
 import com.softwaremagico.tm.random.character.RandomName;
+import com.softwaremagico.tm.random.character.RandomPlanet;
 import com.softwaremagico.tm.random.character.RandomSurname;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import org.testng.Assert;
@@ -60,5 +61,18 @@ public class RandomTests {
         randomSurname.updateWeights();
         randomSurname.assign();
         Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+    }
+
+
+    @Test
+    public void randomPlanet() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("noble");
+        characterPlayer.setFaction("alMalik");
+        final RandomPlanet randomSurname = new RandomPlanet(characterPlayer, null);
+        randomSurname.updateWeights();
+        randomSurname.assign();
+        Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
     }
 }

@@ -1156,7 +1156,7 @@
         <cost>100</cost>
         <random>
             <probabilityMultiplier>0.01</probabilityMultiplier>
-            <recommendedFactions>muster</recommendedFactions>
+            <recommendedFactions>musters</recommendedFactions>
         </random>
     </suresnakeWhip>
     <trenchKnife>
@@ -1370,7 +1370,7 @@
         <cost>5</cost>
         <random>
             <probabilityMultiplier>0.1</probabilityMultiplier>
-            <recommendedFactions>muster</recommendedFactions>
+            <recommendedFactions>musters</recommendedFactions>
         </random>
     </whip>
     <wireblade>
@@ -4484,7 +4484,7 @@
             <other>gunTechKit4</other>
         </others>
         <random>
-            <restrictedFactions>muster</restrictedFactions>
+            <restrictedFactions>musters</restrictedFactions>
         </random>
     </musterRover10>
     <vamGelderThracker>
@@ -8628,7 +8628,7 @@
             <other>stock</other>
         </others>
         <random>
-            <restrictedFactions>muster</restrictedFactions>
+            <restrictedFactions>musters</restrictedFactions>
         </random>
     </musterNightstorm>
     <modelHazatR25>
