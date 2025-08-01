@@ -287,7 +287,8 @@
             <en>Ungavorox</en>
             <es>Ungavorox</es>
         </name>
-        <factions>liHalan, vorox</factions>
+        <factions>liHalan</factions>
+        <species>vorox</species>
     </planet>
     <planet>
         <id>velsimil</id>

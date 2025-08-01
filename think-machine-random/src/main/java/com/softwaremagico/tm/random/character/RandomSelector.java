@@ -216,12 +216,12 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             multiplier *= randomDefinition.getProbabilityMultiplier();
         }
 
-        // Recommended to race.
+        // Recommended to specie.
         if (getCharacterPlayer() != null && getCharacterPlayer().getSpecie() != null
                 && randomDefinition.getRecommendedSpecies().contains(getCharacterPlayer().getSpecie().getId())) {
             RandomGenerationLog.debug(this.getClass().getName(),
                     "Random definition as recommended for '{}'.", getCharacterPlayer().getSpecie());
-            multiplier *= BASIC_MULTIPLIER;
+            multiplier *= HIGH_MULTIPLIER;
         }
 
         // Recommended to my faction group.
