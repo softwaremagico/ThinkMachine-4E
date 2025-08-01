@@ -75,11 +75,11 @@ public class RandomPlanet extends RandomSelector<Planet> {
 
     @Override
     protected void assignIfMandatory(Planet element) throws InvalidXmlElementException {
-        return;
+        //Not needed.
     }
 
     @Override
     protected void assignMandatoryValues(Set<Planet> mandatoryValues) throws InvalidXmlElementException {
-        return;
+        //Not needed.
     }
 }

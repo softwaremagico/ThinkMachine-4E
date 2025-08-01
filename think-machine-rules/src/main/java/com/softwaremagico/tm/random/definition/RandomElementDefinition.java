@@ -353,9 +353,11 @@ public class RandomElementDefinition extends XmlData {
     public Set<Surname> getSurnames(String faction) {
         if (surnames == null) {
             surnames = new HashSet<>();
-            Arrays.stream(surnameElements.split(",")).forEach(s ->
-                    surnames.add(new Surname(s.trim(), faction))
-            );
+            if (surnameElements != null) {
+                Arrays.stream(surnameElements.split(",")).forEach(s ->
+                        surnames.add(new Surname(s.trim(), faction))
+                );
+            }
         }
         return surnames;
     }
@@ -363,11 +365,12 @@ public class RandomElementDefinition extends XmlData {
     public Set<Name> getNames(String faction, Gender gender) {
         if (names == null) {
             names = new HashSet<>();
-            if (gender == Gender.MALE) {
+            if (gender == Gender.MALE && namesElements != null) {
                 Arrays.stream(namesElements.getMaleNames().split(",")).forEach(s ->
                         names.add(new Name(s.trim(), gender, faction))
                 );
             }
+
         }
         return names;
     }

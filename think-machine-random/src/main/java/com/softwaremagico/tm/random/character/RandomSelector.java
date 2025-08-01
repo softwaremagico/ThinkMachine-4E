@@ -87,7 +87,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         this.mandatoryValues = mandatoryValues;
     }
 
-    protected void updateWeights() throws InvalidXmlElementException {
+    public void updateWeights() throws InvalidXmlElementException {
         weightedElements = assignElementsWeight();
         totalWeight = assignTotalWeight();
     }
@@ -150,7 +150,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
     }
 
     private TreeMap<Integer, Element> assignElementsWeight() throws InvalidXmlElementException {
-        final TreeMap<Integer, Element> weightedElements = new TreeMap<>();
+        final TreeMap<Integer, Element> calculatedWeight = new TreeMap<>();
         int count = 1;
         for (final Element element : getAllElements()) {
             try {
@@ -162,11 +162,11 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
 
             final int weight = getTotalWeight(element);
             if (weight > 0) {
-                weightedElements.put(count, element);
+                calculatedWeight.put(count, element);
                 count += weight;
             }
         }
-        return weightedElements;
+        return calculatedWeight;
     }
 
     public int getTotalWeight(Element element) {
@@ -258,7 +258,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             throw new InvalidRandomElementSelectedException("Null elements not allowed.");
         }
 
-        if (!element.getRestrictions().isRestrictedToSpecie(characterPlayer)) {
+        if (element.getRestrictions().isRestrictedToSpecie(characterPlayer)) {
             throw new InvalidRandomElementSelectedException("Element '" + element + "' is restricted to '"
                     + element.getRestrictions().getRestrictedToSpecies() + "'.");
         }

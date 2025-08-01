@@ -65,12 +65,13 @@ public final class FactionFactory extends XmlFactory<Faction> {
     private void setNames() {
         if (namesByFaction == null) {
             namesByFaction = new HashMap<>();
-            for (Gender gender : Gender.values()) {
-                getElements().forEach(f -> {
+            getElements().forEach(f -> {
+                for (Gender gender : Gender.values()) {
                     namesByFaction.computeIfAbsent(f.getId(), k -> new EnumMap<>(Gender.class));
+                    namesByFaction.get(f.getId()).computeIfAbsent(gender, k -> new HashSet<>());
                     namesByFaction.get(f.getId()).put(gender, f.getRandomDefinition().getNames(f.getId(), gender));
-                });
-            }
+                }
+            });
         }
     }
 

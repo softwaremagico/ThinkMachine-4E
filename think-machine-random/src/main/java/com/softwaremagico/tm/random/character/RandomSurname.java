@@ -69,12 +69,12 @@ public class RandomSurname extends RandomSelector<Surname> {
 
     @Override
     protected void assignMandatoryValues(Set<Surname> mandatoryValues) throws InvalidXmlElementException {
-        return;
+        //Not needed.
     }
 
     @Override
     protected void assignIfMandatory(Surname element) throws InvalidXmlElementException {
-        return;
+        //Not needed.
     }
 
     @Override

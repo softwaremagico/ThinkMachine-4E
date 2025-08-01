@@ -49,8 +49,9 @@ public class RandomName extends RandomSelector<Name> {
 
     @Override
     public void assign() throws InvalidSpecieException, InvalidRandomElementSelectedException {
-        if (getCharacterPlayer().getFaction() == null || getCharacterPlayer().getSpecie() == null || getCharacterPlayer().getInfo().getPlanet() == null) {
-            throw new InvalidRandomElementSelectedException("Please, set faction, race and planet first.");
+        if (getCharacterPlayer().getFaction() == null || getCharacterPlayer().getSpecie() == null || getCharacterPlayer().getInfo().getPlanet() == null
+                || getCharacterPlayer().getInfo().getGender() == null) {
+            throw new InvalidRandomElementSelectedException("Please, set gender, faction, specie and planet first.");
         }
         NamesPreferences namesPreference = NamesPreferences.getSelected(getPreferences());
         final Rank rank = getCharacterPlayer().getRank();
@@ -86,12 +87,12 @@ public class RandomName extends RandomSelector<Name> {
 
     @Override
     protected void assignMandatoryValues(Set<Name> mandatoryValues) throws InvalidXmlElementException {
-        return;
+        //Not needed.
     }
 
     @Override
     protected void assignIfMandatory(Name element) throws InvalidXmlElementException {
-        return;
+        //Not needed.
     }
 
 
