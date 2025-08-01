@@ -30,6 +30,7 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
 import com.softwaremagico.tm.character.factions.FactionFactory;
+import com.softwaremagico.tm.character.factions.FactionGroup;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineLog;
@@ -54,6 +55,9 @@ public class Restrictions extends XmlData {
 
     @JsonProperty("factions")
     private Set<String> restrictedToFactions = new HashSet<>();
+
+    @JsonProperty("factionGroups")
+    private Set<FactionGroup> restrictedToFactionGroups = new HashSet<>();
 
     @JsonProperty("callings")
     private Set<String> restrictedToCallings = new HashSet<>();
@@ -94,6 +98,14 @@ public class Restrictions extends XmlData {
 
     public void setRestrictedToFactions(Set<String> restrictedToFactions) {
         this.restrictedToFactions = restrictedToFactions;
+    }
+
+    public Set<FactionGroup> getRestrictedToFactionGroups() {
+        return restrictedToFactionGroups;
+    }
+
+    public void setRestrictedToFactionGroups(Set<FactionGroup> restrictedToFactionGroups) {
+        this.restrictedToFactionGroups = restrictedToFactionGroups;
     }
 
     public Set<String> getRestrictedToCallings() {
@@ -141,10 +153,27 @@ public class Restrictions extends XmlData {
                 && (restrictedToSpecies == null || restrictedToSpecies.isEmpty())
                 && (restrictedToUpbringing == null || restrictedToUpbringing.isEmpty())
                 && (restrictedToFactions == null || restrictedToFactions.isEmpty())
+                && (restrictedToFactionGroups == null || restrictedToFactionGroups.isEmpty())
                 && (restrictedToCallings == null || restrictedToCallings.isEmpty())
                 && (restrictedToCapabilities == null || restrictedToCapabilities.isEmpty())
                 && (restrictedPerks == null || restrictedPerks.isEmpty())
                 && (restrictedToPerksGroups == null || restrictedToPerksGroups.isEmpty());
+    }
+
+
+    public boolean isRestrictedToSpecie(CharacterPlayer characterPlayer) {
+        return !getRestrictedToSpecies().isEmpty() && (characterPlayer.getSpecie() != null && getRestrictedToSpecies()
+                .contains(characterPlayer.getSpecie().getId()));
+    }
+
+    public boolean isRestrictedToFaction(CharacterPlayer characterPlayer) {
+        return !getRestrictedToFactions().isEmpty() && (characterPlayer.getFaction() != null && getRestrictedToFactions()
+                .contains(characterPlayer.getFaction().getId()));
+    }
+
+    public boolean isRestrictedToFactionGroup(CharacterPlayer characterPlayer) {
+        return !getRestrictedToFactionGroups().isEmpty() && (characterPlayer.getFaction() != null && getRestrictedToFactionGroups()
+                .contains(FactionGroup.get(characterPlayer.getFaction().getGroup())));
     }
 
 
@@ -158,11 +187,9 @@ public class Restrictions extends XmlData {
         try {
             return isOpen()
                     //Check Specie
-                    || ((!getRestrictedToSpecies().isEmpty() && (characterPlayer.getSpecie() != null && getRestrictedToSpecies()
-                    .contains(characterPlayer.getSpecie().getId())))
+                    || isRestrictedToSpecie(characterPlayer)
                     // Check Faction
-                    || (!getRestrictedToFactions().isEmpty() && (characterPlayer.getFaction() != null && getRestrictedToFactions()
-                    .contains(characterPlayer.getFaction().getId())))
+                    || isRestrictedToFaction(characterPlayer)
                     // Check upbringing
                     || (!getRestrictedToUpbringing().isEmpty() && (characterPlayer.getUpbringing() != null && getRestrictedToUpbringing()
                     .contains(characterPlayer.getUpbringing().getId())))
@@ -177,7 +204,7 @@ public class Restrictions extends XmlData {
                     .anyMatch(characterPlayer.getPerks().stream().map(Element::getGroup).collect(Collectors.toList())::contains)))
                     //Check capabilities
                     || (!getRestrictedToCapabilities().isEmpty() && (characterPlayer.getCapabilitiesWithSpecialization() != null && !Collections.disjoint(
-                    getRestrictedToCapabilities(), (characterPlayer.getCapabilitiesWithSpecialization())))));
+                    getRestrictedToCapabilities(), (characterPlayer.getCapabilitiesWithSpecialization()))));
         } catch (InvalidXmlElementException e) {
             MachineLog.errorMessage("Is restricted!", e);
         }
@@ -305,6 +332,7 @@ public class Restrictions extends XmlData {
                 + ", restrictedToSpecies=" + restrictedToSpecies
                 + ", restrictedToUpbringing=" + restrictedToUpbringing
                 + ", restrictedToFactions=" + restrictedToFactions
+                + ", restrictedToFactionGroups=" + restrictedToFactionGroups
                 + ", restrictedToCallings=" + restrictedToCallings
                 + ", restrictedToCapabilities=" + restrictedToCapabilities
                 + ", restrictedPerks=" + restrictedPerks

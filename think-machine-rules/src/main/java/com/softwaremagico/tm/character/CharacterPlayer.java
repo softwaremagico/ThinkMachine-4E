@@ -317,7 +317,7 @@ public class CharacterPlayer {
      *
      * @return the status of the character.
      */
-    public String getRank() {
+    public Rank getRank() {
         return null;
     }
 

@@ -1,8 +1,8 @@
-package com.softwaremagico.tm.random.exceptions;
+package com.softwaremagico.tm.character;
 
 /*-
  * #%L
- * Think Machine 4E (Random Generator)
+ * Think Machine 4E (Rules)
  * %%
  * Copyright (C) 2017 - 2025 Softwaremagico
  * %%
@@ -24,16 +24,23 @@ package com.softwaremagico.tm.random.exceptions;
  * #L%
  */
 
+import com.softwaremagico.tm.TranslatedText;
 
-public class InvalidRandomElementSelectedException extends Exception {
+public class Rank {
 
-    private static final long serialVersionUID = 1700452257397096508L;
+    private final TranslatedText name;
+    private final int level;
 
-    public InvalidRandomElementSelectedException(String message) {
-        super(message);
+    public Rank(TranslatedText name, int level) {
+        this.name = name;
+        this.level = level;
     }
 
-    public InvalidRandomElementSelectedException(String message, Throwable e) {
-        super(message, e);
+    public TranslatedText getName() {
+        return name;
+    }
+
+    public int getLevel() {
+        return level;
     }
 }

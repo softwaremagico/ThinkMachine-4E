@@ -1,8 +1,33 @@
 package com.softwaremagico.tm.random.character;
 
-import com.softwaremagico.tm.Element;
+/*-
+ * #%L
+ * Think Machine 4E (Random Generator)
+ * %%
+ * Copyright (C) 2017 - 2025 Softwaremagico
+ * %%
+ * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
+ * <softwaremagico@gmail.com> Valencia (Spain).
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation; either version 2 of the License, or (at your option) any later
+ * version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * this program; If not, see <http://www.gnu.org/licenses/gpl-3.0.html>.
+ * #L%
+ */
+
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Name;
+import com.softwaremagico.tm.character.Rank;
+import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.factions.FactionGroup;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
@@ -11,9 +36,10 @@ import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
 import com.softwaremagico.tm.random.character.selectors.NamesPreferences;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class RandomName extends RandomSelector<Name> {
 
@@ -27,11 +53,11 @@ public class RandomName extends RandomSelector<Name> {
             throw new InvalidRandomElementSelectedException("Please, set faction, race and planet first.");
         }
         NamesPreferences namesPreference = NamesPreferences.getSelected(getPreferences());
-        final BeneficeSpecialization status = getCharacterPlayer().getStatus();
+        final Rank rank = getCharacterPlayer().getRank();
         // Nobility with more names. Unless set by the user.
-        if (status != null && namesPreference == NamesPreferences.LOW
+        if (rank != null && namesPreference == NamesPreferences.LOW
                 && !getPreferences().contains(NamesPreferences.LOW)) {
-            namesPreference = NamesPreferences.getByStatus(status.getCost());
+            namesPreference = NamesPreferences.getByStatus(rank.getLevel());
         }
 
         for (int i = 0; i < namesPreference.randomGaussian(); i++) {
@@ -39,9 +65,8 @@ public class RandomName extends RandomSelector<Name> {
                 final Name selectedName = selectElementByWeight();
                 getCharacterPlayer().getInfo().addName(selectedName);
                 removeElementWeight(selectedName);
-                // Remove names from different factions. All names must be from
-                // same faction
-                for (final Name name : FactionsFactory.getInstance().getAllNames()) {
+                // Remove names from different factions. All names must be from the same faction
+                for (final Name name : FactionFactory.getInstance().getAllNames()) {
                     if (!Objects.equals(name.getFaction(), selectedName.getFaction())) {
                         removeElementWeight(name);
                     }
@@ -54,6 +79,21 @@ public class RandomName extends RandomSelector<Name> {
         }
     }
 
+    @Override
+    protected Collection<Name> getAllElements() throws InvalidXmlElementException {
+        return FactionFactory.getInstance().getAllNames();
+    }
+
+    @Override
+    protected void assignMandatoryValues(Set<Name> mandatoryValues) throws InvalidXmlElementException {
+        return;
+    }
+
+    @Override
+    protected void assignIfMandatory(Name element) throws InvalidXmlElementException {
+        return;
+    }
+
 
     protected int getWeight(Name name) throws InvalidRandomElementSelectedException {
         // Only names of its gender.
@@ -63,8 +103,8 @@ public class RandomName extends RandomSelector<Name> {
         }
         // Nobility almost always names of her planet.
         if (getCharacterPlayer().getFaction() != null
-                && getCharacterPlayer().getFaction().getFactionGroup() == FactionGroup.NOBILITY
-                && !FactionsFactory.getInstance().getAllNames(getCharacterPlayer().getFaction()).isEmpty()) {
+                && FactionGroup.get(getCharacterPlayer().getFaction().getGroup()) == FactionGroup.NOBILITY
+                && !FactionFactory.getInstance().getAllNames(getCharacterPlayer().getFaction().getId()).isEmpty()) {
             if (getCharacterPlayer().getFaction().get().getId().equals(name.getFaction())) {
                 return BASIC_PROBABILITY;
             } else {
@@ -76,8 +116,8 @@ public class RandomName extends RandomSelector<Name> {
         if (getCharacterPlayer().getInfo().getPlanet() != null
                 && !PlanetFactory.getInstance().getElement(getCharacterPlayer().getInfo().getPlanet()).getNames().isEmpty()) {
             //Only human names. Ignore xenos.
-            if (PlanetFactory.getInstance().getElement(getCharacterPlayer().getInfo().getPlanet()).getHumanFactions().stream()
-                    .map(Element::getId).collect(Collectors.toSet()).contains(name.getFaction())) {
+            if (new HashSet<>(PlanetFactory.getInstance().getElement(getCharacterPlayer().getInfo().getPlanet())
+                    .getHumanFactions()).contains(name.getFaction())) {
                 return BASIC_PROBABILITY;
             } else {
                 throw new InvalidRandomElementSelectedException("Name '" + name + "' not present in planet '"
@@ -86,8 +126,8 @@ public class RandomName extends RandomSelector<Name> {
         }
         // Planet without factions. Then choose own faction names
         if (getCharacterPlayer().getFaction() != null
-                && !FactionsFactory.getInstance().getAllNames(getCharacterPlayer().getFaction()).isEmpty()
-                && !getCharacterPlayer().getFaction().equals(name.getFaction())) {
+                && !FactionFactory.getInstance().getAllNames(getCharacterPlayer().getFaction().getId()).isEmpty()
+                && !getCharacterPlayer().getFaction().getId().equals(name.getFaction())) {
             throw new InvalidRandomElementSelectedException("Name '" + name + "' from an invalid faction '"
                     + getCharacterPlayer().getFaction() + "'.");
         }

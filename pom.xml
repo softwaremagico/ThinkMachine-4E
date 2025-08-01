@@ -17,7 +17,6 @@
         <module>think-machine-rules</module>
         <module>think-machine-random</module>
         <module>think-machine-pdf</module>
-        <module>think-machine-random</module>
     </modules>
 
     <scm>

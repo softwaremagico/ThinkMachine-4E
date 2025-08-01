@@ -24,11 +24,18 @@ package com.softwaremagico.tm.random.definition;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.XmlData;
+import com.softwaremagico.tm.character.Gender;
+import com.softwaremagico.tm.character.Name;
+import com.softwaremagico.tm.character.Surname;
 import com.softwaremagico.tm.character.characteristics.Characteristic;
 import com.softwaremagico.tm.character.equipment.Agora;
 
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class RandomElementDefinition extends XmlData {
@@ -43,12 +50,24 @@ public class RandomElementDefinition extends XmlData {
     private Double probabilityMultiplier;
     private Set<String> restrictedFactions = new HashSet<>();
     private Set<String> recommendedFactions = new HashSet<>();
+    private Set<String> recommendedFactionsGroups = new HashSet<>();
+    private Set<String> restrictedFactionsGroups = new HashSet<>();
     private Set<String> forbiddenSpecies = new HashSet<>();
     private Set<String> restrictedSpecies = new HashSet<>();
     private Set<String> recommendedSpecies = new HashSet<>();
     private Set<String> restrictedUpbringing = new HashSet<>();
     private Set<String> recommendedUpbringings = new HashSet<>();
     private RandomProbabilityDefinition probability;
+
+    @JsonProperty("names")
+    private Names namesElements;
+    @JsonProperty("surnames")
+    private String surnameElements;
+
+    @JsonIgnore
+    private Set<Name> names;
+    @JsonIgnore
+    private Set<Surname> surnames;
 
     public RandomElementDefinition() {
         super();
@@ -82,6 +101,14 @@ public class RandomElementDefinition extends XmlData {
             recommendedFactions.clear();
             recommendedFactions.addAll(randomDefinition.getRecommendedFactions());
         }
+        if (randomDefinition.getRestrictedFactionsGroups() != null && !randomDefinition.getRestrictedFactionsGroups().isEmpty()) {
+            restrictedFactionsGroups.clear();
+            restrictedFactionsGroups.addAll(randomDefinition.getRestrictedFactionsGroups());
+        }
+        if (randomDefinition.getRecommendedFactionsGroups() != null && !randomDefinition.getRecommendedFactionsGroups().isEmpty()) {
+            recommendedFactionsGroups.clear();
+            recommendedFactionsGroups.addAll(randomDefinition.getRecommendedFactions());
+        }
         if (randomDefinition.getRecommendedSpecies() != null && !randomDefinition.getRecommendedSpecies().isEmpty()) {
             recommendedSpecies.clear();
             recommendedSpecies.addAll(randomDefinition.getRecommendedSpecies());
@@ -108,10 +135,7 @@ public class RandomElementDefinition extends XmlData {
     }
 
     public Integer getMinimumTechLevel() {
-        if (minimumTechLevel == null) {
-            return 0;
-        }
-        return minimumTechLevel;
+        return Objects.requireNonNullElse(minimumTechLevel, 0);
     }
 
     public void setMinimumTechLevel(Integer minimumTechLevel) {
@@ -138,6 +162,22 @@ public class RandomElementDefinition extends XmlData {
         if (race != null) {
             restrictedSpecies.add(race);
         }
+    }
+
+    public Set<String> getRecommendedFactionsGroups() {
+        return recommendedFactionsGroups;
+    }
+
+    public void setRecommendedFactionsGroups(Set<String> recommendedFactionsGroups) {
+        this.recommendedFactionsGroups = recommendedFactionsGroups;
+    }
+
+    public Set<String> getRestrictedFactionsGroups() {
+        return restrictedFactionsGroups;
+    }
+
+    public void setRestrictedFactionsGroups(Set<String> restrictedFactionsGroups) {
+        this.restrictedFactionsGroups = restrictedFactionsGroups;
     }
 
     public RandomProbabilityDefinition getProbability() {
@@ -178,10 +218,7 @@ public class RandomElementDefinition extends XmlData {
     }
 
     public Double getProbabilityMultiplier() {
-        if (probabilityMultiplier == null) {
-            return 1d;
-        }
-        return probabilityMultiplier;
+        return Objects.requireNonNullElse(probabilityMultiplier, 1d);
     }
 
     public void setAgoraProbabilityMultiplier(Agora agora) {
@@ -311,5 +348,27 @@ public class RandomElementDefinition extends XmlData {
     @Override
     public String toString() {
         return minimumTechLevel + "";
+    }
+
+    public Set<Surname> getSurnames(String faction) {
+        if (surnames == null) {
+            surnames = new HashSet<>();
+            Arrays.stream(surnameElements.split(",")).forEach(s ->
+                    surnames.add(new Surname(s.trim(), faction))
+            );
+        }
+        return surnames;
+    }
+
+    public Set<Name> getNames(String faction, Gender gender) {
+        if (names == null) {
+            names = new HashSet<>();
+            if (gender == Gender.MALE) {
+                Arrays.stream(namesElements.getMaleNames().split(",")).forEach(s ->
+                        names.add(new Name(s.trim(), gender, faction))
+                );
+            }
+        }
+        return names;
     }
 }

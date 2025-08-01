@@ -104,8 +104,8 @@ public abstract class CharacterBasicsTableFactory extends BaseElement {
                     break;
                 case "rank":
                     if (characterPlayer.getRank() != null) {
-                        table.addCell(getHandwrittingCell(characterPlayer.getRank(), Element.ALIGN_LEFT, fontSize - 1,
-                                maxWidth));
+                        table.addCell(getHandwrittingCell(characterPlayer.getRank().getName().getTranslatedText(),
+                                Element.ALIGN_LEFT, fontSize - 1, maxWidth));
                     } else {
                         table.addCell(getHandwrittingCell("", Element.ALIGN_LEFT, fontSize - 1, maxWidth));
                     }

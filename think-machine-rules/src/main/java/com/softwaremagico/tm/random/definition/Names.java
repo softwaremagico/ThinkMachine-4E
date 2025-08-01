@@ -1,8 +1,8 @@
-package com.softwaremagico.tm.random.exceptions;
+package com.softwaremagico.tm.random.definition;
 
 /*-
  * #%L
- * Think Machine 4E (Random Generator)
+ * Think Machine 4E (Rules)
  * %%
  * Copyright (C) 2017 - 2025 Softwaremagico
  * %%
@@ -24,16 +24,27 @@ package com.softwaremagico.tm.random.exceptions;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class InvalidRandomElementSelectedException extends Exception {
+public class Names {
+    @JsonProperty("male")
+    private String maleNames;
+    @JsonProperty("female")
+    private String femaleNames;
 
-    private static final long serialVersionUID = 1700452257397096508L;
-
-    public InvalidRandomElementSelectedException(String message) {
-        super(message);
+    public String getMaleNames() {
+        return maleNames;
     }
 
-    public InvalidRandomElementSelectedException(String message, Throwable e) {
-        super(message, e);
+    public void setMaleNames(String maleNames) {
+        this.maleNames = maleNames;
+    }
+
+    public String getFemaleNames() {
+        return femaleNames;
+    }
+
+    public void setFemaleNames(String femaleNames) {
+        this.femaleNames = femaleNames;
     }
 }

@@ -48,7 +48,7 @@ public class Planet extends Element {
     private String factionData;
     @JsonIgnore
     private Set<String> factions;
-    private Set<Faction> humanFactions;
+    private Set<String> humanFactions;
     private Set<Name> names;
     private Set<Surname> surnames;
 
@@ -81,13 +81,13 @@ public class Planet extends Element {
         return factions;
     }
 
-    public Set<Faction> getHumanFactions() {
+    public Set<String> getHumanFactions() {
         // Get only human factions from the planet. Ignore Xeno factions.
         if (humanFactions == null) {
             humanFactions = new HashSet<>();
             try {
-                this.humanFactions = FactionFactory.getInstance().getElements(factions).stream().filter(Faction::isOnlyForHuman).
-                        collect(Collectors.toSet());
+                this.humanFactions = FactionFactory.getInstance().getElements(factions).stream().filter(Faction::isOnlyForHuman)
+                .map(Faction::getId).collect(Collectors.toSet());
             } catch (InvalidXmlElementException e) {
                 MachineXmlReaderLog.errorMessage(this.getClass(), e);
             }
@@ -98,10 +98,10 @@ public class Planet extends Element {
     public Set<Name> getNames() {
         if (names == null) {
             names = new HashSet<>();
-            for (final Faction faction : getHumanFactions()) {
+            for (final String faction : getHumanFactions()) {
                 try {
-                    if (RandomFactionFactory.getInstance().getElement(faction.getId()) != null) {
-                        names.addAll(RandomFactionFactory.getInstance().getElement(faction.getId()).getAllNames());
+                    if (RandomFactionFactory.getInstance().getElement(faction) != null) {
+                        names.addAll(RandomFactionFactory.getInstance().getElement(faction).getAllNames());
                     }
                 } catch (InvalidXmlElementException e) {
                     MachineXmlReaderLog.errorMessage(this.getName(), e);
@@ -114,10 +114,10 @@ public class Planet extends Element {
     public Set<Surname> getSurnames() {
         if (surnames == null) {
             surnames = new HashSet<>();
-            for (final Faction faction : getHumanFactions()) {
+            for (final String faction : getHumanFactions()) {
                 try {
-                    if (RandomFactionFactory.getInstance().getElement(faction.getId()) != null) {
-                        surnames.addAll(RandomFactionFactory.getInstance().getElement(faction.getId()).getSurnames());
+                    if (RandomFactionFactory.getInstance().getElement(faction) != null) {
+                        surnames.addAll(RandomFactionFactory.getInstance().getElement(faction).getSurnames());
                     }
                 } catch (InvalidXmlElementException e) {
                     MachineXmlReaderLog.errorMessage(this.getName(), e);
