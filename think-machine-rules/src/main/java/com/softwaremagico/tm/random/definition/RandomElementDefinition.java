@@ -188,9 +188,9 @@ public class RandomElementDefinition extends XmlData {
         this.probability = probability;
     }
 
-    public void addRecommendedRace(String race) {
-        if (race != null) {
-            recommendedSpecies.add(race);
+    public void addRecommendedSpecie(String specie) {
+        if (specie != null) {
+            recommendedSpecies.add(specie);
         }
     }
 
