@@ -26,14 +26,13 @@ package com.softwaremagico.tm.random.character;
 
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Name;
-import com.softwaremagico.tm.character.Rank;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.factions.FactionGroup;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
-import com.softwaremagico.tm.random.character.selectors.NamesPreferences;
+import com.softwaremagico.tm.random.character.selectors.RandomPreference;
+import com.softwaremagico.tm.random.character.selectors.NamesProbability;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
 import java.util.Collection;
@@ -43,7 +42,9 @@ import java.util.Set;
 
 public class RandomName extends RandomSelector<Name> {
 
-    public RandomName(CharacterPlayer characterPlayer, Set<IRandomPreference<?>> preferences) throws InvalidXmlElementException {
+    private static final int STATUS_COST_MODIFIER = 4;
+
+    public RandomName(CharacterPlayer characterPlayer, Set<RandomPreference> preferences) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
     }
 
@@ -53,15 +54,10 @@ public class RandomName extends RandomSelector<Name> {
                 || getCharacterPlayer().getInfo().getGender() == null) {
             throw new InvalidRandomElementSelectedException("Please, set gender, faction, specie and planet first.");
         }
-        NamesPreferences namesPreference = NamesPreferences.getSelected(getPreferences());
-        final Rank rank = getCharacterPlayer().getRank();
-        // Nobility with more names. Unless set by the user.
-        if (rank != null && namesPreference == NamesPreferences.LOW
-                && !getPreferences().contains(NamesPreferences.LOW)) {
-            namesPreference = NamesPreferences.getByStatus(rank.getLevel());
-        }
 
-        for (int i = 0; i < namesPreference.randomGaussian(); i++) {
+        final NamesProbability namesProbability = NamesProbability.getByStatus(getCharacterPlayer().getRank());
+
+        for (int i = 0; i < namesProbability.randomGaussian(); i++) {
             try {
                 final Name selectedName = selectElementByWeight();
                 getCharacterPlayer().getInfo().addName(selectedName);

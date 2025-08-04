@@ -8,17 +8,17 @@ package com.softwaremagico.tm.random;
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
  * Foundation; either version 2 of the License, or (at your option) any later
  * version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU General Public License along with
  * this program; If not, see <http://www.gnu.org/licenses/gpl-3.0.html>.
  * #L%
@@ -26,6 +26,8 @@ package com.softwaremagico.tm.random;
 
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Gender;
+import com.softwaremagico.tm.character.specie.Specie;
+import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.random.character.RandomName;
 import com.softwaremagico.tm.random.character.RandomPlanet;
 import com.softwaremagico.tm.random.character.RandomSurname;
@@ -35,6 +37,12 @@ import org.testng.annotations.Test;
 
 @Test(groups = {"random"})
 public class RandomTests {
+
+    @Test
+    public void readRandomPreferences() {
+        final Specie human = SpecieFactory.getInstance().getElement("human");
+        Assert.assertEquals((int) human.getRandomDefinition().getStaticProbability(), 1000);
+    }
 
     @Test
     public void randomNames() throws InvalidRandomElementSelectedException {

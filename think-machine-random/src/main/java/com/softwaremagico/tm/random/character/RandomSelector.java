@@ -30,11 +30,21 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.RestrictedElementException;
 import com.softwaremagico.tm.exceptions.UnofficialElementNotAllowedException;
 import com.softwaremagico.tm.log.RandomGenerationLog;
-import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
+import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.Random;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 public abstract class RandomSelector<Element extends com.softwaremagico.tm.Element> {
     protected static final int MAX_PROBABILITY = 1000000;
@@ -51,11 +61,12 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
 
     protected static final int BASIC_MULTIPLIER = 5;
     protected static final int HIGH_MULTIPLIER = 10;
+    protected static final int USER_SELECTION_MULTIPLIER = 15;
 
     public static final Random RANDOM = new Random();
 
     private final CharacterPlayer characterPlayer;
-    private final Set<IRandomPreference<?>> preferences;
+    private final Set<RandomPreference> preferences;
 
     private final Set<Element> suggestedElements;
     private final Set<Element> mandatoryValues;
@@ -64,12 +75,12 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
     private TreeMap<Integer, Element> weightedElements;
     private int totalWeight;
 
-    protected RandomSelector(CharacterPlayer characterPlayer, Set<IRandomPreference<?>> preferences)
+    protected RandomSelector(CharacterPlayer characterPlayer, Set<RandomPreference> preferences)
             throws InvalidXmlElementException {
         this(characterPlayer, preferences, new HashSet<>(), new HashSet<>());
     }
 
-    protected RandomSelector(CharacterPlayer characterPlayer, Set<IRandomPreference<?>> preferences, Set<Element> suggestedElements,
+    protected RandomSelector(CharacterPlayer characterPlayer, Set<RandomPreference> preferences, Set<Element> suggestedElements,
                              Set<Element> mandatoryValues) {
         this.characterPlayer = characterPlayer;
         this.preferences = preferences;
@@ -96,7 +107,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
 
     public abstract void assign() throws InvalidSpecieException, InvalidRandomElementSelectedException;
 
-    protected Set<IRandomPreference<?>> getPreferences() {
+    protected Set<RandomPreference> getPreferences() {
         if (preferences == null) {
             return new HashSet<>();
         }
@@ -175,6 +186,10 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
                 throw new InvalidRandomElementSelectedException("Non official elements are disabled. Element '" + element + "' is non official.");
             }
 
+            if (preferences != null && Collections.disjoint(preferences, element.getRandomDefinition().getForbiddenPreferences())) {
+                throw new InvalidRandomElementSelectedException("Element '" + element + "' disabled by user preferences.");
+            }
+
             int weight = getWeight(element);
             weight = (int) ((weight) * getRandomDefinitionBonus(element));
             if (weight > 0) {
@@ -246,9 +261,16 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
 
         // Probability definition by preference.
         if (randomDefinition.getProbability() != null) {
-            multiplier *= randomDefinition.getProbability().getProbabilityMultiplier();
             RandomGenerationLog.debug(this.getClass().getName(), "Random definition defines with bonus probability of '"
                     + randomDefinition.getProbability().getProbabilityMultiplier() + "'.");
+            multiplier *= randomDefinition.getProbability().getProbabilityMultiplier();
+        }
+
+        // Recommended by user preferences.
+        if (preferences != null && Collections.disjoint(preferences, randomDefinition.getRecommendedPreferences())) {
+            RandomGenerationLog.debug(this.getClass().getName(),
+                    "Random definition as recommended for '{}'.", preferences);
+            multiplier *= USER_SELECTION_MULTIPLIER;
         }
 
         RandomGenerationLog.debug(this.getClass().getName(),

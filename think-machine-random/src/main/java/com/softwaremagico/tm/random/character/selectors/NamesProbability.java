@@ -24,11 +24,10 @@ package com.softwaremagico.tm.random.character.selectors;
  * #L%
  */
 
+import com.softwaremagico.tm.character.Rank;
 import com.softwaremagico.tm.random.character.RandomSelector;
 
-import java.util.Set;
-
-public enum NamesPreferences implements IGaussianDistribution, IRandomPreference<NamesPreferences> {
+public enum NamesProbability implements IGaussianDistribution {
 
     // Gaussian distribution.
     LOW(1, 1, 1, 1),
@@ -46,7 +45,7 @@ public enum NamesPreferences implements IGaussianDistribution, IRandomPreference
     private final int mean;
     private final int variance;
 
-    NamesPreferences(int minimumValue, int maximumValue, int mean, int variance) {
+    NamesProbability(int minimumValue, int maximumValue, int mean, int variance) {
         this.maximum = maximumValue;
         this.minimum = minimumValue;
         this.variance = variance;
@@ -73,15 +72,6 @@ public enum NamesPreferences implements IGaussianDistribution, IRandomPreference
         return mean;
     }
 
-    public static NamesPreferences getSelected(Set<IRandomPreference<?>> preferences) {
-        for (final IRandomPreference<?> preference : preferences) {
-            if (preference instanceof NamesPreferences namesPreferences) {
-                return namesPreferences;
-            }
-        }
-        return LOW;
-    }
-
     @Override
     public int randomGaussian() {
         int selectedValue;
@@ -91,24 +81,15 @@ public enum NamesPreferences implements IGaussianDistribution, IRandomPreference
         return selectedValue;
     }
 
-    public static NamesPreferences getByStatus(int statusCost) {
-        int index = (statusCost / STATUS_COST_MODIFIER) - 1;
+    public static NamesProbability getByStatus(Rank rank) {
+        int index = rank != null ? rank.getLevel() : 0;
 
         if (index < 0) {
             index = 0;
         }
-        if (index > NamesPreferences.values().length - 1) {
-            index = NamesPreferences.values().length - 1;
+        if (index > NamesProbability.values().length - 1) {
+            index = NamesProbability.values().length - 1;
         }
-        return NamesPreferences.values()[index];
-    }
-
-    @Override
-    public IRandomPreference<NamesPreferences> getDefault() {
-        return getDefaultOption();
-    }
-
-    public static IRandomPreference<NamesPreferences> getDefaultOption() {
-        return null;
+        return NamesProbability.values()[index];
     }
 }

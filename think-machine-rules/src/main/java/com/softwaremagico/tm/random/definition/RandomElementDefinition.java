@@ -60,6 +60,9 @@ public class RandomElementDefinition extends XmlData {
     private Set<String> forbiddenUpbringings = new HashSet<>();
     private Set<String> restrictedUpbringing = new HashSet<>();
     private Set<String> recommendedUpbringings = new HashSet<>();
+    private Set<String> forbiddenPreferences = new HashSet<>();
+    private Set<String> restrictedPreferences = new HashSet<>();
+    private Set<String> recommendedPreferences = new HashSet<>();
     private RandomProbabilityDefinition probability;
 
     @JsonProperty("names")
@@ -143,6 +146,18 @@ public class RandomElementDefinition extends XmlData {
         if (randomDefinition.getRecommendedUpbringings() != null && !randomDefinition.getRecommendedUpbringings().isEmpty()) {
             recommendedUpbringings.clear();
             recommendedUpbringings.addAll(randomDefinition.getRecommendedUpbringings());
+        }
+        if (randomDefinition.getForbiddenPreferences() != null && !randomDefinition.getForbiddenPreferences().isEmpty()) {
+            forbiddenPreferences.clear();
+            forbiddenPreferences.addAll(randomDefinition.getForbiddenPreferences());
+        }
+        if (randomDefinition.getRestrictedPreferences() != null && !randomDefinition.getRestrictedPreferences().isEmpty()) {
+            restrictedPreferences.clear();
+            restrictedPreferences.addAll(randomDefinition.getRestrictedPreferences());
+        }
+        if (randomDefinition.getRecommendedPreferences() != null && !randomDefinition.getRecommendedPreferences().isEmpty()) {
+            recommendedPreferences.clear();
+            recommendedPreferences.addAll(randomDefinition.getRecommendedPreferences());
         }
         if (randomDefinition.getProbability() != null) {
             setProbability(randomDefinition.getProbability());
@@ -258,6 +273,30 @@ public class RandomElementDefinition extends XmlData {
 
     public void setForbiddenUpbringings(Set<String> forbiddenUpbringings) {
         this.forbiddenUpbringings = forbiddenUpbringings;
+    }
+
+    public Set<String> getForbiddenPreferences() {
+        return forbiddenPreferences;
+    }
+
+    public void setForbiddenPreferences(Set<String> forbiddenPreferences) {
+        this.forbiddenPreferences = forbiddenPreferences;
+    }
+
+    public Set<String> getRestrictedPreferences() {
+        return restrictedPreferences;
+    }
+
+    public void setRestrictedPreferences(Set<String> restrictedPreferences) {
+        this.restrictedPreferences = restrictedPreferences;
+    }
+
+    public Set<String> getRecommendedPreferences() {
+        return recommendedPreferences;
+    }
+
+    public void setRecommendedPreferences(Set<String> recommendedPreferences) {
+        this.recommendedPreferences = recommendedPreferences;
     }
 
     public void setAgoraProbabilityMultiplier(Agora agora) {
