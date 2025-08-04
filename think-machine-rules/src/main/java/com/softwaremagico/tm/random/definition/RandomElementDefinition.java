@@ -48,13 +48,16 @@ public class RandomElementDefinition extends XmlData {
     private Integer minimumTechLevel;
     private Integer maximumTechLevel;
     private Double probabilityMultiplier;
+    private Set<String> forbiddenFactions = new HashSet<>();
     private Set<String> restrictedFactions = new HashSet<>();
     private Set<String> recommendedFactions = new HashSet<>();
+    private Set<String> forbiddenFactionsGroups = new HashSet<>();
     private Set<String> recommendedFactionsGroups = new HashSet<>();
     private Set<String> restrictedFactionsGroups = new HashSet<>();
     private Set<String> forbiddenSpecies = new HashSet<>();
     private Set<String> restrictedSpecies = new HashSet<>();
     private Set<String> recommendedSpecies = new HashSet<>();
+    private Set<String> forbiddenUpbringings = new HashSet<>();
     private Set<String> restrictedUpbringing = new HashSet<>();
     private Set<String> recommendedUpbringings = new HashSet<>();
     private RandomProbabilityDefinition probability;
@@ -93,6 +96,10 @@ public class RandomElementDefinition extends XmlData {
         if (randomDefinition.getProbabilityMultiplier() != null) {
             setProbabilityMultiplier(randomDefinition.getProbabilityMultiplier());
         }
+        if (randomDefinition.getForbiddenFactions() != null && !randomDefinition.getForbiddenFactions().isEmpty()) {
+            forbiddenFactions.clear();
+            forbiddenFactions.addAll(randomDefinition.getForbiddenFactions());
+        }
         if (randomDefinition.getRestrictedFactions() != null && !randomDefinition.getRestrictedFactions().isEmpty()) {
             restrictedFactions.clear();
             restrictedFactions.addAll(randomDefinition.getRestrictedFactions());
@@ -100,6 +107,10 @@ public class RandomElementDefinition extends XmlData {
         if (randomDefinition.getRecommendedFactions() != null && !randomDefinition.getRecommendedFactions().isEmpty()) {
             recommendedFactions.clear();
             recommendedFactions.addAll(randomDefinition.getRecommendedFactions());
+        }
+        if (randomDefinition.getForbiddenFactionsGroups() != null && !randomDefinition.getForbiddenFactionsGroups().isEmpty()) {
+            forbiddenFactionsGroups.clear();
+            forbiddenFactionsGroups.addAll(randomDefinition.getForbiddenFactionsGroups());
         }
         if (randomDefinition.getRestrictedFactionsGroups() != null && !randomDefinition.getRestrictedFactionsGroups().isEmpty()) {
             restrictedFactionsGroups.clear();
@@ -120,6 +131,10 @@ public class RandomElementDefinition extends XmlData {
         if (randomDefinition.getRestrictedSpecies() != null && !randomDefinition.getRestrictedSpecies().isEmpty()) {
             restrictedSpecies.clear();
             restrictedSpecies.addAll(randomDefinition.getRestrictedSpecies());
+        }
+        if (randomDefinition.getForbiddenUpbringings() != null && !randomDefinition.getForbiddenUpbringings().isEmpty()) {
+            forbiddenUpbringings.clear();
+            forbiddenUpbringings.addAll(randomDefinition.getForbiddenUpbringings());
         }
         if (randomDefinition.getRestrictedUpbringing() != null && !randomDefinition.getRestrictedUpbringing().isEmpty()) {
             restrictedUpbringing.clear();
@@ -219,6 +234,30 @@ public class RandomElementDefinition extends XmlData {
 
     public Double getProbabilityMultiplier() {
         return Objects.requireNonNullElse(probabilityMultiplier, 1d);
+    }
+
+    public Set<String> getForbiddenFactions() {
+        return forbiddenFactions;
+    }
+
+    public void setForbiddenFactions(Set<String> forbiddenFactions) {
+        this.forbiddenFactions = forbiddenFactions;
+    }
+
+    public Set<String> getForbiddenFactionsGroups() {
+        return forbiddenFactionsGroups;
+    }
+
+    public void setForbiddenFactionsGroups(Set<String> forbiddenFactionsGroups) {
+        this.forbiddenFactionsGroups = forbiddenFactionsGroups;
+    }
+
+    public Set<String> getForbiddenUpbringings() {
+        return forbiddenUpbringings;
+    }
+
+    public void setForbiddenUpbringings(Set<String> forbiddenUpbringings) {
+        this.forbiddenUpbringings = forbiddenUpbringings;
     }
 
     public void setAgoraProbabilityMultiplier(Agora agora) {

@@ -96,6 +96,7 @@ public class RandomName extends RandomSelector<Name> {
     }
 
 
+    @Override
     protected int getWeight(Name name) throws InvalidRandomElementSelectedException {
         // Only names of its gender.
         if (!name.getGender().equals(getCharacterPlayer().getInfo().getGender())) {

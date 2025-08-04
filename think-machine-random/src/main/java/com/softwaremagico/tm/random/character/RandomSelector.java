@@ -34,17 +34,7 @@ import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.NoSuchElementException;
-import java.util.Random;
-import java.util.Set;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.*;
 
 public abstract class RandomSelector<Element extends com.softwaremagico.tm.Element> {
     protected static final int MAX_PROBABILITY = 1000000;
@@ -160,24 +150,29 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
                 continue;
             }
 
-            final int weight = getTotalWeight(element);
-            if (weight > 0) {
-                calculatedWeight.put(count, element);
-                count += weight;
+            try {
+                final int weight = getTotalWeight(element);
+                if (weight > 0) {
+                    calculatedWeight.put(count, element);
+                    count += weight;
+                }
+            } catch (InvalidRandomElementSelectedException e) {
+                // Element not valid. Ignore it.
+                continue;
             }
         }
         return calculatedWeight;
     }
 
-    public int getTotalWeight(Element element) {
+    public int getTotalWeight(Element element) throws InvalidRandomElementSelectedException {
         try {
             //Restricted elements has 0 weight.
             if (element.getRestrictions().isRestricted(characterPlayer)) {
-                return 0;
+                throw new InvalidRandomElementSelectedException("Element '" + element + "' is restricted to character.");
             }
 
             if (characterPlayer != null && characterPlayer.getSettings().isOnlyOfficialAllowed() && !element.isOfficial()) {
-                return 0;
+                throw new InvalidRandomElementSelectedException("Non official elements are disabled. Element '" + element + "' is non official.");
             }
 
             int weight = getWeight(element);
@@ -241,6 +236,14 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             multiplier *= HIGH_MULTIPLIER;
         }
 
+        // Recommended to my upbringing.
+        if (getCharacterPlayer() != null && getCharacterPlayer().getUpbringing() != null
+                && randomDefinition.getRestrictedUpbringing().contains(getCharacterPlayer().getUpbringing().getId())) {
+            RandomGenerationLog.debug(this.getClass().getName(),
+                    "Random definition as recommended for '{}'.", getCharacterPlayer().getUpbringing());
+            multiplier *= HIGH_MULTIPLIER;
+        }
+
         // Probability definition by preference.
         if (randomDefinition.getProbability() != null) {
             multiplier *= randomDefinition.getProbability().getProbabilityMultiplier();
@@ -291,7 +294,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             throw new InvalidRandomElementSelectedException("The tech level of the character is too high.");
         }
 
-        // Race limitation
+        // Specie limitation
         if (getCharacterPlayer() != null && randomDefinition.getRestrictedSpecies() != null
                 && !randomDefinition.getRestrictedSpecies().isEmpty()
                 && !randomDefinition.getRestrictedSpecies().contains(getCharacterPlayer().getSpecie().getId())) {
@@ -305,12 +308,28 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
                     "Element forbidden to species '" + randomDefinition.getForbiddenSpecies() + "'.");
         }
 
+        // Factions forbidden.
+        if (getCharacterPlayer() != null && getCharacterPlayer().getFaction() != null
+                && !randomDefinition.getForbiddenFactions().isEmpty()
+                && randomDefinition.getForbiddenFactions().contains(getCharacterPlayer().getFaction().getId())) {
+            throw new InvalidRandomElementSelectedException(
+                    "Element forbidden to factions groups '" + randomDefinition.getForbiddenFactions() + "'.");
+        }
+
         // Faction restriction.
         if (getCharacterPlayer() != null && getCharacterPlayer().getFaction() != null
                 && !randomDefinition.getRestrictedFactions().isEmpty()
                 && !randomDefinition.getRestrictedFactions().contains(getCharacterPlayer().getFaction().getId())) {
             throw new InvalidRandomElementSelectedException(
                     "Element restricted to factions '" + randomDefinition.getRestrictedFactions() + "'.");
+        }
+
+        // Faction groups forbidden.
+        if (getCharacterPlayer() != null && getCharacterPlayer().getFaction() != null
+                && !randomDefinition.getForbiddenFactionsGroups().isEmpty()
+                && randomDefinition.getForbiddenFactionsGroups().contains(getCharacterPlayer().getFaction().getGroup())) {
+            throw new InvalidRandomElementSelectedException(
+                    "Element forbidden to factions groups '" + randomDefinition.getForbiddenFactionsGroups() + "'.");
         }
 
         // Faction groups restriction.
@@ -320,6 +339,22 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             throw new InvalidRandomElementSelectedException(
                     "Element restricted to factions groups '" + randomDefinition.getRestrictedFactionsGroups() + "'.");
         }
+
+        // Upbringing groups forbidden.
+        if (getCharacterPlayer() != null && getCharacterPlayer().getUpbringing() != null
+                && !randomDefinition.getForbiddenUpbringings().isEmpty()
+                && randomDefinition.getForbiddenUpbringings().contains(getCharacterPlayer().getUpbringing().getId())) {
+            throw new InvalidRandomElementSelectedException(
+                    "Element forbidden to upbringings '" + randomDefinition.getForbiddenUpbringings() + "'.");
+        }
+
+        // Upbringing groups restriction.
+        if (getCharacterPlayer() != null && getCharacterPlayer().getUpbringing() != null
+                && !randomDefinition.getRestrictedUpbringing().isEmpty()
+                && !randomDefinition.getRestrictedUpbringing().contains(getCharacterPlayer().getUpbringing().getId())) {
+            throw new InvalidRandomElementSelectedException(
+                    "Element restricted to upbringings '" + randomDefinition.getRestrictedUpbringing() + "'.");
+        }
     }
 
     /**
@@ -328,7 +363,9 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
      * @param element to get the weight
      * @return weight as integer
      */
-    protected abstract int getWeight(Element element) throws InvalidRandomElementSelectedException;
+    protected int getWeight(Element element) throws InvalidRandomElementSelectedException {
+        return 1;
+    }
 
     /**
      * Selects a characteristic depending on its weight.
