@@ -26,5 +26,8 @@ package com.softwaremagico.tm.random.character.selectors;
 
 public enum RandomPreference {
     MILITANT,
+    PACIFIST,
     EXOTIC,
+    PRIMITIVE,
+    HI_TECH,
 }

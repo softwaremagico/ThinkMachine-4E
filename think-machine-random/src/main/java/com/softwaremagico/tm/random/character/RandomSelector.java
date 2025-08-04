@@ -186,10 +186,6 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
                 throw new InvalidRandomElementSelectedException("Non official elements are disabled. Element '" + element + "' is non official.");
             }
 
-            if (preferences != null && Collections.disjoint(preferences, element.getRandomDefinition().getForbiddenPreferences())) {
-                throw new InvalidRandomElementSelectedException("Element '" + element + "' disabled by user preferences.");
-            }
-
             int weight = getWeight(element);
             weight = (int) ((weight) * getRandomDefinitionBonus(element));
             if (weight > 0) {
@@ -267,7 +263,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         }
 
         // Recommended by user preferences.
-        if (preferences != null && Collections.disjoint(preferences, randomDefinition.getRecommendedPreferences())) {
+        if (preferences != null && !Collections.disjoint(preferences, randomDefinition.getRecommendedPreferences())) {
             RandomGenerationLog.debug(this.getClass().getName(),
                     "Random definition as recommended for '{}'.", preferences);
             multiplier *= USER_SELECTION_MULTIPLIER;
@@ -362,7 +358,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
                     "Element restricted to factions groups '" + randomDefinition.getRestrictedFactionsGroups() + "'.");
         }
 
-        // Upbringing groups forbidden.
+        // Upbringing forbidden.
         if (getCharacterPlayer() != null && getCharacterPlayer().getUpbringing() != null
                 && !randomDefinition.getForbiddenUpbringings().isEmpty()
                 && randomDefinition.getForbiddenUpbringings().contains(getCharacterPlayer().getUpbringing().getId())) {
@@ -370,12 +366,24 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
                     "Element forbidden to upbringings '" + randomDefinition.getForbiddenUpbringings() + "'.");
         }
 
-        // Upbringing groups restriction.
+        // Upbringing restriction.
         if (getCharacterPlayer() != null && getCharacterPlayer().getUpbringing() != null
                 && !randomDefinition.getRestrictedUpbringing().isEmpty()
                 && !randomDefinition.getRestrictedUpbringing().contains(getCharacterPlayer().getUpbringing().getId())) {
             throw new InvalidRandomElementSelectedException(
                     "Element restricted to upbringings '" + randomDefinition.getRestrictedUpbringing() + "'.");
+        }
+
+        // User preferences  forbidden.
+        if (preferences != null && !Collections.disjoint(preferences, randomDefinition.getForbiddenPreferences())) {
+            throw new InvalidRandomElementSelectedException(
+                    "Element ignored due to preferences '" + randomDefinition.getForbiddenPreferences() + "'.");
+        }
+
+        // User preferences restriction.
+        if (preferences != null && Collections.disjoint(preferences, randomDefinition.getRestrictedPreferences())) {
+            throw new InvalidRandomElementSelectedException(
+                    "Element ignored due as lacking mandatory preference '" + randomDefinition.getRestrictedPreferences() + "'.");
         }
     }
 
