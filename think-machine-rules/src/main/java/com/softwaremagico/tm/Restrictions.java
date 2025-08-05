@@ -198,13 +198,14 @@ public class Restrictions extends XmlData {
                     .contains(characterPlayer.getCalling().getId())))
                     // Check Perks
                     || (!getRestrictedPerks().isEmpty() && (characterPlayer.getPerks() != null && !Collections.disjoint(
-                    getRestrictedPerks(), (characterPlayer.getPerks()))))
+                    getRestrictedPerks(), (characterPlayer.getPerks().stream().map(Element::getId).collect(Collectors.toList())))))
                     // Check perks Groups
                     || (!getRestrictedToPerksGroups().isEmpty() && (characterPlayer.getPerks() != null && getRestrictedToPerksGroups().stream()
                     .anyMatch(characterPlayer.getPerks().stream().map(Element::getGroup).collect(Collectors.toList())::contains)))
                     //Check capabilities
-                    || (!getRestrictedToCapabilities().isEmpty() && (characterPlayer.getCapabilitiesWithSpecialization() != null && !Collections.disjoint(
-                    getRestrictedToCapabilities(), (characterPlayer.getCapabilitiesWithSpecialization()))));
+                    || (!getRestrictedToCapabilities().isEmpty() && (characterPlayer.getCapabilitiesWithSpecialization() != null
+                    && !Collections.disjoint(getRestrictedToCapabilities(),
+                    (characterPlayer.getCapabilitiesWithSpecialization().stream().map(Element::getId).collect(Collectors.toList())))));
         } catch (InvalidXmlElementException e) {
             MachineLog.errorMessage("Is restricted!", e);
         }
@@ -235,13 +236,14 @@ public class Restrictions extends XmlData {
                     .contains(characterPlayer.getCalling().getId())))
                     // Check Perks
                     && (getRestrictedPerks().isEmpty() || (characterPlayer.getPerks() != null && !Collections.disjoint(
-                    getRestrictedPerks(), (characterPlayer.getPerks()))))
+                    getRestrictedPerks(), (characterPlayer.getPerks().stream().map(Element::getId).collect(Collectors.toList())))))
                     // Check perks Groups
                     && (getRestrictedToPerksGroups().isEmpty() || (characterPlayer.getPerks() != null && getRestrictedToPerksGroups().stream()
                     .anyMatch(characterPlayer.getPerks().stream().map(Element::getGroup).collect(Collectors.toList())::contains)))
                     //Check capabilities
-                    && (getRestrictedToCapabilities().isEmpty() || (characterPlayer.getCapabilitiesWithSpecialization() != null && !Collections.disjoint(
-                    getRestrictedToCapabilities(), (characterPlayer.getCapabilitiesWithSpecialization())))));
+                    && (getRestrictedToCapabilities().isEmpty() || (characterPlayer.getCapabilitiesWithSpecialization() != null
+                    && !Collections.disjoint(getRestrictedToCapabilities(),
+                    (characterPlayer.getCapabilitiesWithSpecialization().stream().map(Element::getId).collect(Collectors.toList()))))));
         } catch (InvalidXmlElementException e) {
             MachineLog.errorMessage("Is restricted!", e);
         }
@@ -271,13 +273,14 @@ public class Restrictions extends XmlData {
                     .contains(characterPlayer.getCalling().getId())))
                     // Check Perks
                     || (getRestrictedPerks().isEmpty() || (characterPlayer.getPerks() != null && !Collections.disjoint(
-                    getRestrictedPerks(), (characterPlayer.getPerks()))))
+                    getRestrictedPerks(), (characterPlayer.getPerks().stream().map(Element::getId).collect(Collectors.toList())))))
                     // Check perks Groups
                     || (getRestrictedToPerksGroups().isEmpty() || (characterPlayer.getPerks() != null && getRestrictedToPerksGroups().stream()
                     .anyMatch(characterPlayer.getPerks().stream().map(Element::getGroup).collect(Collectors.toList())::contains)))
                     //Check capabilities
-                    || (getRestrictedToCapabilities().isEmpty() || (characterPlayer.getCapabilitiesWithSpecialization() != null && !Collections.disjoint(
-                    getRestrictedToCapabilities(), (characterPlayer.getCapabilitiesWithSpecialization()))))));
+                    || (getRestrictedToCapabilities().isEmpty() || (characterPlayer.getCapabilitiesWithSpecialization() != null
+                    && !Collections.disjoint(getRestrictedToCapabilities(),
+                    (characterPlayer.getCapabilitiesWithSpecialization()).stream().map(Element::getId).collect(Collectors.toList()))))));
         } catch (InvalidXmlElementException e) {
             MachineLog.errorMessage("Is restricted!", e);
         }

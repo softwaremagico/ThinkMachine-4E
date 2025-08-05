@@ -45,6 +45,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 public abstract class RandomSelector<Element extends com.softwaremagico.tm.Element> {
     protected static final int MAX_PROBABILITY = 1000000;
@@ -263,10 +264,12 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         }
 
         // Recommended by user preferences.
-        if (preferences != null && !Collections.disjoint(preferences, randomDefinition.getRecommendedPreferences())) {
+        if (preferences != null) {
+            final List<String> common = preferences.stream().map(Enum::name).collect(Collectors.toList());
+            common.retainAll(randomDefinition.getRecommendedPreferences());
             RandomGenerationLog.debug(this.getClass().getName(),
-                    "Random definition as recommended for '{}'.", preferences);
-            multiplier *= USER_SELECTION_MULTIPLIER;
+                    "Random definition as recommended for '{}'.",  (USER_SELECTION_MULTIPLIER * common.size()));
+            multiplier += (USER_SELECTION_MULTIPLIER * common.size());
         }
 
         RandomGenerationLog.debug(this.getClass().getName(),
@@ -375,13 +378,14 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         }
 
         // User preferences  forbidden.
-        if (preferences != null && !Collections.disjoint(preferences, randomDefinition.getForbiddenPreferences())) {
+        if (preferences != null && !Collections.disjoint(preferences.stream().map(Enum::name).toList(),
+                randomDefinition.getForbiddenPreferences())) {
             throw new InvalidRandomElementSelectedException(
                     "Element ignored due to preferences '" + randomDefinition.getForbiddenPreferences() + "'.");
         }
 
         // User preferences restriction.
-        if (preferences != null && Collections.disjoint(preferences, randomDefinition.getRestrictedPreferences())) {
+        if (preferences != null && Collections.disjoint(preferences.stream().map(Enum::name).toList(), randomDefinition.getRestrictedPreferences())) {
             throw new InvalidRandomElementSelectedException(
                     "Element ignored due as lacking mandatory preference '" + randomDefinition.getRestrictedPreferences() + "'.");
         }
