@@ -94,6 +94,9 @@ public class CharacterPlayer {
 
     private int level = 1;
 
+    private String mainCharacteristic;
+    private String secondaryCharacteristic;
+
     private SpecieCharacterDefinitionStepSelection specie;
     private UpbringingCharacterDefinitionStepSelection upbringing;
     private FactionCharacterDefinitionStepSelection faction;
@@ -126,6 +129,24 @@ public class CharacterPlayer {
 
     public SpecieCharacterDefinitionStepSelection getSpecie() {
         return specie;
+    }
+
+    public void validate() {
+        if (specie != null) {
+            this.specie.validate();
+        }
+        if (upbringing != null) {
+            this.upbringing.validate();
+        }
+        if (faction != null) {
+            this.faction.validate();
+        }
+        if (calling != null) {
+            this.calling.validate();
+        }
+        if (getMainCharacteristic() == null || getSecondaryCharacteristic() == null) {
+            throw new InvalidCharacteristicException("You must choose your main and secondary characteristc.");
+        }
     }
 
     public void setSpecie(String specie) {
@@ -283,14 +304,36 @@ public class CharacterPlayer {
         }
     }
 
+    public String getMainCharacteristic() {
+        return mainCharacteristic;
+    }
+
+    public void setMainCharacteristic(String mainCharacteristic) {
+        this.mainCharacteristic = mainCharacteristic;
+    }
+
+    public String getSecondaryCharacteristic() {
+        return secondaryCharacteristic;
+    }
+
+    public void setSecondaryCharacteristic(String secondaryCharacteristic) {
+        this.secondaryCharacteristic = secondaryCharacteristic;
+    }
+
     public int getCharacteristicValue(String characteristic) throws MaxInitialValueExceededException {
         final CharacteristicName characteristicName = CharacteristicName.get(characteristic);
         if (characteristicName == null) {
             throw new InvalidCharacteristicException("No characteristic '" + characteristic + "' exists.");
         }
-        int bonus = 0;
-        if (specie != null) {
-            bonus += SpecieFactory.getInstance().getElement(getSpecie()).getSpecieCharacteristic(characteristic).getInitialValue();
+        int bonus;
+        if (getMainCharacteristic() != null && Objects.equals(getMainCharacteristic(), characteristic)) {
+            bonus = 5;
+        } else if (getSecondaryCharacteristic() != null && Objects.equals(getSecondaryCharacteristic(), characteristic)) {
+            bonus = 4;
+        } else if (specie != null) {
+            bonus = SpecieFactory.getInstance().getElement(getSpecie()).getSpecieCharacteristic(characteristic).getInitialValue();
+        } else {
+            bonus = Characteristic.INITIAL_VALUE;
         }
         if (upbringing != null) {
             bonus += upbringing.getCharacteristicBonus(characteristic);

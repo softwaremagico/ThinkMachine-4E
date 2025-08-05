@@ -44,6 +44,9 @@ public class Specie extends CharacterDefinitionStep<Specie> {
 
     private List<PerkOption> perks;
 
+    @JsonProperty("mainCharacteristics")
+    private List<String> mainCharacteristics;
+
     private int cost;
 
     private int size;
@@ -138,5 +141,13 @@ public class Specie extends CharacterDefinitionStep<Specie> {
 
     public void setSize(int size) {
         this.size = size;
+    }
+
+    public List<String> getMainCharacteristics() {
+        return mainCharacteristics;
+    }
+
+    public void setMainCharacteristics(List<String> mainCharacteristics) {
+        this.mainCharacteristics = mainCharacteristics;
     }
 }

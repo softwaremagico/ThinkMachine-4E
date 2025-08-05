@@ -27,11 +27,34 @@ package com.softwaremagico.tm.character.specie;
 import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
+import com.softwaremagico.tm.exceptions.InvalidSelectionException;
+import com.softwaremagico.tm.exceptions.InvalidSpecieException;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
 
 public class SpecieCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection {
 
     public SpecieCharacterDefinitionStepSelection(CharacterPlayer characterPlayer, String specie) throws InvalidGeneratedCharacter {
         super(characterPlayer, SpecieFactory.getInstance().getElement(specie));
         setId(specie);
+    }
+
+    @Override
+    public void validate() throws InvalidSelectionException {
+        //Vorox forces main characteristics.
+        final Specie specie = SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId());
+        if (specie != null && getCharacterPlayer().getMainCharacteristic() != null && getCharacterPlayer().getSecondaryCharacteristic() != null) {
+            if (!Collections.disjoint(specie.getMainCharacteristics(),
+                    List.of(getCharacterPlayer().getMainCharacteristic(), getCharacterPlayer().getSecondaryCharacteristic()))) {
+                throw new InvalidSpecieException("Primary or secondary characteristic must be any of '" + specie.getMainCharacteristics() + "'.");
+            }
+        }
+        try {
+            super.validate();
+        } catch (InvalidSelectionException e) {
+            throw new InvalidSpecieException(e.getMessage(), e);
+        }
     }
 }

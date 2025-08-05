@@ -32,6 +32,8 @@ import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 
 public class CallingCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection {
 
+    //TODO(softwaremagico): Missing favoured callings (page 39)
+
     public CallingCharacterDefinitionStepSelection(CharacterPlayer characterPlayer, String calling) throws InvalidGeneratedCharacter {
         super(characterPlayer, CallingFactory.getInstance().getElement(calling));
         setId(calling);

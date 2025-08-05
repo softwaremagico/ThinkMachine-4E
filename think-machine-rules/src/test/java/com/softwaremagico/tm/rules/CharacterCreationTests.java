@@ -44,6 +44,15 @@ import org.testng.annotations.Test;
 @Test(groups = "characterCreation")
 public class CharacterCreationTests {
 
+    @Test(expectedExceptions = InvalidUpbringingException.class)
+    public void invalidVoroxCharacteristics() {
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("vorox");
+        characterPlayer.setMainCharacteristic("dexterity");
+        characterPlayer.setSecondaryCharacteristic("wits");
+        characterPlayer.getSpecie().validate();
+    }
+
 
     @Test(expectedExceptions = InvalidUpbringingException.class)
     public void invalidUpbringing() {

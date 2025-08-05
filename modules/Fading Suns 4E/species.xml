@@ -223,7 +223,7 @@
             </characteristic>
             <characteristic>
                 <id>dexterity</id>
-                <value>4</value>
+                <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
             </characteristic>
@@ -247,7 +247,7 @@
             </characteristic>
             <characteristic>
                 <id>will</id>
-                <value>4</value>
+                <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
             </characteristic>
@@ -314,7 +314,7 @@
         <specieCharacteristics>
             <characteristic>
                 <id>strength</id>
-                <value>4</value>
+                <value>3</value>
                 <maximumInitialValue>10</maximumInitialValue>
                 <maximumValue>12</maximumValue>
             </characteristic>
@@ -326,7 +326,7 @@
             </characteristic>
             <characteristic>
                 <id>endurance</id>
-                <value>4</value>
+                <value>3</value>
                 <maximumInitialValue>10</maximumInitialValue>
                 <maximumValue>12</maximumValue>
             </characteristic>
@@ -391,6 +391,14 @@
                 <maximumValue>0</maximumValue>
             </characteristic>
         </specieCharacteristics>
+        <mainCharacteristics>
+            <characteristic>
+                <id>strength</id>
+            </characteristic>
+            <characteristic>
+                <id>endurance</id>
+            </characteristic>
+        </mainCharacteristics>
         <movement>
             <value>14</value>
         </movement>
@@ -423,7 +431,7 @@
             </characteristic>
             <characteristic>
                 <id>endurance</id>
-                <value>4</value>
+                <value>3</value>
                 <maximumInitialValue>11</maximumInitialValue>
                 <maximumValue>13</maximumValue>
             </characteristic>
@@ -516,13 +524,13 @@
             </characteristic>
             <characteristic>
                 <id>dexterity</id>
-                <value>4</value>
+                <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
             </characteristic>
             <characteristic>
                 <id>endurance</id>
-                <value>4</value>
+                <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
             </characteristic>
@@ -617,7 +625,7 @@
             </characteristic>
             <characteristic>
                 <id>dexterity</id>
-                <value>4</value>
+                <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>11</maximumValue>
             </characteristic>
@@ -635,7 +643,7 @@
             </characteristic>
             <characteristic>
                 <id>perception</id>
-                <value>4</value>
+                <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>12</maximumValue>
             </characteristic>
@@ -716,7 +724,7 @@
             </characteristic>
             <characteristic>
                 <id>dexterity</id>
-                <value>4</value>
+                <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
             </characteristic>
@@ -833,7 +841,7 @@
             </characteristic>
             <characteristic>
                 <id>perception</id>
-                <value>4</value>
+                <value>3</value>
                 <maximumInitialValue>9</maximumInitialValue>
                 <maximumValue>11</maximumValue>
             </characteristic>
@@ -934,7 +942,7 @@
             </characteristic>
             <characteristic>
                 <id>perception</id>
-                <value>4</value>
+                <value>3</value>
                 <maximumInitialValue>9</maximumInitialValue>
                 <maximumValue>11</maximumValue>
             </characteristic>
