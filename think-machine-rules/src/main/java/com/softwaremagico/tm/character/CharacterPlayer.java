@@ -94,7 +94,7 @@ public class CharacterPlayer {
 
     private int level = 1;
 
-    private String mainCharacteristic;
+    private String primaryCharacteristic;
     private String secondaryCharacteristic;
 
     private SpecieCharacterDefinitionStepSelection specie;
@@ -144,7 +144,7 @@ public class CharacterPlayer {
         if (calling != null) {
             this.calling.validate();
         }
-        if (getMainCharacteristic() == null || getSecondaryCharacteristic() == null) {
+        if (getPrimaryCharacteristic() == null || getSecondaryCharacteristic() == null) {
             throw new InvalidCharacteristicException("You must choose your main and secondary characteristc.");
         }
     }
@@ -304,12 +304,12 @@ public class CharacterPlayer {
         }
     }
 
-    public String getMainCharacteristic() {
-        return mainCharacteristic;
+    public String getPrimaryCharacteristic() {
+        return primaryCharacteristic;
     }
 
-    public void setMainCharacteristic(String mainCharacteristic) {
-        this.mainCharacteristic = mainCharacteristic;
+    public void setPrimaryCharacteristic(String primaryCharacteristic) {
+        this.primaryCharacteristic = primaryCharacteristic;
     }
 
     public String getSecondaryCharacteristic() {
@@ -326,7 +326,7 @@ public class CharacterPlayer {
             throw new InvalidCharacteristicException("No characteristic '" + characteristic + "' exists.");
         }
         int bonus;
-        if (getMainCharacteristic() != null && Objects.equals(getMainCharacteristic(), characteristic)) {
+        if (getPrimaryCharacteristic() != null && Objects.equals(getPrimaryCharacteristic(), characteristic)) {
             bonus = 5;
         } else if (getSecondaryCharacteristic() != null && Objects.equals(getSecondaryCharacteristic(), characteristic)) {
             bonus = 4;

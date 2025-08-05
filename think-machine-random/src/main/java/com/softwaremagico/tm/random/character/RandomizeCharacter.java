@@ -27,6 +27,7 @@ package com.softwaremagico.tm.random.character;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.random.character.characteristics.RandomCharacteristics;
+import com.softwaremagico.tm.random.character.factions.RandomFaction;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.character.species.RandomSpecie;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
@@ -54,16 +55,26 @@ public class RandomizeCharacter {
 
 
     public void createCharacter() throws InvalidRandomElementSelectedException {
+        selectSpecie();
+        selectFaction();
+        selectMainCharacteristics();
+    }
+
+    private void selectSpecie() throws InvalidRandomElementSelectedException {
         final RandomSpecie randomSpecie = new RandomSpecie(characterPlayer, preferences);
         randomSpecie.assign();
-        selectMainCharacteristics();
+    }
+
+    private void selectFaction() throws InvalidRandomElementSelectedException {
+        final RandomFaction randomFaction = new RandomFaction(characterPlayer, preferences);
+        randomFaction.assign();
     }
 
 
     private void selectMainCharacteristics() throws InvalidRandomElementSelectedException {
         final RandomCharacteristics randomCharacteristics = new RandomCharacteristics(characterPlayer, preferences);
         final String mainCharacteristic = randomCharacteristics.selectElementByWeight().getId();
-        characterPlayer.setMainCharacteristic(mainCharacteristic);
+        characterPlayer.setPrimaryCharacteristic(mainCharacteristic);
 
         String secondaryCharacteristic;
         do {

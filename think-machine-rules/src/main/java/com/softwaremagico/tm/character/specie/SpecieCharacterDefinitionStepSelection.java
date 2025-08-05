@@ -32,7 +32,6 @@ import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 public class SpecieCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection {
 
@@ -45,9 +44,9 @@ public class SpecieCharacterDefinitionStepSelection extends CharacterDefinitionS
     public void validate() throws InvalidSelectionException {
         //Vorox forces main characteristics.
         final Specie specie = SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId());
-        if (specie != null && getCharacterPlayer().getMainCharacteristic() != null && getCharacterPlayer().getSecondaryCharacteristic() != null) {
-            if (!Collections.disjoint(specie.getMainCharacteristics(),
-                    List.of(getCharacterPlayer().getMainCharacteristic(), getCharacterPlayer().getSecondaryCharacteristic()))) {
+        if (specie != null && getCharacterPlayer().getPrimaryCharacteristic() != null && getCharacterPlayer().getSecondaryCharacteristic() != null) {
+            if (!specie.getMainCharacteristics().isEmpty() && Collections.disjoint(specie.getMainCharacteristics(),
+                    List.of(getCharacterPlayer().getPrimaryCharacteristic(), getCharacterPlayer().getSecondaryCharacteristic()))) {
                 throw new InvalidSpecieException("Primary or secondary characteristic must be any of '" + specie.getMainCharacteristics() + "'.");
             }
         }

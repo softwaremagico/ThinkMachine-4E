@@ -48,7 +48,7 @@ public class CharacterCreationTests {
     public void invalidVoroxCharacteristics() {
         CharacterPlayer characterPlayer = new CharacterPlayer();
         characterPlayer.setSpecie("vorox");
-        characterPlayer.setMainCharacteristic("dexterity");
+        characterPlayer.setPrimaryCharacteristic("dexterity");
         characterPlayer.setSecondaryCharacteristic("wits");
         characterPlayer.getSpecie().validate();
     }

@@ -20,7 +20,7 @@
         </groups>
         <classes>
             <class name="com.softwaremagico.tm.random.RandomTests"/>
-            <class name="com.softwaremagico.tm.random.RandomCharacter"/>
+            <class name="com.softwaremagico.tm.random.RandomCharacterTest"/>
         </classes>
     </test>
 </suite>

@@ -28,9 +28,10 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Gender;
 import com.softwaremagico.tm.character.specie.Specie;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
+import com.softwaremagico.tm.random.character.characteristics.RandomCharacteristics;
 import com.softwaremagico.tm.random.character.names.RandomName;
-import com.softwaremagico.tm.random.character.planets.RandomPlanet;
 import com.softwaremagico.tm.random.character.names.RandomSurname;
+import com.softwaremagico.tm.random.character.planets.RandomPlanet;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -53,7 +54,6 @@ public class RandomTests {
         characterPlayer.getInfo().setPlanet("sutek");
         characterPlayer.getInfo().setGender(Gender.MALE);
         final RandomName randomName = new RandomName(characterPlayer, null);
-        randomName.updateWeights();
         randomName.assign();
         Assert.assertNotNull(characterPlayer.getInfo().getNames());
     }
@@ -66,7 +66,6 @@ public class RandomTests {
         characterPlayer.setFaction("alMalik");
         characterPlayer.getInfo().setPlanet("sutek");
         final RandomSurname randomSurname = new RandomSurname(characterPlayer, null);
-        randomSurname.updateWeights();
         randomSurname.assign();
         Assert.assertNotNull(characterPlayer.getInfo().getSurname());
     }
@@ -78,9 +77,18 @@ public class RandomTests {
         characterPlayer.setSpecie("human");
         characterPlayer.setUpbringing("noble");
         characterPlayer.setFaction("alMalik");
-        final RandomPlanet randomSurname = new RandomPlanet(characterPlayer, null);
-        randomSurname.updateWeights();
-        randomSurname.assign();
+        final RandomPlanet randomPlanet = new RandomPlanet(characterPlayer, null);
+        randomPlanet.assign();
         Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
+    }
+
+    @Test
+    public void randomPrimaryCharacteristics() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("vorox");
+        final RandomCharacteristics randomCharacteristics = new RandomCharacteristics(characterPlayer, null);
+        randomCharacteristics.assign();
+        Assert.assertTrue(SpecieFactory.getInstance().getElement("vorox").getMainCharacteristics().contains(characterPlayer.getPrimaryCharacteristic())
+                || SpecieFactory.getInstance().getElement("vorox").getMainCharacteristics().contains(characterPlayer.getSecondaryCharacteristic()));
     }
 }

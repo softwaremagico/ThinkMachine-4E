@@ -378,14 +378,14 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         }
 
         // User preferences  forbidden.
-        if (preferences != null && !Collections.disjoint(preferences.stream().map(Enum::name).toList(),
+        if (preferences != null && !preferences.isEmpty() && !Collections.disjoint(preferences.stream().map(Enum::name).toList(),
                 randomDefinition.getForbiddenPreferences())) {
             throw new InvalidRandomElementSelectedException(
                     "Element ignored due to preferences '" + randomDefinition.getForbiddenPreferences() + "'.");
         }
 
         // User preferences restriction.
-        if (preferences != null && Collections.disjoint(preferences.stream().map(Enum::name).toList(), randomDefinition.getRestrictedPreferences())) {
+        if (preferences != null && !preferences.isEmpty() && Collections.disjoint(preferences.stream().map(Enum::name).toList(), randomDefinition.getRestrictedPreferences())) {
             throw new InvalidRandomElementSelectedException(
                     "Element ignored due as lacking mandatory preference '" + randomDefinition.getRestrictedPreferences() + "'.");
         }
