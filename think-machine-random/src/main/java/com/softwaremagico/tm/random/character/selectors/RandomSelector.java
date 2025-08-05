@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.random.character;
+package com.softwaremagico.tm.random.character.selectors;
 
 /*-
  * #%L
@@ -30,7 +30,6 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.RestrictedElementException;
 import com.softwaremagico.tm.exceptions.UnofficialElementNotAllowedException;
 import com.softwaremagico.tm.log.RandomGenerationLog;
-import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
@@ -89,9 +88,10 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         this.mandatoryValues = mandatoryValues;
     }
 
-    public void updateWeights() throws InvalidXmlElementException {
+    public boolean updateWeights() throws InvalidXmlElementException {
         weightedElements = assignElementsWeight();
         totalWeight = assignTotalWeight();
+        return !weightedElements.isEmpty();
     }
 
     private Integer assignTotalWeight() {
@@ -268,7 +268,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             final List<String> common = preferences.stream().map(Enum::name).collect(Collectors.toList());
             common.retainAll(randomDefinition.getRecommendedPreferences());
             RandomGenerationLog.debug(this.getClass().getName(),
-                    "Random definition as recommended for '{}'.",  (USER_SELECTION_MULTIPLIER * common.size()));
+                    "Random definition as recommended for '{}'.", (USER_SELECTION_MULTIPLIER * common.size()));
             multiplier += (USER_SELECTION_MULTIPLIER * common.size());
         }
 
@@ -323,7 +323,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
                     "Element restricted to species '" + randomDefinition.getRestrictedSpecies() + "'.");
         }
 
-        if (getCharacterPlayer() != null && randomDefinition.getForbiddenSpecies() != null
+        if (getCharacterPlayer() != null && getCharacterPlayer().getSpecie() != null && randomDefinition.getForbiddenSpecies() != null
                 && randomDefinition.getForbiddenSpecies().contains(getCharacterPlayer().getSpecie().getId())) {
             throw new InvalidRandomElementSelectedException(
                     "Element forbidden to species '" + randomDefinition.getForbiddenSpecies() + "'.");
@@ -402,13 +402,15 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
     }
 
     /**
-     * Selects a characteristic depending on its weight.
+     * Selects an element depending on its weight.
      *
      * @throws InvalidRandomElementSelectedException
      */
-    protected Element selectElementByWeight() throws InvalidRandomElementSelectedException {
+    public Element selectElementByWeight() throws InvalidRandomElementSelectedException {
         if (weightedElements == null || weightedElements.isEmpty() || totalWeight == 0) {
-            throw new InvalidRandomElementSelectedException("No elements to select");
+            if (!updateWeights()) {
+                throw new InvalidRandomElementSelectedException("No elements to select");
+            }
         }
         final int value = RANDOM.nextInt(totalWeight) + 1;
         Element selectedElement;
@@ -421,6 +423,9 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             // 'view' would be empty launching a NoSuchElementException. Select
             // the first one by default.
             selectedElement = weightedElements.values().iterator().next();
+        }
+        if (selectedElement == null) {
+            throw new InvalidRandomElementSelectedException("No elements to select");
         }
         return selectedElement;
     }

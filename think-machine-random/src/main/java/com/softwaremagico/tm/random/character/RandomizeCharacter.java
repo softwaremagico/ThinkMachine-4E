@@ -24,5 +24,59 @@ package com.softwaremagico.tm.random.character;
  * #L%
  */
 
+import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.exceptions.InvalidSelectionException;
+import com.softwaremagico.tm.random.character.characteristics.RandomCharacteristics;
+import com.softwaremagico.tm.random.character.selectors.RandomPreference;
+import com.softwaremagico.tm.random.character.species.RandomSpecie;
+import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
+
 public class RandomizeCharacter {
+    private final CharacterPlayer characterPlayer;
+    private final Set<RandomPreference> preferences;
+
+    public RandomizeCharacter(CharacterPlayer characterPlayer, RandomPreference... preferences) {
+        this.characterPlayer = characterPlayer;
+        if (preferences != null) {
+            final List<RandomPreference> customPreferences = Arrays.asList(preferences);
+            customPreferences.removeIf(Objects::isNull);
+            this.preferences = new HashSet<>(customPreferences);
+        } else {
+            this.preferences = new HashSet<>();
+        }
+    }
+
+
+    public void createCharacter() throws InvalidRandomElementSelectedException {
+        final RandomSpecie randomSpecie = new RandomSpecie(characterPlayer, preferences);
+        randomSpecie.assign();
+        selectMainCharacteristics();
+    }
+
+
+    private void selectMainCharacteristics() throws InvalidRandomElementSelectedException {
+        final RandomCharacteristics randomCharacteristics = new RandomCharacteristics(characterPlayer, preferences);
+        final String mainCharacteristic = randomCharacteristics.selectElementByWeight().getId();
+        characterPlayer.setMainCharacteristic(mainCharacteristic);
+
+        String secondaryCharacteristic;
+        do {
+            secondaryCharacteristic = randomCharacteristics.selectElementByWeight().getId();
+        } while (Objects.equals(mainCharacteristic, secondaryCharacteristic));
+        characterPlayer.setSecondaryCharacteristic(secondaryCharacteristic);
+
+        //Some species forces primary characteristics.
+        try {
+            characterPlayer.getSpecie().validate();
+        } catch (InvalidSelectionException e) {
+            //Not valid, try again.
+            selectMainCharacteristics();
+        }
+    }
 }
