@@ -27,7 +27,6 @@ public class RandomUpbringing extends RandomSelector<Upbringing> {
 
         final RandomizeCharacterDefinitionStep<Upbringing> randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep<>(
                 getCharacterPlayer(),
-                UpbringingFactory.getInstance().getElement(getCharacterPlayer().getUpbringing().getId()),
                 getCharacterPlayer().getUpbringing(),
                 getPreferences()
         );

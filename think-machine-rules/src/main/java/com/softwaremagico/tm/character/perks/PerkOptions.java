@@ -44,6 +44,12 @@ public class PerkOptions extends OptionSelector<Perk, PerkOption> {
         super();
     }
 
+    public PerkOptions(PerkOptions perkOptions) {
+        super(perkOptions);
+        this.finalPerks = new ArrayList<>(perkOptions.finalPerks);
+        this.includeOpenPerks = perkOptions.includeOpenPerks;
+    }
+
     @Override
     public List<PerkOption> getOptions() {
         if (finalPerks == null) {

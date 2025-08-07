@@ -27,7 +27,6 @@ public class RandomFaction extends RandomSelector<Faction> {
 
         final RandomizeCharacterDefinitionStep<Faction> randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep<>(
                 getCharacterPlayer(),
-                FactionFactory.getInstance().getElement(getCharacterPlayer().getFaction().getId()),
                 getCharacterPlayer().getFaction(),
                 getPreferences()
         );

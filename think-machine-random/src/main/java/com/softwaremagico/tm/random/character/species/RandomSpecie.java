@@ -27,7 +27,6 @@ public class RandomSpecie extends RandomSelector<Specie> {
 
         final RandomizeCharacterDefinitionStep<Specie> randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep<>(
                 getCharacterPlayer(),
-                SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId()),
                 getCharacterPlayer().getSpecie(),
                 getPreferences()
         );

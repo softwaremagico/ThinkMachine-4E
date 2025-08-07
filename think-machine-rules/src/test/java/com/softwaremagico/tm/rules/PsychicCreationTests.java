@@ -106,7 +106,7 @@ public class PsychicCreationTests {
         characterPlayer.setUpbringing("merchant");
         characterPlayer.setFaction("societyOfStPaulus");
         characterPlayer.setCalling("psychic");
-        characterPlayer.getCalling().getPerksOptions().get(0).getSelections().add(new Selection("psychicPowers"));
+        characterPlayer.getCalling().getSelectedPerksOptions().get(0).getSelections().add(new Selection("psychicPowers"));
         Assert.assertTrue(characterPlayer.canAddOccultismPower(OccultismPathFactory.getInstance().getElement("farHand").getOccultismPowers().get("liftingHand")));
     }
 
@@ -127,7 +127,7 @@ public class PsychicCreationTests {
         characterPlayer.setUpbringing("priest");
         characterPlayer.setFaction("avestites");
         characterPlayer.setCalling("theurgist");
-        characterPlayer.getCalling().getPerksOptions().get(0).getSelections().add(new Selection("theurgicRites"));
+        characterPlayer.getCalling().getSelectedPerksOptions().get(0).getSelections().add(new Selection("theurgicRites"));
         Assert.assertTrue(characterPlayer.canAddOccultismPower(OccultismPathFactory.getInstance().getElement("templeAvestiRituals").getOccultismPowers().get("knowingTheFalseHeart")));
     }
 
@@ -139,7 +139,7 @@ public class PsychicCreationTests {
         characterPlayer.setUpbringing("noble");
         characterPlayer.setFaction("hazat");
         characterPlayer.setCalling("dervish");
-        characterPlayer.getCalling().getPerksOptions().get(0).getSelections().add(new Selection("psychicPowers"));
+        characterPlayer.getCalling().getSelectedPerksOptions().get(0).getSelections().add(new Selection("psychicPowers"));
         Assert.assertTrue(characterPlayer.canAddOccultismPower(OccultismPathFactory.getInstance().getElement("farHand").getOccultismPowers().get("liftingHand")));
     }
 }

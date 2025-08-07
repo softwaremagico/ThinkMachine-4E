@@ -26,9 +26,15 @@ package com.softwaremagico.tm.character.callings;
 
 import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.perks.PerkOption;
+import com.softwaremagico.tm.character.perks.PerkOptions;
+import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.exceptions.InvalidCallingException;
 import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CallingCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection {
 
@@ -50,5 +56,28 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
         } catch (InvalidSelectionException e) {
             throw new InvalidCallingException(e.getMessage(), e);
         }
+    }
+
+    /**
+     * Some species have default perks for callings
+     *
+     * @return
+     */
+    @Override
+    public List<PerkOptions> getPerksOptions() {
+        final List<PerkOptions> callingPerks = new ArrayList<>();
+        super.getPerksOptions().forEach(perkOptions -> callingPerks.add(new PerkOptions(perkOptions)));
+        if (getCharacterPlayer().getSpecie() != null) {
+            final List<PerkOption> speciePerks = SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId()).getPerks();
+            callingPerks.forEach(perkOptions -> {
+                //Add no duplicates.
+                speciePerks.forEach(speciePerk -> {
+                    if (!perkOptions.getOptions().contains(speciePerk)) {
+                        perkOptions.getOptions().add(speciePerk);
+                    }
+                });
+            });
+        }
+        return callingPerks;
     }
 }

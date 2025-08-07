@@ -40,7 +40,7 @@ public class ResistanceTests {
         characterPlayer.setFaction("musters");
         characterPlayer.setCalling("dervish");
         Assert.assertEquals(characterPlayer.getMindResistance(), 2);
-        characterPlayer.getCalling().getPerksOptions().get(0).getSelections().add(new Selection("dervishRankRecruit"));
+        characterPlayer.getCalling().getSelectedPerksOptions().get(0).getSelections().add(new Selection("dervishRankRecruit"));
         Assert.assertEquals(characterPlayer.getMindResistance(), 3);
     }
 
@@ -54,7 +54,7 @@ public class ResistanceTests {
         characterPlayer.setCalling("dervish");
         //2 as knight
         Assert.assertEquals(characterPlayer.getMindResistance(), 2);
-        characterPlayer.getCalling().getPerksOptions().get(0).getSelections().add(new Selection("dervishRankRecruit"));
+        characterPlayer.getCalling().getSelectedPerksOptions().get(0).getSelections().add(new Selection("dervishRankRecruit"));
         //2 as knight + 1 as dervish recruit
         Assert.assertEquals(characterPlayer.getMindResistance(), 3);
     }

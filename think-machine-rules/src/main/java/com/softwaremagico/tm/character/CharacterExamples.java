@@ -57,32 +57,32 @@ public final class CharacterExamples {
         final Upbringing upbringing = UpbringingFactory.getInstance().getElement("noble");
         for (int i = 0; i < upbringing.getCharacteristicOptions().size(); i++) {
             for (int j = 0; j < upbringing.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getUpbringing().getCharacteristicOptions().get(i).getSelections()
+                characterPlayer.getUpbringing().getSelectedCharacteristicOptions().get(i).getSelections()
                         .add(new Selection(upbringing.getCharacteristicOptions().get(i).getOptions().get(j).getId()));
             }
         }
         for (int i = 0; i < upbringing.getCapabilityOptions().size(); i++) {
             for (int j = 0; j < upbringing.getCapabilityOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getUpbringing().getCapabilityOptions().get(i).getSelections()
+                characterPlayer.getUpbringing().getSelectedCapabilityOptions().get(i).getSelections()
                         .add(new Selection(upbringing.getCapabilityOptions().get(i).getOptions().get(j).getId(),
                                 upbringing.getCapabilityOptions().get(i).getOptions().get(j).getSelectedSpecialization()));
             }
         }
         for (int i = 0; i < upbringing.getSkillOptions().size(); i++) {
             for (int j = 0; j < upbringing.getSkillOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getUpbringing().getSkillOptions().get(i).getSelections()
+                characterPlayer.getUpbringing().getSelectedSkillOptions().get(i).getSelections()
                         .add(new Selection(upbringing.getSkillOptions().get(i).getOptions().get(j).getId()));
             }
         }
         for (int i = 0; i < upbringing.getPerksOptions().size(); i++) {
             for (int j = 0; j < upbringing.getPerksOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getUpbringing().getPerksOptions().get(i).getSelections()
+                characterPlayer.getUpbringing().getSelectedPerksOptions().get(i).getSelections()
                         .add(new Selection(upbringing.getPerksOptions().get(i).getOptions().get(j).getId()));
             }
         }
         for (int i = 0; i < upbringing.getMaterialAwards().size(); i++) {
             for (int j = 0; j < upbringing.getMaterialAwards().get(i).getTotalOptions(); j++) {
-                characterPlayer.getUpbringing().getMaterialAwards().get(i).getSelections()
+                characterPlayer.getUpbringing().getSelectedMaterialAwards().get(i).getSelections()
                         .add(new Selection(upbringing.getMaterialAwards().get(i).getOptions().get(j).getId()));
             }
         }
@@ -92,31 +92,31 @@ public final class CharacterExamples {
         final Faction faction = FactionFactory.getInstance().getElement("decados");
         for (int i = 0; i < faction.getCharacteristicOptions().size(); i++) {
             for (int j = 0; j < faction.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getFaction().getCharacteristicOptions().get(i).getSelections()
+                characterPlayer.getFaction().getSelectedCharacteristicOptions().get(i).getSelections()
                         .add(new Selection(faction.getCharacteristicOptions().get(i).getOptions().get(j).getId()));
             }
         }
         for (int i = 0; i < faction.getCapabilityOptions().size(); i++) {
             for (int j = 0; j < faction.getCapabilityOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getFaction().getCapabilityOptions().get(i).getSelections()
+                characterPlayer.getFaction().getSelectedCapabilityOptions().get(i).getSelections()
                         .add(new Selection(faction.getCapabilityOptions().get(i).getOptions().get(j).getId()));
             }
         }
         for (int i = 0; i < faction.getSkillOptions().size(); i++) {
             for (int j = 0; j < faction.getSkillOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getFaction().getSkillOptions().get(i).getSelections()
+                characterPlayer.getFaction().getSelectedSkillOptions().get(i).getSelections()
                         .add(new Selection(faction.getSkillOptions().get(i).getOptions().get(j).getId()));
             }
         }
         for (int i = 0; i < faction.getMaterialAwards().size(); i++) {
             for (int j = 0; j < faction.getMaterialAwards().get(i).getTotalOptions(); j++) {
-                characterPlayer.getFaction().getMaterialAwards().get(i).getSelections()
+                characterPlayer.getFaction().getSelectedMaterialAwards().get(i).getSelections()
                         .add(new Selection(faction.getMaterialAwards().get(i).getOptions().get(j).getId()));
             }
         }
         for (int i = 0; i < faction.getPerksOptions().size(); i++) {
             for (int j = 0; j < faction.getPerksOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getFaction().getPerksOptions().get(i).getSelections()
+                characterPlayer.getFaction().getSelectedPerksOptions().get(i).getSelections()
                         .add(new Selection(faction.getPerksOptions().get(i).getOptions().get(j).getId()));
             }
         }
@@ -126,37 +126,37 @@ public final class CharacterExamples {
         final Calling calling = CallingFactory.getInstance().getElement("commander");
         for (int i = 0; i < calling.getCharacteristicOptions().size(); i++) {
             for (int j = 0; j < calling.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getCalling().getCharacteristicOptions().get(i).getSelections()
+                characterPlayer.getCalling().getSelectedCharacteristicOptions().get(i).getSelections()
                         .add(new Selection(calling.getCharacteristicOptions().get(i).getOptions().get(j).getId()));
             }
         }
         for (int i = 0; i < calling.getCapabilityOptions().size(); i++) {
             for (int j = 0; j < calling.getCapabilityOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getCalling().getCapabilityOptions().get(i).getSelections()
+                characterPlayer.getCalling().getSelectedCapabilityOptions().get(i).getSelections()
                         .add(new Selection(calling.getCapabilityOptions().get(i).getOptions().get(j).getId()));
             }
         }
         for (int i = 0; i < calling.getSkillOptions().size(); i++) {
             for (int j = 0; j < calling.getSkillOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getCalling().getSkillOptions().get(i).getSelections()
+                characterPlayer.getCalling().getSelectedSkillOptions().get(i).getSelections()
                         .add(new Selection(calling.getSkillOptions().get(i).getOptions().get(j).getId()));
             }
         }
         for (int i = 0; i < calling.getPerksOptions().size(); i++) {
             for (int j = 0; j < calling.getPerksOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getCalling().getPerksOptions().get(i).getSelections()
+                characterPlayer.getCalling().getSelectedPerksOptions().get(i).getSelections()
                         .add(new Selection(calling.getPerksOptions().get(i).getOptions().get(j).getId()));
             }
         }
         for (int i = 0; i < calling.getMaterialAwards().size(); i++) {
             for (int j = 0; j < calling.getMaterialAwards().get(i).getTotalOptions(); j++) {
-                characterPlayer.getCalling().getMaterialAwards().get(i).getSelections()
+                characterPlayer.getCalling().getSelectedMaterialAwards().get(i).getSelections()
                         .add(new Selection(calling.getMaterialAwards().get(i).getOptions().get(j).getId()));
             }
         }
 
         //Remove a material Award. Dress Sword
-        characterPlayer.getCalling().getMaterialAwards().get(1).addRemoved(new Selection("dressSword"));
+        characterPlayer.getCalling().getSelectedMaterialAwards().get(1).addRemoved(new Selection("dressSword"));
 
 
         //Add a weapon

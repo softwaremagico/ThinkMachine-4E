@@ -103,7 +103,7 @@ public class CharacterPlayer {
     private FactionCharacterDefinitionStepSelection faction;
     private CallingCharacterDefinitionStepSelection calling;
 
-    // All Psi/Teurgy powers
+    // All Psi/Theurgy powers
     private Occultism occultism;
 
     private Cybernetics cybernetics;
@@ -368,7 +368,7 @@ public class CharacterPlayer {
     public List<SpecializedPerk> getPerks() {
         final List<SpecializedPerk> perks = new ArrayList<>();
         if (upbringing != null) {
-            upbringing.getPerksOptions().forEach(perkOption ->
+            upbringing.getSelectedPerksOptions().forEach(perkOption ->
                     perkOption.getSelections().forEach(selection -> {
                         try {
                             perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection), selection.getSpecialization()));
@@ -378,7 +378,7 @@ public class CharacterPlayer {
                     }));
         }
         if (faction != null) {
-            faction.getPerksOptions().forEach(perkOption ->
+            faction.getSelectedPerksOptions().forEach(perkOption ->
                     perkOption.getSelections().forEach(selection -> {
                         try {
                             perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection), selection.getSpecialization()));
@@ -388,7 +388,7 @@ public class CharacterPlayer {
                     }));
         }
         if (calling != null) {
-            calling.getPerksOptions().forEach(perkOption ->
+            calling.getSelectedPerksOptions().forEach(perkOption ->
                     perkOption.getSelections().forEach(selection -> {
                         try {
                             perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection), selection.getSpecialization()));
@@ -415,17 +415,17 @@ public class CharacterPlayer {
     public Set<CapabilityWithSpecialization> getCapabilitiesWithSpecialization() {
         final Set<CapabilityWithSpecialization> capabilities = new HashSet<>();
         if (upbringing != null) {
-            upbringing.getCapabilityOptions().forEach(capabilityOption ->
+            upbringing.getSelectedCapabilityOptions().forEach(capabilityOption ->
                     capabilityOption.getSelections().forEach(selection ->
                             capabilities.add(CapabilityWithSpecialization.from(selection))));
         }
         if (faction != null) {
-            faction.getCapabilityOptions().forEach(capabilityOption ->
+            faction.getSelectedCapabilityOptions().forEach(capabilityOption ->
                     capabilityOption.getSelections().forEach(selection ->
                             capabilities.add(CapabilityWithSpecialization.from(selection))));
         }
         if (calling != null) {
-            calling.getCapabilityOptions().forEach(capabilityOption ->
+            calling.getSelectedCapabilityOptions().forEach(capabilityOption ->
                     capabilityOption.getSelections().forEach(selection ->
                             capabilities.add(CapabilityWithSpecialization.from(selection))));
         }
@@ -517,10 +517,10 @@ public class CharacterPlayer {
         }
         final Set<Selection> selected;
         if (ignoreRemoved) {
-            selected = definitionStepSelection.getMaterialAwards().stream().map(CharacterSelectedEquipment::getSelections)
+            selected = definitionStepSelection.getSelectedMaterialAwards().stream().map(CharacterSelectedEquipment::getSelections)
                     .flatMap(Collection::stream).collect(Collectors.toSet());
         } else {
-            selected = definitionStepSelection.getMaterialAwards().stream().map(CharacterSelectedEquipment::getRemainder)
+            selected = definitionStepSelection.getSelectedMaterialAwards().stream().map(CharacterSelectedEquipment::getRemainder)
                     .flatMap(Collection::stream).collect(Collectors.toSet());
         }
         return ((CharacterDefinitionStep<?>) factory.getElement(definitionStepSelection.getId())).getMaterialAwards(selected);

@@ -104,8 +104,8 @@ public class RandomTests {
         final RandomUpbringing randomUpbringing = new RandomUpbringing(characterPlayer, null);
         randomUpbringing.assign();
 
-        Assert.assertEquals(characterPlayer.getUpbringing().getCharacteristicOptions().size(), 4);
-        Assert.assertEquals(CharacteristicsDefinitionFactory.getInstance().getElement(characterPlayer.getUpbringing().getCharacteristicOptions().get(0).getSelections().iterator().next().getId()).getType(), CharacteristicType.BODY);
-        Assert.assertEquals(CharacteristicsDefinitionFactory.getInstance().getElement(characterPlayer.getUpbringing().getCharacteristicOptions().get(1).getSelections().iterator().next().getId()).getType(), CharacteristicType.SPIRIT);
+        Assert.assertEquals(characterPlayer.getUpbringing().getSelectedCharacteristicOptions().size(), 4);
+        Assert.assertEquals(CharacteristicsDefinitionFactory.getInstance().getElement(characterPlayer.getUpbringing().getSelectedCharacteristicOptions().get(0).getSelections().iterator().next().getId()).getType(), CharacteristicType.BODY);
+        Assert.assertEquals(CharacteristicsDefinitionFactory.getInstance().getElement(characterPlayer.getUpbringing().getSelectedCharacteristicOptions().get(1).getSelections().iterator().next().getId()).getType(), CharacteristicType.SPIRIT);
     }
 }

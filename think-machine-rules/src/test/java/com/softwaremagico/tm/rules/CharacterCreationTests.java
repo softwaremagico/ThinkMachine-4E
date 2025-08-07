@@ -32,6 +32,8 @@ import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
+import com.softwaremagico.tm.character.perks.PerkFactory;
+import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.Upbringing;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidCallingException;
@@ -110,7 +112,7 @@ public class CharacterCreationTests {
         final Upbringing upbringing = UpbringingFactory.getInstance().getElement("noble");
         for (int i = 0; i < upbringing.getCharacteristicOptions().size(); i++) {
             for (int j = 0; j < upbringing.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getUpbringing().getCharacteristicOptions().get(i).getSelections()
+                characterPlayer.getUpbringing().getSelectedCharacteristicOptions().get(i).getSelections()
                         .add(new Selection(upbringing.getCharacteristicOptions().get(i).getOptions().get(j).getId()));
             }
         }
@@ -119,7 +121,7 @@ public class CharacterCreationTests {
         final Faction faction = FactionFactory.getInstance().getElement("alMalik");
         for (int i = 0; i < faction.getCharacteristicOptions().size(); i++) {
             for (int j = 0; j < faction.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getFaction().getCharacteristicOptions().get(i).getSelections()
+                characterPlayer.getFaction().getSelectedCharacteristicOptions().get(i).getSelections()
                         .add(new Selection(faction.getCharacteristicOptions().get(i).getOptions().get(j).getId()));
             }
         }
@@ -129,7 +131,7 @@ public class CharacterCreationTests {
         final Calling calling = CallingFactory.getInstance().getElement("commander");
         for (int i = 0; i < calling.getCharacteristicOptions().size(); i++) {
             for (int j = 0; j < calling.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getCalling().getCharacteristicOptions().get(i).getSelections()
+                characterPlayer.getCalling().getSelectedCharacteristicOptions().get(i).getSelections()
                         .add(new Selection(calling.getCharacteristicOptions().get(i).getOptions().get(j).getId()));
             }
         }
@@ -178,5 +180,18 @@ public class CharacterCreationTests {
         Assert.assertEquals(faction.getMaterialAwards().get(0).getOptions()
                 .get(faction.getMaterialAwards().get(0).getOptions().size() - 1)
                 .getType(), "handheldShield");
+    }
+
+    @Test
+    public void speciePerksAsCallingPerks() {
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("vorox");
+        characterPlayer.setUpbringing("yeoman");
+        characterPlayer.setFaction("far");
+        characterPlayer.setCalling("spy");
+
+        Assert.assertEquals(characterPlayer.getCalling().getPerksOptions().get(0).getOptions().size(),
+                CallingFactory.getInstance().getElement("spy").getPerksOptions().get(0).getOptions().size()
+                        + SpecieFactory.getInstance().getElement("vorox").getPerks().size());
     }
 }
