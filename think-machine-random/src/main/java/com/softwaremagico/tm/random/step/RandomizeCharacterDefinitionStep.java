@@ -5,7 +5,6 @@ import com.softwaremagico.tm.character.CharacterDefinitionStep;
 import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Selection;
-import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOptions;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
@@ -55,7 +54,7 @@ public class RandomizeCharacterDefinitionStep<T extends Element> {
                         new RandomCharacteristicBonusOption(getCharacterPlayer(), getPreferences(),
                                 getCharacterDefinitionStep().getCharacteristicOptions().get(i));
 
-                for (int j = 0; j <  getCharacterDefinitionStep().getCharacteristicOptions().get(i).getTotalOptions(); j++) {
+                for (int j = 0; j < getCharacterDefinitionStep().getCharacteristicOptions().get(i).getTotalOptions(); j++) {
                     characterDefinitionStepSelection.getCharacteristicOptions().get(i).getSelections()
                             .add(new Selection(randomCharacteristicBonusOption.selectElementByWeight().getId()));
                 }

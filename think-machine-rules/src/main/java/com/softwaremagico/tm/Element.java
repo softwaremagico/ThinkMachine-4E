@@ -2,7 +2,6 @@ package com.softwaremagico.tm;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.resistances.Resistance;
 import com.softwaremagico.tm.character.resistances.ResistanceType;
 import com.softwaremagico.tm.character.skills.Specialization;

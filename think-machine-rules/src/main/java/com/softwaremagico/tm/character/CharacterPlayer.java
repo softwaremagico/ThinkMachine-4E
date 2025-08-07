@@ -28,6 +28,7 @@ import com.softwaremagico.tm.character.callings.CallingCharacterDefinitionStepSe
 import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.capabilities.CapabilityWithSpecialization;
 import com.softwaremagico.tm.character.characteristics.Characteristic;
+import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.combat.CombatActionRequirement;
 import com.softwaremagico.tm.character.cybernetics.Cyberdevice;
@@ -327,9 +328,9 @@ public class CharacterPlayer {
         }
         int bonus;
         if (getPrimaryCharacteristic() != null && Objects.equals(getPrimaryCharacteristic(), characteristic)) {
-            bonus = 5;
+            bonus = CharacteristicDefinition.PRIMARY_CHARACTERISTIC_VALUE;
         } else if (getSecondaryCharacteristic() != null && Objects.equals(getSecondaryCharacteristic(), characteristic)) {
-            bonus = 4;
+            bonus = CharacteristicDefinition.SECONDARY_CHARACTERISTIC_VALUE;
         } else if (specie != null) {
             bonus = SpecieFactory.getInstance().getElement(getSpecie()).getSpecieCharacteristic(characteristic).getInitialValue();
         } else {

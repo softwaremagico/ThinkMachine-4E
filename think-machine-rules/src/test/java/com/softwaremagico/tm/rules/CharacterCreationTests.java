@@ -36,6 +36,7 @@ import com.softwaremagico.tm.character.upbringing.Upbringing;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidCallingException;
 import com.softwaremagico.tm.exceptions.InvalidFactionException;
+import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidUpbringingException;
 import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
 import org.testng.Assert;
@@ -44,7 +45,7 @@ import org.testng.annotations.Test;
 @Test(groups = "characterCreation")
 public class CharacterCreationTests {
 
-    @Test(expectedExceptions = InvalidUpbringingException.class)
+    @Test(expectedExceptions = InvalidSpecieException.class)
     public void invalidVoroxCharacteristics() {
         CharacterPlayer characterPlayer = new CharacterPlayer();
         characterPlayer.setSpecie("vorox");

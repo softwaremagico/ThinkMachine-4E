@@ -5,8 +5,6 @@ import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.exceptions.RestrictedElementException;
-import com.softwaremagico.tm.exceptions.UnofficialElementNotAllowedException;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
@@ -27,7 +25,7 @@ public class RandomFaction extends RandomSelector<Faction> {
             getCharacterPlayer().setFaction(getCharacterPlayer().getFaction().getId());
         }
 
-        RandomizeCharacterDefinitionStep<Faction> randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep<>(
+        final RandomizeCharacterDefinitionStep<Faction> randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep<>(
                 getCharacterPlayer(),
                 FactionFactory.getInstance().getElement(getCharacterPlayer().getFaction().getId()),
                 getCharacterPlayer().getFaction(),
@@ -45,8 +43,8 @@ public class RandomFaction extends RandomSelector<Faction> {
     @Override
     protected int getWeight(Faction faction) throws InvalidRandomElementSelectedException {
         // Humans only humans factions.
-        if (!faction.getRestrictions().getRestrictedToSpecies().isEmpty() && getCharacterPlayer().getSpecie() != null &&
-                !faction.getRestrictions().getRestrictedToSpecies().contains(getCharacterPlayer().getSpecie().getId())) {
+        if (!faction.getRestrictions().getRestrictedToSpecies().isEmpty() && getCharacterPlayer().getSpecie() != null
+                && !faction.getRestrictions().getRestrictedToSpecies().contains(getCharacterPlayer().getSpecie().getId())) {
             throw new InvalidRandomElementSelectedException("Faction '" + faction + "' restricted for species '"
                     + faction.getRestrictions().getRestrictedToSpecies()
                     + "'. Character is '" + getCharacterPlayer().getSpecie() + "'.");
@@ -56,12 +54,12 @@ public class RandomFaction extends RandomSelector<Faction> {
     }
 
     @Override
-    protected void assignMandatoryValues(Set<Faction> mandatoryValues) throws InvalidXmlElementException, RestrictedElementException, UnofficialElementNotAllowedException {
+    protected void assignMandatoryValues(Set<Faction> mandatoryValues) throws InvalidXmlElementException {
 
     }
 
     @Override
-    protected void assignIfMandatory(Faction element) throws InvalidXmlElementException, RestrictedElementException {
+    protected void assignIfMandatory(Faction element) throws InvalidXmlElementException {
 
     }
 }

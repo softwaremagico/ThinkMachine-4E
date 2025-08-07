@@ -25,7 +25,7 @@ public class RandomUpbringing extends RandomSelector<Upbringing> {
             getCharacterPlayer().setUpbringing(getCharacterPlayer().getUpbringing().getId());
         }
 
-        RandomizeCharacterDefinitionStep<Upbringing> randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep<>(
+        final RandomizeCharacterDefinitionStep<Upbringing> randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep<>(
                 getCharacterPlayer(),
                 UpbringingFactory.getInstance().getElement(getCharacterPlayer().getUpbringing().getId()),
                 getCharacterPlayer().getUpbringing(),
@@ -43,8 +43,8 @@ public class RandomUpbringing extends RandomSelector<Upbringing> {
     @Override
     protected int getWeight(Upbringing upbringing) throws InvalidRandomElementSelectedException {
         // Humans only humans factions.
-        if (!upbringing.getRestrictions().getRestrictedToSpecies().isEmpty() && getCharacterPlayer().getSpecie() != null &&
-                !upbringing.getRestrictions().getRestrictedToSpecies().contains(getCharacterPlayer().getSpecie().getId())) {
+        if (!upbringing.getRestrictions().getRestrictedToSpecies().isEmpty() && getCharacterPlayer().getSpecie() != null
+                && !upbringing.getRestrictions().getRestrictedToSpecies().contains(getCharacterPlayer().getSpecie().getId())) {
             throw new InvalidRandomElementSelectedException("Faction '" + upbringing + "' restricted for species '"
                     + upbringing.getRestrictions().getRestrictedToSpecies()
                     + "'. Character is '" + getCharacterPlayer().getSpecie() + "'.");

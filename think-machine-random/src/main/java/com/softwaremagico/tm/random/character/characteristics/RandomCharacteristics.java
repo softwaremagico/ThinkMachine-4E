@@ -7,8 +7,6 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinition
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.exceptions.RestrictedElementException;
-import com.softwaremagico.tm.exceptions.UnofficialElementNotAllowedException;
 import com.softwaremagico.tm.log.RandomGenerationLog;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
@@ -35,17 +33,17 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
     }
 
     @Override
-    protected void assignMandatoryValues(Set<CharacteristicDefinition> mandatoryValues) throws InvalidXmlElementException, RestrictedElementException, UnofficialElementNotAllowedException {
+    protected void assignMandatoryValues(Set<CharacteristicDefinition> mandatoryValues) throws InvalidXmlElementException {
 
     }
 
     @Override
-    protected void assignIfMandatory(CharacteristicDefinition element) throws InvalidXmlElementException, RestrictedElementException {
+    protected void assignIfMandatory(CharacteristicDefinition element) throws InvalidXmlElementException {
 
     }
 
     @Override
-    protected int getWeight(CharacteristicDefinition element) throws InvalidRandomElementSelectedException {
+    protected int getWeight(CharacteristicDefinition element) {
         if (Objects.equals(getCharacterPlayer().getPrimaryCharacteristic(), element.getId())) {
             return LITTLE_PROBABILITY;
         } else if (Objects.equals(getCharacterPlayer().getSecondaryCharacteristic(), element.getId())) {

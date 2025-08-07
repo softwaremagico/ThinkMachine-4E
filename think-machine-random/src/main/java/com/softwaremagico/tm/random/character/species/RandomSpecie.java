@@ -5,8 +5,6 @@ import com.softwaremagico.tm.character.specie.Specie;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.exceptions.RestrictedElementException;
-import com.softwaremagico.tm.exceptions.UnofficialElementNotAllowedException;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
@@ -27,7 +25,7 @@ public class RandomSpecie extends RandomSelector<Specie> {
             getCharacterPlayer().setSpecie(selectElementByWeight().getId());
         }
 
-        RandomizeCharacterDefinitionStep<Specie> randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep<>(
+        final RandomizeCharacterDefinitionStep<Specie> randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep<>(
                 getCharacterPlayer(),
                 SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId()),
                 getCharacterPlayer().getSpecie(),
@@ -43,12 +41,12 @@ public class RandomSpecie extends RandomSelector<Specie> {
     }
 
     @Override
-    protected void assignMandatoryValues(Set<Specie> mandatoryValues) throws InvalidXmlElementException, RestrictedElementException, UnofficialElementNotAllowedException {
+    protected void assignMandatoryValues(Set<Specie> mandatoryValues) throws InvalidXmlElementException {
         //Not needed.
     }
 
     @Override
-    protected void assignIfMandatory(Specie element) throws InvalidXmlElementException, RestrictedElementException {
+    protected void assignIfMandatory(Specie element) throws InvalidXmlElementException {
         //Not needed.
     }
 }

@@ -89,6 +89,7 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
         this.skillBonusOptions = skillBonusOptions;
     }
 
+
     public List<PerkOptions> getPerksOptions() {
         if (finalPerkOptions == null) {
             //No perks defined.
@@ -134,6 +135,10 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
             return new ArrayList<>();
         }
         return materialAwards;
+    }
+
+    public List<EquipmentOptions> getMaterialAwardsComplete() {
+        return getMaterialAwards();
     }
 
     public void setMaterialAwards(List<EquipmentOptions> materialAwards) {
