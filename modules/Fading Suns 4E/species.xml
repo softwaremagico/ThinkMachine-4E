@@ -429,10 +429,10 @@
                 <maximumValue>0</maximumValue>
             </characteristic>
         </specieCharacteristics>
-        <mainCharacteristics>
+        <primaryCharacteristics>
             <characteristic>strength</characteristic>
             <characteristic>endurance</characteristic>
-        </mainCharacteristics>
+        </primaryCharacteristics>
         <movement>
             <value>14</value>
         </movement>

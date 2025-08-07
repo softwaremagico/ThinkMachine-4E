@@ -31,8 +31,8 @@ import com.softwaremagico.tm.character.factions.FactionGroup;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
+import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
 import java.util.Collection;
@@ -50,6 +50,9 @@ public class RandomName extends RandomSelector<Name> {
 
     @Override
     public void assign() throws InvalidSpecieException, InvalidRandomElementSelectedException {
+        if (getCharacterPlayer().getInfo().getNames() != null && !getCharacterPlayer().getInfo().getNames().isEmpty()) {
+            return;
+        }
         if (getCharacterPlayer().getFaction() == null || getCharacterPlayer().getSpecie() == null || getCharacterPlayer().getInfo().getPlanet() == null
                 || getCharacterPlayer().getInfo().getGender() == null) {
             throw new InvalidRandomElementSelectedException("Please, set gender, faction, specie and planet first.");
@@ -79,16 +82,6 @@ public class RandomName extends RandomSelector<Name> {
     @Override
     protected Collection<Name> getAllElements() throws InvalidXmlElementException {
         return FactionFactory.getInstance().getAllNames();
-    }
-
-    @Override
-    protected void assignMandatoryValues(Set<Name> mandatoryValues) throws InvalidXmlElementException {
-        //Not needed.
-    }
-
-    @Override
-    protected void assignIfMandatory(Name element) throws InvalidXmlElementException {
-        //Not needed.
     }
 
 

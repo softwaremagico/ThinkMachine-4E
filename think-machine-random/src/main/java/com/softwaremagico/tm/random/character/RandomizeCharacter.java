@@ -25,11 +25,16 @@ package com.softwaremagico.tm.random.character;
  */
 
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.Gender;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.random.character.characteristics.RandomCharacteristics;
 import com.softwaremagico.tm.random.character.factions.RandomFaction;
+import com.softwaremagico.tm.random.character.names.RandomName;
+import com.softwaremagico.tm.random.character.names.RandomSurname;
+import com.softwaremagico.tm.random.character.planets.RandomPlanet;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.character.species.RandomSpecie;
+import com.softwaremagico.tm.random.character.upbringings.RandomUpbringing;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
 import java.util.Arrays;
@@ -56,8 +61,12 @@ public class RandomizeCharacter {
 
     public void createCharacter() throws InvalidRandomElementSelectedException {
         selectSpecie();
+        selectGender();
+        selectPrimaryCharacteristics();
+        selectUpbringing();
         selectFaction();
-        selectMainCharacteristics();
+        selectPlanet();
+        selectNames();
     }
 
     private void selectSpecie() throws InvalidRandomElementSelectedException {
@@ -65,13 +74,34 @@ public class RandomizeCharacter {
         randomSpecie.assign();
     }
 
+    private void selectGender() throws InvalidRandomElementSelectedException {
+        characterPlayer.getInfo().setGender(Gender.randomGender());
+    }
+
+    private void selectUpbringing() throws InvalidRandomElementSelectedException {
+        final RandomUpbringing randomUpbringing = new RandomUpbringing(characterPlayer, preferences);
+        randomUpbringing.assign();
+    }
+
     private void selectFaction() throws InvalidRandomElementSelectedException {
         final RandomFaction randomFaction = new RandomFaction(characterPlayer, preferences);
         randomFaction.assign();
     }
 
+    private void selectPlanet() throws InvalidRandomElementSelectedException {
+        final RandomPlanet randomPlanet = new RandomPlanet(characterPlayer, preferences);
+        randomPlanet.assign();
+    }
 
-    private void selectMainCharacteristics() throws InvalidRandomElementSelectedException {
+    private void selectNames() throws InvalidRandomElementSelectedException {
+        final RandomName randomName = new RandomName(characterPlayer, preferences);
+        randomName.assign();
+        final RandomSurname randomSurname = new RandomSurname(characterPlayer, preferences);
+        randomSurname.assign();
+    }
+
+
+    private void selectPrimaryCharacteristics() throws InvalidRandomElementSelectedException {
         final RandomCharacteristics randomCharacteristics = new RandomCharacteristics(characterPlayer, preferences);
         final String mainCharacteristic = randomCharacteristics.selectElementByWeight().getId();
         characterPlayer.setPrimaryCharacteristic(mainCharacteristic);
@@ -87,7 +117,7 @@ public class RandomizeCharacter {
             characterPlayer.getSpecie().validate();
         } catch (InvalidSelectionException e) {
             //Not valid, try again.
-            selectMainCharacteristics();
+            selectPrimaryCharacteristics();
         }
     }
 }

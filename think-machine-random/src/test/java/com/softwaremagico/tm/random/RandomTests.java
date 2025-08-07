@@ -49,7 +49,7 @@ public class RandomTests {
     }
 
     @Test
-    public void randomNames() throws InvalidRandomElementSelectedException {
+    public void randomNobleNames() throws InvalidRandomElementSelectedException {
         final CharacterPlayer characterPlayer = new CharacterPlayer();
         characterPlayer.setSpecie("human");
         characterPlayer.setUpbringing("noble");
@@ -59,6 +59,21 @@ public class RandomTests {
         final RandomName randomName = new RandomName(characterPlayer, null);
         randomName.assign();
         Assert.assertNotNull(characterPlayer.getInfo().getNames());
+    }
+
+    @Test
+    public void randomNonNobleNames() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("brotherBattle");
+        characterPlayer.setFaction("brotherBattle");
+        characterPlayer.getInfo().setPlanet("istakhr");
+        characterPlayer.getInfo().setGender(Gender.MALE);
+        final RandomName randomName = new RandomName(characterPlayer, null);
+        randomName.assign();
+        Assert.assertNotNull(characterPlayer.getInfo().getNames());
+        final RandomSurname randomSurname = new RandomSurname(characterPlayer, null);
+        randomSurname.assign();
     }
 
     @Test
@@ -91,8 +106,8 @@ public class RandomTests {
         characterPlayer.setSpecie("vorox");
         final RandomCharacteristics randomCharacteristics = new RandomCharacteristics(characterPlayer, null);
         randomCharacteristics.assign();
-        Assert.assertTrue(SpecieFactory.getInstance().getElement("vorox").getMainCharacteristics().contains(characterPlayer.getPrimaryCharacteristic())
-                || SpecieFactory.getInstance().getElement("vorox").getMainCharacteristics().contains(characterPlayer.getSecondaryCharacteristic()));
+        Assert.assertTrue(SpecieFactory.getInstance().getElement("vorox").getPrimaryCharacteristics().contains(characterPlayer.getPrimaryCharacteristic())
+                || SpecieFactory.getInstance().getElement("vorox").getPrimaryCharacteristics().contains(characterPlayer.getSecondaryCharacteristic()));
     }
 
     @Test

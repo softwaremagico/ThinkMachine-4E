@@ -1,5 +1,29 @@
 package com.softwaremagico.tm.random.character.characteristics;
 
+/*-
+ * #%L
+ * Think Machine 4E (Random Generator)
+ * %%
+ * Copyright (C) 2017 - 2025 Softwaremagico
+ * %%
+ * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
+ * <softwaremagico@gmail.com> Valencia (Spain).
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation; either version 2 of the License, or (at your option) any later
+ * version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * this program; If not, see <http://www.gnu.org/licenses/gpl-3.0.html>.
+ * #L%
+ */
+
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
 import com.softwaremagico.tm.character.characteristics.CharacteristicType;
@@ -24,7 +48,7 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
 
     @Override
     public void assign() throws InvalidSpecieException, InvalidRandomElementSelectedException {
-        selectMainCharacteristics();
+        selectPrimaryCharacteristics();
     }
 
     @Override
@@ -33,17 +57,10 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
     }
 
     @Override
-    protected void assignMandatoryValues(Set<CharacteristicDefinition> mandatoryValues) throws InvalidXmlElementException {
-
-    }
-
-    @Override
-    protected void assignIfMandatory(CharacteristicDefinition element) throws InvalidXmlElementException {
-
-    }
-
-    @Override
     protected int getWeight(CharacteristicDefinition element) {
+        if (element.getType() == CharacteristicType.OTHERS || element.getType() == CharacteristicType.OCCULTISM) {
+            return 0;
+        }
         if (Objects.equals(getCharacterPlayer().getPrimaryCharacteristic(), element.getId())) {
             return LITTLE_PROBABILITY;
         } else if (Objects.equals(getCharacterPlayer().getSecondaryCharacteristic(), element.getId())) {
@@ -53,7 +70,7 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
     }
 
 
-    private void selectMainCharacteristics() throws InvalidRandomElementSelectedException {
+    private void selectPrimaryCharacteristics() throws InvalidRandomElementSelectedException {
         final String mainCharacteristic = selectStandardCharacteristic();
         getCharacterPlayer().setPrimaryCharacteristic(mainCharacteristic);
 
@@ -68,7 +85,7 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
             getCharacterPlayer().getSpecie().validate();
         } catch (InvalidSelectionException | InvalidSpecieException e) {
             //Not valid, try again.
-            selectMainCharacteristics();
+            selectPrimaryCharacteristics();
         }
         RandomGenerationLog.debug(this.getClass(), "Primary characteristic is '{}' and secondary is '{}'.",
                 mainCharacteristic, secondaryCharacteristic);

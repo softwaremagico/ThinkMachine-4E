@@ -50,7 +50,9 @@ public class RandomPlanet extends RandomSelector<Planet> {
 
     @Override
     public void assign() throws InvalidSpecieException, InvalidRandomElementSelectedException {
-        getCharacterPlayer().getInfo().setPlanet(selectElementByWeight());
+        if (getCharacterPlayer().getInfo().getPlanet() == null) {
+            getCharacterPlayer().getInfo().setPlanet(selectElementByWeight());
+        }
     }
 
     @Override
@@ -75,15 +77,5 @@ public class RandomPlanet extends RandomSelector<Planet> {
             }
         }
         return NEUTRAL_PLANET;
-    }
-
-    @Override
-    protected void assignIfMandatory(Planet element) throws InvalidXmlElementException {
-        //Not needed.
-    }
-
-    @Override
-    protected void assignMandatoryValues(Set<Planet> mandatoryValues) throws InvalidXmlElementException {
-        //Not needed.
     }
 }

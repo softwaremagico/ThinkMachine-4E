@@ -51,6 +51,9 @@ public class RandomSurname extends RandomSelector<Surname> {
 
     @Override
     public void assign() throws InvalidSpecieException, InvalidRandomElementSelectedException {
+        if (getCharacterPlayer().getInfo().getSurname() != null) {
+            return;
+        }
         if (getCharacterPlayer().getFaction() == null || getCharacterPlayer().getSpecie() == null || getCharacterPlayer().getInfo().getPlanet() == null) {
             throw new InvalidRandomElementSelectedException("Please, set faction, race and planet first.");
         }
@@ -69,23 +72,13 @@ public class RandomSurname extends RandomSelector<Surname> {
     }
 
     @Override
-    protected void assignMandatoryValues(Set<Surname> mandatoryValues) throws InvalidXmlElementException {
-        //Not needed.
-    }
-
-    @Override
-    protected void assignIfMandatory(Surname element) throws InvalidXmlElementException {
-        //Not needed.
-    }
-
-    @Override
     protected int getWeight(Surname surname) throws InvalidRandomElementSelectedException {
         // Human nobility has faction as surname
         if (getCharacterPlayer().getSpecie() != null
                 && !SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie()).isXeno()
                 && getCharacterPlayer().getFaction() != null
                 && Objects.equals(getCharacterPlayer().getFaction().getGroup(), FactionGroup.NOBILITY.toString())) {
-            if (Objects.equals(getCharacterPlayer().getFaction().getId(), surname.getFaction())) {
+            if (Objects.equals(surname.getFaction(), getCharacterPlayer().getFaction().getId())) {
                 return BASIC_PROBABILITY;
             } else {
                 throw new InvalidRandomElementSelectedException("Surname '" + surname + "' is restricted to non nobility factions.");
@@ -94,7 +87,8 @@ public class RandomSurname extends RandomSelector<Surname> {
         // Not nobility no faction as surname.
         try {
             for (final Faction faction : FactionFactory.getInstance().getElements()) {
-                if (faction.getId().contains(surname.getFaction())) {
+                //if (surname.getId().contains(faction.getId())) {
+                if (Objects.equals(surname.getFaction(), getCharacterPlayer().getFaction().getId())) {
                     throw new InvalidRandomElementSelectedException("Surname '" + surname + "' is restricted to faction '"
                             + faction + "'.");
                 }

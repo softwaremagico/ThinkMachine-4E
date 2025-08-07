@@ -25,10 +25,10 @@ package com.softwaremagico.tm.random.character.selectors;
  */
 
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.upbringing.Upbringing;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.RestrictedElementException;
-import com.softwaremagico.tm.exceptions.UnofficialElementNotAllowedException;
 import com.softwaremagico.tm.log.RandomGenerationLog;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
@@ -125,8 +125,9 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
      * @param mandatoryValues set of elements to be assigned.
      * @throws InvalidXmlElementException
      */
-    protected abstract void assignMandatoryValues(Set<Element> mandatoryValues) throws InvalidXmlElementException, RestrictedElementException,
-            UnofficialElementNotAllowedException;
+    protected void assignMandatoryValues(Set<Upbringing> mandatoryValues) throws InvalidXmlElementException {
+
+    }
 
     /**
      * Must check if an element is mandatory, and if it is, it must be assigned.
@@ -136,8 +137,10 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
      * @param element element to check.
      * @throws InvalidXmlElementException
      */
-    protected abstract void assignIfMandatory(Element element)
-            throws InvalidXmlElementException, RestrictedElementException;
+    protected void assignIfMandatory(Element element)
+            throws InvalidXmlElementException, RestrictedElementException {
+
+    }
 
     private void assignMandatory() throws InvalidXmlElementException {
         final List<Element> shuffledList = new ArrayList<>(getAllElements());
@@ -172,6 +175,9 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
                 // Element not valid. Ignore it.
                 continue;
             }
+        }
+        if (calculatedWeight.isEmpty()) {
+            throw new InvalidXmlElementException("No elements available,");
         }
         return calculatedWeight;
     }
@@ -250,7 +256,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
 
         // Recommended to my upbringing.
         if (getCharacterPlayer() != null && getCharacterPlayer().getUpbringing() != null
-                && randomDefinition.getRestrictedUpbringing().contains(getCharacterPlayer().getUpbringing().getId())) {
+                && randomDefinition.getRecommendedUpbringings().contains(getCharacterPlayer().getUpbringing().getId())) {
             RandomGenerationLog.debug(this.getClass().getName(),
                     "Random definition as recommended for '{}'.", getCharacterPlayer().getUpbringing());
             multiplier *= HIGH_MULTIPLIER;
@@ -282,14 +288,8 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             throw new InvalidRandomElementSelectedException("Null elements not allowed.");
         }
 
-        if (element.getRestrictions().isRestrictedToSpecie(characterPlayer)) {
-            throw new InvalidRandomElementSelectedException("Element '" + element + "' is restricted to '"
-                    + element.getRestrictions().getRestrictedToSpecies() + "'.");
-        }
-
-        if (element.getRestrictions().isRestrictedToFactionGroup(characterPlayer)) {
-            throw new InvalidRandomElementSelectedException("Element '" + element + "' is restricted to '"
-                    + element.getRestrictions().getRestrictedToFactionGroups() + "'.");
+        if (element.getRestrictions().isRestricted(characterPlayer)) {
+            throw new InvalidRandomElementSelectedException("Element '" + element + "' is restricted.");
         }
 
         try {
@@ -313,68 +313,6 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         if (getCharacterPlayer() != null && randomDefinition.getMaximumTechLevel() != null && randomDefinition
                 .getMaximumTechLevel() < getCharacterPlayer().getTechLevel()) {
             throw new InvalidRandomElementSelectedException("The tech level of the character is too high.");
-        }
-
-        // Specie limitation
-        if (getCharacterPlayer() != null && randomDefinition.getRestrictedSpecies() != null
-                && !randomDefinition.getRestrictedSpecies().isEmpty()
-                && !randomDefinition.getRestrictedSpecies().contains(getCharacterPlayer().getSpecie().getId())) {
-            throw new InvalidRandomElementSelectedException(
-                    "Element restricted to species '" + randomDefinition.getRestrictedSpecies() + "'.");
-        }
-
-        if (getCharacterPlayer() != null && getCharacterPlayer().getSpecie() != null && randomDefinition.getForbiddenSpecies() != null
-                && randomDefinition.getForbiddenSpecies().contains(getCharacterPlayer().getSpecie().getId())) {
-            throw new InvalidRandomElementSelectedException(
-                    "Element forbidden to species '" + randomDefinition.getForbiddenSpecies() + "'.");
-        }
-
-        // Factions forbidden.
-        if (getCharacterPlayer() != null && getCharacterPlayer().getFaction() != null
-                && !randomDefinition.getForbiddenFactions().isEmpty()
-                && randomDefinition.getForbiddenFactions().contains(getCharacterPlayer().getFaction().getId())) {
-            throw new InvalidRandomElementSelectedException(
-                    "Element forbidden to factions groups '" + randomDefinition.getForbiddenFactions() + "'.");
-        }
-
-        // Faction restriction.
-        if (getCharacterPlayer() != null && getCharacterPlayer().getFaction() != null
-                && !randomDefinition.getRestrictedFactions().isEmpty()
-                && !randomDefinition.getRestrictedFactions().contains(getCharacterPlayer().getFaction().getId())) {
-            throw new InvalidRandomElementSelectedException(
-                    "Element restricted to factions '" + randomDefinition.getRestrictedFactions() + "'.");
-        }
-
-        // Faction groups forbidden.
-        if (getCharacterPlayer() != null && getCharacterPlayer().getFaction() != null
-                && !randomDefinition.getForbiddenFactionsGroups().isEmpty()
-                && randomDefinition.getForbiddenFactionsGroups().contains(getCharacterPlayer().getFaction().getGroup())) {
-            throw new InvalidRandomElementSelectedException(
-                    "Element forbidden to factions groups '" + randomDefinition.getForbiddenFactionsGroups() + "'.");
-        }
-
-        // Faction groups restriction.
-        if (getCharacterPlayer() != null && getCharacterPlayer().getFaction() != null
-                && !randomDefinition.getRestrictedFactionsGroups().isEmpty()
-                && !randomDefinition.getRestrictedFactionsGroups().contains(getCharacterPlayer().getFaction().getGroup())) {
-            throw new InvalidRandomElementSelectedException(
-                    "Element restricted to factions groups '" + randomDefinition.getRestrictedFactionsGroups() + "'.");
-        }
-
-        // Upbringing forbidden.
-        if (getCharacterPlayer() != null && getCharacterPlayer().getUpbringing() != null
-                && !randomDefinition.getForbiddenUpbringings().isEmpty()
-                && randomDefinition.getForbiddenUpbringings().contains(getCharacterPlayer().getUpbringing().getId())) {
-            throw new InvalidRandomElementSelectedException(
-                    "Element forbidden to upbringings '" + randomDefinition.getForbiddenUpbringings() + "'.");
-        }
-
-        // Upbringing restriction.
-        if (getCharacterPlayer() != null && getCharacterPlayer().getUpbringing() != null
-                && !randomDefinition.getRestrictedUpbringing().isEmpty()
-                && !randomDefinition.getRestrictedUpbringing().contains(getCharacterPlayer().getUpbringing().getId())) {
-            throw new InvalidRandomElementSelectedException(
-                    "Element restricted to upbringings '" + randomDefinition.getRestrictedUpbringing() + "'.");
         }
 
         // User preferences  forbidden.

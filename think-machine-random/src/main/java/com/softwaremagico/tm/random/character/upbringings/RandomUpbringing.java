@@ -1,5 +1,29 @@
 package com.softwaremagico.tm.random.character.upbringings;
 
+/*-
+ * #%L
+ * Think Machine 4E (Random Generator)
+ * %%
+ * Copyright (C) 2017 - 2025 Softwaremagico
+ * %%
+ * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
+ * <softwaremagico@gmail.com> Valencia (Spain).
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation; either version 2 of the License, or (at your option) any later
+ * version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * this program; If not, see <http://www.gnu.org/licenses/gpl-3.0.html>.
+ * #L%
+ */
+
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.upbringing.Upbringing;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
@@ -22,7 +46,7 @@ public class RandomUpbringing extends RandomSelector<Upbringing> {
     @Override
     public void assign() throws InvalidSpecieException, InvalidRandomElementSelectedException {
         if (getCharacterPlayer().getUpbringing() == null || getCharacterPlayer().getUpbringing().getId() == null) {
-            getCharacterPlayer().setUpbringing(getCharacterPlayer().getUpbringing().getId());
+            getCharacterPlayer().setUpbringing(selectElementByWeight().getId());
         }
 
         final RandomizeCharacterDefinitionStep<Upbringing> randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep<>(
@@ -50,15 +74,5 @@ public class RandomUpbringing extends RandomSelector<Upbringing> {
         }
 
         return super.getWeight(upbringing);
-    }
-
-    @Override
-    protected void assignMandatoryValues(Set<Upbringing> mandatoryValues) throws InvalidXmlElementException {
-
-    }
-
-    @Override
-    protected void assignIfMandatory(Upbringing element) throws InvalidXmlElementException {
-
     }
 }
