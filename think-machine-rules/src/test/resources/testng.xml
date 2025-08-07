@@ -38,7 +38,7 @@
                 <include name="timeFactory"/>
                 <include name="cyberdevicesFactory"/>
                 <exclude name="factoryValidation"/>
-                <include name="characterCreation"/>
+                <include name="characterRules"/>
                 <include name="psychicCreation"/>
                 <include name="freeOptionsSelectionTest"/>
                 <include name="exportTxt"/>
@@ -69,7 +69,7 @@
             <class name="com.softwaremagico.tm.factory.OccultismFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.TimeFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.CyberdevicesFactoryTests"/>
-            <class name="com.softwaremagico.tm.rules.CharacterCreationTests"/>
+            <class name="com.softwaremagico.tm.rules.CharacterRulesTests"/>
             <class name="com.softwaremagico.tm.rules.PsychicCreationTests"/>
             <class name="com.softwaremagico.tm.rules.FreeOptionsSelectionTests"/>
             <class name="com.softwaremagico.tm.txt.ExportTxtTests"/>

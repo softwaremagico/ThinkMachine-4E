@@ -146,7 +146,7 @@ public class CharacterPlayer {
             this.calling.validate();
         }
         if (getPrimaryCharacteristic() == null || getSecondaryCharacteristic() == null) {
-            throw new InvalidCharacteristicException("You must choose your main and secondary characteristc.");
+            throw new InvalidCharacteristicException("You must choose your primary and secondary characteristic.");
         }
     }
 

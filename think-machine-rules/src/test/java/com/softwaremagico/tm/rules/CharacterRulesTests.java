@@ -32,7 +32,6 @@ import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
-import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.Upbringing;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
@@ -44,8 +43,8 @@ import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Test(groups = "characterCreation")
-public class CharacterCreationTests {
+@Test(groups = "characterRules")
+public class CharacterRulesTests {
 
     @Test(expectedExceptions = InvalidSpecieException.class)
     public void invalidVoroxCharacteristics() {
