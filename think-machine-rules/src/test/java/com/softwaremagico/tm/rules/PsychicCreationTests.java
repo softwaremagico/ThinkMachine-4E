@@ -46,6 +46,16 @@ public class PsychicCreationTests {
     }
 
     @Test
+    public void ukarCanHavePsychicPowers() {
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("ukar");
+        characterPlayer.setUpbringing("merchant");
+        characterPlayer.setFaction("musters");
+        characterPlayer.setCalling("spy");
+        Assert.assertFalse(PerkFactory.getInstance().getElement("psychicPowers").getRestrictions().isRestricted(characterPlayer));
+    }
+
+    @Test
     public void psiLevel() {
         CharacterPlayer characterPlayer = new CharacterPlayer();
         characterPlayer.setSpecie("ukar");

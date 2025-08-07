@@ -26,12 +26,15 @@ package com.softwaremagico.tm.random;
 
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Gender;
+import com.softwaremagico.tm.character.characteristics.CharacteristicType;
+import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
 import com.softwaremagico.tm.character.specie.Specie;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.random.character.characteristics.RandomCharacteristics;
 import com.softwaremagico.tm.random.character.names.RandomName;
 import com.softwaremagico.tm.random.character.names.RandomSurname;
 import com.softwaremagico.tm.random.character.planets.RandomPlanet;
+import com.softwaremagico.tm.random.character.upbringings.RandomUpbringing;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -90,5 +93,19 @@ public class RandomTests {
         randomCharacteristics.assign();
         Assert.assertTrue(SpecieFactory.getInstance().getElement("vorox").getMainCharacteristics().contains(characterPlayer.getPrimaryCharacteristic())
                 || SpecieFactory.getInstance().getElement("vorox").getMainCharacteristics().contains(characterPlayer.getSecondaryCharacteristic()));
+    }
+
+    @Test
+    public void randomUpbringingOptions() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("noble");
+
+        final RandomUpbringing randomUpbringing = new RandomUpbringing(characterPlayer, null);
+        randomUpbringing.assign();
+
+        Assert.assertEquals(characterPlayer.getUpbringing().getCharacteristicOptions().size(), 4);
+        Assert.assertEquals(CharacteristicsDefinitionFactory.getInstance().getElement(characterPlayer.getUpbringing().getCharacteristicOptions().get(0).getSelections().iterator().next().getId()).getType(), CharacteristicType.BODY);
+        Assert.assertEquals(CharacteristicsDefinitionFactory.getInstance().getElement(characterPlayer.getUpbringing().getCharacteristicOptions().get(1).getSelections().iterator().next().getId()).getType(), CharacteristicType.SPIRIT);
     }
 }

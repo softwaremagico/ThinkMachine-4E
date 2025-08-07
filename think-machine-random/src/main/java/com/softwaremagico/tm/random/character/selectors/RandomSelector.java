@@ -118,7 +118,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
     protected abstract Collection<Element> getAllElements() throws InvalidXmlElementException;
 
     /**
-     * This mandatories values are defined by the user and must be assigned directly
+     * These mandatory values are defined by the user and must be assigned directly
      * without random approach. This method uses a list of elements that must be
      * directly assigned to the user.
      *
@@ -398,7 +398,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
      * @return weight as integer
      */
     protected int getWeight(Element element) throws InvalidRandomElementSelectedException {
-        return 1;
+        return BASIC_PROBABILITY;
     }
 
     /**

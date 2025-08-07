@@ -23,5 +23,7 @@ public class RandomCharacterTest {
         Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
         Assert.assertNotNull(characterPlayer.getInfo().getNames());
         Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+
+
     }
 }

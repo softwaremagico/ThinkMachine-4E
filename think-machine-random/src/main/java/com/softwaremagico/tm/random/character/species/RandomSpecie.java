@@ -10,6 +10,7 @@ import com.softwaremagico.tm.exceptions.UnofficialElementNotAllowedException;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
+import com.softwaremagico.tm.random.step.RandomizeCharacterDefinitionStep;
 
 import java.util.Collection;
 import java.util.Set;
@@ -22,7 +23,18 @@ public class RandomSpecie extends RandomSelector<Specie> {
 
     @Override
     public void assign() throws InvalidSpecieException, InvalidRandomElementSelectedException {
-        getCharacterPlayer().setSpecie(selectElementByWeight().getId());
+        if (getCharacterPlayer().getSpecie() == null || getCharacterPlayer().getSpecie().getId() == null) {
+            getCharacterPlayer().setSpecie(selectElementByWeight().getId());
+        }
+
+        RandomizeCharacterDefinitionStep<Specie> randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep<>(
+                getCharacterPlayer(),
+                SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId()),
+                getCharacterPlayer().getSpecie(),
+                getPreferences()
+        );
+
+        randomizeCharacterDefinitionStep.assign();
     }
 
     @Override

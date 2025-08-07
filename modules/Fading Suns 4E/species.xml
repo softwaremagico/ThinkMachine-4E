@@ -300,6 +300,44 @@
         <size>5</size>
         <blessings>sensitiveTouch, bitter</blessings>
         <benefices>ostraziced2</benefices>
+        <perks>
+            <perk>
+                <id>nothingToLose</id>
+            </perk>
+            <perk>
+                <id>simmeringRage</id>
+            </perk>
+            <perk>
+                <id>counterTheDark</id>
+            </perk>
+            <perk>
+                <id>dabbleInTheDark</id>
+            </perk>
+            <perk>
+                <id>Deduce</id>
+            </perk>
+            <perk>
+                <id>enlightened</id>
+            </perk>
+            <perk>
+                <id>scentOfTheWitch</id>
+            </perk>
+            <perk>
+                <id>wyrdKnowledge</id>
+            </perk>
+            <perk>
+                <id>attuneFetish</id>
+            </perk>
+            <perk>
+                <id>covenMembership</id>
+            </perk>
+            <perk>
+                <id>imbueTabernacle</id>
+            </perk>
+            <perk>
+                <id>psychicPowers</id>
+            </perk>
+        </perks>
         <random>
             <staticProbability>10</staticProbability>
         </random>
@@ -369,14 +407,14 @@
             <characteristic>
                 <id>psi</id>
                 <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
+                <maximumInitialValue>0</maximumInitialValue>
+                <maximumValue>0</maximumValue>
             </characteristic>
             <characteristic>
                 <id>urge</id>
                 <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
+                <maximumInitialValue>0</maximumInitialValue>
+                <maximumValue>0</maximumValue>
             </characteristic>
             <characteristic>
                 <id>theurgy</id>
@@ -401,6 +439,38 @@
         <size>7</size>
         <blessings>predatory, giant, sensitiveSmell, uncouth</blessings>
         <benefices>bite, extraLimbs, noOccult, ostraziced2</benefices>
+        <perks>
+            <perk>
+                <id>smellDanger</id>
+            </perk>
+            <perk>
+                <id>animalFriend</id>
+            </perk>
+            <perk>
+                <id>chameleon</id>
+            </perk>
+            <perk>
+                <id>destinator</id>
+            </perk>
+            <perk>
+                <id>guts</id>
+            </perk>
+            <perk>
+                <id>memoryExpander</id>
+            </perk>
+            <perk>
+                <id>militaryRank</id>
+            </perk>
+            <perk>
+                <id>oriented</id>
+            </perk>
+            <perk>
+                <id>spotter</id>
+            </perk>
+            <perk>
+                <id>wildDomain</id>
+            </perk>
+        </perks>
         <random>
             <staticProbability>10</staticProbability>
         </random>

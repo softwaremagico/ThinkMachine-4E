@@ -44,6 +44,16 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
 
     }
 
+    @Override
+    protected int getWeight(CharacteristicDefinition element) throws InvalidRandomElementSelectedException {
+        if (Objects.equals(getCharacterPlayer().getPrimaryCharacteristic(), element.getId())) {
+            return LITTLE_PROBABILITY;
+        } else if (Objects.equals(getCharacterPlayer().getSecondaryCharacteristic(), element.getId())) {
+            return LITTLE_PROBABILITY;
+        }
+        return BASIC_PROBABILITY;
+    }
+
 
     private void selectMainCharacteristics() throws InvalidRandomElementSelectedException {
         final String mainCharacteristic = selectStandardCharacteristic();
