@@ -169,7 +169,7 @@
             </stance>
         </stances>
         <random>
-            <recommendedFactions> decados</recommendedFactions>
+            <recommendedFactions>decados</recommendedFactions>
             <recommendedSpecies>ukar</recommendedSpecies>
         </random>
     </style>

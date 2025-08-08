@@ -1264,7 +1264,9 @@
                 <perk>kraxi1</perk>
             </upbringings>
         </restrictions>
-        <!-- TODO recommened to scravers-->
+        <random>
+            <recommendedFactions>scravers</recommendedFactions>
+        </random>
     </perk>
     <perk>
         <id>serpentis1</id>

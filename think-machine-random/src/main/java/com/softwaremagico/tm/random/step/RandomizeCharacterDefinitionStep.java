@@ -28,8 +28,6 @@ import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Selection;
-import com.softwaremagico.tm.character.factions.Faction;
-import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
@@ -134,14 +132,13 @@ public class RandomizeCharacterDefinitionStep<T extends Element> {
 
 
     private void assignMaterialAwards() throws InvalidRandomElementSelectedException {
-        final Faction faction = FactionFactory.getInstance().getElement(getCharacterPlayer().getFaction().getId());
-        if (faction != null && !faction.getMaterialAwards().isEmpty()) {
-            for (int i = 0; i < faction.getMaterialAwards().size(); i++) {
+        if (!characterDefinitionStepSelection.getMaterialAwardsOptions().isEmpty()) {
+            for (int i = 0; i < characterDefinitionStepSelection.getMaterialAwardsOptions().size(); i++) {
                 final RandomMaterialAward randomMaterialAward =
                         new RandomMaterialAward(getCharacterPlayer(), getPreferences(),
-                                faction.getMaterialAwards().get(i));
+                                characterDefinitionStepSelection.getMaterialAwardsOptions().get(i));
 
-                for (int j = 0; j < faction.getMaterialAwards().get(i).getTotalOptions(); j++) {
+                for (int j = 0; j < characterDefinitionStepSelection.getMaterialAwardsOptions().get(i).getTotalOptions(); j++) {
                     characterDefinitionStepSelection.getSelectedMaterialAwards().get(i).getSelections()
                             .add(new Selection(randomMaterialAward.selectElementByWeight().getId()));
                 }

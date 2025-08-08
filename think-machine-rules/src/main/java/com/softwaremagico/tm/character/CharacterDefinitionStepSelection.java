@@ -31,6 +31,8 @@ import com.softwaremagico.tm.character.capabilities.CapabilityOption;
 import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOptions;
 import com.softwaremagico.tm.character.equipment.CharacterSelectedEquipment;
+import com.softwaremagico.tm.character.equipment.EquipmentOption;
+import com.softwaremagico.tm.character.equipment.EquipmentOptions;
 import com.softwaremagico.tm.character.perks.PerkOptions;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
 import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
@@ -303,5 +305,9 @@ public abstract class CharacterDefinitionStepSelection extends Element {
 
     public List<PerkOptions> getPerksOptions() {
         return getCharacterDefinitionStep().getPerksOptions();
+    }
+
+    public List<EquipmentOptions> getMaterialAwardsOptions() {
+        return getCharacterDefinitionStep().getMaterialAwards();
     }
 }
