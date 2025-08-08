@@ -689,6 +689,19 @@
             <recommendedFactions>scravers</recommendedFactions>
             <recommendedFactions>ukar</recommendedFactions>
         </random>
+        <restrictions mode="any">
+            <!-- TODO: fencing + any of them-->
+            <upbringings>
+                <upbringing>noble</upbringing>
+                <merchant>merchant</merchant>
+            </upbringings>
+            <species>
+                <specie>ukar</specie>
+            </species>
+            <perks>
+                <perk>fencing</perk>
+            </perks>
+        </restrictions>
     </style>
     <style>
         <id>serpentis</id>
@@ -777,6 +790,17 @@
                 </description>
             </stance>
         </stances>
+        <restrictions mode="all">
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+            <capabilities>
+                <capability>dance</capability>
+            </capabilities>
+            <perks>
+                <perk>fencing</perk>
+            </perks>
+        </restrictions>
     </style>
     <style>
         <id>torero</id>
@@ -857,7 +881,14 @@
                 </description>
             </stance>
         </stances>
-        <restrictedUpbringings>noble</restrictedUpbringings>
+        <restrictions mode="any_from_group">
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+            <perks>
+                <perk>fencing</perk>
+            </perks>
+        </restrictions>
     </style>
     <style>
         <id>phoenixRifleCorps</id>

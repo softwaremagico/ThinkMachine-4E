@@ -173,12 +173,10 @@
             <es>Pase de Acceso Ilimitado</es>
         </name>
         <restrictions>
-            <factions>
-                <faction>inquisitor</faction>
-            </factions>
             <callings>
                 <calling>detective</calling>
                 <calling>imperialCohort</calling>
+                <calling>inquisitor</calling>
                 <calling>questingKnight</calling>
             </callings>
         </restrictions>
@@ -261,11 +259,11 @@
             <es>Armadura de Pureza</es>
         </name>
         <restrictions>
-            <factions>
-                <faction>inquisitor</faction>
-            </factions>
             <callings>
-                <calling>monk</calling>
+                <calling>inquisitor</calling>
+                <calling>monkScholarlyTradition</calling>
+                <calling>monkAsceticTradition</calling>
+                <calling>monkMartialTradition</calling>
             </callings>
         </restrictions>
     </perk>
@@ -411,10 +409,8 @@
             <es>Sabueso</es>
         </name>
         <restrictions>
-            <factions>
-                <faction>inquisitor</faction>
-            </factions>
             <callings>
+                <calling>inquisitor</calling>
                 <calling>BountyHunter</calling>
             </callings>
         </restrictions>
@@ -788,6 +784,341 @@
         </restrictions>
     </perk>
     <perk>
+        <id>cleansingWord</id>
+        <name>
+            <en>Cleansing Word</en>
+            <es>Palabras Liberadoras</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>dreamtender</calling>
+                <calling>friar</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>comeliness</id>
+        <name>
+            <en>Comeliness</en>
+            <es>Atractivo</es>
+        </name>
+    </perk>
+    <perk>
+        <id>comprehendTechLevel5</id>
+        <name>
+            <en>Comprehend Tech Level (NT 5)</en>
+            <es>Comprender Nivel Tecnológico (NT 5)</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>techRedeemer</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>comprehendTechLevel6</id>
+        <name>
+            <en>Comprehend Tech Level (NT 6)</en>
+            <es>Comprender Nivel Tecnológico (NT 6)</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>comprehendTechLevel5</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>comprehendTechLevel7</id>
+        <name>
+            <en>Comprehend Tech Level (NT 7)</en>
+            <es>Comprender Nivel Tecnológico (NT 7)</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>comprehendTechLevel6</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>comprehendTechLevel8</id>
+        <name>
+            <en>Comprehend Tech Level (NT 8)</en>
+            <es>Comprender Nivel Tecnológico (NT 8)</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>comprehendTechLevel7</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>concotElixir</id>
+        <name>
+            <en>Concot Elixir</en>
+            <es>Elaborar Elixir</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>healer</calling>
+                <calling>techRedeemer</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>condemn</id>
+        <name>
+            <en>Condemn</en>
+            <es>Condenar</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>conscript</id>
+        <name>
+            <en>Conscript</en>
+            <es>Leva</es>
+        </name>
+        <restrictions mode="any_from_group">
+            <callings>
+                <calling>commander</calling>
+                <calling>lord</calling>
+            </callings>
+            <perks>
+                <perk>nobleTitleBaronet</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>contact</id>
+        <name>
+            <en>Contact (Who?)</en>
+            <es>Contacto (¿Quién?)</es>
+        </name>
+    </perk>
+    <perk>
+        <id>contortionist</id>
+        <name>
+            <en>Contortionist</en>
+            <es>Contorsionista</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>artist</calling>
+                <calling>thief</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>councilMember</id>
+        <name>
+            <en>Council Member</en>
+            <es>Miembro del Consejo</es>
+        </name>
+        <restrictions mode="any_from_group">
+            <callings>
+                <calling>conspiracist</calling>
+                <calling>courtier</calling>
+            </callings>
+            <perks>
+                <perk>nobleTitleKnight</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>counterTheDark</id>
+        <name>
+            <en>Counter the Dark</en>
+            <es>Contrarrestar las Tinieblas</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>occultist</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>counterfeit</id>
+        <name>
+            <en>Counterfeit</en>
+            <es>Falsificador</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>clergy</calling>
+                <calling>scribe</calling>
+                <calling>spy</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>covenMembership</id>
+        <name>
+            <en>Coven Membership</en>
+            <es>Miembro de Aquellarre</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>psychic</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>craftEnergyDevice</id>
+        <name>
+            <en>Craft Energy Device</en>
+            <es>Fabricar Dispositivo de Energía</es>
+        </name>
+        <restrictions mode="any_from_group">
+            <callings>
+                <calling>techRedeemer</calling>
+            </callings>
+            <perks>
+                <perk>comprehendTechLevel7</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>craftWondrousTech</id>
+        <name>
+            <en>Craft Wondrous Tech</en>
+            <es>Fabricar Tecnología Asombrosa</es>
+        </name>
+        <restrictions mode="any_from_group">
+            <callings>
+                <calling>techRedeemer</calling>
+            </callings>
+            <perks>
+                <perk>comprehendTechLevel5</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>creditWorthy</id>
+        <name>
+            <en>Credit-Worthy</en>
+            <es>De Confianza</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>tycoon</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>criminalArchiveAccess</id>
+        <name>
+            <en>Criminal Archive Access</en>
+            <es>Acceso al Registro de Criminales</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>bountyHunter</calling>
+                <calling>detective</calling>
+                <calling>scribe</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>dabbleInTheDark</id>
+        <name>
+            <en>Dabble in the Dark</en>
+            <es>Aventurarse en las Tinieblas</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>occultist</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>danceOfDestruction</id>
+        <name>
+            <en>Dance of Destruction</en>
+            <es>Danza de la Destrucción</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>duelist</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>dangerSense</id>
+        <name>
+            <en>Danger Sense</en>
+            <es>Sentido del Peligro</es>
+        </name>
+    </perk>
+    <perk>
+        <id>daredevil</id>
+        <name>
+            <en>Daredevil</en>
+            <es>Intrépido</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>starPilot</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>debauchery</id>
+        <name>
+            <en>Debauchery</en>
+            <es>Libertinaje</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>sybarite</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>deduce</id>
+        <name>
+            <en>Deduce</en>
+            <es>Deducir</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>detective</calling>
+                <calling>inquisitor</calling>
+                <calling>occultist</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>deliverance</id>
+        <name>
+            <en>Deliverance</en>
+            <es>Salvación</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>brotherBattle</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>deputize</id>
+        <name>
+            <en>Deputize</en>
+            <es>Delegar</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>detective</calling>
+                <calling>imperialCohort</calling>
+                <calling>inquisitor</calling>
+                <calling>questingKnight</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
         <id>dervishRankRecruit</id>
         <name>
             <en>Shurtah (Recruit)</en>
@@ -888,95 +1219,240 @@
         </restrictions>
     </perk>
     <perk>
-        <id>conscript</id>
+        <id>diplomaticImmunity</id>
         <name>
-            <en>Conscript</en>
-            <es>Leva</es>
+            <en>Diplomatic Immunity</en>
+            <es>Inmunidad Diplomática</es>
         </name>
-        <restrictions mode="any_from_group">
-            <callings>
-                <calling>commander</calling>
-                <calling>lord</calling>
-            </callings>
+        <restrictions>
             <perks>
-                <perk>nobleTitleBaronet</perk>
+                <perk>churchOrdinationNovitiate</perk>
+                <perk>nobleTitleKnight</perk>
+                <perk>guildCommissionCharioteer1</perk>
+                <perk>guildCommissionEngineer1</perk>
+                <perk>guildCommissionMusters1</perk>
+                <perk>guildCommissionReeves1</perk>
+                <perk>guildCommissionScravers1</perk>
             </perks>
         </restrictions>
     </perk>
     <perk>
-        <id>contact</id>
+        <id>embargo</id>
         <name>
-            <en>Contact (Who?)</en>
-            <es>Contacto (¿Quién?)</es>
+            <en>Embargo</en>
+            <es>Embargo</es>
         </name>
+        <restrictions>
+            <perks>
+                <perk>guildCommissionCharioteer3</perk>
+                <perk>guildCommissionEngineer3</perk>
+                <perk>guildCommissionMusters3</perk>
+                <perk>guildCommissionReeves3</perk>
+                <perk>guildCommissionScravers3</perk>
+            </perks>
+        </restrictions>
     </perk>
     <perk>
-        <id>contortionist</id>
+        <id>empathicConnection</id>
         <name>
-            <en>Contortionist</en>
-            <es>Contorsionista</es>
+            <en>Empathic Connection</en>
+            <es>Conexión Empática</es>
         </name>
         <restrictions>
             <callings>
-                <calling>artist</calling>
-                <calling>thief</calling>
+                <calling>dreamtender</calling>
             </callings>
         </restrictions>
     </perk>
     <perk>
-        <id>councilMember</id>
+        <id>enlightened</id>
         <name>
-            <en>Council Member</en>
-            <es>Miembro del Consejo</es>
+            <en>Elightened</en>
+            <es>Iluminado</es>
         </name>
-        <restrictions mode="any_from_group">
+        <restrictions>
             <callings>
-                <calling>conspiracist</calling>
+                <calling>monkScholarlyTradition</calling>
+                <calling>monkAsceticTradition</calling>
+                <calling>monkMartialTradition</calling>
+                <calling>occultist</calling>
+                <calling>psychic</calling>
+                <calling>theurgist</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>entourage</id>
+        <name>
+            <en>Entourage</en>
+            <es>Acompañamiento</es>
+        </name>
+        <restrictions>
+            <callings>
                 <calling>courtier</calling>
             </callings>
-            <perks>
-                <perk>nobleTitleKnight</perk>
-            </perks>
         </restrictions>
     </perk>
     <perk>
-        <id>counterTheDark</id>
+        <id>epiphany</id>
         <name>
-            <en>Counter the Dark</en>
-            <es>Contrarrestar las Tinieblas</es>
+            <en>Epiphany</en>
+            <es>Epifanía</es>
+        </name>
+        <restrictions mode="any_from_group">
+            <callings>
+                <calling>dreamtender</calling>
+                <calling>enthusiast</calling>
+                <calling>mendicant</calling>
+                <calling>monkScholarlyTradition</calling>
+                <calling>monkAsceticTradition</calling>
+                <calling>monkMartialTradition</calling>
+                <calling>scholar</calling>
+            </callings>
+            <capabilitiesGroups>
+                <capabilityGroups>artsLore</capabilityGroups>
+                <capabilityGroups>craftsLore</capabilityGroups>
+                <capabilityGroups>customsLore</capabilityGroups>
+                <capabilityGroups>customsLore</capabilityGroups>
+                <capabilityGroups>knowledgeLore</capabilityGroups>
+                <capabilityGroups>medicalLore</capabilityGroups>
+                <capabilityGroups>performingArtsLore</capabilityGroups>
+                <capabilityGroups>scienceLore</capabilityGroups>
+                <capabilityGroups>techLore</capabilityGroups>
+            </capabilitiesGroups>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>executioner</id>
+        <name>
+            <en>Executioner</en>
+            <es>Verdugo</es>
         </name>
         <restrictions>
             <callings>
-                <calling>occultist</calling>
+                <calling>lord</calling>
             </callings>
         </restrictions>
     </perk>
     <perk>
-        <id>counterfeit</id>
+        <id>exemplar</id>
         <name>
-            <en>Counterfeit</en>
-            <es>Falsificador</es>
+            <en>Exemplar</en>
+            <es>Paradigma</es>
+        </name>
+    </perk>
+    <perk>
+        <id>fameInfamy</id>
+        <name>
+            <en>Fame/Infamy</en>
+            <es>Fama/Infamia</es>
+        </name>
+    </perk>
+    <perk>
+        <id>familyTies</id>
+        <name>
+            <en>Family Ties</en>
+            <es>Lazos Familiares</es>
+        </name>
+    </perk>
+    <perk>
+        <id>fencing</id>
+        <name>
+            <en>Fencing</en>
+            <es>Esgrima</es>
+        </name>
+        <restrictions>
+            <capabilities>
+                <capability>militaryWeapons</capability>
+            </capabilities>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>forthright</id>
+        <name>
+            <en>Forthright</en>
+            <es>Directo</es>
+        </name>
+    </perk>
+    <perk>
+        <id>fortitudeInFaith</id>
+        <name>
+            <en>Fortitude in Faith</en>
+            <es>Fortaleza en la Fe</es>
         </name>
         <restrictions>
             <callings>
-                <calling>clergy</calling>
-                <calling>scribe</calling>
-                <calling>spy</calling>
+                <calling>healer</calling>
+                <calling>mendicant</calling>
             </callings>
         </restrictions>
     </perk>
     <perk>
-        <id>covenMembership</id>
+        <id>friendsInHighPlaces</id>
         <name>
-            <en>Coven Membership</en>
-            <es>Miembro de Aquellarre</es>
+            <en>Friends in High Places</en>
+            <es>Amigos en Altas Esferas</es>
         </name>
         <restrictions>
             <callings>
-                <calling>psychic</calling>
+                <calling>lawyer</calling>
+                <calling>tycoon</calling>
             </callings>
         </restrictions>
     </perk>
+    <perk>
+        <id>gambler</id>
+        <name>
+            <en>Gambler</en>
+            <es>Tahúr</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>merchant</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>gearhead</id>
+        <name>
+            <en>Gearhead</en>
+            <es>Manitas</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>merchant</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>gospel</id>
+        <name>
+            <en>Gospel</en>
+            <es>Góspel</es>
+        </name>
+        <restrictions mode="all">
+            <callings>
+                <calling>chorister</calling>
+            </callings>
+            <capabilitiesGroups>
+                <capabilityGroups>performingArtsLore</capabilityGroups>
+            </capabilitiesGroups>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>gossipNetwork</id>
+        <name>
+            <en>Gossip Network</en>
+            <es>Red de Cotilleos</es>
+        </name>
+        <restrictions>
+            <capabilitiesGroups>
+                <capabilityGroups>customsLore</capabilityGroups>
+            </capabilitiesGroups>
+        </restrictions>
+    </perk>
+
+
     <perk>
         <id>ingenious</id>
         <name>
@@ -984,9 +1460,614 @@
             <es>Ingenioso</es>
         </name>
         <restrictions>
-            <upbrinfings>
+            <upbringings>
                 <upbringing>merchant</upbringing>
-            </upbrinfings>
+            </upbringings>
+        </restrictions>
+    </perk>
+
+    <perk>
+        <id>guildCommissionCharioteer1</id>
+        <name>
+            <en>Ensign</en>
+            <es>Alférez</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <factions>
+                <faction>charioteers</faction>
+            </factions>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionCharioteer2</id>
+        <name>
+            <en>Lieutenant</en>
+            <es>Lugarteniente</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionCharioteer1</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionCharioteer3</id>
+        <name>
+            <en>Commander</en>
+            <es>Comandante</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionCharioteer2</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionCharioteer4</id>
+        <name>
+            <en>Captain</en>
+            <es>Capitán</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionCharioteer3</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionCharioteer5</id>
+        <name>
+            <en>Consul</en>
+            <es>Cónsul</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionCharioteer4</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionCharioteer6</id>
+        <name>
+            <en>Dean</en>
+            <es>Decano</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionCharioteer5</calling>
+            </callings>
+        </restrictions>
+    </perk>
+
+    <perk>
+        <id>guildCommissionEngineer1</id>
+        <name>
+            <en>Apprentice</en>
+            <es>Aprendiz</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <factions>
+                <faction>engineers</faction>
+            </factions>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionEngineer2</id>
+        <name>
+            <en>Entered</en>
+            <es>Iniciado</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionEngineer1</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionEngineer3</id>
+        <name>
+            <en>Fellow</en>
+            <es>Miembro</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionEngineer2</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionEngineer4</id>
+        <name>
+            <en>Crafter</en>
+            <es>Artesano</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionEngineer3</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionEngineer5</id>
+        <name>
+            <en>Engineer</en>
+            <es>Ingeniero</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionEngineer4</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionEngineer6</id>
+        <name>
+            <en>Maestro</en>
+            <es>Master</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionEngineer5</calling>
+            </callings>
+        </restrictions>
+    </perk>
+
+    <perk>
+        <id>guildCommissionMusters1</id>
+        <name>
+            <en>Private</en>
+            <es>Soldado Raso</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <factions>
+                <faction>musters</faction>
+            </factions>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionMusters2</id>
+        <name>
+            <en>Sergeant</en>
+            <es>Sargento</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionMusters1</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionMusters3</id>
+        <name>
+            <en>Lieutenant</en>
+            <es>Lugarteniente</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionMusters2</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionMusters4</id>
+        <name>
+            <en>Captain</en>
+            <es>Capitán</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionMusters3</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionMusters5</id>
+        <name>
+            <en>Major</en>
+            <es>Mayor</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionMusters4</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionMusters6</id>
+        <name>
+            <en>Colonel</en>
+            <es>Coronel</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionMusters5</calling>
+            </callings>
+        </restrictions>
+    </perk>
+
+    <perk>
+        <id>guildCommissionReeves1</id>
+        <name>
+            <en>Associate</en>
+            <es>Asociado</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <factions>
+                <faction>reeves</faction>
+            </factions>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionReeves2</id>
+        <name>
+            <en>Chief</en>
+            <es>Jefe</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionReeves1</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionReeves3</id>
+        <name>
+            <en>Manager</en>
+            <es>Gerente</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionReeves2</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionReeves4</id>
+        <name>
+            <en>Director</en>
+            <es>Director</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionReeves3</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionReeves5</id>
+        <name>
+            <en>Consul</en>
+            <es>Cónsul</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionReeves4</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionReeves6</id>
+        <name>
+            <en>Dean</en>
+            <es>Decano</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionReeves5</calling>
+            </callings>
+        </restrictions>
+    </perk>
+
+    <perk>
+        <id>guildCommissionScravers1</id>
+        <name>
+            <en>Associate</en>
+            <es>Asociado</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <factions>
+                <faction>scravers</faction>
+            </factions>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionScravers2</id>
+        <name>
+            <en>Genin</en>
+            <es>Genin</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionScravers1</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionScravers3</id>
+        <name>
+            <en>Boss</en>
+            <es>Jefe</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionScravers2</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionScravers4</id>
+        <name>
+            <en>Jonin</en>
+            <es>Jonin</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionScravers3</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionScravers5</id>
+        <name>
+            <en>Consul</en>
+            <es>Cónsul</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionScravers4</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>guildCommissionScravers6</id>
+        <name>
+            <en>Dean</en>
+            <es>Decano</es>
+        </name>
+        <group>guildCommission</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>guildCommissionScravers5</calling>
+            </callings>
         </restrictions>
     </perk>
 

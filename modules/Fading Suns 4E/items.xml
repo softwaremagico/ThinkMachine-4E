@@ -437,4 +437,36 @@
             <es>libro de oraciones, incienso, velas</es>
         </description>
     </equipment>
+    <equipment>
+        <id>minorSaintlyRelic</id>
+        <type>item</type>
+        <name>
+            <en>Minor Saintly Relic</en>
+            <es>Reliquia Sagrada Menor</es>
+        </name>
+        <description>
+            <en>+1 focus</en>
+            <es>+1 introspección</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>monasticAttire</id>
+        <type>item</type>
+        <name>
+            <en>Monastic Attire</en>
+            <es>Atuendo Monástico</es>
+        </name>
+    </equipment>
+    <equipment>
+        <id>monasticBooks</id>
+        <type>item</type>
+        <name>
+            <en>Monastic Books</en>
+            <es>Libros Monásticos</es>
+        </name>
+        <description>
+            <en>Books related to the chosen Lore.</en>
+            <es>Libros relacionados con el saber elegido.</es>
+        </description>
+    </equipment>
 </equipments>

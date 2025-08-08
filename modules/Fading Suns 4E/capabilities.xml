@@ -112,7 +112,6 @@
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
-                <faction>inquisitor</faction>
             </factions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -121,6 +120,7 @@
             <callings>
                 <calling>bountyHunter</calling>
                 <calling>imperialCohort</calling>
+                <calling>inquisitor</calling>
                 <calling>mercenary</calling>
                 <calling>reclaimer</calling>
                 <calling>scout</calling>
@@ -235,7 +235,6 @@
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
-                <faction>inquisitor</faction>
             </factions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -249,6 +248,7 @@
                 <calling>explorer</calling>
                 <calling>detective</calling>
                 <calling>imperialCohort</calling>
+                <calling>inquisitor</calling>
                 <calling>mercenary</calling>
                 <calling>pirate</calling>
                 <calling>reclaimer</calling>
@@ -1389,7 +1389,7 @@
 
     <capability>
         <id>appliedScience</id>
-        <group>scienceLores</group>
+        <group>scienceLore</group>
         <name>
             <en>Applied Science</en>
             <es>Ciencias Aplicadas</es>
@@ -1407,7 +1407,7 @@
     </capability>
     <capability>
         <id>artificialIntelligence</id>
-        <group>scienceLores</group>
+        <group>scienceLore</group>
         <name>
             <en>Artificial Intelligence</en>
             <es>Inteligencia Artificial</es>
@@ -1429,7 +1429,7 @@
     </capability>
     <capability>
         <id>lifeScience</id>
-        <group>scienceLores</group>
+        <group>scienceLore</group>
         <name>
             <en>Life Science</en>
             <es>Ciencias de la Vida</es>
@@ -1437,7 +1437,7 @@
     </capability>
     <capability>
         <id>physicalScience</id>
-        <group>scienceLores</group>
+        <group>scienceLore</group>
         <name>
             <en>Physical Science</en>
             <es>Ciencias Naturales</es>
@@ -1453,7 +1453,7 @@
     </capability>
     <capability>
         <id>terraforming</id>
-        <group>scienceLores</group>
+        <group>scienceLore</group>
         <name>
             <en>Terraforming</en>
             <es>Terraformación</es>

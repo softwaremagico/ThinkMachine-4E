@@ -42,6 +42,7 @@
                 <include name="psychicCreation"/>
                 <include name="freeOptionsSelectionTest"/>
                 <include name="exportTxt"/>
+                <include name="perks"/>
             </run>
         </groups>
         <classes>
@@ -72,6 +73,7 @@
             <class name="com.softwaremagico.tm.rules.CharacterRulesTests"/>
             <class name="com.softwaremagico.tm.rules.PsychicCreationTests"/>
             <class name="com.softwaremagico.tm.rules.FreeOptionsSelectionTests"/>
+            <class name="com.softwaremagico.tm.rules.PerksTests"/>
             <class name="com.softwaremagico.tm.txt.ExportTxtTests"/>
         </classes>
     </test>

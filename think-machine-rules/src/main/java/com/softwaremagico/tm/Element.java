@@ -68,6 +68,7 @@ public class Element extends XmlData implements Comparable<Element> {
 
     private boolean official = true;
 
+    @JsonProperty("group")
     private String group;
 
     //Only fort sheet representation.

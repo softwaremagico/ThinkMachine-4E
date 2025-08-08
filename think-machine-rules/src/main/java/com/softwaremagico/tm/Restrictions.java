@@ -71,11 +71,13 @@ public class Restrictions extends XmlData {
     @JsonProperty("perksGroups")
     private Set<String> restrictedToPerksGroups = new HashSet<>();
 
+    @JsonProperty("capabilitiesGroups")
+    private Set<String> restrictedToCapabilitiesGroups = new HashSet<>();
+
     @JacksonXmlProperty(isAttribute = true)
     private RestrictionMode mode = RestrictionMode.ANY;
 
     @JacksonXmlProperty(isAttribute = true)
-
     public Set<String> getRestrictedToSpecies() {
         return restrictedToSpecies;
     }
@@ -124,6 +126,14 @@ public class Restrictions extends XmlData {
         this.restrictedToPerksGroups = restrictedToPerksGroups;
     }
 
+    public Set<String> getRestrictedToCapabilitiesGroups() {
+        return restrictedToCapabilitiesGroups;
+    }
+
+    public void setRestrictedToCapabilitiesGroups(Set<String> restrictedToCapabilitiesGroups) {
+        this.restrictedToCapabilitiesGroups = restrictedToCapabilitiesGroups;
+    }
+
     public Set<String> getRestrictedToCapabilities() {
         return restrictedToCapabilities;
     }
@@ -157,7 +167,8 @@ public class Restrictions extends XmlData {
                 && (restrictedToCallings == null || restrictedToCallings.isEmpty())
                 && (restrictedToCapabilities == null || restrictedToCapabilities.isEmpty())
                 && (restrictedPerks == null || restrictedPerks.isEmpty())
-                && (restrictedToPerksGroups == null || restrictedToPerksGroups.isEmpty());
+                && (restrictedToPerksGroups == null || restrictedToPerksGroups.isEmpty())
+                && (restrictedToCapabilitiesGroups == null || restrictedToCapabilitiesGroups.isEmpty());
     }
 
 
@@ -202,6 +213,9 @@ public class Restrictions extends XmlData {
                     // Check perks Groups
                     || (!getRestrictedToPerksGroups().isEmpty() && (characterPlayer.getPerks() != null && getRestrictedToPerksGroups().stream()
                     .anyMatch(characterPlayer.getPerks().stream().map(Element::getGroup).collect(Collectors.toList())::contains)))
+                    // Check Capabilities Groups
+                    || (!getRestrictedToCapabilitiesGroups().isEmpty() && (characterPlayer.getCapabilitiesWithSpecialization() != null && getRestrictedToCapabilitiesGroups().stream()
+                    .anyMatch(characterPlayer.getCapabilitiesWithSpecialization().stream().map(Element::getGroup).collect(Collectors.toList())::contains)))
                     //Check capabilities
                     || (!getRestrictedToCapabilities().isEmpty() && (characterPlayer.getCapabilitiesWithSpecialization() != null
                     && !Collections.disjoint(getRestrictedToCapabilities(),
@@ -240,6 +254,9 @@ public class Restrictions extends XmlData {
                     // Check perks Groups
                     && (getRestrictedToPerksGroups().isEmpty() || (characterPlayer.getPerks() != null && getRestrictedToPerksGroups().stream()
                     .anyMatch(characterPlayer.getPerks().stream().map(Element::getGroup).collect(Collectors.toList())::contains)))
+                    // Check capabilities Groups
+                    && (getRestrictedToCapabilitiesGroups().isEmpty() || (characterPlayer.getCapabilitiesWithSpecialization() != null && getRestrictedToCapabilitiesGroups().stream()
+                    .anyMatch(characterPlayer.getCapabilitiesWithSpecialization().stream().map(Element::getGroup).collect(Collectors.toList())::contains)))
                     //Check capabilities
                     && (getRestrictedToCapabilities().isEmpty() || (characterPlayer.getCapabilitiesWithSpecialization() != null
                     && !Collections.disjoint(getRestrictedToCapabilities(),
@@ -277,6 +294,9 @@ public class Restrictions extends XmlData {
                     // Check perks Groups
                     || (getRestrictedToPerksGroups().isEmpty() || (characterPlayer.getPerks() != null && getRestrictedToPerksGroups().stream()
                     .anyMatch(characterPlayer.getPerks().stream().map(Element::getGroup).collect(Collectors.toList())::contains)))
+                    // Check capabilities groups
+                    || (getRestrictedToCapabilitiesGroups().isEmpty() || (characterPlayer.getCapabilitiesWithSpecialization() != null && getRestrictedToCapabilitiesGroups().stream()
+                    .anyMatch(characterPlayer.getCapabilitiesWithSpecialization().stream().map(Element::getGroup).collect(Collectors.toList())::contains)))
                     //Check capabilities
                     || (getRestrictedToCapabilities().isEmpty() || (characterPlayer.getCapabilitiesWithSpecialization() != null
                     && !Collections.disjoint(getRestrictedToCapabilities(),
@@ -338,6 +358,7 @@ public class Restrictions extends XmlData {
                 + ", restrictedToFactionGroups=" + restrictedToFactionGroups
                 + ", restrictedToCallings=" + restrictedToCallings
                 + ", restrictedToCapabilities=" + restrictedToCapabilities
+                + ", restrictedToCapabilitiesGroups=" + restrictedToCapabilitiesGroups
                 + ", restrictedPerks=" + restrictedPerks
                 + ", restrictedToPerksGroups=" + restrictedToPerksGroups
                 + ", mode=" + mode
