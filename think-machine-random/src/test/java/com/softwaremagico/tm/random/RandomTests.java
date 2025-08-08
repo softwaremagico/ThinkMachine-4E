@@ -30,7 +30,7 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicType;
 import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
 import com.softwaremagico.tm.character.specie.Specie;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
-import com.softwaremagico.tm.random.character.characteristics.RandomCharacteristics;
+import com.softwaremagico.tm.random.step.RandomCharacteristics;
 import com.softwaremagico.tm.random.character.names.RandomName;
 import com.softwaremagico.tm.random.character.names.RandomSurname;
 import com.softwaremagico.tm.random.character.planets.RandomPlanet;

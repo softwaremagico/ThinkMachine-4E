@@ -106,8 +106,6 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         return characterPlayer;
     }
 
-    public abstract void assign() throws InvalidSpecieException, InvalidRandomElementSelectedException;
-
     protected Set<RandomPreference> getPreferences() {
         if (preferences == null) {
             return new HashSet<>();

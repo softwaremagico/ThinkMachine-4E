@@ -27,7 +27,7 @@ package com.softwaremagico.tm.random.character;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Gender;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
-import com.softwaremagico.tm.random.character.characteristics.RandomCharacteristics;
+import com.softwaremagico.tm.random.step.RandomCharacteristics;
 import com.softwaremagico.tm.random.character.factions.RandomFaction;
 import com.softwaremagico.tm.random.character.names.RandomName;
 import com.softwaremagico.tm.random.character.names.RandomSurname;

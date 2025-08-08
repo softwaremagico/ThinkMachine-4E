@@ -29,6 +29,7 @@ import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
@@ -37,7 +38,7 @@ import com.softwaremagico.tm.random.step.RandomizeCharacterDefinitionStep;
 import java.util.Collection;
 import java.util.Set;
 
-public class RandomFaction extends RandomSelector<Faction> {
+public class RandomFaction extends RandomSelector<Faction> implements AssignableRandomSelector {
 
     public RandomFaction(CharacterPlayer characterPlayer, Set<RandomPreference> preferences) throws InvalidXmlElementException {
         super(characterPlayer, preferences);

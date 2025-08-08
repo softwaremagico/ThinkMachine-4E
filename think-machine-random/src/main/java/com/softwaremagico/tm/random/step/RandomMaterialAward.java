@@ -26,26 +26,32 @@ package com.softwaremagico.tm.random.step;
 
 import com.softwaremagico.tm.Option;
 import com.softwaremagico.tm.character.CharacterPlayer;
-import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOptions;
-import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
+import com.softwaremagico.tm.character.equipment.Equipment;
+import com.softwaremagico.tm.character.equipment.EquipmentOptions;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
+import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 
 import java.util.Collection;
 import java.util.Set;
 
-public class RandomCharacteristicBonusOption extends RandomCharacteristics {
+public class RandomMaterialAward extends RandomSelector<Equipment> {
 
-    private final CharacteristicBonusOptions characteristicBonusOptions;
+    private final EquipmentOptions equipmentOptions;
 
-    public RandomCharacteristicBonusOption(CharacterPlayer characterPlayer, Set<RandomPreference> preferences,
-                                    CharacteristicBonusOptions characteristicBonusOptions) throws InvalidXmlElementException {
+    public RandomMaterialAward(CharacterPlayer characterPlayer, Set<RandomPreference> preferences,
+                               EquipmentOptions equipmentOptions) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
-        this.characteristicBonusOptions = characteristicBonusOptions;
+        this.equipmentOptions = equipmentOptions;
     }
 
     @Override
-    protected Collection<CharacteristicDefinition> getAllElements() throws InvalidXmlElementException {
-        return characteristicBonusOptions.getOptions().stream().map(Option::getElement).toList();
+    protected Collection<Equipment> getAllElements() throws InvalidXmlElementException {
+        return equipmentOptions.getOptions().stream().map(Option::getElement).toList();
+    }
+
+    @Override
+    protected int getWeight(Equipment element) {
+        return BASIC_PROBABILITY;
     }
 }

@@ -30,6 +30,7 @@ import com.softwaremagico.tm.character.planets.Planet;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
@@ -37,7 +38,7 @@ import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedExcep
 import java.util.Collection;
 import java.util.Set;
 
-public class RandomPlanet extends RandomSelector<Planet> {
+public class RandomPlanet extends RandomSelector<Planet> implements AssignableRandomSelector {
     private static final int FACTION_PLANET = 50;
     private static final int SPECIE_PLANET = 80;
     private static final int NEUTRAL_PLANET = 8;

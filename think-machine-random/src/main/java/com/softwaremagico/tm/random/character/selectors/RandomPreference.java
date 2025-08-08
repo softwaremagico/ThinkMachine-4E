@@ -30,6 +30,8 @@ public enum RandomPreference {
     EXOTIC,
     PRIMITIVE,
     HI_TECH,
+    RICH,
+    POOR,
     PSI,
     THEURGY;
 }

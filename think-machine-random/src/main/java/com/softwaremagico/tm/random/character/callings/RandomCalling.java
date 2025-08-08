@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.random.character.species;
+package com.softwaremagico.tm.random.character.callings;
 
 /*-
  * #%L
@@ -25,8 +25,9 @@ package com.softwaremagico.tm.random.character.species;
  */
 
 import com.softwaremagico.tm.character.CharacterPlayer;
-import com.softwaremagico.tm.character.specie.Specie;
-import com.softwaremagico.tm.character.specie.SpecieFactory;
+import com.softwaremagico.tm.character.callings.Calling;
+import com.softwaremagico.tm.character.callings.CallingFactory;
+import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
@@ -38,21 +39,21 @@ import com.softwaremagico.tm.random.step.RandomizeCharacterDefinitionStep;
 import java.util.Collection;
 import java.util.Set;
 
-public class RandomSpecie extends RandomSelector<Specie> implements AssignableRandomSelector {
+public class RandomCalling extends RandomSelector<Calling> implements AssignableRandomSelector {
 
-    public RandomSpecie(CharacterPlayer characterPlayer, Set<RandomPreference> preferences) throws InvalidXmlElementException {
+    public RandomCalling(CharacterPlayer characterPlayer, Set<RandomPreference> preferences) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
     }
 
     @Override
     public void assign() throws InvalidSpecieException, InvalidRandomElementSelectedException {
-        if (getCharacterPlayer().getSpecie() == null || getCharacterPlayer().getSpecie().getId() == null) {
-            getCharacterPlayer().setSpecie(selectElementByWeight().getId());
+        if (getCharacterPlayer().getCalling() == null || getCharacterPlayer().getCalling().getId() == null) {
+            getCharacterPlayer().setCalling(selectElementByWeight().getId());
         }
 
-        final RandomizeCharacterDefinitionStep<Specie> randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep<>(
+        final RandomizeCharacterDefinitionStep<Faction> randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep<>(
                 getCharacterPlayer(),
-                getCharacterPlayer().getSpecie(),
+                getCharacterPlayer().getCalling(),
                 getPreferences()
         );
 
@@ -60,7 +61,12 @@ public class RandomSpecie extends RandomSelector<Specie> implements AssignableRa
     }
 
     @Override
-    protected Collection<Specie> getAllElements() throws InvalidXmlElementException {
-        return SpecieFactory.getInstance().getElements();
+    protected Collection<Calling> getAllElements() throws InvalidXmlElementException {
+        return CallingFactory.getInstance().getElements();
+    }
+
+    @Override
+    protected int getWeight(Calling calling) throws InvalidRandomElementSelectedException {
+        return super.getWeight(calling);
     }
 }

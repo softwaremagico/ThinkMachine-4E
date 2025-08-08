@@ -28,6 +28,8 @@ import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Selection;
+import com.softwaremagico.tm.character.factions.Faction;
+import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
@@ -60,6 +62,10 @@ public class RandomizeCharacterDefinitionStep<T extends Element> {
 
     public void assign() throws InvalidSelectionException, InvalidRandomElementSelectedException {
         assignCharacteristics();
+        assignCapabilities();
+        assignSkills();
+        assignPerks();
+        assignMaterialAwards();
     }
 
 
@@ -73,6 +79,71 @@ public class RandomizeCharacterDefinitionStep<T extends Element> {
                 for (int j = 0; j < characterDefinitionStepSelection.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
                     characterDefinitionStepSelection.getSelectedCharacteristicOptions().get(i).getSelections()
                             .add(new Selection(randomCharacteristicBonusOption.selectElementByWeight().getId()));
+                }
+            }
+        }
+    }
+
+
+    private void assignCapabilities() throws InvalidRandomElementSelectedException {
+        if (!characterDefinitionStepSelection.getCapabilityOptions().isEmpty()) {
+            for (int i = 0; i < characterDefinitionStepSelection.getCapabilityOptions().size(); i++) {
+                final RandomCapability randomCapability =
+                        new RandomCapability(getCharacterPlayer(), getPreferences(),
+                                characterDefinitionStepSelection.getCapabilityOptions().get(i));
+
+                for (int j = 0; j < characterDefinitionStepSelection.getCapabilityOptions().get(i).getTotalOptions(); j++) {
+                    characterDefinitionStepSelection.getSelectedCapabilityOptions().get(i).getSelections()
+                            .add(new Selection(randomCapability.selectElementByWeight().getId()));
+                }
+            }
+        }
+    }
+
+
+    private void assignSkills() throws InvalidRandomElementSelectedException {
+        if (!characterDefinitionStepSelection.getSkillOptions().isEmpty()) {
+            for (int i = 0; i < characterDefinitionStepSelection.getSkillOptions().size(); i++) {
+                final RandomSkill randomSkill =
+                        new RandomSkill(getCharacterPlayer(), getPreferences(),
+                                characterDefinitionStepSelection.getSkillOptions().get(i));
+
+                for (int j = 0; j < characterDefinitionStepSelection.getSkillOptions().get(i).getTotalOptions(); j++) {
+                    characterDefinitionStepSelection.getSelectedSkillOptions().get(i).getSelections()
+                            .add(new Selection(randomSkill.selectElementByWeight().getId()));
+                }
+            }
+        }
+    }
+
+
+    private void assignPerks() throws InvalidRandomElementSelectedException {
+        if (!characterDefinitionStepSelection.getPerksOptions().isEmpty()) {
+            for (int i = 0; i < characterDefinitionStepSelection.getPerksOptions().size(); i++) {
+                final RandomPerk randomPerk =
+                        new RandomPerk(getCharacterPlayer(), getPreferences(),
+                                characterDefinitionStepSelection.getPerksOptions().get(i));
+
+                for (int j = 0; j < characterDefinitionStepSelection.getPerksOptions().get(i).getTotalOptions(); j++) {
+                    characterDefinitionStepSelection.getSelectedPerksOptions().get(i).getSelections()
+                            .add(new Selection(randomPerk.selectElementByWeight().getId()));
+                }
+            }
+        }
+    }
+
+
+    private void assignMaterialAwards() throws InvalidRandomElementSelectedException {
+        final Faction faction = FactionFactory.getInstance().getElement(getCharacterPlayer().getFaction().getId());
+        if (faction != null && !faction.getMaterialAwards().isEmpty()) {
+            for (int i = 0; i < faction.getMaterialAwards().size(); i++) {
+                final RandomMaterialAward randomMaterialAward =
+                        new RandomMaterialAward(getCharacterPlayer(), getPreferences(),
+                                faction.getMaterialAwards().get(i));
+
+                for (int j = 0; j < faction.getMaterialAwards().get(i).getTotalOptions(); j++) {
+                    characterDefinitionStepSelection.getSelectedMaterialAwards().get(i).getSelections()
+                            .add(new Selection(randomMaterialAward.selectElementByWeight().getId()));
                 }
             }
         }

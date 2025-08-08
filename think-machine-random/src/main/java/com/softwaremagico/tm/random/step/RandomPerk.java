@@ -26,26 +26,32 @@ package com.softwaremagico.tm.random.step;
 
 import com.softwaremagico.tm.Option;
 import com.softwaremagico.tm.character.CharacterPlayer;
-import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOptions;
-import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
+import com.softwaremagico.tm.character.perks.Perk;
+import com.softwaremagico.tm.character.perks.PerkOptions;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
+import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 
 import java.util.Collection;
 import java.util.Set;
 
-public class RandomCharacteristicBonusOption extends RandomCharacteristics {
+public class RandomPerk extends RandomSelector<Perk> {
 
-    private final CharacteristicBonusOptions characteristicBonusOptions;
+    private final PerkOptions perkOptions;
 
-    public RandomCharacteristicBonusOption(CharacterPlayer characterPlayer, Set<RandomPreference> preferences,
-                                    CharacteristicBonusOptions characteristicBonusOptions) throws InvalidXmlElementException {
+    public RandomPerk(CharacterPlayer characterPlayer, Set<RandomPreference> preferences,
+                      PerkOptions perkOptions) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
-        this.characteristicBonusOptions = characteristicBonusOptions;
+        this.perkOptions = perkOptions;
     }
 
     @Override
-    protected Collection<CharacteristicDefinition> getAllElements() throws InvalidXmlElementException {
-        return characteristicBonusOptions.getOptions().stream().map(Option::getElement).toList();
+    protected Collection<Perk> getAllElements() throws InvalidXmlElementException {
+        return perkOptions.getOptions().stream().map(Option::getElement).toList();
+    }
+
+    @Override
+    protected int getWeight(Perk element) {
+        return BASIC_PROBABILITY;
     }
 }

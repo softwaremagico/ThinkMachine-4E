@@ -26,26 +26,32 @@ package com.softwaremagico.tm.random.step;
 
 import com.softwaremagico.tm.Option;
 import com.softwaremagico.tm.character.CharacterPlayer;
-import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOptions;
-import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
+import com.softwaremagico.tm.character.skills.Skill;
+import com.softwaremagico.tm.character.skills.SkillBonusOptions;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
+import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 
 import java.util.Collection;
 import java.util.Set;
 
-public class RandomCharacteristicBonusOption extends RandomCharacteristics {
+public class RandomSkill extends RandomSelector<Skill> {
 
-    private final CharacteristicBonusOptions characteristicBonusOptions;
+    private final SkillBonusOptions skillOptions;
 
-    public RandomCharacteristicBonusOption(CharacterPlayer characterPlayer, Set<RandomPreference> preferences,
-                                    CharacteristicBonusOptions characteristicBonusOptions) throws InvalidXmlElementException {
+    public RandomSkill(CharacterPlayer characterPlayer, Set<RandomPreference> preferences,
+                       SkillBonusOptions skillOptions) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
-        this.characteristicBonusOptions = characteristicBonusOptions;
+        this.skillOptions = skillOptions;
     }
 
     @Override
-    protected Collection<CharacteristicDefinition> getAllElements() throws InvalidXmlElementException {
-        return characteristicBonusOptions.getOptions().stream().map(Option::getElement).toList();
+    protected Collection<Skill> getAllElements() throws InvalidXmlElementException {
+        return skillOptions.getOptions().stream().map(Option::getElement).toList();
+    }
+
+    @Override
+    protected int getWeight(Skill element) {
+        return BASIC_PROBABILITY;
     }
 }

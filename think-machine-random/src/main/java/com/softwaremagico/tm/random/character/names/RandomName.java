@@ -31,6 +31,7 @@ import com.softwaremagico.tm.character.factions.FactionGroup;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
@@ -40,7 +41,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class RandomName extends RandomSelector<Name> {
+public class RandomName extends RandomSelector<Name> implements AssignableRandomSelector {
 
     private static final int STATUS_COST_MODIFIER = 4;
 
