@@ -1,10 +1,10 @@
-package com.softwaremagico.tm;
+package com.softwaremagico.tm.restrictions;
 
 /*-
  * #%L
  * Think Machine 4E (Rules)
  * %%
- * Copyright (C) 2017 - 2024 Softwaremagico
+ * Copyright (C) 2017 - 2025 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -24,8 +24,27 @@ package com.softwaremagico.tm;
  * #L%
  */
 
-public enum RestrictionMode {
-    ANY,
-    ANY_FROM_GROUP,
-    ALL;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class RestrictedSkill {
+    @JsonProperty("name")
+    private String skill;
+    @JsonProperty("value")
+    private int value;
+
+    public String getSkill() {
+        return skill;
+    }
+
+    public void setSkill(String skill) {
+        this.skill = skill;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
 }

@@ -129,6 +129,7 @@ public abstract class XmlFactory<T extends Element> {
             }
             return elementList;
         } catch (IOException e) {
+            MachineLog.errorMessage(this.getClass(), e);
             throw new InvalidXmlElementException("Error reading xml for '" + entityClass + "'", e);
         }
     }

@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.factory;
+package com.softwaremagico.tm.restrictions;
 
 /*-
  * #%L
@@ -24,27 +24,8 @@ package com.softwaremagico.tm.factory;
  * #L%
  */
 
-
-import com.softwaremagico.tm.restrictions.RestrictionMode;
-import com.softwaremagico.tm.character.perks.PerkFactory;
-import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
-@Test(groups = {"perkFactory"})
-public class PerkFactoryTests {
-    private static final int DEFINED_PERKS = 218;
-
-
-    @Test
-    public void readPerks() throws InvalidXmlElementException {
-        Assert.assertEquals(PerkFactory.getInstance().getElements().size(),
-                DEFINED_PERKS);
-    }
-
-    @Test
-    public void getPerkRestrictionMode() throws InvalidXmlElementException {
-        Assert.assertEquals(PerkFactory.getInstance().getElement("chameleon").getRestrictions().getMode(),
-                RestrictionMode.ANY_FROM_GROUP);
-    }
+public enum RestrictionMode {
+    ANY,
+    ANY_FROM_GROUP,
+    ALL;
 }

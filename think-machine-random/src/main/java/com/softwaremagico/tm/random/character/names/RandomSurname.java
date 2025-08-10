@@ -88,8 +88,7 @@ public class RandomSurname extends RandomSelector<Surname> implements Assignable
         // Not nobility no faction as surname.
         try {
             for (final Faction faction : FactionFactory.getInstance().getElements()) {
-                //if (surname.getId().contains(faction.getId())) {
-                if (Objects.equals(surname.getFaction(), getCharacterPlayer().getFaction().getId())) {
+                if (Objects.equals(surname.getId(), getCharacterPlayer().getFaction().getId())) {
                     throw new InvalidRandomElementSelectedException("Surname '" + surname + "' is restricted to faction '"
                             + faction + "'.");
                 }

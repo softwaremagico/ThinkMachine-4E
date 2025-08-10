@@ -141,7 +141,7 @@
                         <id>layDownTheLaw</id>
                     </perk>
                     <perk>
-                        <id>martialArts</id>
+                        <group>martialArts</group>
                     </perk>
                     <perk>
                         <id>nimble</id>
@@ -407,7 +407,7 @@
                         <id>legate</id>
                     </perk>
                     <perk>
-                        <id>martialArts</id>
+                        <group>martialArts</group>
                     </perk>
                     <perk>
                         <id>nimble</id>
@@ -629,7 +629,7 @@
                         <id>legate</id>
                     </perk>
                     <perk>
-                        <id>martialArts</id>
+                        <group>martialArts</group>
                     </perk>
                     <perk>
                         <id>nimble</id>
@@ -855,7 +855,7 @@
                         <id>marksmanship</id>
                     </perk>
                     <perk>
-                        <id>martialArts</id>
+                        <group>martialArts</group>
                     </perk>
                     <perk>
                         <id>nimble</id>
@@ -978,7 +978,7 @@
                         <id>householder</id>
                     </perk>
                     <perk>
-                        <id>martialArts</id>
+                        <group>martialArts</group>
                     </perk>
                     <perk>
                         <id>militaryRank</id>

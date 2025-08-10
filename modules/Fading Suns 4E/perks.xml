@@ -664,126 +664,6 @@
         </restrictions>
     </perk>
     <perk>
-        <id>churchOrdinationNovitiate</id>
-        <name>
-            <en>Church Ordination (Novitiate)</en>
-            <es>Ordenación Religiosa (Novicio)</es>
-        </name>
-        <group>churchOrdination</group>
-        <resistances>
-            <resistance>
-                <type>mind</type>
-                <category>privilege</category>
-                <bonus>2</bonus>
-            </resistance>
-        </resistances>
-        <restrictions>
-            <upbringings>
-                <upbringing>priest</upbringing>
-            </upbringings>
-        </restrictions>
-    </perk>
-    <perk>
-        <id>churchOrdinationCanon</id>
-        <name>
-            <en>Church Ordination (Canon)</en>
-            <es>Ordenación Religiosa (Canónigo)</es>
-        </name>
-        <group>churchOrdination</group>
-        <resistances>
-            <resistance>
-                <type>mind</type>
-                <category>privilege</category>
-                <bonus>2</bonus>
-            </resistance>
-        </resistances>
-        <restrictions>
-            <perks>
-                <perk>churchOrdinationNovitiate</perk>
-            </perks>
-        </restrictions>
-    </perk>
-    <perk>
-        <id>churchOrdinationDeacon</id>
-        <name>
-            <en>Church Ordination (Deacon)</en>
-            <es>Ordenación Religiosa (Canónigo)</es>
-        </name>
-        <group>churchOrdination</group>
-        <resistances>
-            <resistance>
-                <type>mind</type>
-                <category>privilege</category>
-                <bonus>2</bonus>
-            </resistance>
-        </resistances>
-        <restrictions>
-            <perks>
-                <perk>churchOrdinationCanon</perk>
-            </perks>
-        </restrictions>
-    </perk>
-    <perk>
-        <id>churchOrdinationPriest</id>
-        <name>
-            <en>Church Ordination (Priest)</en>
-            <es>Ordenación Religiosa (Sacerdote)</es>
-        </name>
-        <group>churchOrdination</group>
-        <resistances>
-            <resistance>
-                <type>mind</type>
-                <category>privilege</category>
-                <bonus>2</bonus>
-            </resistance>
-        </resistances>
-        <restrictions>
-            <perks>
-                <perk>churchOrdinationDeacon</perk>
-            </perks>
-        </restrictions>
-    </perk>
-    <perk>
-        <id>churchOrdinationBishop</id>
-        <name>
-            <en>Church Ordination (Bishop)</en>
-            <es>Ordenación Religiosa (Obispo)</es>
-        </name>
-        <group>churchOrdination</group>
-        <resistances>
-            <resistance>
-                <type>mind</type>
-                <category>privilege</category>
-                <bonus>2</bonus>
-            </resistance>
-        </resistances>
-        <restrictions>
-            <perks>
-                <perk>churchOrdinationPriest</perk>
-            </perks>
-        </restrictions>
-    </perk>
-    <perk>
-        <id>churchOrdinationArchbishop</id>
-        <name>
-            <en>Church Ordination (Archbishop)</en>
-            <es>Ordenación Religiosa (Arzobispo)</es>
-        </name>
-        <group>churchOrdination</group>
-        <resistances>
-            <resistance>
-                <type>mind</type>
-                <category>privilege</category>
-                <bonus>2</bonus>
-            </resistance>
-        </resistances>
-        <restrictions>
-            <perks>
-                <perk>churchOrdinationBishop</perk>
-            </perks>
-        </restrictions>
-    </perk>
-    <perk>
         <id>cleansingWord</id>
         <name>
             <en>Cleansing Word</en>
@@ -1356,15 +1236,123 @@
         </name>
     </perk>
     <perk>
-        <id>fencing</id>
+        <id>duello1</id>
+        <group>fencing</group>
         <name>
-            <en>Fencing</en>
-            <es>Esgrima</es>
+            <en>Fencing (Duello 1)</en>
+            <es>Esgrima (Duelo 1)</es>
         </name>
-        <restrictions>
+        <restrictions mode="all">
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
             <capabilities>
                 <capability>militaryWeapons</capability>
             </capabilities>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>duello2</id>
+        <group>fencing</group>
+        <name>
+            <en>Fencing (Duello 2)</en>
+            <es>Esgrima (Duelo 2)</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>duello1</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>kraxi1</id>
+        <group>fencing</group>
+        <name>
+            <en>Fencing (Kraxi 1)</en>
+            <es>Esgrima (Kraxi 1)</es>
+        </name>
+        <restrictions mode="all">
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+            <capabilities>
+                <capability>militaryWeapons</capability>
+            </capabilities>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>kraxi2</id>
+        <group>fencing</group>
+        <name>
+            <en>Fencing (Kraxi 2)</en>
+            <es>Esgrima (Kraxi 2)</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>kraxi1</perk>
+            </perks>
+        </restrictions>
+        <random>
+            <recommendedFactions>scravers</recommendedFactions>
+        </random>
+    </perk>
+    <perk>
+        <id>serpentis1</id>
+        <group>fencing</group>
+        <name>
+            <en>Fencing (Serpentis 1)</en>
+            <es>Esgrima (Serpentis 1)</es>
+        </name>
+        <restrictions mode="all">
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+            <capabilities>
+                <capability>dance</capability>
+                <capability>militaryWeapons</capability>
+            </capabilities>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>serpentis2</id>
+        <group>fencing</group>
+        <name>
+            <en>Fencing (Serpentis 2)</en>
+            <es>Esgrima (Serpentis 2)</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>serpentis1</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>torero1</id>
+        <group>fencing</group>
+        <name>
+            <en>Fencing (Torero 1)</en>
+            <es>Esgrima (Torero 1)</es>
+        </name>
+        <restrictions mode="all">
+            <perks>
+                <upbringing>noble</upbringing>
+            </perks>
+            <capabilities>
+                <capability>militaryWeapons</capability>
+            </capabilities>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>torero2</id>
+        <group>fencing</group>
+        <name>
+            <en>Fencing (Torero 2)</en>
+            <es>Esgrima (Torero 2)</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>torero1</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -1451,8 +1439,243 @@
             </capabilitiesGroups>
         </restrictions>
     </perk>
-
-
+    <perk>
+        <id>guts</id>
+        <name>
+            <en>Guts</en>
+            <es>Estómago</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>explorer</calling>
+                <calling>scout</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>hardBoiled</id>
+        <name>
+            <en>Hard Boiled</en>
+            <es>Curtido</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>detective</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>harmonize</id>
+        <name>
+            <en>Harmonize</en>
+            <es>Armonizar</es>
+        </name>
+        <restrictions mode="any">
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+            <callings>
+                <calling>chorister</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>hedgeFund</id>
+        <name>
+            <en>Hedge Fund</en>
+            <es>Fondo de Cobertura</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>tycoon</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>hierophant</id>
+        <name>
+            <en>Hierophant</en>
+            <es>Hierofante</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+            <callings>
+                <calling>clergy</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>hiredMuscle</id>
+        <name>
+            <en>Hired Muscle</en>
+            <es>Matón a Sueldo</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>ronin</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>holierThanThou</id>
+        <name>
+            <en>Holier than Thou</en>
+            <es>Inviolabilidad</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+            <callings>
+                <calling>clergy</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>houseConfessor</id>
+        <name>
+            <en>House Confessor</en>
+            <es>Confesor de la Casa</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>confessor</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>householder</id>
+        <name>
+            <en>Householder</en>
+            <es>Adjunto de Casa</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>yeoman</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>huntersCred</id>
+        <name>
+            <en>Hunter's Cred</en>
+            <es>Reputación de Cazador</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>bountyHunter</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>imbueTabernacle</id>
+        <name>
+            <en>Imbue Tabernacle</en>
+            <es>Imbuir Sagrario</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>brotherBattle</calling>
+                <calling>psychic</calling>
+                <calling>theurgist</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>imperialCharter</id>
+        <name>
+            <en>Imperial Charter</en>
+            <es>Privilegio Imperial</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>questingKnight</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>imperialCohortCharter</id>
+        <name>
+            <en>Imperial Cohort Charter</en>
+            <es>Privilegio Adjunto Imperial</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+                <upbringing>yeoman</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>imperious</id>
+        <name>
+            <en>Imperious</en>
+            <es>Imperioso</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>incitePassion</id>
+        <name>
+            <en>Incite Passion</en>
+            <es>Incitar Pasión</es>
+        </name>
+    </perk>
+    <perk>
+        <id>incomeTax</id>
+        <name>
+            <en>Income Tax</en>
+            <es>Impuesto sobre la Renta</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>trader</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>incubation</id>
+        <name>
+            <en>Incubation</en>
+            <es>Incubación</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>dreamtender</calling>
+                <calling>mendicant</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>independent</id>
+        <name>
+            <en>Independent</en>
+            <es>Autónomo</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>yeoman</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>indulgence</id>
+        <name>
+            <en>Indulgence</en>
+            <es>Indulgencia</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>clergy</calling>
+            </callings>
+        </restrictions>
+    </perk>
     <perk>
         <id>ingenious</id>
         <name>
@@ -1465,6 +1688,747 @@
             </upbringings>
         </restrictions>
     </perk>
+    <perk>
+        <id>inquisitorialSeal</id>
+        <name>
+            <en>Inquisitorial Seal</en>
+            <es>Sello Inquisitorial</es>
+        </name>
+        <restrictions mode="any_from_group">
+            <callings>
+                <calling>inquisitor</calling>
+            </callings>
+            <perks>
+                <perk>churchOrdinationPriest</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>inspireFear</id>
+        <name>
+            <en>Inspire Fear</en>
+            <es>Inspirar Miedo</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>inquisitor</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>inspiring</id>
+        <name>
+            <en>Inspiring</en>
+            <es>Inspirador</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>intruder</id>
+        <name>
+            <en>Intruder</en>
+            <es>Intruso</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>reclaimer</calling>
+                <calling>thief</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>investPhylactery</id>
+        <name>
+            <en>Invest Phylactery</en>
+            <es>Imbuir Filacteria</es>
+        </name>
+        <restrictions mode="any_from_group">
+            <callings>
+                <calling>brotherBattle</calling>
+                <calling>theurgist</calling>
+            </callings>
+            <characteristics>
+                <characteristic>
+                    <name>theurgy</name>
+                    <value>5</value>
+                </characteristic>
+            </characteristics>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>invigorate</id>
+        <name>
+            <en>Invigorate</en>
+            <es>Alentar</es>
+        </name>
+        <restrictions mode="any">
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+            <callings>
+                <calling>commander</calling>
+                <calling>healer</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>keenAwareness</id>
+        <name>
+            <en>Keen Awareness</en>
+            <es>Percepción Mejorada</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>thief</calling>
+                <calling>reclaimer</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>keepingSecrets</id>
+        <name>
+            <en>Keeping Secrets</en>
+            <es>Guardar Secretos</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>confessor</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>keySignature</id>
+        <name>
+            <en>Key Signature</en>
+            <es>Tonalidad</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>chorister</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>laborContractor</id>
+        <name>
+            <en>Labor Contractor</en>
+            <es>Empleador</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>chainer</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>landed</id>
+        <name>
+            <en>Landed</en>
+            <es>Terrateniente</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+                <upbringing>priest</upbringing>
+                <upbringing>merchant</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>layPriest</id>
+        <name>
+            <en>Lay Priest</en>
+            <es>Sacedorte Secular</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>friar</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>layDownTheLaw</id>
+        <name>
+            <en>Lay Down the Law</en>
+            <es>Autoridad</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>nobleTitleBaron</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>learningFromMistakes</id>
+        <name>
+            <en>Learning from Mistakes</en>
+            <es>Aprender de los Errores</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>amateur</calling>
+                <calling>imperialCohort</calling>
+                <calling>incognito</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>legate</id>
+        <name>
+            <en>Legate</en>
+            <es>Legado</es>
+        </name>
+        <restrictions mode="any">
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+            <callings>
+                <calling>clergy</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>legerdemain</id>
+        <name>
+            <en>Legerdemain</en>
+            <es>Escamoteo</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>thief</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>linguistSpeak</id>
+        <name>
+            <en>Linguist (Speak)</en>
+            <es>Lingüista (Habla)</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>scholar</calling>
+                <calling>scribe</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>linguistWriting</id>
+        <name>
+            <en>Linguist (Writing)</en>
+            <es>Lingüista (Escritura)</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>scholar</calling>
+                <calling>scribe</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>livingLegend</id>
+        <name>
+            <en>Living Legend</en>
+            <es>Leyenda Viviente</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>mendicant</calling>
+                <calling>ronin</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>longCon</id>
+        <name>
+            <en>Long Con</en>
+            <es>Estafa a Largo Plazo</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>tycoon</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lovingPrayer</id>
+        <name>
+            <en>Loving Prayer</en>
+            <es>Oración Terapéutica</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>healer</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>loyalist</id>
+        <name>
+            <en>Loyalist</en>
+            <es>Partidarios</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>incognito</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>loyaltyUntoDeath</id>
+        <name>
+            <en>Loyalty unto Death</en>
+            <es>Lealtad hasta la Muerte</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>commander</calling>
+                <calling>lord</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>mainAttraction</id>
+        <name>
+            <en>Main Attraction</en>
+            <es>Centro de Atención</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>artist</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>manhunter</id>
+        <name>
+            <en>manhunter</en>
+            <es>Persecutor</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>bountyHunter</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>mantok1</id>
+        <name>
+            <en>Mantok</en>
+            <es>Mantok</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>brotherBattle</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>mantok2</id>
+        <name>
+            <en>Mantok (2)</en>
+            <es>Mantok (2)</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>mantok1</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>marksmanship</id>
+        <name>
+            <en>Marksmanship</en>
+            <es>Puntería</es>
+        </name>
+        <restrictions mode="any">
+            <upbringings>
+                <upbringing>merchant</upbringing>
+                <upbringing>noble</upbringing>
+            </upbringings>
+            <callings>
+                <calling>duelist</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>graa1</id>
+        <group>martialArts</group>
+        <name>
+            <en>Martial Arts (Graa 1)</en>
+            <es>Artes Marciales (Graa 1)</es>
+        </name>
+        <restrictions>
+            <species>
+                <specie>vorox</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>graa2</id>
+        <group>martialArts</group>
+        <name>
+            <en>Martial Arts (Graa 2)</en>
+            <es>Artes Marciales (Graa 2)</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>graa1</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>ironHeel1</id>
+        <group>martialArts</group>
+        <name>
+            <en>Martial Arts (Iron Heel 1)</en>
+            <es>Artes Marciales (Talón de Hierro 1)</es>
+        </name>
+        <restrictions mode="any">
+            <factions>
+                <faction>muster</faction>
+            </factions>
+            <callings>
+                <calling>bountyHunter</calling>
+                <calling>chainer</calling>
+                <calling>mercenary</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>ironHeel2</id>
+        <group>martialArts</group>
+        <name>
+            <en>Martial Arts (Iron Heel 2)</en>
+            <es>Artes Marciales (Talón de Hierro 2)</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>ironHeel1</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>joxBoxing1</id>
+        <group>martialArts</group>
+        <name>
+            <en>Martial Arts (Jox Kai Von 1)</en>
+            <es>Artes Marciales (Jox Kai Von 1)</es>
+        </name>
+    </perk>
+    <perk>
+        <id>joxBoxing2</id>
+        <group>martialArts</group>
+        <name>
+            <en>Martial Arts (Jox Kai Von 2)</en>
+            <es>Artes Marciales (Jox Kai Von 2)</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>joxBoxing1</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>koto1</id>
+        <group>martialArts</group>
+        <name>
+            <en>Martial Arts (Koto 1)</en>
+            <es>Artes Marciales (Koto 1)</es>
+        </name>
+    </perk>
+    <perk>
+        <id>koto2</id>
+        <group>martialArts</group>
+        <name>
+            <en>Martial Arts (Koto 2)</en>
+            <es>Artes Marciales (Koto 2)</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>koto1</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>shaidan1</id>
+        <group>martialArts</group>
+        <name>
+            <en>Martial Arts (Shaidan 1)</en>
+            <es>Artes Marciales (Shaidan 1)</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>shaidan2</id>
+        <group>martialArts</group>
+        <name>
+            <en>Martial Arts (Shaidan 2)</en>
+            <es>Artes Marciales (Shaidan 2)</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>shaidan1</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>masterOfDeception</id>
+        <name>
+            <en>Master of Deception</en>
+            <es>Maestro del Engaño</es>
+        </name>
+        <restrictions mode="all">
+            <callings>
+                <calling>conspiracist</calling>
+            </callings>
+            <skills>
+                <skill>
+                    <name>knavery</name>
+                    <value>5</value>
+                </skill>
+            </skills>
+        </restrictions>
+    </perk>
+    <perk>
+        <id></id>
+        <name>
+            <en></en>
+            <es></es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling></calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id></id>
+        <name>
+            <en></en>
+            <es></es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling></calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id></id>
+        <name>
+            <en></en>
+            <es></es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling></calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id></id>
+        <name>
+            <en></en>
+            <es></es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling></calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id></id>
+        <name>
+            <en></en>
+            <es></es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling></calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id></id>
+        <name>
+            <en></en>
+            <es></es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling></calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id></id>
+        <name>
+            <en></en>
+            <es></es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling></calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id></id>
+        <name>
+            <en></en>
+            <es></es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling></calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id></id>
+        <name>
+            <en></en>
+            <es></es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling></calling>
+            </callings>
+        </restrictions>
+    </perk>
+
+
+    <perk>
+        <id>churchOrdinationNovitiate</id>
+        <name>
+            <en>Church Ordination (Novitiate)</en>
+            <es>Ordenación Religiosa (Novicio)</es>
+        </name>
+        <group>churchOrdination</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>churchOrdinationCanon</id>
+        <name>
+            <en>Church Ordination (Canon)</en>
+            <es>Ordenación Religiosa (Canónigo)</es>
+        </name>
+        <group>churchOrdination</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <perks>
+                <perk>churchOrdinationNovitiate</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>churchOrdinationDeacon</id>
+        <name>
+            <en>Church Ordination (Deacon)</en>
+            <es>Ordenación Religiosa (Canónigo)</es>
+        </name>
+        <group>churchOrdination</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <perks>
+                <perk>churchOrdinationCanon</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>churchOrdinationPriest</id>
+        <name>
+            <en>Church Ordination (Priest)</en>
+            <es>Ordenación Religiosa (Sacerdote)</es>
+        </name>
+        <group>churchOrdination</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <perks>
+                <perk>churchOrdinationDeacon</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>churchOrdinationBishop</id>
+        <name>
+            <en>Church Ordination (Bishop)</en>
+            <es>Ordenación Religiosa (Obispo)</es>
+        </name>
+        <group>churchOrdination</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <perks>
+                <perk>churchOrdinationPriest</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>churchOrdinationArchbishop</id>
+        <name>
+            <en>Church Ordination (Archbishop)</en>
+            <es>Ordenación Religiosa (Arzobispo)</es>
+        </name>
+        <group>churchOrdination</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <perks>
+                <perk>churchOrdinationBishop</perk>
+            </perks>
+        </restrictions>
+    </perk>
+
 
     <perk>
         <id>guildCommissionCharioteer1</id>
@@ -2294,140 +3258,6 @@
     </perk>
 
 
-    <perk>
-        <id>duello1</id>
-        <group>fencing</group>
-        <name>
-            <en>Duello 1</en>
-            <es>Duelo 1</es>
-        </name>
-        <restrictions>
-            <upbringings>
-                <upbringing>noble</upbringing>
-            </upbringings>
-        </restrictions>
-    </perk>
-    <perk>
-        <id>duello2</id>
-        <group>fencing</group>
-        <name>
-            <en>Duello 2</en>
-            <es>Duelo 2</es>
-        </name>
-        <restrictions>
-            <upbringings>
-                <perk>duello1</perk>
-            </upbringings>
-        </restrictions>
-    </perk>
-    <perk>
-        <id>kraxi1</id>
-        <group>fencing</group>
-        <name>
-            <en>Kraxi 1</en>
-            <es>Kraxi 1</es>
-        </name>
-        <restrictions>
-            <upbringings>
-                <upbringing>noble</upbringing>
-            </upbringings>
-        </restrictions>
-    </perk>
-    <perk>
-        <id>kraxi2</id>
-        <group>fencing</group>
-        <name>
-            <en>Kraxi 2</en>
-            <es>Kraxi 2</es>
-        </name>
-        <restrictions>
-            <upbringings>
-                <perk>kraxi1</perk>
-            </upbringings>
-        </restrictions>
-        <random>
-            <recommendedFactions>scravers</recommendedFactions>
-        </random>
-    </perk>
-    <perk>
-        <id>serpentis1</id>
-        <group>fencing</group>
-        <name>
-            <en>Serpentis 1</en>
-            <es>Serpentis 1</es>
-        </name>
-        <restrictions mode="all">
-            <upbringings>
-                <upbringing>noble</upbringing>
-            </upbringings>
-            <capabilities>
-                <capability>dance</capability>
-            </capabilities>
-        </restrictions>
-    </perk>
-    <perk>
-        <id>serpentis2</id>
-        <group>fencing</group>
-        <name>
-            <en>Serpentis 2</en>
-            <es>Serpentis 2</es>
-        </name>
-        <restrictions>
-            <upbringings>
-                <perk>serpentis1</perk>
-            </upbringings>
-        </restrictions>
-    </perk>
-    <perk>
-        <id>torero1</id>
-        <group>fencing</group>
-        <name>
-            <en>Torero 1</en>
-            <es>Torero 1</es>
-        </name>
-        <restrictions>
-            <upbringings>
-                <upbringing>noble</upbringing>
-            </upbringings>
-        </restrictions>
-    </perk>
-    <perk>
-        <id>torero2</id>
-        <group>fencing</group>
-        <name>
-            <en>Torero 2</en>
-            <es>Torero 2</es>
-        </name>
-        <restrictions>
-            <upbringings>
-                <perk>torero1</perk>
-            </upbringings>
-        </restrictions>
-    </perk>
-    <perk>
-        <id>imperious</id>
-        <name>
-            <en>Imperious</en>
-            <es>Imperioso</es>
-        </name>
-        <restrictions>
-            <upbringings>
-                <upbringing>noble</upbringing>
-            </upbringings>
-        </restrictions>
-    </perk>
-    <perk>
-        <id>independent</id>
-        <name>
-            <en>Independent</en>
-            <es>Autónomo</es>
-        </name>
-        <restrictions>
-            <upbringings>
-                <upbringing>yeoman</upbringing>
-            </upbringings>
-        </restrictions>
-    </perk>
     <perk>
         <id>psychicPowers</id>
         <name>

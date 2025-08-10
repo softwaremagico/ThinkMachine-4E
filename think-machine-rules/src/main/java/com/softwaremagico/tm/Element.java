@@ -8,6 +8,7 @@ import com.softwaremagico.tm.character.skills.Specialization;
 import com.softwaremagico.tm.exceptions.InvalidSpecializationException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
+import com.softwaremagico.tm.restrictions.Restrictions;
 
 import java.util.ArrayList;
 import java.util.HashSet;

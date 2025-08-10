@@ -133,7 +133,8 @@ public class PsychicCreationTests {
         characterPlayer.setFaction("avestites");
         characterPlayer.setCalling("theurgist");
         characterPlayer.getCalling().getSelectedPerksOptions().get(0).getSelections().add(new Selection("theurgicRites"));
-        Assert.assertTrue(characterPlayer.canAddOccultismPower(OccultismPathFactory.getInstance().getElement("templeAvestiRituals").getOccultismPowers().get("knowingTheFalseHeart")));
+        Assert.assertTrue(characterPlayer.canAddOccultismPower(OccultismPathFactory.getInstance().getElement("templeAvestiRituals")
+                .getOccultismPowers().get("knowingTheFalseHeart")));
     }
 
 

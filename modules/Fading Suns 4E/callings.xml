@@ -89,7 +89,7 @@
                         <id>marksmanship</id>
                     </perk>
                     <perk>
-                        <id>martialArts</id>
+                        <group>martialArts</group>
                     </perk>
                     <perk>
                         <id>militaryRank</id>
@@ -2285,7 +2285,7 @@
                 <total>1</total>
                 <options>
                     <perk>
-                        <id>martialArts</id>
+                        <group>martialArts</group>
                     </perk>
                     <perk>
                         <id>mimic</id>
@@ -2571,7 +2571,7 @@
                         <id>investPhylactery</id>
                     </perk>
                     <perk>
-                        <id>SactifyArmsAndArmor</id>
+                        <id>SanctifyArmsAndArmor</id>
                     </perk>
                     <perk>
                         <id>scentOfTheWitch</id>
@@ -2974,7 +2974,7 @@
                         <id>epiphany</id>
                     </perk>
                     <perk>
-                        <id>martialArts</id>
+                        <group>martialArts</group>
                     </perk>
                     <perk>
                         <id>monasticOrder</id>
@@ -3137,7 +3137,7 @@
                         <id>epiphany</id>
                     </perk>
                     <perk>
-                        <id>martialArts</id>
+                        <group>martialArts</group>
                     </perk>
                     <perk>
                         <id>monasticOrder</id>
@@ -3282,7 +3282,7 @@
                         <id>epiphany</id>
                     </perk>
                     <perk>
-                        <id>martialArts</id>
+                        <group>martialArts</group>
                     </perk>
                     <perk>
                         <id>monasticOrder</id>
