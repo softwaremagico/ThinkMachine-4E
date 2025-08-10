@@ -34,9 +34,11 @@ import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
 import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.factions.FactionGroup;
+import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
+import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineLog;
 
@@ -435,6 +437,9 @@ public class Restrictions extends XmlData {
         for (String race : restrictedToSpecies) {
             SpecieFactory.getInstance().getElement(race);
         }
+        for (String upbringing : restrictedToUpbringing) {
+            UpbringingFactory.getInstance().getElement(upbringing);
+        }
         for (String faction : restrictedToFactions) {
             FactionFactory.getInstance().getElement(faction);
         }
@@ -443,6 +448,19 @@ public class Restrictions extends XmlData {
         }
         for (String capability : restrictedToCapabilities) {
             CapabilityFactory.getInstance().getElement(capability);
+        }
+        for (String perk : restrictedPerks) {
+            PerkFactory.getInstance().getElement(perk);
+        }
+        for (String perkGroup : restrictedToPerksGroups) {
+            if (!PerkFactory.getInstance().getElementGroups().contains(perkGroup)) {
+                throw new InvalidXmlElementException("Perk group '" + perkGroup + "' does not exists.");
+            }
+        }
+        for (String capabilityGroup : restrictedToCapabilitiesGroups) {
+            if (!CapabilityFactory.getInstance().getElementGroups().contains(capabilityGroup)) {
+                throw new InvalidXmlElementException("Capability group '" + capabilityGroup + "' does not exists.");
+            }
         }
     }
 

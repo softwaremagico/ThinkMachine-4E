@@ -46,9 +46,11 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
@@ -56,6 +58,7 @@ public abstract class XmlFactory<T extends Element> {
     //Id -> Element
     private Map<String, T> elements = null;
     private List<T> elementList = null;
+    private Set<String> elementGroups;
 
     public XmlFactory() {
 
@@ -186,5 +189,13 @@ public abstract class XmlFactory<T extends Element> {
             //Do nothing.
         }
         return null;
+    }
+
+    public Set<String> getElementGroups() {
+        if (elementGroups == null) {
+            elementGroups = new HashSet<>();
+            getElements().forEach(elements -> elementGroups.add(elements.getGroup()));
+        }
+        return elementGroups;
     }
 }
