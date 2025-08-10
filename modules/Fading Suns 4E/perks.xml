@@ -2199,14 +2199,598 @@
         </restrictions>
     </perk>
     <perk>
-        <id></id>
+        <id>mentor</id>
         <name>
-            <en></en>
-            <es></es>
+            <en>Mentor</en>
+            <es>Mentor</es>
         </name>
         <restrictions>
             <callings>
-                <calling></calling>
+                <calling>incognito</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>mentalConditioning</id>
+        <name>
+            <en>Mental Conditioning</en>
+            <es>Condicionamiento Mental</es>
+        </name>
+        <restrictions mode="any">
+            <callings>
+                <calling>brotherBattle</calling>
+                <calling>templar</calling>
+            </callings>
+            <species>
+                <specie>obun</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>microConfessions</id>
+        <name>
+            <en>Micro-Confessions</en>
+            <es>Microconfesiones</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>confesor</calling>
+                <calling>dreamtender</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>mimic</id>
+        <name>
+            <en>Mimic</en>
+            <es>Mímesis</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>spy</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>monasticOrder</id>
+        <name>
+            <en>Monastic Order</en>
+            <es>Orden Monástica</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>monk</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>moneyManager</id>
+        <name>
+            <en>Money Manager</en>
+            <es>Asesor Financiero</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>banker</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>musicalSavant</id>
+        <name>
+            <en>Musical Savant</en>
+            <es>Melómano</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>artist</calling>
+                <calling>chorister</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>nimble</id>
+        <name>
+            <en>Nimble</en>
+            <es>Ágilidad</es>
+        </name>
+    </perk>
+    <perk>
+        <id>noblesseOblige</id>
+        <name>
+            <en>Noblesse Oblige</en>
+            <es>Nobleza Obliga</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>nothingToLose</id>
+        <name>
+            <en>Nothing to Lose</en>
+            <es>Nada que Perder</es>
+        </name>
+        <restrictions mode="any">
+            <callings>
+                <calling>chainer</calling>
+                <calling>ronin</calling>
+            </callings>
+            <species>
+                <specie>ukar</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>oralMemory</id>
+        <name>
+            <en>Oral Memory</en>
+            <es>Momoria Oral</es>
+        </name>
+        <restrictions mode="any">
+            <species>
+                <specie>obun</specie>
+            </species>
+            <perks>
+                <perk>alienUpbringing</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>orderBadge</id>
+        <name>
+            <en>Order Badge</en>
+            <es>Medalla de la Orden</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>knightlyOrder</calling>
+                <calling>templar</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>oriented</id>
+        <name>
+            <en>Oriented</en>
+            <es>Orientado</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>explorer</calling>
+                <calling>scout</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>paragonOfOrder</id>
+        <name>
+            <en>Paragon of Order</en>
+            <es>Parangón de la Orden</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>knightlyOrder</calling>
+                <calling>questingKnight</calling>
+                <calling>templar</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>paramour</id>
+        <name>
+            <en>Paramour</en>
+            <es>Amante</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>courtier</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>passageContract</id>
+        <name>
+            <en>Passage Contract</en>
+            <es>Acuerdo de Pasaje</es>
+        </name>
+    </perk>
+    <perk>
+        <id>patronOfTheArts</id>
+        <name>
+            <en>Parton of the Arts</en>
+            <es>Mecenas de las Artes</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>enthusiast</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>peasantHero</id>
+        <name>
+            <en>Peasant Hero</en>
+            <es>Héroe del Pueblo</es>
+        </name>
+        <restrictions mode="any">
+            <upbringings>
+                <upbringing>yeoman</upbringing>
+            </upbringings>
+            <callings>
+                <calling>healer</calling>
+                <calling>friar</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>perfectPitch</id>
+        <name>
+            <en>Perfect Pitch</en>
+            <es>Oído Absoluto</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>artist</calling>
+                <calling>chorister</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>perfectRecall</id>
+        <name>
+            <en>Perfect Recall</en>
+            <es>Memoria Perfecta</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>scribe</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>petition</id>
+        <name>
+            <en>Petition</en>
+            <es>Súplica</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+            <callings>
+                <calling>chorister</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>playingTheGame</id>
+        <name>
+            <en>Playing the Game</en>
+            <es>Juego Sucio</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>lawyer</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>polymath</id>
+        <name>
+            <en>Polymath</en>
+            <es>Polímata</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>scholar</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>privyCouncil</id>
+        <name>
+            <en>Privy Council</en>
+            <es>Consejo Privado</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>lord</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>proxy</id>
+        <name>
+            <en>Proxy</en>
+            <es>Campeón</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>purge</id>
+        <name>
+            <en>Purge</en>
+            <es>Purga</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>quaestor</id>
+        <name>
+            <en>quaestor</en>
+            <es>Cuestor</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>clergy</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>rabbleRouse</id>
+        <name>
+            <en>Rabble Rouse</en>
+            <es>Agitador</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>conspiracist</calling>
+                <calling>spy</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>recreateArtifact</id>
+        <name>
+            <en>Recreate Artifact</en>
+            <es>Recrear Artefacto</es>
+        </name>
+        <restrictions mode="all">
+            <callings>
+                <calling>reclaimer</calling>
+                <calling>techRedeemer</calling>
+            </callings>
+            <capabilities>
+                <capability>appliedScience</capability>
+                <capability>techLore7</capability>
+            </capabilities>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>reeveAdvocate</id>
+        <name>
+            <en>Reeve Advocate</en>
+            <es>Abogado Magistrado</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>riches2</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>refuge</id>
+        <name>
+            <en>Refuge</en>
+            <es>Refugio</es>
+        </name>
+    </perk>
+    <perk>
+        <id>resilient</id>
+        <name>
+            <en>Resilient</en>
+            <es>Resistente</es>
+        </name>
+        <restrictions mode="any">
+            <callings>
+                <calling>mercenary</calling>
+                <calling>brotherBattle</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>respectable</id>
+        <name>
+            <en>Respectable</en>
+            <es>Respetable</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>courtier</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>reatiner</id>
+        <name>
+            <en>Retainer</en>
+            <es>Sirviente</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+                <upbringing>priest</upbringing>
+                <upbringing>merchant</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>retinue</id>
+        <name>
+            <en>Retinue</en>
+            <es>Servicio</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>riches1</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>riches1</id>
+        <name>
+            <en>Riches (3000)</en>
+            <es>Riqueza (3000)</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+                <upbringing>priest</upbringing>
+                <upbringing>merchant</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>riches2</id>
+        <name>
+            <en>Riches (5000)</en>
+            <es>Riqueza (5000)</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>riches1</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>riches3</id>
+        <name>
+            <en>Riches (10000)</en>
+            <es>Riqueza (10000)</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>riches2</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>riches4</id>
+        <name>
+            <en>Riches (15000)</en>
+            <es>Riqueza (15000)</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>riches3</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>riches5</id>
+        <name>
+            <en>Riches (20000)</en>
+            <es>Riqueza (20000)</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>riches4</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>righteousSermon</id>
+        <name>
+            <en>Righteous Sermon</en>
+            <es>Sermón Virtuoso</es>
+        </name>
+        <restrictions mode="all">
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+            <skills>
+                <skill>
+                    <name>perform</name>
+                    <value>5</value>
+                </skill>
+            </skills>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>riseFromTheAshes</id>
+        <name>
+            <en>Rise from the Ashes</en>
+            <es>Resurgir de las Cenizas</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>imperialCohort</calling>
+                <calling>questingKnights</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>riskTaker</id>
+        <name>
+            <en>Risk Taker</en>
+            <es>Temerario</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>amateur</calling>
+                <calling>starPilot</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>royalConfidence</id>
+        <name>
+            <en>Royal Confidence</en>
+            <es>Porte Noble</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>confessor</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>royalties</id>
+        <name>
+            <en>Royalties</en>
+            <es>Derechos de Autor</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>artist</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>ruthless</id>
+        <name>
+            <en>Ruthless</en>
+            <es>Implacable</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>bountyHunter</calling>
+                <calling>chainer</calling>
+                <calling>inquisitor</calling>
+                <calling>spy</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>sacrificialLambs</id>
+        <name>
+            <en>Sacrificial Lambs</en>
+            <es>Chivos Expiatorios</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>conspiracist</calling>
             </callings>
         </restrictions>
     </perk>
@@ -2222,90 +2806,7 @@
             </callings>
         </restrictions>
     </perk>
-    <perk>
-        <id></id>
-        <name>
-            <en></en>
-            <es></es>
-        </name>
-        <restrictions>
-            <callings>
-                <calling></calling>
-            </callings>
-        </restrictions>
-    </perk>
-    <perk>
-        <id></id>
-        <name>
-            <en></en>
-            <es></es>
-        </name>
-        <restrictions>
-            <callings>
-                <calling></calling>
-            </callings>
-        </restrictions>
-    </perk>
-    <perk>
-        <id></id>
-        <name>
-            <en></en>
-            <es></es>
-        </name>
-        <restrictions>
-            <callings>
-                <calling></calling>
-            </callings>
-        </restrictions>
-    </perk>
-    <perk>
-        <id></id>
-        <name>
-            <en></en>
-            <es></es>
-        </name>
-        <restrictions>
-            <callings>
-                <calling></calling>
-            </callings>
-        </restrictions>
-    </perk>
-    <perk>
-        <id></id>
-        <name>
-            <en></en>
-            <es></es>
-        </name>
-        <restrictions>
-            <callings>
-                <calling></calling>
-            </callings>
-        </restrictions>
-    </perk>
-    <perk>
-        <id></id>
-        <name>
-            <en></en>
-            <es></es>
-        </name>
-        <restrictions>
-            <callings>
-                <calling></calling>
-            </callings>
-        </restrictions>
-    </perk>
-    <perk>
-        <id></id>
-        <name>
-            <en></en>
-            <es></es>
-        </name>
-        <restrictions>
-            <callings>
-                <calling></calling>
-            </callings>
-        </restrictions>
-    </perk>
+
 
 
     <perk>
@@ -3254,6 +3755,66 @@
             <perks>
                 <perk>professionalReputationSavant</perk>
             </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>militaryRank1</id>
+        <name>
+            <en>Military Rank (1)</en>
+            <es>Rango Militar (1)</es>
+        </name>
+        <group>militaryRank</group>
+    </perk>
+    <perk>
+        <id>militaryRank2</id>
+        <name>
+            <en>Military Rank (2)</en>
+            <es>Rango Militar (2)</es>
+        </name>
+        <group>militaryRank</group>
+        <restrictions>
+            <upbringings>
+                <upbringing>militaryRank1</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>militaryRank3</id>
+        <name>
+            <en>Military Rank (3)</en>
+            <es>Rango Militar (3)</es>
+        </name>
+        <group>militaryRank</group>
+        <restrictions>
+            <upbringings>
+                <upbringing>militaryRank2</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>militaryRank4</id>
+        <name>
+            <en>Military Rank (4)</en>
+            <es>Rango Militar (4)</es>
+        </name>
+        <group>militaryRank</group>
+        <restrictions>
+            <upbringings>
+                <upbringing>militaryRank3</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>militaryRank5</id>
+        <name>
+            <en>Military Rank (5)</en>
+            <es>Rango Militar (5)</es>
+        </name>
+        <group>militaryRank</group>
+        <restrictions>
+            <upbringings>
+                <upbringing>militaryRank4</upbringing>
+            </upbringings>
         </restrictions>
     </perk>
 
