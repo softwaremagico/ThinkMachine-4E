@@ -44,6 +44,7 @@ import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
 import com.softwaremagico.tm.character.occultism.OccultismPathFactory;
 import com.softwaremagico.tm.character.occultism.OccultismTypeFactory;
 import com.softwaremagico.tm.character.occultism.TheurgyComponentFactory;
+import com.softwaremagico.tm.character.perks.AfflictionFactory;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.character.skills.SkillFactory;
@@ -132,6 +133,11 @@ public class ValidateFactoryTests {
     @Test
     public void validatePerksFactory() throws InvalidXmlElementException {
         PerkFactory.getInstance().validate();
+    }
+
+    @Test
+    public void validateAfflictionsFactory() throws InvalidXmlElementException {
+        AfflictionFactory.getInstance().validate();
     }
 
     @Test
