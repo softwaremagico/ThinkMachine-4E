@@ -33,5 +33,6 @@ public enum RandomPreference {
     RICH,
     POOR,
     PSI,
-    THEURGY;
+    THEURGY,
+    HIGH_RANK;
 }

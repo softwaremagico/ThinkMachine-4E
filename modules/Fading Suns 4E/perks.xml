@@ -2795,18 +2795,677 @@
         </restrictions>
     </perk>
     <perk>
-        <id></id>
+        <id>saintsBlessing</id>
         <name>
-            <en></en>
+            <en>Saint's Blessing</en>
+            <es>Bendición del Santo</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>merchant</upbringing>
+                <upbringing>yeoman</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>saintLextiusBlessing</id>
+        <name>
+            <en>Saint Lextius' Blessing</en>
+            <es>Bendición de San Lextius</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>sanctifyArmsAndArmor</id>
+        <name>
+            <en>Sanctify Arms and Armors</en>
+            <es>Santificar Armas y Armaduras</es>
+        </name>
+        <restrictions mode="any_from_group">
+            <callings>
+                <calling>brotherBattler</calling>
+                <calling>theurgist</calling>
+            </callings>
+            <characteristics>
+                <characteristic>
+                    <name>theurgy</name>
+                    <value>6</value>
+                </characteristic>
+            </characteristics>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>savings</id>
+        <name>
+            <en>Savings</en>
+            <es>Ahorros</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>banker</calling>
+                <calling>thief</calling>
+                <calling>trader</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>savoirFaire</id>
+        <name>
+            <en>Savoir Faire</en>
+            <es>Savoir Faire</es>
+        </name>
+    </perk>
+    <perk>
+        <id>scentOfTheWitch</id>
+        <name>
+            <en>Scent of the Witch</en>
+            <es>Olor de la Bruja</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>inquisitor</calling>
+                <calling>occultist</calling>
+                <calling>psychic</calling>
+                <calling>theurgist</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>schmooze</id>
+        <name>
+            <en>Schmooze</en>
+            <es>Congraciarse</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>courtier</calling>
+                <calling>sybarite</calling>
+                <calling>trader</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>secondSkin</id>
+        <name>
+            <en>Second Skin</en>
+            <es>Segunda Piel</es>
+        </name>
+        <repeatable>true</repeatable>
+        <restrictions>
+            <callings>
+                <calling>spy</calling>
+                <calling>incognito</calling>
+            </callings>
+            <skills>
+                <skill>
+                    <name>disguise</name>
+                    <value>3</value>
+                </skill>
+            </skills>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>secretAgent1</id>
+        <name>
+            <en>Secret Agent (Recruit)</en>
+            <es>Agente Secreto (Recluta)</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>spy</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>secretAgent2</id>
+        <name>
+            <en>Secret Agent (Agent)</en>
+            <es>Agente Secreto (Agente)</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>secretAgent1</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>secretAgent3</id>
+        <name>
+            <en>Secret Agent (Field Agent)</en>
+            <es>Agente Secreto (Agente Operativo)</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>secretAgent2</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>secretAgent4</id>
+        <name>
+            <en>Secret Agent (Supervisor)</en>
+            <es>Agente Secreto (Supervisor)</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>secretAgent3</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>secretAgent5</id>
+        <name>
+            <en>Secret Agent (Spymaster)</en>
+            <es>Agente Secreto (Maestro de Espías)</es>
+        </name>
+        <restrictions>
+            <perks>
+                <perk>secretAgent4</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>seenTooMuch</id>
+        <name>
+            <en>Seen Too Much</en>
             <es></es>
         </name>
         <restrictions>
             <callings>
-                <calling></calling>
+                <calling>mercenary</calling>
+                <calling>ronin</calling>
             </callings>
         </restrictions>
     </perk>
-
+    <perk>
+        <id>sensitivity</id>
+        <name>
+            <en>Sensitivity</en>
+            <es>Sensibilidad</es>
+        </name>
+    </perk>
+    <perk>
+        <id>shepherdOfTheFlock</id>
+        <name>
+            <en>Shepherd of the Flock</en>
+            <es>Pastor del Rebaño</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>shieldOfTheLaw</id>
+        <name>
+            <en>Shield of the Law</en>
+            <es>Escudo de la Ley</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>lawyer</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>simmeringRage</id>
+        <name>
+            <en>Simmering Rage</en>
+            <es>Furia Acumulada</es>
+        </name>
+        <restrictions>
+            <species>
+                <specie>ukar</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>smellDanger</id>
+        <name>
+            <en>Smell Danger</en>
+            <es>Oler el Peligro</es>
+        </name>
+        <restrictions>
+            <species>
+                <specie>vorox</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>spotter</id>
+        <name>
+            <en>Spotter</en>
+            <es>Vigía</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>reclaimer</calling>
+                <calling>scout</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>steadfast</id>
+        <name>
+            <en>Steadfast</en>
+            <es>Inalterable</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>brotherBattle</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>steadyHand</id>
+        <name>
+            <en>Steady Hand</en>
+            <es>Mano Firme</es>
+        </name>
+    </perk>
+    <perk>
+        <id>stoicBody</id>
+        <name>
+            <en>Stoic Body</en>
+            <es>Cuerpo Estoico</es>
+        </name>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>other</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+    </perk>
+    <perk>
+        <id>stoicMind</id>
+        <name>
+            <en>Sotic Mind</en>
+            <es>Mente Estoica</es>
+        </name>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>other</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+    </perk>
+    <perk>
+        <id>stoicSpirit</id>
+        <name>
+            <en>Stoic Spirit</en>
+            <es>Espíritu Estoico</es>
+        </name>
+        <resistances>
+            <resistance>
+                <type>spirit</type>
+                <category>other</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+    </perk>
+    <perk>
+        <id>strategicMind</id>
+        <name>
+            <en>Strategic Mind</en>
+            <es>Mente Estratégica</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>commander</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>stunningStatement</id>
+        <name>
+            <en>Stunning Statement</en>
+            <es>Golpe de Efecto</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>lawyer</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>stuntPilot</id>
+        <name>
+            <en>Stunt Pilot</en>
+            <es>Piloto de Acrobacias</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>starPilot</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>subtleBody</id>
+        <name>
+            <en>Subtle Body</en>
+            <es>Cuerpo Sutil</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>monkScholarlyTradition</calling>
+                <calling>monkAsceticTradition</calling>
+                <calling>monkMartialTradition</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>superficialKnowlege</id>
+        <name>
+            <en>Superficial Knowledge</en>
+            <es>Conocimiento Superficial</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>amateur</calling>
+                <calling>scribe</calling>
+                <calling>scholar</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>swimmingWithSharks</id>
+        <name>
+            <en>Swimming with Sharks</en>
+            <es>Nadar con Tiburones</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>trader</calling>
+                <calling>tycoon</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>taxes</id>
+        <name>
+            <en>Taxes</en>
+            <es>Impuestos</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>banker</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>techSavvy</id>
+        <name>
+            <en>Tech Savvy</en>
+            <es>Experto en Tecnología</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>merchant</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>temporaryAutonomousZone</id>
+        <name>
+            <en>Temporary Autonomous Zone</en>
+            <es>Zona de Autonomía Temporal</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>mercurian</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>tendTheFlock</id>
+        <name>
+            <en>Tend the Flock</en>
+            <es>Cuidar del Rebaño</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>friar</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>trendsetter</id>
+        <name>
+            <en>Trendsetter</en>
+            <es>Influyente</es>
+        </name>
+        <restrictions>
+            <capabilities>
+                <capability>commonsCustoms</capability>
+                <capability>courtCustoms</capability>
+            </capabilities>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>triumphantReturn</id>
+        <name>
+            <en>Triumphant Return</en>
+            <es>Regreso Triunfal</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>incognito</calling>
+            </callings>
+            <perks>
+                <perk>loyalist</perk>
+                <perk>mentor</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>troubleMagnet</id>
+        <name>
+            <en>Trouble Magnet</en>
+            <es>Imán para los Problemas</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>ronin</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>tutor</id>
+        <name>
+            <en>Tutor</en>
+            <es>Tutor</es>
+        </name>
+        <repeatable>true</repeatable>
+        <restrictions>
+            <callings>
+                <calling>enthusiast</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>twoGunFighting</id>
+        <name>
+            <en>Two-Gun Fighting</en>
+            <es></es>
+        </name>
+        <restrictions mode="any">
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+            <callings>
+                <calling>brotherBattle</calling>
+                <calling>duelist</calling>
+                <calling>pirate</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>underworldContacts</id>
+        <name>
+            <en>Underworld Contacts</en>
+            <es>Contactos Criminales</es>
+        </name>
+        <restrictions>
+            <capabilities>
+                <capability>streetwise</capability>
+            </capabilities>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>untouchable</id>
+        <name>
+            <en>Untouchable</en>
+            <es>Intocable</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>lord</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>veteran</id>
+        <name>
+            <en>Veteran</en>
+            <es>Veterano</es>
+        </name>
+    </perk>
+    <perk>
+        <id>viciousInsult</id>
+        <name>
+            <en>Vicious Insult</en>
+            <es>Arte del Insulto</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>conspiracist</calling>
+                <calling>courtier</calling>
+                <calling>spy</calling>
+                <calling>sybarite</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>virtuoso</id>
+        <name>
+            <en>Virtuoso</en>
+            <es>Virtuoso</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>artist</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>vowOfPoverty</id>
+        <name>
+            <en>Vow of Poverty</en>
+            <es>Voto de Pobreza</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>mendicant</calling>
+                <calling>monk</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>webOfLies</id>
+        <name>
+            <en>Web of Lies</en>
+            <es>Red de Mentiras</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>conspiracist</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>wellTraveled</id>
+        <name>
+            <en>Well-Traveled</en>
+            <es>Cosmopolita</es>
+        </name>
+    </perk>
+    <perk>
+        <id>wildDomain</id>
+        <name>
+            <en>Wild Domain</en>
+            <es>Dominio del Terreno</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>scout</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>windfall</id>
+        <name>
+            <en>Windfall</en>
+            <es>Árbol del Dinero</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>banker</calling>
+                <calling>starPilot</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>wiseOne</id>
+        <name>
+            <en>Wise One</en>
+            <es>Sabio</es>
+        </name>
+        <restrictions mode="any_from_group">
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+            <callings>
+                <calling>gjartin</calling>
+                <calling>incarnates</calling>
+                <calling>childrenOfZuran</calling>
+                <!-- TODO: add any sect here -->
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>witchHunt</id>
+        <name>
+            <en>Witch Hunt</en>
+            <es>Caza de Brujas</es>
+        </name>
+        <restrictions mode="any">
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+            <callings>
+                <calling>inquisitor</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>wyrdKwnowledge</id>
+        <name>
+            <en>Wyrd Knwoledge</en>
+            <es>Conocimiento Wyrd</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>occultist</calling>
+            </callings>
+        </restrictions>
+    </perk>
 
 
     <perk>
