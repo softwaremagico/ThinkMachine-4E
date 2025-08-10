@@ -444,7 +444,7 @@ public class Restrictions extends XmlData {
             FactionFactory.getInstance().getElement(faction);
         }
         for (String calling : restrictedToCallings) {
-            CallingFactory.getInstance().getElement(calling);v
+            CallingFactory.getInstance().getElement(calling);
         }
         for (String capability : restrictedToCapabilities) {
             CapabilityFactory.getInstance().getElement(capability);
