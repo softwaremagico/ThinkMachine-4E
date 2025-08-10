@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.factions;
+package com.softwaremagico.tm.character.perks;
 
 /*-
  * #%L
@@ -24,5 +24,30 @@ package com.softwaremagico.tm.character.factions;
  * #L%
  */
 
-public class Curse extends Blessing {
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.xml.XmlFactory;
+
+import java.util.List;
+
+public class AfflictionFactory extends XmlFactory<Affliction> {
+    private static final String XML_FILE = "afflictions.xml";
+
+    private static final class PerkFactoryInit {
+        public static final AfflictionFactory INSTANCE = new AfflictionFactory();
+    }
+
+    public static AfflictionFactory getInstance() {
+        return PerkFactoryInit.INSTANCE;
+    }
+
+
+    @Override
+    public String getXmlFile() {
+        return XML_FILE;
+    }
+
+    @Override
+    public List<Affliction> getElements() throws InvalidXmlElementException {
+        return readXml(Affliction.class);
+    }
 }

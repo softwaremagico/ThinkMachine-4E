@@ -34,6 +34,7 @@
                 <include name="itemFactory"/>
                 <include name="thinkMachineFactory"/>
                 <include name="perkFactory"/>
+                <include name="afflictionFactory"/>
                 <include name="techCompulsionFactory"/>
                 <include name="timeFactory"/>
                 <include name="cyberdevicesFactory"/>
@@ -64,6 +65,7 @@
             <class name="com.softwaremagico.tm.factory.CapabilityFactoryTest"/>
             <class name="com.softwaremagico.tm.factory.UpbringingFactoryTest"/>
             <class name="com.softwaremagico.tm.factory.PerkFactoryTests"/>
+            <class name="com.softwaremagico.tm.factory.AfflictionFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.ValidateFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.EquipmentTraitsFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.TechCompulsionFactoryTests"/>

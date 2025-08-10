@@ -51,6 +51,7 @@ import com.softwaremagico.tm.character.occultism.OccultismPathFactory;
 import com.softwaremagico.tm.character.occultism.OccultismPower;
 import com.softwaremagico.tm.character.occultism.OccultismType;
 import com.softwaremagico.tm.character.occultism.OccultismTypeFactory;
+import com.softwaremagico.tm.character.perks.Affliction;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.perks.SpecializedPerk;
 import com.softwaremagico.tm.character.resistances.Resistance;
@@ -112,6 +113,8 @@ public class CharacterPlayer {
 
     private final Settings settings;
 
+    private Affliction affliction;
+
     public CharacterPlayer() {
         settings = new Settings();
         reset();
@@ -148,6 +151,8 @@ public class CharacterPlayer {
         if (getPrimaryCharacteristic() == null || getSecondaryCharacteristic() == null) {
             throw new InvalidCharacteristicException("You must choose your primary and secondary characteristic.");
         }
+        //Check one affliction max only.
+        //coas = getPerks();
     }
 
     public void setSpecie(String specie) {
@@ -981,5 +986,13 @@ public class CharacterPlayer {
 
     public void removeCyberdevice(Cyberdevice cyberdevice) {
         getCybernetics().getElements().remove(cyberdevice);
+    }
+
+    public Affliction getAffliction() {
+        return affliction;
+    }
+
+    public void setAffliction(Affliction affliction) {
+        this.affliction = affliction;
     }
 }

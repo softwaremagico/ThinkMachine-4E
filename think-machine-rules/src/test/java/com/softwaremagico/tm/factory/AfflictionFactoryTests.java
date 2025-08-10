@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.factions;
+package com.softwaremagico.tm.factory;
 
 /*-
  * #%L
@@ -24,5 +24,22 @@ package com.softwaremagico.tm.character.factions;
  * #L%
  */
 
-public class Curse extends Blessing {
+
+import com.softwaremagico.tm.character.perks.AfflictionFactory;
+import com.softwaremagico.tm.character.perks.PerkFactory;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.restrictions.RestrictionMode;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+@Test(groups = {"afflictionFactory"})
+public class AfflictionFactoryTests {
+    private static final int DEFINED_AFFLICTIONS = 15;
+
+
+    @Test
+    public void readAfflictions() throws InvalidXmlElementException {
+        Assert.assertEquals(AfflictionFactory.getInstance().getElements().size(),
+                DEFINED_AFFLICTIONS);
+    }
 }

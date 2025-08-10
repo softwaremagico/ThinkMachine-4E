@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<perks>
+    <perk>
+        <id>addiction</id>
+        <name>
+            <en>Addiction</en>
+            <es>Addicción</es>
+        </name>
+    </perk>
+    <perk>
+        <id>blackSheep</id>
+        <name>
+            <en>Black Sheep</en>
+            <es>Oveja Negra</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>branded</id>
+        <name>
+            <en>Branded</en>
+            <es>Marcado</es>
+        </name>
+    </perk>
+    <perk>
+        <id>cloistered</id>
+        <name>
+            <en>Cloistered</en>
+            <es>Recluido</es>
+        </name>
+    </perk>
+    <perk>
+        <id>darkSecret</id>
+        <name>
+            <en>Dark Secret</en>
+            <es>Secreto Oscuro</es>
+        </name>
+    </perk>
+    <perk>
+        <id>excommunicated</id>
+        <name>
+            <en>Excommunicated</en>
+            <es>Excomulgado</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+                <upbringing>merchant</upbringing>
+                <upbringing>yaoman</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>fallenFromGrace</id>
+        <name>
+            <en>Fallen from Grace</en>
+            <es>Caído en Desgracia</es>
+        </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+                <upbringing>merchant</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>indebted</id>
+        <name>
+            <en>Indebted</en>
+            <es>Endeudado</es>
+        </name>
+    </perk>
+    <perk>
+        <id>infamousFamily</id>
+        <name>
+            <en>Infamous Family</en>
+            <es>Familia Infame</es>
+        </name>
+    </perk>
+    <perk>
+        <id>lostWorlder</id>
+        <name>
+            <en>Lost Worlder</en>
+            <es>Habitante de un Mundo Desconocido</es>
+        </name>
+    </perk>
+    <perk>
+        <id>oathOfFealty</id>
+        <name>
+            <en>Oath of Fealty</en>
+            <es>Juramento de Fidelidad</es>
+        </name>
+    </perk>
+    <perk>
+        <id>obligation</id>
+        <name>
+            <en>Obligation</en>
+            <es>Obligación</es>
+        </name>
+    </perk>
+    <perk>
+        <id>outlaw</id>
+        <name>
+            <en>Outlaw</en>
+            <es>Forajido</es>
+        </name>
+    </perk>
+    <perk>
+        <id>stigma</id>
+        <name>
+            <en>Stigma</en>
+            <es>Estigma</es>
+        </name>
+    </perk>
+    <perk>
+        <id>vendetta</id>
+        <name>
+            <en>Vendetta</en>
+            <es>Vendetta</es>
+        </name>
+    </perk>
+</perks>
