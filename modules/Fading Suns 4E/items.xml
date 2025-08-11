@@ -517,4 +517,78 @@
             <es>Atuendo Elegante</es>
         </name>
     </equipment>
+    <equipment>
+        <id>ecclesiasticalAttireEveryday</id>
+        <type>item</type>
+        <name>
+            <en>Ecclesiastical Attire (Everyday)</en>
+            <es>Traje Eclesiástico (Ropa Diaria)</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>clergy</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>ecclesiasticalAttireLow</id>
+        <type>item</type>
+        <name>
+            <en>Ecclesiastical Attire (Low Ritual)</en>
+            <es>Traje Eclesiástico (Rituales Menores)</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>clergy</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>ecclesiasticalAttireHigh</id>
+        <type>item</type>
+        <name>
+            <en>Ecclesiastical Attire (High Ritual)</en>
+            <es>Traje Eclesiástico (Rituales Mayores)</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>clergy</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>penitentialManuals</id>
+        <type>item</type>
+        <name>
+            <en>Penitential Manuals</en>
+            <es>Manuales de Penitencia</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>confessor</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>travelingConfessional</id>
+        <type>item</type>
+        <name>
+            <en>Traveling Confessional</en>
+            <es>Confesionario de Viaje</es>
+        </name>
+        <description>
+            <en>Force-field emitter. Creates a zone of silence: 1 square-meter area from which no sound emanates, but
+                anyone within the zone can hear one another.
+            </en>
+            <es>Emisor de campo de fuerza. Crea una zona de silencio de 1 m² de la que no emana ningún sonido, pero
+                cualquiera dentro de la zona puede escuchar a otra persona que también esté dentro.
+            </es>
+        </description>
+        <techLevel>6</techLevel>
+        <restrictions>
+            <callings>
+                <calling>confessor</calling>
+            </callings>
+        </restrictions>
+    </equipment>
 </equipments>
