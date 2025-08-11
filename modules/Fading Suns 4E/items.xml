@@ -477,4 +477,44 @@
             <es>Suministros de Oficios</es>
         </name>
     </equipment>
+    <equipment>
+        <id>familyRelic</id>
+        <type>item</type>
+        <name>
+            <en>Family Relic</en>
+            <es>Reliquia Familiar</es>
+        </name>
+        <description>
+            <en>A family relic that you rescued from destruction. It might be worth something again… someday.</en>
+            <es>Una reliquia familiar que salvaste de la destrucción. Quizás algún día vuelva a tener algún valor.</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>disguiseOutfit</id>
+        <type>item</type>
+        <name>
+            <en>Disguise Outfit</en>
+            <es>Disfraz</es>
+        </name>
+        <description>
+            <en>Disguise outfits for masked balls.</en>
+            <es>Disfraz para bailes de máscaras.</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>musicInstrument</id>
+        <type>item</type>
+        <name>
+            <en>Music Instrument</en>
+            <es>Instrumento Musical</es>
+        </name>
+    </equipment>
+    <equipment>
+        <id>performanceAttire</id>
+        <type>item</type>
+        <name>
+            <en>Performance Attire</en>
+            <es>Atuendo Elegante</es>
+        </name>
+    </equipment>
 </equipments>

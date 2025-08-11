@@ -36,6 +36,7 @@ import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
 import com.softwaremagico.tm.character.equipment.thinkmachines.ThinkMachineFactory;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
+import com.softwaremagico.tm.character.equipment.weapons.WeaponType;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.ArrayList;
@@ -84,7 +85,9 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
                                 .map(EquipmentOption::new).collect(Collectors.toList()));
                     } else if (item.getWeaponType() != null) {
                         final List<Weapon> customizedWeapons = new ArrayList<>();
-                        if ((item.getType() != null && item.getWeaponClass() != null)) {
+                        if (item.getWeaponType() == WeaponType.ANY) {
+                            customizedWeapons.addAll(WeaponFactory.getInstance().getElements());
+                        } else if ((item.getType() != null && item.getWeaponClass() != null)) {
                             customizedWeapons.addAll(
                                     WeaponFactory.getInstance().getWeaponsByClass(item.getWeaponClass()).stream().distinct()
                                             .filter(WeaponFactory.getInstance().getWeapons(item.getWeaponType())::contains)

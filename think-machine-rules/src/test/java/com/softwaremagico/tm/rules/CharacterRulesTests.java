@@ -32,13 +32,11 @@ import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
-import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.Upbringing;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidCallingException;
 import com.softwaremagico.tm.exceptions.InvalidFactionException;
-import com.softwaremagico.tm.exceptions.InvalidSelectedElementException;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidUpbringingException;
 import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
@@ -217,5 +215,12 @@ public class CharacterRulesTests {
         Assert.assertEquals(calling.getMaterialAwards().size(), 2);
         Assert.assertEquals(calling.getMaterialAwards().get(0).getOptions().size(), 6);
         Assert.assertEquals(calling.getMaterialAwards().get(1).getOptions().size(), 1);
+    }
+
+    @Test
+    public void callingBrotherBattlerMaterialAwards() {
+        final Calling calling = CallingFactory.getInstance().getElement("brotherBattle");
+        Assert.assertEquals(calling.getMaterialAwards().size(), 1);
+        Assert.assertTrue(calling.getMaterialAwards().get(0).getOptions().size() > 150);
     }
 }

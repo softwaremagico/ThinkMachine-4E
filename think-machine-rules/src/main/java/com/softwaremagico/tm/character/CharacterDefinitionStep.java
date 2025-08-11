@@ -49,6 +49,7 @@ import java.util.stream.Collectors;
 public class CharacterDefinitionStep<T extends Element> extends Element {
     private static final int TOTAL_CHARACTERISTICS_OPTIONS = 0;
     private static final int TOTAL_SKILL_OPTIONS = 0;
+    private static final int TOTAL_PERKS_OPTIONS = 0;
 
     @JsonProperty("capabilities")
     private List<CapabilityOptions> capabilityOptions = new ArrayList<>();
@@ -125,6 +126,10 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
         return TOTAL_SKILL_OPTIONS;
     }
 
+    public int getTotalPerksOptions() {
+        return TOTAL_PERKS_OPTIONS;
+    }
+
     public Set<EquipmentOption> getMaterialAwards(Collection<Selection> selectedMaterialAwards) {
         return getMaterialAwards().stream().map(m -> m.getOptions(selectedMaterialAwards)).flatMap(Collection::stream)
                 .collect(Collectors.toSet());
@@ -179,6 +184,10 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
         if (totalSkillPoints != getSkillsTotalPoints()) {
             throw new InvalidXmlElementException("Element '" + getId() + "' has more than " + getSkillsTotalPoints() + " skill options. "
                     + "Currently has '" + totalSkillPoints + "' skill points.");
+        }
+
+        if (perksOptions.size() != getTotalPerksOptions()) {
+            throw new InvalidXmlElementException("Element must have '" + getTotalPerksOptions() + "' perks option.");
         }
     }
 }

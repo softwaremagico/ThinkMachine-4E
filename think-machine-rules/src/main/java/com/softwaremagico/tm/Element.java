@@ -304,6 +304,10 @@ public class Element extends XmlData implements Comparable<Element> {
         if (randomDefinition != null) {
             randomDefinition.validate();
         }
+        if (getName() == null) {
+            throw new InvalidXmlElementException("Name not set on Element.");
+        }
+        getName().validate();
     }
 
     public List<Resistance> getResistances() {
