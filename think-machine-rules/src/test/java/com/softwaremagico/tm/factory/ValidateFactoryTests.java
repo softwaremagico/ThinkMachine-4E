@@ -33,7 +33,7 @@ import com.softwaremagico.tm.character.equipment.DamageTypeFactory;
 import com.softwaremagico.tm.character.equipment.EquipmentTraitFactory;
 import com.softwaremagico.tm.character.equipment.TechCompulsionFactory;
 import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
-import com.softwaremagico.tm.character.equipment.armors.ArmourSpecificationFactory;
+import com.softwaremagico.tm.character.equipment.armors.ArmorSpecificationFactory;
 import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShieldFactory;
 import com.softwaremagico.tm.character.equipment.item.ItemFactory;
 import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
@@ -74,8 +74,8 @@ public class ValidateFactoryTests {
     }
 
     @Test
-    public void validateArmourSpecificationsFactory() throws InvalidXmlElementException {
-        ArmourSpecificationFactory.getInstance().validate();
+    public void validateArmorSpecificationsFactory() throws InvalidXmlElementException {
+        ArmorSpecificationFactory.getInstance().validate();
     }
 
     @Test

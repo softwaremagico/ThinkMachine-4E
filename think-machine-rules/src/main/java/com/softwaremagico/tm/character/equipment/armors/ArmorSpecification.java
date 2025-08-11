@@ -28,13 +28,13 @@ package com.softwaremagico.tm.character.equipment.armors;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
 
-public class ArmourSpecification extends Element {
+public class ArmorSpecification extends Element {
 
-    public ArmourSpecification() {
+    public ArmorSpecification() {
         super();
     }
 
-    public ArmourSpecification(String id, TranslatedText name, TranslatedText description, String language, String moduleName) {
+    public ArmorSpecification(String id, TranslatedText name, TranslatedText description, String language, String moduleName) {
         super(id, name, description, language, moduleName);
     }
 

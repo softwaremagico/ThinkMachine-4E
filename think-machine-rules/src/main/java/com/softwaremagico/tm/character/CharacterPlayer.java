@@ -719,7 +719,7 @@ public class CharacterPlayer {
             throw new UnofficialCharacterException("Specie '" + getSpecie() + "' is not official.");
         }
         if ((getBestArmor() != null && !getBestArmor().isOfficial())) {
-            throw new UnofficialCharacterException("Armour '" + getBestArmor() + "' is not official.");
+            throw new UnofficialCharacterException("Armor '" + getBestArmor() + "' is not official.");
         }
         if ((getBestShield() != null && !getBestShield().isOfficial())) {
             throw new UnofficialCharacterException("Shield '" + getBestShield() + "' is not official.");
@@ -752,7 +752,7 @@ public class CharacterPlayer {
         }
 
         if ((getBestArmor() != null && ArmorFactory.getInstance().getElement(getBestArmor()).getRestrictions().isRestricted(this))) {
-            throw new RestrictedElementException("Armour '" + getBestArmor() + "' is restricted.");
+            throw new RestrictedElementException("Armor '" + getBestArmor() + "' is restricted.");
         }
         if ((getBestShield() != null && ShieldFactory.getInstance().getElement(getBestShield()).getRestrictions().isRestricted(this))) {
             throw new RestrictedElementException("Shield '" + getBestShield() + "' is restricted.");

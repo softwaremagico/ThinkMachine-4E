@@ -195,4 +195,11 @@ public class CharacterRulesTests {
                 CallingFactory.getInstance().getElement("spy").getPerksOptions().get(0).getOptions().size()
                         + SpecieFactory.getInstance().getElement("vorox").getPerks().size());
     }
+
+    @Test
+    public void materialAwardsKnightlyOrder() {
+        final Calling calling = CallingFactory.getInstance().getElement("knightlyOrder");
+        Assert.assertEquals(calling.getMaterialAwards().size(), 1);
+        Assert.assertEquals(calling.getMaterialAwards().get(0).getOptions().size(), 10);
+    }
 }

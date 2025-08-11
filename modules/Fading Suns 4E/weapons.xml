@@ -3,6 +3,7 @@
     <arbata>
         <id>arbata</id>
         <type>weapon</type>
+        <group></group>
         <name>
             <en>Arbat’a (Crystal Sword)</en>
             <es>Arbat'a (Espada de Cristal)</es>
@@ -48,6 +49,7 @@
     <axe>
         <id>axe</id>
         <type>weapon</type>
+        <group>militaryWeapon</group>
         <name>
             <en>Axe</en>
             <es>Hacha</es>
@@ -121,7 +123,7 @@
         <size>L</size>
         <cost>15</cost>
         <others>
-            <other>armour1</other>
+            <other>armor1</other>
         </others>
         <ammunition>
             <ammo>plasticBodyShield</ammo>
@@ -167,7 +169,7 @@
         <size>L</size>
         <cost>15</cost>
         <others>
-            <other>armour2</other>
+            <other>armor2</other>
         </others>
         <ammunition>
             <ammo>plasticBodyShield</ammo>
@@ -213,7 +215,7 @@
         <size>L</size>
         <cost>15</cost>
         <others>
-            <other>armour3</other>
+            <other>armor3</other>
         </others>
         <ammunition>
             <ammo>plasticBodyShield</ammo>
@@ -737,6 +739,7 @@
     <kossackChainsword>
         <id>kossackChainsword</id>
         <type>weapon</type>
+        <group>militaryWeapon</group>
         <name>
             <en>Kossack Osteotomic Sword</en>
             <es>Espada Osteotómica Cosaca</es>
@@ -788,6 +791,7 @@
     <mace>
         <id>mace</id>
         <type>weapon</type>
+        <group>militaryWeapon</group>
         <name>
             <en>Mace</en>
             <es>Maza</es>
@@ -1162,6 +1166,7 @@
     <trenchKnife>
         <id>trenchKnife</id>
         <type>weapon</type>
+        <group>militaryWeapon</group>
         <name>
             <en>Trench Knife</en>
             <es>Cuchillo de Trinchera</es>
@@ -1416,7 +1421,7 @@
         <size>L</size>
         <cost>10000</cost>
         <damageTypes>
-            <damageType>ignoreArmour</damageType>
+            <damageType>ignoreArmor</damageType>
         </damageTypes>
     </wireblade>
     <fluxSword>
@@ -9367,8 +9372,7 @@
         <size>S</size>
         <cost>80</cost>
         <damageTypes>
-            <damageType>halveArmour</damageType>
+            <damageType>halveArmor</damageType>
         </damageTypes>
     </wireGrenade>
 </weapons>
-

@@ -25,7 +25,7 @@
                 <include name="occultismFactory"/>
                 <include name="planetsFactory"/>
                 <include name="shieldFactory"/>
-                <include name="armourFactory"/>
+                <include name="armorFactory"/>
                 <include name="combatStyleFactory"/>
                 <include name="callingFactory"/>
                 <include name="capabilityFactory"/>

@@ -378,9 +378,9 @@
         </restrictions>
     </perk>
     <perk>
-        <id>begginersLuck</id>
+        <id>beginnersLuck</id>
         <name>
-            <en>Begginer's Luck</en>
+            <en>Beginner's Luck</en>
             <es>Suerte del Principiante</es>
         </name>
         <restrictions>

@@ -324,7 +324,7 @@
                     </requirement2>
                 </requirements>
                 <others>
-                    <en>1W to -1d of armour.</en>
+                    <en>1W to -1d of armor.</en>
                     <es>1W para -1d de armadura.</es>
                 </others>
             </combatAction>
@@ -388,7 +388,7 @@
                 <goal>+2</goal>
                 <damage>4</damage>
                 <others>
-                    <en>Ignores armour*</en>
+                    <en>Ignores armor*</en>
                     <es>Ignora armadura*</es>
                 </others>
             </combatAction>
@@ -667,7 +667,7 @@
                     </requirement2>
                 </requirements>
                 <others>
-                    <en>-1d Armour by VP.</en>
+                    <en>-1d Armor by VP.</en>
                     <es>-1d Armadura por PV.</es>
                 </others>
             </combatAction>

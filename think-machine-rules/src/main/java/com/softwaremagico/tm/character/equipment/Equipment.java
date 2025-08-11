@@ -100,6 +100,8 @@ public abstract class Equipment extends Element implements IElementWithTechnolog
     private Quality quality;
     @JsonProperty("status")
     private Status status;
+    @JsonProperty("group")
+    private String group;
 
     public Equipment() {
         super();
@@ -239,6 +241,16 @@ public abstract class Equipment extends Element implements IElementWithTechnolog
 
     public void setFeatures(List<EquipmentFeature> features) {
         this.features = features;
+    }
+
+    @Override
+    public String getGroup() {
+        return group;
+    }
+
+    @Override
+    public void setGroup(String group) {
+        this.group = group;
     }
 
     @Override

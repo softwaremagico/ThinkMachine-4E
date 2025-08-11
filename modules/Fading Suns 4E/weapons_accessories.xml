@@ -196,23 +196,23 @@
 		</name>
 	</accesory>
 	<accesory>
-		<id>armour1</id>
+		<id>armor1</id>
 		<name>
-			<en>+1d Armour</en>
+			<en>+1d Armor</en>
 			<es>+1d Armadura</es>
 		</name>
 	</accesory>
 	<accesory>
-		<id>armour2</id>
+		<id>armor2</id>
 		<name>
-			<en>+2d Armour</en>
+			<en>+2d Armor</en>
 			<es>+2d Armadura</es>
 		</name>
 	</accesory>
 	<accesory>
-		<id>armour3</id>
+		<id>armor3</id>
 		<name>
-			<en>+3d Armour</en>
+			<en>+3d Armor</en>
 			<es>+3d Armadura</es>
 		</name>
 	</accesory>

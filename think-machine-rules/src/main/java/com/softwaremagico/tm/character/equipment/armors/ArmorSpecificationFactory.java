@@ -29,15 +29,15 @@ import com.softwaremagico.tm.xml.XmlFactory;
 
 import java.util.List;
 
-public final class ArmourSpecificationFactory extends XmlFactory<ArmourSpecification> {
-    private static final String XML_FILE = "armours_specifications.xml";
+public final class ArmorSpecificationFactory extends XmlFactory<ArmorSpecification> {
+    private static final String XML_FILE = "armors_specifications.xml";
 
-    private static final class ArmourSpecificationFactoryInit {
-        public static final ArmourSpecificationFactory INSTANCE = new ArmourSpecificationFactory();
+    private static final class ArmorSpecificationFactoryInit {
+        public static final ArmorSpecificationFactory INSTANCE = new ArmorSpecificationFactory();
     }
 
-    public static ArmourSpecificationFactory getInstance() {
-        return ArmourSpecificationFactoryInit.INSTANCE;
+    public static ArmorSpecificationFactory getInstance() {
+        return ArmorSpecificationFactoryInit.INSTANCE;
     }
 
 
@@ -47,7 +47,7 @@ public final class ArmourSpecificationFactory extends XmlFactory<ArmourSpecifica
     }
 
     @Override
-    public List<ArmourSpecification> getElements() throws InvalidXmlElementException {
-        return readXml(ArmourSpecification.class);
+    public List<ArmorSpecification> getElements() throws InvalidXmlElementException {
+        return readXml(ArmorSpecification.class);
     }
 }

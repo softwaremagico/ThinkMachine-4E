@@ -131,9 +131,6 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
     }
 
     public List<EquipmentOptions> getMaterialAwards() {
-        if (materialAwards == null) {
-            return new ArrayList<>();
-        }
         return materialAwards;
     }
 
@@ -169,7 +166,7 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
         for (CharacteristicBonusOptions characteristicBonusOptions : getCharacteristicOptions()) {
             totalCharacteristicsPoints += characteristicBonusOptions.getTotalOptions() * characteristicBonusOptions.getOptions().get(0).getBonus();
         }
-        if (totalCharacteristicsPoints > getCharacteristicsTotalPoints()) {
+        if (totalCharacteristicsPoints != getCharacteristicsTotalPoints()) {
             throw new InvalidXmlElementException("Element '" + getId() + "' has more than '" + getCharacteristicsTotalPoints() + "' characteristics options. "
                     + "Currently has '" + totalCharacteristicsPoints + "' characteristic points.");
         }
@@ -179,7 +176,7 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
         for (SkillBonusOptions skillBonusOptions : getSkillOptions()) {
             totalSkillPoints += skillBonusOptions.getTotalOptions() * skillBonusOptions.getOptions().get(0).getBonus();
         }
-        if (totalSkillPoints > getSkillsTotalPoints()) {
+        if (totalSkillPoints != getSkillsTotalPoints()) {
             throw new InvalidXmlElementException("Element '" + getId() + "' has more than " + getSkillsTotalPoints() + " skill options. "
                     + "Currently has '" + totalSkillPoints + "' skill points.");
         }

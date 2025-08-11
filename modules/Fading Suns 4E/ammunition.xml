@@ -121,7 +121,7 @@
 			<es>Munición Anti Tanque</es>
 		</name>
 		<damage>13</damage>
-		<damageType>halveArmour</damageType>
+		<damageType>halveArmor</damageType>
 	</ammo>
 
 </ammunitions>

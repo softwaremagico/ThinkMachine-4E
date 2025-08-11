@@ -58,6 +58,26 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
                 super.getOptions().forEach(item -> {
                     if (item.getId() != null) {
                         finalItems.add(new EquipmentOption(item));
+                    } else if (item.getGroup() != null) {
+                        //Can be any
+                        finalItems.addAll(ItemFactory.getInstance().getElements().stream()
+                                .filter(item2 -> Objects.equals(item2.getGroup(), item.getGroup()))
+                                .map(EquipmentOption::new).collect(Collectors.toList()));
+                        finalItems.addAll(WeaponFactory.getInstance().getElements().stream()
+                                .filter(item2 -> Objects.equals(item2.getGroup(), item.getGroup()))
+                                .map(EquipmentOption::new).collect(Collectors.toList()));
+                        finalItems.addAll(ArmorFactory.getInstance().getElements().stream()
+                                .filter(item2 -> Objects.equals(item2.getGroup(), item.getGroup()))
+                                .map(EquipmentOption::new).collect(Collectors.toList()));
+                        finalItems.addAll(ShieldFactory.getInstance().getElements().stream()
+                                .filter(item2 -> Objects.equals(item2.getGroup(), item.getGroup()))
+                                .map(EquipmentOption::new).collect(Collectors.toList()));
+                        finalItems.addAll(HandheldShieldFactory.getInstance().getElements().stream()
+                                .filter(item2 -> Objects.equals(item2.getGroup(), item.getGroup()))
+                                .map(EquipmentOption::new).collect(Collectors.toList()));
+                        finalItems.addAll(ThinkMachineFactory.getInstance().getElements().stream()
+                                .filter(item2 -> Objects.equals(item2.getGroup(), item.getGroup()))
+                                .map(EquipmentOption::new).collect(Collectors.toList()));
                     } else if (item.getWeaponType() != null) {
                         final List<Weapon> customizedWeapons = new ArrayList<>();
                         if ((item.getType() != null && item.getWeaponClass() != null)) {

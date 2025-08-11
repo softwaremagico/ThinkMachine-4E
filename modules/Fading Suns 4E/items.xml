@@ -469,4 +469,12 @@
             <es>Libros relacionados con el saber elegido.</es>
         </description>
     </equipment>
+    <equipment>
+        <id>artsAndCraftSupplies</id>
+        <type>item</type>
+        <name>
+            <en>Arts and Craft Supplies</en>
+            <es>Suministros de Oficios</es>
+        </name>
+    </equipment>
 </equipments>
