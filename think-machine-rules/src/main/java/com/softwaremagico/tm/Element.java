@@ -87,6 +87,11 @@ public class Element extends XmlData implements Comparable<Element> {
         this.randomDefinition = new RandomElementDefinition();
     }
 
+    public Element(String id) {
+        this();
+        setId(id);
+    }
+
     public Element(String id, TranslatedText name, TranslatedText description, String language, String moduleName) {
         this(id, name, description, language, new RandomElementDefinition(), moduleName);
     }

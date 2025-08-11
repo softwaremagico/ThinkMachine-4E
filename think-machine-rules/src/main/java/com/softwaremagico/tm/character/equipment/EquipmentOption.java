@@ -42,6 +42,8 @@ import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponType;
 
+import java.util.Set;
+
 public class EquipmentOption extends Option<Equipment> {
 
     @JsonProperty("weaponType")
@@ -57,6 +59,9 @@ public class EquipmentOption extends Option<Equipment> {
 
     private Status status;
 
+    @JsonProperty("others")
+    private Set<String> others;
+
     public EquipmentOption() {
         super();
     }
@@ -71,6 +76,7 @@ public class EquipmentOption extends Option<Equipment> {
         this();
         setId(equipment.getId());
         setQuantity(equipment.getQuantity());
+        setOthers(equipment.getOthers());
     }
 
     public EquipmentOption(Equipment equipment, int quantity) {
@@ -165,6 +171,14 @@ public class EquipmentOption extends Option<Equipment> {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Set<String> getOthers() {
+        return others;
+    }
+
+    public void setOthers(Set<String> others) {
+        this.others = others;
     }
 
     @Override

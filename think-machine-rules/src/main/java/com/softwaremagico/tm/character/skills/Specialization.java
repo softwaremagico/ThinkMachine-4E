@@ -33,6 +33,10 @@ public class Specialization extends Element implements ISkillRandomDefintions {
         super();
     }
 
+    public Specialization(String id) {
+        super(id);
+    }
+
     public Specialization(String id, TranslatedText name, TranslatedText description, String language, String moduleName) {
         super(id, name, description, language, moduleName);
     }

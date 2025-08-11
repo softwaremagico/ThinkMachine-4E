@@ -2501,6 +2501,9 @@
         </damageList>
         <size>XS</size>
         <cost>45</cost>
+        <others>
+            <other>sturdy</other>
+        </others>
     </varstenSnake-eyes>
     <typicalLightRevolver>
         <id>typicalLightRevolver</id>

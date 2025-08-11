@@ -51,8 +51,6 @@ public class Weapon extends Equipment {
     private WeaponType type;
 
     private Set<String> ammunition;
-    @JsonProperty("others")
-    private Set<String> accessories;
 
 
     /**
@@ -61,7 +59,6 @@ public class Weapon extends Equipment {
     public Weapon() {
         super();
         this.ammunition = new HashSet<>();
-        this.accessories = new HashSet<>();
         this.damageTypes = new HashSet<>();
         this.weaponDamages = new ArrayList<>();
         this.type = null;
@@ -109,10 +106,6 @@ public class Weapon extends Equipment {
         return ammunition;
     }
 
-    public Set<String> getAccessories() {
-        return accessories;
-    }
-
     public void setWeaponDamages(List<WeaponDamage> weaponDamages) {
         this.weaponDamages = weaponDamages;
     }
@@ -144,10 +137,6 @@ public class Weapon extends Equipment {
 
     public void setWeaponClass(String weaponClass) {
         this.weaponClass = weaponClass;
-    }
-
-    public void setAccessories(Set<String> accessories) {
-        this.accessories = accessories;
     }
 
     public String getWeaponOthersText() {
@@ -189,8 +178,8 @@ public class Weapon extends Equipment {
         if (weapon.getAmmunition() != null) {
             setAmmunition(new HashSet<>(weapon.getAmmunition()));
         }
-        if (weapon.getAccessories() != null) {
-            setAccessories(new HashSet<>(weapon.getAccessories()));
+        if (weapon.getOthers() != null) {
+            setOthers(new HashSet<>(weapon.getOthers()));
         }
     }
 
@@ -202,9 +191,6 @@ public class Weapon extends Equipment {
         }
         if (ammunition != null) {
             ammunition.forEach(ammo -> AmmunitionFactory.getInstance().getElement(ammo));
-        }
-        if (accessories != null) {
-            accessories.forEach(accessory -> AccessoryFactory.getInstance().getElement(accessory));
         }
         for (WeaponDamage weaponDamage : getWeaponDamages()) {
             weaponDamage.validate();

@@ -202,4 +202,20 @@ public class CharacterRulesTests {
         Assert.assertEquals(calling.getMaterialAwards().size(), 1);
         Assert.assertEquals(calling.getMaterialAwards().get(0).getOptions().size(), 10);
     }
+
+    @Test
+    public void callingSpecializedCapability() {
+        final Calling calling = CallingFactory.getInstance().getElement("questingKnight");
+        Assert.assertEquals(calling.getCapabilityOptions().size(), 2);
+        Assert.assertEquals(calling.getCapabilityOptions().get(1).getOptions().size(), 2);
+        Assert.assertEquals(calling.getCapabilityOptions().get(1).getOptions().get(0).getSelectedSpecialization().getId(), "barbarianWorlds");
+    }
+
+    @Test
+    public void callingQuestKnightMaterialAwards() {
+        final Calling calling = CallingFactory.getInstance().getElement("questingKnight");
+        Assert.assertEquals(calling.getMaterialAwards().size(), 2);
+        Assert.assertEquals(calling.getMaterialAwards().get(0).getOptions().size(), 6);
+        Assert.assertEquals(calling.getMaterialAwards().get(1).getOptions().size(), 1);
+    }
 }

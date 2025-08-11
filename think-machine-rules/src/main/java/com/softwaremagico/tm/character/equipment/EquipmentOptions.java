@@ -25,6 +25,7 @@ package com.softwaremagico.tm.character.equipment;
  */
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.OptionSelector;
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
@@ -48,6 +49,9 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
 
     @JsonIgnore
     private List<EquipmentOption> finalItems;
+
+    @JsonProperty("others")
+    private Set<String> others;
 
 
     @Override
@@ -119,6 +123,11 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
                 finalItems.addAll(ThinkMachineFactory.getInstance().getElements().stream()
                         .map(EquipmentOption::new).collect(Collectors.toList()));
             }
+            //Filter by properties.
+            if (getOthers() != null && !getOthers().isEmpty()) {
+                finalItems = finalItems.stream().filter(item2 -> item2.getOthers().containsAll(getOthers()))
+                        .collect(Collectors.toList());
+            }
         }
         return finalItems;
     }
@@ -126,6 +135,14 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
     public Set<EquipmentOption> getOptions(Collection<Selection> items) {
         return getOptions().stream().filter(e -> items.stream().map(Selection::getId).collect(Collectors.toList())
                 .contains(e.getId())).collect(Collectors.toSet());
+    }
+
+    public Set<String> getOthers() {
+        return others;
+    }
+
+    public void setOthers(Set<String> others) {
+        this.others = others;
     }
 
     @Override

@@ -63,7 +63,7 @@ public class WeaponsFactoryTests {
     @Test
     public void checkBasicHuntingRifle() throws InvalidXmlElementException {
         Assert.assertEquals(3, WeaponFactory.getInstance().getElement("basicHuntingRifle")
-                .getAccessories().size());
+                .getOthers().size());
     }
 
     @Test
