@@ -223,4 +223,11 @@ public class CharacterRulesTests {
         Assert.assertEquals(calling.getMaterialAwards().size(), 1);
         Assert.assertTrue(calling.getMaterialAwards().get(0).getOptions().size() > 150);
     }
+
+    @Test
+    public void callingInquisitorMaterialAwards() {
+        final Calling calling = CallingFactory.getInstance().getElement("inquisitor");
+        Assert.assertEquals(calling.getMaterialAwards().size(), 1);
+        Assert.assertTrue(calling.getMaterialAwards().get(0).getOptions().get(0).getExtras().contains("flameproof"));
+    }
 }

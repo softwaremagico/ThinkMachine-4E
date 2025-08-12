@@ -42,6 +42,8 @@ import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponType;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class EquipmentOption extends Option<Equipment> {
@@ -59,8 +61,8 @@ public class EquipmentOption extends Option<Equipment> {
 
     private Status status;
 
-    @JsonProperty("others")
-    private Set<String> others;
+    @JsonProperty("extras")
+    private Set<String> extras;
 
     public EquipmentOption() {
         super();
@@ -76,7 +78,7 @@ public class EquipmentOption extends Option<Equipment> {
         this();
         setId(equipment.getId());
         setQuantity(equipment.getQuantity());
-        setOthers(equipment.getOthers());
+        setExtras(equipment.getOthers());
     }
 
     public EquipmentOption(Equipment equipment, int quantity) {
@@ -86,7 +88,7 @@ public class EquipmentOption extends Option<Equipment> {
     }
 
     public EquipmentOption(Equipment equipment, Quality quality, Status status, int quantity, WeaponType weaponType,
-                           String weaponClass, String type) {
+                           String weaponClass, String type, String... extras) {
         this();
         setId(equipment.getId());
         setQuantity(quantity);
@@ -95,6 +97,7 @@ public class EquipmentOption extends Option<Equipment> {
         setWeaponType(weaponType);
         setWeaponClass(weaponClass);
         setType(type);
+        setExtras(new HashSet<>(List.of(extras)));
     }
 
     public WeaponType getWeaponType() {
@@ -173,12 +176,12 @@ public class EquipmentOption extends Option<Equipment> {
         this.status = status;
     }
 
-    public Set<String> getOthers() {
-        return others;
+    public Set<String> getExtras() {
+        return extras;
     }
 
-    public void setOthers(Set<String> others) {
-        this.others = others;
+    public void setExtras(Set<String> extras) {
+        this.extras = extras;
     }
 
     @Override

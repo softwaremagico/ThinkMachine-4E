@@ -51,8 +51,8 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
     @JsonIgnore
     private List<EquipmentOption> finalItems;
 
-    @JsonProperty("others")
-    private Set<String> others;
+    @JsonProperty("requiredProperty")
+    private Set<String> requiredProperty;
 
 
     @Override
@@ -61,26 +61,27 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
             finalItems = new ArrayList<>();
             if (super.getOptions() != null && !super.getOptions().isEmpty()) {
                 super.getOptions().forEach(item -> {
+                    final List<EquipmentOption> optionItems = new ArrayList<>();
                     if (item.getId() != null) {
-                        finalItems.add(new EquipmentOption(item));
+                        optionItems.add(new EquipmentOption(item));
                     } else if (item.getGroup() != null) {
                         //Can be any
-                        finalItems.addAll(ItemFactory.getInstance().getElements().stream()
+                        optionItems.addAll(ItemFactory.getInstance().getElements().stream()
                                 .filter(item2 -> Objects.equals(item2.getGroup(), item.getGroup()))
                                 .map(EquipmentOption::new).collect(Collectors.toList()));
-                        finalItems.addAll(WeaponFactory.getInstance().getElements().stream()
+                        optionItems.addAll(WeaponFactory.getInstance().getElements().stream()
                                 .filter(item2 -> Objects.equals(item2.getGroup(), item.getGroup()))
                                 .map(EquipmentOption::new).collect(Collectors.toList()));
-                        finalItems.addAll(ArmorFactory.getInstance().getElements().stream()
+                        optionItems.addAll(ArmorFactory.getInstance().getElements().stream()
                                 .filter(item2 -> Objects.equals(item2.getGroup(), item.getGroup()))
                                 .map(EquipmentOption::new).collect(Collectors.toList()));
-                        finalItems.addAll(ShieldFactory.getInstance().getElements().stream()
+                        optionItems.addAll(ShieldFactory.getInstance().getElements().stream()
                                 .filter(item2 -> Objects.equals(item2.getGroup(), item.getGroup()))
                                 .map(EquipmentOption::new).collect(Collectors.toList()));
-                        finalItems.addAll(HandheldShieldFactory.getInstance().getElements().stream()
+                        optionItems.addAll(HandheldShieldFactory.getInstance().getElements().stream()
                                 .filter(item2 -> Objects.equals(item2.getGroup(), item.getGroup()))
                                 .map(EquipmentOption::new).collect(Collectors.toList()));
-                        finalItems.addAll(ThinkMachineFactory.getInstance().getElements().stream()
+                        optionItems.addAll(ThinkMachineFactory.getInstance().getElements().stream()
                                 .filter(item2 -> Objects.equals(item2.getGroup(), item.getGroup()))
                                 .map(EquipmentOption::new).collect(Collectors.toList()));
                     } else if (item.getWeaponType() != null) {
@@ -98,17 +99,21 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
                             customizedWeapons.addAll(WeaponFactory.getInstance().getWeaponsByClass(item.getWeaponClass()));
                         }
                         customizedWeapons.forEach(customizedWeapon ->
-                                finalItems.add(new EquipmentOption(customizedWeapon, item.getQuality(),
+                                optionItems.add(new EquipmentOption(customizedWeapon, item.getQuality(),
                                         item.getStatus(), item.getQuantity(), item.getWeaponType(), item.getWeaponClass(),
                                         item.getType())));
                     } else if (Objects.equals(item.getType(), "handheldShield")) {
                         final List<HandheldShield> customizedHandheldShields =
                                 new ArrayList<>(HandheldShieldFactory.getInstance().getElements());
                         customizedHandheldShields.forEach(handheldShield ->
-                                finalItems.add(new EquipmentOption(handheldShield, item.getQuality(),
+                                optionItems.add(new EquipmentOption(handheldShield, item.getQuality(),
                                         item.getStatus(), item.getQuantity(), item.getWeaponType(), item.getWeaponClass(),
                                         item.getType())));
                     }
+                    if (item.getExtras() != null) {
+                        optionItems.forEach(optionItem -> optionItem.getExtras().addAll(item.getExtras()));
+                    }
+                    finalItems.addAll(optionItems);
                 });
             } else {
                 //Can be any
@@ -126,9 +131,9 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
                 finalItems.addAll(ThinkMachineFactory.getInstance().getElements().stream()
                         .map(EquipmentOption::new).collect(Collectors.toList()));
             }
-            //Filter by properties.
-            if (getOthers() != null && !getOthers().isEmpty()) {
-                finalItems = finalItems.stream().filter(item2 -> item2.getOthers().containsAll(getOthers()))
+            //Filter by required properties.
+            if (getRequiredProperty() != null && !getRequiredProperty().isEmpty()) {
+                finalItems = finalItems.stream().filter(item2 -> item2.getExtras().containsAll(getRequiredProperty()))
                         .collect(Collectors.toList());
             }
         }
@@ -140,12 +145,12 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
                 .contains(e.getId())).collect(Collectors.toSet());
     }
 
-    public Set<String> getOthers() {
-        return others;
+    public Set<String> getRequiredProperty() {
+        return requiredProperty;
     }
 
-    public void setOthers(Set<String> others) {
-        this.others = others;
+    public void setRequiredProperty(Set<String> requiredProperty) {
+        this.requiredProperty = requiredProperty;
     }
 
     @Override
