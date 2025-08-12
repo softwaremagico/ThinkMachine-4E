@@ -701,4 +701,44 @@
             </callings>
         </restrictions>
     </equipment>
+    <equipment>
+        <id>travelingVestments</id>
+        <type>item</type>
+        <name>
+            <en>Traveling Vestments</en>
+            <es>Ropa de Viaje</es>
+        </name>
+    </equipment>
+    <equipment>
+        <id>portableAltar</id>
+        <type>item</type>
+        <name>
+            <en>Postable Altar</en>
+            <es>Altar Portátil</es>
+        </name>
+    </equipment>
+    <equipment>
+        <id>oneUsePassageContract</id>
+        <type>item</type>
+        <name>
+            <en>A one-way, one-use passage contract</en>
+            <es>Acuerdo de pasaje de ida de un solo uso</es>
+        </name>
+        <description>
+            <en>In the hold of any commercial ship; see the Passage Contract perk.</en>
+            <es>En la bodega de cualquier nave comercial; consulta el beneficio Acuerdo de Pasaje</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>esotericText</id>
+        <type>item</type>
+        <name>
+            <en>Collection of esoteric texts</en>
+            <es>Colección de textos esotéricos</es>
+        </name>
+        <description>
+            <en>Collection of esoteric texts that might provide needed clues when deciphering occult phenomena.</en>
+            <es>Colección de textos esotéricos que podrían dar pistas a la hora de descifrar fenómenos ocultos.e</es>
+        </description>
+    </equipment>
 </equipments>

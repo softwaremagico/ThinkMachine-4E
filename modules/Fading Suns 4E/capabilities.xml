@@ -1496,7 +1496,7 @@
                 <calling>reclaimer</calling>
                 <calling>spy</calling>
                 <calling>starPilot</calling>
-                <calling>techRedemer</calling>
+                <calling>techRedeemer</calling>
                 <calling>thief</calling>
                 <calling>trader</calling>
             </callings>
@@ -1528,7 +1528,7 @@
                 <calling>reclaimer</calling>
                 <calling>spy</calling>
                 <calling>starPilot</calling>
-                <calling>techRedemer</calling>
+                <calling>techRedeemer</calling>
                 <calling>thief</calling>
                 <calling>trader</calling>
             </callings>
@@ -1551,11 +1551,51 @@
             <callings>
                 <calling>reclaimer</calling>
                 <calling>starPilot</calling>
-                <calling>techRedemer</calling>
+                <calling>techRedeemer</calling>
             </callings>
             <capabilities>
                 <capability>techLore7</capability>
             </capabilities>
         </restrictions>
+    </capability>
+    <capability>
+        <id>weirdTech</id>
+        <group>weirdTech</group>
+        <name>
+            <en>Weird Tech</en>
+            <es>Tecnología Extraña</es>
+        </name>
+        <specializations>
+            <selectedSpecialization>
+                <id>soulShard</id>
+                <name>
+                    <en>Soul Shard</en>
+                    <es>Fragmentos de Alma</es>
+                </name>
+                <official>false</official>
+            </selectedSpecialization>
+            <selectedSpecialization>
+                <id>gargoyle</id>
+                <name>
+                    <en>Gargoyle</en>
+                    <es>Gárgolas</es>
+                </name>
+                <official>false</official>
+            </selectedSpecialization>
+            <selectedSpecialization>
+                <id>vauTech</id>
+                <name>
+                    <en>Vau Tech</en>
+                    <es>Tecnología Vau</es>
+                </name>
+                <official>false</official>
+            </selectedSpecialization>
+        </specializations>
+        <restrictions>
+            <callings>
+                <calling>occultist</calling>
+            </callings>
+        </restrictions>
+        <official>false</official>
     </capability>
 </capabilities>
