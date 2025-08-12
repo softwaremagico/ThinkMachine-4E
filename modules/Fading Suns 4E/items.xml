@@ -741,4 +741,39 @@
             <es>Colección de textos esotéricos que podrían dar pistas a la hora de descifrar fenómenos ocultos.e</es>
         </description>
     </equipment>
+    <equipment>
+        <id>writingImplements</id>
+        <type>item</type>
+        <name>
+            <en>Writing Implements</en>
+            <es>Útiles de escritura</es>
+        </name>
+        <description>
+            <en>Pens, ink, etc.</en>
+            <es>Plumas, tinta, etc.</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>wordRendered</id>
+        <type>item</type>
+        <name>
+            <en>Word Rendered</en>
+            <es>Reproductor de Palabras</es>
+        </name>
+        <description>
+            <en>Keyboard. Connects to most think machines to allow for typing documents,
+            </en>
+            <es>Teclado. Se puede conectar a la mayoría de máquinas pensantes para poder escribir documentos a máquina.
+            </es>
+        </description>
+        <techLevel>5</techLevel>
+        <traits>
+            <trait>curio</trait>
+        </traits>
+        <restrictions>
+            <callings>
+                <calling>scriba</calling>
+            </callings>
+        </restrictions>
+    </equipment>
 </equipments>

@@ -2757,29 +2757,6 @@
         <perks>
             <perkOptions>
                 <total>1</total>
-                <options>
-                    <perk>
-                        <group>martialArts</group>
-                    </perk>
-                    <perk>
-                        <id>mimic</id>
-                    </perk>
-                    <perk>
-                        <id>rabbleRouse</id>
-                    </perk>
-                    <perk>
-                        <id>ruthless</id>
-                    </perk>
-                    <perk>
-                        <id>secondSkin</id>
-                    </perk>
-                    <perk>
-                        <id>secretAgent</id>
-                    </perk>
-                    <perk>
-                        <id>viciousInsult</id>
-                    </perk>
-                </options>
             </perkOptions>
         </perks>
         <skills>
@@ -2866,11 +2843,6 @@
                 <upbringing>merchant</upbringing>
                 <upbringing>priest</upbringing>
                 <upbringing>yeoman</upbringing>
-            </upbringings>
-        </restrictions>
-        <restrictions>
-            <upbringings>
-                <upbringing>noble</upbringing>
             </upbringings>
         </restrictions>
     </calling>
@@ -3441,6 +3413,11 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
     </calling>
 
     <calling>
@@ -3618,6 +3595,11 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
     </calling>
 
     <calling>
@@ -3770,6 +3752,11 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
     </calling>
 
     <calling>
@@ -3948,6 +3935,11 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
     </calling>
 
     <calling>
@@ -4139,6 +4131,11 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
     </calling>
 
     <calling>
@@ -4316,6 +4313,11 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
     </calling>
 
     <calling>
@@ -4528,6 +4530,11 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
     </calling>
 
     <calling>
@@ -4749,6 +4756,11 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
     </calling>
 
     <calling>
@@ -4962,6 +4974,11 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
     </calling>
 
     <calling>
@@ -5125,6 +5142,11 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
     </calling>
 
     <calling>
@@ -5270,6 +5292,11 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
     </calling>
 
     <calling>
@@ -5428,6 +5455,11 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
     </calling>
 
     <calling>
@@ -5601,6 +5633,394 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
+    </calling>
+
+    <calling>
+        <id>scribe</id>
+        <name>
+            <en>Scribe</en>
+            <es>Escriba</es>
+        </name>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>read</id>
+                        <selectedSpecialization>latin</selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>speak</id>
+                        <selectedSpecialization>latin</selectedSpecialization>
+                    </capability>
+                    <options>
+                        <capability>
+                            <group>commonCustom</group>
+                        </capability>
+                        <capability>
+                            <group>courtCustom</group>
+                        </capability>
+                    </options>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>faith</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>will</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>intuition</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>wits</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <id>backdoorKey</id>
+                    </perk>
+                    <perk>
+                        <id>counterfeit</id>
+                    </perk>
+                    <perk>
+                        <id>criminalArchivesAccess</id>
+                    </perk>
+                    <perk>
+                        <id>Linguist</id>
+                    </perk>
+                    <perk>
+                        <id>perfectRecall</id>
+                    </perk>
+                    <perk>
+                        <id>superficialKnowledge</id>
+                    </perk>
+                </options>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>academia</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>arts</id>
+                        <bonus>3</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>focus</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>interface</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>knavery</id>
+                        <bonus>2</bonus>
+                    </skill>
+                    <skill>
+                        <id>observe</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>writingImplements</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>wordRendered</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
+    </calling>
+
+    <calling>
+        <id>templar</id>
+        <name>
+            <en>Templar</en>
+            <es>Templario</es>
+        </name>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <group>combatArmor</group>
+                    </capability>
+                    <capability>
+                        <group>warArmor</group>
+                    </capability>
+                    <capability>
+                        <group>handheldShield</group>
+                    </capability>
+                    <capability>
+                        <group>warfareLore</group>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <options>
+                        <capability>
+                            <id>militaryWeapons</id>
+                        </capability>
+                        <capability>
+                            <id>energyGuns</id>
+                        </capability>
+                        <capability>
+                            <id>slugGuns</id>
+                        </capability>
+                    </options>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>endurance</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>faith</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>will</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>strength</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <id>badgeOfMerit</id>
+                    </perk>
+                    <perk>
+                        <id>badgeOfValor</id>
+                    </perk>
+                    <perk>
+                        <id>bodyguard</id>
+                    </perk>
+                    <perk>
+                        <id>bornOnTheBattlefield</id>
+                    </perk>
+                    <perk>
+                        <group>fencing</group>
+                    </perk>
+                    <perk>
+                        <id>marksmanship</id>
+                    </perk>
+                    <perk>
+                        <group>martialArts</group>
+                    </perk>
+                    <perk>
+                        <id>mentalConditioning</id>
+                    </perk>
+                    <perk>
+                        <id>orderBadge</id>
+                    </perk>
+                </options>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>fight</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>focus</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>remedy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>vigor</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <weaponType>any</weaponType>
+                        <quality>premium</quality>
+                    </item>
+                    <item>
+                        <id>minorSaintlyRelic</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
     </calling>
 
 
@@ -6776,5 +7196,10 @@
     <!--                </options>-->
     <!--            </materialAwardOption>-->
     <!--        </materialAwards>-->
+    <!--    <restrictions>-->
+    <!--        <upbringings>-->
+    <!--            <upbringing>priest</upbringing>-->
+    <!--        </upbringings>-->
+    <!--    </restrictions>-->
     <!--    </calling>-->
 </callings>
