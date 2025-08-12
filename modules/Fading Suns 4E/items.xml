@@ -364,6 +364,11 @@
             <en>Noble Court Outfit</en>
             <es>Traje de Corte</es>
         </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+        </restrictions>
     </equipment>
     <equipment>
         <id>churchPageantryOutfit</id>
@@ -421,9 +426,14 @@
             <es>Vestiduras</es>
         </name>
         <description>
-            <en>miter, crosier, robes, censor, jumpgate cross, water, rosary</en>
-            <es>mitra, báculo, túnica, incensario, cruz de salto, agua, rosario</es>
+            <en>Miter, crosier, robes, censor, jumpgate cross, water, rosary</en>
+            <es>Mitra, báculo, túnica, incensario, cruz de salto, agua, rosario</es>
         </description>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
     </equipment>
     <equipment>
         <id>religiousImplements</id>
@@ -448,6 +458,11 @@
             <en>+1 focus</en>
             <es>+1 introspección</es>
         </description>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
     </equipment>
     <equipment>
         <id>monasticAttire</id>
@@ -488,6 +503,11 @@
             <en>A family relic that you rescued from destruction. It might be worth something again… someday.</en>
             <es>Una reliquia familiar que salvaste de la destrucción. Quizás algún día vuelva a tener algún valor.</es>
         </description>
+        <restrictions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+        </restrictions>
     </equipment>
     <equipment>
         <id>disguiseOutfit</id>
@@ -588,6 +608,96 @@
         <restrictions>
             <callings>
                 <calling>confessor</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>jumpCross</id>
+        <type>item</type>
+        <name>
+            <en>Jump Cross</en>
+            <es>Cruz de Salto</es>
+        </name>
+        <description>
+            <en>A simple jump cross.</en>
+            <es>Una simple cruz de salto.</es>
+        </description>
+        <size>S</size>
+    </equipment>
+    <equipment>
+        <id>commonVestments</id>
+        <type>item</type>
+        <name>
+            <en>Common Vestments</en>
+            <es>Vestiduras Comunes</es>
+        </name>
+    </equipment>
+    <equipment>
+        <id>writOfAssistance</id>
+        <type>item</type>
+        <name>
+            <en>Writ of assistance</en>
+            <es>Recurso de Auxilio</es>
+        </name>
+        <description>
+            <en>Somebody owes you a favor, not training but an actual non-dangerous deed they will perform or hire out
+                for when you call it in.
+            </en>
+            <es>Alguien te debe un favor y, cuando lo pidas, realizará una intervención que no suponga peligro o
+                contratará a alguien para que la lleve a cabo.
+            </es>
+        </description>
+        <restrictions>
+            <callings>
+                <calling>friar</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>physicksKit</id>
+        <type>item</type>
+        <name>
+            <en>Physick’s kit</en>
+            <es>Botiquín con suministros de primeros auxilios</es>
+        </name>
+        <description>
+            <en>Bandages, alcohol, etc.</en>
+            <es>Vendas, alcohol, etc.</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>elixir5</id>
+        <type>item</type>
+        <name>
+            <en>5 doses of Elixir</en>
+            <es>5 dosis de Elixir</es>
+        </name>
+        <description>
+            <en>Standard-potency elixir.</en>
+            <es>Potencia estándar.</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>cohortBadge</id>
+        <type>item</type>
+        <name>
+            <en>Cohort Badge</en>
+            <es>Insignia de Adjunto</es>
+        </name>
+        <description>
+            <en>Proof of status, keyed to your DNA and very hard to counterfeit
+            </en>
+            <es>Prueba de estatus, vinculada a tu ADN y muy difícil de falsificar.
+            </es>
+        </description>
+        <techLevel>7</techLevel>
+        <size>XS</size>
+        <traits>
+            <trait>curio</trait>
+        </traits>
+        <restrictions>
+            <callings>
+                <calling>imperialCohort</calling>
             </callings>
         </restrictions>
     </equipment>
