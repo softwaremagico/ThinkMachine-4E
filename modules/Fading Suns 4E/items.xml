@@ -952,4 +952,121 @@
             </callings>
         </restrictions>
     </equipment>
+    <equipment>
+        <id>wildernessSurvivalKit</id>
+        <type>item</type>
+        <name>
+            <en>Compact wilderness survival kit</en>
+            <es>Kit compacto de supervivencia en la naturaleza</es>
+        </name>
+        <description>
+            <en>Backpack with microtech items that unfold into full-size: compass, water purifier, food rations for one
+                month, rope, knife, machete, utility tool, one-person tent.
+            </en>
+            <es>Mochila de NT4 con objetos microtecnológicos que se despliegan hasta alcanzar su tamaño original:
+                brújula, purificador de agua, raciones de comida para un mes, cuerda, cuchillo, machete, herramienta
+                utilitaria, tienda de campaña individual
+            </es>
+        </description>
+        <techLevel>4</techLevel>
+        <size>XL</size>
+        <restrictions>
+            <callings>
+                <calling>scout</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>goodLuckToken</id>
+        <type>item</type>
+        <name>
+            <en>Good luck token</en>
+            <es>Objeto que da buena suerte</es>
+        </name>
+        <description>
+            <en>Coin, die, animal foot, etc.</en>
+            <es>Moneda, dado, pata de animal, etc.</es>
+        </description>
+        <restrictions>
+            <callings>
+                <calling>starPilot</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>toolBandolier</id>
+        <type>item</type>
+        <name>
+            <en>Tool Bandolier</en>
+            <es>Bandolera de herramientas</es>
+        </name>
+        <description>
+            <en>Holds tools for nearly every conceivable task within your capabilities.</en>
+            <es>Incluye herramientas para casi cualquier tarea que entre dentro de tus competencias.</es>
+        </description>
+        <restrictions>
+            <callings>
+                <calling>techRedeemer</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>innocuousLockpicks</id>
+        <type>item</type>
+        <name>
+            <en>Innocuous lockpicks</en>
+            <es>Ganzúas inofensivas</es>
+        </name>
+        <description>
+            <en>Disguised as common items, such as utensils</en>
+            <es>Disfrazadas de objetos normales, como utensilios</es>
+        </description>
+        <restrictions>
+            <callings>
+                <calling>thief</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>thiefOutfit</id>
+        <type>item</type>
+        <name>
+            <en>Thief outfit</en>
+            <es>Traje de ladrón</es>
+        </name>
+        <description>
+            <en>Outfit with up to four hidden pockets for concealing small items (resistant to TL6 and below scanners)
+            </en>
+            <es>Traje con hasta cuatro bolsillos secretos para esconder objetos pequeños (resistente a escáneres de NT6
+                y menor)
+            </es>
+        </description>
+        <restrictions>
+            <callings>
+                <calling>thief</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>lockbag</id>
+        <type>item</type>
+        <name>
+            <en>Lockbag</en>
+            <es></es>
+        </name>
+        <description>
+            <en>Synthmesh backpack or satchel with Severe Resistance lock and fabric.</en>
+            <es>Mochila o bolsa de malla sintética con una tela y un sistema de cierre de Resistencia Tenaz
+            </es>
+        </description>
+        <techLevel>6</techLevel>
+        <traits>
+            <trait>curio</trait>
+        </traits>
+        <restrictions>
+            <callings>
+                <calling>trader</calling>
+            </callings>
+        </restrictions>
+    </equipment>
 </equipments>
