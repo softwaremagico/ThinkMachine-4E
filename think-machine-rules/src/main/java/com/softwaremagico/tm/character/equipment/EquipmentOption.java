@@ -39,6 +39,7 @@ import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
 import com.softwaremagico.tm.character.equipment.thinkmachines.CustomizedThinkMachine;
 import com.softwaremagico.tm.character.equipment.thinkmachines.ThinkMachineFactory;
 import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
+import com.softwaremagico.tm.character.equipment.weapons.WeaponClass;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponType;
 
@@ -55,7 +56,7 @@ public class EquipmentOption extends Option<Equipment> {
     private String type;
 
     @JsonProperty("weaponClass")
-    private String weaponClass;
+    private WeaponClass weaponClass;
 
     private Quality quality;
 
@@ -88,7 +89,7 @@ public class EquipmentOption extends Option<Equipment> {
     }
 
     public EquipmentOption(Equipment equipment, Quality quality, Status status, int quantity, WeaponType weaponType,
-                           String weaponClass, String type, String... extras) {
+                           WeaponClass weaponClass, String type, String... extras) {
         this();
         setId(equipment.getId());
         setQuantity(quantity);
@@ -108,11 +109,11 @@ public class EquipmentOption extends Option<Equipment> {
         this.weaponType = weaponType;
     }
 
-    public String getWeaponClass() {
+    public WeaponClass getWeaponClass() {
         return weaponClass;
     }
 
-    public void setWeaponClass(String weaponClass) {
+    public void setWeaponClass(WeaponClass weaponClass) {
         this.weaponClass = weaponClass;
     }
 

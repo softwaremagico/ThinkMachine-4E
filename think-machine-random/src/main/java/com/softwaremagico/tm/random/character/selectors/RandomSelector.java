@@ -223,7 +223,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         if (randomDefinition.getProbabilityMultiplier() != null) {
             RandomGenerationLog.debug(this.getClass().getName(),
                     "Random definition multiplier is '{}'.", randomDefinition.getProbabilityMultiplier());
-            multiplier *= randomDefinition.getProbabilityMultiplier();
+            multiplier *= randomDefinition.getProbabilityMultiplier().getValue();
         }
 
         // Recommended to specie.

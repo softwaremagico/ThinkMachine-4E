@@ -31,7 +31,7 @@ import org.testng.annotations.Test;
 
 @Test(groups = {"callingFactory"})
 public class CallingFactoryTests {
-    private static final int DEFINED_CALLINGS = 12;
+    private static final int DEFINED_CALLINGS = 34;
 
     @Test
     public void checkTotalElements() throws InvalidXmlElementException {
@@ -60,6 +60,6 @@ public class CallingFactoryTests {
     @Test
     public void getPerksOption() throws InvalidXmlElementException {
         Assert.assertEquals(CallingFactory.getInstance().getElement("commander").getPerksOptions().size(), 1);
-        Assert.assertEquals(CallingFactory.getInstance().getElement("commander").getPerksOptions().get(0).getOptions().size(), 23);
+        Assert.assertEquals(CallingFactory.getInstance().getElement("commander").getPerksOptions().get(0).getOptions().size(), 44);
     }
 }

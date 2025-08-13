@@ -776,4 +776,54 @@
             </callings>
         </restrictions>
     </equipment>
+    <equipment>
+        <id>datacruncher</id>
+        <type>item</type>
+        <name>
+            <en>Datacruncher</en>
+            <es>Masticadatos</es>
+        </name>
+        <description>
+            <en>Calculator and record-keeper.</en>
+            <es>calculadora y registradora de datos.</es>
+        </description>
+        <techLevel>5</techLevel>
+        <traits>
+            <trait>curio</trait>
+        </traits>
+        <restrictions>
+            <callings>
+                <calling>banker</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>smallAlchemicalStudio</id>
+        <type>item</type>
+        <name>
+            <en>Small alchemical studio</en>
+            <es>Pequeño estudio alquímico</es>
+        </name>
+    </equipment>
+    <equipment>
+        <id>roguesGallery</id>
+        <type>item</type>
+        <name>
+            <en>Rogues Gallery</en>
+            <es>Galeria de Fugitivos</es>
+        </name>
+        <description>
+            <en>Taps into local Town Criers Guild’s datanet list of public bounties.</en>
+            <es>Da acceso a la red de datos del gremio local de Pregoneros con una lista de recompensas públicas.</es>
+        </description>
+        <techLevel>4</techLevel>
+        <traits>
+            <trait>curio</trait>
+        </traits>
+        <restrictions>
+            <callings>
+                <calling>bountyHunter</calling>
+            </callings>
+        </restrictions>
+    </equipment>
 </equipments>

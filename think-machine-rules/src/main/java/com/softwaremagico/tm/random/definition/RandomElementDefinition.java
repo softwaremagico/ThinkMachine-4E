@@ -39,15 +39,12 @@ import java.util.Objects;
 import java.util.Set;
 
 public class RandomElementDefinition extends XmlData {
-    private static final double COMMON_PROBABILITY = 100d;
-    private static final double RARE_PROBABILITY = 10d;
-    private static final double EXOTIC_PROBABILITY = 1d;
 
     private ElementClassification classification;
     private Integer staticProbability;
     private Integer minimumTechLevel;
     private Integer maximumTechLevel;
-    private Double probabilityMultiplier;
+    private ProbabilityMultiplier probabilityMultiplier = ProbabilityMultiplier.NORMAL;
     private Set<String> recommendedFactions = new HashSet<>();
     private Set<String> recommendedFactionsGroups = new HashSet<>();
     private Set<String> recommendedSpecies = new HashSet<>();
@@ -190,8 +187,8 @@ public class RandomElementDefinition extends XmlData {
         this.staticProbability = staticProbability;
     }
 
-    public Double getProbabilityMultiplier() {
-        return Objects.requireNonNullElse(probabilityMultiplier, 1d);
+    public ProbabilityMultiplier getProbabilityMultiplier() {
+        return probabilityMultiplier;
     }
 
     public Set<String> getForbiddenPreferences() {
@@ -219,25 +216,26 @@ public class RandomElementDefinition extends XmlData {
     }
 
     public void setAgoraProbabilityMultiplier(Agora agora) {
-        if (agora != null) {
+        if (agora != null && getProbabilityMultiplier() != ProbabilityMultiplier.NORMAL) {
             switch (agora) {
                 case COMMON:
                 case KNOWN_WORLDS:
-                    this.probabilityMultiplier = COMMON_PROBABILITY;
+                    this.probabilityMultiplier = ProbabilityMultiplier.COMMON;
                     break;
                 case RARE:
-                    this.probabilityMultiplier = RARE_PROBABILITY;
+                    this.probabilityMultiplier = ProbabilityMultiplier.RARE;
                     break;
                 case EXOTIC:
-                    this.probabilityMultiplier = EXOTIC_PROBABILITY;
+                    this.probabilityMultiplier = ProbabilityMultiplier.EXOTIC;
                     break;
                 default:
+                    this.probabilityMultiplier = ProbabilityMultiplier.NORMAL;
                     break;
             }
         }
     }
 
-    public void setProbabilityMultiplier(Double probabilityMultiplier) {
+    public void setProbabilityMultiplier(ProbabilityMultiplier probabilityMultiplier) {
         if (probabilityMultiplier != null) {
             this.probabilityMultiplier = probabilityMultiplier;
         }

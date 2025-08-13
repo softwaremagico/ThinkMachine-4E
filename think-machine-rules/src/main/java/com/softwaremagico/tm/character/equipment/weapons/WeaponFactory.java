@@ -37,7 +37,7 @@ public final class WeaponFactory extends XmlFactory<Weapon> {
     private static final String XML_FILE = "weapons.xml";
 
     private static Map<WeaponType, List<Weapon>> weaponsByType;
-    private static Map<String, List<Weapon>> weaponsByClass;
+    private static Map<WeaponClass, List<Weapon>> weaponsByClass;
 
     private static final class WeaponFactoryInit {
         public static final WeaponFactory INSTANCE = new WeaponFactory();
@@ -58,12 +58,12 @@ public final class WeaponFactory extends XmlFactory<Weapon> {
         return weaponsByType.get(type);
     }
 
-    public List<Weapon> getWeaponsByClass(String weaponClass) {
+    public List<Weapon> getWeaponsByClass(WeaponClass weaponClass) {
         if (weaponsByClass == null) {
             weaponsByClass = new HashMap<>();
             getElements().forEach(weapon -> {
-                weaponsByClass.computeIfAbsent(weaponClass, k -> new ArrayList<>());
                 if (weapon != null && weapon.getWeaponClass() != null) {
+                    weaponsByClass.computeIfAbsent( weapon.getWeaponClass(), k -> new ArrayList<>());
                     weaponsByClass.get(weapon.getWeaponClass()).add(weapon);
                 }
             });

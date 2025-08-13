@@ -43,7 +43,7 @@
         <size>L</size>
         <cost>1000</cost>
         <random>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </arbata>
     <axe>
@@ -517,7 +517,7 @@
         <cost>15</cost>
         <damage>shock</damage>
         <random>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </frapStick>
     <garrote>
@@ -637,7 +637,7 @@
             <other>poison5</other>
         </others>
         <random>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </hollowKnife>
     <knife>
@@ -694,7 +694,7 @@
         <size>S</size>
         <cost>2</cost>
         <random>
-            <probabilityMultiplier>10</probabilityMultiplier>
+            <probabilityMultiplier>NORMAL</probabilityMultiplier>
         </random>
     </knife>
     <kurganSideSword>
@@ -733,7 +733,7 @@
             <ammo>legSheath</ammo>
         </ammunition>
         <random>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </kurganSideSword>
     <kossackChainsword>
@@ -785,7 +785,7 @@
             <ammo>innactiveKossack</ammo>
         </ammunition>
         <random>
-            <probabilityMultiplier>0.1</probabilityMultiplier>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
         </random>
     </kossackChainsword>
     <mace>
@@ -895,7 +895,7 @@
             <damageType>hard</damageType>
         </damageTypes>
         <random>
-            <probabilityMultiplier>0.1</probabilityMultiplier>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
         </random>
     </pick>
     <rapier>
@@ -1078,7 +1078,7 @@
         <cost>50</cost>
         <damage>bleed</damage>
         <random>
-            <probabilityMultiplier>0.0001</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </splinterSword>
     <staff>
@@ -1159,7 +1159,7 @@
         <size>XL</size>
         <cost>100</cost>
         <random>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
             <recommendedFactions>musters</recommendedFactions>
         </random>
     </suresnakeWhip>
@@ -1374,7 +1374,7 @@
         <size>XL</size>
         <cost>5</cost>
         <random>
-            <probabilityMultiplier>0.1</probabilityMultiplier>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
             <recommendedFactions>musters</recommendedFactions>
         </random>
     </whip>
@@ -1510,7 +1510,7 @@
             <damageType>psi</damageType>
         </damageTypes>
         <random>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </mistSword>
 
@@ -1610,7 +1610,7 @@
         <size>L</size>
         <cost>2</cost>
         <random>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </javelin>
     <rock>
@@ -1845,7 +1845,7 @@
         <size>S</size>
         <cost>3</cost>
         <random>
-            <probabilityMultiplier>10</probabilityMultiplier>
+            <probabilityMultiplier>NORMAL</probabilityMultiplier>
         </random>
     </vigorKnife>
     <heavyFuthangaBow>
@@ -2346,6 +2346,7 @@
         </description>
         <techLevel>3</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2361,7 +2362,7 @@
         <size>XS</size>
         <cost>50</cost>
         <random>
-            <probabilityMultiplier>10</probabilityMultiplier>
+            <probabilityMultiplier>NORMAL</probabilityMultiplier>
         </random>
     </typicalDerringer>
     <lankDerringer>
@@ -2395,6 +2396,7 @@
         </description>
         <techLevel>4</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2441,6 +2443,7 @@
         </description>
         <techLevel>3</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2487,6 +2490,7 @@
         </description>
         <techLevel>3</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2526,6 +2530,7 @@
         </description>
         <techLevel>3</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2541,7 +2546,7 @@
         <size>S</size>
         <cost>100</cost>
         <random>
-            <probabilityMultiplier>10</probabilityMultiplier>
+            <probabilityMultiplier>NORMAL</probabilityMultiplier>
         </random>
     </typicalLightRevolver>
     <fenirShortstop>
@@ -2565,6 +2570,7 @@
         </description>
         <techLevel>3</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2601,6 +2607,7 @@
         </description>
         <techLevel>3</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2672,6 +2679,7 @@
         </description>
         <techLevel>4</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2687,7 +2695,7 @@
         <size>S</size>
         <cost>150</cost>
         <random>
-            <probabilityMultiplier>10</probabilityMultiplier>
+            <probabilityMultiplier>NORMAL</probabilityMultiplier>
         </random>
     </typicalLightAutofeed>
     <fenirMonbow>
@@ -2722,6 +2730,7 @@
         </description>
         <techLevel>4</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2816,6 +2825,7 @@
         </description>
         <techLevel>4</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2863,6 +2873,7 @@
         </description>
         <techLevel>4</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2909,6 +2920,7 @@
         </description>
         <techLevel>3</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -2924,7 +2936,7 @@
         <size>S</size>
         <cost>200</cost>
         <random>
-            <probabilityMultiplier>10</probabilityMultiplier>
+            <probabilityMultiplier>NORMAL</probabilityMultiplier>
         </random>
     </typicalMedRevolver>
     <drexelFirehunter>
@@ -2958,6 +2970,7 @@
         </description>
         <techLevel>3</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3004,6 +3017,7 @@
         </description>
         <techLevel>3</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3050,6 +3064,7 @@
         </description>
         <techLevel>5</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3123,6 +3138,7 @@
         </description>
         <techLevel>3</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3158,6 +3174,7 @@
         </description>
         <techLevel>4</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3173,7 +3190,7 @@
         <size>S</size>
         <cost>250</cost>
         <random>
-            <probabilityMultiplier>10</probabilityMultiplier>
+            <probabilityMultiplier>NORMAL</probabilityMultiplier>
         </random>
     </typicalMediumAutofeed>
     <immanVorton>
@@ -3196,6 +3213,7 @@
         </description>
         <techLevel>4</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3231,6 +3249,7 @@
         </description>
         <techLevel>4</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3266,6 +3285,7 @@
         </description>
         <techLevel>4</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3318,7 +3338,7 @@
         <size>M</size>
         <cost>250</cost>
         <random>
-            <probabilityMultiplier>10</probabilityMultiplier>
+            <probabilityMultiplier>NORMAL</probabilityMultiplier>
         </random>
     </typicalHvyRevolver>
     <macCaulyBuster>
@@ -3472,6 +3492,7 @@
         </description>
         <techLevel>4</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3487,7 +3508,7 @@
         <size>M</size>
         <cost>300</cost>
         <random>
-            <probabilityMultiplier>10</probabilityMultiplier>
+            <probabilityMultiplier>NORMAL</probabilityMultiplier>
         </random>
     </typicalHvyAutofeed>
     <kroslerSampson>
@@ -3512,6 +3533,7 @@
         </description>
         <techLevel>4</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3549,6 +3571,7 @@
         </description>
         <techLevel>4</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3586,6 +3609,7 @@
         </description>
         <techLevel>4</techLevel>
         <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
@@ -3700,7 +3724,7 @@
             <other>leverfeed</other>
         </others>
         <random>
-            <probabilityMultiplier>10</probabilityMultiplier>
+            <probabilityMultiplier>NORMAL</probabilityMultiplier>
         </random>
     </typicalManfeedRifle>
     <basicHuntingRifle>
@@ -3784,7 +3808,7 @@
             <other>leverfeed</other>
         </others>
         <random>
-            <probabilityMultiplier>10</probabilityMultiplier>
+            <probabilityMultiplier>NORMAL</probabilityMultiplier>
         </random>
     </basicHuntingRifle>
     <dragonfly>
@@ -4169,7 +4193,7 @@
             <other>autofeed</other>
         </others>
         <random>
-            <probabilityMultiplier>10</probabilityMultiplier>
+            <probabilityMultiplier>NORMAL</probabilityMultiplier>
         </random>
     </typicalAutoRifle>
     <blueLionM3>
@@ -4639,7 +4663,7 @@
             <other>autofeed</other>
         </others>
         <random>
-            <probabilityMultiplier>10</probabilityMultiplier>
+            <probabilityMultiplier>NORMAL</probabilityMultiplier>
         </random>
     </typicalCaselessRifle>
     <gleelanMRC>
@@ -5027,7 +5051,7 @@
             <other>autofeed</other>
         </others>
         <random>
-            <probabilityMultiplier>10</probabilityMultiplier>
+            <probabilityMultiplier>NORMAL</probabilityMultiplier>
         </random>
     </typicalSMG>
     <herstalProject98>
@@ -5418,7 +5442,7 @@
             <other>pumpfeed</other>
         </others>
         <random>
-            <probabilityMultiplier>10</probabilityMultiplier>
+            <probabilityMultiplier>NORMAL</probabilityMultiplier>
         </random>
     </typicalShotgun>
     <typicalTwinBarrel>
@@ -5500,7 +5524,7 @@
             <other>breakfeed</other>
         </others>
         <random>
-            <probabilityMultiplier>10</probabilityMultiplier>
+            <probabilityMultiplier>NORMAL</probabilityMultiplier>
         </random>
     </typicalTwinBarrel>
     <dreskelBoomer>
@@ -5729,7 +5753,7 @@
             <ammo>riotSolidSlug</ammo>
         </ammunition>
         <random>
-            <probabilityMultiplier>0.1</probabilityMultiplier>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
             <restrictedFactions>hazat</restrictedFactions>
         </random>
     </mHazatRiot>
@@ -5971,7 +5995,7 @@
             <other>muzzlefeed</other>
         </others>
         <random>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </cancanaghDartgunPistol>
     <decadosGroinGun>
@@ -6040,7 +6064,7 @@
             <other>hidden</other>
         </others>
         <random>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
             <restrictedFactions>decados</restrictedFactions>
         </random>
     </decadosGroinGun>
@@ -6109,7 +6133,7 @@
             <other>flechette</other>
         </others>
         <random>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </hailstormSplinterPistol>
     <reznorNailGun>
@@ -6178,7 +6202,7 @@
             <other>flechette</other>
         </others>
         <random>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
             <restrictedUpbringings>merchant</restrictedUpbringings>
         </random>
     </reznorNailGun>
@@ -6346,7 +6370,7 @@
             <ammo>capekUnderWater</ammo>
         </ammunition>
         <random>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </capekAquaRifle>
     <cupidLongarm>
@@ -6422,7 +6446,7 @@
             <other>syringe</other>
         </others>
         <random>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </cupidLongarm>
     <reznorModelXI>
@@ -6498,7 +6522,7 @@
             <other>syringe</other>
         </others>
         <random>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </reznorModelXI>
     <sabotGun>
@@ -6622,7 +6646,7 @@
             <ammo>sabotWood</ammo>
         </ammunition>
         <random>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </sabotGun>
     <martechMidgetPalmLaser>
@@ -6680,7 +6704,7 @@
             <damageType>laser</damageType>
         </damageTypes>
         <random>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </martechMidgetPalmLaser>
     <martechGold>
@@ -6845,7 +6869,7 @@
             <damageType>xaser</damageType>
         </damageTypes>
         <random>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </bannerCabalXaserPistol>
     <bannerCabalGraserPistol>
@@ -6902,7 +6926,7 @@
             <damageType>graser</damageType>
         </damageTypes>
         <random>
-            <probabilityMultiplier>0.001</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </bannerCabalGraserPistol>
     <martechIndigo>
@@ -7027,7 +7051,7 @@
             <other>stock</other>
         </others>
         <random>
-            <probabilityMultiplier>0.1</probabilityMultiplier>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
         </random>
     </martechSafireSniper>
     <bannerCabalXaserRifle>
@@ -7091,7 +7115,7 @@
             <other>stock</other>
         </others>
         <random>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </bannerCabalXaserRifle>
     <bannerCabalGraserRifle>
@@ -7148,7 +7172,7 @@
             <other>stock</other>
         </others>
         <random>
-            <probabilityMultiplier>0.001</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </bannerCabalGraserRifle>
     <martechRed>
@@ -7245,7 +7269,7 @@
             <other>stock</other>
         </others>
         <random>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </varstenBlacklight>
     <soeAlembic>
@@ -7294,7 +7318,7 @@
             <damageType>blaster</damageType>
         </damageTypes>
         <random>
-            <probabilityMultiplier>10</probabilityMultiplier>
+            <probabilityMultiplier>NORMAL</probabilityMultiplier>
         </random>
     </soeAlembic>
     <lankEruptor>
@@ -7343,7 +7367,7 @@
             <damageType>blaster</damageType>
         </damageTypes>
         <random>
-            <probabilityMultiplier>0.1</probabilityMultiplier>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
         </random>
     </lankEruptor>
     <soeCrucible>
@@ -7445,7 +7469,7 @@
             <other>stock</other>
         </others>
         <random>
-            <probabilityMultiplier>0.1</probabilityMultiplier>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
         </random>
     </nitobiBlasterAxe>
     <soeVolcano>
@@ -7491,7 +7515,7 @@
             <other>stock</other>
         </others>
         <random>
-            <probabilityMultiplier>0.1</probabilityMultiplier>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
         </random>
     </soeVolcano>
     <lankIncinerator>
@@ -7537,7 +7561,7 @@
             <other>stock</other>
         </others>
         <random>
-            <probabilityMultiplier>0.1</probabilityMultiplier>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
         </random>
     </lankIncinerator>
 
@@ -7609,7 +7633,7 @@
             <damageType>fire</damageType>
         </damageTypes>
         <random>
-            <probabilityMultiplier>0.001</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
             <recommendedFactions>avestites</recommendedFactions>
         </random>
     </kalomiteFlamegun>
@@ -7680,7 +7704,7 @@
             <damageType>fire</damageType>
         </damageTypes>
         <random>
-            <probabilityMultiplier>0.001</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </kendraDragon>
     <sOEHowler>
@@ -7724,7 +7748,7 @@
             <damageType>sonic</damageType>
         </damageTypes>
         <random>
-            <probabilityMultiplier>0.001</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </sOEHowler>
     <zenicPacifier>
@@ -7768,7 +7792,7 @@
             <damageType>sonic</damageType>
         </damageTypes>
         <random>
-            <probabilityMultiplier>0.001</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </zenicPacifier>
     <arbogastSleeper>
@@ -7825,7 +7849,7 @@
         <size>S</size>
         <cost>300</cost>
         <random>
-            <probabilityMultiplier>0.001</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </arbogastSleeper>
     <sOETesla16B50002>
@@ -7882,7 +7906,7 @@
         <size>S</size>
         <cost>600</cost>
         <random>
-            <probabilityMultiplier>0.001</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </sOETesla16B50002>
     <republicArms3000>
@@ -7933,7 +7957,7 @@
             <other>stock</other>
         </others>
         <random>
-            <probabilityMultiplier>0.001</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </republicArms3000>
     <varsotechModel331>
@@ -7987,7 +8011,7 @@
             <damageType>neural</damageType>
         </damageTypes>
         <random>
-            <probabilityMultiplier>0.0001</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </varsotechModel331>
     <cunninghamDemeantor>
@@ -8017,7 +8041,7 @@
             <damageType>neural</damageType>
         </damageTypes>
         <random>
-            <probabilityMultiplier>0.0001</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
         <description>
             <en>These small palm guns fire a nearly invisible and slightly erratic stream of energy which causes
@@ -9062,7 +9086,7 @@
             <damageType>blaster</damageType>
         </damageTypes>
         <random>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </blastPellet>
     <concussionGrenade>
@@ -9264,7 +9288,7 @@
         <size>S</size>
         <cost>30</cost>
         <random>
-            <probabilityMultiplier>0.01</probabilityMultiplier>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
         </random>
     </pipeBomb>
     <plasmaGrenade>

@@ -1060,7 +1060,7 @@
                     <es>Erdgheist</es>
                 </name>
                 <random>
-                    <probabilityMultiplier>0.01</probabilityMultiplier>
+                    <probabilityMultiplier>EXOTIC</probabilityMultiplier>
                 </random>
             </selectedSpecialization>
             <selectedSpecialization>
@@ -1070,7 +1070,7 @@
                     <es>El-Diin</es>
                 </name>
                 <random>
-                    <probabilityMultiplier>0.01</probabilityMultiplier>
+                    <probabilityMultiplier>EXOTIC</probabilityMultiplier>
                 </random>
             </selectedSpecialization>
             <selectedSpecialization>
@@ -1080,7 +1080,7 @@
                     <es>Gjartin</es>
                 </name>
                 <random>
-                    <probabilityMultiplier>0.01</probabilityMultiplier>
+                    <probabilityMultiplier>EXOTIC</probabilityMultiplier>
                 </random>
             </selectedSpecialization>
             <selectedSpecialization>
@@ -1090,7 +1090,7 @@
                     <es>Zuranidad</es>
                 </name>
                 <random>
-                    <probabilityMultiplier>0.1</probabilityMultiplier>
+                    <probabilityMultiplier>RARE</probabilityMultiplier>
                 </random>
             </selectedSpecialization>
         </specializations>

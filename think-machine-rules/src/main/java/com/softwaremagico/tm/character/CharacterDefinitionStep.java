@@ -29,12 +29,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.OptionSelector;
 import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
+import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOption;
 import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOptions;
 import com.softwaremagico.tm.character.equipment.EquipmentOption;
 import com.softwaremagico.tm.character.equipment.EquipmentOptions;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.character.perks.PerkOptions;
+import com.softwaremagico.tm.character.skills.SkillBonusOption;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineLog;
@@ -176,6 +178,20 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
                     + "Currently has '" + totalCharacteristicsPoints + "' characteristic points.");
         }
 
+        //All options, same bonus.
+        for (CharacteristicBonusOptions characteristicBonusOptions : getCharacteristicOptions()) {
+            Integer bonus = null;
+            for (CharacteristicBonusOption characteristicBonusOption : characteristicBonusOptions.getOptions()) {
+                if (bonus == null) {
+                    bonus = characteristicBonusOption.getBonus();
+                } else {
+                    if (bonus != characteristicBonusOption.getBonus()) {
+                        throw new InvalidXmlElementException("Characteristic bonus is invalid on '" + this + "' ");
+                    }
+                }
+            }
+        }
+
 
         int totalSkillPoints = 0;
         for (SkillBonusOptions skillBonusOptions : getSkillOptions()) {
@@ -186,6 +202,19 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
                     + "Currently has '" + totalSkillPoints + "' skill points.");
         }
 
+        //All options, same bonus.
+        for (SkillBonusOptions skillBonusOptions : getSkillOptions()) {
+            Integer bonus = null;
+            for (SkillBonusOption skillBonusOption : skillBonusOptions.getOptions()) {
+                if (bonus == null) {
+                    bonus = skillBonusOption.getBonus();
+                } else {
+                    if (bonus != skillBonusOption.getBonus()) {
+                        throw new InvalidXmlElementException("Skill bonus is invalid on '" + this + "' ");
+                    }
+                }
+            }
+        }
         if (perksOptions.size() != getTotalPerksOptions()) {
             throw new InvalidXmlElementException("Element must have '" + getTotalPerksOptions() + "' perks option.");
         }

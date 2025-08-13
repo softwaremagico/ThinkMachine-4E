@@ -351,7 +351,7 @@
                 Lanjeri, Sarouf, Benkiran, Balla, Karmouche, Hassan, Ouardi, Reis, Belhachmi, Kawouk, Maamori, Kamal,
                 Avasarala, El Kadiri, Al-Salem
             </surnames>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -834,7 +834,7 @@
                 von Hasselback, Emerson, Sombart, Klusenstern Dawson, Windsor, Saucken, von Goldenbaum, Thorndike, von
                 Müsel, Wöhler, Braque, Gutensohn, von Eisenach, von Klopstock
             </surnames>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -1089,7 +1089,7 @@
                 Feijóo, Silvela, Robles, Santalla, Trénor, Balboa, Bazán, Lezo, Doria, Masciale, Malerba, Machungo,
                 Rebelo, Saint-Pierré, Cazerne, Tonio, Oliveira, Togliatti
             </surnames>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -1330,7 +1330,7 @@
                 Chôsokabe, Kaimura, Koike, Kunii, Sato, Yeuw, Lextius, Misamoto, Han, Wei-To, Naganaka, Kung-Zhau,
                 Okemo, Teng, Hidejiri, Jong, Togo, Yamamoto, Nagata, Wen-li, Wu-Cheng, Rui, Lang, Hazuki
             </surnames>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -1554,7 +1554,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -1748,7 +1748,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -1963,7 +1963,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -2188,7 +2188,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -2220,7 +2220,7 @@
                             <es>Oratoria</es>
                         </name>
                         <random>
-                            <probabilityMultiplier>10</probabilityMultiplier>
+                            <probabilityMultiplier>NORMAL</probabilityMultiplier>
                         </random>
                     </capability>
                 </options>
@@ -2411,7 +2411,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -2587,7 +2587,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -2764,7 +2764,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -2962,7 +2962,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -3141,7 +3141,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -3361,7 +3361,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -3559,7 +3559,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -3755,7 +3755,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -3969,7 +3969,7 @@
             </materialAwardOption>
         </materialAwards>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -4170,7 +4170,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -4406,7 +4406,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 </factions>

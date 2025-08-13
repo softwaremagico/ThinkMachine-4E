@@ -214,7 +214,7 @@ public class CharacterRulesTests {
         final Calling calling = CallingFactory.getInstance().getElement("questingKnight");
         Assert.assertEquals(calling.getMaterialAwards().size(), 2);
         Assert.assertEquals(calling.getMaterialAwards().get(0).getOptions().size(), 6);
-        Assert.assertEquals(calling.getMaterialAwards().get(1).getOptions().size(), 1);
+        Assert.assertTrue(calling.getMaterialAwards().get(1).getOptions().size() > 1);
     }
 
     @Test
