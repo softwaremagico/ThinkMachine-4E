@@ -24,6 +24,7 @@ package com.softwaremagico.tm.random.character.selectors;
  * #L%
  */
 
+import com.softwaremagico.tm.XmlData;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.upbringing.Upbringing;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
@@ -42,10 +43,11 @@ import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.Set;
 import java.util.SortedMap;
+import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 
-public abstract class RandomSelector<Element extends com.softwaremagico.tm.Element> {
+public abstract class RandomSelector<Element extends com.softwaremagico.tm.Element> extends XmlData {
     protected static final int MAX_PROBABILITY = 1000000;
 
     protected static final int TERRIBLE_PROBABILITY = -20;
@@ -110,6 +112,15 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             return new HashSet<>();
         }
         return preferences;
+    }
+
+    public void setPreferences(String preferencesContent) {
+        if (preferences != null) {
+            final StringTokenizer collectionTokenizer = new StringTokenizer(preferencesContent, ",");
+            while (collectionTokenizer.hasMoreTokens()) {
+                preferences.add(RandomPreference.valueOf(collectionTokenizer.nextToken().trim()));
+            }
+        }
     }
 
     protected abstract Collection<Element> getAllElements() throws InvalidXmlElementException;

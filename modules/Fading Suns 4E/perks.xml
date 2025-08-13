@@ -265,6 +265,7 @@
                 <calling>monkScholarlyTradition</calling>
                 <calling>monkAsceticTradition</calling>
                 <calling>monkMartialTradition</calling>
+                <group>monk</group>
             </callings>
         </restrictions>
     </perk>

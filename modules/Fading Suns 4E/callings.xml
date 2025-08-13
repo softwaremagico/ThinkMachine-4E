@@ -4326,6 +4326,7 @@
             <en>Imperial Cohort</en>
             <es>Adjunto Imperial</es>
         </name>
+        <group>imperialCohort</group>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -6833,6 +6834,7 @@
             <en>Imperial Cohort</en>
             <es>Adjunto Imperial</es>
         </name>
+        <group>imperialCohort</group>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -7057,203 +7059,581 @@
         </restrictions>
     </calling>
 
-    <!--    <calling>-->
-    <!--        <id></id>-->
-    <!--        <name>-->
-    <!--            <en></en>-->
-    <!--            <es></es>-->
-    <!--        </name>-->
-    <!--                <capabilities>-->
-    <!--        <capabilitiesOption>-->
-    <!--            <total>1</total>-->
-    <!--            <options>-->
-    <!--                <capability>-->
-    <!--                    <group></group>-->
-    <!--                </capability>-->
-    <!--            </options>-->
-    <!--        </capabilitiesOption>-->
-    <!--                </capabilities>-->
-    <!--        <characteristics>-->
-    <!--            <characteristicBonusOptions>-->
-    <!--                <total>1</total>-->
-    <!--                <options>-->
-    <!--                    <characteristic>-->
-    <!--                        <id></id>-->
-    <!--                        <bonus>1</bonus>-->
-    <!--                    </characteristic>-->
-    <!--                </options>-->
-    <!--            </characteristicBonusOptions>-->
-    <!--        </characteristics>-->
-    <!--        <perks>-->
-    <!--            <perkOptions>-->
-    <!--                <total>1</total>-->
-    <!--                <options>-->
-    <!--                    <perk>-->
-    <!--                        <id></id>-->
-    <!--                    </perk>-->
-    <!--                </options>-->
-    <!--            </perkOptions>-->
-    <!--        </perks>-->
-    <!--        <skills>-->
-    <!--            <skillBonusOption>-->
-    <!--                <total>1</total>-->
-    <!--                <options>-->
-    <!--                    <skill>-->
-    <!--                        <id></id>-->
-    <!--                        <bonus></bonus>-->
-    <!--                    </skill>-->
-    <!--                </options>-->
-    <!--            </skillBonusOption>-->
-    <!--        </skills>-->
-    <!--        <materialAwards>-->
-    <!--            <materialAwardOption>-->
-    <!--                <total>1</total>-->
-    <!--                <options>-->
-    <!--                    <item>-->
-    <!--                        <id></id>-->
-    <!--                        <type></type>-->
-    <!--                    </item>-->
-    <!--                </options>-->
-    <!--            </materialAwardOption>-->
-    <!--        </materialAwards>-->
-    <!--    <restrictions>-->
-    <!--        <upbringings>-->
-    <!--            <upbringing>merchant</upbringing>-->
-    <!--        </upbringings>-->
-    <!--    </restrictions>-->
-    <!--    </calling>-->
+    <calling>
+        <id>lawyer</id>
+        <name>
+            <en>Lawyer</en>
+            <es>Abogado</es>
+        </name>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <group>medicalLore</group>
+                    </capability>
+                    <capability>
+                        <group>knowledgeLore</group>
+                    </capability>
+                    <capability>
+                        <group>performingArtsLore</group>
+                    </capability>
+                    <capability>
+                        <group>craftsLore</group>
+                    </capability>
+                    <capability>
+                        <group>scienceLore</group>
+                    </capability>
+                    <capability>
+                        <group>customsLore</group>
+                    </capability>
+                    <capability>
+                        <group>techLore</group>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>courtCustoms</id>
+                    </capability>
+                    <capability>
+                        <id>cathedralCustoms</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>faith</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>will</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>intuition</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>presence</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <id>bureaucracy</id>
+                    </perk>
+                    <perk>
+                        <id>friendsInHighPlaces</id>
+                    </perk>
+                    <perk>
+                        <id>playingTheGame</id>
+                    </perk>
+                    <perk>
+                        <id>shieldOfTheLaw</id>
+                    </perk>
+                    <perk>
+                        <id>stunningStatement</id>
+                    </perk>
+                </options>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>academia</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>empathy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>focus</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>interface</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>knavery</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>perform</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>legalMind</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>merchant</upbringing>
+            </upbringings>
+        </restrictions>
+    </calling>
 
-    <!--    <calling>-->
-    <!--        <id></id>-->
-    <!--        <name>-->
-    <!--            <en></en>-->
-    <!--            <es></es>-->
-    <!--        </name>-->
-    <!--                <capabilities>-->
-    <!--        <capabilitiesOption>-->
-    <!--            <total>1</total>-->
-    <!--            <options>-->
-    <!--                <capability>-->
-    <!--                    <group></group>-->
-    <!--                </capability>-->
-    <!--            </options>-->
-    <!--        </capabilitiesOption>-->
-    <!--                </capabilities>-->
-    <!--        <characteristics>-->
-    <!--            <characteristicBonusOptions>-->
-    <!--                <total>1</total>-->
-    <!--                <options>-->
-    <!--                    <characteristic>-->
-    <!--                        <id></id>-->
-    <!--                        <bonus>1</bonus>-->
-    <!--                    </characteristic>-->
-    <!--                </options>-->
-    <!--            </characteristicBonusOptions>-->
-    <!--        </characteristics>-->
-    <!--        <perks>-->
-    <!--            <perkOptions>-->
-    <!--                <total>1</total>-->
-    <!--                <options>-->
-    <!--                    <perk>-->
-    <!--                        <id></id>-->
-    <!--                    </perk>-->
-    <!--                </options>-->
-    <!--            </perkOptions>-->
-    <!--        </perks>-->
-    <!--        <skills>-->
-    <!--            <skillBonusOption>-->
-    <!--                <total>1</total>-->
-    <!--                <options>-->
-    <!--                    <skill>-->
-    <!--                        <id></id>-->
-    <!--                        <bonus></bonus>-->
-    <!--                    </skill>-->
-    <!--                </options>-->
-    <!--            </skillBonusOption>-->
-    <!--        </skills>-->
-    <!--        <materialAwards>-->
-    <!--            <materialAwardOption>-->
-    <!--                <total>1</total>-->
-    <!--                <options>-->
-    <!--                    <item>-->
-    <!--                        <id></id>-->
-    <!--                        <type></type>-->
-    <!--                    </item>-->
-    <!--                </options>-->
-    <!--            </materialAwardOption>-->
-    <!--        </materialAwards>-->
-    <!--    <restrictions>-->
-    <!--        <upbringings>-->
-    <!--            <upbringing>merchant</upbringing>-->
-    <!--        </upbringings>-->
-    <!--    </restrictions>-->
-    <!--    </calling>-->
+    <calling>
+        <id>mercenary</id>
+        <name>
+            <en>Mercenary</en>
+            <es>Mercenario</es>
+        </name>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <group>combatArmor</group>
+                    </capability>
+                    <capability>
+                        <group>warArmor</group>
+                    </capability>
+                    <capability>
+                        <id>militaryOrdnance</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>slugGuns</id>
+                    </capability>
+                    <capability>
+                        <id>energyGuns</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>endurance</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>strength</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <id>armedToTheTeeth</id>
+                    </perk>
+                    <perk>
+                        <id>battlesense</id>
+                    </perk>
+                    <perk>
+                        <id>bornOnTheBattlefield</id>
+                    </perk>
+                    <perk>
+                        <group>fencing</group>
+                    </perk>
+                    <perk>
+                        <id>marksmanship</id>
+                    </perk>
+                    <perk>
+                        <group>martialArts</group>
+                    </perk>
+                    <perk>
+                        <id>militaryRank</id>
+                    </perk>
+                    <perk>
+                        <id>resilient</id>
+                    </perk>
+                    <perk>
+                        <id>seenTooMuch</id>
+                    </perk>
+                </options>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>drive</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>observe</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>fight</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>remedy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>3</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>vigor</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>supplyDepot</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>merchant</upbringing>
+            </upbringings>
+        </restrictions>
+    </calling>
 
-    <!--    <calling>-->
-    <!--        <id></id>-->
-    <!--        <name>-->
-    <!--            <en></en>-->
-    <!--            <es></es>-->
-    <!--        </name>-->
-    <!--                <capabilities>-->
-    <!--        <capabilitiesOption>-->
-    <!--            <total>1</total>-->
-    <!--            <options>-->
-    <!--                <capability>-->
-    <!--                    <group></group>-->
-    <!--                </capability>-->
-    <!--            </options>-->
-    <!--        </capabilitiesOption>-->
-    <!--                </capabilities>-->
-    <!--        <characteristics>-->
-    <!--            <characteristicBonusOptions>-->
-    <!--                <total>1</total>-->
-    <!--                <options>-->
-    <!--                    <characteristic>-->
-    <!--                        <id></id>-->
-    <!--                        <bonus>1</bonus>-->
-    <!--                    </characteristic>-->
-    <!--                </options>-->
-    <!--            </characteristicBonusOptions>-->
-    <!--        </characteristics>-->
-    <!--        <perks>-->
-    <!--            <perkOptions>-->
-    <!--                <total>1</total>-->
-    <!--                <options>-->
-    <!--                    <perk>-->
-    <!--                        <id></id>-->
-    <!--                    </perk>-->
-    <!--                </options>-->
-    <!--            </perkOptions>-->
-    <!--        </perks>-->
-    <!--        <skills>-->
-    <!--            <skillBonusOption>-->
-    <!--                <total>1</total>-->
-    <!--                <options>-->
-    <!--                    <skill>-->
-    <!--                        <id></id>-->
-    <!--                        <bonus></bonus>-->
-    <!--                    </skill>-->
-    <!--                </options>-->
-    <!--            </skillBonusOption>-->
-    <!--        </skills>-->
-    <!--        <materialAwards>-->
-    <!--            <materialAwardOption>-->
-    <!--                <total>1</total>-->
-    <!--                <options>-->
-    <!--                    <item>-->
-    <!--                        <id></id>-->
-    <!--                        <type></type>-->
-    <!--                    </item>-->
-    <!--                </options>-->
-    <!--            </materialAwardOption>-->
-    <!--        </materialAwards>-->
-    <!--    <restrictions>-->
-    <!--        <upbringings>-->
-    <!--            <upbringing>merchant</upbringing>-->
-    <!--        </upbringings>-->
-    <!--    </restrictions>-->
-    <!--    </calling>-->
+    <calling>
+        <id>reclaimer</id>
+        <name>
+            <en>Reclaimer</en>
+            <es>Recuperador</es>
+        </name>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>streetwise</id>
+                        <random>
+                            <probabilityMultiplier>COMMON</probabilityMultiplier>
+                        </random>
+                    </capability>
+                    <capability>
+                        <group>medicalLore</group>
+                    </capability>
+                    <capability>
+                        <group>knowledgeLore</group>
+                    </capability>
+                    <capability>
+                        <group>performingArtsLore</group>
+                    </capability>
+                    <capability>
+                        <group>craftsLore</group>
+                    </capability>
+                    <capability>
+                        <group>scienceLore</group>
+                    </capability>
+                    <capability>
+                        <group>customsLore</group>
+                    </capability>
+                    <capability>
+                        <group>techLore</group>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>energyGuns</id>
+                    </capability>
+                    <capability>
+                        <id>slugGuns</id>
+                    </capability>
+                    <capability>
+                        <id>shipboardOperations</id>
+                    </capability>
+                    <capability>
+                        <group>transport</group>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>intuition</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>perception</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>wits</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <id>canOpener</id>
+                    </perk>
+                    <perk>
+                        <id>intruder</id>
+                    </perk>
+                    <perk>
+                        <id>keenAwareness</id>
+                    </perk>
+                    <perk>
+                        <id>oriented</id>
+                    </perk>
+                    <perk>
+                        <id>recreateArtifact</id>
+                    </perk>
+                    <perk>
+                        <id>spotter</id>
+                    </perk>
+                </options>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>drive</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>pilot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>fight</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>intrusion</id>
+                        <bonus>3</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>knavery</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>observe</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>sneak</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>techRedemption</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>hovernet</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+        <restrictions>
+            <upbringings>
+                <upbringing>merchant</upbringing>
+            </upbringings>
+        </restrictions>
+    </calling>
 
     <!--    <calling>-->
     <!--        <id></id>-->

@@ -287,6 +287,9 @@
             <en>Beastback</en>
             <es>Monta</es>
         </name>
+        <random>
+            <preferences>PRIMITIVE, HIGH_RANK</preferences>
+        </random>
     </capability>
     <capability>
         <id>beastcraft</id>
@@ -295,14 +298,9 @@
             <en>Beastcraft</en>
             <es>Vehículos de Animales</es>
         </name>
-    </capability>
-    <capability>
-        <id>landcraft</id>
-        <group>transport</group>
-        <name>
-            <en>Landcraft</en>
-            <es>Vehículos Terrestres</es>
-        </name>
+        <random>
+            <preferences>PRIMITIVE</preferences>
+        </random>
     </capability>
     <capability>
         <id>landcraft</id>
@@ -366,6 +364,9 @@
             <en>Watercraft</en>
             <es>Vehículos Acuáticos</es>
         </name>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </capability>
 
     <capability>

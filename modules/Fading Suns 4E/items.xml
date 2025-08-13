@@ -697,7 +697,8 @@
         </traits>
         <restrictions>
             <callings>
-                <calling>imperialCohortPriest</calling> <calling>imperialCohortMerchant</calling>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
             </callings>
         </restrictions>
     </equipment>
@@ -863,6 +864,88 @@
         <techLevel>5</techLevel>
         <techCompulsion>inerrant</techCompulsion>
         <size>XS</size>
+        <restrictions>
+            <callings>
+                <calling>detective</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>legalMind</id>
+        <type>item</type>
+        <name>
+            <en>Legal Mind</en>
+            <es>Mente Legal</es>
+        </name>
+        <description>
+            <en>Think machine: voluminous data file with legal case histories for 3 different areas of law, such as fief
+                management, guild contracts, war, etc.; substitutes for a related Lore capability when arguing cases.
+            </en>
+            <es>Máquina pensante: voluminoso archivo de datos con jurisprudencia en tres ramas de derecho diferentes,
+                como gestión de feudos, contratos gremiales, guerra, etcétera; sustituye a la competencia de Saber
+                relacionada a la hora de argumentar casos.
+            </es>
+        </description>
+        <techLevel>4</techLevel>
+        <restrictions>
+            <callings>
+                <calling>lawyer</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>supplyDepot</id>
+        <type>item</type>
+        <name>
+            <en>Supply depot</en>
+            <es>Depósito de suministros</es>
+        </name>
+        <description>
+            <en>A Merc band can consolidate their guns and ammo to form a large depot; for each Mercenary in the band,
+                spend 100 fb on military supplies.
+            </en>
+            <es>Un grupo de mercenarios puede reunir todas sus armas y munición para formar un gran depósito; por cada
+                mercenario en el grupo, gasta 100 f en suministros militares
+            </es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>ceramsteelCuffs</id>
+        <type>item</type>
+        <name>
+            <en>Ceramsteel cuffs</en>
+            <es>Esposas de acerámico</es>
+        </name>
+        <description>
+            <en>Mechanical handcuffs; Herculean Resistance to break and Tough Resistance to pick.</en>
+            <es>Esposas mecánicas; Resistencia Hercúlea para romperlas y Resistencia Ardua para abrirlas.</es>
+        </description>
+        <techLevel>5</techLevel>
+        <techCompulsion>cruel</techCompulsion>
+        <restrictions>
+            <callings>
+                <calling>chainer</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>hovernet</id>
+        <type>item</type>
+        <name>
+            <en>Hovernet</en>
+            <es>Red flotante</es>
+        </name>
+        <description>
+            <en>Anti-grav synthmesh bag with remote-control wristband; holds up to 2 cubic feet worth of items; floats
+                behind its user.
+            </en>
+            <es>Bolsa de rejilla sintética antigravedad con pulsera de control remoto; capacidad para guardar sesenta
+                centímetros cúbicos de objetos; flota detrás de su propietario.
+            </es>
+        </description>
+        <techLevel>7</techLevel>
+        <techCompulsion>industrious</techCompulsion>
+        <size>M</size>
         <restrictions>
             <callings>
                 <calling>detective</calling>
