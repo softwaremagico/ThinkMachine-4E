@@ -697,7 +697,7 @@
         </traits>
         <restrictions>
             <callings>
-                <calling>imperialCohort</calling>
+                <calling>imperialCohortPriest</calling> <calling>imperialCohortMerchant</calling>
             </callings>
         </restrictions>
     </equipment>
@@ -823,6 +823,49 @@
         <restrictions>
             <callings>
                 <calling>bountyHunter</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>ceramsteelCuffs</id>
+        <type>item</type>
+        <name>
+            <en>Ceramsteel cuffs</en>
+            <es>Esposas de acerámico</es>
+        </name>
+        <description>
+            <en>Mechanical handcuffs; Herculean Resistance to break and Tough Resistance to pick.</en>
+            <es>Esposas mecánicas; Resistencia Hercúlea para romperlas y Resistencia Ardua para abrirlas.</es>
+        </description>
+        <techLevel>5</techLevel>
+        <techCompulsion>cruel</techCompulsion>
+        <restrictions>
+            <callings>
+                <calling>chainer</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>telltaleEye</id>
+        <type>item</type>
+        <name>
+            <en>Telltale Eye</en>
+            <es>Ojo informante</es>
+        </name>
+        <description>
+            <en>Monocle device: the classic sleuth’s magnifying glass, but as a monocle; it allows its user to view the
+                IR and UV spectrums.
+            </en>
+            <es>La clásica lupa de detective, pero con forma de monóculo; permite ver el espectro infrarrojo y
+                ultravioleta.
+            </es>
+        </description>
+        <techLevel>5</techLevel>
+        <techCompulsion>inerrant</techCompulsion>
+        <size>XS</size>
+        <restrictions>
+            <callings>
+                <calling>detective</calling>
             </callings>
         </restrictions>
     </equipment>

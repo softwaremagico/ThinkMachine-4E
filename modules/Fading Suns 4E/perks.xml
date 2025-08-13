@@ -175,7 +175,8 @@
         <restrictions>
             <callings>
                 <calling>detective</calling>
-                <calling>imperialCohort</calling>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
                 <calling>inquisitor</calling>
                 <calling>questingKnight</calling>
             </callings>
@@ -311,7 +312,8 @@
         </name>
         <restrictions>
             <callings>
-                <calling>imperialCohort</calling>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
                 <calling>knightlyOrder</calling>
                 <calling>questingKnight</calling>
                 <calling>templar</calling>
@@ -326,7 +328,8 @@
         </name>
         <restrictions>
             <callings>
-                <calling>imperialCohort</calling>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
                 <calling>knightlyOrder</calling>
                 <calling>questingKnight</calling>
                 <calling>templar</calling>
@@ -992,7 +995,8 @@
         <restrictions>
             <callings>
                 <calling>detective</calling>
-                <calling>imperialCohort</calling>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
                 <calling>inquisitor</calling>
                 <calling>questingKnight</calling>
             </callings>
@@ -1871,7 +1875,8 @@
         <restrictions>
             <callings>
                 <calling>amateur</calling>
-                <calling>imperialCohort</calling>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
                 <calling>incognito</calling>
             </callings>
         </restrictions>
@@ -2725,7 +2730,8 @@
         </name>
         <restrictions>
             <callings>
-                <calling>imperialCohort</calling>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
                 <calling>questingKnights</calling>
             </callings>
         </restrictions>

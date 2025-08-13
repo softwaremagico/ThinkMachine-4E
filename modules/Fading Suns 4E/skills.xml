@@ -191,6 +191,7 @@
             <upbringings>
                 <upbringing>noble</upbringing>
                 <upbringing>merchant</upbringing>
+                <upbringing>brotherBattle</upbringing>
             </upbringings>
             <callings>
                 <calling>explorer</calling>

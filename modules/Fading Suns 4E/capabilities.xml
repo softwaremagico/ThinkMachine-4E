@@ -33,7 +33,8 @@
             </upbringings>
             <callings>
                 <calling>theDispossessed</calling>
-                <calling>imperialCohort</calling>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
                 <calling>mercenary</calling>
                 <calling>pirate</calling>
                 <calling>templar</calling>
@@ -62,7 +63,8 @@
                 <calling>bountyHunter</calling>
                 <calling>chainer</calling>
                 <calling>explorer</calling>
-                <calling>imperialCohort</calling>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
                 <calling>mercenary</calling>
                 <calling>pirate</calling>
                 <calling>scout</calling>
@@ -119,7 +121,8 @@
             </upbringings>
             <callings>
                 <calling>bountyHunter</calling>
-                <calling>imperialCohort</calling>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
                 <calling>inquisitor</calling>
                 <calling>mercenary</calling>
                 <calling>reclaimer</calling>
@@ -148,7 +151,8 @@
             <callings>
                 <calling>chainer</calling>
                 <calling>explorer</calling>
-                <calling>imperialCohort</calling>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
                 <calling>mercenary</calling>
                 <calling>pirate</calling>
                 <calling>scout</calling>
@@ -247,7 +251,8 @@
                 <calling>chainer</calling>
                 <calling>explorer</calling>
                 <calling>detective</calling>
-                <calling>imperialCohort</calling>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
                 <calling>inquisitor</calling>
                 <calling>mercenary</calling>
                 <calling>pirate</calling>
@@ -324,7 +329,8 @@
             </upbringings>
             <callings>
                 <calling>explorer</calling>
-                <calling>imperialCohort</calling>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
                 <calling>mendicant</calling>
                 <calling>pirate</calling>
                 <calling>spy</calling>
@@ -1490,7 +1496,8 @@
             <callings>
                 <calling>enthusiast</calling>
                 <calling>explorer</calling>
-                <calling>imperialCohort</calling>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
                 <calling>occultist</calling>
                 <calling>questingKnight</calling>
                 <calling>reclaimer</calling>
@@ -1522,7 +1529,8 @@
             <callings>
                 <calling>enthusiast</calling>
                 <calling>explorer</calling>
-                <calling>imperialCohort</calling>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
                 <calling>occultist</calling>
                 <calling>questingKnight</calling>
                 <calling>reclaimer</calling>
