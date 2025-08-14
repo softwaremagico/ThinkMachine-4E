@@ -52,6 +52,7 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
     private static final int TOTAL_CHARACTERISTICS_OPTIONS = 0;
     private static final int TOTAL_SKILL_OPTIONS = 0;
     private static final int TOTAL_PERKS_OPTIONS = 0;
+    private static final int TOTAL_CAPABILITIES_OPTIONS = 0;
 
     @JsonProperty("capabilities")
     private List<CapabilityOptions> capabilityOptions = new ArrayList<>();
@@ -130,6 +131,10 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
 
     public int getTotalPerksOptions() {
         return TOTAL_PERKS_OPTIONS;
+    }
+
+    public int getTotalCapabilitiesOptions() {
+        return TOTAL_CAPABILITIES_OPTIONS;
     }
 
     public Set<EquipmentOption> getMaterialAwards(Collection<Selection> selectedMaterialAwards) {
@@ -216,7 +221,12 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
             }
         }
         if (perksOptions.size() != getTotalPerksOptions()) {
-            throw new InvalidXmlElementException("Element must have '" + getTotalPerksOptions() + "' perks option.");
+            throw new InvalidXmlElementException("Element must have '" + getTotalPerksOptions() + "' perks options.");
         }
+
+        //Mercurian has 3!
+//        if (capabilityOptions.size() != getTotalCapabilitiesOptions()) {
+//            throw new InvalidXmlElementException("Element must have '" + getTotalCapabilitiesOptions() + "' capabilities options.");
+//        }
     }
 }

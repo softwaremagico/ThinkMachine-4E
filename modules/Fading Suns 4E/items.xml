@@ -1052,7 +1052,7 @@
         <type>item</type>
         <name>
             <en>Lockbag</en>
-            <es></es>
+            <es>Bolsa de Cierre</es>
         </name>
         <description>
             <en>Synthmesh backpack or satchel with Severe Resistance lock and fabric.</en>
@@ -1066,6 +1066,97 @@
         <restrictions>
             <callings>
                 <calling>trader</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>powerAccessory</id>
+        <type>item</type>
+        <name>
+            <en>Power accessory</en>
+            <es>Complemento de Poder</es>
+        </name>
+        <description>
+            <en>hypnotic curio tie, cravat, scarf, or necklace: once per scene, you can take a primary action to
+                ostentatiously adjust it within sight of one or more marks; your next persuasion influence roll against
+                any witness gets +1 goal.
+            </en>
+            <es>Curiosidad hipnótica con forma de corbata, pañuelo, fular o collar: una vez por escena, puedes realizar
+                una acción primaria para ajustártelo ostentosamente a la vista de uno o varios de tus blancos; tu
+                próxima tirada de influencia de persuasión contra cualquier testigo recibe +1 a la meta
+            </es>
+        </description>
+        <traits>
+            <trait>curio</trait>
+        </traits>
+        <techLevel>5</techLevel>
+        <size>XS</size>
+        <restrictions>
+            <callings>
+                <calling>tycoon</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>performanceOutfit</id>
+        <type>item</type>
+        <name>
+            <en>Performance Outfit</en>
+            <es>Traje de Actuación</es>
+        </name>
+        <description>
+            <en>For different stock part.</en>
+            <es>Para tres papeles de teatro.</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>expeditionaryMedallion</id>
+        <type>item</type>
+        <name>
+            <en>Expeditionary Medallion</en>
+            <es>Medallón de expedición</es>
+        </name>
+        <description>
+            <en>Think machine; acts as a compass, weather predictor, and simple motion detector</en>
+            <es>Máquina pensante; funciona como brújula, predictor del tiempo y detector de movimiento
+            </es>
+        </description>
+        <techLevel>5</techLevel>
+        <size>XS</size>
+        <traits>
+            <trait>curio</trait>
+        </traits>
+        <restrictions>
+            <callings>
+                <calling>explorer</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>prankPaper</id>
+        <type>item</type>
+        <name>
+            <en>Prank Paper</en>
+            <es>Documento de Broma</es>
+        </name>
+        <description>
+            <en>A piece of paper that, when you write a message on it, mimics 1 of 3 types of official decrees: noble,
+                Church, or guild. Lasts only for 24 hours, after which it dissolves. You begin with 10 pages; 10 FB per
+                extra page.
+            </en>
+            <es>Un documento que, cuando escribes un mensaje en él, imita uno de tres tipos de decretos oficiales: un
+                decreto noble, eclesiástico o gremial. Solo dura 24 horas, tras las cuales se disuelve. Empiezas con
+                diez páginas y cada página adicional cuesta 10 fénix.
+            </es>
+        </description>
+        <techLevel>5</techLevel>
+        <size>S</size>
+        <traits>
+            <trait>curio</trait>
+        </traits>
+        <restrictions>
+            <callings>
+                <calling>mercurian</calling>
             </callings>
         </restrictions>
     </equipment>
