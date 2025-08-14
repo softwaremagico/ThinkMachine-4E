@@ -1160,4 +1160,50 @@
             </callings>
         </restrictions>
     </equipment>
+    <equipment>
+        <id>camoTarp</id>
+        <type>item</type>
+        <name>
+            <en>Camo Tarp</en>
+            <es>Lona de Camuflaje</es>
+        </name>
+        <description>
+            <en>Holo-tarp: when hung from walls or placed on a floor, it mimics nearby its environment to appear as just
+                more ship decking or flagstones; covers 2m x 2m area.
+            </en>
+            <es>Hololona: cuando se cuelga de una pared o se coloca sobre el suelo, imita su entorno para parecer el
+                suelo de una nave o baldosas; cubre una superficie de 2 × 2 m.
+            </es>
+        </description>
+        <techLevel>5</techLevel>
+        <restrictions>
+            <callings>
+                <calling>pirate</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>datavore</id>
+        <type>item</type>
+        <name>
+            <en>Datavore</en>
+            <es>Datávoro</es>
+        </name>
+        <description>
+            <en>Think machine; used to link into other systems and copy data as well as scan physical book pages.
+            </en>
+            <es>Máquina pensante; se utiliza para conectarse con otros sistemas y copiar datos, así como para escanear
+                páginas de libros físicos.
+            </es>
+        </description>
+        <techLevel>5</techLevel>
+        <traits>
+            <trait>inerrant</trait>
+        </traits>
+        <restrictions>
+            <callings>
+                <calling>scholar</calling>
+            </callings>
+        </restrictions>
+    </equipment>
 </equipments>
