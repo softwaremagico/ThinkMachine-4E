@@ -45,7 +45,7 @@ public class SkillBonusOptions extends OptionSelector<Skill, SkillBonusOption> {
         if (finalSkills == null) {
             try {
                 if (super.getOptions() == null || super.getOptions().isEmpty()
-                        || (super.getOptions().size() == 1 && super.getOptions().get(0).getId() == null)) {
+                        || (!super.getOptions().isEmpty() && super.getOptions().get(0).getId() == null)) {
                     finalSkills = new ArrayList<>();
                     if (super.getOptions() != null && !super.getOptions().isEmpty()) {
                         finalSkills.addAll(SkillFactory.getInstance().getElements().stream()

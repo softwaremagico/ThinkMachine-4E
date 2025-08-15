@@ -78,8 +78,8 @@ public class WeaponDamage {
         this(null, null, goal, damage, null, strength, range, shots, rate, characteristic, skill, null, null);
     }
 
-    public WeaponDamage(TranslatedText name, Integer damageTechLevel, String goal, String damage, String damageType, Integer strength, String range, String shots, String rate,
-                        String characteristic, String skill, Size damageSize, Integer extraCost) {
+    public WeaponDamage(TranslatedText name, Integer damageTechLevel, String goal, String damage, String damageType, Integer strength,
+                        String range, String shots, String rate, String characteristic, String skill, Size damageSize, Integer extraCost) {
         this.name = name;
         this.goal = goal;
         this.damageTechLevel = damageTechLevel;

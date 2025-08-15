@@ -4,7 +4,7 @@ Noble, Decados, Comandante
 
 Características: Fuerza 3, Destreza 5, Constitución 4, Inteligencia 5, Percepción 4, Voluntad 6, Presencia 8, Intuición 3, Fe 4.
 
-Habilidades: Academia (6), Arte (4), Conducir (4), Cuerpo a Cuerpo (6), Disfraz (4), Disparar (4), Encanto (6), Impresionar (6), Introspección (4), Observar (4), Vigor (4).
+Habilidades: Academia (6), Arte (4), Conducir (4), Cuerpo a Cuerpo (6), Disfraz (4), Disparar (4), Encanto (6), Impresionar (6), Introspección (4), Observar (4), Vigor (5).
 
 Competencias: Armas Militares, Armas de Balas, Hablar (Urthés), Leer (Urthés), Monta, Pintura, Saber Enfermedades, Saber Planetario (Sutek), Saber de Facción (Decados), Usos de la Corte.
 

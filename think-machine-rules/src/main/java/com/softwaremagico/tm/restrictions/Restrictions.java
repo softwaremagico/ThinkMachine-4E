@@ -311,8 +311,10 @@ public class Restrictions extends XmlData {
                     .map(Element::getGroup).collect(Collectors.toList())::contains)))
                     //Check capabilities
                     || (!getRestrictedToCapabilities().isEmpty() && (characterPlayer.getCapabilitiesWithSpecialization() != null
-                    && !Collections.disjoint(getRestrictedToCapabilities().stream().map(RestrictedCapability::getComparisonId).collect(Collectors.toList()),
-                    (characterPlayer.getCapabilitiesWithSpecialization().stream().map(CapabilityWithSpecialization::getComparisonId).collect(Collectors.toList())))));
+                    && !Collections.disjoint(getRestrictedToCapabilities().stream().map(RestrictedCapability::getComparisonId)
+                            .collect(Collectors.toList()),
+                    (characterPlayer.getCapabilitiesWithSpecialization().stream().map(CapabilityWithSpecialization::getComparisonId)
+                            .collect(Collectors.toList())))));
         } catch (InvalidXmlElementException e) {
             MachineLog.errorMessage("Is restricted!", e);
         }
@@ -358,7 +360,8 @@ public class Restrictions extends XmlData {
                     //Check capabilities
                     && (getRestrictedToCapabilities().isEmpty() || (characterPlayer.getCapabilitiesWithSpecialization() != null
                     && !Collections.disjoint(getRestrictedToCapabilities().stream().map(RestrictedCapability::getComparisonId).collect(Collectors.toList()),
-                    (characterPlayer.getCapabilitiesWithSpecialization().stream().map(CapabilityWithSpecialization::getComparisonId).collect(Collectors.toList()))))));
+                    (characterPlayer.getCapabilitiesWithSpecialization().stream().map(CapabilityWithSpecialization::getComparisonId)
+                            .collect(Collectors.toList()))))));
         } catch (InvalidXmlElementException e) {
             MachineLog.errorMessage("Is restricted!", e);
         }
@@ -478,8 +481,9 @@ public class Restrictions extends XmlData {
         return restricted;
     }
 
-    public boolean isRequiredCapability(String capability) {
-        return restrictedToCapabilities.stream().anyMatch(c -> Objects.equals(c.getId(), capability));
+    public boolean isRequiredCapability(String capability, String specialization) {
+        return restrictedToCapabilities.stream().anyMatch(c -> Objects.equals(c.getComparisonId(),
+                RestrictedCapability.getComparisonId(capability, specialization)));
     }
 
     @Override

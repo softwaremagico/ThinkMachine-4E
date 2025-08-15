@@ -63,7 +63,7 @@ public final class WeaponFactory extends XmlFactory<Weapon> {
             weaponsByClass = new HashMap<>();
             getElements().forEach(weapon -> {
                 if (weapon != null && weapon.getWeaponClass() != null) {
-                    weaponsByClass.computeIfAbsent( weapon.getWeaponClass(), k -> new ArrayList<>());
+                    weaponsByClass.computeIfAbsent(weapon.getWeaponClass(), k -> new ArrayList<>());
                     weaponsByClass.get(weapon.getWeaponClass()).add(weapon);
                 }
             });

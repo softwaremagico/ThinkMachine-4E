@@ -43,7 +43,7 @@ import java.util.Objects;
 import java.util.Set;
 
 public class OccultismPower extends Element {
-    private static String WILDCARD_SKILL = "*";
+    private static final String WILDCARD_SKILL = "*";
     private String characteristic;
     @JsonProperty("skills")
     private List<String> skills;

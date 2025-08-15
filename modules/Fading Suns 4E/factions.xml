@@ -216,13 +216,13 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
-        <restrictions>
-            <upbringings>
-                <upbringing>noble</upbringing>
-            </upbringings>
+        <restrictions mode="all">
             <species>
                 <specie>human</specie>
             </species>
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
         </restrictions>
         <random>
             <names>
@@ -365,11 +365,6 @@
             <es>Decados</es>
         </name>
         <group>noble</group>
-        <restrictions>
-            <species>
-                <specie>human</specie>
-            </species>
-        </restrictions>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -583,7 +578,10 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
-        <restrictions>
+        <restrictions mode="all">
+            <species>
+                <specie>human</specie>
+            </species>
             <upbringings>
                 <upbringing>noble</upbringing>
             </upbringings>
@@ -601,11 +599,6 @@
             <es>Hawkwood</es>
         </name>
         <group>noble</group>
-        <restrictions>
-            <species>
-                <specie>human</specie>
-            </species>
-        </restrictions>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -787,7 +780,10 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
-        <restrictions>
+        <restrictions mode="all">
+            <species>
+                <specie>human</specie>
+            </species>
             <upbringings>
                 <upbringing>noble</upbringing>
             </upbringings>
@@ -847,11 +843,6 @@
             <es>Hazat</es>
         </name>
         <group>noble</group>
-        <restrictions>
-            <species>
-                <specie>human</specie>
-            </species>
-        </restrictions>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -1041,7 +1032,10 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
-        <restrictions>
+        <restrictions mode="all">
+            <species>
+                <specie>human</specie>
+            </species>
             <upbringings>
                 <upbringing>noble</upbringing>
             </upbringings>
@@ -1102,11 +1096,6 @@
             <es>Li Halan</es>
         </name>
         <group>noble</group>
-        <restrictions>
-            <species>
-                <specie>human</specie>
-            </species>
-        </restrictions>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -1315,10 +1304,13 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
-        <restrictions>
-            <callings>
-                <calling>courtier</calling>
-            </callings>
+        <restrictions mode="all">
+            <species>
+                <specie>human</specie>
+            </species>
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
         </restrictions>
         <random>
             <names>

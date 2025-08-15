@@ -8,17 +8,17 @@ package com.softwaremagico.tm.rules;
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
  * Foundation; either version 2 of the License, or (at your option) any later
  * version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU General Public License along with
  * this program; If not, see <http://www.gnu.org/licenses/gpl-3.0.html>.
  * #L%
@@ -124,7 +124,7 @@ public class PerksTests {
         characterPlayer.getCalling().getSelectedPerks().add(new Selection("investPhylactery"));
     }
 
-    @Test
+    @Test(enabled = false)
     public void masterOfDeceptionWithoutSkill() {
         CharacterPlayer characterPlayer = new CharacterPlayer();
         characterPlayer.setSpecie("human");
@@ -132,12 +132,14 @@ public class PerksTests {
         characterPlayer.setFaction("alMalik");
         characterPlayer.setCalling("conspiracist");
 
-        //Now we can add investPhylactery
+        // conspiracist always have knavery to 5.
+
+        //Now we can add masterOfDeception
         Assert.assertTrue(PerkFactory.getInstance().getElement("masterOfDeception").getRestrictions().isRestricted(characterPlayer));
         characterPlayer.getCalling().getSelectedPerks().add(new Selection("masterOfDeception"));
     }
 
-    @Test(enabled = false)
+    @Test
     public void masterOfDeceptionWithSkill() {
         CharacterPlayer characterPlayer = new CharacterPlayer();
         characterPlayer.setSpecie("human");
@@ -145,9 +147,7 @@ public class PerksTests {
         characterPlayer.setFaction("liHalan");
         characterPlayer.setCalling("conspiracist");
 
-        // TODO(softwaremagico): missing level to set knavery to 5.
-
-        //Now we can add investPhylactery
+        //Now we can add masterOfDeception
         Assert.assertFalse(PerkFactory.getInstance().getElement("masterOfDeception").getRestrictions().isRestricted(characterPlayer));
         characterPlayer.getCalling().getSelectedPerks().add(new Selection("masterOfDeception"));
     }

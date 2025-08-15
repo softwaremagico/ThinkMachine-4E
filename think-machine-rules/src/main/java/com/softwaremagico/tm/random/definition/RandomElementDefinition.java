@@ -44,7 +44,7 @@ public class RandomElementDefinition extends XmlData {
     private Integer staticProbability;
     private Integer minimumTechLevel;
     private Integer maximumTechLevel;
-    private ProbabilityMultiplier probabilityMultiplier = ProbabilityMultiplier.NORMAL;
+    private ProbabilityMultiplier probabilityMultiplier;
     private Set<String> recommendedFactions = new HashSet<>();
     private Set<String> recommendedFactionsGroups = new HashSet<>();
     private Set<String> recommendedSpecies = new HashSet<>();
@@ -85,8 +85,8 @@ public class RandomElementDefinition extends XmlData {
         if (randomDefinition.getMaximumTechLevel() != null) {
             setMaximumTechLevel(randomDefinition.getMaximumTechLevel());
         }
-        if (randomDefinition.getProbabilityMultiplier() != null) {
-            setProbabilityMultiplier(randomDefinition.getProbabilityMultiplier());
+        if (randomDefinition.probabilityMultiplier != null) {
+            setProbabilityMultiplier(randomDefinition.probabilityMultiplier);
         }
         if (randomDefinition.getRecommendedFactions() != null && !randomDefinition.getRecommendedFactions().isEmpty()) {
             recommendedFactions.clear();
@@ -188,7 +188,7 @@ public class RandomElementDefinition extends XmlData {
     }
 
     public ProbabilityMultiplier getProbabilityMultiplier() {
-        return probabilityMultiplier;
+        return Objects.requireNonNullElse(probabilityMultiplier, ProbabilityMultiplier.NORMAL);
     }
 
     public Set<String> getForbiddenPreferences() {
@@ -216,7 +216,7 @@ public class RandomElementDefinition extends XmlData {
     }
 
     public void setAgoraProbabilityMultiplier(Agora agora) {
-        if (agora != null && getProbabilityMultiplier() != ProbabilityMultiplier.NORMAL) {
+        if (agora != null) {
             switch (agora) {
                 case COMMON:
                 case KNOWN_WORLDS:
@@ -236,9 +236,7 @@ public class RandomElementDefinition extends XmlData {
     }
 
     public void setProbabilityMultiplier(ProbabilityMultiplier probabilityMultiplier) {
-        if (probabilityMultiplier != null) {
-            this.probabilityMultiplier = probabilityMultiplier;
-        }
+        this.probabilityMultiplier = probabilityMultiplier;
     }
 
     public void setRecommendedFactions(String recommendedFactionsContent) {
