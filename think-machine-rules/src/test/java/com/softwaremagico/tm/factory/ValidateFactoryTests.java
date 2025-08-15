@@ -41,6 +41,7 @@ import com.softwaremagico.tm.character.equipment.thinkmachines.ThinkMachineFacto
 import com.softwaremagico.tm.character.equipment.weapons.AccessoryFactory;
 import com.softwaremagico.tm.character.equipment.weapons.AmmunitionFactory;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
+import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.occultism.OccultismPathFactory;
 import com.softwaremagico.tm.character.occultism.OccultismTypeFactory;
 import com.softwaremagico.tm.character.occultism.TheurgyComponentFactory;
@@ -108,10 +109,10 @@ public class ValidateFactoryTests {
         EquipmentTraitFactory.getInstance().validate();
     }
 
-//    @Test
-//    public void validateFactionFactory() throws InvalidXmlElementException {
-//        FactionFactory.getInstance().validate();
-//    }
+    @Test
+    public void validateFactionFactory() throws InvalidXmlElementException {
+        FactionFactory.getInstance().validate();
+    }
 
     @Test
     public void validateHandheldShieldFactory() throws InvalidXmlElementException {

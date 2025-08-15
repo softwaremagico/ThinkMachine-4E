@@ -31,5 +31,6 @@ public enum ResistanceCategory {
     PRIVILEGE,
     SPECIE,
     ITEM,
+    HANDHELD_SHIELD,
     OTHER;
 }

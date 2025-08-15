@@ -1,7 +1,204 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <handheldShields>
     <handheldShield>
-        <id>bodyShield</id>
+        <id>bodyShieldSteel</id>
         <type>handheldShield</type>
+        <name>
+            <en>Body shield (steel)</en>
+            <es>Escudo de cuerpo (acero)</es>
+        </name>
+        <description>
+            <en>A handheld shield is wielded in the offhand for defense. Such shields are incompatible with e-shields;
+                wielding one prevents an e-shield from activating.
+            </en>
+            <es>Los escudos de mano sirven para defenderse y se llevan en la mano no dominante. Además, son
+                incompatibles con los escudos de energía, porque llevar uno evita que el escudo de energía se active.
+            </es>
+        </description>
+        <techLevel>1</techLevel>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>handheld_shield</category>
+                <bonus>3</bonus>
+            </resistance>
+        </resistances>
+        <damageList>
+            <weaponDamage>
+                <characteristic>strength</characteristic>
+                <skill>melee</skill>
+                <goal>0</goal>
+                <damage>5</damage>
+                <type>slam</type>
+                <strength>5</strength>
+            </weaponDamage>
+        </damageList>
+        <agora>common</agora>
+        <size>XL</size>
+        <cost>15</cost>
+        <others>
+            <other>slamproof</other>
+            <other>unwieldy</other>
+        </others>
+    </handheldShield>
+    <handheldShield>
+        <id>riotShieldPlastic</id>
+        <type>handheldShield</type>
+        <name>
+            <en>Riot Shield (plastic)</en>
+            <es>Escudo antidisturbios (plástico)</es>
+        </name>
+        <description>
+            <en>A handheld shield is wielded in the offhand for defense. Such shields are incompatible with e-shields;
+                wielding one prevents an e-shield from activating.
+            </en>
+            <es>Los escudos de mano sirven para defenderse y se llevan en la mano no dominante. Además, son
+                incompatibles con los escudos de energía, porque llevar uno evita que el escudo de energía se active.
+            </es>
+        </description>
+        <techLevel>4</techLevel>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>handheld_shield</category>
+                <bonus>3</bonus>
+            </resistance>
+        </resistances>
+        <damageList>
+            <weaponDamage>
+                <characteristic>strength</characteristic>
+                <skill>melee</skill>
+                <goal></goal>
+                <damage></damage>
+                <strength>4</strength>
+            </weaponDamage>
+        </damageList>
+        <agora>common</agora>
+        <size>XL</size>
+        <cost>25</cost>
+        <others>
+            <other>slamproof</other>
+        </others>
+    </handheldShield>
+    <handheldShield>
+        <id>battleShieldPlasteel</id>
+        <type>handheldShield</type>
+        <name>
+            <en>Battle shield (plasteel)</en>
+            <es>Escudo de batalla (Acerástico)</es>
+        </name>
+        <description>
+            <en>A handheld shield is wielded in the offhand for defense. Such shields are incompatible with e-shields;
+                wielding one prevents an e-shield from activating.
+            </en>
+            <es>Los escudos de mano sirven para defenderse y se llevan en la mano no dominante. Además, son
+                incompatibles con los escudos de energía, porque llevar uno evita que el escudo de energía se active.
+            </es>
+        </description>
+        <techLevel>5</techLevel>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>handheld_shield</category>
+                <bonus>4</bonus>
+            </resistance>
+        </resistances>
+        <damageList>
+            <weaponDamage>
+                <characteristic>strength</characteristic>
+                <skill>melee</skill>
+                <goal></goal>
+                <damage></damage>
+                <strength>4</strength>
+            </weaponDamage>
+        </damageList>
+        <agora>rare</agora>
+        <size>L</size>
+        <cost>50</cost>
+        <others>
+            <other>hardproof</other>
+            <other>slamproof</other>
+            <other>unwieldy</other>
+        </others>
+    </handheldShield>
+    <handheldShield>
+        <id>bucklerSteel</id>
+        <type>handheldShield</type>
+        <name>
+            <en>Buckler (steel)</en>
+            <es>Rodela (acero)</es>
+        </name>
+        <description>
+            <en>A handheld shield is wielded in the offhand for defense. Such shields are incompatible with e-shields;
+                wielding one prevents an e-shield from activating.
+            </en>
+            <es>Los escudos de mano sirven para defenderse y se llevan en la mano no dominante. Además, son
+                incompatibles con los escudos de energía, porque llevar uno evita que el escudo de energía se active.
+            </es>
+        </description>
+        <techLevel>1</techLevel>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>handheld_shield</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <damageList>
+            <weaponDamage>
+                <characteristic>strength</characteristic>
+                <skill>melee</skill>
+                <goal>0</goal>
+                <damage>3</damage>
+                <strength>2</strength>
+            </weaponDamage>
+        </damageList>
+        <agora>common</agora>
+        <size>M</size>
+        <cost></cost>
+        <others>
+            <other>slamproof</other>
+            <other>+4 Resistance vs missile attacks</other>
+        </others>
+    </handheldShield>
+    <handheldShield>
+        <id>duelingBucklerPlasteel</id>
+        <type>handheldShield</type>
+        <name>
+            <en>Dueling buckler (plasteel)</en>
+            <es>Rodela de duelista (acerástico)</es>
+        </name>
+        <description>
+            <en>A handheld shield is wielded in the offhand for defense. Such shields are incompatible with e-shields;
+                wielding one prevents an e-shield from activating.
+            </en>
+            <es>Los escudos de mano sirven para defenderse y se llevan en la mano no dominante. Además, son
+                incompatibles con los escudos de energía, porque llevar uno evita que el escudo de energía se active.
+            </es>
+        </description>
+        <techLevel>5</techLevel>
+        <resistances>
+            <resistance>
+                <type>body</type>
+                <category>handheld_shield</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <damageList>
+            <weaponDamage>
+                <characteristic>strength</characteristic>
+                <skill>melee</skill>
+                <goal></goal>
+                <damage></damage>
+                <strength>1</strength>
+            </weaponDamage>
+        </damageList>
+        <agora>rare</agora>
+        <size>M</size>
+        <cost>25</cost>
+        <others>
+            <other>slamproof</other>
+            <other>+4 Resistance vs missile attacks</other>
+        </others>
     </handheldShield>
 </handheldShields>

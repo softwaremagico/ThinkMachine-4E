@@ -689,8 +689,7 @@
             <recommendedFactions>scravers</recommendedFactions>
             <recommendedFactions>ukar</recommendedFactions>
         </random>
-        <restrictions mode="any">
-            <!-- TODO: fencing + any of them-->
+        <restrictions mode="any_character_definition">
             <upbringings>
                 <upbringing>noble</upbringing>
                 <merchant>merchant</merchant>
@@ -699,7 +698,7 @@
                 <specie>ukar</specie>
             </species>
             <perks>
-                <perk>fencing</perk>
+                <perk>kraxi1</perk>
             </perks>
         </restrictions>
     </style>
@@ -798,7 +797,7 @@
                 <capability>dance</capability>
             </capabilities>
             <perks>
-                <perk>fencing</perk>
+                <perk>serpentis1</perk>
             </perks>
         </restrictions>
     </style>
@@ -886,7 +885,7 @@
                 <upbringing>noble</upbringing>
             </upbringings>
             <perks>
-                <perk>fencing</perk>
+                <perk>torero1</perk>
             </perks>
         </restrictions>
     </style>

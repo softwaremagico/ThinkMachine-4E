@@ -773,7 +773,7 @@
         </traits>
         <restrictions>
             <callings>
-                <calling>scriba</calling>
+                <calling>scribe</calling>
             </callings>
         </restrictions>
     </equipment>
@@ -1203,6 +1203,39 @@
         <restrictions>
             <callings>
                 <calling>scholar</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>avestitePendant</id>
+        <type>item</type>
+        <name>
+            <en>Avestite Pendant</en>
+            <es>Colgante Avestita</es>
+        </name>
+        <description>
+            <en>You wear a pendant bearing the symbol of the Holy Flame. With the flick of a switch, this symbol becomes
+                a searing brand which an Avestite can use to brand sinners’ foreheads.
+            </en>
+            <es>Llevas un colgante con el símbolo de la Llama Sagrada. En un abrir y cerrar de ojos, el símbolo se
+                convierte en un hierro al rojo vivo con el que un avestita puede marcar las frentes de los pecadores.
+            </es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>formularyOfStKalle</id>
+        <type>item</type>
+        <name>
+            <en>Formulary of St. Kalle</en>
+            <es>Formulario de san Kalle</es>
+        </name>
+        <description>
+            <en>An approved book dedicated to dream interpretation.</en>
+            <es>Un libro aprobado dedicado a la interpretación de sueños.</es>
+        </description>
+        <restrictions>
+            <callings>
+                <calling>dreamtender</calling>
             </callings>
         </restrictions>
     </equipment>

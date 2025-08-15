@@ -30,7 +30,7 @@ public class Upbringing extends CharacterDefinitionStep<Upbringing> {
 
     private static final int TOTAL_CHARACTERISTICS_OPTIONS = 5;
     private static final int TOTAL_SKILL_OPTIONS = 5;
-    private static final int TOTAL_PERKS_OPTIONS = 1;
+    private static final int TOTAL_PERKS_OPTIONS = 2;
 
     @Override
     public int getCharacteristicsTotalPoints() {

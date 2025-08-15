@@ -133,6 +133,11 @@ public class Resistance {
             bonus += resistancesByCategory.get(ResistanceCategory.ITEM).stream().max(Comparator.comparing(Resistance::getBonus))
                     .orElse(new Resistance()).getBonus();
         }
+        //Handhandled Shields are extras.
+        if (resistancesByCategory.get(ResistanceCategory.HANDHELD_SHIELD) != null) {
+            bonus += resistancesByCategory.get(ResistanceCategory.HANDHELD_SHIELD).stream().max(Comparator.comparing(Resistance::getBonus))
+                    .orElse(new Resistance()).getBonus();
+        }
         return bonus;
     }
 
@@ -152,6 +157,12 @@ public class Resistance {
         }
         if (characterPlayer.getBestArmor() != null) {
             characterPlayer.getBestArmor().getResistances().forEach(resistance -> {
+                resistancesByCategory.computeIfAbsent(resistance.getType(), k -> new HashMap<>());
+                resistancesByCategory.get(resistance.getType()).computeIfAbsent(resistance.getCategory(), k -> new ArrayList<>()).add(resistance);
+            });
+        }
+        if (characterPlayer.getBestHandHandledShield() != null) {
+            characterPlayer.getBestHandHandledShield().getResistances().forEach(resistance -> {
                 resistancesByCategory.computeIfAbsent(resistance.getType(), k -> new HashMap<>());
                 resistancesByCategory.get(resistance.getType()).computeIfAbsent(resistance.getCategory(), k -> new ArrayList<>()).add(resistance);
             });

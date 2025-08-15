@@ -38,6 +38,7 @@ import com.softwaremagico.tm.character.equipment.Equipment;
 import com.softwaremagico.tm.character.equipment.EquipmentOption;
 import com.softwaremagico.tm.character.equipment.armors.Armor;
 import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
+import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShield;
 import com.softwaremagico.tm.character.equipment.item.Item;
 import com.softwaremagico.tm.character.equipment.shields.Shield;
 import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
@@ -602,6 +603,28 @@ public class CharacterPlayer {
             return null;
         }
         return Collections.max(shields, Comparator.comparing(Shield::getCost));
+    }
+
+    /**
+     * Gets best shield purchased and acquired with benefices.
+     *
+     * @return all weapons of the character.
+     */
+    public HandheldShield getBestHandHandledShield() {
+        final List<HandheldShield> handheldShields = getEquipment(HandheldShield.class);
+        if (handheldShields.isEmpty()) {
+            return null;
+        }
+        return Collections.max(handheldShields, Comparator.comparing(HandheldShield::getCost));
+    }
+
+    public void setPurchasedHandheldShield(HandheldShield handheldShield) throws UnofficialElementNotAllowedException {
+        if (handheldShield != null && !handheldShield.isOfficial() && getSettings().isOnlyOfficialAllowed()) {
+            throw new UnofficialElementNotAllowedException("HandheldShields shield '" + handheldShield + "' is not official and cannot be added due "
+                    + "to configuration limitations.");
+        }
+        getEquipmentPurchased(HandheldShield.class).forEach(e -> getEquipmentPurchased().remove(e));
+        getEquipmentPurchased().add(handheldShield);
     }
 
     public Shield getPurchasedShield() {

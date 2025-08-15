@@ -38,6 +38,7 @@ import java.util.List;
 public class Faction extends CharacterDefinitionStep<Faction> {
     private static final int TOTAL_CHARACTERISTICS_OPTIONS = 5;
     private static final int TOTAL_SKILL_OPTIONS = 5;
+    private static final int TOTAL_PERKS_OPTIONS = 1;
 
     private Boolean isOnlyForHuman;
     private Blessing blessing;
@@ -93,6 +94,11 @@ public class Faction extends CharacterDefinitionStep<Faction> {
     @Override
     public int getSkillsTotalPoints() {
         return TOTAL_SKILL_OPTIONS;
+    }
+
+    @Override
+    public int getTotalPerksOptions() {
+        return TOTAL_PERKS_OPTIONS;
     }
 
     @Override

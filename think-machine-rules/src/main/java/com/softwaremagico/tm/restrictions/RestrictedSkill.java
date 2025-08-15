@@ -47,4 +47,12 @@ public class RestrictedSkill {
     public void setValue(int value) {
         this.value = value;
     }
+
+    @Override
+    public String toString() {
+        return "RestrictedSkill{"
+                + "skill='" + skill + '\''
+                + ", value=" + value
+                + '}';
+    }
 }

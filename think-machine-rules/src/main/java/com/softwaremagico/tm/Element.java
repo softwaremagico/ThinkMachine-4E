@@ -297,18 +297,36 @@ public class Element extends XmlData implements Comparable<Element> {
     @Override
     public void validate() throws InvalidXmlElementException {
         if (specializations != null) {
-            specializations.forEach(Element::validate);
+            try {
+                specializations.forEach(Element::validate);
+            } catch (InvalidXmlElementException e) {
+                throw new InvalidXmlElementException("Error on '" + getId() + "'.", e);
+            }
         }
         if (restrictions != null) {
-            restrictions.validate();
+            try {
+                restrictions.validate();
+            } catch (InvalidXmlElementException e) {
+                throw new InvalidXmlElementException("Error on '" + getId() + "'.", e);
+            }
         }
         if (randomDefinition != null) {
-            randomDefinition.validate();
+            try {
+                randomDefinition.validate();
+            } catch (InvalidXmlElementException e) {
+                throw new InvalidXmlElementException("Error on '" + getId() + "'.", e);
+            }
         }
-        if (getName() == null) {
-            throw new InvalidXmlElementException("Name not set on Element.");
+        if (getName() == null && getId() != null && !getId().isEmpty()) {
+            throw new InvalidXmlElementException("Name not set on Element '" + getId() + "'.");
         }
-        getName().validate();
+        if (getName() != null) {
+            try {
+                getName().validate();
+            } catch (InvalidXmlElementException e) {
+                throw new InvalidXmlElementException("Error on item '" + getId() + "'", e);
+            }
+        }
     }
 
     public List<Resistance> getResistances() {

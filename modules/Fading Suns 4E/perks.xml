@@ -265,7 +265,6 @@
                 <calling>monkScholarlyTradition</calling>
                 <calling>monkAsceticTradition</calling>
                 <calling>monkMartialTradition</calling>
-                <group>monk</group>
             </callings>
         </restrictions>
     </perk>
@@ -415,7 +414,7 @@
         <restrictions>
             <callings>
                 <calling>inquisitor</calling>
-                <calling>BountyHunter</calling>
+                <calling>bountyHunter</calling>
             </callings>
         </restrictions>
     </perk>
@@ -736,7 +735,7 @@
         </restrictions>
     </perk>
     <perk>
-        <id>concotElixir</id>
+        <id>concoctElixir</id>
         <name>
             <en>Concot Elixir</en>
             <es>Elaborar Elixir</es>
@@ -1339,9 +1338,9 @@
             <es>Esgrima (Torero 1)</es>
         </name>
         <restrictions mode="all">
-            <perks>
+            <upbringings>
                 <upbringing>noble</upbringing>
-            </perks>
+            </upbringings>
             <capabilities>
                 <capability>militaryWeapons</capability>
             </capabilities>
@@ -2023,6 +2022,7 @@
     </perk>
     <perk>
         <id>mantok1</id>
+        <group>mantok</group>
         <name>
             <en>Mantok</en>
             <es>Mantok</es>
@@ -2096,7 +2096,7 @@
         </name>
         <restrictions mode="any">
             <factions>
-                <faction>muster</faction>
+                <faction>musters</faction>
             </factions>
             <callings>
                 <calling>bountyHunter</calling>
@@ -2205,6 +2205,19 @@
         </restrictions>
     </perk>
     <perk>
+        <id>mechanic</id>
+        <name>
+            <en>Mechanic</en>
+            <es>Mecánico</es>
+        </name>
+        <restrictions mode="all">
+            <callings>
+                <calling>starPilot</calling>
+                <calling>techRedeemer</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
         <id>mentor</id>
         <name>
             <en>Mentor</en>
@@ -2240,7 +2253,7 @@
         </name>
         <restrictions>
             <callings>
-                <calling>confesor</calling>
+                <calling>confessor</calling>
                 <calling>dreamtender</calling>
             </callings>
         </restrictions>
@@ -2265,7 +2278,9 @@
         </name>
         <restrictions>
             <callings>
-                <calling>monk</calling>
+                <calling>monkScholarlyTradition</calling>
+                <calling>monkAsceticTradition</calling>
+                <calling>monkMartialTradition</calling>
             </callings>
         </restrictions>
     </perk>
@@ -2618,7 +2633,7 @@
         </restrictions>
     </perk>
     <perk>
-        <id>reatiner</id>
+        <id>retainer</id>
         <name>
             <en>Retainer</en>
             <es>Sirviente</es>
@@ -2645,6 +2660,7 @@
     </perk>
     <perk>
         <id>riches1</id>
+        <group>riches</group>
         <name>
             <en>Riches (3000)</en>
             <es>Riqueza (3000)</es>
@@ -2659,6 +2675,7 @@
     </perk>
     <perk>
         <id>riches2</id>
+        <group>riches</group>
         <name>
             <en>Riches (5000)</en>
             <es>Riqueza (5000)</es>
@@ -2671,6 +2688,7 @@
     </perk>
     <perk>
         <id>riches3</id>
+        <group>riches</group>
         <name>
             <en>Riches (10000)</en>
             <es>Riqueza (10000)</es>
@@ -2683,6 +2701,7 @@
     </perk>
     <perk>
         <id>riches4</id>
+        <group>riches</group>
         <name>
             <en>Riches (15000)</en>
             <es>Riqueza (15000)</es>
@@ -2695,6 +2714,7 @@
     </perk>
     <perk>
         <id>riches5</id>
+        <group>riches</group>
         <name>
             <en>Riches (20000)</en>
             <es>Riqueza (20000)</es>
@@ -2733,7 +2753,7 @@
             <callings>
                 <calling>imperialCohortPriest</calling>
                 <calling>imperialCohortMerchant</calling>
-                <calling>questingKnights</calling>
+                <calling>questingKnight</calling>
             </callings>
         </restrictions>
     </perk>
@@ -2834,7 +2854,7 @@
         </name>
         <restrictions mode="any_from_group">
             <callings>
-                <calling>brotherBattler</calling>
+                <calling>brotherBattle</calling>
                 <calling>theurgist</calling>
             </callings>
             <characteristics>
@@ -2979,7 +2999,7 @@
         <id>seenTooMuch</id>
         <name>
             <en>Seen Too Much</en>
-            <es></es>
+            <es>Insensibilizado</es>
         </name>
         <restrictions>
             <callings>
@@ -3168,7 +3188,7 @@
         </restrictions>
     </perk>
     <perk>
-        <id>superficialKnowlege</id>
+        <id>superficialKnowledge</id>
         <name>
             <en>Superficial Knowledge</en>
             <es>Conocimiento Superficial</es>
@@ -3300,7 +3320,7 @@
         <id>twoGunFighting</id>
         <name>
             <en>Two-Gun Fighting</en>
-            <es></es>
+            <es>Dos Pistolas</es>
         </name>
         <restrictions mode="any">
             <upbringings>
@@ -3380,7 +3400,9 @@
         <restrictions>
             <callings>
                 <calling>mendicant</calling>
-                <calling>monk</calling>
+                <calling>monkScholarlyTradition</calling>
+                <calling>monkAsceticTradition</calling>
+                <calling>monkMartialTradition</calling>
             </callings>
         </restrictions>
     </perk>
@@ -3439,10 +3461,10 @@
                 <upbringing>priest</upbringing>
             </upbringings>
             <callings>
-                <calling>gjartin</calling>
-                <calling>incarnates</calling>
-                <calling>childrenOfZuran</calling>
                 <!-- TODO: add any sect here -->
+                <!--                <calling>gjartin</calling>-->
+                <!--                <calling>incarnates</calling>-->
+                <!--                <calling>childrenOfZuran</calling>-->
             </callings>
         </restrictions>
     </perk>
@@ -3462,7 +3484,7 @@
         </restrictions>
     </perk>
     <perk>
-        <id>wyrdKwnowledge</id>
+        <id>wyrdKnowledge</id>
         <name>
             <en>Wyrd Knwoledge</en>
             <es>Conocimiento Wyrd</es>
@@ -3632,9 +3654,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionCharioteer1</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionCharioteer1</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -3652,9 +3674,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionCharioteer2</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionCharioteer2</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -3672,9 +3694,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionCharioteer3</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionCharioteer3</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -3692,9 +3714,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionCharioteer4</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionCharioteer4</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -3712,9 +3734,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionCharioteer5</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionCharioteer5</perk>
+            </perks>
         </restrictions>
     </perk>
 
@@ -3753,9 +3775,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionEngineer1</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionEngineer1</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -3773,9 +3795,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionEngineer2</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionEngineer2</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -3793,9 +3815,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionEngineer3</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionEngineer3</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -3813,9 +3835,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionEngineer4</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionEngineer4</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -3833,9 +3855,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionEngineer5</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionEngineer5</perk>
+            </perks>
         </restrictions>
     </perk>
 
@@ -3874,9 +3896,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionMusters1</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionMusters1</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -3894,9 +3916,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionMusters2</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionMusters2</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -3914,9 +3936,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionMusters3</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionMusters3</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -3934,9 +3956,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionMusters4</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionMusters4</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -3954,9 +3976,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionMusters5</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionMusters5</perk>
+            </perks>
         </restrictions>
     </perk>
 
@@ -3995,9 +4017,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionReeves1</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionReeves1</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -4015,9 +4037,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionReeves2</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionReeves2</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -4035,9 +4057,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionReeves3</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionReeves3</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -4055,9 +4077,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionReeves4</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionReeves4</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -4075,9 +4097,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionReeves5</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionReeves5</perk>
+            </perks>
         </restrictions>
     </perk>
 
@@ -4116,9 +4138,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionScravers1</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionScravers1</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -4136,9 +4158,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionScravers2</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionScravers2</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -4156,9 +4178,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionScravers3</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionScravers3</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -4176,9 +4198,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionScravers4</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionScravers4</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -4196,9 +4218,9 @@
             </resistance>
         </resistances>
         <restrictions>
-            <callings>
-                <calling>guildCommissionScravers5</calling>
-            </callings>
+            <perks>
+                <perk>guildCommissionScravers5</perk>
+            </perks>
         </restrictions>
     </perk>
 
@@ -4439,9 +4461,9 @@
         </name>
         <group>militaryRank</group>
         <restrictions>
-            <upbringings>
-                <upbringing>militaryRank1</upbringing>
-            </upbringings>
+            <perks>
+                <perk>militaryRank1</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -4452,9 +4474,9 @@
         </name>
         <group>militaryRank</group>
         <restrictions>
-            <upbringings>
-                <upbringing>militaryRank2</upbringing>
-            </upbringings>
+            <perks>
+                <perk>militaryRank2</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -4465,9 +4487,9 @@
         </name>
         <group>militaryRank</group>
         <restrictions>
-            <upbringings>
-                <upbringing>militaryRank3</upbringing>
-            </upbringings>
+            <perks>
+                <perk>militaryRank3</perk>
+            </perks>
         </restrictions>
     </perk>
     <perk>
@@ -4478,9 +4500,9 @@
         </name>
         <group>militaryRank</group>
         <restrictions>
-            <upbringings>
-                <upbringing>militaryRank4</upbringing>
-            </upbringings>
+            <perks>
+                <perk>militaryRank4</perk>
+            </perks>
         </restrictions>
     </perk>
 
@@ -4520,12 +4542,66 @@
         </restrictions>
     </perk>
     <perk>
-        <id>cyberdevice</id>
+        <id>advisor</id>
+        <group>cyberdevice</group>
         <name>
-            <en>Cyberdevice</en>
-            <es>Ciberdispositivo</es>
+            <en>Advisor</en>
+            <es>Consejero</es>
         </name>
-        <repeatable>true</repeatable>
     </perk>
-
+    <perk>
+        <id>aimAssistance</id>
+        <group>cyberdevice</group>
+        <name>
+            <en>Aim Assitance</en>
+            <es>Puntería Asistida</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>duelist</calling>
+                <calling>pirate</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>destinator</id>
+        <group>cyberdevice</group>
+        <name>
+            <en>Destinator</en>
+            <es>Planificador de Ruta</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>explorer</calling>
+                <calling>scout</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>machineSpirit</id>
+        <group>cyberdevice</group>
+        <name>
+            <en>Machine Spirit</en>
+            <es>Espíritu Máquina</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>techRedeemer</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>memoryExpander</id>
+        <group>cyberdevice</group>
+        <name>
+            <en>Memory Expander</en>
+            <es>Extensor de Memoria</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>scholar</calling>
+                <calling>scout</calling>
+            </callings>
+        </restrictions>
+    </perk>
 </perks>

@@ -24,8 +24,13 @@ package com.softwaremagico.tm.character.equipment.handheldshield;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.character.equipment.Equipment;
 import com.softwaremagico.tm.character.equipment.IElementWithTechnologyLevel;
 
+import java.util.Set;
+
 public class HandheldShield extends Equipment implements IElementWithTechnologyLevel {
+    @JsonProperty("others")
+    private Set<String> specifications;
 }

@@ -26,13 +26,13 @@
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
+                <faction>theDispossessed</faction>
             </factions>
             <upbringings>
                 <upbringing>merchant</upbringing>
                 <upbringing>noble</upbringing>
             </upbringings>
             <callings>
-                <calling>theDispossessed</calling>
                 <calling>imperialCohortPriest</calling>
                 <calling>imperialCohortMerchant</calling>
                 <calling>mercenary</calling>
@@ -51,12 +51,12 @@
         </name>
         <restrictions>
             <factions>
-                <faction>yeoman</faction>
                 <faction>brotherBattle</faction>
             </factions>
             <upbringings>
                 <upbringing>merchant</upbringing>
                 <upbringing>noble</upbringing>
+                <upbringing>yeoman</upbringing>
             </upbringings>
             <callings>
                 <calling>amateur</calling>
@@ -345,6 +345,7 @@
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
+                <faction>theDispossessed</faction>
             </factions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -353,7 +354,6 @@
             <callings>
                 <calling>mercenary</calling>
                 <calling>scout</calling>
-                <calling>theDispossessed</calling>
             </callings>
         </restrictions>
     </capability>
@@ -1039,7 +1039,10 @@
                 </name>
                 <restrictions>
                     <capabilities>
-                        <capability>urthish</capability>
+                        <capability>
+                            <id>read</id>
+                            <selectedSpecialization>urthish</selectedSpecialization>
+                        </capability>
                     </capabilities>
                 </restrictions>
             </selectedSpecialization>
@@ -1208,13 +1211,13 @@
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
+                <faction>theDispossessed</faction>
             </factions>
             <upbringings>
                 <upbringing>noble</upbringing>
                 <upbringing>merchant</upbringing>
             </upbringings>
             <callings>
-                <calling>theDispossessed</calling>
                 <calling>mercenary</calling>
                 <calling>scout</calling>
             </callings>
@@ -1314,16 +1317,16 @@
             <en>Surgery Lore</en>
             <es>Saber Cirugía</es>
         </name>
-        <restrictions>
+        <restrictions mode="any">
             <upbringings>
                 <upbringing>priest</upbringing>
+                <upbringing>merchant</upbringing>
             </upbringings>
             <callings>
-                <calling>merchant</calling>
                 <calling>chainer</calling>
                 <calling>enthusiast</calling>
                 <calling>healer</calling>
-                <calling>questingKing</calling>
+                <calling>questingKnight</calling>
                 <calling>scholar</calling>
             </callings>
         </restrictions>
@@ -1419,7 +1422,7 @@
             <en>Artificial Intelligence</en>
             <es>Inteligencia Artificial</es>
         </name>
-        <restrictions>
+        <restrictions mode="any_character_definition">
             <upbringings>
                 <upbringing>merchant</upbringing>
             </upbringings>
@@ -1430,7 +1433,7 @@
                 <calling>techRedeemer</calling>
             </callings>
             <capabilities>
-                <capability>thinkMachine</capability>
+                <capability>thinkMachines</capability>
             </capabilities>
         </restrictions>
     </capability>

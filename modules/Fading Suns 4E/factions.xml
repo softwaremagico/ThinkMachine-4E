@@ -164,18 +164,20 @@
             </skillBonusOption>
             <skillBonusOption>
                 <total>1</total>
-                <skill>
-                    <id>melee</id>
-                    <bonus>1</bonus>
-                </skill>
-                <skill>
-                    <id>shoot</id>
-                    <bonus>1</bonus>
-                </skill>
-                <skill>
-                    <id>techRedemption</id>
-                    <bonus>1</bonus>
-                </skill>
+                <options>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>techRedemption</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
             </skillBonusOption>
         </skills>
         <blessing>
@@ -712,11 +714,11 @@
                 <options>
                     <skill>
                         <id>charm</id>
-                        <bonus>1</bonus>
+                        <bonus>2</bonus>
                     </skill>
                     <skill>
                         <id>impress</id>
-                        <bonus>1</bonus>
+                        <bonus>2</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
@@ -1314,9 +1316,9 @@
             </materialAwardOption>
         </materialAwards>
         <restrictions>
-            <upbringings>
-                <upbringing>courtier</upbringing>
-            </upbringings>
+            <callings>
+                <calling>courtier</calling>
+            </callings>
         </restrictions>
         <random>
             <names>
@@ -1572,7 +1574,7 @@
                     <capability>
                         <id>factionLore</id>
                         <selectedSpecialization>
-                            <id>eskatonic</id>
+                            <id>eskatonics</id>
                         </selectedSpecialization>
                     </capability>
                 </options>
@@ -1587,7 +1589,8 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <id>latin</id>
+                        <id>read</id>
+                        <selectedSpecialization>latin</selectedSpecialization>
                     </capability>
                     <capability>
                         <group>knowledgeLore</group>
@@ -2169,15 +2172,15 @@
             </description>
         </curse>
         <favoredCallings>
-            <calling>Inquisitor</calling>
+            <calling>inquisitor</calling>
         </favoredCallings>
         <materialAwards>
             <materialAwardOption>
                 <total>1</total>
                 <options>
                     <item>
-                        <id></id>
-                        <type></type>
+                        <id>avestitePendant</id>
+                        <type>item</type>
                     </item>
                 </options>
             </materialAwardOption>
@@ -2493,7 +2496,7 @@
                 <total>1</total>
                 <options>
                     <perk>
-                        <id>guildCommissionEnsign</id>
+                        <group>guildCommission</group>
                     </perk>
                 </options>
                 <openPerks>false</openPerks>
@@ -2518,6 +2521,15 @@
                     </skill>
                     <skill>
                         <id>focus</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>interface</id>
                         <bonus>1</bonus>
                     </skill>
                 </options>
@@ -2671,7 +2683,7 @@
                 <total>1</total>
                 <options>
                     <perk>
-                        <id>guildCommissionApprentice</id>
+                        <group>guildCommission</group>
                     </perk>
                 </options>
                 <openPerks>false</openPerks>
@@ -2746,7 +2758,7 @@
             </description>
         </curse>
         <favoredCallings>
-            <calling>techRedemeer</calling>
+            <calling>techRedeemer</calling>
         </favoredCallings>
         <materialAwards>
             <materialAwardOption>
@@ -3043,7 +3055,7 @@
                 <total>1</total>
                 <options>
                     <perk>
-                        <id>guildCommissionAssociate</id>
+                        <group>guildCommission</group>
                     </perk>
                 </options>
                 <openPerks>false</openPerks>
@@ -3238,7 +3250,7 @@
                 <total>1</total>
                 <options>
                     <perk>
-                        <id>guildCommissionAssociate</id>
+                        <group>guildCommission</group>
                     </perk>
                 </options>
                 <openPerks>false</openPerks>
@@ -3378,15 +3390,9 @@
                 <options>
                     <capability>
                         <id>combatArmor</id>
-                        <selectedSpecialization>
-                            <id></id>
-                        </selectedSpecialization>
                     </capability>
                     <capability>
                         <id>warArmor</id>
-                        <selectedSpecialization>
-                            <id></id>
-                        </selectedSpecialization>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -3395,21 +3401,12 @@
                 <options>
                     <capability>
                         <id>artillery</id>
-                        <selectedSpecialization>
-                            <id></id>
-                        </selectedSpecialization>
                     </capability>
                     <capability>
                         <id>demolitions</id>
-                        <selectedSpecialization>
-                            <id></id>
-                        </selectedSpecialization>
                     </capability>
                     <capability>
                         <id>gunnery</id>
-                        <selectedSpecialization>
-                            <id></id>
-                        </selectedSpecialization>
                     </capability>
                 </options>
             </capabilitiesOption>

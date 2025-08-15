@@ -47,4 +47,12 @@ public class RestrictedCharacteristic {
     public void setValue(int value) {
         this.value = value;
     }
+
+    @Override
+    public String toString() {
+        return "RestrictedCharacteristic{"
+                + "characteristic='" + characteristic + '\''
+                + ", value=" + value
+                + '}';
+    }
 }

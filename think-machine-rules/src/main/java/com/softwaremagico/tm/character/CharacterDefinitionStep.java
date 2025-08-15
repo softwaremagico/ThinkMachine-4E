@@ -159,27 +159,52 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
         super.validate();
 
         if (capabilityOptions != null) {
-            capabilityOptions.forEach(CapabilityOptions::validate);
+            try {
+                capabilityOptions.forEach(CapabilityOptions::validate);
+            } catch (InvalidXmlElementException e) {
+                throw new InvalidXmlElementException("Error on capability option in '" + getId() + "'.", e);
+            }
         }
         if (characteristicBonusOptions != null) {
-            characteristicBonusOptions.forEach(OptionSelector::validate);
+            try {
+                characteristicBonusOptions.forEach(OptionSelector::validate);
+            } catch (InvalidXmlElementException e) {
+                throw new InvalidXmlElementException("Error on characteristic option in '" + getId() + "'.", e);
+            }
         }
         if (skillBonusOptions != null) {
-            skillBonusOptions.forEach(OptionSelector::validate);
+            try {
+                skillBonusOptions.forEach(OptionSelector::validate);
+            } catch (InvalidXmlElementException e) {
+                throw new InvalidXmlElementException("Error on skill option in '" + getId() + "'.", e);
+            }
         }
         if (perksOptions != null) {
-            perksOptions.forEach(OptionSelector::validate);
+            try {
+                perksOptions.forEach(OptionSelector::validate);
+            } catch (InvalidXmlElementException e) {
+                throw new InvalidXmlElementException("Error on perk option in '" + getId() + "'.", e);
+            }
         }
         if (materialAwards != null) {
-            materialAwards.forEach(EquipmentOptions::validate);
+            try {
+                materialAwards.forEach(EquipmentOptions::validate);
+            } catch (InvalidXmlElementException e) {
+                throw new InvalidXmlElementException("Error on material awards options in '" + getId() + "'.", e);
+            }
         }
 
         int totalCharacteristicsPoints = 0;
         for (CharacteristicBonusOptions characteristicBonusOptions : getCharacteristicOptions()) {
-            totalCharacteristicsPoints += characteristicBonusOptions.getTotalOptions() * characteristicBonusOptions.getOptions().get(0).getBonus();
+            if (characteristicBonusOptions.getOptions().get(0).getElement() == null
+                    || characteristicBonusOptions.getOptions().get(0).getElement().getType() == null
+                    || !characteristicBonusOptions.getOptions().get(0).isExtra()) {
+                totalCharacteristicsPoints += characteristicBonusOptions.getTotalOptions() * characteristicBonusOptions.getOptions().get(0).getBonus();
+            }
         }
         if (totalCharacteristicsPoints != getCharacteristicsTotalPoints()) {
-            throw new InvalidXmlElementException("Element '" + getId() + "' has more than '" + getCharacteristicsTotalPoints() + "' characteristics options. "
+            throw new InvalidXmlElementException("Element '" + getId() + "' has invalid number of characteristics options: '"
+                    + getCharacteristicsTotalPoints() + "'. "
                     + "Currently has '" + totalCharacteristicsPoints + "' characteristic points.");
         }
 
@@ -203,8 +228,8 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
             totalSkillPoints += skillBonusOptions.getTotalOptions() * skillBonusOptions.getOptions().get(0).getBonus();
         }
         if (totalSkillPoints != getSkillsTotalPoints()) {
-            throw new InvalidXmlElementException("Element '" + getId() + "' has more than " + getSkillsTotalPoints() + " skill options. "
-                    + "Currently has '" + totalSkillPoints + "' skill points.");
+            throw new InvalidXmlElementException("Element '" + getId() + "' has invalid skill options: '" + getSkillsTotalPoints()
+                    + "'. Currently has '" + totalSkillPoints + "' skill points.");
         }
 
         //All options, same bonus.
@@ -215,13 +240,14 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
                     bonus = skillBonusOption.getBonus();
                 } else {
                     if (bonus != skillBonusOption.getBonus()) {
-                        throw new InvalidXmlElementException("Skill bonus is invalid on '" + this + "' ");
+                        throw new InvalidXmlElementException("Skill bonus is invalid on '" + this + "' on skill '" + skillBonusOption.getId() + "' ");
                     }
                 }
             }
         }
         if (perksOptions.size() != getTotalPerksOptions()) {
-            throw new InvalidXmlElementException("Element must have '" + getTotalPerksOptions() + "' perks options.");
+            throw new InvalidXmlElementException("Element '" + getId() + "' must have '" + getTotalPerksOptions() + "' perks options."
+                    + " Now have '" + perksOptions.size() + "'.");
         }
 
         //Mercurian has 3!

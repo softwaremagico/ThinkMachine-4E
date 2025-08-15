@@ -92,7 +92,7 @@
                         <group>martialArts</group>
                     </perk>
                     <perk>
-                        <id>militaryRank</id>
+                        <group>militaryRank</group>
                     </perk>
                     <perk>
                         <id>strategicMind</id>
@@ -164,7 +164,7 @@
                 <options>
                     <skill>
                         <id>vigor</id>
-                        <bonus>1</bonus>
+                        <bonus>2</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
@@ -627,6 +627,7 @@
                     <characteristic>
                         <id>psi</id>
                         <bonus>1</bonus>
+                        <extra>true</extra>
                     </characteristic>
                 </options>
             </characteristicBonusOptions>
@@ -1677,7 +1678,7 @@
                 <options>
                     <characteristic>
                         <id>wits</id>
-                        <bonus>1</bonus>
+                        <bonus>2</bonus>
                     </characteristic>
                 </options>
             </characteristicBonusOptions>
@@ -1876,7 +1877,7 @@
                         <id>learningFromMistakes</id>
                     </perk>
                     <perk>
-                        <id>loyalists</id>
+                        <id>loyalist</id>
                     </perk>
                     <perk>
                         <id>mentor</id>
@@ -1924,6 +1925,23 @@
             </skillBonusOption>
             <skillBonusOption>
                 <total>5</total>
+                <options>
+                    <skill>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
             </skillBonusOption>
         </skills>
         <materialAwards>
@@ -2161,11 +2179,6 @@
                         <id>faith</id>
                         <bonus>2</bonus>
                     </characteristic>
-                </options>
-            </characteristicBonusOptions>
-            <characteristicBonusOptions>
-                <total>1</total>
-                <options>
                     <characteristic>
                         <id>will</id>
                         <bonus>2</bonus>
@@ -2228,11 +2241,11 @@
                 <options>
                     <skill>
                         <id>fight</id>
-                        <bonus>2</bonus>
+                        <bonus>1</bonus>
                     </skill>
                     <skill>
                         <id>melee</id>
-                        <bonus>2</bonus>
+                        <bonus>1</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
@@ -2420,11 +2433,11 @@
                 <options>
                     <skill>
                         <id>empathy</id>
-                        <bonus>2</bonus>
+                        <bonus>1</bonus>
                     </skill>
                     <skill>
                         <id>observe</id>
-                        <bonus>2</bonus>
+                        <bonus>1</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
@@ -2589,13 +2602,13 @@
                         <id>livingLegend</id>
                     </perk>
                     <perk>
-                        <id>militaryRank</id>
+                        <group>militaryRank</group>
                     </perk>
                     <perk>
                         <id>nothingToLose</id>
                     </perk>
                     <perk>
-                        <id>seenToMuch</id>
+                        <id>seenTooMuch</id>
                     </perk>
                     <perk>
                         <id>troubleMagnet</id>
@@ -2792,40 +2805,20 @@
                 </options>
             </skillBonusOption>
             <skillBonusOption>
-                <total>1</total>
+                <total>5</total>
                 <options>
                     <skill>
                         <bonus>1</bonus>
                     </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
                     <skill>
                         <bonus>1</bonus>
                     </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
                     <skill>
                         <bonus>1</bonus>
                     </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
                     <skill>
                         <bonus>1</bonus>
                     </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
                     <skill>
                         <bonus>1</bonus>
                     </skill>
@@ -3154,7 +3147,7 @@
                         <id>armedToTheTeeth</id>
                     </perk>
                     <perk>
-                        <id>battleSense</id>
+                        <id>battlesense</id>
                     </perk>
                     <perk>
                         <id>bornOnTheBattlefield</id>
@@ -3166,7 +3159,7 @@
                         <id>imbueTabernacle</id>
                     </perk>
                     <perk>
-                        <id>mantok</id>
+                        <group>mantok</group>
                     </perk>
                     <perk>
                         <id>mentalConditioning</id>
@@ -3175,7 +3168,7 @@
                         <id>resilient</id>
                     </perk>
                     <perk>
-                        <id>steadFast</id>
+                        <id>steadfast</id>
                     </perk>
                     <perk>
                         <id>theurgicRites</id>
@@ -3246,7 +3239,7 @@
                 <options>
                     <skill>
                         <id>vigor</id>
-                        <bonus>2</bonus>
+                        <bonus>1</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
@@ -3312,7 +3305,7 @@
                 <options>
                     <characteristic>
                         <id>intuition</id>
-                        <bonus>1</bonus>
+                        <bonus>2</bonus>
                     </characteristic>
                 </options>
             </characteristicBonusOptions>
@@ -3321,7 +3314,7 @@
                 <options>
                     <characteristic>
                         <id>presence</id>
-                        <bonus>1</bonus>
+                        <bonus>2</bonus>
                     </characteristic>
                 </options>
             </characteristicBonusOptions>
@@ -3534,7 +3527,7 @@
                     </skill>
                     <skill>
                         <id>knavery</id>
-                        <bonus>2</bonus>
+                        <bonus>1</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
@@ -3709,22 +3702,47 @@
                         <id>charm</id>
                         <bonus>2</bonus>
                     </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
                     <skill>
                         <id>empathy</id>
                         <bonus>3</bonus>
                     </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
                     <skill>
                         <id>focus</id>
                         <bonus>1</bonus>
                     </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
                     <skill>
                         <id>impress</id>
                         <bonus>1</bonus>
                     </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
                     <skill>
                         <id>observe</id>
                         <bonus>2</bonus>
                     </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
                     <skill>
                         <id>remedy</id>
                         <bonus>1</bonus>
@@ -3914,15 +3932,6 @@
                     </skill>
                 </options>
             </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>academia</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
         </skills>
         <materialAwards>
             <materialAwardOption>
@@ -3989,8 +3998,30 @@
                 <total>1</total>
                 <options>
                     <characteristic>
-                        <id></id>
+                        <id>faith</id>
                         <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>endurance</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>intuition</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>presence</id>
+                        <bonus>3</bonus>
                     </characteristic>
                 </options>
             </characteristicBonusOptions>
@@ -4000,32 +4031,19 @@
                 <total>1</total>
                 <options>
                     <perk>
-                        <id>faith</id>
-                        <bonus>1</bonus>
+                        <id>armorOfSanctity</id>
                     </perk>
-                </options>
-                <options>
                     <perk>
-                        <id>endurance</id>
-                        <bonus>1</bonus>
+                        <id>layPriest</id>
                     </perk>
-                </options>
-            </perkOptions>
-            <perkOptions>
-                <total>1</total>
-                <options>
                     <perk>
-                        <id>intuition</id>
-                        <bonus>1</bonus>
+                        <id>peasantHero</id>
                     </perk>
-                </options>
-            </perkOptions>
-            <perkOptions>
-                <total>1</total>
-                <options>
                     <perk>
-                        <id>presence</id>
-                        <bonus>3</bonus>
+                        <id>shepherdOfTheFlock</id>
+                    </perk>
+                    <perk>
+                        <id>tendTheFlock</id>
                     </perk>
                 </options>
             </perkOptions>
@@ -4039,7 +4057,7 @@
                         <bonus>1</bonus>
                     </skill>
                     <skill>
-                        <id>craft</id>
+                        <id>crafts</id>
                         <bonus>1</bonus>
                     </skill>
                 </options>
@@ -4229,7 +4247,7 @@
                         <id>lovingPrayer</id>
                     </perk>
                     <perk>
-                        <id>militaryRank</id>
+                        <group>militaryRank</group>
                     </perk>
                     <perk>
                         <id>peasantHero</id>
@@ -4425,13 +4443,13 @@
                         <id>imperialCohortCharter</id>
                     </perk>
                     <perk>
-                        <id>learningFromMistake</id>
+                        <id>learningFromMistakes</id>
                     </perk>
                     <perk>
                         <id>marksmanship</id>
                     </perk>
                     <perk>
-                        <id>martialArts</id>
+                        <group>martialArts</group>
                     </perk>
                     <perk>
                         <id>riseFromTheAshes</id>
@@ -4889,6 +4907,9 @@
                         <bonus>2</bonus>
                     </skill>
                 </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
                 <options>
                     <skill>
                         <id>drive</id>
@@ -4899,6 +4920,9 @@
                         <bonus>1</bonus>
                     </skill>
                 </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
                 <options>
                     <skill>
                         <id>empathy</id>
@@ -4909,6 +4933,9 @@
                         <bonus>1</bonus>
                     </skill>
                 </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
                 <options>
                     <skill>
                         <id>fight</id>
@@ -4923,12 +4950,18 @@
                         <bonus>2</bonus>
                     </skill>
                 </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
                 <options>
                     <skill>
                         <id>perform</id>
                         <bonus>2</bonus>
                     </skill>
                 </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
                 <options>
                     <skill>
                         <id>vigor</id>
@@ -5419,7 +5452,7 @@
                         <bonus>2</bonus>
                     </skill>
                     <skill>
-                        <id>craft</id>
+                        <id>crafts</id>
                         <bonus>2</bonus>
                     </skill>
                 </options>
@@ -5524,7 +5557,7 @@
                 <options>
                     <characteristic>
                         <id>wits</id>
-                        <bonus>2</bonus>
+                        <bonus>1</bonus>
                     </characteristic>
                 </options>
             </characteristicBonusOptions>
@@ -5546,7 +5579,7 @@
                         <id>enlightened</id>
                     </perk>
                     <perk>
-                        <id>scentOftheWitch</id>
+                        <id>scentOfTheWitch</id>
                     </perk>
                     <perk>
                         <id>wyrdKnowledge</id>
@@ -5664,14 +5697,12 @@
                         <id>speak</id>
                         <selectedSpecialization>latin</selectedSpecialization>
                     </capability>
-                    <options>
-                        <capability>
-                            <group>commonCustom</group>
-                        </capability>
-                        <capability>
-                            <group>courtCustom</group>
-                        </capability>
-                    </options>
+                    <capability>
+                        <group>commonCustom</group>
+                    </capability>
+                    <capability>
+                        <group>courtCustom</group>
+                    </capability>
                 </options>
             </capabilitiesOption>
         </capabilities>
@@ -5719,10 +5750,10 @@
                         <id>counterfeit</id>
                     </perk>
                     <perk>
-                        <id>criminalArchivesAccess</id>
+                        <id>criminalArchiveAccess</id>
                     </perk>
                     <perk>
-                        <id>Linguist</id>
+                        <id>linguistSpeak</id>
                     </perk>
                     <perk>
                         <id>perfectRecall</id>
@@ -5847,17 +5878,15 @@
             <capabilitiesOption>
                 <total>1</total>
                 <options>
-                    <options>
-                        <capability>
-                            <id>militaryWeapons</id>
-                        </capability>
-                        <capability>
-                            <id>energyGuns</id>
-                        </capability>
-                        <capability>
-                            <id>slugGuns</id>
-                        </capability>
-                    </options>
+                    <capability>
+                        <id>militaryWeapons</id>
+                    </capability>
+                    <capability>
+                        <id>energyGuns</id>
+                    </capability>
+                    <capability>
+                        <id>slugGuns</id>
+                    </capability>
                 </options>
             </capabilitiesOption>
         </capabilities>
@@ -6129,7 +6158,7 @@
                         <id>moneyManager</id>
                     </perk>
                     <perk>
-                        <id>riches</id>
+                        <group>riches</group>
                     </perk>
                     <perk>
                         <id>savings</id>
@@ -6339,7 +6368,7 @@
                         <id>bloodHound</id>
                     </perk>
                     <perk>
-                        <id>criminalDatabaseAccess</id>
+                        <id>criminalArchiveAccess</id>
                     </perk>
                     <perk>
                         <id>huntersCred</id>
@@ -6933,13 +6962,13 @@
                         <id>imperialCohortCharter</id>
                     </perk>
                     <perk>
-                        <id>learningFromMistake</id>
+                        <id>learningFromMistakes</id>
                     </perk>
                     <perk>
                         <id>marksmanship</id>
                     </perk>
                     <perk>
-                        <id>martialArts</id>
+                        <group>martialArts</group>
                     </perk>
                     <perk>
                         <id>riseFromTheAshes</id>
@@ -7254,7 +7283,7 @@
                         <group>warArmor</group>
                     </capability>
                     <capability>
-                        <id>militaryOrdnance</id>
+                        <group>militaryOrdnance</group>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -7322,7 +7351,7 @@
                         <group>martialArts</group>
                     </perk>
                     <perk>
-                        <id>militaryRank</id>
+                        <group>militaryRank</group>
                     </perk>
                     <perk>
                         <id>resilient</id>
@@ -7753,7 +7782,7 @@
                         <id>animalFriend</id>
                     </perk>
                     <perk>
-                        <id>chamaleon</id>
+                        <id>chameleon</id>
                     </perk>
                     <perk>
                         <id>destinator</id>
@@ -7765,7 +7794,7 @@
                         <id>memoryExpander</id>
                     </perk>
                     <perk>
-                        <id>militaryRank</id>
+                        <group>militaryRank</group>
                     </perk>
                     <perk>
                         <id>oriented</id>
@@ -7894,7 +7923,7 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <id>thinkMachine</id>
+                        <id>thinkMachines</id>
                     </capability>
                     <capability>
                         <id>spacecraft</id>
@@ -7942,7 +7971,7 @@
                         <id>mechanic</id>
                     </perk>
                     <perk>
-                        <id>militaryRank</id>
+                        <group>militaryRank</group>
                     </perk>
                     <perk>
                         <id>riskTaker</id>
@@ -8071,7 +8100,7 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <id>thinkMachine</id>
+                        <id>thinkMachines</id>
                     </capability>
                     <capability>
                         <group>craft</group>
@@ -8538,7 +8567,7 @@
                 <total>1</total>
                 <options>
                     <perk>
-                        <id>emabargo</id>
+                        <id>embargo</id>
                     </perk>
                     <perk>
                         <id>gambler</id>
@@ -8547,7 +8576,7 @@
                         <id>incomeTax</id>
                     </perk>
                     <perk>
-                        <id>riches</id>
+                        <group>riches</group>
                     </perk>
                     <perk>
                         <id>savings</id>
@@ -8756,7 +8785,7 @@
                         <id>longCon</id>
                     </perk>
                     <perk>
-                        <id>riches</id>
+                        <group>riches</group>
                     </perk>
                     <perk>
                         <id>swimmingWithSharks</id>
@@ -8791,12 +8820,12 @@
                 <total>1</total>
                 <options>
                     <skill>
-                        <id>craft</id>
-                        <bonus>2</bonus>
+                        <id>crafts</id>
+                        <bonus>1</bonus>
                     </skill>
                     <skill>
                         <id>techRedemption</id>
-                        <bonus>2</bonus>
+                        <bonus>1</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
@@ -8876,7 +8905,44 @@
         </capabilities>
         <characteristics>
             <characteristicBonusOptions>
-                <total>5</total>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
             </characteristicBonusOptions>
         </characteristics>
         <perks>
@@ -8904,6 +8970,11 @@
         <skills>
             <skillBonusOption>
                 <total>10</total>
+                <options>
+                    <skill>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
             </skillBonusOption>
         </skills>
         <materialAwards>
@@ -8982,7 +9053,7 @@
                 <total>1</total>
                 <options>
                     <perk>
-                        <id>catsBurglarsEye</id>
+                        <id>catBurglarsEye</id>
                     </perk>
                     <perk>
                         <id>contortionist</id>
@@ -9555,7 +9626,7 @@
                 <total>1</total>
                 <options>
                     <characteristic>
-                        <id>intutition</id>
+                        <id>intuition</id>
                         <bonus>1</bonus>
                     </characteristic>
                 </options>
@@ -10373,7 +10444,7 @@
                         <id>epiphany</id>
                     </perk>
                     <perk>
-                        <id>linguist</id>
+                        <id>linguistSpeak</id>
                     </perk>
                     <perk>
                         <id>memoryExpander</id>
@@ -10405,7 +10476,7 @@
                         <bonus>1</bonus>
                     </skill>
                     <skill>
-                        <id>carft</id>
+                        <id>crafts</id>
                         <bonus>1</bonus>
                     </skill>
                 </options>
@@ -10627,7 +10698,7 @@
                         <id>investPhylactery</id>
                     </perk>
                     <perk>
-                        <id>SanctifyArmsAndArmor</id>
+                        <id>sanctifyArmsAndArmor</id>
                     </perk>
                     <perk>
                         <id>scentOfTheWitch</id>

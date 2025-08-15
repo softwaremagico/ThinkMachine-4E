@@ -38,7 +38,7 @@
                 <include name="techCompulsionFactory"/>
                 <include name="timeFactory"/>
                 <include name="cyberdevicesFactory"/>
-                <exclude name="factoryValidation"/>
+                <include name="factoryValidation"/>
                 <include name="characterRules"/>
                 <include name="psychicCreation"/>
                 <include name="freeOptionsSelectionTest"/>

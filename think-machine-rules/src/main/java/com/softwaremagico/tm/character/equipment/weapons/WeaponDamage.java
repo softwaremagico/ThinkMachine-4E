@@ -55,6 +55,8 @@ public class WeaponDamage {
     private final String range;
     private final String shots;
     private final String rate;
+    @JsonProperty("type")
+    private final String damageType;
     @JsonProperty("damageSize")
     private final Size size;
 
@@ -68,15 +70,15 @@ public class WeaponDamage {
     private transient String areaWithoutDamage = null;
 
     protected WeaponDamage() {
-        this(null, null, "", "", 0, "", "0", "", null, null, null, null);
+        this(null, null, "", "", null, 0, "", "0", "", null, null, null, null);
     }
 
     public WeaponDamage(String goal, String damage, Integer strength, String range, String shots, String rate,
                         String characteristic, String skill) {
-        this(null, null, goal, damage, strength, range, shots, rate, characteristic, skill, null, null);
+        this(null, null, goal, damage, null, strength, range, shots, rate, characteristic, skill, null, null);
     }
 
-    public WeaponDamage(TranslatedText name, Integer damageTechLevel, String goal, String damage, Integer strength, String range, String shots, String rate,
+    public WeaponDamage(TranslatedText name, Integer damageTechLevel, String goal, String damage, String damageType, Integer strength, String range, String shots, String rate,
                         String characteristic, String skill, Size damageSize, Integer extraCost) {
         this.name = name;
         this.goal = goal;
@@ -86,6 +88,7 @@ public class WeaponDamage {
         this.shots = shots;
         this.rate = rate;
         this.damage = damage;
+        this.damageType = damageType;
         this.characteristic = characteristic;
         this.skill = skill;
         if (extraCost == null) {

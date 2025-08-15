@@ -158,9 +158,9 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
         super.validate();
         if (getOptions() != null) {
             getOptions().forEach(option -> {
-                if (option.getId() != null) {
+                if (option.getId() != null && !option.getId().isEmpty()) {
                     if (option.getElement(option.getId()) == null) {
-                        throw new InvalidXmlElementException("Option with id " + option.getId() + " does not exist");
+                        throw new InvalidXmlElementException("Option with id '" + option.getId() + "' does not exist");
                     }
                 }
             });

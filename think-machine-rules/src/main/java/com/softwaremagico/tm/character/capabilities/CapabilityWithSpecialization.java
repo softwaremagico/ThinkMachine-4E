@@ -26,11 +26,12 @@ package com.softwaremagico.tm.character.capabilities;
 
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.skills.Specialization;
+import com.softwaremagico.tm.restrictions.IComparableRestriction;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CapabilityWithSpecialization extends Capability {
+public class CapabilityWithSpecialization extends Capability implements IComparableRestriction {
     private Specialization specialization;
 
     public CapabilityWithSpecialization() {
@@ -72,5 +73,10 @@ public class CapabilityWithSpecialization extends Capability {
             return getName().getTranslatedText() + (getSpecialization() != null ? " (" + getSpecialization().getNameRepresentation() + ")" : "");
         }
         return "";
+    }
+
+    @Override
+    public String getComparisonId() {
+        return getId() + (getSpecialization() != null ? "_" + getSpecialization() : "");
     }
 }

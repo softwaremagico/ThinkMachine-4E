@@ -27,5 +27,6 @@ package com.softwaremagico.tm.restrictions;
 public enum RestrictionMode {
     ANY,
     ANY_FROM_GROUP,
+    ANY_CHARACTER_DEFINITION,
     ALL;
 }
