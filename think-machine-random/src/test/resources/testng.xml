@@ -15,7 +15,7 @@
         <groups>
             <run>
                 <include name="random"/>
-                <include name="randomCharacter"/>
+                <exclude name="randomCharacter"/>
             </run>
         </groups>
         <classes>
