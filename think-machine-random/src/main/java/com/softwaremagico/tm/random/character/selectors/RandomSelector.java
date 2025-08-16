@@ -208,14 +208,9 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             }
 
             int weight = getWeight(element);
-            weight = (int) ((weight) * getRandomDefinitionBonus(element));
+            weight = (int) ((weight) * getUserPreferenceBonus(element));
             if (weight > 0) {
-                // Some probabilities are defined directly.
-                if (element.getRandomDefinition().getStaticProbability() != null) {
-                    weight = element.getRandomDefinition().getStaticProbability();
-                }
-
-                // Suggested ones.
+                // Suggested ones by default profiles.
                 if (suggestedElements != null && suggestedElements.contains(element)) {
                     weight *= GOOD_PROBABILITY;
                 }
@@ -226,11 +221,11 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         }
     }
 
-    private double getRandomDefinitionBonus(Element element) {
-        return getRandomDefinitionBonus(element.getRandomDefinition());
+    private double getUserPreferenceBonus(Element element) {
+        return getUserPreferenceBonus(element.getRandomDefinition());
     }
 
-    protected double getRandomDefinitionBonus(RandomElementDefinition randomDefinition) {
+    protected double getUserPreferenceBonus(RandomElementDefinition randomDefinition) {
         double multiplier = 1d;
 
         if (randomDefinition == null) {
@@ -351,6 +346,10 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
      * @return weight as integer
      */
     protected int getWeight(Element element) throws InvalidRandomElementSelectedException {
+        // Some probabilities are defined directly.
+        if (element.getRandomDefinition().getStaticProbability() != null) {
+            return element.getRandomDefinition().getStaticProbability();
+        }
         return BASIC_PROBABILITY;
     }
 

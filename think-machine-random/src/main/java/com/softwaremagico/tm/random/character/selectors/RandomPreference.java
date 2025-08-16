@@ -32,7 +32,12 @@ public enum RandomPreference {
     HI_TECH,
     RICH,
     POOR,
+    NO_OCCULTIST,
     PSI,
     THEURGY,
-    HIGH_RANK;
+    HIGH_RANK,
+    GOOD,
+    EVIL,
+    SPECIALIZED,
+    GENERALIZED;
 }

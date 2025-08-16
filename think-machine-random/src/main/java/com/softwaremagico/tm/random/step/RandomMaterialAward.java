@@ -49,9 +49,4 @@ public class RandomMaterialAward extends RandomSelector<Equipment> {
     protected Collection<Equipment> getAllElements() throws InvalidXmlElementException {
         return equipmentOptions.getOptions().stream().map(Option::getElement).toList();
     }
-
-    @Override
-    protected int getWeight(Equipment element) {
-        return BASIC_PROBABILITY;
-    }
 }

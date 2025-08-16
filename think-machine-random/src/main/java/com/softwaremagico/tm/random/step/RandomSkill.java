@@ -49,9 +49,4 @@ public class RandomSkill extends RandomSelector<Skill> {
     protected Collection<Skill> getAllElements() throws InvalidXmlElementException {
         return skillOptions.getOptions().stream().map(Option::getElement).toList();
     }
-
-    @Override
-    protected int getWeight(Skill element) {
-        return BASIC_PROBABILITY;
-    }
 }

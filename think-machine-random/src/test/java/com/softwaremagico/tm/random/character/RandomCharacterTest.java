@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.random;
+package com.softwaremagico.tm.random.character;
 
 /*-
  * #%L
@@ -27,7 +27,6 @@ package com.softwaremagico.tm.random;
 
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Gender;
-import com.softwaremagico.tm.random.character.RandomizeCharacter;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import org.testng.Assert;
 import org.testng.annotations.Test;

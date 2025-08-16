@@ -27,7 +27,7 @@ package com.softwaremagico.tm.random.character;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Gender;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
-import com.softwaremagico.tm.random.step.RandomCharacteristics;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.factions.RandomFaction;
 import com.softwaremagico.tm.random.character.names.RandomName;
 import com.softwaremagico.tm.random.character.names.RandomSurname;
@@ -36,6 +36,7 @@ import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.character.species.RandomSpecie;
 import com.softwaremagico.tm.random.character.upbringings.RandomUpbringing;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
+import com.softwaremagico.tm.random.step.RandomCharacteristics;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -60,13 +61,17 @@ public class RandomizeCharacter {
 
 
     public void createCharacter() throws InvalidRandomElementSelectedException {
-        selectSpecie();
-        selectGender();
-        selectPrimaryCharacteristics();
-        selectUpbringing();
-        selectFaction();
-        selectPlanet();
-        selectNames();
+        try {
+            selectSpecie();
+            selectGender();
+            selectPrimaryCharacteristics();
+            selectUpbringing();
+            selectFaction();
+            selectPlanet();
+            selectNames();
+        } catch (InvalidXmlElementException e) {
+            throw new InvalidXmlElementException("Error on '" + characterPlayer + "'.", e);
+        }
     }
 
     private void selectSpecie() throws InvalidRandomElementSelectedException {

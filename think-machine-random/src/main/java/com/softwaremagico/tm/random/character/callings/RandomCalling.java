@@ -64,9 +64,4 @@ public class RandomCalling extends RandomSelector<Calling> implements Assignable
     protected Collection<Calling> getAllElements() throws InvalidXmlElementException {
         return CallingFactory.getInstance().getElements();
     }
-
-    @Override
-    protected int getWeight(Calling calling) throws InvalidRandomElementSelectedException {
-        return super.getWeight(calling);
-    }
 }

@@ -15,12 +15,14 @@
         <groups>
             <run>
                 <include name="random"/>
-                <exclude name="randomCharacter"/>
+                <include name="randomCharacter"/>
+                <include name="preferences"/>
             </run>
         </groups>
         <classes>
             <class name="com.softwaremagico.tm.random.RandomTests"/>
-            <class name="com.softwaremagico.tm.random.RandomCharacterTest"/>
+            <class name="com.softwaremagico.tm.random.PreferencesTests"/>
+            <class name="com.softwaremagico.tm.random.character.RandomCharacterTest"/>
         </classes>
     </test>
 </suite>

@@ -80,7 +80,7 @@ public class RandomSurname extends RandomSelector<Surname> implements Assignable
                 && getCharacterPlayer().getFaction() != null
                 && Objects.equals(getCharacterPlayer().getFaction().getGroup(), FactionGroup.NOBILITY.toString())) {
             if (Objects.equals(surname.getFaction(), getCharacterPlayer().getFaction().getId())) {
-                return BASIC_PROBABILITY;
+                return super.getWeight(surname);
             } else {
                 throw new InvalidRandomElementSelectedException("Surname '" + surname + "' is restricted to non nobility factions.");
             }
@@ -102,7 +102,7 @@ public class RandomSurname extends RandomSelector<Surname> implements Assignable
             if (firstName.getFaction() != null && !Objects.equals(firstName.getFaction(), surname.getFaction())) {
                 return 0;
             } else {
-                return BASIC_PROBABILITY;
+                return super.getWeight(surname);
             }
         }
 
@@ -110,7 +110,7 @@ public class RandomSurname extends RandomSelector<Surname> implements Assignable
         if (getCharacterPlayer().getInfo().getPlanet() != null
                 && !PlanetFactory.getInstance().getElement(getCharacterPlayer().getInfo().getPlanet()).getSurnames().isEmpty()) {
             if (PlanetFactory.getInstance().getElement(getCharacterPlayer().getInfo().getPlanet()).getHumanFactions().contains(surname.getFaction())) {
-                return BASIC_PROBABILITY;
+                return super.getWeight(surname);
             } else {
                 throw new InvalidRandomElementSelectedException("Surname '" + surname + "' not existing in planet '"
                         + getCharacterPlayer().getInfo().getPlanet() + "'.");
@@ -123,7 +123,7 @@ public class RandomSurname extends RandomSelector<Surname> implements Assignable
             throw new InvalidRandomElementSelectedException("Surname '" + surname + "' from an invalid faction '"
                     + getCharacterPlayer().getFaction() + "'.");
         }
-        return BASIC_PROBABILITY;
+        return super.getWeight(surname);
     }
 
 }

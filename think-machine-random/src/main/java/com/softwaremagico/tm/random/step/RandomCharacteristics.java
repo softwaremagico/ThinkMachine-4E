@@ -58,7 +58,7 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
     }
 
     @Override
-    protected int getWeight(CharacteristicDefinition element) {
+    protected int getWeight(CharacteristicDefinition element) throws InvalidRandomElementSelectedException {
         if (element.getType() == CharacteristicType.OTHERS || element.getType() == CharacteristicType.OCCULTISM) {
             return 0;
         }
@@ -67,7 +67,7 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
         } else if (Objects.equals(getCharacterPlayer().getSecondaryCharacteristic(), element.getId())) {
             return LITTLE_PROBABILITY;
         }
-        return BASIC_PROBABILITY;
+        return super.getWeight(element);
     }
 
 

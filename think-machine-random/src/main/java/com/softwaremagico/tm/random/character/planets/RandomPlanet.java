@@ -62,7 +62,7 @@ public class RandomPlanet extends RandomSelector<Planet> implements AssignableRa
     }
 
     @Override
-    protected int getWeight(Planet planet) {
+    protected int getWeight(Planet planet) throws InvalidRandomElementSelectedException {
         //By faction
         if (planet.getFactions().contains(getCharacterPlayer().getFaction().getId())) {
             return FACTION_PLANET;
@@ -77,6 +77,6 @@ public class RandomPlanet extends RandomSelector<Planet> implements AssignableRa
                 return ENEMY_PLANET;
             }
         }
-        return NEUTRAL_PLANET;
+        return super.getWeight(planet);
     }
 }

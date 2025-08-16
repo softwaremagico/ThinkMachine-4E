@@ -98,7 +98,7 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
                 && FactionGroup.get(getCharacterPlayer().getFaction().getGroup()) == FactionGroup.NOBILITY
                 && !FactionFactory.getInstance().getAllNames(getCharacterPlayer().getFaction().getId()).isEmpty()) {
             if (getCharacterPlayer().getFaction().get().getId().equals(name.getFaction())) {
-                return BASIC_PROBABILITY;
+                return super.getWeight(name);
             } else {
                 throw new InvalidRandomElementSelectedException("Name '" + name
                         + "' not allowed for a nobility based character.");
@@ -110,7 +110,7 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
             //Only human names. Ignore xenos.
             if (new HashSet<>(PlanetFactory.getInstance().getElement(getCharacterPlayer().getInfo().getPlanet())
                     .getHumanFactions()).contains(name.getFaction())) {
-                return BASIC_PROBABILITY;
+                return super.getWeight(name);
             } else {
                 throw new InvalidRandomElementSelectedException("Name '" + name + "' not present in planet '"
                         + getCharacterPlayer().getInfo().getPlanet() + "'.");
@@ -132,6 +132,6 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
             }
         }
 
-        return BASIC_PROBABILITY;
+        return super.getWeight(name);
     }
 }

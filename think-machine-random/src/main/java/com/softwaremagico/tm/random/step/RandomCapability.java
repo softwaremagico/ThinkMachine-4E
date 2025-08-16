@@ -62,9 +62,4 @@ public class RandomCapability extends RandomSelector<Capability> {
         }
         return capabilities;
     }
-
-    @Override
-    protected int getWeight(Capability element) throws InvalidRandomElementSelectedException {
-        return super.getWeight(element);
-    }
 }

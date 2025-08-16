@@ -49,9 +49,4 @@ public class RandomPerk extends RandomSelector<Perk> {
     protected Collection<Perk> getAllElements() throws InvalidXmlElementException {
         return perkOptions.getOptions().stream().map(Option::getElement).toList();
     }
-
-    @Override
-    protected int getWeight(Perk element) {
-        return BASIC_PROBABILITY;
-    }
 }
