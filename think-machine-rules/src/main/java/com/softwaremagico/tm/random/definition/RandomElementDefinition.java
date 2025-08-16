@@ -291,7 +291,7 @@ public class RandomElementDefinition extends XmlData {
     }
 
     public Set<Name> getNames(String faction, Gender gender) {
-        Set<Name> names = new HashSet<>();
+        final Set<Name> names = new HashSet<>();
         if (gender == Gender.MALE && namesElements != null) {
             Arrays.stream(namesElements.getMaleNames().split(",")).forEach(s ->
                     names.add(new Name(s.trim(), gender, faction))
