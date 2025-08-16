@@ -598,7 +598,7 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <group>combatArmor</group>
+                        <id>combatArmor</id>
                     </capability>
                     <capability>
                         <group>occultLore</group>
@@ -3072,10 +3072,10 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <group>combatArmor</group>
+                        <id>combatArmor</id>
                     </capability>
                     <capability>
-                        <group>warArmor</group>
+                        <id>warArmor</id>
                     </capability>
                     <capability>
                         <group>handheldShield</group>
@@ -4350,7 +4350,7 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <group>combatArmor</group>
+                        <id>combatArmor</id>
                     </capability>
                     <capability>
                         <id>militaryWeapons</id>
@@ -5862,10 +5862,10 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <group>combatArmor</group>
+                        <id>combatArmor</id>
                     </capability>
                     <capability>
-                        <group>warArmor</group>
+                        <id>warArmor</id>
                     </capability>
                     <capability>
                         <group>handheldShield</group>
@@ -6869,7 +6869,7 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <group>combatArmor</group>
+                        <id>combatArmor</id>
                     </capability>
                     <capability>
                         <id>militaryWeapons</id>
@@ -7277,10 +7277,10 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <group>combatArmor</group>
+                        <id>combatArmor</id>
                     </capability>
                     <capability>
-                        <group>warArmor</group>
+                        <id>warArmor</id>
                     </capability>
                     <capability>
                         <group>militaryOrdnance</group>

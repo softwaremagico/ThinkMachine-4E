@@ -291,14 +291,15 @@ public class RandomElementDefinition extends XmlData {
     }
 
     public Set<Name> getNames(String faction, Gender gender) {
-        if (names == null) {
-            names = new HashSet<>();
-            if (gender == Gender.MALE && namesElements != null) {
-                Arrays.stream(namesElements.getMaleNames().split(",")).forEach(s ->
-                        names.add(new Name(s.trim(), gender, faction))
-                );
-            }
-
+        Set<Name> names = new HashSet<>();
+        if (gender == Gender.MALE && namesElements != null) {
+            Arrays.stream(namesElements.getMaleNames().split(",")).forEach(s ->
+                    names.add(new Name(s.trim(), gender, faction))
+            );
+        } else if (gender == Gender.FEMALE && namesElements != null) {
+            Arrays.stream(namesElements.getFemaleNames().split(",")).forEach(s ->
+                    names.add(new Name(s.trim(), gender, faction))
+            );
         }
         return names;
     }

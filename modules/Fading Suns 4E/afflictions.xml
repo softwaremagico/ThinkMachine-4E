@@ -63,6 +63,7 @@
         <restrictions>
             <upbringings>
                 <upbringing>priest</upbringing>
+                <upbringing>brotherBattle</upbringing>
                 <upbringing>merchant</upbringing>
             </upbringings>
         </restrictions>

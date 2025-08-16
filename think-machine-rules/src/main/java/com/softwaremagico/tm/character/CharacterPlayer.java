@@ -703,15 +703,6 @@ public class CharacterPlayer {
                 capability.getId().startsWith("techLore") && Objects.equals(capability.getGroup(), "techLore")).count();
     }
 
-    @Override
-    public String toString() {
-        final String name = getCompleteNameRepresentation();
-        if (!name.isEmpty()) {
-            return name;
-        }
-        return super.toString();
-    }
-
     public int getStartingValue(CharacteristicName characteristicName) {
         return Characteristic.INITIAL_VALUE;
     }
@@ -1017,5 +1008,18 @@ public class CharacterPlayer {
 
     public void setAffliction(Affliction affliction) {
         this.affliction = affliction;
+    }
+
+    @Override
+    public String toString() {
+        final String name = getCompleteNameRepresentation();
+        return "CharacterPlayer{"
+                + (name != null && !name.isBlank() ? "name=" + name + ", " : "")
+                + "faction=" + faction
+                + ", upbringing=" + upbringing
+                + ", specie=" + specie
+                + ", calling=" + calling
+                + ", level=" + level
+                + '}';
     }
 }

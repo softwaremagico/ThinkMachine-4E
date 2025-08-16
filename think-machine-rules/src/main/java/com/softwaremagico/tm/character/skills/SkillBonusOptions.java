@@ -86,6 +86,10 @@ public class SkillBonusOptions extends OptionSelector<Skill, SkillBonusOption> {
             getOptions().forEach(option -> {
                 if (option.getId() != null) {
                     SkillFactory.getInstance().getElement(option.getId());
+                } else if (option.getGroup() != null) {
+                    if (SkillFactory.getInstance().getElementsByGroup(option.getGroup()).isEmpty()) {
+                        throw new InvalidXmlElementException("Invalid group '" + option.getGroup() + "' on skill. ");
+                    }
                 }
             });
         }

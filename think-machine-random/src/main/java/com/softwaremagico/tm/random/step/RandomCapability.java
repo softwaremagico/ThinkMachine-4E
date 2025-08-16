@@ -27,13 +27,17 @@ package com.softwaremagico.tm.random.step;
 import com.softwaremagico.tm.Option;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.capabilities.Capability;
+import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
+import com.softwaremagico.tm.character.capabilities.CapabilityOption;
 import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 public class RandomCapability extends RandomSelector<Capability> {
@@ -48,7 +52,15 @@ public class RandomCapability extends RandomSelector<Capability> {
 
     @Override
     protected Collection<Capability> getAllElements() throws InvalidXmlElementException {
-        return capabilityOptions.getOptions().stream().map(Option::getElement).toList();
+        final List<Capability> capabilities = new ArrayList<Capability>();
+        for (CapabilityOption capabilityOption : capabilityOptions.getOptions()) {
+            if (capabilityOption.getId() != null) {
+                capabilities.add(capabilityOption.getElement());
+            } else if (capabilityOption.getGroup() != null) {
+                capabilities.addAll(CapabilityFactory.getInstance().getElementsByGroup(capabilityOption.getGroup()));
+            }
+        }
+        return capabilities;
     }
 
     @Override

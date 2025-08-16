@@ -224,6 +224,7 @@
 
     <upbringing>
         <id>priest</id>
+        <group>priest</group>
         <name>
             <en>Priest</en>
             <es>Sacerdote</es>
@@ -233,7 +234,7 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <group>cathedralCustoms</group>
+                        <id>cathedralCustoms</id>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -480,6 +481,7 @@
     </upbringing>
     <upbringing>
         <id>brotherBattle</id>
+        <group>priest</group>
         <name>
             <en>Brother Battle Monastery</en>
             <es>Monasterio de Hermanos de Batalla</es>
@@ -497,10 +499,10 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <group>combatArmor</group>
+                        <id>combatArmor</id>
                     </capability>
                     <capability>
-                        <group>warArmor</group>
+                        <id>warArmor</id>
                     </capability>
                 </options>
             </capabilitiesOption>

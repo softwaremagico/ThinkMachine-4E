@@ -103,6 +103,10 @@ public class CapabilityOptions extends OptionSelector<Capability, CapabilityOpti
             getOptions().forEach(option -> {
                 if (option.getId() != null) {
                     CapabilityFactory.getInstance().getElement(option.getId());
+                } else if (option.getGroup() != null) {
+                    if (CapabilityFactory.getInstance().getElementsByGroup(option.getGroup()).isEmpty()) {
+                        throw new InvalidXmlElementException("Invalid group '" + option.getGroup() + "' on capability. ");
+                    }
                 }
             });
         }

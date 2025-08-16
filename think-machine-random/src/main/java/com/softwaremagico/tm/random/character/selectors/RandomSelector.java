@@ -30,6 +30,7 @@ import com.softwaremagico.tm.character.upbringing.Upbringing;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.RestrictedElementException;
 import com.softwaremagico.tm.log.RandomGenerationLog;
+import com.softwaremagico.tm.log.RandomValuesLog;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
@@ -40,6 +41,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.Random;
 import java.util.Set;
 import java.util.SortedMap;
@@ -164,7 +166,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
 
     private TreeMap<Integer, Element> assignElementsWeight() throws InvalidXmlElementException {
         final TreeMap<Integer, Element> calculatedWeight = new TreeMap<>();
-        int count = 1;
+        int count = 0;
         for (final Element element : getAllElements()) {
             try {
                 validateElement(element);
@@ -174,7 +176,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             }
 
             try {
-                final int weight = getTotalWeight(element);
+                final int weight = getElementWeight(element);
                 if (weight > 0) {
                     calculatedWeight.put(count, element);
                     count += weight;
@@ -184,13 +186,17 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
                 continue;
             }
         }
-        if (calculatedWeight.isEmpty()) {
+        //Last element probability.
+        if (!calculatedWeight.isEmpty()) {
+            calculatedWeight.put(count, null);
+        }
+        if (calculatedWeight.size() <= 1) {
             throw new InvalidXmlElementException("No elements available,");
         }
         return calculatedWeight;
     }
 
-    public int getTotalWeight(Element element) throws InvalidRandomElementSelectedException {
+    public int getElementWeight(Element element) throws InvalidRandomElementSelectedException {
         try {
             //Restricted elements has 0 weight.
             if (element.getRestrictions().isRestricted(characterPlayer)) {
@@ -232,7 +238,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         }
 
         if (randomDefinition.getProbabilityMultiplier() != null) {
-            RandomGenerationLog.debug(this.getClass().getName(),
+            RandomValuesLog.debug(this.getClass().getName(),
                     "Random definition multiplier is '{}'.", randomDefinition.getProbabilityMultiplier());
             multiplier *= randomDefinition.getProbabilityMultiplier().getValue();
         }
@@ -286,7 +292,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             multiplier += (USER_SELECTION_MULTIPLIER * common.size());
         }
 
-        RandomGenerationLog.debug(this.getClass().getName(),
+        RandomValuesLog.debug(this.getClass().getName(),
                 "Random definitions bonus multiplier is '{}'.", multiplier);
         return multiplier;
     }
@@ -359,7 +365,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
                 throw new InvalidRandomElementSelectedException("No elements to select");
             }
         }
-        final int value = RANDOM.nextInt(totalWeight) + 1;
+        final int value = RANDOM.nextInt(totalWeight);
         Element selectedElement;
         final SortedMap<Integer, Element> view = weightedElements.headMap(value, true);
         try {
@@ -380,7 +386,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
     protected void removeElementWeight(Element element) {
         Integer keyToDelete = null;
         for (final Map.Entry<Integer, Element> entry : weightedElements.entrySet()) {
-            if (entry.getValue().equals(element)) {
+            if (Objects.equals(entry.getValue(), element)) {
                 keyToDelete = entry.getKey();
                 break;
             }

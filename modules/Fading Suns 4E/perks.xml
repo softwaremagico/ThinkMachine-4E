@@ -1728,6 +1728,7 @@
         <restrictions>
             <upbringings>
                 <upbringing>priest</upbringing>
+                <upbringing>brotherBattle</upbringing>
             </upbringings>
         </restrictions>
     </perk>
@@ -3514,6 +3515,7 @@
         <restrictions>
             <upbringings>
                 <upbringing>priest</upbringing>
+                <upbringing>brotherBattle</upbringing>
             </upbringings>
         </restrictions>
     </perk>

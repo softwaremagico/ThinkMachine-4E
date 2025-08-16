@@ -103,6 +103,10 @@ public class PerkOptions extends OptionSelector<Perk, PerkOption> {
             getOptions().forEach(option -> {
                 if (option.getId() != null) {
                     PerkFactory.getInstance().getElement(option.getId());
+                } else if (option.getGroup() != null) {
+                    if (PerkFactory.getInstance().getElementsByGroup(option.getGroup()).isEmpty()) {
+                        throw new InvalidXmlElementException("Invalid group '" + option.getGroup() + "' on perk. ");
+                    }
                 }
             });
         }

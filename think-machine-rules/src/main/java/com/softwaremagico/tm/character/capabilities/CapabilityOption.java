@@ -90,12 +90,8 @@ public class CapabilityOption extends Option<Capability> {
     public void validate() throws InvalidXmlElementException {
         super.validate();
         if (selectedSpecialization != null) {
-            try {
-                if (!CapabilityFactory.getInstance().getElement(getId()).getSpecializations().contains(selectedSpecialization)) {
-                    throw new InvalidXmlElementException("Capability " + getId() + " has not element with specialization '" + selectedSpecialization + "'.");
-                }
-            } catch (NullPointerException e) {
-                System.out.println(getId());
+            if (!CapabilityFactory.getInstance().getElement(getId()).getSpecializations().contains(selectedSpecialization)) {
+                throw new InvalidXmlElementException("Capability " + getId() + " has not element with specialization '" + selectedSpecialization + "'.");
             }
         }
     }
