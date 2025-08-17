@@ -26,16 +26,18 @@ package com.softwaremagico.tm.random;
 
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Gender;
+import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.characteristics.CharacteristicType;
 import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
 import com.softwaremagico.tm.character.specie.Specie;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
-import com.softwaremagico.tm.random.step.RandomCharacteristics;
+import com.softwaremagico.tm.random.character.callings.RandomCalling;
 import com.softwaremagico.tm.random.character.names.RandomName;
 import com.softwaremagico.tm.random.character.names.RandomSurname;
 import com.softwaremagico.tm.random.character.planets.RandomPlanet;
 import com.softwaremagico.tm.random.character.upbringings.RandomUpbringing;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
+import com.softwaremagico.tm.random.step.RandomCharacteristics;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -122,5 +124,21 @@ public class RandomTests {
         Assert.assertEquals(characterPlayer.getUpbringing().getSelectedCharacteristicOptions().size(), 4);
         Assert.assertEquals(CharacteristicsDefinitionFactory.getInstance().getElement(characterPlayer.getUpbringing().getSelectedCharacteristicOptions().get(0).getSelections().iterator().next().getId()).getType(), CharacteristicType.BODY);
         Assert.assertEquals(CharacteristicsDefinitionFactory.getInstance().getElement(characterPlayer.getUpbringing().getSelectedCharacteristicOptions().get(1).getSelections().iterator().next().getId()).getType(), CharacteristicType.SPIRIT);
+    }
+
+    @Test
+    public void randomFavouredCallingHasBetterWeight() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.getInfo().setPlanet("nowhere");
+        characterPlayer.getInfo().setGender(Gender.FEMALE);
+        characterPlayer.setUpbringing("noble");
+        characterPlayer.setFaction("societyOfStPaulus");
+
+        final RandomCalling randomCalling = new RandomCalling(characterPlayer, null);
+        randomCalling.updateWeights();
+
+        Assert.assertEquals(randomCalling.getAssignedWeight(CallingFactory.getInstance().getElement("explorer")), Integer.valueOf(210));
+        Assert.assertEquals(randomCalling.getAssignedWeight(CallingFactory.getInstance().getElement("spy")), Integer.valueOf(10));
     }
 }

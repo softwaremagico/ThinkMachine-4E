@@ -28,6 +28,7 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.callings.Calling;
 import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.factions.Faction;
+import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
@@ -63,5 +64,13 @@ public class RandomCalling extends RandomSelector<Calling> implements Assignable
     @Override
     protected Collection<Calling> getAllElements() throws InvalidXmlElementException {
         return CallingFactory.getInstance().getElements();
+    }
+
+    @Override
+    protected int getWeight(Calling calling) throws InvalidRandomElementSelectedException {
+        if (FactionFactory.getInstance().getElement(getCharacterPlayer().getFaction()).getFavoredCallings().contains(calling.getId())) {
+            return GOOD_PROBABILITY;
+        }
+        return super.getWeight(calling);
     }
 }

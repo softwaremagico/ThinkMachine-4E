@@ -421,12 +421,14 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         if (element == null) {
             return null;
         }
-        int previousWeight = 0;
+        Integer elementWeight = null;
         for (final Map.Entry<Integer, Element> entry : weightedElements.entrySet()) {
-            if (entry.getValue().equals(element)) {
-                return entry.getKey() - previousWeight;
+            if (Objects.equals(entry.getValue(), element)) {
+                elementWeight = entry.getKey();
+                continue;
             }
-            previousWeight = entry.getKey();
+            if (elementWeight != null)
+                return entry.getKey() - elementWeight;
         }
         return null;
     }

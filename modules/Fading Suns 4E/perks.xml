@@ -4361,10 +4361,18 @@
                 <bonus>2</bonus>
             </resistance>
         </resistances>
-        <restrictions>
+        <restrictions mode="any">
             <upbringings>
-                <upbringing>merchant</upbringing>
+                <upbringing>yeoman</upbringing>
             </upbringings>
+            <factions>
+                <faction>musters</faction>
+                <faction>theDispossessed</faction>
+                <faction>far</faction>
+                <faction>societyOfStPaulus</faction>
+                <faction>vagabonds</faction>
+                <faction>vuldrok</faction>
+            </factions>
         </restrictions>
     </perk>
     <perk>

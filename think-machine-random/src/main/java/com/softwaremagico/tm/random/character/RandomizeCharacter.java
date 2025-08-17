@@ -28,6 +28,7 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Gender;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.random.character.callings.RandomCalling;
 import com.softwaremagico.tm.random.character.factions.RandomFaction;
 import com.softwaremagico.tm.random.character.names.RandomName;
 import com.softwaremagico.tm.random.character.names.RandomSurname;
@@ -69,6 +70,7 @@ public class RandomizeCharacter {
             selectFaction();
             selectPlanet();
             selectNames();
+            selectCallings();
         } catch (InvalidXmlElementException e) {
             throw new InvalidXmlElementException("Error on '" + characterPlayer + "'.", e);
         }
@@ -103,6 +105,11 @@ public class RandomizeCharacter {
         randomName.assign();
         final RandomSurname randomSurname = new RandomSurname(characterPlayer, preferences);
         randomSurname.assign();
+    }
+
+    private void selectCallings() throws InvalidRandomElementSelectedException {
+        final RandomCalling randomCalling = new RandomCalling(characterPlayer, preferences);
+        randomCalling.assign();
     }
 
 

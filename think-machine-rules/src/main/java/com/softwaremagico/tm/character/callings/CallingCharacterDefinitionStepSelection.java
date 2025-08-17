@@ -71,11 +71,13 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
             final List<PerkOption> speciePerks = SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId()).getPerks();
             callingPerks.forEach(perkOptions -> {
                 //Add no duplicates.
-                speciePerks.forEach(speciePerk -> {
-                    if (!perkOptions.getOptions().contains(speciePerk)) {
-                        perkOptions.getOptions().add(speciePerk);
-                    }
-                });
+                if (speciePerks != null) {
+                    speciePerks.forEach(speciePerk -> {
+                        if (!perkOptions.getOptions().contains(speciePerk)) {
+                            perkOptions.getOptions().add(speciePerk);
+                        }
+                    });
+                }
             });
         }
         return callingPerks;
