@@ -29,6 +29,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
+import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 
 @JacksonXmlRootElement(localName = "characteristic")
@@ -83,6 +85,11 @@ public class SpecieCharacteristic extends Element {
 
     public void setMaximumInitialValue(int maximumInitialValue) {
         this.maximumInitialValue = maximumInitialValue;
+    }
+
+    @Override
+    public void validate() throws InvalidXmlElementException {
+        CharacteristicsDefinitionFactory.getInstance().getElement(characteristic.getId());
     }
 
 }

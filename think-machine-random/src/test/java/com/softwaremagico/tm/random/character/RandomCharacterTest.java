@@ -8,17 +8,17 @@ package com.softwaremagico.tm.random.character;
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
  * Foundation; either version 2 of the License, or (at your option) any later
  * version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU General Public License along with
  * this program; If not, see <http://www.gnu.org/licenses/gpl-3.0.html>.
  * #L%
@@ -28,6 +28,7 @@ package com.softwaremagico.tm.random.character;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Gender;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
+import com.softwaremagico.tm.random.log.RandomTestGenerationLog;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -36,18 +37,23 @@ public class RandomCharacterTest {
 
     @Test
     public void createFullRandomCharacterTest() throws InvalidRandomElementSelectedException {
-        final CharacterPlayer characterPlayer = new CharacterPlayer();
-        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
-        randomizeCharacter.createCharacter();
+        for (int i = 0; i < 100; i++) {
+            final CharacterPlayer characterPlayer = new CharacterPlayer();
+            final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
+            randomizeCharacter.createCharacter();
 
-        Assert.assertNotNull(characterPlayer.getSpecie());
-        Assert.assertNotNull(characterPlayer.getPrimaryCharacteristic());
-        Assert.assertNotNull(characterPlayer.getSecondaryCharacteristic());
-        Assert.assertNotNull(characterPlayer.getFaction());
-        Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
-        Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
-        Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+            RandomTestGenerationLog.info(this.getClass(), characterPlayer.toString());
+
+            Assert.assertNotNull(characterPlayer.getSpecie());
+            Assert.assertNotNull(characterPlayer.getPrimaryCharacteristic());
+            Assert.assertNotNull(characterPlayer.getSecondaryCharacteristic());
+            Assert.assertNotNull(characterPlayer.getFaction());
+            Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
+            Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
+            Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+        }
     }
+
 
     @Test
     public void createBrotherBattleCharacterTest() throws InvalidRandomElementSelectedException {
@@ -69,6 +75,7 @@ public class RandomCharacterTest {
         Assert.assertNotNull(characterPlayer.getInfo().getSurname());
     }
 
+
     @Test
     public void createNobleCharacterTest() throws InvalidRandomElementSelectedException {
         final CharacterPlayer characterPlayer = new CharacterPlayer();
@@ -77,6 +84,113 @@ public class RandomCharacterTest {
         characterPlayer.getInfo().setGender(Gender.FEMALE);
         characterPlayer.setUpbringing("noble");
         characterPlayer.setFaction("societyOfStPaulus");
+        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
+        randomizeCharacter.createCharacter();
+
+        Assert.assertNotNull(characterPlayer.getSpecie());
+        Assert.assertNotNull(characterPlayer.getPrimaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getSecondaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getFaction());
+        Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
+        Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
+        Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+    }
+
+    @Test
+    public void createPriestCharacterTest() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.getInfo().setPlanet("nowhere");
+        characterPlayer.getInfo().setGender(Gender.MALE);
+        characterPlayer.setUpbringing("priest");
+        characterPlayer.setFaction("societyOfStPaulus");
+        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
+        randomizeCharacter.createCharacter();
+
+        Assert.assertNotNull(characterPlayer.getSpecie());
+        Assert.assertNotNull(characterPlayer.getPrimaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getSecondaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getFaction());
+        Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
+        Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
+        Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+    }
+
+
+    @Test
+    public void createDervishCharacterTest() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.getInfo().setPlanet("nowhere");
+        characterPlayer.getInfo().setGender(Gender.FEMALE);
+        characterPlayer.setUpbringing("noble");
+        characterPlayer.setFaction("liHalan");
+        characterPlayer.setCalling("dervish");
+        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
+        randomizeCharacter.createCharacter();
+
+        Assert.assertNotNull(characterPlayer.getSpecie());
+        Assert.assertNotNull(characterPlayer.getPrimaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getSecondaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getFaction());
+        Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
+        Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
+        Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+    }
+
+
+    @Test
+    public void createDispossessedCharacterTest() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.getInfo().setPlanet("nowhere");
+        characterPlayer.getInfo().setGender(Gender.FEMALE);
+        characterPlayer.setUpbringing("yeoman");
+        characterPlayer.setFaction("theDispossessed");
+        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
+        randomizeCharacter.createCharacter();
+
+        Assert.assertNotNull(characterPlayer.getSpecie());
+        Assert.assertNotNull(characterPlayer.getPrimaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getSecondaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getFaction());
+        Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
+        Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
+        Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+    }
+
+
+    @Test
+    public void createTheurgistCharacterTest() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.getInfo().setPlanet("nowhere");
+        characterPlayer.getInfo().setGender(Gender.MALE);
+        characterPlayer.setUpbringing("priest");
+        characterPlayer.setFaction("eskatonic");
+        characterPlayer.setCalling("theurgist");
+        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
+        randomizeCharacter.createCharacter();
+
+        Assert.assertNotNull(characterPlayer.getSpecie());
+        Assert.assertNotNull(characterPlayer.getPrimaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getSecondaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getFaction());
+        Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
+        Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
+        Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+    }
+
+
+    @Test
+    public void createPirateCharacterTest() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.getInfo().setPlanet("nowhere");
+        characterPlayer.getInfo().setGender(Gender.MALE);
+        characterPlayer.setUpbringing("yeoman");
+        characterPlayer.setFaction("far");
+        characterPlayer.setCalling("pirate");
         final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
         randomizeCharacter.createCharacter();
 

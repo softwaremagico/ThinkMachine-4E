@@ -25,10 +25,15 @@ package com.softwaremagico.tm.character.specie;
  */
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.CharacterDefinitionStep;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
+import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
 import com.softwaremagico.tm.character.perks.PerkOption;
+import com.softwaremagico.tm.character.perks.PerkOptions;
+import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineLog;
 
 import java.util.HashSet;
@@ -149,5 +154,22 @@ public class Specie extends CharacterDefinitionStep<Specie> {
 
     public void setPrimaryCharacteristics(List<String> primaryCharacteristics) {
         this.primaryCharacteristics = primaryCharacteristics;
+    }
+
+    @Override
+    public void validate() throws InvalidXmlElementException {
+        super.validate();
+        getPerksOptions().forEach(PerkOptions::validate);
+        if (getPrimaryCharacteristics() != null) {
+            getPrimaryCharacteristics().forEach(characteristic ->
+                    CharacteristicsDefinitionFactory.getInstance().getElement(characteristic));
+        }
+        if (planets != null) {
+            planets.forEach(planet ->
+                    PlanetFactory.getInstance().getElement(planet));
+        }
+        if (specieCharacteristics != null) {
+            specieCharacteristics.forEach(SpecieCharacteristic::validate);
+        }
     }
 }

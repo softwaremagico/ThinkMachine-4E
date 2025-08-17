@@ -120,6 +120,7 @@
             <es>Interfaz</es>
         </name>
         <restrictions>
+            <raisedInSpace>true</raisedInSpace>
             <factions>
                 <faction>engineers</faction>
             </factions>
@@ -135,6 +136,7 @@
                 <calling>enthusiast</calling>
                 <calling>scribe</calling>
                 <calling>spy</calling>
+                <calling>pirate</calling>
             </callings>
         </restrictions>
     </skill>

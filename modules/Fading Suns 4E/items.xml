@@ -433,6 +433,9 @@
             <upbringings>
                 <upbringing>priest</upbringing>
             </upbringings>
+            <callings>
+                <calling>theurgist</calling>
+            </callings>
         </restrictions>
     </equipment>
     <equipment>

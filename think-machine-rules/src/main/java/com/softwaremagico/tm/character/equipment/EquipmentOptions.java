@@ -166,4 +166,11 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
             });
         }
     }
+
+    @Override
+    public String toString() {
+        return "EquipmentOptions{"
+                + "options=" + getOptions()
+                + '}';
+    }
 }

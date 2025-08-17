@@ -94,6 +94,7 @@
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
+                <faction>theDispossessed</faction>
             </factions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -114,6 +115,7 @@
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
+                <faction>theDispossessed</faction>
             </factions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -143,6 +145,7 @@
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
+                <faction>theDispossessed</faction>
             </factions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -1100,7 +1103,7 @@
                     <es>Zuranidad</es>
                 </name>
                 <random>
-                    <probabilityMultiplier>RARE</probabilityMultiplier>
+                    <probabilityMultiplier>EXOTIC</probabilityMultiplier>
                 </random>
             </selectedSpecialization>
         </specializations>

@@ -5168,10 +5168,8 @@
                 <total>1</total>
                 <options>
                     <item>
-                        <item>
-                            <id>monasticAttire</id>
-                            <type>item</type>
-                        </item>
+                        <id>monasticAttire</id>
+                        <type>item</type>
                     </item>
                 </options>
             </materialAwardOption>
@@ -5318,10 +5316,8 @@
                 <total>1</total>
                 <options>
                     <item>
-                        <item>
-                            <id>minorSaintlyRelic</id>
-                            <type>item</type>
-                        </item>
+                        <id>minorSaintlyRelic</id>
+                        <type>item</type>
                     </item>
                 </options>
             </materialAwardOption>
@@ -5481,10 +5477,8 @@
                 <total>1</total>
                 <options>
                     <item>
-                        <item>
-                            <id>monasticBooks</id>
-                            <type>item</type>
-                        </item>
+                        <id>monasticBooks</id>
+                        <type>item</type>
                     </item>
                 </options>
             </materialAwardOption>

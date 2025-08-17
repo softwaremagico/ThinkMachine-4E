@@ -29,6 +29,7 @@ import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
@@ -74,9 +75,14 @@ public class RandomizeCharacterDefinitionStep<T extends Element> {
                         new RandomCharacteristicBonusOption(getCharacterPlayer(), getPreferences(),
                                 characterDefinitionStepSelection.getCharacteristicOptions().get(i));
 
-                for (int j = 0; j < characterDefinitionStepSelection.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                    characterDefinitionStepSelection.getSelectedCharacteristicOptions().get(i).getSelections()
-                            .add(new Selection(randomCharacteristicBonusOption.selectElementByWeight().getId()));
+                try {
+                    for (int j = 0; j < characterDefinitionStepSelection.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
+                        characterDefinitionStepSelection.getSelectedCharacteristicOptions().get(i).getSelections()
+                                .add(new Selection(randomCharacteristicBonusOption.selectElementByWeight().getId()));
+                    }
+                } catch (InvalidXmlElementException e) {
+                    throw new InvalidXmlElementException("Error on characteristics options '"
+                            + characterDefinitionStepSelection.getCharacteristicOptions().get(i) + "'.", e);
                 }
             }
         }
@@ -90,9 +96,14 @@ public class RandomizeCharacterDefinitionStep<T extends Element> {
                         new RandomCapability(getCharacterPlayer(), getPreferences(),
                                 characterDefinitionStepSelection.getCapabilityOptions().get(i));
 
-                for (int j = 0; j < characterDefinitionStepSelection.getCapabilityOptions().get(i).getTotalOptions(); j++) {
-                    characterDefinitionStepSelection.getSelectedCapabilityOptions().get(i).getSelections()
-                            .add(new Selection(randomCapability.selectElementByWeight().getId()));
+                try {
+                    for (int j = 0; j < characterDefinitionStepSelection.getCapabilityOptions().get(i).getTotalOptions(); j++) {
+                        characterDefinitionStepSelection.getSelectedCapabilityOptions().get(i).getSelections()
+                                .add(new Selection(randomCapability.selectElementByWeight().getId()));
+                    }
+                } catch (InvalidXmlElementException e) {
+                    throw new InvalidXmlElementException("Error on capabilities options '"
+                            + characterDefinitionStepSelection.getCapabilityOptions().get(i) + "'.", e);
                 }
             }
         }
@@ -106,9 +117,14 @@ public class RandomizeCharacterDefinitionStep<T extends Element> {
                         new RandomSkill(getCharacterPlayer(), getPreferences(),
                                 characterDefinitionStepSelection.getSkillOptions().get(i));
 
-                for (int j = 0; j < characterDefinitionStepSelection.getSkillOptions().get(i).getTotalOptions(); j++) {
-                    characterDefinitionStepSelection.getSelectedSkillOptions().get(i).getSelections()
-                            .add(new Selection(randomSkill.selectElementByWeight().getId()));
+                try {
+                    for (int j = 0; j < characterDefinitionStepSelection.getSkillOptions().get(i).getTotalOptions(); j++) {
+                        characterDefinitionStepSelection.getSelectedSkillOptions().get(i).getSelections()
+                                .add(new Selection(randomSkill.selectElementByWeight().getId()));
+                    }
+                } catch (InvalidXmlElementException e) {
+                    throw new InvalidXmlElementException("Error on skill options '"
+                            + characterDefinitionStepSelection.getSkillOptions().get(i) + "'.", e);
                 }
             }
         }
@@ -122,9 +138,14 @@ public class RandomizeCharacterDefinitionStep<T extends Element> {
                         new RandomPerk(getCharacterPlayer(), getPreferences(),
                                 characterDefinitionStepSelection.getPerksOptions().get(i));
 
-                for (int j = 0; j < characterDefinitionStepSelection.getPerksOptions().get(i).getTotalOptions(); j++) {
-                    characterDefinitionStepSelection.getSelectedPerksOptions().get(i).getSelections()
-                            .add(new Selection(randomPerk.selectElementByWeight().getId()));
+                try {
+                    for (int j = 0; j < characterDefinitionStepSelection.getPerksOptions().get(i).getTotalOptions(); j++) {
+                        characterDefinitionStepSelection.getSelectedPerksOptions().get(i).getSelections()
+                                .add(new Selection(randomPerk.selectElementByWeight().getId()));
+                    }
+                } catch (InvalidXmlElementException e) {
+                    throw new InvalidXmlElementException("Error on perks options '"
+                            + characterDefinitionStepSelection.getPerksOptions().get(i) + "'.", e);
                 }
             }
         }
@@ -138,9 +159,14 @@ public class RandomizeCharacterDefinitionStep<T extends Element> {
                         new RandomMaterialAward(getCharacterPlayer(), getPreferences(),
                                 characterDefinitionStepSelection.getMaterialAwardsOptions().get(i));
 
-                for (int j = 0; j < characterDefinitionStepSelection.getMaterialAwardsOptions().get(i).getTotalOptions(); j++) {
-                    characterDefinitionStepSelection.getSelectedMaterialAwards().get(i).getSelections()
-                            .add(new Selection(randomMaterialAward.selectElementByWeight().getId()));
+                try {
+                    for (int j = 0; j < characterDefinitionStepSelection.getMaterialAwardsOptions().get(i).getTotalOptions(); j++) {
+                        characterDefinitionStepSelection.getSelectedMaterialAwards().get(i).getSelections()
+                                .add(new Selection(randomMaterialAward.selectElementByWeight().getId()));
+                    }
+                } catch (InvalidXmlElementException e) {
+                    throw new InvalidXmlElementException("Error on material awards '"
+                            + characterDefinitionStepSelection.getMaterialAwardsOptions().get(i) + "'.", e);
                 }
             }
         }

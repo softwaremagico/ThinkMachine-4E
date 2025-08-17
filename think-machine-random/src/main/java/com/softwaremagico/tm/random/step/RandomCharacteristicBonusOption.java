@@ -30,6 +30,7 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOption
 import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
+import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
 import java.util.Collection;
 import java.util.Set;
@@ -39,10 +40,20 @@ public class RandomCharacteristicBonusOption extends RandomCharacteristics {
     private final CharacteristicBonusOptions characteristicBonusOptions;
 
     public RandomCharacteristicBonusOption(CharacterPlayer characterPlayer, Set<RandomPreference> preferences,
-                                    CharacteristicBonusOptions characteristicBonusOptions) throws InvalidXmlElementException {
+                                           CharacteristicBonusOptions characteristicBonusOptions) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
         this.characteristicBonusOptions = characteristicBonusOptions;
     }
+
+    @Override
+    protected int getWeight(CharacteristicDefinition element) throws InvalidRandomElementSelectedException {
+        //Extra characteristics (as psi) always can be chosen.
+        if (characteristicBonusOptions.getCharacteristicBonus(element.getId()).isExtra()) {
+            return 1;
+        }
+        return super.getWeight(element);
+    }
+
 
     @Override
     protected Collection<CharacteristicDefinition> getAllElements() throws InvalidXmlElementException {
