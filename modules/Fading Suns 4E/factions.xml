@@ -1548,7 +1548,10 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedUpbringings>
+                <upbringin>brotherBattle</upbringin>
+            </recommendedUpbringings>
         </random>
     </faction>
 

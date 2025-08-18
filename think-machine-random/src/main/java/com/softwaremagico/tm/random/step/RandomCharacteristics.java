@@ -26,8 +26,10 @@ package com.softwaremagico.tm.random.step;
 
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
+import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.characteristics.CharacteristicType;
 import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
+import com.softwaremagico.tm.character.occultism.OccultismType;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
@@ -59,9 +61,26 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
 
     @Override
     protected int getWeight(CharacteristicDefinition element) throws InvalidRandomElementSelectedException {
-        if ((element.getType() == CharacteristicType.OTHERS || element.getType() == CharacteristicType.OCCULTISM)) {
+        if (element.getType() == CharacteristicType.OTHERS) {
             return 0;
         }
+
+        //Theurgy cannot have psi points and viceversa.
+        final OccultismType occultismType = getCharacterPlayer().getOccultismType();
+        if (occultismType != null && CharacteristicName.get(element.getId()) == CharacteristicName.THEURGY
+                && CharacteristicName.get(occultismType.getId()) == CharacteristicName.PSI) {
+            return 0;
+        }
+        if (occultismType != null && CharacteristicName.get(element.getId()) == CharacteristicName.PSI
+                && CharacteristicName.get(occultismType.getId()) == CharacteristicName.THEURGY) {
+            return 0;
+        }
+
+        //No occultists without points does not add extra points.
+        if (element.getType() == CharacteristicType.OCCULTISM && getCharacterPlayer().getCharacteristicValue(element.getId()) == 0) {
+            return 0;
+        }
+
         if (Objects.equals(getCharacterPlayer().getPrimaryCharacteristic(), element.getId())) {
             return LITTLE_PROBABILITY;
         } else if (Objects.equals(getCharacterPlayer().getSecondaryCharacteristic(), element.getId())) {

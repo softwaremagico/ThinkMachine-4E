@@ -27,8 +27,10 @@ package com.softwaremagico.tm.random.character.callings;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.callings.Calling;
 import com.softwaremagico.tm.character.callings.CallingFactory;
+import com.softwaremagico.tm.character.callings.CallingGroup;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
+import com.softwaremagico.tm.character.occultism.OccultismTypeFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
@@ -68,6 +70,16 @@ public class RandomCalling extends RandomSelector<Calling> implements Assignable
 
     @Override
     protected int getWeight(Calling calling) throws InvalidRandomElementSelectedException {
+        //Avoid missing theurgy factions with psi and viceversa.
+        if (calling.getGroup() != null && CallingGroup.get(calling.getGroup()) == CallingGroup.PSI
+                && getCharacterPlayer().getOccultismType() == OccultismTypeFactory.getTheurgy()) {
+            return 0;
+        }
+        if (calling.getGroup() != null && CallingGroup.get(calling.getGroup()) == CallingGroup.THEURGY
+                && getCharacterPlayer().getOccultismType() == OccultismTypeFactory.getPsi()) {
+            return 0;
+        }
+
         if (FactionFactory.getInstance().getElement(getCharacterPlayer().getFaction()).getFavoredCallings().contains(calling.getId())) {
             return GOOD_PROBABILITY;
         }

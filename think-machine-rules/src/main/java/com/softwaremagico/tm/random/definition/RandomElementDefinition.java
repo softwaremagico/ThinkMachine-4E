@@ -261,6 +261,10 @@ public class RandomElementDefinition extends XmlData {
         return recommendedUpbringings;
     }
 
+    public void setRecommendedUpbringings(String recommendedUpbringing) {
+        this.recommendedUpbringings = new HashSet<>(recommendedUpbringings);
+    }
+
     public void setRecommendedUpbringings(Set<String> recommendedUpbringings) {
         this.recommendedUpbringings = recommendedUpbringings;
     }

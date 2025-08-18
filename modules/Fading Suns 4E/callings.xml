@@ -593,6 +593,7 @@
             <en>Dervish</en>
             <es>Derviche</es>
         </name>
+        <group>psi</group>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -3067,6 +3068,7 @@
             <en>Brother Battle</en>
             <es>Hermano de Batalla</es>
         </name>
+        <group>theurgy</group>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -6455,6 +6457,7 @@
                 <options>
                     <item>
                         <weaponClass>pistol</weaponClass>
+                        <type>customizedWeapon</type>
                     </item>
                 </options>
             </materialAwardOption>
@@ -9756,6 +9759,7 @@
             <en>Psychic</en>
             <es>Psíquico</es>
         </name>
+        <group>psi</group>
         <capabilities>
             <capabilitiesOption>
                 <total>2</total>
@@ -10523,6 +10527,7 @@
             <en>Theurgist</en>
             <es>Teúrgo</es>
         </name>
+        <group>theurgy</group>
         <capabilities>
             <capabilitiesOption>
                 <total>2</total>

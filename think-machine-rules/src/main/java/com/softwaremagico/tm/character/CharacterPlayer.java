@@ -26,6 +26,7 @@ package com.softwaremagico.tm.character;
 
 import com.softwaremagico.tm.character.callings.CallingCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.callings.CallingFactory;
+import com.softwaremagico.tm.character.callings.CallingGroup;
 import com.softwaremagico.tm.character.capabilities.CapabilityWithSpecialization;
 import com.softwaremagico.tm.character.characteristics.Characteristic;
 import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
@@ -873,6 +874,12 @@ public class CharacterPlayer {
         }
         if (getSpecie() != null && (Objects.equals(getSpecie().getId(), "ascorbite"))) {
             return OccultismTypeFactory.getPsi();
+        }
+        if (getCalling() != null && (CallingGroup.get(getCalling().getGroup()) == CallingGroup.PSI)) {
+            return OccultismTypeFactory.getPsi();
+        }
+        if (getCalling() != null && (CallingGroup.get(getCalling().getGroup()) == CallingGroup.THEURGY)) {
+            return OccultismTypeFactory.getTheurgy();
         }
         try {
             //Check if has some path purchased already. Get its occultismType;

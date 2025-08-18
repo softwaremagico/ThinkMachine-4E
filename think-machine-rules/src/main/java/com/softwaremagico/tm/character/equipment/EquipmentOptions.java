@@ -41,6 +41,7 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -84,15 +85,20 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
                         optionItems.addAll(ThinkMachineFactory.getInstance().getElements().stream()
                                 .filter(item2 -> Objects.equals(item2.getGroup(), item.getGroup()))
                                 .map(EquipmentOption::new).collect(Collectors.toList()));
-                    } else if (item.getWeaponType() != null) {
+                    } else if (item.getWeaponType() != null || item.getWeaponClass() != null) {
                         final List<Weapon> customizedWeapons = new ArrayList<>();
                         if (item.getWeaponType() == WeaponType.ANY) {
                             customizedWeapons.addAll(WeaponFactory.getInstance().getElements());
                         } else if ((item.getType() != null && item.getWeaponClass() != null)) {
-                            customizedWeapons.addAll(
-                                    WeaponFactory.getInstance().getWeaponsByClass(item.getWeaponClass()).stream().distinct()
-                                            .filter(WeaponFactory.getInstance().getWeapons(item.getWeaponType())::contains)
-                                            .collect(Collectors.toSet()));
+                            if (item.getWeaponType() != null) {
+                                customizedWeapons.addAll(
+                                        WeaponFactory.getInstance().getWeaponsByClass(item.getWeaponClass()).stream().distinct()
+                                                .filter(WeaponFactory.getInstance().getWeapons(item.getWeaponType())::contains)
+                                                .collect(Collectors.toSet()));
+                            } else {
+                                customizedWeapons.addAll(
+                                        new HashSet<>(WeaponFactory.getInstance().getWeaponsByClass(item.getWeaponClass())));
+                            }
                         } else if (item.getType() != null) {
                             customizedWeapons.addAll(WeaponFactory.getInstance().getWeapons(item.getWeaponType()));
                         } else if (item.getWeaponClass() != null) {
@@ -170,7 +176,7 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
     @Override
     public String toString() {
         return "EquipmentOptions{"
-                + "options=" + getOptions()
+                //+ "options=" + getOptions()
                 + '}';
     }
 }

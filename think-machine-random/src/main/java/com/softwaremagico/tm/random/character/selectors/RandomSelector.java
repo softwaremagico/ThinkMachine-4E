@@ -232,11 +232,6 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             return multiplier;
         }
 
-        if (randomDefinition.getProbabilityMultiplier() != null) {
-            RandomValuesLog.debug(this.getClass().getName(),
-                    "Random definition multiplier is '{}'.", randomDefinition.getProbabilityMultiplier());
-            multiplier *= randomDefinition.getProbabilityMultiplier().getValue();
-        }
 
         // Recommended to specie.
         if (getCharacterPlayer() != null && getCharacterPlayer().getSpecie() != null
@@ -244,35 +239,30 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             RandomGenerationLog.debug(this.getClass().getName(),
                     "Random definition as recommended for '{}'.", getCharacterPlayer().getSpecie());
             multiplier *= HIGH_MULTIPLIER;
-        }
-
-        // Recommended to my faction group.
-        if (getCharacterPlayer() != null && getCharacterPlayer().getFaction() != null
+            // Recommended to my upbringing.
+        } else if (getCharacterPlayer() != null && getCharacterPlayer().getUpbringing() != null
+                && randomDefinition.getRecommendedUpbringings().contains(getCharacterPlayer().getUpbringing().getId())) {
+            RandomGenerationLog.debug(this.getClass().getName(),
+                    "Random definition as recommended for '{}'.", getCharacterPlayer().getUpbringing());
+            multiplier *= HIGH_MULTIPLIER;
+            // Recommended to my faction group.
+        } else if (getCharacterPlayer() != null && getCharacterPlayer().getFaction() != null
                 && randomDefinition
                 .getRecommendedFactionsGroups().contains(getCharacterPlayer().getFaction().getGroup())) {
             RandomGenerationLog.debug(this.getClass().getName(), "Random definition as recommended for '{}'.",
                     getCharacterPlayer().getFaction().getGroup());
             multiplier *= BASIC_MULTIPLIER;
-        }
-
-        // Recommended to my faction.
-        if (getCharacterPlayer() != null && getCharacterPlayer().getFaction() != null
+            // Recommended to my faction.
+        } else if (getCharacterPlayer() != null && getCharacterPlayer().getFaction() != null
                 && randomDefinition.getRecommendedFactions().contains(getCharacterPlayer().getFaction().getId())) {
             RandomGenerationLog.debug(this.getClass().getName(),
                     "Random definition as recommended for '{}'.", getCharacterPlayer().getFaction());
             multiplier *= HIGH_MULTIPLIER;
-        }
-
-        // Recommended to my upbringing.
-        if (getCharacterPlayer() != null && getCharacterPlayer().getUpbringing() != null
-                && randomDefinition.getRecommendedUpbringings().contains(getCharacterPlayer().getUpbringing().getId())) {
-            RandomGenerationLog.debug(this.getClass().getName(),
-                    "Random definition as recommended for '{}'.", getCharacterPlayer().getUpbringing());
-            multiplier *= HIGH_MULTIPLIER;
-        }
-
-        // Probability definition by preference.
-        if (randomDefinition.getProbability() != null) {
+        } else if (randomDefinition.getProbabilityMultiplier() != null) {
+            RandomValuesLog.debug(this.getClass().getName(),
+                    "Random definition multiplier is '{}'.", randomDefinition.getProbabilityMultiplier());
+            multiplier *= randomDefinition.getProbabilityMultiplier().getValue();
+        } else if (randomDefinition.getProbability() != null) {
             RandomGenerationLog.debug(this.getClass().getName(), "Random definition defines with bonus probability of '"
                     + randomDefinition.getProbability().getProbabilityMultiplier() + "'.");
             multiplier *= randomDefinition.getProbability().getProbabilityMultiplier();

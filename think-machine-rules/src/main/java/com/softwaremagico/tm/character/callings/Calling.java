@@ -32,6 +32,10 @@ public class Calling extends CharacterDefinitionStep<Calling> {
     private static final int TOTAL_PERKS_OPTIONS = 1;
     private static final int TOTAL_CAPABILITIES_OPTIONS = 2;
 
+    public Calling() {
+        super();
+        setGroup(CallingGroup.NONE.name());
+    }
 
     @Override
     public int getCharacteristicsTotalPoints() {
