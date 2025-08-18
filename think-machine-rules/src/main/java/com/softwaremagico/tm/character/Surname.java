@@ -30,8 +30,6 @@ import com.softwaremagico.tm.TranslatedText;
 
 public class Surname extends Element {
 
-    private String surname;
-
     @JsonIgnore
     private final String faction;
 
@@ -45,7 +43,7 @@ public class Surname extends Element {
     }
 
     public Surname(String surname, String faction) {
-        super(surname, new TranslatedText(surname), null, null, null);
+        super(getId(surname, faction, null), new TranslatedText(surname), null, null, null);
         this.faction = faction;
     }
 
@@ -55,11 +53,6 @@ public class Surname extends Element {
     }
 
     public String getSurname() {
-        return surname;
+        return getNameRepresentation();
     }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
 }

@@ -28,7 +28,6 @@ package com.softwaremagico.tm.random.character;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Gender;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
-import com.softwaremagico.tm.random.log.RandomTestGenerationLog;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -41,8 +40,6 @@ public class RandomCharacterTest {
             final CharacterPlayer characterPlayer = new CharacterPlayer();
             final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
             randomizeCharacter.createCharacter();
-
-            RandomTestGenerationLog.info(this.getClass(), characterPlayer.toString());
 
             Assert.assertNotNull(characterPlayer.getSpecie());
             Assert.assertNotNull(characterPlayer.getPrimaryCharacteristic());

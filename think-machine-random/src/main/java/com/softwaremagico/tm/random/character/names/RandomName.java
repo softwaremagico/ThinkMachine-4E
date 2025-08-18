@@ -54,8 +54,8 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
         if (getCharacterPlayer().getInfo().getNames() != null && !getCharacterPlayer().getInfo().getNames().isEmpty()) {
             return;
         }
-        if (getCharacterPlayer().getFaction() == null || getCharacterPlayer().getSpecie() == null || getCharacterPlayer().getInfo().getPlanet() == null
-                || getCharacterPlayer().getInfo().getGender() == null) {
+        if (getCharacterPlayer().getFaction() == null || getCharacterPlayer().getSpecie() == null
+                || getCharacterPlayer().getInfo().getPlanet() == null || getCharacterPlayer().getInfo().getGender() == null) {
             throw new InvalidRandomElementSelectedException("Please, set gender, faction, specie and planet first.");
         }
 
@@ -88,6 +88,7 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
 
     @Override
     protected int getWeight(Name name) throws InvalidRandomElementSelectedException {
+        // TODO(softwaremagico): add xeno names.
         // Only names of its gender.
         if (!name.getGender().equals(getCharacterPlayer().getInfo().getGender())) {
             throw new InvalidRandomElementSelectedException("Name '" + name + "' not valid for gender '"
@@ -95,9 +96,9 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
         }
         // Nobility almost always names of her planet.
         if (getCharacterPlayer().getFaction() != null
-                && FactionGroup.get(getCharacterPlayer().getFaction().getGroup()) == FactionGroup.NOBILITY
+                && FactionGroup.get(getCharacterPlayer().getFaction().getGroup()) == FactionGroup.NOBLE
                 && !FactionFactory.getInstance().getAllNames(getCharacterPlayer().getFaction().getId()).isEmpty()) {
-            if (getCharacterPlayer().getFaction().get().getId().equals(name.getFaction())) {
+            if (Objects.equals(getCharacterPlayer().getFaction().getId(), name.getFaction())) {
                 return super.getWeight(name);
             } else {
                 throw new InvalidRandomElementSelectedException("Name '" + name

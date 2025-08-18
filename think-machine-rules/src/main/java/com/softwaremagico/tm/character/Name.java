@@ -37,13 +37,13 @@ public class Name extends Element {
     private String faction;
 
     public Name(String name, String language, String moduleName, Gender gender, String faction) {
-        super(getId(name, faction, moduleName), new TranslatedText(name), null, language, moduleName);
+        super(getId(name, faction, moduleName), new TranslatedText(name.trim()), null, language, moduleName);
         this.gender = gender;
         this.faction = faction;
     }
 
     public Name(String name, Gender gender, String faction) {
-        super(name, new TranslatedText(name), null, null, null);
+        super(name, new TranslatedText(name.trim()), null, null, null);
         this.gender = gender;
         this.faction = faction;
     }

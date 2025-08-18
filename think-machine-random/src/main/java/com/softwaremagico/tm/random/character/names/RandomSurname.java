@@ -78,7 +78,7 @@ public class RandomSurname extends RandomSelector<Surname> implements Assignable
         if (getCharacterPlayer().getSpecie() != null
                 && !SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie()).isXeno()
                 && getCharacterPlayer().getFaction() != null
-                && Objects.equals(getCharacterPlayer().getFaction().getGroup(), FactionGroup.NOBILITY.toString())) {
+                && FactionGroup.NOBLE.toString().equalsIgnoreCase(getCharacterPlayer().getFaction().getGroup())) {
             if (Objects.equals(surname.getSurname(), getCharacterPlayer().getFaction().getNameRepresentation())) {
                 return super.getWeight(surname);
             } else {

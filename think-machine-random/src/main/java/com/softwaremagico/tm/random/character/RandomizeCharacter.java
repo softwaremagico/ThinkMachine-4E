@@ -27,6 +27,7 @@ package com.softwaremagico.tm.random.character;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Gender;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.log.RandomGenerationLog;
 import com.softwaremagico.tm.random.character.callings.RandomCalling;
 import com.softwaremagico.tm.random.character.factions.RandomFaction;
 import com.softwaremagico.tm.random.character.names.RandomName;
@@ -70,6 +71,7 @@ public class RandomizeCharacter {
             selectPlanet();
             selectNames();
             selectCallings();
+            RandomGenerationLog.info(this.getClass(), "Character created: " + characterPlayer.toString());
         } catch (InvalidXmlElementException e) {
             throw new InvalidXmlElementException("Error on '" + characterPlayer + "'.", e);
         }
