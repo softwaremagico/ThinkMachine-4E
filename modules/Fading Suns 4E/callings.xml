@@ -5503,7 +5503,7 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <group>occultLore</group>
+                        <id>occultLore</id>
                     </capability>
                 </options>
             </capabilitiesOption>

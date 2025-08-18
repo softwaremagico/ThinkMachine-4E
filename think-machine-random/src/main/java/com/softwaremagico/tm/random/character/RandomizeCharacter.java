@@ -26,7 +26,6 @@ package com.softwaremagico.tm.random.character;
 
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Gender;
-import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.callings.RandomCalling;
 import com.softwaremagico.tm.random.character.factions.RandomFaction;
@@ -115,21 +114,6 @@ public class RandomizeCharacter {
 
     private void selectPrimaryCharacteristics() throws InvalidRandomElementSelectedException {
         final RandomCharacteristics randomCharacteristics = new RandomCharacteristics(characterPlayer, preferences);
-        final String mainCharacteristic = randomCharacteristics.selectElementByWeight().getId();
-        characterPlayer.setPrimaryCharacteristic(mainCharacteristic);
-
-        String secondaryCharacteristic;
-        do {
-            secondaryCharacteristic = randomCharacteristics.selectElementByWeight().getId();
-        } while (Objects.equals(mainCharacteristic, secondaryCharacteristic));
-        characterPlayer.setSecondaryCharacteristic(secondaryCharacteristic);
-
-        //Some species forces primary characteristics.
-        try {
-            characterPlayer.getSpecie().validate();
-        } catch (InvalidSelectionException e) {
-            //Not valid, try again.
-            selectPrimaryCharacteristics();
-        }
+        randomCharacteristics.selectPrimaryCharacteristics();
     }
 }

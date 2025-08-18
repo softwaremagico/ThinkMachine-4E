@@ -30,6 +30,8 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.characteristics.CharacteristicType;
 import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
 import com.softwaremagico.tm.character.occultism.OccultismType;
+import com.softwaremagico.tm.character.specie.Specie;
+import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
@@ -90,7 +92,7 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
     }
 
 
-    private void selectPrimaryCharacteristics() throws InvalidRandomElementSelectedException {
+    public void selectPrimaryCharacteristics() throws InvalidRandomElementSelectedException {
         final String mainCharacteristic = selectStandardCharacteristic();
         getCharacterPlayer().setPrimaryCharacteristic(mainCharacteristic);
 
@@ -113,10 +115,12 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
 
     private String selectStandardCharacteristic() throws InvalidRandomElementSelectedException {
         String characteristic;
+        final Specie specie = SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie());
         do {
             characteristic = selectElementByWeight().getId();
         } while (CharacteristicsDefinitionFactory.getInstance().getElement(characteristic).getType() == CharacteristicType.OCCULTISM
-                || CharacteristicsDefinitionFactory.getInstance().getElement(characteristic).getType() == CharacteristicType.OTHERS);
+                || CharacteristicsDefinitionFactory.getInstance().getElement(characteristic).getType() == CharacteristicType.OTHERS
+                || (specie != null && specie.getPrimaryCharacteristics() != null && !specie.getPrimaryCharacteristics().contains(characteristic)));
         return characteristic;
     }
 }

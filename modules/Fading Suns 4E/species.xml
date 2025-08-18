@@ -467,7 +467,7 @@
                 <id>memoryExpander</id>
             </perk>
             <perk>
-                <id>militaryRank</id>
+                <group>militaryRank</group>
             </perk>
             <perk>
                 <id>oriented</id>

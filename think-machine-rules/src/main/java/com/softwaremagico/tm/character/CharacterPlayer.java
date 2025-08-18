@@ -1022,9 +1022,9 @@ public class CharacterPlayer {
         final String name = getCompleteNameRepresentation();
         return "CharacterPlayer{"
                 + (name != null && !name.isBlank() ? "name=" + name + ", " : "")
-                + "faction=" + faction
+                + "specie=" + specie
                 + ", upbringing=" + upbringing
-                + ", specie=" + specie
+                + ", faction=" + faction
                 + ", calling=" + calling
                 + ", level=" + level
                 + '}';

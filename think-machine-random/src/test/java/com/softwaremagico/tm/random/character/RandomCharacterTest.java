@@ -244,4 +244,67 @@ public class RandomCharacterTest {
         Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
         Assert.assertNotNull(characterPlayer.getInfo().getSurname());
     }
+
+    @Test
+    public void createScholarCharacterTest() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.getInfo().setPlanet("nowhere");
+        characterPlayer.getInfo().setGender(Gender.MALE);
+        characterPlayer.setUpbringing("yeoman");
+        characterPlayer.setFaction("theDispossessed");
+        characterPlayer.setCalling("scholar");
+        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
+        randomizeCharacter.createCharacter();
+
+        Assert.assertNotNull(characterPlayer.getSpecie());
+        Assert.assertNotNull(characterPlayer.getPrimaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getSecondaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getFaction());
+        Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
+        Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
+        Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+    }
+
+    @Test
+    public void createVoroxCharacterTest() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("vorox");
+        characterPlayer.getInfo().setPlanet("ungavorox");
+        characterPlayer.getInfo().setGender(Gender.MALE);
+        characterPlayer.setUpbringing("merchant");
+        characterPlayer.setFaction("musters");
+        characterPlayer.setCalling("scout");
+        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
+        randomizeCharacter.createCharacter();
+
+        Assert.assertNotNull(characterPlayer.getSpecie());
+        Assert.assertNotNull(characterPlayer.getPrimaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getSecondaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getFaction());
+        Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
+        Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
+        Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+    }
+
+    @Test
+    public void createOccultistCharacterTest() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.getInfo().setPlanet("nowhere");
+        characterPlayer.getInfo().setGender(Gender.MALE);
+        characterPlayer.setUpbringing("priest");
+        characterPlayer.setFaction("eskatonic");
+        characterPlayer.setCalling("occultist");
+        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
+        randomizeCharacter.createCharacter();
+
+        Assert.assertNotNull(characterPlayer.getSpecie());
+        Assert.assertNotNull(characterPlayer.getPrimaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getSecondaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getFaction());
+        Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
+        Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
+        Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+    }
 }
