@@ -89,6 +89,13 @@ public class CapabilityOption extends Option<Capability> {
     @Override
     public void validate() throws InvalidXmlElementException {
         super.validate();
+        if (getId() != null) {
+            CapabilityFactory.getInstance().getElement(getId());
+        } else if (getGroup() != null) {
+            if (CapabilityFactory.getInstance().getElementsByGroup(getGroup()).isEmpty()) {
+                throw new InvalidXmlElementException("Invalid group '" + getGroup() + "' on capability. ");
+            }
+        }
         if (selectedSpecialization != null) {
             if (!CapabilityFactory.getInstance().getElement(getId()).getSpecializations().contains(selectedSpecialization)) {
                 throw new InvalidXmlElementException("Capability " + getId() + " has not element with specialization '" + selectedSpecialization + "'.");

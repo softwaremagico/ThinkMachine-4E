@@ -25,7 +25,6 @@ package com.softwaremagico.tm.character.specie;
  */
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.CharacterDefinitionStep;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;

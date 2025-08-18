@@ -100,15 +100,7 @@ public class CapabilityOptions extends OptionSelector<Capability, CapabilityOpti
     public void validate() throws InvalidXmlElementException {
         super.validate();
         if (getOptions() != null) {
-            getOptions().forEach(option -> {
-                if (option.getId() != null) {
-                    CapabilityFactory.getInstance().getElement(option.getId());
-                } else if (option.getGroup() != null) {
-                    if (CapabilityFactory.getInstance().getElementsByGroup(option.getGroup()).isEmpty()) {
-                        throw new InvalidXmlElementException("Invalid group '" + option.getGroup() + "' on capability. ");
-                    }
-                }
-            });
+            getOptions().forEach(CapabilityOption::validate);
         }
     }
 }

@@ -602,7 +602,7 @@
                         <id>combatArmor</id>
                     </capability>
                     <capability>
-                        <group>occultLore</group>
+                        <id>occultLore</id>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -616,7 +616,7 @@
                         <group>rangedWeapon</group>
                     </capability>
                     <capability>
-                        <group>warfareLore</group>
+                        <id>warfareLore</id>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -3080,7 +3080,7 @@
                         <id>warArmor</id>
                     </capability>
                     <capability>
-                        <group>handheldShield</group>
+                        <id>handheldShield</id>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -3608,10 +3608,10 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <group>commonCustom</group>
+                       <id>commonsCustoms</id>
                     </capability>
                     <capability>
-                        <group>courtCustom</group>
+                        <id>courtCustoms</id>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -3816,7 +3816,7 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <group>occultLore</group>
+                        <id>occultLore</id>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -5694,10 +5694,10 @@
                         <selectedSpecialization>latin</selectedSpecialization>
                     </capability>
                     <capability>
-                        <group>commonCustom</group>
+                       <id>commonsCustoms</id>
                     </capability>
                     <capability>
-                        <group>courtCustom</group>
+                        <id>courtCustoms</id>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -5864,10 +5864,10 @@
                         <id>warArmor</id>
                     </capability>
                     <capability>
-                        <group>handheldShield</group>
+                        <id>handheldShield</id>
                     </capability>
                     <capability>
-                        <group>warfareLore</group>
+                        <id>warfareLore</id>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -6488,7 +6488,7 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <group>streetwise</group>
+                        <id>streetwise</id>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -6691,7 +6691,7 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <group>streetwise</group>
+                        <id>streetwise</id>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -7693,7 +7693,7 @@
                         <group>techLore</group>
                     </capability>
                     <capability>
-                        <group>lifeScience</group>
+                        <id>lifeScience</id>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -8100,7 +8100,7 @@
                         <id>thinkMachines</id>
                     </capability>
                     <capability>
-                        <group>craft</group>
+                        <group>craftsLore</group>
                     </capability>
                     <capability>
                         <group>scienceLore</group>

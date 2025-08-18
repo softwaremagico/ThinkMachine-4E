@@ -79,7 +79,7 @@ public class RandomSurname extends RandomSelector<Surname> implements Assignable
                 && !SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie()).isXeno()
                 && getCharacterPlayer().getFaction() != null
                 && Objects.equals(getCharacterPlayer().getFaction().getGroup(), FactionGroup.NOBILITY.toString())) {
-            if (Objects.equals(surname.getFaction(), getCharacterPlayer().getFaction().getId())) {
+            if (Objects.equals(surname.getSurname(), getCharacterPlayer().getFaction().getNameRepresentation())) {
                 return super.getWeight(surname);
             } else {
                 throw new InvalidRandomElementSelectedException("Surname '" + surname + "' is restricted to non nobility factions.");
@@ -88,7 +88,7 @@ public class RandomSurname extends RandomSelector<Surname> implements Assignable
         // Not nobility no faction as surname.
         try {
             for (final Faction faction : FactionFactory.getInstance().getElements()) {
-                if (Objects.equals(surname.getId(), getCharacterPlayer().getFaction().getId())) {
+                if (Objects.equals(surname.getSurname(), getCharacterPlayer().getFaction().getNameRepresentation())) {
                     throw new InvalidRandomElementSelectedException("Surname '" + surname + "' is restricted to faction '"
                             + faction + "'.");
                 }
@@ -99,19 +99,16 @@ public class RandomSurname extends RandomSelector<Surname> implements Assignable
         // Name already set, use the same faction to avoid weird mix.
         if (getCharacterPlayer().getInfo().getNames() != null && !getCharacterPlayer().getInfo().getNames().isEmpty()) {
             final Name firstName = getCharacterPlayer().getInfo().getNames().get(0);
-            if (firstName.getFaction() != null && !Objects.equals(firstName.getFaction(), surname.getFaction())) {
+            if (firstName.getFaction() != null && surname.getFaction() != null
+                    && !Objects.equals(firstName.getFaction(), surname.getFaction())) {
                 return 0;
-            } else {
-                return super.getWeight(surname);
             }
         }
 
         // Not nobility and not name set, use surnames of the planet.
         if (getCharacterPlayer().getInfo().getPlanet() != null
                 && !PlanetFactory.getInstance().getElement(getCharacterPlayer().getInfo().getPlanet()).getSurnames().isEmpty()) {
-            if (PlanetFactory.getInstance().getElement(getCharacterPlayer().getInfo().getPlanet()).getHumanFactions().contains(surname.getFaction())) {
-                return super.getWeight(surname);
-            } else {
+            if (!PlanetFactory.getInstance().getElement(getCharacterPlayer().getInfo().getPlanet()).getHumanFactions().contains(surname.getFaction())) {
                 throw new InvalidRandomElementSelectedException("Surname '" + surname + "' not existing in planet '"
                         + getCharacterPlayer().getInfo().getPlanet() + "'.");
             }

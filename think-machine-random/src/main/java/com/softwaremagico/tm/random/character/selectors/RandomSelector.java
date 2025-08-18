@@ -417,8 +417,9 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
                 elementWeight = entry.getKey();
                 continue;
             }
-            if (elementWeight != null)
+            if (elementWeight != null) {
                 return entry.getKey() - elementWeight;
+            }
         }
         return null;
     }

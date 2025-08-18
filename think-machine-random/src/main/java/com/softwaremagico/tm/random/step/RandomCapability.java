@@ -24,7 +24,6 @@ package com.softwaremagico.tm.random.step;
  * #L%
  */
 
-import com.softwaremagico.tm.Option;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.capabilities.Capability;
 import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
@@ -33,7 +32,6 @@ import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
-import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
 import java.util.ArrayList;
 import java.util.Collection;
