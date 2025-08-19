@@ -91,6 +91,9 @@ public class Restrictions extends XmlData {
     @JacksonXmlProperty(isAttribute = true)
     private RestrictionMode mode = RestrictionMode.ANY;
 
+    @JsonProperty("raisedInSpace")
+    private boolean raisedInSpace;
+
     @JacksonXmlProperty(isAttribute = true)
     public Set<String> getRestrictedToSpecies() {
         return restrictedToSpecies;
@@ -138,6 +141,18 @@ public class Restrictions extends XmlData {
 
     public void setRestrictedToPerksGroups(Set<String> restrictedToPerksGroups) {
         this.restrictedToPerksGroups = restrictedToPerksGroups;
+    }
+
+    private boolean isRaisedInSpace(CharacterPlayer characterPlayer) {
+        return isRaisedInSpace() && characterPlayer.getUpbringing().isRaisedInSpace();
+    }
+
+    public boolean isRaisedInSpace() {
+        return raisedInSpace;
+    }
+
+    public void setRaisedInSpace(boolean raisedInSpace) {
+        this.raisedInSpace = raisedInSpace;
     }
 
     public Set<String> getRestrictedToCapabilitiesGroups() {
@@ -285,6 +300,7 @@ public class Restrictions extends XmlData {
         }
         try {
             return isOpen()
+                    || isRaisedInSpace(characterPlayer)
                     //Check Specie
                     || isRestrictedToSpecie(characterPlayer)
                     // Check Faction
@@ -331,6 +347,7 @@ public class Restrictions extends XmlData {
         }
         try {
             return isOpen()
+                    || isRaisedInSpace(characterPlayer)
                     //Check Specie
                     || ((getRestrictedToSpecies().isEmpty() || (characterPlayer.getSpecie() != null && getRestrictedToSpecies()
                     .contains(characterPlayer.getSpecie().getId())))
@@ -377,6 +394,7 @@ public class Restrictions extends XmlData {
         }
         try {
             return isOpen()
+                    || isRaisedInSpace(characterPlayer)
                     //Check Specie
                     || (((getRestrictedToSpecies().isEmpty() || (characterPlayer.getSpecie() != null && getRestrictedToSpecies()
                     .contains(characterPlayer.getSpecie().getId())))
@@ -423,6 +441,7 @@ public class Restrictions extends XmlData {
         }
         try {
             return isOpen()
+                    || isRaisedInSpace(characterPlayer)
                     //Must much specie or upbringing or calling or faction.
                     || ((((getRestrictedToSpecies().isEmpty() || (characterPlayer.getSpecie() != null && getRestrictedToSpecies()
                     .contains(characterPlayer.getSpecie().getId())))

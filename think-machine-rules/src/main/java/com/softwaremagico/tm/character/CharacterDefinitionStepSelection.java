@@ -61,9 +61,6 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     @JsonProperty("materialAwards")
     private List<CharacterSelectedEquipment> selectedMaterialAwards;
 
-    //TODO(softwaremagico): implement this.
-    private boolean raisedInSpace;
-
     public CharacterDefinitionStepSelection(CharacterPlayer characterPlayer, CharacterDefinitionStep<?> characterDefinitionStep)
             throws InvalidGeneratedCharacter {
         copy(characterDefinitionStep);
@@ -71,28 +68,28 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         this.characterPlayer = characterPlayer;
         this.characterDefinitionStep = characterDefinitionStep;
 
-        setSelectedCapabilityOptions(Arrays.asList(new CharacterSelectedElement[characterDefinitionStep.getCapabilityOptions().size()]));
-        for (int i = 0; i < characterDefinitionStep.getCapabilityOptions().size(); i++) {
+        setSelectedCapabilityOptions(Arrays.asList(new CharacterSelectedElement[getCapabilityOptions().size()]));
+        for (int i = 0; i < getCapabilityOptions().size(); i++) {
             selectedCapabilityOptions.set(i, new CharacterSelectedElement());
         }
 
-        setSelectedCharacteristicOptions(Arrays.asList(new CharacterSelectedElement[characterDefinitionStep.getCharacteristicOptions().size()]));
-        for (int i = 0; i < characterDefinitionStep.getCharacteristicOptions().size(); i++) {
+        setSelectedCharacteristicOptions(Arrays.asList(new CharacterSelectedElement[getCharacteristicOptions().size()]));
+        for (int i = 0; i < getCharacteristicOptions().size(); i++) {
             selectedCharacteristicOptions.set(i, new CharacterSelectedElement());
         }
 
-        setSelectedSkillOptions(Arrays.asList(new CharacterSelectedElement[characterDefinitionStep.getSkillOptions().size()]));
-        for (int i = 0; i < characterDefinitionStep.getSkillOptions().size(); i++) {
+        setSelectedSkillOptions(Arrays.asList(new CharacterSelectedElement[getSkillOptions().size()]));
+        for (int i = 0; i < getSkillOptions().size(); i++) {
             selectedSkillOptions.set(i, new CharacterSelectedElement());
         }
 
-        setSelectedPerksOptions(Arrays.asList(new CharacterSelectedElement[characterDefinitionStep.getPerksOptions().size()]));
-        for (int i = 0; i < characterDefinitionStep.getPerksOptions().size(); i++) {
+        setSelectedPerksOptions(Arrays.asList(new CharacterSelectedElement[getPerksOptions().size()]));
+        for (int i = 0; i < getPerksOptions().size(); i++) {
             selectedPerksOptions.set(i, new CharacterSelectedElement());
         }
 
-        setSelectedMaterialAwards(Arrays.asList(new CharacterSelectedEquipment[characterDefinitionStep.getMaterialAwards().size()]));
-        for (int i = 0; i < characterDefinitionStep.getMaterialAwards().size(); i++) {
+        setSelectedMaterialAwards(Arrays.asList(new CharacterSelectedEquipment[getMaterialAwardsOptions().size()]));
+        for (int i = 0; i < getMaterialAwardsOptions().size(); i++) {
             selectedMaterialAwards.set(i, new CharacterSelectedEquipment());
         }
 
@@ -100,10 +97,10 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     }
 
     public void selectDefaultOptions() {
-        setDefaultOptions(new ArrayList<>(characterDefinitionStep.getCapabilityOptions()), selectedCapabilityOptions);
-        setDefaultOptions(new ArrayList<>(characterDefinitionStep.getCharacteristicOptions()), selectedCharacteristicOptions);
-        setDefaultOptions(new ArrayList<>(characterDefinitionStep.getSkillOptions()), selectedSkillOptions);
-        setDefaultOptions(new ArrayList<>(characterDefinitionStep.getPerksOptions()), selectedPerksOptions);
+        setDefaultOptions(new ArrayList<>(getCapabilityOptions()), selectedCapabilityOptions);
+        setDefaultOptions(new ArrayList<>(getCharacteristicOptions()), selectedCharacteristicOptions);
+        setDefaultOptions(new ArrayList<>(getSkillOptions()), selectedSkillOptions);
+        setDefaultOptions(new ArrayList<>(getPerksOptions()), selectedPerksOptions);
     }
 
     private void setDefaultOptions(List<OptionSelector<?, ?>> options, List<CharacterSelectedElement> selectedElements) {
@@ -172,7 +169,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         int bonus = 0;
         for (int i = 0; i < getSelectedCharacteristicOptions().size(); i++) {
             if (getSelectedCharacteristicOptions().get(i).getSelections().stream().map(Selection::getId).collect(Collectors.toSet()).contains(characteristic)) {
-                bonus += characterDefinitionStep.getCharacteristicOptions().get(i).getCharacteristicBonus(characteristic).getBonus();
+                bonus += getCharacteristicOptions().get(i).getCharacteristicBonus(characteristic).getBonus();
             }
         }
         return bonus;
@@ -184,7 +181,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
             for (int j = 0; j < getSelectedSkillOptions().get(i).getSelections().size(); j++) {
                 if (getSelectedSkillOptions().get(i).getSelections().stream().map(Selection::getId)
                         .filter(Objects::nonNull).collect(Collectors.toSet()).contains(skill)) {
-                    bonus += characterDefinitionStep.getSkillOptions().get(i).getSkillBonus(skill).getBonus();
+                    bonus += getSkillOptions().get(i).getSkillBonus(skill).getBonus();
                 }
             }
         }
@@ -222,14 +219,22 @@ public abstract class CharacterDefinitionStepSelection extends Element {
             throw new InvalidSelectionException("Restrictions for  '" + getId() + "' are not meet.");
         }
 
-        //Capabilities
+        validateCapabilities();
+
+        validateCharacteristics();
+
+        validatePerks();
+
+    }
+
+    protected void validateCapabilities() {
         for (int i = 0; i < selectedCapabilityOptions.size(); i++) {
-            if (selectedCapabilityOptions.get(i).getSelections().size() > characterDefinitionStep.getCapabilityOptions().get(i).getOptions().size()) {
+            if (selectedCapabilityOptions.get(i).getSelections().size() > getCapabilityOptions().get(i).getOptions().size()) {
                 throw new TooManySelectionsException("You have selected '" + selectedCapabilityOptions.get(i).getSelections().size()
                         + "' capabilities options and only '"
-                        + characterDefinitionStep.getCapabilityOptions().get(i).getOptions().size() + "' are available.");
+                        + getCapabilityOptions().get(i).getOptions().size() + "' are available.");
             }
-            final List<Selection> availableOptions = characterDefinitionStep.getCapabilityOptions().get(i).getOptions()
+            final List<Selection> availableOptions = getCapabilityOptions().get(i).getOptions()
                     .stream().map(co -> new Selection(co.getId(), co.getSelectedSpecialization())).collect(Collectors.toList());
             for (Selection selection : selectedCapabilityOptions.get(i).getSelections()) {
                 if (!availableOptions.contains(selection)) {
@@ -237,16 +242,17 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                 }
             }
         }
+    }
 
-        //Characteristics
+    protected void validateCharacteristics() {
         for (int i = 0; i < selectedCharacteristicOptions.size(); i++) {
-            if (selectedCharacteristicOptions.get(i).getSelections().size() > characterDefinitionStep.getCharacteristicOptions().get(i).getOptions().size()) {
+            if (selectedCharacteristicOptions.get(i).getSelections().size() > getCharacteristicOptions().get(i).getOptions().size()) {
                 throw new TooManySelectionsException("You have selected '" + selectedCharacteristicOptions.get(i).getSelections().size()
                         + "' characteristics options and only '"
-                        + characterDefinitionStep.getCharacteristicOptions().get(i).getOptions().size()
+                        + getCharacteristicOptions().get(i).getOptions().size()
                         + "' are available.");
             }
-            final List<Selection> availableOptions = characterDefinitionStep.getCharacteristicOptions().get(i).getOptions()
+            final List<Selection> availableOptions = getCharacteristicOptions().get(i).getOptions()
                     .stream().map(co -> new Selection(co.getId())).collect(Collectors.toList());
             for (Selection selection : selectedCharacteristicOptions.get(i).getSelections()) {
                 if (!availableOptions.contains(selection)) {
@@ -254,16 +260,17 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                 }
             }
         }
+    }
 
-        //Skills
+    protected void validateSkills() {
         for (int i = 0; i < selectedSkillOptions.size(); i++) {
-            if (selectedSkillOptions.get(i).getSelections().size() > characterDefinitionStep.getSkillOptions().get(i).getOptions().size()) {
+            if (selectedSkillOptions.get(i).getSelections().size() > getSkillOptions().get(i).getOptions().size()) {
                 throw new TooManySelectionsException("You have selected '" + selectedSkillOptions.get(i).getSelections().size()
                         + "' capabilities options and only '"
-                        + characterDefinitionStep.getSkillOptions().get(i).getOptions().size()
+                        + getSkillOptions().get(i).getOptions().size()
                         + "' are available.");
             }
-            final List<Selection> availableOptions = characterDefinitionStep.getSkillOptions().get(i).getOptions()
+            final List<Selection> availableOptions = getSkillOptions().get(i).getOptions()
                     .stream().map(so -> new Selection(so.getId())).collect(Collectors.toList());
             for (Selection selection : selectedSkillOptions.get(i).getSelections()) {
                 if (!availableOptions.contains(selection)) {
@@ -271,16 +278,17 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                 }
             }
         }
+    }
 
-        //Perks
+    protected void validatePerks() {
         for (int i = 0; i < selectedPerksOptions.size(); i++) {
-            if (selectedPerksOptions.get(i).getSelections().size() > characterDefinitionStep.getPerksOptions().get(i).getOptions().size()) {
+            if (selectedPerksOptions.get(i).getSelections().size() > getPerksOptions().get(i).getOptions().size()) {
                 throw new TooManySelectionsException("You have selected '" + selectedPerksOptions.get(i).getSelections().size()
                         + "' capabilities options and only '"
-                        + characterDefinitionStep.getPerksOptions().get(i).getOptions().size()
+                        + getPerksOptions().get(i).getOptions().size()
                         + "' are available.");
             }
-            final List<Selection> availableOptions = characterDefinitionStep.getPerksOptions().get(i).getOptions()
+            final List<Selection> availableOptions = getPerksOptions().get(i).getOptions()
                     .stream().map(po -> new Selection(po.getId())).collect(Collectors.toList());
             for (Selection selection : selectedPerksOptions.get(i).getSelections()) {
                 if (!availableOptions.contains(selection)) {

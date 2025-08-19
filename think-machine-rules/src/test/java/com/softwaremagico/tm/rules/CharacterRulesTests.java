@@ -29,9 +29,15 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.callings.Calling;
 import com.softwaremagico.tm.character.callings.CallingFactory;
+import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
+import com.softwaremagico.tm.character.capabilities.CapabilityOption;
+import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
+import com.softwaremagico.tm.character.skills.SkillBonusOption;
+import com.softwaremagico.tm.character.skills.SkillBonusOptions;
+import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.Upbringing;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
@@ -229,5 +235,55 @@ public class CharacterRulesTests {
         final Calling calling = CallingFactory.getInstance().getElement("inquisitor");
         Assert.assertEquals(calling.getMaterialAwards().size(), 1);
         Assert.assertTrue(calling.getMaterialAwards().get(0).getOptions().get(0).getExtras().contains("flameproof"));
+    }
+
+
+    @Test
+    public void checkRaisedInSpace() {
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("noble");
+        characterPlayer.getUpbringing().setRaisedInSpace(true);
+
+        final CapabilityOption shipboardOperations = new CapabilityOption(CapabilityFactory.getInstance().getElement("shipboardOperations"));
+        for (CapabilityOptions capabilityOptions : characterPlayer.getUpbringing().getCapabilityOptions()) {
+            Assert.assertTrue(capabilityOptions.getOptions().contains(shipboardOperations));
+        }
+
+        final CapabilityOption thinkMachines = new CapabilityOption(CapabilityFactory.getInstance().getElement("thinkMachines"));
+        for (CapabilityOptions capabilityOptions : characterPlayer.getUpbringing().getCapabilityOptions()) {
+            Assert.assertTrue(capabilityOptions.getOptions().contains(thinkMachines));
+        }
+
+        final SkillBonusOption interfaceSkill = new SkillBonusOption(SkillFactory.getInstance().getElement("interface"));
+        for (SkillBonusOptions skillBonusOptions : characterPlayer.getUpbringing().getSkillOptions()) {
+            Assert.assertTrue(skillBonusOptions.getOptions().contains(interfaceSkill));
+        }
+
+        final SkillBonusOption techRedemptionSkill = new SkillBonusOption(SkillFactory.getInstance().getElement("techRedemption"));
+        for (SkillBonusOptions skillBonusOptions : characterPlayer.getUpbringing().getSkillOptions()) {
+            Assert.assertTrue(skillBonusOptions.getOptions().contains(techRedemptionSkill));
+        }
+
+        CharacterPlayer characterPlayer2 = new CharacterPlayer();
+        characterPlayer2.setSpecie("human");
+        characterPlayer2.setUpbringing("noble");
+        characterPlayer2.getUpbringing().setRaisedInSpace(false);
+
+        for (CapabilityOptions capabilityOptions : characterPlayer2.getUpbringing().getCapabilityOptions()) {
+            Assert.assertTrue(capabilityOptions.getOptions().contains(shipboardOperations));
+        }
+
+        for (CapabilityOptions capabilityOptions : characterPlayer2.getUpbringing().getCapabilityOptions()) {
+            Assert.assertTrue(capabilityOptions.getOptions().contains(thinkMachines));
+        }
+
+        for (SkillBonusOptions skillBonusOptions : characterPlayer2.getUpbringing().getSkillOptions()) {
+            Assert.assertTrue(skillBonusOptions.getOptions().contains(interfaceSkill));
+        }
+
+        for (SkillBonusOptions skillBonusOptions : characterPlayer2.getUpbringing().getSkillOptions()) {
+            Assert.assertTrue(skillBonusOptions.getOptions().contains(techRedemptionSkill));
+        }
     }
 }
