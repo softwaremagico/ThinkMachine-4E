@@ -41,6 +41,7 @@ import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -69,11 +70,23 @@ public class RandomSurname extends RandomSelector<Surname> implements Assignable
 
     @Override
     protected Collection<Surname> getAllElements() {
-        return FactionFactory.getInstance().getAllSurnames();
+        final Set<Surname> surnames = new HashSet<>();
+        surnames.addAll(FactionFactory.getInstance().getAllSurnames());
+        surnames.addAll(SpecieFactory.getInstance().getAllSurnames());
+        return surnames;
     }
 
     @Override
     protected int getWeight(Surname surname) throws InvalidRandomElementSelectedException {
+        //Xenos have different names.
+        if (getCharacterPlayer().getSpecie() != null
+                && SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId()).isXeno()) {
+            if (Objects.equals(surname.getSpecie(), getCharacterPlayer().getSpecie().getId())) {
+                return super.getWeight(surname);
+            } else {
+                throw new InvalidRandomElementSelectedException("Surname '" + surname + "' is restricted to specie.");
+            }
+        }
         // Human nobility has faction as surname
         if (getCharacterPlayer().getSpecie() != null
                 && !SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie()).isXeno()

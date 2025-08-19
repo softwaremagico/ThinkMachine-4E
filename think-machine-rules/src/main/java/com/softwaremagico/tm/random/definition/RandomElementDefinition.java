@@ -282,27 +282,27 @@ public class RandomElementDefinition extends XmlData {
         return minimumTechLevel + "";
     }
 
-    public Set<Surname> getSurnames(String faction) {
+    public Set<Surname> getSurnames(String faction, String specie) {
         if (surnames == null) {
             surnames = new HashSet<>();
             if (surnameElements != null) {
                 Arrays.stream(surnameElements.split(",")).forEach(s ->
-                        surnames.add(new Surname(s.trim(), faction))
+                        surnames.add(new Surname(s.trim(), faction, specie))
                 );
             }
         }
         return surnames;
     }
 
-    public Set<Name> getNames(String faction, Gender gender) {
+    public Set<Name> getNames(String faction, String specie, Gender gender) {
         final Set<Name> names = new HashSet<>();
         if (gender == Gender.MALE && namesElements != null) {
             Arrays.stream(namesElements.getMaleNames().split(",")).forEach(s ->
-                    names.add(new Name(s.trim(), gender, faction))
+                    names.add(new Name(s.trim(), gender, faction, specie))
             );
         } else if (gender == Gender.FEMALE && namesElements != null) {
             Arrays.stream(namesElements.getFemaleNames().split(",")).forEach(s ->
-                    names.add(new Name(s.trim(), gender, faction))
+                    names.add(new Name(s.trim(), gender, faction, specie))
             );
         }
         return names;

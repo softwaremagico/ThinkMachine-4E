@@ -33,23 +33,34 @@ public class Surname extends Element {
     @JsonIgnore
     private final String faction;
 
+    @JsonIgnore
+    private final String specie;
+
+    public Surname(String surname, String language, String moduleName, String faction, String specie) {
+        super(getId(surname, faction, specie, moduleName), new TranslatedText(surname), null, language, moduleName);
+        this.faction = faction;
+        this.specie = specie;
+    }
+
+    public Surname(String surname, String faction, String specie) {
+        super(getId(surname, faction, specie, null), new TranslatedText(surname), null, null, null);
+        this.faction = faction;
+        this.specie = specie;
+    }
+
+    private static String getId(String surname, String faction, String specie, String moduleName) {
+        return surname.replaceAll("\\s+", "_").toLowerCase() + (faction != null ? "_" + faction : "")
+                + (specie != null ? "_" + specie : "")
+                + (moduleName != null ? "_" + moduleName.replaceAll("\\s+", "_").toLowerCase() : "");
+    }
+
+
     public String getFaction() {
         return faction;
     }
 
-    public Surname(String surname, String language, String moduleName, String faction) {
-        super(getId(surname, faction, moduleName), new TranslatedText(surname), null, language, moduleName);
-        this.faction = faction;
-    }
-
-    public Surname(String surname, String faction) {
-        super(getId(surname, faction, null), new TranslatedText(surname), null, null, null);
-        this.faction = faction;
-    }
-
-    private static String getId(String surname, String faction, String moduleName) {
-        return surname.replaceAll("\\s+", "_").toLowerCase() + (faction != null ? "_" + faction : "")
-                + (moduleName != null ? "_" + moduleName.replaceAll("\\s+", "_").toLowerCase() : "");
+    public String getSpecie() {
+        return specie;
     }
 
     public String getSurname() {

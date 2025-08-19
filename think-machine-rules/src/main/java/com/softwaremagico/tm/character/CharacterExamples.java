@@ -45,8 +45,8 @@ public final class CharacterExamples {
     public static CharacterPlayer generateHumanNobleDecadosCommander() {
         final CharacterPlayer characterPlayer = new CharacterPlayer();
 
-        characterPlayer.getInfo().addName(new Name("Oliver", Gender.MALE, null));
-        characterPlayer.getInfo().setSurname(new Surname("Queen", null));
+        characterPlayer.getInfo().addName(new Name("Oliver", Gender.MALE, null, null));
+        characterPlayer.getInfo().setSurname(new Surname("Queen", null, null));
         characterPlayer.getInfo().setPlayer("Player 1");
         characterPlayer.getInfo().setGender(Gender.MALE);
         characterPlayer.getInfo().setAge(AGE);

@@ -39,6 +39,7 @@ import java.util.Set;
 
 public final class FactionFactory extends XmlFactory<Faction> {
     private static final String XML_FILE = "factions.xml";
+    private static final String HUMAN = "human";
 
     private Map<String, Map<Gender, Set<Name>>> namesByFaction;
     private Map<String, Set<Surname>> surnamesByFaction;
@@ -69,7 +70,7 @@ public final class FactionFactory extends XmlFactory<Faction> {
                 for (Gender gender : Gender.values()) {
                     namesByFaction.computeIfAbsent(f.getId(), k -> new EnumMap<>(Gender.class));
                     namesByFaction.get(f.getId()).computeIfAbsent(gender, k -> new HashSet<>());
-                    namesByFaction.get(f.getId()).put(gender, f.getRandomDefinition().getNames(f.getId(), gender));
+                    namesByFaction.get(f.getId()).put(gender, f.getRandomDefinition().getNames(f.getId(), HUMAN, gender));
                 }
             });
         }
@@ -79,7 +80,7 @@ public final class FactionFactory extends XmlFactory<Faction> {
         if (surnamesByFaction == null) {
             surnamesByFaction = new HashMap<>();
             getElements().forEach(f ->
-                    surnamesByFaction.put(f.getId(), f.getRandomDefinition().getSurnames(f.getId())));
+                    surnamesByFaction.put(f.getId(), f.getRandomDefinition().getSurnames(f.getId(), HUMAN)));
         }
     }
 

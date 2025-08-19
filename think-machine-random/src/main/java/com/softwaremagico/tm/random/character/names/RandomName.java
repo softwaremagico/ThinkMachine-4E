@@ -29,6 +29,7 @@ import com.softwaremagico.tm.character.Name;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.factions.FactionGroup;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
+import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
@@ -82,17 +83,28 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
 
     @Override
     protected Collection<Name> getAllElements() throws InvalidXmlElementException {
-        return FactionFactory.getInstance().getAllNames();
+        final Set<Name> names = new HashSet<>();
+        names.addAll(FactionFactory.getInstance().getAllNames());
+        names.addAll(SpecieFactory.getInstance().getAllNames());
+        return names;
     }
 
 
     @Override
     protected int getWeight(Name name) throws InvalidRandomElementSelectedException {
-        // TODO(softwaremagico): add xeno names.
         // Only names of its gender.
         if (!name.getGender().equals(getCharacterPlayer().getInfo().getGender())) {
             throw new InvalidRandomElementSelectedException("Name '" + name + "' not valid for gender '"
                     + getCharacterPlayer().getInfo().getGender() + "'.");
+        }
+        //Xenos have different names.
+        if (getCharacterPlayer().getSpecie() != null
+                && SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId()).isXeno()) {
+            if (Objects.equals(name.getSpecie(), getCharacterPlayer().getSpecie().getId())) {
+                return super.getWeight(name);
+            } else {
+                throw new InvalidRandomElementSelectedException("Name '" + name + "' is restricted to specie.");
+            }
         }
         // Nobility almost always names of her planet.
         if (getCharacterPlayer().getFaction() != null

@@ -29,7 +29,8 @@ public enum ProbabilityMultiplier {
     RARE(1),
     NORMAL(10),
     COMMON(30),
-    PREFERRED(100);
+    PREFERRED(100),
+    DOMINANT(1000);
 
     private final double value;
 

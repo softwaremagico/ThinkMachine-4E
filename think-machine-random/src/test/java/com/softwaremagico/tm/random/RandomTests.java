@@ -79,6 +79,20 @@ public class RandomTests {
     }
 
     @Test
+    public void randomObunNames() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("obun");
+        characterPlayer.setUpbringing("yeoman");
+        characterPlayer.setFaction("vagabonds");
+        characterPlayer.getInfo().setPlanet("sutek");
+        characterPlayer.getInfo().setGender(Gender.MALE);
+        final RandomName randomName = new RandomName(characterPlayer, null);
+        randomName.assign();
+        Assert.assertNotNull(characterPlayer.getInfo().getNames());
+        Assert.assertTrue(SpecieFactory.getInstance().getAllNames().contains(characterPlayer.getInfo().getNames().get(0)));
+    }
+
+    @Test
     public void randomSurnames() throws InvalidRandomElementSelectedException {
         final CharacterPlayer characterPlayer = new CharacterPlayer();
         characterPlayer.setSpecie("human");
@@ -88,6 +102,20 @@ public class RandomTests {
         final RandomSurname randomSurname = new RandomSurname(characterPlayer, null);
         randomSurname.assign();
         Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+    }
+
+    @Test
+    public void randomObunSurnames() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("obun");
+        characterPlayer.setUpbringing("yeoman");
+        characterPlayer.setFaction("vagabonds");
+        characterPlayer.getInfo().setPlanet("sutek");
+        characterPlayer.getInfo().setGender(Gender.MALE);
+        final RandomSurname randomName = new RandomSurname(characterPlayer, null);
+        randomName.assign();
+        Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+        Assert.assertTrue(SpecieFactory.getInstance().getAllSurnames().contains(characterPlayer.getInfo().getSurname()));
     }
 
 

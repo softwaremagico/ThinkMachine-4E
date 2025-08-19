@@ -88,7 +88,7 @@ public class RandomFactionData {
                 final StringTokenizer maleNamesTokenizer = new StringTokenizer(getRandomNames().getRandomMaleNamesContent(), ",");
                 while (maleNamesTokenizer.hasMoreTokens()) {
                     maleNames.add(new Name(maleNamesTokenizer.nextToken().trim(), null, null, Gender.MALE,
-                            faction));
+                            faction, null));
                 }
             }
         }
@@ -103,7 +103,7 @@ public class RandomFactionData {
                 final StringTokenizer femaleNamesTokenizer = new StringTokenizer(getRandomNames().getRandomFemaleNamesContent(), ",");
                 while (femaleNamesTokenizer.hasMoreTokens()) {
                     femaleNames.add(new Name(femaleNamesTokenizer.nextToken().trim(), null, null, Gender.FEMALE,
-                            faction));
+                            faction, null));
                 }
             }
         }
@@ -118,7 +118,7 @@ public class RandomFactionData {
                 final StringTokenizer surnamesTokenizer = new StringTokenizer(randomSurnamesContent, ",");
                 while (surnamesTokenizer.hasMoreTokens()) {
                     surnames.add(new Surname(surnamesTokenizer.nextToken().trim(), null, null,
-                            faction));
+                            faction, null));
                 }
             }
         }

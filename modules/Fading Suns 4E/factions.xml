@@ -4422,7 +4422,22 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <names>
+                <male>Arne, Birger, Bjørn, Bo, Erik, Frode, Gorm, Halfdan, Harald, Knud, Kåre, Leif, Njal, Roar, Rune,
+                    Sten, Skarde, Sune, Svend, Troels, Toke, Torsten, Trygve, Ulf, Ødger, Åge
+                </male>
+                <female>
+                    Astrid, Bodil, Frida, Gertrud, Gro, Estrid, Hilda, Gudrun, Gunhild, Helga, Inga, Liv, Randi, Signe,
+                    Sigrid, Revna, Sif, Tora, Tove, Thyra, Thurid, Yrsa, Ulfhild, Åse
+                </female>
+            </names>
+            <surnames>Anger, Angot, Anquetil, Auber, Aumont, Azouf, Auzoux, Aze, Brument, Burnouf, Ernouf, Estur,
+                Frigard, Gaument, Godefroy, Gonnor, Gounouf, Guillhouf, Harang, Harou, Hastain, Havard, Hérou,
+                Houlegate, Ingouf, Igouf, Yngouf, Ygouf, Youf, Néel, Onfroy, Onfroi, Osmond, Osmont, Osouf, Ozouf,
+                Quétil, Quétel, Rabec, Renouf, Thouroude, Troude, Trudeau, Torde, Tostain, Tourquétil, Tougard, Turgard,
+                Turgot, Turgis, Varanger, Varangot, Yver
+            </surnames>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
         </random>
     </faction>
 </factions>
