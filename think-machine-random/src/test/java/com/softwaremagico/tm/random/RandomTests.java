@@ -36,6 +36,7 @@ import com.softwaremagico.tm.random.character.names.RandomName;
 import com.softwaremagico.tm.random.character.names.RandomSurname;
 import com.softwaremagico.tm.random.character.planets.RandomPlanet;
 import com.softwaremagico.tm.random.character.upbringings.RandomUpbringing;
+import com.softwaremagico.tm.random.definition.ProbabilityMultiplier;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.step.RandomCharacteristics;
 import org.testng.Assert;
@@ -47,7 +48,7 @@ public class RandomTests {
     @Test
     public void readRandomPreferences() {
         final Specie human = SpecieFactory.getInstance().getElement("human");
-        Assert.assertEquals((int) human.getRandomDefinition().getStaticProbability(), 1000);
+        Assert.assertEquals(human.getRandomDefinition().getProbabilityMultiplier(), ProbabilityMultiplier.DOMINANT);
     }
 
     @Test

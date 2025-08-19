@@ -27,13 +27,12 @@ package com.softwaremagico.tm.factory;
 
 import com.softwaremagico.tm.character.Gender;
 import com.softwaremagico.tm.character.equipment.TechCompulsionFactory;
+import com.softwaremagico.tm.character.equipment.handheldshield.CustomizedHandheldShield;
 import com.softwaremagico.tm.character.equipment.item.Quality;
 import com.softwaremagico.tm.character.equipment.item.Status;
-import com.softwaremagico.tm.character.equipment.handheldshield.CustomizedHandheldShield;
 import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
-import com.softwaremagico.tm.character.factions.random.RandomFactionFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -84,10 +83,10 @@ public class FactionFactoryTests {
     public void readNames() throws InvalidXmlElementException {
         final Faction hazat = FactionFactory.getInstance().getElement("hazat");
         Assert.assertNotNull(hazat);
-        Assert.assertTrue(RandomFactionFactory.getInstance().getElement("hazat").getNames(Gender.MALE).size() >= DEFINED_MALE_NAMES);
+        Assert.assertTrue(FactionFactory.getInstance().getAllNames("hazat", Gender.MALE).size() >= DEFINED_MALE_NAMES);
         Assert.assertTrue(
-                RandomFactionFactory.getInstance().getElement("hazat").getNames(Gender.FEMALE).size() >= DEFINED_FEMALE_NAMES);
-        Assert.assertTrue(RandomFactionFactory.getInstance().getElement("hazat").getData().getSurnames().size() >= DEFINED_SURNAMES);
+                FactionFactory.getInstance().getAllNames("hazat", Gender.FEMALE).size() >= DEFINED_FEMALE_NAMES);
+        Assert.assertTrue(FactionFactory.getInstance().getAllSurnames("hazat").size() >= DEFINED_SURNAMES);
     }
 
 

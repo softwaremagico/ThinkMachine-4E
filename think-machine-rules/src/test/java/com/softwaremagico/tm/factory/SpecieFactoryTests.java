@@ -28,6 +28,7 @@ package com.softwaremagico.tm.factory;
 import com.softwaremagico.tm.character.specie.Specie;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.random.definition.ProbabilityMultiplier;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -49,7 +50,7 @@ public class SpecieFactoryTests {
     public void readAfflictions() throws InvalidXmlElementException {
         final Specie obun = SpecieFactory.getInstance().getElement("obun");
         Assert.assertTrue(obun.getPerks().stream().anyMatch(perkOption -> Objects.equals(perkOption.getId(), "childOfDhiyana")));
-        Assert.assertEquals((int) obun.getRandomDefinition().getStaticProbability(), 10);
+        Assert.assertEquals(obun.getRandomDefinition().getProbabilityMultiplier(), ProbabilityMultiplier.NORMAL);
     }
 
 
