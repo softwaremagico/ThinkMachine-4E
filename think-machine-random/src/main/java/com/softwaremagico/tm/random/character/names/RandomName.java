@@ -106,10 +106,10 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
                 throw new InvalidRandomElementSelectedException("Name '" + name + "' is restricted to specie.");
             }
         }
-        // Nobility almost always names of her planet.
+        // If faction has names (nobility, vuldroks). Use them.
         if (getCharacterPlayer().getFaction() != null
-                && FactionGroup.get(getCharacterPlayer().getFaction().getGroup()) == FactionGroup.NOBLE
-                && !FactionFactory.getInstance().getAllNames(getCharacterPlayer().getFaction().getId()).isEmpty()) {
+                && !FactionFactory.getInstance().getAllNames(getCharacterPlayer().getFaction().getId(), getCharacterPlayer().getInfo().getGender())
+                .isEmpty()) {
             if (Objects.equals(getCharacterPlayer().getFaction().getId(), name.getFaction())) {
                 return super.getWeight(name);
             } else {

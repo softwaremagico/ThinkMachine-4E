@@ -287,7 +287,7 @@ public class RandomElementDefinition extends XmlData {
             surnames = new HashSet<>();
             if (surnameElements != null) {
                 Arrays.stream(surnameElements.split(",")).forEach(s ->
-                        surnames.add(new Surname(s.trim(), faction, specie))
+                        surnames.add(new Surname(replaceAnyBlancSpace(s), faction, specie))
                 );
             }
         }
@@ -298,13 +298,17 @@ public class RandomElementDefinition extends XmlData {
         final Set<Name> names = new HashSet<>();
         if (gender == Gender.MALE && namesElements != null) {
             Arrays.stream(namesElements.getMaleNames().split(",")).forEach(s ->
-                    names.add(new Name(s.trim(), gender, faction, specie))
+                    names.add(new Name(replaceAnyBlancSpace(s), gender, faction, specie))
             );
         } else if (gender == Gender.FEMALE && namesElements != null) {
             Arrays.stream(namesElements.getFemaleNames().split(",")).forEach(s ->
-                    names.add(new Name(s.trim(), gender, faction, specie))
+                    names.add(new Name(replaceAnyBlancSpace(s), gender, faction, specie))
             );
         }
         return names;
+    }
+
+    private String replaceAnyBlancSpace(String value) {
+        return value.replaceAll("\\s+", "_").trim();
     }
 }
