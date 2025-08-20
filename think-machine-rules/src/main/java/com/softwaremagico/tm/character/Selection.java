@@ -58,6 +58,10 @@ public class Selection {
         this.specialization = specialization;
     }
 
+    public Selection getMainSelection() {
+        return new Selection(getId());
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

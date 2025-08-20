@@ -206,7 +206,10 @@ public class Element extends XmlData implements Comparable<Element> {
 
     @Override
     public String toString() {
-        return getId();
+        if (getSpecializations() == null || getSpecializations().isEmpty()) {
+            return getId();
+        }
+        return getId() + " " + getSpecializations();
     }
 
     @Override

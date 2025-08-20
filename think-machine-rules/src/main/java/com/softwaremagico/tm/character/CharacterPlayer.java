@@ -704,6 +704,10 @@ public class CharacterPlayer {
                 capability.getId().startsWith("techLore") && Objects.equals(capability.getGroup(), "techLore")).count();
     }
 
+    public void hasCapability(String capability) {
+
+    }
+
     public int getStartingValue(CharacteristicName characteristicName) {
         return Characteristic.INITIAL_VALUE;
     }

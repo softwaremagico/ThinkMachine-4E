@@ -28,15 +28,17 @@ package com.softwaremagico.tm.random.character;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Gender;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
+import com.softwaremagico.tm.random.log.RandomTestGenerationLog;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = {"randomCharacter"})
 public class RandomCharacterTest {
+    private static final int CHARACTERS_CREATED = 100;
 
     @Test
     public void createFullRandomCharacterTest() throws InvalidRandomElementSelectedException {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < CHARACTERS_CREATED; i++) {
             final CharacterPlayer characterPlayer = new CharacterPlayer();
             final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
             randomizeCharacter.createCharacter();
@@ -48,6 +50,14 @@ public class RandomCharacterTest {
             Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
             Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
             Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+
+            try {
+                characterPlayer.validate();
+            } catch (Exception e) {
+                RandomTestGenerationLog.severe(this.getClass(), "Error on character: " + characterPlayer);
+                RandomTestGenerationLog.errorMessage(this.getClass(), e);
+                throw e;
+            }
         }
     }
 
@@ -91,6 +101,13 @@ public class RandomCharacterTest {
         Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
         Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
         Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+
+        try {
+            characterPlayer.validate();
+        } catch (Exception e) {
+            RandomTestGenerationLog.errorMessage(this.getClass(), e);
+            throw e;
+        }
     }
 
     @Test
@@ -111,6 +128,8 @@ public class RandomCharacterTest {
         Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
         Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
         Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+
+        characterPlayer.validate();
     }
 
 
@@ -133,6 +152,8 @@ public class RandomCharacterTest {
         Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
         Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
         Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+
+        characterPlayer.validate();
     }
 
 
@@ -154,6 +175,8 @@ public class RandomCharacterTest {
         Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
         Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
         Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+
+        characterPlayer.validate();
     }
 
 
@@ -176,6 +199,8 @@ public class RandomCharacterTest {
         Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
         Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
         Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+
+        characterPlayer.validate();
     }
 
 
@@ -198,6 +223,8 @@ public class RandomCharacterTest {
         Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
         Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
         Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+
+        characterPlayer.validate();
     }
 
     @Test
@@ -219,6 +246,8 @@ public class RandomCharacterTest {
         Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
         Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
         Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+
+        characterPlayer.validate();
     }
 
     @Test
@@ -240,6 +269,8 @@ public class RandomCharacterTest {
         Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
         Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
         Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+
+        characterPlayer.validate();
     }
 
     @Test
@@ -261,6 +292,8 @@ public class RandomCharacterTest {
         Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
         Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
         Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+
+        characterPlayer.validate();
     }
 
     @Test
@@ -282,6 +315,8 @@ public class RandomCharacterTest {
         Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
         Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
         Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+
+        characterPlayer.validate();
     }
 
     @Test
@@ -303,6 +338,8 @@ public class RandomCharacterTest {
         Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
         Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
         Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+
+        characterPlayer.validate();
     }
 
     @Test
@@ -324,6 +361,8 @@ public class RandomCharacterTest {
         Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
         Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
         Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+
+        characterPlayer.validate();
     }
 
     @Test
@@ -345,6 +384,8 @@ public class RandomCharacterTest {
         Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
         Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
         Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+
+        characterPlayer.validate();
     }
 
     @Test
@@ -366,6 +407,8 @@ public class RandomCharacterTest {
         Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
         Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
         Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+
+        characterPlayer.validate();
     }
 
     @Test
@@ -387,6 +430,8 @@ public class RandomCharacterTest {
         Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
         Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
         Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+
+        characterPlayer.validate();
     }
 
     @Test
@@ -408,5 +453,31 @@ public class RandomCharacterTest {
         Assert.assertNotNull(characterPlayer.getCalling());
         Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
         Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+
+        characterPlayer.validate();
+    }
+
+    @Test
+    public void selectPriestCombination() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.getInfo().setPlanet("nowhere");
+        characterPlayer.getInfo().setGender(Gender.FEMALE);
+        characterPlayer.setUpbringing("priest");
+        characterPlayer.setFaction("orthodox");
+        characterPlayer.setCalling("explorer");
+        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
+        randomizeCharacter.createCharacter();
+
+        Assert.assertNotNull(characterPlayer.getSpecie());
+        Assert.assertNotNull(characterPlayer.getPrimaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getSecondaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getFaction());
+        Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
+        Assert.assertNotNull(characterPlayer.getCalling());
+        Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
+        Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+
+        characterPlayer.validate();
     }
 }

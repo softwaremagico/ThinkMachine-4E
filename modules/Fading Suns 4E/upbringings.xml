@@ -257,18 +257,33 @@
                     </capability>
                     <capability>
                         <id>musicalInstrument</id>
+                    </capability>
+                    <capability>
+                        <id>musicalInstrument</id>
                         <selectedSpecialization>
                             <id>brass</id>
                         </selectedSpecialization>
+                    </capability>
+                    <capability>
+                        <id>musicalInstrument</id>
                         <selectedSpecialization>
                             <id>strings</id>
                         </selectedSpecialization>
+                    </capability>
+                    <capability>
+                        <id>musicalInstrument</id>
                         <selectedSpecialization>
                             <id>woodwind</id>
                         </selectedSpecialization>
+                    </capability>
+                    <capability>
+                        <id>musicalInstrument</id>
                         <selectedSpecialization>
                             <id>percussion</id>
                         </selectedSpecialization>
+                    </capability>
+                    <capability>
+                        <id>musicalInstrument</id>
                         <selectedSpecialization>
                             <id>keyboards</id>
                         </selectedSpecialization>

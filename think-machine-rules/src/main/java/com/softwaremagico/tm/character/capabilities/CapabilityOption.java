@@ -60,6 +60,15 @@ public class CapabilityOption extends Option<Capability> {
         this.selectedSpecialization = selectedSpecialization;
     }
 
+//    @Override
+//    public Capability getElement() {
+//        if (selectedSpecialization == null) {
+//            return super.getElement();
+//        } else {
+//            return new Capability(getId(), getSelectedSpecialization());
+//        }
+//    }
+
     @Override
     public Capability getElement(String id) {
         return CapabilityFactory.getInstance().getElement(id);
@@ -69,6 +78,14 @@ public class CapabilityOption extends Option<Capability> {
     public String toString() {
         return (getId() != null ? getId() : (getGroup() != null ? getGroup() : null))
                 + (selectedSpecialization != null ? " (" + selectedSpecialization.getId() + ")" : "");
+    }
+
+    public static String getComparisonId(String id, Specialization specialization) {
+        return getComparisonId(id, specialization != null ? specialization.getId() : null);
+    }
+
+    public static String getComparisonId(String id, String specialization) {
+        return id + (specialization != null ? "_" + specialization : "");
     }
 
     @JsonIgnore

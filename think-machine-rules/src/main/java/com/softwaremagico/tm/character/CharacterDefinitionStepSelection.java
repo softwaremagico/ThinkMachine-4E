@@ -188,6 +188,11 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         return bonus;
     }
 
+    public boolean hasCapability(String capability, String specialization) {
+        return getSelectedCapabilities().stream().map(selection -> CapabilityOption.getComparisonId(selection.getId(), selection.getSpecialization()))
+                .collect(Collectors.toSet()).contains(CapabilityOption.getComparisonId(capability, specialization));
+    }
+
     public List<Selection> getSelectedCapabilities() {
         final List<Selection> selectedCapabilities = new ArrayList<>();
         selectedCapabilityOptions.forEach(capabilityOption ->
@@ -225,6 +230,8 @@ public abstract class CharacterDefinitionStepSelection extends Element {
 
         validatePerks();
 
+        validateSkills();
+
     }
 
     protected void validateCapabilities() {
@@ -237,8 +244,10 @@ public abstract class CharacterDefinitionStepSelection extends Element {
             final List<Selection> availableOptions = getCapabilityOptions().get(i).getOptions()
                     .stream().map(co -> new Selection(co.getId(), co.getSelectedSpecialization())).collect(Collectors.toList());
             for (Selection selection : selectedCapabilityOptions.get(i).getSelections()) {
-                if (!availableOptions.contains(selection)) {
-                    throw new InvalidSelectedElementException("Selected capability '" + selection + "' does not exist.", selection);
+                //Compare specializations, or capabilities without specialization if not defined in the options.
+                if (!availableOptions.contains(selection) && !availableOptions.contains(selection.getMainSelection())) {
+                    throw new InvalidSelectedElementException("Selected capability '" + selection + "' does not exist. Options are '"
+                            + availableOptions + "'", selection);
                 }
             }
         }

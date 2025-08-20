@@ -28,11 +28,17 @@ import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Selection;
+import com.softwaremagico.tm.character.capabilities.Capability;
+import com.softwaremagico.tm.character.capabilities.CapabilityOption;
+import com.softwaremagico.tm.character.skills.Specialization;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
+import java.util.Collection;
+import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 public class RandomizeCharacterDefinitionStep<T extends Element> {
@@ -98,8 +104,33 @@ public class RandomizeCharacterDefinitionStep<T extends Element> {
 
                 try {
                     for (int j = 0; j < characterDefinitionStepSelection.getCapabilityOptions().get(i).getTotalOptions(); j++) {
-                        characterDefinitionStepSelection.getSelectedCapabilityOptions().get(i).getSelections()
-                                .add(new Selection(randomCapability.selectElementByWeight().getId()));
+                        //No default selections.
+                        if (characterDefinitionStepSelection.getSelectedCapabilityOptions().get(i).getSelections().size()
+                                < characterDefinitionStepSelection.getCapabilityOptions().get(i).getTotalOptions()) {
+                            final Capability selectedCapability = randomCapability.selectElementByWeight();
+                            if (selectedCapability.getSpecializations() == null || selectedCapability.getSpecializations().isEmpty()) {
+                                characterDefinitionStepSelection.getSelectedCapabilityOptions().get(i).getSelections()
+                                        .add(new Selection(selectedCapability.getId()));
+                            } else {
+                                //Select a specialization.
+                                final CapabilityOption capabilityOption = getCapabilityOption(characterDefinitionStepSelection.getCapabilityOptions().get(i)
+                                        .getOptions(), selectedCapability.getId());
+                                final RandomSpecialization randomSpecialization;
+                                //Any specialization
+                                if (capabilityOption.getSelectedSpecialization() == null) {
+                                    randomSpecialization =
+                                            new RandomSpecialization(getCharacterPlayer(), getPreferences(), selectedCapability.getSpecializations());
+                                    //Only specialization from the options
+                                } else {
+                                    randomSpecialization =
+                                            new RandomSpecialization(getCharacterPlayer(), getPreferences(),
+                                                    List.of(capabilityOption.getSelectedSpecialization()));
+                                }
+                                final Specialization selectedSpecialization = randomSpecialization.selectElementByWeight();
+                                characterDefinitionStepSelection.getSelectedCapabilityOptions().get(i).getSelections()
+                                        .add(new Selection(selectedCapability.getId(), selectedSpecialization));
+                            }
+                        }
                     }
                 } catch (InvalidXmlElementException e) {
                     throw new InvalidXmlElementException("Error on capabilities options '"
@@ -107,6 +138,10 @@ public class RandomizeCharacterDefinitionStep<T extends Element> {
                 }
             }
         }
+    }
+
+    public CapabilityOption getCapabilityOption(Collection<CapabilityOption> options, String id) {
+        return options.stream().filter(o -> Objects.equals(o.getId(), id)).findAny().orElse(null);
     }
 
 
@@ -172,4 +207,10 @@ public class RandomizeCharacterDefinitionStep<T extends Element> {
         }
     }
 
+    @Override
+    public String toString() {
+        return "RandomizeCharacterDefinitionStep{"
+                + "characterDefinitionStepSelection=" + characterDefinitionStepSelection
+                + '}';
+    }
 }
