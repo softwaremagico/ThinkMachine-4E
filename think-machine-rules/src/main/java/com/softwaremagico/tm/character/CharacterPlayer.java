@@ -176,6 +176,8 @@ public class CharacterPlayer {
                 }
             }
         }
+        //Check duplicate categories.
+
     }
 
     public void setSpecie(String specie) {
@@ -851,6 +853,19 @@ public class CharacterPlayer {
         }
     }
 
+    public boolean isOccultist() {
+        if (getCharacteristicValue(CharacteristicName.PSI) > 0) {
+            return true;
+        }
+        if (getCharacteristicValue(CharacteristicName.THEURGY) > 0) {
+            return true;
+        }
+        if (getCalling() != null) {
+            final String callingGroup = CallingFactory.getInstance().getElement(getCalling().getId()).getGroup();
+            return CharacteristicName.PSI.name().equalsIgnoreCase(callingGroup) || CharacteristicName.THEURGY.name().equalsIgnoreCase(callingGroup);
+        }
+        return false;
+    }
 
     private Occultism getOccultism() {
         return occultism;
@@ -933,7 +948,7 @@ public class CharacterPlayer {
             return OccultismTypeFactory.getTheurgy();
         }
         try {
-            //Check if has some path purchased already. Get its occultismType;
+            //Check if it has some path purchased already. Get its occultismType;
             if (!getOccultism().getSelectedPowers().isEmpty()) {
                 final Map.Entry<String, List<OccultismPower>> occultismPowers = getOccultism().getSelectedPowers().entrySet().iterator().next();
                 if (occultismPowers.getValue() != null && !occultismPowers.getValue().isEmpty()) {
@@ -944,7 +959,7 @@ public class CharacterPlayer {
                     }
                 }
             }
-            //Check if has some occultism level added already.
+            //Check if it has some occultism level added already.
             for (final OccultismType occultismType : OccultismTypeFactory.getInstance().getElements()) {
                 int defaultOccultismLevel = 0;
                 if (getSpecie() != null) {

@@ -50,17 +50,11 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 public abstract class RandomSelector<Element extends com.softwaremagico.tm.Element> extends XmlData {
-    protected static final int MAX_PROBABILITY = 1000000;
-
-    protected static final int TERRIBLE_PROBABILITY = -20;
-    protected static final int DIFFICULT_PROBABILITY = -10;
-    protected static final int BAD_PROBABILITY = -5;
-    protected static final int PENALIZED_PROBABILITY = -1;
-    protected static final int BASIC_PROBABILITY = 1;
-    protected static final int LITTLE_PROBABILITY = 6;
-    protected static final int FAIR_PROBABILITY = 11;
-    protected static final int GOOD_PROBABILITY = 21;
-    protected static final int VERY_GOOD_PROBABILITY = 31;
+    protected static final int EXOTIC_PROBABILITY = 1;
+    protected static final int RARE_PROBABILITY = 10;
+    protected static final int BASIC_PROBABILITY = 100;
+    protected static final int LITTLE_PROBABILITY = 600;
+    protected static final int GOOD_PROBABILITY = 2100;
 
     protected static final int BASIC_MULTIPLIER = 5;
     protected static final int HIGH_MULTIPLIER = 10;

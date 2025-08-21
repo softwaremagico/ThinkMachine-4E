@@ -25,6 +25,7 @@ package com.softwaremagico.tm.random.step;
  */
 
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.characteristics.CharacteristicType;
@@ -95,16 +96,17 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
             return 0;
         }
 
-        //No occultists without points does not add extra points.
-        if (element.getType() == CharacteristicType.OCCULTISM && getCharacterPlayer().getCharacteristicValue(element.getId()) == 0) {
-            return 0;
-        }
-
         if (Objects.equals(getCharacterPlayer().getPrimaryCharacteristic(), element.getId())) {
             return LITTLE_PROBABILITY;
         } else if (Objects.equals(getCharacterPlayer().getSecondaryCharacteristic(), element.getId())) {
             return LITTLE_PROBABILITY;
         }
+
+        //No occultists without points does not add extra points.
+        if (element.getType() == CharacteristicType.OCCULTISM && !getCharacterPlayer().isOccultist()) {
+            return EXOTIC_PROBABILITY;
+        }
+
         return super.getWeight(element);
     }
 
