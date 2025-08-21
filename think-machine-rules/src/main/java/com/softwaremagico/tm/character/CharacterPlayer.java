@@ -176,8 +176,8 @@ public class CharacterPlayer {
                 }
             }
         }
-        //Check duplicate categories.
 
+        checkDuplicatedCapabilities();
     }
 
     public void setSpecie(String specie) {
@@ -492,12 +492,75 @@ public class CharacterPlayer {
 
     public boolean hasCapability(String comparedCapabilityId, CharacterDefinitionStepSelection step) {
         if (step != null) {
-            if (step.getSelectedCapabilities().stream().map(c -> ComparableUtils.getComparisonId(c.getId(), c.getSpecialization()))
-                    .anyMatch(x -> Objects.equals(x, comparedCapabilityId))) {
-                return true;
-            }
+            return step.getSelectedCapabilities().stream().map(c -> ComparableUtils.getComparisonId(c.getId(), c.getSpecialization()))
+                    .anyMatch(x -> Objects.equals(x, comparedCapabilityId));
         }
         return false;
+    }
+
+
+    public boolean hasPerk(String perk) {
+        if (hasPerk(perk, specie)) {
+            return true;
+        }
+        if (hasPerk(perk, upbringing)) {
+            return true;
+        }
+        if (hasPerk(perk, faction)) {
+            return true;
+        }
+        if (hasPerk(perk, calling)) {
+            return true;
+        }
+        return false;
+    }
+
+
+    public boolean hasPerk(String perk, CharacterDefinitionStepSelection step) {
+        if (step != null) {
+            return step.getSelectedPerks().stream().map(Selection::getId)
+                    .anyMatch(x -> Objects.equals(x, perk));
+        }
+        return false;
+    }
+
+    public void checkDuplicatedCapabilities() {
+        //Check duplicate capabilities.
+        final Collection<String> specieCapabilities = getCapabilities(specie);
+        final Collection<String> upbringingCapabilities = getCapabilities(upbringing);
+        final Collection<String> factionCapabilities = getCapabilities(faction);
+        final Collection<String> callingCapabilities = getCapabilities(calling);
+
+        final Collection<String> completePerkList = new HashSet<>(specieCapabilities);
+        Collection<String> nextPerks = new HashSet<>(upbringingCapabilities);
+
+        upbringingCapabilities.retainAll(completePerkList);
+        if (!upbringingCapabilities.isEmpty()) {
+            throw new InvalidXmlElementException("Duplicated perks '" + upbringingCapabilities + "' on upbringing '" + getUpbringing() + "'.");
+        }
+        completePerkList.addAll(nextPerks);
+
+        nextPerks = new ArrayList<>(factionCapabilities);
+        factionCapabilities.retainAll(completePerkList);
+        if (!factionCapabilities.isEmpty()) {
+            throw new InvalidXmlElementException("Duplicated perks '" + upbringingCapabilities + "' on faction '" + getFaction() + "'.");
+        }
+        completePerkList.addAll(nextPerks);
+
+        callingCapabilities.retainAll(completePerkList);
+        if (!callingCapabilities.isEmpty()) {
+            throw new InvalidXmlElementException("Duplicated perks '" + callingCapabilities + "' on calling '" + getCalling() + "'.");
+        }
+
+    }
+
+
+    public Collection<String> getCapabilities(CharacterDefinitionStepSelection step) {
+        if (step != null) {
+            return step.getSelectedCapabilities().stream().map(c -> ComparableUtils.getComparisonId(c.getId(), c.getSpecialization()))
+                    .collect(Collectors.toList());
+        }
+        return new ArrayList<>();
     }
 
 

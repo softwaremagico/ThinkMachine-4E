@@ -31,6 +31,7 @@ import com.softwaremagico.tm.character.perks.PerkOptions;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
+import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
 import java.util.Collection;
 import java.util.Set;
@@ -48,5 +49,15 @@ public class RandomPerk extends RandomSelector<Perk> {
     @Override
     protected Collection<Perk> getAllElements() throws InvalidXmlElementException {
         return perkOptions.getOptions().stream().map(Option::getElement).toList();
+    }
+
+
+    @Override
+    protected int getWeight(Perk element) throws InvalidRandomElementSelectedException {
+        // Already has a perk.
+        if (getCharacterPlayer().hasPerk(element.getId())) {
+            return 0;
+        }
+        return BASIC_PROBABILITY;
     }
 }
