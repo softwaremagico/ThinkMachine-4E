@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.restrictions;
+package com.softwaremagico.tm.utils;
 
 /*-
  * #%L
@@ -24,7 +24,7 @@ package com.softwaremagico.tm.restrictions;
  * #L%
  */
 
-public interface IComparableRestriction {
+public interface IComparable {
 
     String getComparisonId();
 

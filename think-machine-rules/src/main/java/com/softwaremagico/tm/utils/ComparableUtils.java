@@ -1,10 +1,10 @@
-package com.softwaremagico.tm.character.capabilities;
+package com.softwaremagico.tm.utils;
 
 /*-
  * #%L
  * Think Machine 4E (Rules)
  * %%
- * Copyright (C) 2017 - 2024 Softwaremagico
+ * Copyright (C) 2017 - 2025 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -24,31 +24,20 @@ package com.softwaremagico.tm.character.capabilities;
  * #L%
  */
 
-import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.skills.Specialization;
 
-import java.util.List;
+public final class ComparableUtils {
 
-public class Capability extends Element {
-
-    public Capability() {
+    private ComparableUtils() {
         super();
     }
 
-    public Capability(String id) {
-        super(id);
+
+    public static String getComparisonId(String id, Specialization specialization) {
+        return ComparableUtils.getComparisonId(id, specialization != null ? specialization.getId() : null);
     }
 
-    public Capability(String id, String specialization) {
-        this(id, specialization != null ? new Specialization(specialization) : null);
+    public static String getComparisonId(String id, String specialization) {
+        return id + (specialization != null ? "_" + specialization : "");
     }
-
-    public Capability(String id, Specialization specialization) {
-        super(id);
-        if (specialization != null) {
-            setSpecializations(List.of(specialization));
-        }
-    }
-
-
 }

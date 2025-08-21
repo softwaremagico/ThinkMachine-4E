@@ -25,8 +25,10 @@ package com.softwaremagico.tm.restrictions;
  */
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.softwaremagico.tm.utils.ComparableUtils;
+import com.softwaremagico.tm.utils.IComparable;
 
-public class RestrictedCapability implements IComparableRestriction {
+public class RestrictedCapability implements IComparable {
     @JsonProperty("id")
     private String id;
     @JsonProperty("selectedSpecialization")
@@ -64,11 +66,7 @@ public class RestrictedCapability implements IComparableRestriction {
 
     @Override
     public String getComparisonId() {
-        return getComparisonId(getId(), getSpecialization());
-    }
-
-    public static String getComparisonId(String id, String specialization) {
-        return id + (specialization != null ? "_" + specialization : "");
+        return ComparableUtils.getComparisonId(getId(), getSpecialization());
     }
 
     @Override

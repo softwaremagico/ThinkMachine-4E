@@ -29,6 +29,7 @@ import com.softwaremagico.tm.character.capabilities.Capability;
 import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
 import com.softwaremagico.tm.character.capabilities.CapabilityOption;
 import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
+import com.softwaremagico.tm.character.skills.Specialization;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
@@ -50,14 +51,39 @@ public class RandomCapability extends RandomSelector<Capability> {
 
     @Override
     protected Collection<Capability> getAllElements() throws InvalidXmlElementException {
-        final List<Capability> capabilities = new ArrayList<Capability>();
+        final List<Capability> capabilities = new ArrayList<>();
+        //Separate each capability with specialization in multiples capabilities.
         for (CapabilityOption capabilityOption : capabilityOptions.getOptions()) {
             if (capabilityOption.getId() != null) {
-                capabilities.add(capabilityOption.getElement());
+                capabilities.add(convert(capabilityOption));
             } else if (capabilityOption.getGroup() != null) {
-                capabilities.addAll(CapabilityFactory.getInstance().getElementsByGroup(capabilityOption.getGroup()));
+                for (Capability capability : CapabilityFactory.getInstance().getElementsByGroup(capabilityOption.getGroup())) {
+                    if (capability.getSpecializations() != null && !capability.getSpecializations().isEmpty()) {
+                        for (Specialization specialization : capability.getSpecializations()) {
+                            capabilities.add(convert(capability.getId(), specialization.getId()));
+                        }
+                    } else {
+                        capabilities.add(convert(capability.getId(), null));
+                    }
+                }
             }
         }
         return capabilities;
+    }
+
+    private Capability convert(CapabilityOption capabilityOption) {
+        return convert(capabilityOption.getId(),
+                capabilityOption.getSelectedSpecialization() != null ? capabilityOption.getSelectedSpecialization().getId() : null);
+    }
+
+    private Capability convert(String id, String specialization) {
+        final Capability capability = new Capability(id, specialization);
+        if (specialization != null) {
+            capability.setRandomDefinition(CapabilityFactory.getInstance().getElement(capability)
+                    .getSpecialization(specialization).getRandomDefinition());
+        } else {
+            capability.setRandomDefinition(CapabilityFactory.getInstance().getElement(capability).getRandomDefinition());
+        }
+        return capability;
     }
 }

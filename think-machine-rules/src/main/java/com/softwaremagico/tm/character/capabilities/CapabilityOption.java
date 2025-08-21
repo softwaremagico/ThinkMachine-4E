@@ -30,8 +30,10 @@ import com.softwaremagico.tm.Option;
 import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.skills.Specialization;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.utils.ComparableUtils;
+import com.softwaremagico.tm.utils.IComparable;
 
-public class CapabilityOption extends Option<Capability> {
+public class CapabilityOption extends Option<Capability> implements IComparable {
     @JsonProperty("selectedSpecialization")
     private Specialization selectedSpecialization;
 
@@ -60,15 +62,6 @@ public class CapabilityOption extends Option<Capability> {
         this.selectedSpecialization = selectedSpecialization;
     }
 
-//    @Override
-//    public Capability getElement() {
-//        if (selectedSpecialization == null) {
-//            return super.getElement();
-//        } else {
-//            return new Capability(getId(), getSelectedSpecialization());
-//        }
-//    }
-
     @Override
     public Capability getElement(String id) {
         return CapabilityFactory.getInstance().getElement(id);
@@ -80,12 +73,9 @@ public class CapabilityOption extends Option<Capability> {
                 + (selectedSpecialization != null ? " (" + selectedSpecialization.getId() + ")" : "");
     }
 
-    public static String getComparisonId(String id, Specialization specialization) {
-        return getComparisonId(id, specialization != null ? specialization.getId() : null);
-    }
-
-    public static String getComparisonId(String id, String specialization) {
-        return id + (specialization != null ? "_" + specialization : "");
+    @Override
+    public String getComparisonId() {
+        return ComparableUtils.getComparisonId(getId(), getSelectedSpecialization());
     }
 
     @JsonIgnore

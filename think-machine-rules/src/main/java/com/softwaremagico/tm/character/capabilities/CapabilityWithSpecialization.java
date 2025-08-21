@@ -26,12 +26,12 @@ package com.softwaremagico.tm.character.capabilities;
 
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.skills.Specialization;
-import com.softwaremagico.tm.restrictions.IComparableRestriction;
+import com.softwaremagico.tm.utils.IComparable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CapabilityWithSpecialization extends Capability implements IComparableRestriction {
+public class CapabilityWithSpecialization extends Capability implements IComparable {
     private Specialization specialization;
 
     public CapabilityWithSpecialization() {

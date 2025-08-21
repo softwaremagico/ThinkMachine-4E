@@ -309,6 +309,6 @@ public class RandomElementDefinition extends XmlData {
     }
 
     private String replaceAnyBlancSpace(String value) {
-        return value.replaceAll("\\s+", "_").trim();
+        return value.trim().replaceAll("\\s+", " ");
     }
 }

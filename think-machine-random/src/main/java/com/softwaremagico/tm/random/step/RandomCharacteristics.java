@@ -45,6 +45,8 @@ import java.util.Collection;
 import java.util.Objects;
 import java.util.Set;
 
+import static com.softwaremagico.tm.character.CharacterPlayer.MAX_INITIAL_VALUE;
+
 public class RandomCharacteristics extends RandomSelector<CharacteristicDefinition> implements AssignableRandomSelector {
 
     public RandomCharacteristics(CharacterPlayer characterPlayer, Set<RandomPreference> preferences) throws InvalidXmlElementException {
@@ -64,6 +66,21 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
     @Override
     protected int getWeight(CharacteristicDefinition element) throws InvalidRandomElementSelectedException {
         if (element.getType() == CharacteristicType.OTHERS) {
+            return 0;
+        }
+
+        //Max value achieved by specie.
+        if (getCharacterPlayer().getSpecie() != null
+                && (getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName())
+                >= SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId())
+                .getSpecieCharacteristic(element.getCharacteristicName()).getMaximumValue())) {
+            return 0;
+        }
+
+        //Max characteristic at some levels.
+        if (getCharacterPlayer().getSpecie() != null
+                && (getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName())
+                >= getCharacterPlayer().getLevel() + MAX_INITIAL_VALUE - 1)) {
             return 0;
         }
 

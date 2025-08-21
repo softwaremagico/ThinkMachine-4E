@@ -42,6 +42,7 @@ import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineLog;
+import com.softwaremagico.tm.utils.ComparableUtils;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -502,7 +503,7 @@ public class Restrictions extends XmlData {
 
     public boolean isRequiredCapability(String capability, String specialization) {
         return restrictedToCapabilities.stream().anyMatch(c -> Objects.equals(c.getComparisonId(),
-                RestrictedCapability.getComparisonId(capability, specialization)));
+                ComparableUtils.getComparisonId(capability, specialization)));
     }
 
     @Override

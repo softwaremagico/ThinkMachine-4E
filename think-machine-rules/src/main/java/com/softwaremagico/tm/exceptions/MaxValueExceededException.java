@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.capabilities;
+package com.softwaremagico.tm.exceptions;
 
 /*-
  * #%L
@@ -24,31 +24,21 @@ package com.softwaremagico.tm.character.capabilities;
  * #L%
  */
 
-import com.softwaremagico.tm.Element;
-import com.softwaremagico.tm.character.skills.Specialization;
+public class MaxValueExceededException extends RuntimeException {
+    private final int bonus;
+    private final int maxValue;
 
-import java.util.List;
-
-public class Capability extends Element {
-
-    public Capability() {
-        super();
+    public MaxValueExceededException(String message, int bonus, int maxValue) {
+        super(message);
+        this.bonus = bonus;
+        this.maxValue = maxValue;
     }
 
-    public Capability(String id) {
-        super(id);
+    public int getBonus() {
+        return bonus;
     }
 
-    public Capability(String id, String specialization) {
-        this(id, specialization != null ? new Specialization(specialization) : null);
+    public int getMaxValue() {
+        return maxValue;
     }
-
-    public Capability(String id, Specialization specialization) {
-        super(id);
-        if (specialization != null) {
-            setSpecializations(List.of(specialization));
-        }
-    }
-
-
 }

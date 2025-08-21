@@ -38,6 +38,7 @@ import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
 import com.softwaremagico.tm.exceptions.InvalidSelectedElementException;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.TooManySelectionsException;
+import com.softwaremagico.tm.utils.ComparableUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -189,8 +190,8 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     }
 
     public boolean hasCapability(String capability, String specialization) {
-        return getSelectedCapabilities().stream().map(selection -> CapabilityOption.getComparisonId(selection.getId(), selection.getSpecialization()))
-                .collect(Collectors.toSet()).contains(CapabilityOption.getComparisonId(capability, specialization));
+        return getSelectedCapabilities().stream().map(selection -> ComparableUtils.getComparisonId(selection.getId(), selection.getSpecialization()))
+                .collect(Collectors.toSet()).contains(ComparableUtils.getComparisonId(capability, specialization));
     }
 
     public List<Selection> getSelectedCapabilities() {
