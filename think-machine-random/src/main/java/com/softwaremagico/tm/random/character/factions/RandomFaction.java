@@ -25,6 +25,7 @@ package com.softwaremagico.tm.random.character.factions;
  */
 
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
@@ -72,6 +73,12 @@ public class RandomFaction extends RandomSelector<Faction> implements Assignable
             throw new InvalidRandomElementSelectedException("Faction '" + faction + "' restricted for species '"
                     + faction.getRestrictions().getRestrictedToSpecies()
                     + "'. Character is '" + getCharacterPlayer().getSpecie() + "'.");
+        }
+
+        // Favored callings can define the faction.
+        if (getCharacterPlayer().getCalling() != null
+                && faction.getFavoredCallings().contains(getCharacterPlayer().getCalling().getId())) {
+            return GOOD_PROBABILITY;
         }
 
         return super.getWeight(faction);

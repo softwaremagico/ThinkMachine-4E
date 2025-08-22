@@ -47,9 +47,6 @@ public class UpbringingCharacterDefinitionStepSelection extends CharacterDefinit
     public UpbringingCharacterDefinitionStepSelection(CharacterPlayer characterPlayer, String upbringing) throws InvalidGeneratedCharacter {
         super(characterPlayer, UpbringingFactory.getInstance().getElement(upbringing));
         setId(upbringing);
-        if (!Objects.equals(upbringing, NOBLE_UPBRINGING)) {
-            setRaisedInSpace(false);
-        }
     }
 
     public boolean isRaisedInSpace() {
@@ -57,11 +54,7 @@ public class UpbringingCharacterDefinitionStepSelection extends CharacterDefinit
     }
 
     public void setRaisedInSpace(boolean raisedInSpace) {
-        if (!raisedInSpace || Objects.equals(getId(), NOBLE_UPBRINGING)) {
-            this.raisedInSpace = raisedInSpace;
-        } else {
-            throw new InvalidUpbringingException("Raised in space is only valid for noble upbringing.");
-        }
+        this.raisedInSpace = raisedInSpace;
     }
 
     @Override
