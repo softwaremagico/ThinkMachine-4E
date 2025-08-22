@@ -6,6 +6,8 @@
             <en>Absolution</en>
             <es>Absolución</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>confessor</calling>
@@ -18,6 +20,8 @@
             <en>Aim where it Hurts</en>
             <es>Apuntar donde Duele</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>duelist</calling>
@@ -32,6 +36,8 @@
             <en>Alien Friend</en>
             <es>Amigo Alienígena</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <selectedSpecialization>
             <id>obun</id>
             <name>
@@ -102,6 +108,8 @@
             <en>Alien Friend</en>
             <es>Educación Alienígena</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <selectedSpecialization>
             <id>obun</id>
             <name>
@@ -172,6 +180,8 @@
             <en>All-Access Pass</en>
             <es>Pase de Acceso Ilimitado</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>detective</calling>
@@ -188,6 +198,8 @@
             <en>Ally</en>
             <es>Aliado</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
     </perk>
     <perk>
         <id>ambidextrous</id>
@@ -195,6 +207,8 @@
             <en>Ambidextrous</en>
             <es>Ambidiestro</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
     </perk>
     <perk>
         <id>analyzePersonality</id>
@@ -202,6 +216,8 @@
             <en>Analyze Personality</en>
             <es>Analizar Personalidad</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>dreamtender</calling>
@@ -214,6 +230,8 @@
             <en>Animal Friend</en>
             <es>Amigo Animal</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>explorer</calling>
@@ -227,6 +245,8 @@
             <en>Anthropologist</en>
             <es>Antropólogo</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>explorer</calling>
@@ -241,6 +261,8 @@
             <en>Armed to the Teeth</en>
             <es>Armado hasta los Dientes</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
@@ -259,6 +281,8 @@
             <en>Armor of Purity</en>
             <es>Armadura de Pureza</es>
         </name>
+        <source>calling</source>
+        <type>austerity</type>
         <restrictions>
             <callings>
                 <calling>inquisitor</calling>
@@ -274,6 +298,8 @@
             <en>Armor of Sanctity</en>
             <es>Armadura de Santidad</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>friar</calling>
@@ -286,6 +312,8 @@
             <en>Attune Fetish</en>
             <es>Talismán Sintonizado</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>psychic</calling>
@@ -298,6 +326,8 @@
             <en>Backdoor Key</en>
             <es>Llave Maestra</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>scribe</calling>
@@ -310,6 +340,8 @@
             <en>Badge of Merit</en>
             <es>Medalla al Mérito</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>imperialCohortPriest</calling>
@@ -326,6 +358,8 @@
             <en>Badge of Valor</en>
             <es>Medalla al Valor</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>imperialCohortPriest</calling>
@@ -342,6 +376,8 @@
             <en>Bankster</en>
             <es>Prestamista</es>
         </name>
+        <source>calling</source>
+        <type>verve</type>
         <restrictions>
             <callings>
                 <calling>banker</calling>
@@ -354,6 +390,8 @@
             <en>Battlesense</en>
             <es>Instinto Marcial</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
@@ -369,6 +407,8 @@
             <en>Born on the Battlefield</en>
             <es>Nacido en el Campo de Batalla</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
@@ -386,6 +426,8 @@
             <en>Beginner's Luck</en>
             <es>Suerte del Principiante</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>amateur</calling>
@@ -399,6 +441,8 @@
             <en>Blackmail</en>
             <es>Chantaje</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>sybarite</calling>
@@ -411,6 +455,8 @@
             <en>Blood Hound</en>
             <es>Sabueso</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>inquisitor</calling>
@@ -424,6 +470,8 @@
             <en>Bodyguard</en>
             <es>Guardaespaldas</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>templar</calling>
@@ -436,6 +484,8 @@
             <en>Bogeyman</en>
             <es>Hombre del Saco</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>chainer</calling>
@@ -448,6 +498,8 @@
             <en>Born under a Lucky Star</en>
             <es>Nacido con Estrella</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>amateur</calling>
@@ -460,6 +512,8 @@
             <en>Botanist</en>
             <es>Botánico</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>enthusiast</calling>
@@ -473,6 +527,8 @@
             <en>Breath Mark</en>
             <es>Respiración Coordinada</es>
         </name>
+        <source>calling</source>
+        <type>verve</type>
         <restrictions>
             <callings>
                 <calling>chorister</calling>
@@ -485,6 +541,8 @@
             <en>Bureaucracy</en>
             <es>Burocracia</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>lawyer</calling>
@@ -497,6 +555,8 @@
             <en>Calculating</en>
             <es>Calculador</es>
         </name>
+        <source>calling</source>
+        <type>verve</type>
         <restrictions>
             <callings>
                 <calling>conspiracist</calling>
@@ -509,6 +569,8 @@
             <en>Call to Contrition</en>
             <es>Llamamiento a la Penitencia</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>confessor</calling>
@@ -521,6 +583,8 @@
             <en>Can Opener</en>
             <es>Abrelatas</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>pirate</calling>
@@ -534,6 +598,8 @@
             <en>Can't you Take a Joke!</en>
             <es>¡Era una Broma!</es>
         </name>
+        <source>calling</source>
+        <type>verve</type>
         <restrictions>
             <callings>
                 <calling>mercurian</calling>
@@ -546,6 +612,8 @@
             <en>Cartographer</en>
             <es>Cartógrafo</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>explorer</calling>
@@ -558,6 +626,8 @@
             <en>Cash (1000 Fb)</en>
             <es>Dinero (1000 Fb)</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
     </perk>
     <perk>
         <id>cash2000</id>
@@ -565,6 +635,8 @@
             <en>Cash (2000 Fb)</en>
             <es>Dinero (2000 Fb)</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <perks>
                 <perk>cash1000</perk>
@@ -577,6 +649,8 @@
             <en>Cash (3000 Fb)</en>
             <es>Dinero (3000 Fb)</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <perks>
                 <perk>cash2000</perk>
@@ -589,6 +663,8 @@
             <en>Cash (4000 Fb)</en>
             <es>Dinero (4000 Fb)</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <perks>
                 <perk>cash3000</perk>
@@ -601,6 +677,8 @@
             <en>Cash (5000 Fb)</en>
             <es>Dinero (5000 Fb)</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <perks>
                 <perk>cash4000</perk>
@@ -613,6 +691,8 @@
             <en>Cat Burglar's Eye</en>
             <es>Ojo de Experto</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>artist</calling>
@@ -627,6 +707,8 @@
             <en>Chameleon</en>
             <es>Camaleón</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions mode="any_from_group">
             <callings>
                 <calling>scout</calling>
@@ -642,6 +724,8 @@
             <en>Chartophylax</en>
             <es>Cartulario</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <restrictions mode="any_from_group">
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -660,6 +744,8 @@
             <en>Child of Dhiyana</en>
             <es>Descendiente de Dhiyana</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <species>
                 <specie>obun</specie>
@@ -672,6 +758,8 @@
             <en>Cleansing Word</en>
             <es>Palabras Liberadoras</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>dreamtender</calling>
@@ -685,6 +773,8 @@
             <en>Comeliness</en>
             <es>Atractivo</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
     </perk>
     <perk>
         <id>comprehendTechLevel5</id>
@@ -692,6 +782,8 @@
             <en>Comprehend Tech Level (NT 5)</en>
             <es>Comprender Nivel Tecnológico (NT 5)</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>techRedeemer</calling>
@@ -704,6 +796,8 @@
             <en>Comprehend Tech Level (NT 6)</en>
             <es>Comprender Nivel Tecnológico (NT 6)</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <perks>
                 <perk>comprehendTechLevel5</perk>
@@ -716,6 +810,8 @@
             <en>Comprehend Tech Level (NT 7)</en>
             <es>Comprender Nivel Tecnológico (NT 7)</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <perks>
                 <perk>comprehendTechLevel6</perk>
@@ -728,6 +824,8 @@
             <en>Comprehend Tech Level (NT 8)</en>
             <es>Comprender Nivel Tecnológico (NT 8)</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <perks>
                 <perk>comprehendTechLevel7</perk>
@@ -740,6 +838,8 @@
             <en>Concot Elixir</en>
             <es>Elaborar Elixir</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>healer</calling>
@@ -753,6 +853,8 @@
             <en>Condemn</en>
             <es>Condenar</es>
         </name>
+        <source>calling</source>
+        <type>verve</type>
         <restrictions>
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -765,6 +867,8 @@
             <en>Conscript</en>
             <es>Leva</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions mode="any_from_group">
             <callings>
                 <calling>commander</calling>
@@ -781,6 +885,8 @@
             <en>Contact (Who?)</en>
             <es>Contacto (¿Quién?)</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
     </perk>
     <perk>
         <id>contortionist</id>
@@ -788,6 +894,8 @@
             <en>Contortionist</en>
             <es>Contorsionista</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>artist</calling>
@@ -801,6 +909,8 @@
             <en>Council Member</en>
             <es>Miembro del Consejo</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions mode="any_from_group">
             <callings>
                 <calling>conspiracist</calling>
@@ -817,6 +927,8 @@
             <en>Counter the Dark</en>
             <es>Contrarrestar las Tinieblas</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>occultist</calling>
@@ -829,6 +941,8 @@
             <en>Counterfeit</en>
             <es>Falsificador</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>clergy</calling>
@@ -843,6 +957,8 @@
             <en>Coven Membership</en>
             <es>Miembro de Aquellarre</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>psychic</calling>
@@ -855,6 +971,8 @@
             <en>Craft Energy Device</en>
             <es>Fabricar Dispositivo de Energía</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions mode="any_from_group">
             <callings>
                 <calling>techRedeemer</calling>
@@ -870,6 +988,8 @@
             <en>Craft Wondrous Tech</en>
             <es>Fabricar Tecnología Asombrosa</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions mode="any_from_group">
             <callings>
                 <calling>techRedeemer</calling>
@@ -885,6 +1005,8 @@
             <en>Credit-Worthy</en>
             <es>De Confianza</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>tycoon</calling>
@@ -897,6 +1019,8 @@
             <en>Criminal Archive Access</en>
             <es>Acceso al Registro de Criminales</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>bountyHunter</calling>
@@ -911,6 +1035,8 @@
             <en>Dabble in the Dark</en>
             <es>Aventurarse en las Tinieblas</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>occultist</calling>
@@ -923,6 +1049,8 @@
             <en>Dance of Destruction</en>
             <es>Danza de la Destrucción</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>duelist</calling>
@@ -935,6 +1063,8 @@
             <en>Danger Sense</en>
             <es>Sentido del Peligro</es>
         </name>
+        <source>calling</source>
+        <type>verve</type>
     </perk>
     <perk>
         <id>daredevil</id>
@@ -942,6 +1072,8 @@
             <en>Daredevil</en>
             <es>Intrépido</es>
         </name>
+        <source>calling</source>
+        <type>verve</type>
         <restrictions>
             <callings>
                 <calling>starPilot</calling>
@@ -954,6 +1086,8 @@
             <en>Debauchery</en>
             <es>Libertinaje</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>sybarite</calling>
@@ -966,6 +1100,8 @@
             <en>Deduce</en>
             <es>Deducir</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>detective</calling>
@@ -980,6 +1116,8 @@
             <en>Deliverance</en>
             <es>Salvación</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>brotherBattle</calling>
@@ -992,6 +1130,8 @@
             <en>Deputize</en>
             <es>Delegar</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>detective</calling>
@@ -1008,6 +1148,8 @@
             <en>Shurtah (Recruit)</en>
             <es>Shurtah (Recluta)</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <group>dervishRank</group>
         <resistances>
             <resistance>
@@ -1028,6 +1170,8 @@
             <en>Hajib (Soldier)</en>
             <es>Hajib (Soldado)</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <group>dervishRank</group>
         <resistances>
             <resistance>
@@ -1048,6 +1192,8 @@
             <en>Irfan (Captain)</en>
             <es>Irfan (Capitán)</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <group>dervishRank</group>
         <resistances>
             <resistance>
@@ -1068,6 +1214,8 @@
             <en>Hadith (Judge)</en>
             <es>Hadith (Juez)</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <group>dervishRank</group>
         <resistances>
             <resistance>
@@ -1088,6 +1236,8 @@
             <en>Ma’rifah (Wandering Seer)</en>
             <es>Ma’rifah (Adivino Errante)</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <group>dervishRank</group>
         <resistances>
             <resistance>
@@ -1108,6 +1258,8 @@
             <en>Diplomatic Immunity</en>
             <es>Inmunidad Diplomática</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <perks>
                 <perk>churchOrdinationNovitiate</perk>
@@ -1126,6 +1278,8 @@
             <en>Embargo</en>
             <es>Embargo</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <restrictions>
             <perks>
                 <perk>guildCommissionCharioteer3</perk>
@@ -1142,6 +1296,8 @@
             <en>Empathic Connection</en>
             <es>Conexión Empática</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>dreamtender</calling>
@@ -1154,6 +1310,8 @@
             <en>Elightened</en>
             <es>Iluminado</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>monkScholarlyTradition</calling>
@@ -1171,6 +1329,8 @@
             <en>Entourage</en>
             <es>Acompañamiento</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>courtier</calling>
@@ -1183,6 +1343,8 @@
             <en>Epiphany</en>
             <es>Epifanía</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions mode="any_from_group">
             <callings>
                 <calling>dreamtender</calling>
@@ -1212,6 +1374,8 @@
             <en>Executioner</en>
             <es>Verdugo</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>lord</calling>
@@ -1224,6 +1388,8 @@
             <en>Exemplar</en>
             <es>Paradigma</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
     </perk>
     <perk>
         <id>fameInfamy</id>
@@ -1231,6 +1397,8 @@
             <en>Fame/Infamy</en>
             <es>Fama/Infamia</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
     </perk>
     <perk>
         <id>familyTies</id>
@@ -1238,6 +1406,8 @@
             <en>Family Ties</en>
             <es>Lazos Familiares</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
     </perk>
     <perk>
         <id>duello1</id>
@@ -1246,6 +1416,8 @@
             <en>Fencing (Duello 1)</en>
             <es>Esgrima (Duelo 1)</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions mode="all">
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -1262,6 +1434,8 @@
             <en>Fencing (Duello 2)</en>
             <es>Esgrima (Duelo 2)</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions>
             <perks>
                 <perk>duello1</perk>
@@ -1275,6 +1449,8 @@
             <en>Fencing (Kraxi 1)</en>
             <es>Esgrima (Kraxi 1)</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions mode="all">
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -1291,6 +1467,8 @@
             <en>Fencing (Kraxi 2)</en>
             <es>Esgrima (Kraxi 2)</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions>
             <perks>
                 <perk>kraxi1</perk>
@@ -1307,6 +1485,8 @@
             <en>Fencing (Serpentis 1)</en>
             <es>Esgrima (Serpentis 1)</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions mode="all">
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -1324,6 +1504,8 @@
             <en>Fencing (Serpentis 2)</en>
             <es>Esgrima (Serpentis 2)</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions>
             <perks>
                 <perk>serpentis1</perk>
@@ -1337,6 +1519,8 @@
             <en>Fencing (Torero 1)</en>
             <es>Esgrima (Torero 1)</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions mode="all">
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -1353,6 +1537,8 @@
             <en>Fencing (Torero 2)</en>
             <es>Esgrima (Torero 2)</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions>
             <perks>
                 <perk>torero1</perk>
@@ -1365,6 +1551,8 @@
             <en>Forthright</en>
             <es>Directo</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
     </perk>
     <perk>
         <id>fortitudeInFaith</id>
@@ -1372,6 +1560,8 @@
             <en>Fortitude in Faith</en>
             <es>Fortaleza en la Fe</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>healer</calling>
@@ -1385,6 +1575,8 @@
             <en>Friends in High Places</en>
             <es>Amigos en Altas Esferas</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>lawyer</calling>
@@ -1398,6 +1590,8 @@
             <en>Gambler</en>
             <es>Tahúr</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions>
             <upbringings>
                 <upbringing>merchant</upbringing>
@@ -1410,6 +1604,8 @@
             <en>Gearhead</en>
             <es>Manitas</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions>
             <upbringings>
                 <upbringing>merchant</upbringing>
@@ -1422,6 +1618,8 @@
             <en>Gospel</en>
             <es>Góspel</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions mode="all">
             <callings>
                 <calling>chorister</calling>
@@ -1437,6 +1635,8 @@
             <en>Gossip Network</en>
             <es>Red de Cotilleos</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <capabilitiesGroups>
                 <capabilityGroups>customsLore</capabilityGroups>
@@ -1449,6 +1649,8 @@
             <en>Guts</en>
             <es>Estómago</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>explorer</calling>
@@ -1462,6 +1664,8 @@
             <en>Hard Boiled</en>
             <es>Curtido</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>detective</calling>
@@ -1474,6 +1678,8 @@
             <en>Harmonize</en>
             <es>Armonizar</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions mode="any">
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -1489,6 +1695,8 @@
             <en>Hedge Fund</en>
             <es>Fondo de Cobertura</es>
         </name>
+        <source>calling</source>
+        <type>verve</type>
         <restrictions>
             <callings>
                 <calling>tycoon</calling>
@@ -1501,6 +1709,8 @@
             <en>Hierophant</en>
             <es>Hierofante</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <restrictions>
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -1516,6 +1726,8 @@
             <en>Hired Muscle</en>
             <es>Matón a Sueldo</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>ronin</calling>
@@ -1528,6 +1740,8 @@
             <en>Holier than Thou</en>
             <es>Inviolabilidad</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions>
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -1543,6 +1757,8 @@
             <en>House Confessor</en>
             <es>Confesor de la Casa</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>confessor</calling>
@@ -1555,6 +1771,8 @@
             <en>Householder</en>
             <es>Adjunto de Casa</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <restrictions>
             <upbringings>
                 <upbringing>yeoman</upbringing>
@@ -1567,6 +1785,8 @@
             <en>Hunter's Cred</en>
             <es>Reputación de Cazador</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>bountyHunter</calling>
@@ -1579,6 +1799,8 @@
             <en>Imbue Tabernacle</en>
             <es>Imbuir Sagrario</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>brotherBattle</calling>
@@ -1593,6 +1815,8 @@
             <en>Imperial Charter</en>
             <es>Privilegio Imperial</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>questingKnight</calling>
@@ -1605,6 +1829,8 @@
             <en>Imperial Cohort Charter</en>
             <es>Privilegio Adjunto Imperial</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -1618,6 +1844,8 @@
             <en>Imperious</en>
             <es>Imperioso</es>
         </name>
+        <source>class</source>
+        <type>verve</type>
         <restrictions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -1630,6 +1858,8 @@
             <en>Incite Passion</en>
             <es>Incitar Pasión</es>
         </name>
+        <source>calling</source>
+        <type>verve</type>
     </perk>
     <perk>
         <id>incomeTax</id>
@@ -1637,6 +1867,8 @@
             <en>Income Tax</en>
             <es>Impuesto sobre la Renta</es>
         </name>
+        <source>calling</source>
+        <type>verve</type>
         <restrictions>
             <callings>
                 <calling>trader</calling>
@@ -1649,6 +1881,8 @@
             <en>Incubation</en>
             <es>Incubación</es>
         </name>
+        <source>calling</source>
+        <type>austerity</type>
         <restrictions>
             <callings>
                 <calling>dreamtender</calling>
@@ -1662,6 +1896,8 @@
             <en>Independent</en>
             <es>Autónomo</es>
         </name>
+        <source>class</source>
+        <type>verve</type>
         <restrictions>
             <upbringings>
                 <upbringing>yeoman</upbringing>
@@ -1674,6 +1910,8 @@
             <en>Indulgence</en>
             <es>Indulgencia</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>clergy</calling>
@@ -1686,6 +1924,8 @@
             <en>Ingenious</en>
             <es>Ingenioso</es>
         </name>
+        <source>class</source>
+        <type>verve</type>
         <restrictions>
             <upbringings>
                 <upbringing>merchant</upbringing>
@@ -1698,6 +1938,8 @@
             <en>Inquisitorial Seal</en>
             <es>Sello Inquisitorial</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <restrictions mode="any_from_group">
             <callings>
                 <calling>inquisitor</calling>
@@ -1713,6 +1955,8 @@
             <en>Inspire Fear</en>
             <es>Inspirar Miedo</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>inquisitor</calling>
@@ -1725,6 +1969,8 @@
             <en>Inspiring</en>
             <es>Inspirador</es>
         </name>
+        <source>class</source>
+        <type>verve</type>
         <restrictions>
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -1738,6 +1984,8 @@
             <en>Intruder</en>
             <es>Intruso</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>reclaimer</calling>
@@ -1751,6 +1999,8 @@
             <en>Invest Phylactery</en>
             <es>Imbuir Filacteria</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions mode="any_from_group">
             <callings>
                 <calling>brotherBattle</calling>
@@ -1770,6 +2020,8 @@
             <en>Invigorate</en>
             <es>Alentar</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions mode="any">
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -1786,6 +2038,8 @@
             <en>Keen Awareness</en>
             <es>Percepción Mejorada</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>thief</calling>
@@ -1799,6 +2053,8 @@
             <en>Keeping Secrets</en>
             <es>Guardar Secretos</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>confessor</calling>
@@ -1811,6 +2067,8 @@
             <en>Key Signature</en>
             <es>Tonalidad</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>chorister</calling>
@@ -1823,6 +2081,8 @@
             <en>Labor Contractor</en>
             <es>Empleador</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>chainer</calling>
@@ -1835,6 +2095,8 @@
             <en>Landed</en>
             <es>Terrateniente</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <restrictions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -1849,6 +2111,8 @@
             <en>Lay Priest</en>
             <es>Sacedorte Secular</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>friar</calling>
@@ -1861,6 +2125,8 @@
             <en>Lay Down the Law</en>
             <es>Autoridad</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <perks>
                 <perk>nobleTitleBaron</perk>
@@ -1873,6 +2139,8 @@
             <en>Learning from Mistakes</en>
             <es>Aprender de los Errores</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>amateur</calling>
@@ -1888,6 +2156,8 @@
             <en>Legate</en>
             <es>Legado</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <restrictions mode="any">
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -1903,6 +2173,8 @@
             <en>Legerdemain</en>
             <es>Escamoteo</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>thief</calling>
@@ -1915,6 +2187,8 @@
             <en>Linguist (Speak)</en>
             <es>Lingüista (Habla)</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>scholar</calling>
@@ -1928,6 +2202,8 @@
             <en>Linguist (Writing)</en>
             <es>Lingüista (Escritura)</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>scholar</calling>
@@ -1941,6 +2217,8 @@
             <en>Living Legend</en>
             <es>Leyenda Viviente</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>mendicant</calling>
@@ -1954,6 +2232,8 @@
             <en>Long Con</en>
             <es>Estafa a Largo Plazo</es>
         </name>
+        <source>calling</source>
+        <type>verve</type>
         <restrictions>
             <callings>
                 <calling>tycoon</calling>
@@ -1966,6 +2246,8 @@
             <en>Loving Prayer</en>
             <es>Oración Terapéutica</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>healer</calling>
@@ -1978,6 +2260,8 @@
             <en>Loyalist</en>
             <es>Partidarios</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>incognito</calling>
@@ -1990,6 +2274,8 @@
             <en>Loyalty unto Death</en>
             <es>Lealtad hasta la Muerte</es>
         </name>
+        <source>calling</source>
+        <type>verve</type>
         <restrictions>
             <callings>
                 <calling>commander</calling>
@@ -2003,6 +2289,8 @@
             <en>Main Attraction</en>
             <es>Centro de Atención</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>artist</calling>
@@ -2015,6 +2303,8 @@
             <en>manhunter</en>
             <es>Persecutor</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>bountyHunter</calling>
@@ -2028,6 +2318,8 @@
             <en>Mantok</en>
             <es>Mantok</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>brotherBattle</calling>
@@ -2040,6 +2332,8 @@
             <en>Mantok (2)</en>
             <es>Mantok (2)</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <perks>
                 <perk>mantok1</perk>
@@ -2052,6 +2346,8 @@
             <en>Marksmanship</en>
             <es>Puntería</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions mode="any">
             <upbringings>
                 <upbringing>merchant</upbringing>
@@ -2069,6 +2365,8 @@
             <en>Martial Arts (Graa 1)</en>
             <es>Artes Marciales (Graa 1)</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions>
             <species>
                 <specie>vorox</specie>
@@ -2082,6 +2380,8 @@
             <en>Martial Arts (Graa 2)</en>
             <es>Artes Marciales (Graa 2)</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions>
             <perks>
                 <perk>graa1</perk>
@@ -2095,6 +2395,8 @@
             <en>Martial Arts (Iron Heel 1)</en>
             <es>Artes Marciales (Talón de Hierro 1)</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions mode="any">
             <factions>
                 <faction>musters</faction>
@@ -2113,6 +2415,8 @@
             <en>Martial Arts (Iron Heel 2)</en>
             <es>Artes Marciales (Talón de Hierro 2)</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions>
             <perks>
                 <perk>ironHeel1</perk>
@@ -2126,6 +2430,8 @@
             <en>Martial Arts (Jox Kai Von 1)</en>
             <es>Artes Marciales (Jox Kai Von 1)</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
     </perk>
     <perk>
         <id>joxBoxing2</id>
@@ -2134,6 +2440,8 @@
             <en>Martial Arts (Jox Kai Von 2)</en>
             <es>Artes Marciales (Jox Kai Von 2)</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions>
             <perks>
                 <perk>joxBoxing1</perk>
@@ -2147,6 +2455,8 @@
             <en>Martial Arts (Koto 1)</en>
             <es>Artes Marciales (Koto 1)</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
     </perk>
     <perk>
         <id>koto2</id>
@@ -2155,6 +2465,8 @@
             <en>Martial Arts (Koto 2)</en>
             <es>Artes Marciales (Koto 2)</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions>
             <perks>
                 <perk>koto1</perk>
@@ -2168,6 +2480,8 @@
             <en>Martial Arts (Shaidan 1)</en>
             <es>Artes Marciales (Shaidan 1)</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -2181,6 +2495,8 @@
             <en>Martial Arts (Shaidan 2)</en>
             <es>Artes Marciales (Shaidan 2)</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions>
             <perks>
                 <perk>shaidan1</perk>
@@ -2193,6 +2509,8 @@
             <en>Master of Deception</en>
             <es>Maestro del Engaño</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions mode="all">
             <callings>
                 <calling>conspiracist</calling>
@@ -2211,6 +2529,8 @@
             <en>Mechanic</en>
             <es>Mecánico</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions mode="all">
             <callings>
                 <calling>starPilot</calling>
@@ -2224,6 +2544,8 @@
             <en>Mentor</en>
             <es>Mentor</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>incognito</calling>
@@ -2236,6 +2558,8 @@
             <en>Mental Conditioning</en>
             <es>Condicionamiento Mental</es>
         </name>
+        <source>calling</source>
+        <type>austerity</type>
         <restrictions mode="any">
             <callings>
                 <calling>brotherBattle</calling>
@@ -2252,6 +2576,8 @@
             <en>Micro-Confessions</en>
             <es>Microconfesiones</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>confessor</calling>
@@ -2265,6 +2591,8 @@
             <en>Mimic</en>
             <es>Mímesis</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>spy</calling>
@@ -2277,6 +2605,8 @@
             <en>Monastic Order</en>
             <es>Orden Monástica</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>monkScholarlyTradition</calling>
@@ -2291,6 +2621,8 @@
             <en>Money Manager</en>
             <es>Asesor Financiero</es>
         </name>
+        <source>calling</source>
+        <type>verve</type>
         <restrictions>
             <callings>
                 <calling>banker</calling>
@@ -2303,6 +2635,8 @@
             <en>Musical Savant</en>
             <es>Melómano</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>artist</calling>
@@ -2316,6 +2650,8 @@
             <en>Nimble</en>
             <es>Ágilidad</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
     </perk>
     <perk>
         <id>noblesseOblige</id>
@@ -2323,6 +2659,8 @@
             <en>Noblesse Oblige</en>
             <es>Nobleza Obliga</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <restrictions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -2335,6 +2673,8 @@
             <en>Nothing to Lose</en>
             <es>Nada que Perder</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions mode="any">
             <callings>
                 <calling>chainer</calling>
@@ -2351,6 +2691,8 @@
             <en>Oral Memory</en>
             <es>Momoria Oral</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions mode="any">
             <species>
                 <specie>obun</specie>
@@ -2366,6 +2708,8 @@
             <en>Order Badge</en>
             <es>Medalla de la Orden</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>knightlyOrder</calling>
@@ -2379,6 +2723,8 @@
             <en>Oriented</en>
             <es>Orientado</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>explorer</calling>
@@ -2392,6 +2738,8 @@
             <en>Paragon of Order</en>
             <es>Parangón de la Orden</es>
         </name>
+        <source>calling</source>
+        <type>verve</type>
         <restrictions>
             <callings>
                 <calling>knightlyOrder</calling>
@@ -2406,6 +2754,8 @@
             <en>Paramour</en>
             <es>Amante</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>courtier</calling>
@@ -2418,6 +2768,8 @@
             <en>Passage Contract</en>
             <es>Acuerdo de Pasaje</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
     </perk>
     <perk>
         <id>patronOfTheArts</id>
@@ -2425,6 +2777,8 @@
             <en>Parton of the Arts</en>
             <es>Mecenas de las Artes</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>enthusiast</calling>
@@ -2437,6 +2791,8 @@
             <en>Peasant Hero</en>
             <es>Héroe del Pueblo</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <restrictions mode="any">
             <upbringings>
                 <upbringing>yeoman</upbringing>
@@ -2453,6 +2809,8 @@
             <en>Perfect Pitch</en>
             <es>Oído Absoluto</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>artist</calling>
@@ -2466,6 +2824,8 @@
             <en>Perfect Recall</en>
             <es>Memoria Perfecta</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>scribe</calling>
@@ -2478,6 +2838,8 @@
             <en>Petition</en>
             <es>Súplica</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions>
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -2493,6 +2855,8 @@
             <en>Playing the Game</en>
             <es>Juego Sucio</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>lawyer</calling>
@@ -2505,6 +2869,8 @@
             <en>Polymath</en>
             <es>Polímata</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>scholar</calling>
@@ -2517,6 +2883,8 @@
             <en>Privy Council</en>
             <es>Consejo Privado</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>lord</calling>
@@ -2529,6 +2897,8 @@
             <en>Proxy</en>
             <es>Campeón</es>
         </name>
+        <source>class</source>
+        <type>verve</type>
         <restrictions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -2541,6 +2911,8 @@
             <en>Purge</en>
             <es>Purga</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions>
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -2553,6 +2925,8 @@
             <en>quaestor</en>
             <es>Cuestor</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>clergy</calling>
@@ -2565,6 +2939,8 @@
             <en>Rabble Rouse</en>
             <es>Agitador</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>conspiracist</calling>
@@ -2578,6 +2954,8 @@
             <en>Recreate Artifact</en>
             <es>Recrear Artefacto</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions mode="all">
             <callings>
                 <calling>reclaimer</calling>
@@ -2595,6 +2973,8 @@
             <en>Reeve Advocate</en>
             <es>Abogado Magistrado</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <perks>
                 <perk>riches2</perk>
@@ -2607,6 +2987,8 @@
             <en>Refuge</en>
             <es>Refugio</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
     </perk>
     <perk>
         <id>resilient</id>
@@ -2614,6 +2996,8 @@
             <en>Resilient</en>
             <es>Resistente</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions mode="any">
             <callings>
                 <calling>mercenary</calling>
@@ -2627,6 +3011,8 @@
             <en>Respectable</en>
             <es>Respetable</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>courtier</calling>
@@ -2639,6 +3025,8 @@
             <en>Retainer</en>
             <es>Sirviente</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <restrictions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -2653,6 +3041,8 @@
             <en>Retinue</en>
             <es>Servicio</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <perks>
                 <perk>riches1</perk>
@@ -2666,6 +3056,8 @@
             <en>Riches (3000)</en>
             <es>Riqueza (3000)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <restrictions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -2681,6 +3073,8 @@
             <en>Riches (5000)</en>
             <es>Riqueza (5000)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <restrictions>
             <perks>
                 <perk>riches1</perk>
@@ -2694,6 +3088,8 @@
             <en>Riches (10000)</en>
             <es>Riqueza (10000)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <restrictions>
             <perks>
                 <perk>riches2</perk>
@@ -2707,6 +3103,8 @@
             <en>Riches (15000)</en>
             <es>Riqueza (15000)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <restrictions>
             <perks>
                 <perk>riches3</perk>
@@ -2720,6 +3118,8 @@
             <en>Riches (20000)</en>
             <es>Riqueza (20000)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <restrictions>
             <perks>
                 <perk>riches4</perk>
@@ -2732,6 +3132,8 @@
             <en>Righteous Sermon</en>
             <es>Sermón Virtuoso</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions mode="all">
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -2750,6 +3152,8 @@
             <en>Rise from the Ashes</en>
             <es>Resurgir de las Cenizas</es>
         </name>
+        <source>calling</source>
+        <type>austerity</type>
         <restrictions>
             <callings>
                 <calling>imperialCohortPriest</calling>
@@ -2764,6 +3168,8 @@
             <en>Risk Taker</en>
             <es>Temerario</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>amateur</calling>
@@ -2777,6 +3183,8 @@
             <en>Royal Confidence</en>
             <es>Porte Noble</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>confessor</calling>
@@ -2789,6 +3197,8 @@
             <en>Royalties</en>
             <es>Derechos de Autor</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>artist</calling>
@@ -2801,6 +3211,8 @@
             <en>Ruthless</en>
             <es>Implacable</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>bountyHunter</calling>
@@ -2816,6 +3228,8 @@
             <en>Sacrificial Lambs</en>
             <es>Chivos Expiatorios</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>conspiracist</calling>
@@ -2828,6 +3242,8 @@
             <en>Saint's Blessing</en>
             <es>Bendición del Santo</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions>
             <upbringings>
                 <upbringing>merchant</upbringing>
@@ -2841,6 +3257,8 @@
             <en>Saint Lextius' Blessing</en>
             <es>Bendición de San Lextius</es>
         </name>
+        <source>class</source>
+        <type>verve</type>
         <restrictions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -2853,6 +3271,8 @@
             <en>Sanctify Arms and Armors</en>
             <es>Santificar Armas y Armaduras</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions mode="any_from_group">
             <callings>
                 <calling>brotherBattle</calling>
@@ -2872,6 +3292,8 @@
             <en>Savings</en>
             <es>Ahorros</es>
         </name>
+        <source>calling</source>
+        <type>verve</type>
         <restrictions>
             <callings>
                 <calling>banker</calling>
@@ -2886,6 +3308,8 @@
             <en>Savoir Faire</en>
             <es>Savoir Faire</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
     </perk>
     <perk>
         <id>scentOfTheWitch</id>
@@ -2893,6 +3317,8 @@
             <en>Scent of the Witch</en>
             <es>Olor de la Bruja</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>inquisitor</calling>
@@ -2908,6 +3334,8 @@
             <en>Schmooze</en>
             <es>Congraciarse</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>courtier</calling>
@@ -2922,6 +3350,8 @@
             <en>Second Skin</en>
             <es>Segunda Piel</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <repeatable>true</repeatable>
         <restrictions>
             <callings>
@@ -2942,6 +3372,8 @@
             <en>Secret Agent (Recruit)</en>
             <es>Agente Secreto (Recluta)</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>spy</calling>
@@ -2954,6 +3386,8 @@
             <en>Secret Agent (Agent)</en>
             <es>Agente Secreto (Agente)</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <perks>
                 <perk>secretAgent1</perk>
@@ -2966,6 +3400,8 @@
             <en>Secret Agent (Field Agent)</en>
             <es>Agente Secreto (Agente Operativo)</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <perks>
                 <perk>secretAgent2</perk>
@@ -2978,6 +3414,8 @@
             <en>Secret Agent (Supervisor)</en>
             <es>Agente Secreto (Supervisor)</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <perks>
                 <perk>secretAgent3</perk>
@@ -2990,6 +3428,8 @@
             <en>Secret Agent (Spymaster)</en>
             <es>Agente Secreto (Maestro de Espías)</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <perks>
                 <perk>secretAgent4</perk>
@@ -3002,6 +3442,8 @@
             <en>Seen Too Much</en>
             <es>Insensibilizado</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>mercenary</calling>
@@ -3015,6 +3457,8 @@
             <en>Sensitivity</en>
             <es>Sensibilidad</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
     </perk>
     <perk>
         <id>shepherdOfTheFlock</id>
@@ -3022,6 +3466,8 @@
             <en>Shepherd of the Flock</en>
             <es>Pastor del Rebaño</es>
         </name>
+        <source>class</source>
+        <type>verve</type>
         <restrictions>
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -3034,6 +3480,8 @@
             <en>Shield of the Law</en>
             <es>Escudo de la Ley</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <callings>
                 <calling>lawyer</calling>
@@ -3046,6 +3494,8 @@
             <en>Simmering Rage</en>
             <es>Furia Acumulada</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <species>
                 <specie>ukar</specie>
@@ -3058,6 +3508,8 @@
             <en>Smell Danger</en>
             <es>Oler el Peligro</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <species>
                 <specie>vorox</specie>
@@ -3070,6 +3522,8 @@
             <en>Spotter</en>
             <es>Vigía</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>reclaimer</calling>
@@ -3083,6 +3537,8 @@
             <en>Steadfast</en>
             <es>Inalterable</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>brotherBattle</calling>
@@ -3095,6 +3551,8 @@
             <en>Steady Hand</en>
             <es>Mano Firme</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
     </perk>
     <perk>
         <id>stoicBody</id>
@@ -3102,6 +3560,8 @@
             <en>Stoic Body</en>
             <es>Cuerpo Estoico</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <resistances>
             <resistance>
                 <type>body</type>
@@ -3116,6 +3576,8 @@
             <en>Sotic Mind</en>
             <es>Mente Estoica</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <resistances>
             <resistance>
                 <type>mind</type>
@@ -3130,6 +3592,8 @@
             <en>Stoic Spirit</en>
             <es>Espíritu Estoico</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <resistances>
             <resistance>
                 <type>spirit</type>
@@ -3144,6 +3608,8 @@
             <en>Strategic Mind</en>
             <es>Mente Estratégica</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>commander</calling>
@@ -3156,6 +3622,8 @@
             <en>Stunning Statement</en>
             <es>Golpe de Efecto</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>lawyer</calling>
@@ -3168,6 +3636,8 @@
             <en>Stunt Pilot</en>
             <es>Piloto de Acrobacias</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>starPilot</calling>
@@ -3180,6 +3650,8 @@
             <en>Subtle Body</en>
             <es>Cuerpo Sutil</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>monkScholarlyTradition</calling>
@@ -3194,6 +3666,8 @@
             <en>Superficial Knowledge</en>
             <es>Conocimiento Superficial</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>amateur</calling>
@@ -3208,6 +3682,8 @@
             <en>Swimming with Sharks</en>
             <es>Nadar con Tiburones</es>
         </name>
+        <source>calling</source>
+        <type>verve</type>
         <restrictions>
             <callings>
                 <calling>trader</calling>
@@ -3221,6 +3697,8 @@
             <en>Taxes</en>
             <es>Impuestos</es>
         </name>
+        <source>calling</source>
+        <type>verve</type>
         <restrictions>
             <callings>
                 <calling>banker</calling>
@@ -3233,6 +3711,8 @@
             <en>Tech Savvy</en>
             <es>Experto en Tecnología</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions>
             <upbringings>
                 <upbringing>merchant</upbringing>
@@ -3245,6 +3725,8 @@
             <en>Temporary Autonomous Zone</en>
             <es>Zona de Autonomía Temporal</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>mercurian</calling>
@@ -3257,6 +3739,8 @@
             <en>Tend the Flock</en>
             <es>Cuidar del Rebaño</es>
         </name>
+        <source>calling</source>
+        <type>verve</type>
         <restrictions>
             <callings>
                 <calling>friar</calling>
@@ -3269,6 +3753,8 @@
             <en>Trendsetter</en>
             <es>Influyente</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <capabilities>
                 <capability>commonsCustoms</capability>
@@ -3282,6 +3768,8 @@
             <en>Triumphant Return</en>
             <es>Regreso Triunfal</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>incognito</calling>
@@ -3298,6 +3786,8 @@
             <en>Trouble Magnet</en>
             <es>Imán para los Problemas</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>ronin</calling>
@@ -3310,6 +3800,8 @@
             <en>Tutor</en>
             <es>Tutor</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <repeatable>true</repeatable>
         <restrictions>
             <callings>
@@ -3323,6 +3815,8 @@
             <en>Two-Gun Fighting</en>
             <es>Dos Pistolas</es>
         </name>
+        <source>class</source>
+        <type>ability</type>
         <restrictions mode="any">
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -3340,6 +3834,8 @@
             <en>Underworld Contacts</en>
             <es>Contactos Criminales</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions>
             <capabilities>
                 <capability>streetwise</capability>
@@ -3352,6 +3848,8 @@
             <en>Untouchable</en>
             <es>Intocable</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>lord</calling>
@@ -3364,6 +3862,8 @@
             <en>Veteran</en>
             <es>Veterano</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
     </perk>
     <perk>
         <id>viciousInsult</id>
@@ -3371,6 +3871,8 @@
             <en>Vicious Insult</en>
             <es>Arte del Insulto</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>conspiracist</calling>
@@ -3386,6 +3888,8 @@
             <en>Virtuoso</en>
             <es>Virtuoso</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>artist</calling>
@@ -3398,6 +3902,8 @@
             <en>Vow of Poverty</en>
             <es>Voto de Pobreza</es>
         </name>
+        <source>calling</source>
+        <type>austerity</type>
         <restrictions>
             <callings>
                 <calling>mendicant</calling>
@@ -3413,6 +3919,8 @@
             <en>Web of Lies</en>
             <es>Red de Mentiras</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>conspiracist</calling>
@@ -3425,6 +3933,8 @@
             <en>Well-Traveled</en>
             <es>Cosmopolita</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
     </perk>
     <perk>
         <id>wildDomain</id>
@@ -3432,6 +3942,8 @@
             <en>Wild Domain</en>
             <es>Dominio del Terreno</es>
         </name>
+        <source>calling</source>
+        <type>ability</type>
         <restrictions>
             <callings>
                 <calling>scout</calling>
@@ -3444,6 +3956,8 @@
             <en>Windfall</en>
             <es>Árbol del Dinero</es>
         </name>
+        <source>calling</source>
+        <type>verve</type>
         <restrictions>
             <callings>
                 <calling>banker</calling>
@@ -3457,6 +3971,8 @@
             <en>Wise One</en>
             <es>Sabio</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <restrictions mode="any_from_group">
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -3475,6 +3991,8 @@
             <en>Witch Hunt</en>
             <es>Caza de Brujas</es>
         </name>
+        <source>calling</source>
+        <type>privilege</type>
         <restrictions mode="any">
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -3490,6 +4008,8 @@
             <en>Wyrd Knwoledge</en>
             <es>Conocimiento Wyrd</es>
         </name>
+        <source>calling</source>
+        <type>austerity</type>
         <restrictions>
             <callings>
                 <calling>occultist</calling>
@@ -3504,6 +4024,8 @@
             <en>Church Ordination (Novitiate)</en>
             <es>Ordenación Religiosa (Novicio)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>churchOrdination</group>
         <resistances>
             <resistance>
@@ -3525,6 +4047,8 @@
             <en>Church Ordination (Canon)</en>
             <es>Ordenación Religiosa (Canónigo)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>churchOrdination</group>
         <resistances>
             <resistance>
@@ -3545,6 +4069,8 @@
             <en>Church Ordination (Deacon)</en>
             <es>Ordenación Religiosa (Canónigo)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>churchOrdination</group>
         <resistances>
             <resistance>
@@ -3565,6 +4091,8 @@
             <en>Church Ordination (Priest)</en>
             <es>Ordenación Religiosa (Sacerdote)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>churchOrdination</group>
         <resistances>
             <resistance>
@@ -3585,6 +4113,8 @@
             <en>Church Ordination (Bishop)</en>
             <es>Ordenación Religiosa (Obispo)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>churchOrdination</group>
         <resistances>
             <resistance>
@@ -3605,6 +4135,8 @@
             <en>Church Ordination (Archbishop)</en>
             <es>Ordenación Religiosa (Arzobispo)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>churchOrdination</group>
         <resistances>
             <resistance>
@@ -3627,6 +4159,8 @@
             <en>Ensign</en>
             <es>Alférez</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -3647,6 +4181,8 @@
             <en>Lieutenant</en>
             <es>Lugarteniente</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -3667,6 +4203,8 @@
             <en>Commander</en>
             <es>Comandante</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -3687,6 +4225,8 @@
             <en>Captain</en>
             <es>Capitán</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -3707,6 +4247,8 @@
             <en>Consul</en>
             <es>Cónsul</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -3727,6 +4269,8 @@
             <en>Dean</en>
             <es>Decano</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -3748,6 +4292,8 @@
             <en>Apprentice</en>
             <es>Aprendiz</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -3768,6 +4314,8 @@
             <en>Entered</en>
             <es>Iniciado</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -3788,6 +4336,8 @@
             <en>Fellow</en>
             <es>Miembro</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -3808,6 +4358,8 @@
             <en>Crafter</en>
             <es>Artesano</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -3828,6 +4380,8 @@
             <en>Engineer</en>
             <es>Ingeniero</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -3848,6 +4402,8 @@
             <en>Maestro</en>
             <es>Master</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -3869,6 +4425,8 @@
             <en>Private</en>
             <es>Soldado Raso</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -3889,6 +4447,8 @@
             <en>Sergeant</en>
             <es>Sargento</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -3909,6 +4469,8 @@
             <en>Lieutenant</en>
             <es>Lugarteniente</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -3929,6 +4491,8 @@
             <en>Captain</en>
             <es>Capitán</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -3949,6 +4513,8 @@
             <en>Major</en>
             <es>Mayor</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -3969,6 +4535,8 @@
             <en>Colonel</en>
             <es>Coronel</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -3990,6 +4558,8 @@
             <en>Associate</en>
             <es>Asociado</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -4010,6 +4580,8 @@
             <en>Chief</en>
             <es>Jefe</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -4030,6 +4602,8 @@
             <en>Manager</en>
             <es>Gerente</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -4050,6 +4624,8 @@
             <en>Director</en>
             <es>Director</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -4070,6 +4646,8 @@
             <en>Consul</en>
             <es>Cónsul</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -4090,6 +4668,8 @@
             <en>Dean</en>
             <es>Decano</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -4111,6 +4691,8 @@
             <en>Associate</en>
             <es>Asociado</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -4131,6 +4713,8 @@
             <en>Genin</en>
             <es>Genin</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -4151,6 +4735,8 @@
             <en>Boss</en>
             <es>Jefe</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -4171,6 +4757,8 @@
             <en>Jonin</en>
             <es>Jonin</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -4191,6 +4779,8 @@
             <en>Consul</en>
             <es>Cónsul</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -4211,6 +4801,8 @@
             <en>Dean</en>
             <es>Decano</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -4233,6 +4825,8 @@
             <en>Noble Title (Knight)</en>
             <es>Título Nobiliario (Caballero)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>nobleTitle</group>
         <resistances>
             <resistance>
@@ -4253,6 +4847,8 @@
             <en>Noble Title (Baronet)</en>
             <es>Título Nobiliario (Baronet)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>nobleTitle</group>
         <resistances>
             <resistance>
@@ -4273,6 +4869,8 @@
             <en>Noble Title (Baron)</en>
             <es>Título Nobiliario (Barón)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>nobleTitle</group>
         <resistances>
             <resistance>
@@ -4293,6 +4891,8 @@
             <en>Noble Title (Marquis)</en>
             <es>Título Nobiliario (Marqués)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>nobleTitle</group>
         <resistances>
             <resistance>
@@ -4313,6 +4913,8 @@
             <en>Noble Title (Count)</en>
             <es>Título Nobiliario (Conde)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>nobleTitle</group>
         <resistances>
             <resistance>
@@ -4333,6 +4935,8 @@
             <en>Noble Title (Duke)</en>
             <es>Título Nobiliario (Duque)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>nobleTitle</group>
         <resistances>
             <resistance>
@@ -4353,6 +4957,8 @@
             <en>Professional Reputation (Rookie)</en>
             <es>Reputación Profesional (Novato)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>professionalReputation</group>
         <resistances>
             <resistance>
@@ -4381,6 +4987,8 @@
             <en>Professional Reputation (Journeyman)</en>
             <es>Reputación Profesional (Oficial)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>professionalReputation</group>
         <resistances>
             <resistance>
@@ -4401,6 +5009,8 @@
             <en>Professional Reputation (Expert)</en>
             <es>Reputación Profesional (Experto)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>professionalReputation</group>
         <resistances>
             <resistance>
@@ -4421,6 +5031,8 @@
             <en>Professional Reputation (Savant)</en>
             <es>Reputación Profesional (Sabio)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <resistances>
             <resistance>
                 <type>mind</type>
@@ -4441,6 +5053,8 @@
             <en>Professional Reputation (Master)</en>
             <es>Reputación Profesional (Maestro)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>professionalReputation</group>
         <resistances>
             <resistance>
@@ -4461,6 +5075,8 @@
             <en>Military Rank (1)</en>
             <es>Rango Militar (1)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>militaryRank</group>
     </perk>
     <perk>
@@ -4469,6 +5085,8 @@
             <en>Military Rank (2)</en>
             <es>Rango Militar (2)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>militaryRank</group>
         <restrictions>
             <perks>
@@ -4482,6 +5100,8 @@
             <en>Military Rank (3)</en>
             <es>Rango Militar (3)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>militaryRank</group>
         <restrictions>
             <perks>
@@ -4495,6 +5115,8 @@
             <en>Military Rank (4)</en>
             <es>Rango Militar (4)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>militaryRank</group>
         <restrictions>
             <perks>
@@ -4508,6 +5130,8 @@
             <en>Military Rank (5)</en>
             <es>Rango Militar (5)</es>
         </name>
+        <source>class</source>
+        <type>privilege</type>
         <group>militaryRank</group>
         <restrictions>
             <perks>
@@ -4523,6 +5147,8 @@
             <en>Psychic Powers</en>
             <es>Poderes Psíquicos</es>
         </name>
+        <source>calling</source>
+        <type>power</type>
         <repeatable>true</repeatable>
         <restrictions mode="any">
             <callings>
@@ -4540,6 +5166,8 @@
             <en>Theurgic Rites</en>
             <es>Ritos Teúrgicos</es>
         </name>
+        <source>calling</source>
+        <type>power</type>
         <repeatable>true</repeatable>
         <restrictions mode="any">
             <callings>
@@ -4558,6 +5186,8 @@
             <en>Advisor</en>
             <es>Consejero</es>
         </name>
+        <source>calling</source>
+        <type>cyberdevice</type>
     </perk>
     <perk>
         <id>aimAssistance</id>
@@ -4566,6 +5196,8 @@
             <en>Aim Assitance</en>
             <es>Puntería Asistida</es>
         </name>
+        <source>calling</source>
+        <type>cyberdevice</type>
         <restrictions>
             <callings>
                 <calling>duelist</calling>
@@ -4580,6 +5212,8 @@
             <en>Destinator</en>
             <es>Planificador de Ruta</es>
         </name>
+        <source>calling</source>
+        <type>cyberdevice</type>
         <restrictions>
             <callings>
                 <calling>explorer</calling>
@@ -4594,6 +5228,8 @@
             <en>Machine Spirit</en>
             <es>Espíritu Máquina</es>
         </name>
+        <source>calling</source>
+        <type>cyberdevice</type>
         <restrictions>
             <callings>
                 <calling>techRedeemer</calling>
@@ -4607,6 +5243,8 @@
             <en>Memory Expander</en>
             <es>Extensor de Memoria</es>
         </name>
+        <source>calling</source>
+        <type>cyberdevice</type>
         <restrictions>
             <callings>
                 <calling>scholar</calling>

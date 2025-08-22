@@ -34,6 +34,11 @@ public class Perk extends Element {
     @JsonProperty("benefice")
     private TranslatedText benefice;
 
+    @JsonProperty
+    private PerkSource source;
+    @JsonProperty
+    private PerkType type;
+
     public TranslatedText getBenefice() {
         return benefice;
     }
@@ -50,5 +55,19 @@ public class Perk extends Element {
         this.repeatable = repeatable;
     }
 
+    public PerkSource getSource() {
+        return source;
+    }
 
+    public void setSource(PerkSource source) {
+        this.source = source;
+    }
+
+    public PerkType getType() {
+        return type;
+    }
+
+    public void setType(PerkType type) {
+        this.type = type;
+    }
 }
