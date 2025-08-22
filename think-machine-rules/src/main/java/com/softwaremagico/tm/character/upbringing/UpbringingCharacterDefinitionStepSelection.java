@@ -37,7 +37,6 @@ import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidUpbringingException;
 
 import java.util.List;
-import java.util.Objects;
 
 public class UpbringingCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection {
     private static final String NOBLE_UPBRINGING = "noble";

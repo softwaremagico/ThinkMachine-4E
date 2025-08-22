@@ -146,10 +146,6 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
         return materialAwards;
     }
 
-    public List<EquipmentOptions> getMaterialAwardsComplete() {
-        return getMaterialAwards();
-    }
-
     public void setMaterialAwards(List<EquipmentOptions> materialAwards) {
         this.materialAwards = materialAwards;
     }

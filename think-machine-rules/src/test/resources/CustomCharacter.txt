@@ -11,7 +11,7 @@ Competencias: Armas Militares, Armas de Balas, Hablar (Urthés), Leer (Urthés),
 Beneficios: Esgrima (Duelo 1), Imperioso, Leva, Título Nobiliario (Caballero).
 
 Bendiciones:
-	- Receloso (+2 Perception around political rivals)
+	- Receloso (Percepción +2 entre rivales políticos)
 	- Vanidoso (Percepción –2 cuando te hacen un cumplido)
 
 
@@ -19,10 +19,10 @@ Resistencia:
 Corporal: 4, Mental: 2, Espiritual: 0.
 
 Banco: 5
-Impulsos: 6/1
+Impulsos: 5/1
 
-Vitalidad: 20
-Reanimaciones: 6/1
+Vitalidad: 19
+Reanimaciones: 5/1
 
 Equipo:
 	- SOE Alembic (Daño 7, 10/20, Ratio 1, Bláster)

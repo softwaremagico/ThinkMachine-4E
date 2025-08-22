@@ -48,9 +48,15 @@ import java.util.Set;
 public class RandomizeCharacter {
     private final CharacterPlayer characterPlayer;
     private final Set<RandomPreference> preferences;
+    private final int desiredLevel;
 
     public RandomizeCharacter(CharacterPlayer characterPlayer, RandomPreference... preferences) {
+        this(characterPlayer, 1, preferences);
+    }
+
+    public RandomizeCharacter(CharacterPlayer characterPlayer, int level, RandomPreference... preferences) {
         this.characterPlayer = characterPlayer;
+        this.desiredLevel = level;
         if (preferences != null) {
             final List<RandomPreference> customPreferences = Arrays.asList(preferences);
             customPreferences.removeIf(Objects::isNull);

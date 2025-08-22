@@ -291,16 +291,20 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     }
 
     protected void validatePerks() {
-        for (int i = 0; i < selectedPerksOptions.size(); i++) {
-            if (selectedPerksOptions.get(i).getSelections().size() > getPerksOptions().get(i).getOptions().size()) {
-                throw new TooManySelectionsException("You have selected '" + selectedPerksOptions.get(i).getSelections().size()
+        validatePerks(selectedPerksOptions, getPerksOptions());
+    }
+
+    protected void validatePerks(List<CharacterSelectedElement> selectedClassPerksOptions, List<PerkOptions> perkOptions) {
+        for (int i = 0; i < selectedClassPerksOptions.size(); i++) {
+            if (selectedClassPerksOptions.get(i).getSelections().size() > perkOptions.get(i).getOptions().size()) {
+                throw new TooManySelectionsException("You have selected '" + selectedClassPerksOptions.get(i).getSelections().size()
                         + "' capabilities options and only '"
-                        + getPerksOptions().get(i).getOptions().size()
+                        + perkOptions.get(i).getOptions().size()
                         + "' are available.");
             }
-            final List<Selection> availableOptions = getPerksOptions().get(i).getOptions()
+            final List<Selection> availableOptions = perkOptions.get(i).getOptions()
                     .stream().map(po -> new Selection(po.getId())).collect(Collectors.toList());
-            for (Selection selection : selectedPerksOptions.get(i).getSelections()) {
+            for (Selection selection : selectedClassPerksOptions.get(i).getSelections()) {
                 if (!availableOptions.contains(selection)) {
                     throw new InvalidSelectedElementException("Selected perk '" + selection + "' does not exist.", selection);
                 }

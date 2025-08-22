@@ -49,6 +49,8 @@ import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.factions.FactionCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.factions.FactionGroup;
+import com.softwaremagico.tm.character.level.Level;
+import com.softwaremagico.tm.character.level.LevelFactory;
 import com.softwaremagico.tm.character.occultism.Occultism;
 import com.softwaremagico.tm.character.occultism.OccultismPath;
 import com.softwaremagico.tm.character.occultism.OccultismPathFactory;
@@ -90,6 +92,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.Stack;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class CharacterPlayer {
@@ -99,8 +103,6 @@ public class CharacterPlayer {
 
     // Basic description of the character.
     private CharacterInfo info;
-
-    private int level = 1;
 
     private String primaryCharacteristic;
     private String secondaryCharacteristic;
@@ -120,6 +122,8 @@ public class CharacterPlayer {
     private final Settings settings;
 
     private Affliction affliction;
+
+    private final Stack<Level> levels = new Stack<>();
 
     public CharacterPlayer() {
         settings = new Settings();
@@ -290,6 +294,11 @@ public class CharacterPlayer {
         }
     }
 
+    public boolean isFavoredCalling() {
+        return (getFaction() != null && getCalling() != null
+                && FactionFactory.getInstance().getElement(getFaction()).getFavoredCallings().contains(getCalling().getId()));
+    }
+
     public Settings getSettings() {
         return settings;
     }
@@ -440,11 +449,14 @@ public class CharacterPlayer {
     }
 
     public Integer getVitalityValue() throws InvalidXmlElementException {
-        return getCharacteristicValue(CharacteristicName.ENDURANCE)
+        final AtomicInteger vitality = new AtomicInteger(getCharacteristicValue(CharacteristicName.ENDURANCE)
                 + getCharacteristicValue(CharacteristicName.WILL)
                 + getCharacteristicValue(CharacteristicName.FAITH)
-                + (specie != null ? SpecieFactory.getInstance().getElement(specie).getSize() : 0)
-                + getLevel();
+                + (specie != null ? SpecieFactory.getInstance().getElement(specie).getSize() : 0));
+        getLevels().forEach(level -> {
+            vitality.addAndGet(level.getExtraVitality());
+        });
+        return vitality.get();
     }
 
     public Set<CapabilityWithSpecialization> getCapabilitiesWithSpecialization() {
@@ -589,37 +601,53 @@ public class CharacterPlayer {
     }
 
     public int getLevel() {
-        return level;
+        return 1 + levels.size();
     }
 
-    public void setLevel(int level) {
-        this.level = level;
+    public Stack<Level> getLevels() {
+        return levels;
+    }
+
+    public void addLevel() {
+        levels.add(LevelFactory.getInstance().getElement(this, getLevel() + 1));
     }
 
     public int getBank() throws InvalidXmlElementException {
-        return BANK_INITIAL_VALUE;
+        final AtomicInteger bank = new AtomicInteger(BANK_INITIAL_VALUE);
+        getLevels().forEach(level ->
+                bank.addAndGet(level.getExtraVPBank()));
+        return bank.get();
     }
 
     public int getSurgesRating() throws InvalidXmlElementException {
-        return Math.max(Math.max(getCharacteristicValue(CharacteristicName.STRENGTH),
+        final AtomicInteger surge = new AtomicInteger(Math.max(Math.max(getCharacteristicValue(CharacteristicName.STRENGTH),
                         getCharacteristicValue(CharacteristicName.WITS)),
-                getCharacteristicValue(CharacteristicName.FAITH))
-                + getLevel();
+                getCharacteristicValue(CharacteristicName.FAITH)));
+        getLevels().forEach(level ->
+                surge.addAndGet(level.getExtraSurgeRating()));
+        return surge.get();
     }
 
     public int getSurgesNumber() throws InvalidXmlElementException {
-        return 1;
+        final AtomicInteger surge = new AtomicInteger(1);
+        getLevels().forEach(level ->
+                surge.addAndGet(level.getExtraSurgeNumber()));
+        return surge.get();
     }
 
     public int getRevivalsRating() throws InvalidXmlElementException {
-        return Math.max(Math.max(getCharacteristicValue(CharacteristicName.STRENGTH),
-                        getCharacteristicValue(CharacteristicName.WITS)),
-                getCharacteristicValue(CharacteristicName.FAITH))
-                + getLevel();
+        final AtomicInteger revivals = new AtomicInteger(
+                (specie != null ? SpecieFactory.getInstance().getElement(specie).getSize() : 0));
+        getLevels().forEach(level ->
+                revivals.addAndGet(level.getExtraRevivalRating()));
+        return revivals.get();
     }
 
     public int getRevivalsNumber() throws InvalidXmlElementException {
-        return 1;
+        final AtomicInteger revivals = new AtomicInteger(1);
+        getLevels().forEach(level ->
+                revivals.addAndGet(level.getExtraRevivalNumber()));
+        return revivals.get();
     }
 
 
@@ -1158,7 +1186,7 @@ public class CharacterPlayer {
                 + ", upbringing=" + upbringing
                 + ", faction=" + faction
                 + ", calling=" + calling
-                + ", level=" + level
+                + ", level=" + getLevel()
                 + '}';
     }
 }
