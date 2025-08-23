@@ -39,6 +39,22 @@ public class CapabilityOptions extends OptionSelector<Capability, CapabilityOpti
     @JsonIgnore
     private List<CapabilityOption> finalCapabilities;
 
+    public CapabilityOptions() {
+        super();
+    }
+
+    public CapabilityOptions(CapabilityOptions optionSelector) {
+        super(optionSelector);
+        if (optionSelector.finalCapabilities != null) {
+            this.finalCapabilities = new ArrayList<>(optionSelector.finalCapabilities);
+        }
+    }
+
+    public CapabilityOptions(CapabilityOptions optionSelector, List<CapabilityOption> finalCapabilities) {
+        super(optionSelector);
+        this.finalCapabilities = finalCapabilities;
+    }
+
     @Override
     public List<CapabilityOption> getOptions() {
         if (finalCapabilities == null) {

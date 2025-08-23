@@ -24,6 +24,7 @@ package com.softwaremagico.tm.character.level;
  * #L%
  */
 
+import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.CharacterDefinitionStep;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
@@ -49,6 +50,7 @@ public class Level extends CharacterDefinitionStep<Level> {
     public Level(CharacterPlayer characterPlayer, int index) {
         this.characterPlayer = characterPlayer;
         this.index = index;
+        setName(new TranslatedText("Level" + index));
     }
 
     public int getIndex() {
@@ -149,6 +151,9 @@ public class Level extends CharacterDefinitionStep<Level> {
     }
 
     public List<PerkOptions> getClassPerksOptions() {
+        if (characterPlayer.getCalling() == null) {
+            return new ArrayList<>();
+        }
         final List<PerkOptions> perks = characterPlayer.getFaction().getPerksOptions();
         if (characterPlayer.isFavoredCalling()) {
             for (PerkOptions perkOptions : perks) {
@@ -161,6 +166,9 @@ public class Level extends CharacterDefinitionStep<Level> {
     }
 
     public List<PerkOptions> getCallingPerksOptions() {
+        if (characterPlayer.getCalling() == null) {
+            return new ArrayList<>();
+        }
         return characterPlayer.getCalling().getPerksOptions();
     }
 

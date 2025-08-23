@@ -149,7 +149,8 @@ public class RandomizeCharacterDefinitionStep<T extends Element> {
 
 
     private void assignPerks() throws InvalidRandomElementSelectedException {
-        if (!characterDefinitionStepSelection.getPerksOptions().isEmpty()) {
+        if (characterDefinitionStepSelection.getPerksOptions() != null
+                && !characterDefinitionStepSelection.getPerksOptions().isEmpty()) {
             for (int i = 0; i < characterDefinitionStepSelection.getPerksOptions().size(); i++) {
                 final RandomPerk randomPerk =
                         new RandomPerk(getCharacterPlayer(), getPreferences(),
@@ -174,7 +175,8 @@ public class RandomizeCharacterDefinitionStep<T extends Element> {
 
 
     private void assignMaterialAwards() throws InvalidRandomElementSelectedException {
-        if (!characterDefinitionStepSelection.getMaterialAwardsOptions().isEmpty()) {
+        if (characterDefinitionStepSelection.getMaterialAwardsOptions() != null &&
+                !characterDefinitionStepSelection.getMaterialAwardsOptions().isEmpty()) {
             for (int i = 0; i < characterDefinitionStepSelection.getMaterialAwardsOptions().size(); i++) {
                 final RandomMaterialAward randomMaterialAward =
                         new RandomMaterialAward(getCharacterPlayer(), getPreferences(),

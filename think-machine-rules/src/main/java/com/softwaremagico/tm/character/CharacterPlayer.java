@@ -69,6 +69,8 @@ import com.softwaremagico.tm.character.upbringing.UpbringingCharacterDefinitionS
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidCharacteristicException;
 import com.softwaremagico.tm.exceptions.InvalidCyberdeviceException;
+import com.softwaremagico.tm.exceptions.InvalidFactionException;
+import com.softwaremagico.tm.exceptions.InvalidLevelException;
 import com.softwaremagico.tm.exceptions.InvalidOccultismPowerException;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
@@ -147,52 +149,60 @@ public class CharacterPlayer {
     }
 
     public void validate() {
-        if (specie != null) {
-            this.specie.validate();
-        }
-        if (upbringing != null) {
-            this.upbringing.validate();
-        }
-        if (faction != null) {
-            this.faction.validate();
-        }
-        if (calling != null) {
-            this.calling.validate();
-        }
-        if (getPrimaryCharacteristic() == null || getSecondaryCharacteristic() == null) {
-            throw new InvalidCharacteristicException("You must choose your primary and secondary characteristic.");
-        }
-        //Check characteristics values
-        for (CharacteristicDefinition characteristicDefinition : CharacteristicsDefinitionFactory.getInstance().getElements()) {
-            if (characteristicDefinition.getType() != CharacteristicType.OTHERS) {
-                final int characteristicValue = getCharacteristicValue(characteristicDefinition.getCharacteristicName());
-                if ((getLevel() < 2 && characteristicValue > MAX_INITIAL_VALUE)
-                        || (getLevel() < LEVEL_MAX_VALUE && characteristicValue > MAX_INTERMEDIAL_VALUE)) {
-                    throw new InvalidCharacteristicException("Characteristic '" + characteristicDefinition.getCharacteristicName()
+        try {
+            if (specie != null) {
+                this.specie.validate();
+            }
+            if (upbringing != null) {
+                this.upbringing.validate();
+            }
+            if (faction != null) {
+                this.faction.validate();
+            }
+            if (calling != null) {
+                this.calling.validate();
+            }
+            if (getPrimaryCharacteristic() == null || getSecondaryCharacteristic() == null) {
+                throw new InvalidCharacteristicException("You must choose your primary and secondary characteristic.");
+            }
+            //Check characteristics values
+            for (CharacteristicDefinition characteristicDefinition : CharacteristicsDefinitionFactory.getInstance().getElements()) {
+                if (characteristicDefinition.getType() != CharacteristicType.OTHERS) {
+                    final int characteristicValue = getCharacteristicValue(characteristicDefinition.getCharacteristicName());
+                    if ((getLevel() < 2 && characteristicValue > MAX_INITIAL_VALUE)
+                            || (getLevel() < LEVEL_MAX_VALUE && characteristicValue > MAX_INTERMEDIAL_VALUE)) {
+                        throw new InvalidCharacteristicException("Characteristic '" + characteristicDefinition.getCharacteristicName()
+                                + "' has exceeded its maximum value at level '" + getLevel() + "'.");
+                    }
+                    if (characteristicValue > (SpecieFactory.getInstance().getElement(getSpecie().getId())
+                            .getSpecieCharacteristic(characteristicDefinition.getCharacteristicName()).getMaximumValue())) {
+                        throw new InvalidCharacteristicException("Characteristic '" + characteristicDefinition.getCharacteristicName()
+                                + "' has exceeded its maximum value of '"
+                                + (SpecieFactory.getInstance().getElement(getSpecie().getId())
+                                .getSpecieCharacteristic(characteristicDefinition.getCharacteristicName()).getMaximumValue())
+                                + "' by specie.");
+                    }
+                }
+            }
+
+            //Check skills values
+            for (Skill skill : SkillFactory.getInstance().getElements()) {
+                final int skillValue = getSkillValue(skill);
+                if ((getLevel() < 2 && skillValue > MAX_INITIAL_VALUE)
+                        || (getLevel() < LEVEL_MAX_VALUE && skillValue > MAX_INTERMEDIAL_VALUE)) {
+                    throw new InvalidCharacteristicException("Skill '" + skill.getId()
                             + "' has exceeded its maximum value at level '" + getLevel() + "'.");
                 }
-                if (characteristicValue > (SpecieFactory.getInstance().getElement(getSpecie().getId())
-                        .getSpecieCharacteristic(characteristicDefinition.getCharacteristicName()).getMaximumValue())) {
-                    throw new InvalidCharacteristicException("Characteristic '" + characteristicDefinition.getCharacteristicName()
-                            + "' has exceeded its maximum value of '"
-                            + (SpecieFactory.getInstance().getElement(getSpecie().getId())
-                            .getSpecieCharacteristic(characteristicDefinition.getCharacteristicName()).getMaximumValue())
-                            + "' by specie.");
-                }
             }
-        }
 
-        //Check skills values
-        for (Skill skill : SkillFactory.getInstance().getElements()) {
-            final int skillValue = getSkillValue(skill);
-            if ((getLevel() < 2 && skillValue > MAX_INITIAL_VALUE)
-                    || (getLevel() < LEVEL_MAX_VALUE && skillValue > MAX_INTERMEDIAL_VALUE)) {
-                throw new InvalidCharacteristicException("Skill '" + skill.getId()
-                        + "' has exceeded its maximum value at level '" + getLevel() + "'.");
-            }
-        }
+            checkDuplicatedPerks();
+            checkDuplicatedCapabilities();
 
-        checkDuplicatedCapabilities();
+            //Check levels.
+            getLevels().forEach(LevelSelector::validate);
+        } catch (InvalidSelectionException e) {
+            throw new InvalidFactionException("Error on character '" + this + "'.", e);
+        }
     }
 
     public void setSpecie(String specie) {
@@ -510,6 +520,11 @@ public class CharacterPlayer {
         if (hasCapability(comparedCapability, calling)) {
             return true;
         }
+        for (LevelSelector levelSelector : getLevels()) {
+            if (hasCapability(capability, levelSelector)) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -535,6 +550,11 @@ public class CharacterPlayer {
         if (hasPerk(perk, calling)) {
             return true;
         }
+        for (LevelSelector levelSelector : getLevels()) {
+            if (hasPerk(perk, levelSelector)) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -547,6 +567,58 @@ public class CharacterPlayer {
         return false;
     }
 
+
+    public Collection<String> getPerks(CharacterDefinitionStepSelection step) {
+        if (step != null) {
+            return step.getSelectedPerks().stream().map(p -> ComparableUtils.getComparisonId(p.getId(), p.getSpecialization()))
+                    .collect(Collectors.toList());
+        }
+        return new ArrayList<>();
+    }
+
+
+    public void checkDuplicatedPerks() {
+        //Check duplicate perks.
+        final Collection<String> speciePerks = getPerks(specie);
+        final Collection<String> upbringingPerks = getPerks(upbringing);
+        final Collection<String> factionPerks = getPerks(faction);
+        final Collection<String> callingPerks = getPerks(calling);
+
+        final Collection<String> completePerkList = new HashSet<>(speciePerks);
+        Collection<String> nextPerks = new HashSet<>(upbringingPerks);
+
+        upbringingPerks.retainAll(completePerkList);
+        if (!upbringingPerks.isEmpty()) {
+            throw new InvalidXmlElementException("Duplicated perks '" + upbringingPerks + "' on upbringing '" + getUpbringing() + "'.");
+        }
+        completePerkList.addAll(nextPerks);
+
+        nextPerks = new ArrayList<>(factionPerks);
+        factionPerks.retainAll(completePerkList);
+        if (!factionPerks.isEmpty()) {
+            throw new InvalidXmlElementException("Duplicated perks '" + upbringingPerks + "' on faction '" + getFaction() + "'.");
+        }
+        completePerkList.addAll(nextPerks);
+
+        nextPerks = new ArrayList<>(callingPerks);
+        callingPerks.retainAll(completePerkList);
+        if (!callingPerks.isEmpty()) {
+            throw new InvalidXmlElementException("Duplicated perks '" + callingPerks + "' on calling '" + getCalling() + "'.");
+        }
+        completePerkList.addAll(nextPerks);
+
+        for (LevelSelector levelSelector : getLevels()) {
+            final Collection<String> levelPerks = getPerks(levelSelector);
+            nextPerks = new ArrayList<>(levelPerks);
+            levelPerks.retainAll(completePerkList);
+            if (!levelPerks.isEmpty()) {
+                throw new InvalidXmlElementException("Duplicated perk '" + levelPerks + "' on level '" + levelSelector + "'.");
+            }
+            completePerkList.addAll(nextPerks);
+        }
+
+    }
+
     public void checkDuplicatedCapabilities() {
         //Check duplicate capabilities.
         final Collection<String> specieCapabilities = getCapabilities(specie);
@@ -554,27 +626,38 @@ public class CharacterPlayer {
         final Collection<String> factionCapabilities = getCapabilities(faction);
         final Collection<String> callingCapabilities = getCapabilities(calling);
 
-        final Collection<String> completePerkList = new HashSet<>(specieCapabilities);
-        Collection<String> nextPerks = new HashSet<>(upbringingCapabilities);
+        final Collection<String> completeCapabilitiesList = new HashSet<>(specieCapabilities);
+        Collection<String> nextCapabilities = new HashSet<>(upbringingCapabilities);
 
-        upbringingCapabilities.retainAll(completePerkList);
+        upbringingCapabilities.retainAll(completeCapabilitiesList);
         if (!upbringingCapabilities.isEmpty()) {
-            throw new InvalidXmlElementException("Duplicated perks '" + upbringingCapabilities + "' on upbringing '" + getUpbringing() + "'.");
+            throw new InvalidXmlElementException("Duplicated capability '" + upbringingCapabilities + "' on upbringing '" + getUpbringing() + "'.");
         }
-        completePerkList.addAll(nextPerks);
+        completeCapabilitiesList.addAll(nextCapabilities);
 
-        nextPerks = new ArrayList<>(factionCapabilities);
-        factionCapabilities.retainAll(completePerkList);
+        nextCapabilities = new ArrayList<>(factionCapabilities);
+        factionCapabilities.retainAll(completeCapabilitiesList);
         if (!factionCapabilities.isEmpty()) {
-            throw new InvalidXmlElementException("Duplicated perks '" + upbringingCapabilities + "' on faction '" + getFaction() + "'.");
+            throw new InvalidXmlElementException("Duplicated capability '" + upbringingCapabilities + "' on faction '" + getFaction() + "'.");
         }
-        completePerkList.addAll(nextPerks);
+        completeCapabilitiesList.addAll(nextCapabilities);
 
-        callingCapabilities.retainAll(completePerkList);
+        nextCapabilities = new ArrayList<>(callingCapabilities);
+        callingCapabilities.retainAll(completeCapabilitiesList);
         if (!callingCapabilities.isEmpty()) {
-            throw new InvalidXmlElementException("Duplicated perks '" + callingCapabilities + "' on calling '" + getCalling() + "'.");
+            throw new InvalidXmlElementException("Duplicated capability '" + callingCapabilities + "' on calling '" + getCalling() + "'.");
         }
+        completeCapabilitiesList.addAll(nextCapabilities);
 
+        for (LevelSelector levelSelector : getLevels()) {
+            final Collection<String> levelCapabilities = getCapabilities(levelSelector);
+            nextCapabilities = new ArrayList<>(levelCapabilities);
+            levelCapabilities.retainAll(completeCapabilitiesList);
+            if (!levelCapabilities.isEmpty()) {
+                throw new InvalidXmlElementException("Duplicated capability '" + levelCapabilities + "' on level '" + levelSelector + "'.");
+            }
+            completeCapabilitiesList.addAll(nextCapabilities);
+        }
     }
 
 
@@ -624,6 +707,14 @@ public class CharacterPlayer {
     }
 
     public LevelSelector addLevel() {
+        if (getFaction() == null || getSpecie() == null || getCalling() == null) {
+            throw new InvalidLevelException("Please, finalize level 1 first.");
+        }
+        try {
+            validate();
+        } catch (InvalidXmlElementException e) {
+            throw new InvalidLevelException("Please, finalize previous level first.", e);
+        }
         final LevelSelector newLevel = new LevelSelector(this, getLevel() + 1);
         levels.add(newLevel);
         return newLevel;

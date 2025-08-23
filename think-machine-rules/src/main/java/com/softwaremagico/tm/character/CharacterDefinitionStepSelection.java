@@ -301,7 +301,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     }
 
     protected void validatePerks(List<CharacterSelectedElement> selectedClassPerksOptions, List<PerkOptions> perkOptions) {
-        if (perkOptions != null) {
+        if (perkOptions != null && selectedClassPerksOptions != null) {
             for (int i = 0; i < selectedClassPerksOptions.size(); i++) {
                 if (selectedClassPerksOptions.get(i).getSelections().size() > perkOptions.get(i).getOptions().size()) {
                     throw new TooManySelectionsException("You have selected '" + selectedClassPerksOptions.get(i).getSelections().size()

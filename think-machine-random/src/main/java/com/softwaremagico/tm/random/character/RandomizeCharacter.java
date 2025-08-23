@@ -30,6 +30,7 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.RandomGenerationLog;
 import com.softwaremagico.tm.random.character.callings.RandomCalling;
 import com.softwaremagico.tm.random.character.factions.RandomFaction;
+import com.softwaremagico.tm.random.character.level.RandomLevel;
 import com.softwaremagico.tm.random.character.names.RandomName;
 import com.softwaremagico.tm.random.character.names.RandomSurname;
 import com.softwaremagico.tm.random.character.planets.RandomPlanet;
@@ -77,6 +78,7 @@ public class RandomizeCharacter {
             selectPlanet();
             selectNames();
             selectCallings();
+            setLevels();
             RandomGenerationLog.info(this.getClass(), "Character created: " + characterPlayer.toString());
         } catch (InvalidXmlElementException e) {
             throw new InvalidXmlElementException("Error on '" + characterPlayer + "'.", e);
@@ -117,6 +119,11 @@ public class RandomizeCharacter {
     private void selectCallings() throws InvalidRandomElementSelectedException {
         final RandomCalling randomCalling = new RandomCalling(characterPlayer, preferences);
         randomCalling.assign();
+    }
+
+    private void setLevels() throws InvalidRandomElementSelectedException {
+        final RandomLevel randomLevel = new RandomLevel(characterPlayer, desiredLevel, preferences);
+        randomLevel.assign();
     }
 
 

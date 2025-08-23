@@ -16,6 +16,7 @@
             <run>
                 <include name="random"/>
                 <include name="randomCharacter"/>
+                <include name="randomLevel"/>
                 <include name="preferences"/>
             </run>
         </groups>
@@ -23,6 +24,7 @@
             <class name="com.softwaremagico.tm.random.RandomTests"/>
             <class name="com.softwaremagico.tm.random.PreferencesTests"/>
             <class name="com.softwaremagico.tm.random.character.RandomCharacterTest"/>
+            <class name="com.softwaremagico.tm.random.character.RandomLevelTest"/>
         </classes>
     </test>
 </suite>

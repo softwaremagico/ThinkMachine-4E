@@ -26,15 +26,12 @@ package com.softwaremagico.tm.random.character.selectors;
 
 import com.softwaremagico.tm.XmlData;
 import com.softwaremagico.tm.character.CharacterPlayer;
-import com.softwaremagico.tm.character.upbringing.Upbringing;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.exceptions.RestrictedElementException;
 import com.softwaremagico.tm.log.RandomGenerationLog;
 import com.softwaremagico.tm.log.RandomValuesLog;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -66,7 +63,6 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
     private final Set<RandomPreference> preferences;
 
     private final Set<Element> suggestedElements;
-    private final Set<Element> mandatoryValues;
 
     // Weight -> Element.
     private TreeMap<Integer, Element> weightedElements;
@@ -74,15 +70,13 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
 
     protected RandomSelector(CharacterPlayer characterPlayer, Set<RandomPreference> preferences)
             throws InvalidXmlElementException {
-        this(characterPlayer, preferences, new HashSet<>(), new HashSet<>());
+        this(characterPlayer, preferences, new HashSet<>());
     }
 
-    protected RandomSelector(CharacterPlayer characterPlayer, Set<RandomPreference> preferences, Set<Element> suggestedElements,
-                             Set<Element> mandatoryValues) {
+    protected RandomSelector(CharacterPlayer characterPlayer, Set<RandomPreference> preferences, Set<Element> suggestedElements) {
         this.characterPlayer = characterPlayer;
         this.preferences = preferences;
         this.suggestedElements = suggestedElements;
-        this.mandatoryValues = mandatoryValues;
     }
 
     public boolean updateWeights() throws InvalidXmlElementException {
@@ -121,42 +115,6 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
 
     protected abstract Collection<Element> getAllElements() throws InvalidXmlElementException;
 
-    /**
-     * These mandatory values are defined by the user and must be assigned directly
-     * without random approach. This method uses a list of elements that must be
-     * directly assigned to the user.
-     *
-     * @param mandatoryValues set of elements to be assigned.
-     * @throws InvalidXmlElementException
-     */
-    protected void assignMandatoryValues(Set<Upbringing> mandatoryValues) throws InvalidXmlElementException {
-
-    }
-
-    /**
-     * Must check if an element is mandatory, and if it is, it must be assigned.
-     * This method defines a set of property for any element, that if accomplished
-     * must be assigned.
-     *
-     * @param element element to check.
-     * @throws InvalidXmlElementException
-     */
-    protected void assignIfMandatory(Element element)
-            throws InvalidXmlElementException, RestrictedElementException {
-
-    }
-
-    private void assignMandatory() throws InvalidXmlElementException {
-        final List<Element> shuffledList = new ArrayList<>(getAllElements());
-        Collections.shuffle(shuffledList);
-        for (final Element element : shuffledList) {
-            try {
-                assignIfMandatory(element);
-            } catch (RestrictedElementException e) {
-                throw new InvalidXmlElementException("Mandatory element cannot be assigned.", e);
-            }
-        }
-    }
 
     private TreeMap<Integer, Element> assignElementsWeight() throws InvalidXmlElementException {
         final TreeMap<Integer, Element> calculatedWeight = new TreeMap<>();
@@ -416,9 +374,5 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             }
         }
         return null;
-    }
-
-    public boolean isMandatory(Element element) {
-        return mandatoryValues.contains(element);
     }
 }

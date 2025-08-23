@@ -28,11 +28,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.CharacterSelectedElement;
+import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.equipment.CharacterSelectedEquipment;
 import com.softwaremagico.tm.character.perks.PerkOptions;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class LevelSelector extends CharacterDefinitionStepSelection {
 
@@ -49,6 +52,11 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
         this.level = level;
     }
 
+    @Override
+    public String getId() {
+        return "Level" + level;
+    }
+
     public List<CharacterSelectedElement> getSelectedClassPerksOptions() {
         return selectedClassPerksOptions;
     }
@@ -63,6 +71,18 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
 
     public void setSelectedCallingPerksOptions(List<CharacterSelectedElement> selectedCallingPerksOptions) {
         this.selectedCallingPerksOptions = selectedCallingPerksOptions;
+    }
+
+    @Override
+    public List<Selection> getSelectedPerks() {
+        final List<Selection> selectedPerks = new ArrayList<>();
+        getSelectedClassPerksOptions().forEach(perkOption ->
+                selectedPerks.addAll(perkOption.getSelections().stream().filter(selection -> selection.getId() != null)
+                        .collect(Collectors.toSet())));
+        getSelectedCallingPerksOptions().forEach(perkOption ->
+                selectedPerks.addAll(perkOption.getSelections().stream().filter(selection -> selection.getId() != null)
+                        .collect(Collectors.toSet())));
+        return selectedPerks;
     }
 
     public Level getLevelDefinition() {
@@ -109,10 +129,14 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
 
     @Override
     public void validate() throws InvalidSelectionException {
-        super.validate();
+        try {
+            super.validate();
 
-        validateClassPerks();
-        validateCallingPerks();
+            validateClassPerks();
+            validateCallingPerks();
+        } catch (InvalidSelectionException e) {
+            throw new InvalidSelectionException("Error on level '" + getLevel() + "'.", e);
+        }
     }
 
     public List<PerkOptions> getClassPerksOptions() {
