@@ -1,10 +1,34 @@
 package com.softwaremagico.tm.character.level;
 
+/*-
+ * #%L
+ * Think Machine 4E (Rules)
+ * %%
+ * Copyright (C) 2017 - 2025 Softwaremagico
+ * %%
+ * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
+ * <softwaremagico@gmail.com> Valencia (Spain).
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation; either version 2 of the License, or (at your option) any later
+ * version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * this program; If not, see <http://www.gnu.org/licenses/gpl-3.0.html>.
+ * #L%
+ */
+
 import com.softwaremagico.tm.character.CharacterDefinitionStep;
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOptions;
 import com.softwaremagico.tm.character.equipment.EquipmentOptions;
-import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.character.perks.PerkOptions;
 import com.softwaremagico.tm.character.perks.PerkType;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
@@ -141,8 +165,19 @@ public class Level extends CharacterDefinitionStep<Level> {
     }
 
     @Override
+    public List<CapabilityOptions> getCapabilityOptions() {
+        final List<CapabilityOptions> capabilities = new ArrayList<>();
+        for (int i = 0; i < getExtraCapabilities(); i++) {
+            final CapabilityOptions capabilityOptions = new CapabilityOptions();
+            capabilityOptions.setTotalOptions(1);
+            capabilities.add(capabilityOptions);
+        }
+        return capabilities;
+    }
+
+    @Override
     public List<EquipmentOptions> getMaterialAwards() {
-        return new ArrayList<>();
+        return null;
     }
 
     @Override
@@ -158,6 +193,14 @@ public class Level extends CharacterDefinitionStep<Level> {
     @Override
     public int getTotalPerksOptions() {
         return 0;
+    }
+
+    public int getTotalClassPerksOptions() {
+        return getExtraClassPerks();
+    }
+
+    public int getTotalCallingPerksOptions() {
+        return getExtraCallingPerks();
     }
 
     @Override

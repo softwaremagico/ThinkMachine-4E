@@ -49,8 +49,7 @@ import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.factions.FactionCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.factions.FactionGroup;
-import com.softwaremagico.tm.character.level.Level;
-import com.softwaremagico.tm.character.level.LevelFactory;
+import com.softwaremagico.tm.character.level.LevelSelector;
 import com.softwaremagico.tm.character.occultism.Occultism;
 import com.softwaremagico.tm.character.occultism.OccultismPath;
 import com.softwaremagico.tm.character.occultism.OccultismPathFactory;
@@ -98,6 +97,8 @@ import java.util.stream.Collectors;
 
 public class CharacterPlayer {
     public static final int MAX_INITIAL_VALUE = 8;
+    public static final int MAX_INTERMEDIAL_VALUE = 9;
+    public static final int LEVEL_MAX_VALUE = 10;
     private static final int BANK_INITIAL_VALUE = 5;
     private static final int INITIAL_TECH_LEVEL = 4;
 
@@ -123,7 +124,7 @@ public class CharacterPlayer {
 
     private Affliction affliction;
 
-    private final Stack<Level> levels = new Stack<>();
+    private final Stack<LevelSelector> levels = new Stack<>();
 
     public CharacterPlayer() {
         settings = new Settings();
@@ -165,10 +166,10 @@ public class CharacterPlayer {
         for (CharacteristicDefinition characteristicDefinition : CharacteristicsDefinitionFactory.getInstance().getElements()) {
             if (characteristicDefinition.getType() != CharacteristicType.OTHERS) {
                 final int characteristicValue = getCharacteristicValue(characteristicDefinition.getCharacteristicName());
-                if (characteristicValue > getLevel() + MAX_INITIAL_VALUE - 1) {
+                if ((getLevel() < 2 && characteristicValue > MAX_INITIAL_VALUE)
+                        || (getLevel() < LEVEL_MAX_VALUE && characteristicValue > MAX_INTERMEDIAL_VALUE)) {
                     throw new InvalidCharacteristicException("Characteristic '" + characteristicDefinition.getCharacteristicName()
-                            + "' has exceeded its maximum value of '"
-                            + (getLevel() + MAX_INITIAL_VALUE - 1) + "' at level '" + getLevel() + "'.");
+                            + "' has exceeded its maximum value at level '" + getLevel() + "'.");
                 }
                 if (characteristicValue > (SpecieFactory.getInstance().getElement(getSpecie().getId())
                         .getSpecieCharacteristic(characteristicDefinition.getCharacteristicName()).getMaximumValue())) {
@@ -178,6 +179,16 @@ public class CharacterPlayer {
                             .getSpecieCharacteristic(characteristicDefinition.getCharacteristicName()).getMaximumValue())
                             + "' by specie.");
                 }
+            }
+        }
+
+        //Check skills values
+        for (Skill skill : SkillFactory.getInstance().getElements()) {
+            final int skillValue = getSkillValue(skill);
+            if ((getLevel() < 2 && skillValue > MAX_INITIAL_VALUE)
+                    || (getLevel() < LEVEL_MAX_VALUE && skillValue > MAX_INTERMEDIAL_VALUE)) {
+                throw new InvalidCharacteristicException("Skill '" + skill.getId()
+                        + "' has exceeded its maximum value at level '" + getLevel() + "'.");
             }
         }
 
@@ -604,12 +615,18 @@ public class CharacterPlayer {
         return 1 + levels.size();
     }
 
-    public Stack<Level> getLevels() {
+    public LevelSelector getLevel(int index) {
+        return levels.get(index - 1);
+    }
+
+    public Stack<LevelSelector> getLevels() {
         return levels;
     }
 
-    public void addLevel() {
-        levels.add(LevelFactory.getInstance().getElement(this, getLevel() + 1));
+    public LevelSelector addLevel() {
+        final LevelSelector newLevel = new LevelSelector(this, getLevel() + 1);
+        levels.add(newLevel);
+        return newLevel;
     }
 
     public int getBank() throws InvalidXmlElementException {

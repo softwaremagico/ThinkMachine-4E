@@ -84,14 +84,18 @@ public abstract class CharacterDefinitionStepSelection extends Element {
             selectedSkillOptions.set(i, new CharacterSelectedElement());
         }
 
-        setSelectedPerksOptions(Arrays.asList(new CharacterSelectedElement[getPerksOptions().size()]));
-        for (int i = 0; i < getPerksOptions().size(); i++) {
-            selectedPerksOptions.set(i, new CharacterSelectedElement());
+        if (getPerksOptions() != null) {
+            setSelectedPerksOptions(Arrays.asList(new CharacterSelectedElement[getPerksOptions().size()]));
+            for (int i = 0; i < getPerksOptions().size(); i++) {
+                selectedPerksOptions.set(i, new CharacterSelectedElement());
+            }
         }
 
-        setSelectedMaterialAwards(Arrays.asList(new CharacterSelectedEquipment[getMaterialAwardsOptions().size()]));
-        for (int i = 0; i < getMaterialAwardsOptions().size(); i++) {
-            selectedMaterialAwards.set(i, new CharacterSelectedEquipment());
+        if (getMaterialAwardsOptions() != null) {
+            setSelectedMaterialAwards(Arrays.asList(new CharacterSelectedEquipment[getMaterialAwardsOptions().size()]));
+            for (int i = 0; i < getMaterialAwardsOptions().size(); i++) {
+                selectedMaterialAwards.set(i, new CharacterSelectedEquipment());
+            }
         }
 
         selectDefaultOptions();
@@ -101,7 +105,9 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         setDefaultOptions(new ArrayList<>(getCapabilityOptions()), selectedCapabilityOptions);
         setDefaultOptions(new ArrayList<>(getCharacteristicOptions()), selectedCharacteristicOptions);
         setDefaultOptions(new ArrayList<>(getSkillOptions()), selectedSkillOptions);
-        setDefaultOptions(new ArrayList<>(getPerksOptions()), selectedPerksOptions);
+        if (getPerksOptions() != null) {
+            setDefaultOptions(new ArrayList<>(getPerksOptions()), selectedPerksOptions);
+        }
     }
 
     private void setDefaultOptions(List<OptionSelector<?, ?>> options, List<CharacterSelectedElement> selectedElements) {
@@ -295,18 +301,20 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     }
 
     protected void validatePerks(List<CharacterSelectedElement> selectedClassPerksOptions, List<PerkOptions> perkOptions) {
-        for (int i = 0; i < selectedClassPerksOptions.size(); i++) {
-            if (selectedClassPerksOptions.get(i).getSelections().size() > perkOptions.get(i).getOptions().size()) {
-                throw new TooManySelectionsException("You have selected '" + selectedClassPerksOptions.get(i).getSelections().size()
-                        + "' capabilities options and only '"
-                        + perkOptions.get(i).getOptions().size()
-                        + "' are available.");
-            }
-            final List<Selection> availableOptions = perkOptions.get(i).getOptions()
-                    .stream().map(po -> new Selection(po.getId())).collect(Collectors.toList());
-            for (Selection selection : selectedClassPerksOptions.get(i).getSelections()) {
-                if (!availableOptions.contains(selection)) {
-                    throw new InvalidSelectedElementException("Selected perk '" + selection + "' does not exist.", selection);
+        if (perkOptions != null) {
+            for (int i = 0; i < selectedClassPerksOptions.size(); i++) {
+                if (selectedClassPerksOptions.get(i).getSelections().size() > perkOptions.get(i).getOptions().size()) {
+                    throw new TooManySelectionsException("You have selected '" + selectedClassPerksOptions.get(i).getSelections().size()
+                            + "' capabilities options and only '"
+                            + perkOptions.get(i).getOptions().size()
+                            + "' are available.");
+                }
+                final List<Selection> availableOptions = perkOptions.get(i).getOptions()
+                        .stream().map(po -> new Selection(po.getId())).collect(Collectors.toList());
+                for (Selection selection : selectedClassPerksOptions.get(i).getSelections()) {
+                    if (!availableOptions.contains(selection)) {
+                        throw new InvalidSelectedElementException("Selected perk '" + selection + "' does not exist.", selection);
+                    }
                 }
             }
         }
