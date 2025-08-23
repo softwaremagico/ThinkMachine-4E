@@ -95,13 +95,13 @@ public class RandomizeCharacterDefinitionStep<T extends Element> {
 
 
     private void assignCapabilities() throws InvalidRandomElementSelectedException {
-        if (!characterDefinitionStepSelection.getCapabilityOptions().isEmpty()) {
-            for (int i = 0; i < characterDefinitionStepSelection.getCapabilityOptions().size(); i++) {
+        if (!characterDefinitionStepSelection.getNotRepeatedCapabilityOptions().isEmpty()) {
+            for (int i = 0; i < characterDefinitionStepSelection.getNotRepeatedCapabilityOptions().size(); i++) {
                 final RandomCapability randomCapability =
                         new RandomCapability(getCharacterPlayer(), getPreferences(),
-                                characterDefinitionStepSelection.getCapabilityOptions().get(i));
+                                characterDefinitionStepSelection.getNotRepeatedCapabilityOptions().get(i));
 
-                for (int j = 0; j < characterDefinitionStepSelection.getCapabilityOptions().get(i).getTotalOptions(); j++) {
+                for (int j = 0; j < characterDefinitionStepSelection.getNotRepeatedCapabilityOptions().get(i).getTotalOptions(); j++) {
                     //No default selections.
                     if (characterDefinitionStepSelection.getSelectedCapabilityOptions().get(i).getSelections().size() > j) {
                         continue;
@@ -115,7 +115,7 @@ public class RandomizeCharacterDefinitionStep<T extends Element> {
                                                 ? selectedCapability.getSpecializations().get(0) : null));
                     } catch (InvalidXmlElementException e) {
                         throw new InvalidXmlElementException("Error on capabilities options '"
-                                + characterDefinitionStepSelection.getCapabilityOptions().get(i) + "'.", e);
+                                + characterDefinitionStepSelection.getNotRepeatedCapabilityOptions().get(i) + "'.", e);
                     }
                 }
             }
@@ -149,15 +149,15 @@ public class RandomizeCharacterDefinitionStep<T extends Element> {
 
 
     private void assignPerks() throws InvalidRandomElementSelectedException {
-        if (characterDefinitionStepSelection.getPerksOptions() != null
-                && !characterDefinitionStepSelection.getPerksOptions().isEmpty()) {
-            for (int i = 0; i < characterDefinitionStepSelection.getPerksOptions().size(); i++) {
+        if (characterDefinitionStepSelection.getNotRepeatedPerksOptions() != null
+                && !characterDefinitionStepSelection.getNotRepeatedPerksOptions().isEmpty()) {
+            for (int i = 0; i < characterDefinitionStepSelection.getNotRepeatedPerksOptions().size(); i++) {
                 final RandomPerk randomPerk =
                         new RandomPerk(getCharacterPlayer(), getPreferences(),
-                                characterDefinitionStepSelection.getPerksOptions().get(i));
+                                characterDefinitionStepSelection.getNotRepeatedPerksOptions().get(i));
 
                 try {
-                    for (int j = 0; j < characterDefinitionStepSelection.getPerksOptions().get(i).getTotalOptions(); j++) {
+                    for (int j = 0; j < characterDefinitionStepSelection.getNotRepeatedPerksOptions().get(i).getTotalOptions(); j++) {
                         //No default selections.
                         if (characterDefinitionStepSelection.getSelectedPerksOptions().get(i).getSelections().size() > j) {
                             continue;
@@ -167,7 +167,7 @@ public class RandomizeCharacterDefinitionStep<T extends Element> {
                     }
                 } catch (InvalidXmlElementException e) {
                     throw new InvalidXmlElementException("Error on perks options '"
-                            + characterDefinitionStepSelection.getPerksOptions().get(i) + "'.", e);
+                            + characterDefinitionStepSelection.getNotRepeatedPerksOptions().get(i) + "'.", e);
                 }
             }
         }

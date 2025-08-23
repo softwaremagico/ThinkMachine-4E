@@ -195,7 +195,7 @@ public class CharacterRulesTests {
         characterPlayer.setFaction("far");
         characterPlayer.setCalling("spy");
 
-        Assert.assertEquals(characterPlayer.getCalling().getPerksOptions().get(0).getOptions().size(),
+        Assert.assertEquals(characterPlayer.getCalling().getNotRepeatedPerksOptions().get(0).getOptions().size(),
                 CallingFactory.getInstance().getElement("spy").getPerksOptions().get(0).getOptions().size()
                         + SpecieFactory.getInstance().getElement("vorox").getPerks().size());
     }
@@ -246,12 +246,12 @@ public class CharacterRulesTests {
         characterPlayer.getUpbringing().setRaisedInSpace(true);
 
         final CapabilityOption shipboardOperations = new CapabilityOption(CapabilityFactory.getInstance().getElement("shipboardOperations"));
-        for (CapabilityOptions capabilityOptions : characterPlayer.getUpbringing().getCapabilityOptions()) {
+        for (CapabilityOptions capabilityOptions : characterPlayer.getUpbringing().getNotRepeatedCapabilityOptions()) {
             Assert.assertTrue(capabilityOptions.getOptions().contains(shipboardOperations));
         }
 
         final CapabilityOption thinkMachines = new CapabilityOption(CapabilityFactory.getInstance().getElement("thinkMachines"));
-        for (CapabilityOptions capabilityOptions : characterPlayer.getUpbringing().getCapabilityOptions()) {
+        for (CapabilityOptions capabilityOptions : characterPlayer.getUpbringing().getNotRepeatedCapabilityOptions()) {
             Assert.assertTrue(capabilityOptions.getOptions().contains(thinkMachines));
         }
 
@@ -270,11 +270,11 @@ public class CharacterRulesTests {
         characterPlayer2.setUpbringing("noble");
         characterPlayer2.getUpbringing().setRaisedInSpace(false);
 
-        for (CapabilityOptions capabilityOptions : characterPlayer2.getUpbringing().getCapabilityOptions()) {
+        for (CapabilityOptions capabilityOptions : characterPlayer2.getUpbringing().getNotRepeatedCapabilityOptions()) {
             Assert.assertTrue(capabilityOptions.getOptions().contains(shipboardOperations));
         }
 
-        for (CapabilityOptions capabilityOptions : characterPlayer2.getUpbringing().getCapabilityOptions()) {
+        for (CapabilityOptions capabilityOptions : characterPlayer2.getUpbringing().getNotRepeatedCapabilityOptions()) {
             Assert.assertTrue(capabilityOptions.getOptions().contains(thinkMachines));
         }
 
@@ -285,5 +285,15 @@ public class CharacterRulesTests {
         for (SkillBonusOptions skillBonusOptions : characterPlayer2.getUpbringing().getSkillOptions()) {
             Assert.assertTrue(skillBonusOptions.getOptions().contains(techRedemptionSkill));
         }
+    }
+
+    public void avoidingCallingDuplicateCapability() {
+        CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleDecadosCommander();
+        Assert.assertTrue(characterPlayer.getCalling().getCapabilityOptions().get(0).getOptions().contains(
+                new CapabilityOption(CapabilityFactory.getInstance().getElement("militaryWeapons"))));
+        //Military weapons is not an option on commander calling
+        Assert.assertTrue(characterPlayer.getCalling().getNotRepeatedCapabilityOptions().get(0).getOptions().size() > 60);
+        Assert.assertFalse(characterPlayer.getCalling().getNotRepeatedCapabilityOptions().get(0).getOptions().contains(
+                new CapabilityOption(CapabilityFactory.getInstance().getElement("militaryWeapons"))));
     }
 }

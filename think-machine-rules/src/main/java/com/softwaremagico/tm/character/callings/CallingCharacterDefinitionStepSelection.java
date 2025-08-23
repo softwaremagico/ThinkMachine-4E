@@ -64,9 +64,9 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
      * @return
      */
     @Override
-    public List<PerkOptions> getPerksOptions() {
+    public List<PerkOptions> getNotRepeatedPerksOptions() {
         final List<PerkOptions> callingPerks = new ArrayList<>();
-        super.getPerksOptions().forEach(perkOptions -> callingPerks.add(new PerkOptions(perkOptions)));
+        super.getNotRepeatedPerksOptions().forEach(perkOptions -> callingPerks.add(new PerkOptions(perkOptions)));
         if (getCharacterPlayer().getSpecie() != null) {
             final List<PerkOption> speciePerks = SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId()).getPerks();
             callingPerks.forEach(perkOptions -> {

@@ -27,11 +27,14 @@ package com.softwaremagico.tm.character;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.OptionSelector;
+import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
 import com.softwaremagico.tm.character.capabilities.CapabilityOption;
 import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOptions;
 import com.softwaremagico.tm.character.equipment.CharacterSelectedEquipment;
 import com.softwaremagico.tm.character.equipment.EquipmentOptions;
+import com.softwaremagico.tm.character.perks.PerkFactory;
+import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.character.perks.PerkOptions;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
 import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
@@ -69,8 +72,8 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         this.characterPlayer = characterPlayer;
         this.characterDefinitionStep = characterDefinitionStep;
 
-        setSelectedCapabilityOptions(Arrays.asList(new CharacterSelectedElement[getCapabilityOptions().size()]));
-        for (int i = 0; i < getCapabilityOptions().size(); i++) {
+        setSelectedCapabilityOptions(Arrays.asList(new CharacterSelectedElement[getNotRepeatedCapabilityOptions().size()]));
+        for (int i = 0; i < getNotRepeatedCapabilityOptions().size(); i++) {
             selectedCapabilityOptions.set(i, new CharacterSelectedElement());
         }
 
@@ -84,9 +87,9 @@ public abstract class CharacterDefinitionStepSelection extends Element {
             selectedSkillOptions.set(i, new CharacterSelectedElement());
         }
 
-        if (getPerksOptions() != null) {
-            setSelectedPerksOptions(Arrays.asList(new CharacterSelectedElement[getPerksOptions().size()]));
-            for (int i = 0; i < getPerksOptions().size(); i++) {
+        if (getNotRepeatedPerksOptions() != null) {
+            setSelectedPerksOptions(Arrays.asList(new CharacterSelectedElement[getNotRepeatedPerksOptions().size()]));
+            for (int i = 0; i < getNotRepeatedPerksOptions().size(); i++) {
                 selectedPerksOptions.set(i, new CharacterSelectedElement());
             }
         }
@@ -102,11 +105,11 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     }
 
     public void selectDefaultOptions() {
-        setDefaultOptions(new ArrayList<>(getCapabilityOptions()), selectedCapabilityOptions);
+        setDefaultOptions(new ArrayList<>(getNotRepeatedCapabilityOptions()), selectedCapabilityOptions);
         setDefaultOptions(new ArrayList<>(getCharacteristicOptions()), selectedCharacteristicOptions);
         setDefaultOptions(new ArrayList<>(getSkillOptions()), selectedSkillOptions);
-        if (getPerksOptions() != null) {
-            setDefaultOptions(new ArrayList<>(getPerksOptions()), selectedPerksOptions);
+        if (getNotRepeatedPerksOptions() != null) {
+            setDefaultOptions(new ArrayList<>(getNotRepeatedPerksOptions()), selectedPerksOptions);
         }
     }
 
@@ -297,10 +300,11 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     }
 
     protected void validatePerks() {
-        validatePerks(selectedPerksOptions, getPerksOptions());
+        validatePerks(selectedPerksOptions, getNotRepeatedPerksOptions(), getPerksOptions());
     }
 
-    protected void validatePerks(List<CharacterSelectedElement> selectedClassPerksOptions, List<PerkOptions> perkOptions) {
+    protected void validatePerks(List<CharacterSelectedElement> selectedClassPerksOptions, List<PerkOptions> perkOptions,
+                                 List<PerkOptions> completePerkList) {
         if (perkOptions != null && selectedClassPerksOptions != null) {
             for (int i = 0; i < selectedClassPerksOptions.size(); i++) {
                 if (selectedClassPerksOptions.get(i).getSelections().size() > perkOptions.get(i).getOptions().size()) {
@@ -309,7 +313,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                             + perkOptions.get(i).getOptions().size()
                             + "' are available.");
                 }
-                final List<Selection> availableOptions = perkOptions.get(i).getOptions()
+                final List<Selection> availableOptions = completePerkList.get(i).getOptions()
                         .stream().map(po -> new Selection(po.getId())).collect(Collectors.toList());
                 for (Selection selection : selectedClassPerksOptions.get(i).getSelections()) {
                     if (!availableOptions.contains(selection)) {
@@ -324,6 +328,29 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         return getCharacterDefinitionStep().getCapabilityOptions();
     }
 
+    public List<CapabilityOptions> getNotRepeatedCapabilityOptions() {
+        final List<CapabilityOptions> capabilityOptions = new ArrayList<>();
+        for (CapabilityOptions capabilityOption : getCharacterDefinitionStep().getCapabilityOptions()) {
+            //Get not duplicated options that are selected on previous steps.
+            final List<CapabilityOption> oldOptions = new ArrayList<>(capabilityOption.getOptions());
+            final List<CapabilityOption> options = capabilityOption.getOptions().stream().filter(o -> !getCharacterPlayer()
+                            .hasCapability(o.getId(), o.getSelectedSpecialization() != null ? o.getSelectedSpecialization().getId() : null))
+                    .collect(Collectors.toList());
+            //If no option is available. Must select between any not restricted to the character.
+            if (!options.isEmpty()) {
+                capabilityOptions.add(new CapabilityOptions(capabilityOption, options));
+            } else {
+                final CapabilityOptions newCapabilityOptions = new CapabilityOptions(capabilityOption, CapabilityFactory.getInstance().getElements()
+                        .stream().filter(
+                                e -> !e.getRestrictions().isRestricted(characterPlayer))
+                        .map(CapabilityOption::new).collect(Collectors.toList()));
+                newCapabilityOptions.getOptions().removeAll(oldOptions);
+                capabilityOptions.add(newCapabilityOptions);
+            }
+        }
+        return capabilityOptions;
+    }
+
     public List<CharacteristicBonusOptions> getCharacteristicOptions() {
         return getCharacterDefinitionStep().getCharacteristicOptions();
     }
@@ -334,6 +361,27 @@ public abstract class CharacterDefinitionStepSelection extends Element {
 
     public List<PerkOptions> getPerksOptions() {
         return getCharacterDefinitionStep().getPerksOptions();
+    }
+
+    public List<PerkOptions> getNotRepeatedPerksOptions() {
+        final List<PerkOptions> perkOptions = new ArrayList<>();
+        for (PerkOptions perkOption : getCharacterDefinitionStep().getPerksOptions()) {
+            //Get not duplicated options that are selected on previous steps.
+            final List<PerkOption> oldOptions = new ArrayList<>(perkOption.getOptions());
+            final List<PerkOption> options = perkOption.getOptions().stream().filter(o -> !getCharacterPlayer()
+                    .hasPerk(o.getId())).collect(Collectors.toList());
+            //If no option is available. Must select between any not restricted to the character.
+            if (!options.isEmpty()) {
+                perkOptions.add(new PerkOptions(perkOption, options));
+            } else {
+                final PerkOptions newPerkOptions = new PerkOptions(perkOption, PerkFactory.getInstance().getElements()
+                        .stream().filter(e -> !e.getRestrictions().isRestricted(characterPlayer))
+                        .map(PerkOption::new).collect(Collectors.toList()));
+                newPerkOptions.getOptions().removeAll(oldOptions);
+                perkOptions.add(newPerkOptions);
+            }
+        }
+        return perkOptions;
     }
 
     public List<EquipmentOptions> getMaterialAwardsOptions() {

@@ -143,15 +143,23 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
         return ((Level) getCharacterDefinitionStep()).getClassPerksOptions();
     }
 
+    public List<PerkOptions> getNotRepeatedClassPerksOptions() {
+        return ((Level) getCharacterDefinitionStep()).getNotRepeatedClassPerksOptions();
+    }
+
     public List<PerkOptions> getCallingPerksOptions() {
         return ((Level) getCharacterDefinitionStep()).getCallingPerksOptions();
     }
 
+    public List<PerkOptions> getNotRepeatedCallingPerksOptions() {
+        return ((Level) getCharacterDefinitionStep()).getNotRepeatedCallingPerksOptions();
+    }
+
     protected void validateClassPerks() {
-        validatePerks(selectedClassPerksOptions, getClassPerksOptions());
+        validatePerks(selectedClassPerksOptions, getNotRepeatedClassPerksOptions(), getClassPerksOptions());
     }
 
     protected void validateCallingPerks() {
-        validatePerks(selectedClassPerksOptions, getCallingPerksOptions());
+        validatePerks(selectedClassPerksOptions, getNotRepeatedCallingPerksOptions(), getCallingPerksOptions());
     }
 }

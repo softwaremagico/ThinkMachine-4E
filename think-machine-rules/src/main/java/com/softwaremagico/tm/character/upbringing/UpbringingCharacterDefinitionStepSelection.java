@@ -70,8 +70,8 @@ public class UpbringingCharacterDefinitionStepSelection extends CharacterDefinit
 
 
     @Override
-    public List<CapabilityOptions> getCapabilityOptions() {
-        final List<CapabilityOptions> capabilityOptions = super.getCapabilityOptions();
+    public List<CapabilityOptions> getNotRepeatedCapabilityOptions() {
+        final List<CapabilityOptions> capabilityOptions = super.getNotRepeatedCapabilityOptions();
         if (isRaisedInSpace()) {
             capabilityOptions.forEach(capabilityOption -> {
                 final CapabilityOption shipboardOperations = new CapabilityOption(CapabilityFactory.getInstance().getElement("shipboardOperations"));
