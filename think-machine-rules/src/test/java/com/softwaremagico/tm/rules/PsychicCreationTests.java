@@ -8,17 +8,17 @@ package com.softwaremagico.tm.rules;
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
  * Foundation; either version 2 of the License, or (at your option) any later
  * version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU General Public License along with
  * this program; If not, see <http://www.gnu.org/licenses/gpl-3.0.html>.
  * #L%
@@ -45,6 +45,18 @@ public class PsychicCreationTests {
         Assert.assertTrue(PerkFactory.getInstance().getElement("psychicPowers").getRestrictions().isRestricted(characterPlayer));
     }
 
+
+    @Test
+    public void ukarCanHavePsychicPowers() {
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("ukar");
+        characterPlayer.setUpbringing("merchant");
+        characterPlayer.setFaction("musters");
+        characterPlayer.setCalling("spy");
+        Assert.assertFalse(PerkFactory.getInstance().getElement("psychicPowers").getRestrictions().isRestricted(characterPlayer));
+    }
+
+
     @Test
     public void psiLevel() {
         CharacterPlayer characterPlayer = new CharacterPlayer();
@@ -64,6 +76,7 @@ public class PsychicCreationTests {
         Assert.assertFalse(PerkFactory.getInstance().getElement("psychicPowers").getRestrictions().isRestricted(characterPlayer));
     }
 
+
     @Test
     public void obunCanLearnOpenTheurgyRites() {
         CharacterPlayer characterPlayer = new CharacterPlayer();
@@ -71,12 +84,14 @@ public class PsychicCreationTests {
         Assert.assertFalse(OccultismPathFactory.getInstance().getElement("ecumenicalRituals").getRestrictions().isRestricted(characterPlayer));
     }
 
+
     @Test
     public void humanCannotLearnOpenTheurgyRites() {
         CharacterPlayer characterPlayer = new CharacterPlayer();
         characterPlayer.setSpecie("human");
         Assert.assertTrue(OccultismPathFactory.getInstance().getElement("ecumenicalRituals").getRestrictions().isRestricted(characterPlayer));
     }
+
 
     @Test
     public void occultismPathCannotBeAddedWithoutPerks() {
@@ -96,7 +111,7 @@ public class PsychicCreationTests {
         characterPlayer.setUpbringing("merchant");
         characterPlayer.setFaction("societyOfStPaulus");
         characterPlayer.setCalling("psychic");
-        characterPlayer.getCalling().getPerksOptions().get(0).getSelections().add(new Selection("psychicPowers"));
+        characterPlayer.getCalling().getSelectedPerksOptions().get(0).getSelections().add(new Selection("psychicPowers"));
         Assert.assertTrue(characterPlayer.canAddOccultismPower(OccultismPathFactory.getInstance().getElement("farHand").getOccultismPowers().get("liftingHand")));
     }
 
@@ -117,8 +132,9 @@ public class PsychicCreationTests {
         characterPlayer.setUpbringing("priest");
         characterPlayer.setFaction("avestites");
         characterPlayer.setCalling("theurgist");
-        characterPlayer.getCalling().getPerksOptions().get(0).getSelections().add(new Selection("theurgicRites"));
-        Assert.assertTrue(characterPlayer.canAddOccultismPower(OccultismPathFactory.getInstance().getElement("templeAvestiRituals").getOccultismPowers().get("knowingTheFalseHeart")));
+        characterPlayer.getCalling().getSelectedPerksOptions().get(0).getSelections().add(new Selection("theurgicRites"));
+        Assert.assertTrue(characterPlayer.canAddOccultismPower(OccultismPathFactory.getInstance().getElement("templeAvestiRituals")
+                .getOccultismPowers().get("knowingTheFalseHeart")));
     }
 
 
@@ -129,7 +145,7 @@ public class PsychicCreationTests {
         characterPlayer.setUpbringing("noble");
         characterPlayer.setFaction("hazat");
         characterPlayer.setCalling("dervish");
-        characterPlayer.getCalling().getPerksOptions().get(0).getSelections().add(new Selection("psychicPowers"));
+        characterPlayer.getCalling().getSelectedPerksOptions().get(0).getSelections().add(new Selection("psychicPowers"));
         Assert.assertTrue(characterPlayer.canAddOccultismPower(OccultismPathFactory.getInstance().getElement("farHand").getOccultismPowers().get("liftingHand")));
     }
 }

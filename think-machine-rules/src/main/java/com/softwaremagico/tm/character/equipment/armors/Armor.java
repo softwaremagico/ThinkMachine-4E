@@ -121,7 +121,7 @@ public class Armor extends Equipment {
             allowedShields.forEach(allowedShield -> ShieldFactory.getInstance().getElement(allowedShield));
         }
         if (specifications != null) {
-            specifications.forEach(specification -> ArmourSpecificationFactory.getInstance().getElement(specification));
+            specifications.forEach(specification -> ArmorSpecificationFactory.getInstance().getElement(specification));
         }
     }
 }

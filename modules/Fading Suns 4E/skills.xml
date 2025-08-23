@@ -29,6 +29,9 @@
                 <calling>spy</calling>
                 <calling>techRedeemer</calling>
                 <calling>theurgist</calling>
+                <calling>tycoon</calling>
+                <calling>scholar</calling>
+                <calling>monkScholarlyTradition</calling>
             </callings>
         </restrictions>
     </skill>
@@ -120,11 +123,13 @@
             <es>Interfaz</es>
         </name>
         <restrictions>
+            <raisedInSpace>true</raisedInSpace>
             <factions>
                 <faction>engineers</faction>
             </factions>
             <upbringings>
                 <upbringing>priest</upbringing>
+                <upbringing>brotherBattle</upbringing>
                 <upbringing>merchant</upbringing>
             </upbringings>
             <callings>
@@ -134,6 +139,8 @@
                 <calling>enthusiast</calling>
                 <calling>scribe</calling>
                 <calling>spy</calling>
+                <calling>pirate</calling>
+                <calling>scholar</calling>
             </callings>
         </restrictions>
     </skill>
@@ -191,6 +198,7 @@
             <upbringings>
                 <upbringing>noble</upbringing>
                 <upbringing>merchant</upbringing>
+                <upbringing>brotherBattle</upbringing>
             </upbringings>
             <callings>
                 <calling>explorer</calling>

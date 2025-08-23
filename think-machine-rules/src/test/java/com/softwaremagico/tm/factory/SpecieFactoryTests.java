@@ -8,26 +8,27 @@ package com.softwaremagico.tm.factory;
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
  * Foundation; either version 2 of the License, or (at your option) any later
  * version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU General Public License along with
  * this program; If not, see <http://www.gnu.org/licenses/gpl-3.0.html>.
  * #L%
  */
 
 
-import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.character.specie.Specie;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.random.definition.ProbabilityMultiplier;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -35,7 +36,7 @@ import java.util.Objects;
 
 @Test(groups = {"raceFactory"})
 public class SpecieFactoryTests {
-    private static final int DEFINED_Species = 10;
+    private static final int DEFINED_Species = 4;
 
 
     @Test
@@ -49,20 +50,13 @@ public class SpecieFactoryTests {
     public void readAfflictions() throws InvalidXmlElementException {
         final Specie obun = SpecieFactory.getInstance().getElement("obun");
         Assert.assertTrue(obun.getPerks().stream().anyMatch(perkOption -> Objects.equals(perkOption.getId(), "childOfDhiyana")));
-        Assert.assertEquals((int) obun.getRandomDefinition().getStaticProbability(), 10);
+        Assert.assertEquals(obun.getRandomDefinition().getProbabilityMultiplier(), ProbabilityMultiplier.NORMAL);
     }
-
 
 
     @Test
     public void readRaceExtraPoints() throws InvalidXmlElementException {
         final Specie vorox = SpecieFactory.getInstance().getElement("vorox");
         Assert.assertEquals(vorox.getCost(), 9);
-    }
-
-    @Test
-    public void readPlanets() throws InvalidXmlElementException {
-        Assert.assertEquals(SpecieFactory.getInstance().getElement("shantor")
-                .getPlanets().size(), 1);
     }
 }

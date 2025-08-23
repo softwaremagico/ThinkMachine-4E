@@ -364,6 +364,11 @@
             <en>Noble Court Outfit</en>
             <es>Traje de Corte</es>
         </name>
+        <restrictions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+        </restrictions>
     </equipment>
     <equipment>
         <id>churchPageantryOutfit</id>
@@ -421,9 +426,17 @@
             <es>Vestiduras</es>
         </name>
         <description>
-            <en>miter, crosier, robes, censor, jumpgate cross, water, rosary</en>
-            <es>mitra, báculo, túnica, incensario, cruz de salto, agua, rosario</es>
+            <en>Miter, crosier, robes, censor, jumpgate cross, water, rosary</en>
+            <es>Mitra, báculo, túnica, incensario, cruz de salto, agua, rosario</es>
         </description>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+            <callings>
+                <calling>theurgist</calling>
+            </callings>
+        </restrictions>
     </equipment>
     <equipment>
         <id>religiousImplements</id>
@@ -436,5 +449,797 @@
             <en>prayer book, incense, candles</en>
             <es>libro de oraciones, incienso, velas</es>
         </description>
+    </equipment>
+    <equipment>
+        <id>minorSaintlyRelic</id>
+        <type>item</type>
+        <name>
+            <en>Minor Saintly Relic</en>
+            <es>Reliquia Sagrada Menor</es>
+        </name>
+        <description>
+            <en>+1 focus</en>
+            <es>+1 introspección</es>
+        </description>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>monasticAttire</id>
+        <type>item</type>
+        <name>
+            <en>Monastic Attire</en>
+            <es>Atuendo Monástico</es>
+        </name>
+    </equipment>
+    <equipment>
+        <id>monasticBooks</id>
+        <type>item</type>
+        <name>
+            <en>Monastic Books</en>
+            <es>Libros Monásticos</es>
+        </name>
+        <description>
+            <en>Books related to the chosen Lore.</en>
+            <es>Libros relacionados con el saber elegido.</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>artsAndCraftSupplies</id>
+        <type>item</type>
+        <name>
+            <en>Arts and Craft Supplies</en>
+            <es>Suministros de Oficios</es>
+        </name>
+    </equipment>
+    <equipment>
+        <id>familyRelic</id>
+        <type>item</type>
+        <name>
+            <en>Family Relic</en>
+            <es>Reliquia Familiar</es>
+        </name>
+        <description>
+            <en>A family relic that you rescued from destruction. It might be worth something again… someday.</en>
+            <es>Una reliquia familiar que salvaste de la destrucción. Quizás algún día vuelva a tener algún valor.</es>
+        </description>
+        <restrictions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>disguiseOutfit</id>
+        <type>item</type>
+        <name>
+            <en>Disguise Outfit</en>
+            <es>Disfraz</es>
+        </name>
+        <description>
+            <en>Disguise outfits for masked balls.</en>
+            <es>Disfraz para bailes de máscaras.</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>musicInstrument</id>
+        <type>item</type>
+        <name>
+            <en>Music Instrument</en>
+            <es>Instrumento Musical</es>
+        </name>
+    </equipment>
+    <equipment>
+        <id>performanceAttire</id>
+        <type>item</type>
+        <name>
+            <en>Performance Attire</en>
+            <es>Atuendo Elegante</es>
+        </name>
+    </equipment>
+    <equipment>
+        <id>ecclesiasticalAttireEveryday</id>
+        <type>item</type>
+        <name>
+            <en>Ecclesiastical Attire (Everyday)</en>
+            <es>Traje Eclesiástico (Ropa Diaria)</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>clergy</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>ecclesiasticalAttireLow</id>
+        <type>item</type>
+        <name>
+            <en>Ecclesiastical Attire (Low Ritual)</en>
+            <es>Traje Eclesiástico (Rituales Menores)</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>clergy</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>ecclesiasticalAttireHigh</id>
+        <type>item</type>
+        <name>
+            <en>Ecclesiastical Attire (High Ritual)</en>
+            <es>Traje Eclesiástico (Rituales Mayores)</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>clergy</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>penitentialManuals</id>
+        <type>item</type>
+        <name>
+            <en>Penitential Manuals</en>
+            <es>Manuales de Penitencia</es>
+        </name>
+        <restrictions>
+            <callings>
+                <calling>confessor</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>travelingConfessional</id>
+        <type>item</type>
+        <name>
+            <en>Traveling Confessional</en>
+            <es>Confesionario de Viaje</es>
+        </name>
+        <description>
+            <en>Force-field emitter. Creates a zone of silence: 1 square-meter area from which no sound emanates, but
+                anyone within the zone can hear one another.
+            </en>
+            <es>Emisor de campo de fuerza. Crea una zona de silencio de 1 m² de la que no emana ningún sonido, pero
+                cualquiera dentro de la zona puede escuchar a otra persona que también esté dentro.
+            </es>
+        </description>
+        <techLevel>6</techLevel>
+        <restrictions>
+            <callings>
+                <calling>confessor</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>jumpCross</id>
+        <type>item</type>
+        <name>
+            <en>Jump Cross</en>
+            <es>Cruz de Salto</es>
+        </name>
+        <description>
+            <en>A simple jump cross.</en>
+            <es>Una simple cruz de salto.</es>
+        </description>
+        <size>S</size>
+    </equipment>
+    <equipment>
+        <id>commonVestments</id>
+        <type>item</type>
+        <name>
+            <en>Common Vestments</en>
+            <es>Vestiduras Comunes</es>
+        </name>
+    </equipment>
+    <equipment>
+        <id>writOfAssistance</id>
+        <type>item</type>
+        <name>
+            <en>Writ of assistance</en>
+            <es>Recurso de Auxilio</es>
+        </name>
+        <description>
+            <en>Somebody owes you a favor, not training but an actual non-dangerous deed they will perform or hire out
+                for when you call it in.
+            </en>
+            <es>Alguien te debe un favor y, cuando lo pidas, realizará una intervención que no suponga peligro o
+                contratará a alguien para que la lleve a cabo.
+            </es>
+        </description>
+        <restrictions>
+            <callings>
+                <calling>friar</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>physicksKit</id>
+        <type>item</type>
+        <name>
+            <en>Physick’s kit</en>
+            <es>Botiquín con suministros de primeros auxilios</es>
+        </name>
+        <description>
+            <en>Bandages, alcohol, etc.</en>
+            <es>Vendas, alcohol, etc.</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>elixir5</id>
+        <type>item</type>
+        <name>
+            <en>5 doses of Elixir</en>
+            <es>5 dosis de Elixir</es>
+        </name>
+        <description>
+            <en>Standard-potency elixir.</en>
+            <es>Potencia estándar.</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>cohortBadge</id>
+        <type>item</type>
+        <name>
+            <en>Cohort Badge</en>
+            <es>Insignia de Adjunto</es>
+        </name>
+        <description>
+            <en>Proof of status, keyed to your DNA and very hard to counterfeit
+            </en>
+            <es>Prueba de estatus, vinculada a tu ADN y muy difícil de falsificar.
+            </es>
+        </description>
+        <techLevel>7</techLevel>
+        <size>XS</size>
+        <traits>
+            <trait>curio</trait>
+        </traits>
+        <restrictions>
+            <callings>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>travelingVestments</id>
+        <type>item</type>
+        <name>
+            <en>Traveling Vestments</en>
+            <es>Ropa de Viaje</es>
+        </name>
+    </equipment>
+    <equipment>
+        <id>portableAltar</id>
+        <type>item</type>
+        <name>
+            <en>Postable Altar</en>
+            <es>Altar Portátil</es>
+        </name>
+    </equipment>
+    <equipment>
+        <id>oneUsePassageContract</id>
+        <type>item</type>
+        <name>
+            <en>A one-way, one-use passage contract</en>
+            <es>Acuerdo de pasaje de ida de un solo uso</es>
+        </name>
+        <description>
+            <en>In the hold of any commercial ship; see the Passage Contract perk.</en>
+            <es>En la bodega de cualquier nave comercial; consulta el beneficio Acuerdo de Pasaje</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>esotericText</id>
+        <type>item</type>
+        <name>
+            <en>Collection of esoteric texts</en>
+            <es>Colección de textos esotéricos</es>
+        </name>
+        <description>
+            <en>Collection of esoteric texts that might provide needed clues when deciphering occult phenomena.</en>
+            <es>Colección de textos esotéricos que podrían dar pistas a la hora de descifrar fenómenos ocultos.e</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>writingImplements</id>
+        <type>item</type>
+        <name>
+            <en>Writing Implements</en>
+            <es>Útiles de escritura</es>
+        </name>
+        <description>
+            <en>Pens, ink, etc.</en>
+            <es>Plumas, tinta, etc.</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>wordRendered</id>
+        <type>item</type>
+        <name>
+            <en>Word Rendered</en>
+            <es>Reproductor de Palabras</es>
+        </name>
+        <description>
+            <en>Keyboard. Connects to most think machines to allow for typing documents,
+            </en>
+            <es>Teclado. Se puede conectar a la mayoría de máquinas pensantes para poder escribir documentos a máquina.
+            </es>
+        </description>
+        <techLevel>5</techLevel>
+        <traits>
+            <trait>curio</trait>
+        </traits>
+        <restrictions>
+            <callings>
+                <calling>scribe</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>datacruncher</id>
+        <type>item</type>
+        <name>
+            <en>Datacruncher</en>
+            <es>Masticadatos</es>
+        </name>
+        <description>
+            <en>Calculator and record-keeper.</en>
+            <es>calculadora y registradora de datos.</es>
+        </description>
+        <techLevel>5</techLevel>
+        <traits>
+            <trait>curio</trait>
+        </traits>
+        <restrictions>
+            <callings>
+                <calling>banker</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>smallAlchemicalStudio</id>
+        <type>item</type>
+        <name>
+            <en>Small alchemical studio</en>
+            <es>Pequeño estudio alquímico</es>
+        </name>
+    </equipment>
+    <equipment>
+        <id>roguesGallery</id>
+        <type>item</type>
+        <name>
+            <en>Rogues Gallery</en>
+            <es>Galeria de Fugitivos</es>
+        </name>
+        <description>
+            <en>Taps into local Town Criers Guild’s datanet list of public bounties.</en>
+            <es>Da acceso a la red de datos del gremio local de Pregoneros con una lista de recompensas públicas.</es>
+        </description>
+        <techLevel>4</techLevel>
+        <traits>
+            <trait>curio</trait>
+        </traits>
+        <restrictions>
+            <callings>
+                <calling>bountyHunter</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>ceramsteelCuffs</id>
+        <type>item</type>
+        <name>
+            <en>Ceramsteel cuffs</en>
+            <es>Esposas de acerámico</es>
+        </name>
+        <description>
+            <en>Mechanical handcuffs; Herculean Resistance to break and Tough Resistance to pick.</en>
+            <es>Esposas mecánicas; Resistencia Hercúlea para romperlas y Resistencia Ardua para abrirlas.</es>
+        </description>
+        <techLevel>5</techLevel>
+        <techCompulsion>cruel</techCompulsion>
+        <restrictions>
+            <callings>
+                <calling>chainer</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>telltaleEye</id>
+        <type>item</type>
+        <name>
+            <en>Telltale Eye</en>
+            <es>Ojo informante</es>
+        </name>
+        <description>
+            <en>Monocle device: the classic sleuth’s magnifying glass, but as a monocle; it allows its user to view the
+                IR and UV spectrums.
+            </en>
+            <es>La clásica lupa de detective, pero con forma de monóculo; permite ver el espectro infrarrojo y
+                ultravioleta.
+            </es>
+        </description>
+        <techLevel>5</techLevel>
+        <techCompulsion>inerrant</techCompulsion>
+        <size>XS</size>
+        <restrictions>
+            <callings>
+                <calling>detective</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>legalMind</id>
+        <type>item</type>
+        <name>
+            <en>Legal Mind</en>
+            <es>Mente Legal</es>
+        </name>
+        <description>
+            <en>Think machine: voluminous data file with legal case histories for 3 different areas of law, such as fief
+                management, guild contracts, war, etc.; substitutes for a related Lore capability when arguing cases.
+            </en>
+            <es>Máquina pensante: voluminoso archivo de datos con jurisprudencia en tres ramas de derecho diferentes,
+                como gestión de feudos, contratos gremiales, guerra, etcétera; sustituye a la competencia de Saber
+                relacionada a la hora de argumentar casos.
+            </es>
+        </description>
+        <techLevel>4</techLevel>
+        <restrictions>
+            <callings>
+                <calling>lawyer</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>supplyDepot</id>
+        <type>item</type>
+        <name>
+            <en>Supply depot</en>
+            <es>Depósito de suministros</es>
+        </name>
+        <description>
+            <en>A Merc band can consolidate their guns and ammo to form a large depot; for each Mercenary in the band,
+                spend 100 fb on military supplies.
+            </en>
+            <es>Un grupo de mercenarios puede reunir todas sus armas y munición para formar un gran depósito; por cada
+                mercenario en el grupo, gasta 100 f en suministros militares
+            </es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>ceramsteelCuffs</id>
+        <type>item</type>
+        <name>
+            <en>Ceramsteel cuffs</en>
+            <es>Esposas de acerámico</es>
+        </name>
+        <description>
+            <en>Mechanical handcuffs; Herculean Resistance to break and Tough Resistance to pick.</en>
+            <es>Esposas mecánicas; Resistencia Hercúlea para romperlas y Resistencia Ardua para abrirlas.</es>
+        </description>
+        <techLevel>5</techLevel>
+        <techCompulsion>cruel</techCompulsion>
+        <restrictions>
+            <callings>
+                <calling>chainer</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>hovernet</id>
+        <type>item</type>
+        <name>
+            <en>Hovernet</en>
+            <es>Red flotante</es>
+        </name>
+        <description>
+            <en>Anti-grav synthmesh bag with remote-control wristband; holds up to 2 cubic feet worth of items; floats
+                behind its user.
+            </en>
+            <es>Bolsa de rejilla sintética antigravedad con pulsera de control remoto; capacidad para guardar sesenta
+                centímetros cúbicos de objetos; flota detrás de su propietario.
+            </es>
+        </description>
+        <techLevel>7</techLevel>
+        <techCompulsion>industrious</techCompulsion>
+        <size>M</size>
+        <restrictions>
+            <callings>
+                <calling>reclaimer</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>wildernessSurvivalKit</id>
+        <type>item</type>
+        <name>
+            <en>Compact wilderness survival kit</en>
+            <es>Kit compacto de supervivencia en la naturaleza</es>
+        </name>
+        <description>
+            <en>Backpack with microtech items that unfold into full-size: compass, water purifier, food rations for one
+                month, rope, knife, machete, utility tool, one-person tent.
+            </en>
+            <es>Mochila de NT4 con objetos microtecnológicos que se despliegan hasta alcanzar su tamaño original:
+                brújula, purificador de agua, raciones de comida para un mes, cuerda, cuchillo, machete, herramienta
+                utilitaria, tienda de campaña individual
+            </es>
+        </description>
+        <techLevel>4</techLevel>
+        <size>XL</size>
+        <restrictions>
+            <callings>
+                <calling>scout</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>goodLuckToken</id>
+        <type>item</type>
+        <name>
+            <en>Good luck token</en>
+            <es>Objeto que da buena suerte</es>
+        </name>
+        <description>
+            <en>Coin, die, animal foot, etc.</en>
+            <es>Moneda, dado, pata de animal, etc.</es>
+        </description>
+        <restrictions>
+            <callings>
+                <calling>starPilot</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>toolBandolier</id>
+        <type>item</type>
+        <name>
+            <en>Tool Bandolier</en>
+            <es>Bandolera de herramientas</es>
+        </name>
+        <description>
+            <en>Holds tools for nearly every conceivable task within your capabilities.</en>
+            <es>Incluye herramientas para casi cualquier tarea que entre dentro de tus competencias.</es>
+        </description>
+        <restrictions>
+            <callings>
+                <calling>techRedeemer</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>innocuousLockpicks</id>
+        <type>item</type>
+        <name>
+            <en>Innocuous lockpicks</en>
+            <es>Ganzúas inofensivas</es>
+        </name>
+        <description>
+            <en>Disguised as common items, such as utensils</en>
+            <es>Disfrazadas de objetos normales, como utensilios</es>
+        </description>
+        <restrictions>
+            <callings>
+                <calling>thief</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>thiefOutfit</id>
+        <type>item</type>
+        <name>
+            <en>Thief outfit</en>
+            <es>Traje de ladrón</es>
+        </name>
+        <description>
+            <en>Outfit with up to four hidden pockets for concealing small items (resistant to TL6 and below scanners)
+            </en>
+            <es>Traje con hasta cuatro bolsillos secretos para esconder objetos pequeños (resistente a escáneres de NT6
+                y menor)
+            </es>
+        </description>
+        <restrictions>
+            <callings>
+                <calling>thief</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>lockbag</id>
+        <type>item</type>
+        <name>
+            <en>Lockbag</en>
+            <es>Bolsa de Cierre</es>
+        </name>
+        <description>
+            <en>Synthmesh backpack or satchel with Severe Resistance lock and fabric.</en>
+            <es>Mochila o bolsa de malla sintética con una tela y un sistema de cierre de Resistencia Tenaz
+            </es>
+        </description>
+        <techLevel>6</techLevel>
+        <traits>
+            <trait>curio</trait>
+        </traits>
+        <restrictions>
+            <callings>
+                <calling>trader</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>powerAccessory</id>
+        <type>item</type>
+        <name>
+            <en>Power accessory</en>
+            <es>Complemento de Poder</es>
+        </name>
+        <description>
+            <en>hypnotic curio tie, cravat, scarf, or necklace: once per scene, you can take a primary action to
+                ostentatiously adjust it within sight of one or more marks; your next persuasion influence roll against
+                any witness gets +1 goal.
+            </en>
+            <es>Curiosidad hipnótica con forma de corbata, pañuelo, fular o collar: una vez por escena, puedes realizar
+                una acción primaria para ajustártelo ostentosamente a la vista de uno o varios de tus blancos; tu
+                próxima tirada de influencia de persuasión contra cualquier testigo recibe +1 a la meta
+            </es>
+        </description>
+        <traits>
+            <trait>curio</trait>
+        </traits>
+        <techLevel>5</techLevel>
+        <size>XS</size>
+        <restrictions>
+            <callings>
+                <calling>tycoon</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>performanceOutfit</id>
+        <type>item</type>
+        <name>
+            <en>Performance Outfit</en>
+            <es>Traje de Actuación</es>
+        </name>
+        <description>
+            <en>For different stock part.</en>
+            <es>Para tres papeles de teatro.</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>expeditionaryMedallion</id>
+        <type>item</type>
+        <name>
+            <en>Expeditionary Medallion</en>
+            <es>Medallón de expedición</es>
+        </name>
+        <description>
+            <en>Think machine; acts as a compass, weather predictor, and simple motion detector</en>
+            <es>Máquina pensante; funciona como brújula, predictor del tiempo y detector de movimiento
+            </es>
+        </description>
+        <techLevel>5</techLevel>
+        <size>XS</size>
+        <traits>
+            <trait>curio</trait>
+        </traits>
+        <restrictions>
+            <callings>
+                <calling>explorer</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>prankPaper</id>
+        <type>item</type>
+        <name>
+            <en>Prank Paper</en>
+            <es>Documento de Broma</es>
+        </name>
+        <description>
+            <en>A piece of paper that, when you write a message on it, mimics 1 of 3 types of official decrees: noble,
+                Church, or guild. Lasts only for 24 hours, after which it dissolves. You begin with 10 pages; 10 FB per
+                extra page.
+            </en>
+            <es>Un documento que, cuando escribes un mensaje en él, imita uno de tres tipos de decretos oficiales: un
+                decreto noble, eclesiástico o gremial. Solo dura 24 horas, tras las cuales se disuelve. Empiezas con
+                diez páginas y cada página adicional cuesta 10 fénix.
+            </es>
+        </description>
+        <techLevel>5</techLevel>
+        <size>S</size>
+        <traits>
+            <trait>curio</trait>
+        </traits>
+        <restrictions>
+            <callings>
+                <calling>mercurian</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>camoTarp</id>
+        <type>item</type>
+        <name>
+            <en>Camo Tarp</en>
+            <es>Lona de Camuflaje</es>
+        </name>
+        <description>
+            <en>Holo-tarp: when hung from walls or placed on a floor, it mimics nearby its environment to appear as just
+                more ship decking or flagstones; covers 2m x 2m area.
+            </en>
+            <es>Hololona: cuando se cuelga de una pared o se coloca sobre el suelo, imita su entorno para parecer el
+                suelo de una nave o baldosas; cubre una superficie de 2 × 2 m.
+            </es>
+        </description>
+        <techLevel>5</techLevel>
+        <restrictions>
+            <callings>
+                <calling>pirate</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>datavore</id>
+        <type>item</type>
+        <name>
+            <en>Datavore</en>
+            <es>Datávoro</es>
+        </name>
+        <description>
+            <en>Think machine; used to link into other systems and copy data as well as scan physical book pages.
+            </en>
+            <es>Máquina pensante; se utiliza para conectarse con otros sistemas y copiar datos, así como para escanear
+                páginas de libros físicos.
+            </es>
+        </description>
+        <techLevel>5</techLevel>
+        <traits>
+            <trait>inerrant</trait>
+        </traits>
+        <restrictions>
+            <callings>
+                <calling>scholar</calling>
+            </callings>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>avestitePendant</id>
+        <type>item</type>
+        <name>
+            <en>Avestite Pendant</en>
+            <es>Colgante Avestita</es>
+        </name>
+        <description>
+            <en>You wear a pendant bearing the symbol of the Holy Flame. With the flick of a switch, this symbol becomes
+                a searing brand which an Avestite can use to brand sinners’ foreheads.
+            </en>
+            <es>Llevas un colgante con el símbolo de la Llama Sagrada. En un abrir y cerrar de ojos, el símbolo se
+                convierte en un hierro al rojo vivo con el que un avestita puede marcar las frentes de los pecadores.
+            </es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>formularyOfStKalle</id>
+        <type>item</type>
+        <name>
+            <en>Formulary of St. Kalle</en>
+            <es>Formulario de san Kalle</es>
+        </name>
+        <description>
+            <en>An approved book dedicated to dream interpretation.</en>
+            <es>Un libro aprobado dedicado a la interpretación de sueños.</es>
+        </description>
+        <restrictions>
+            <callings>
+                <calling>dreamtender</calling>
+            </callings>
+        </restrictions>
     </equipment>
 </equipments>

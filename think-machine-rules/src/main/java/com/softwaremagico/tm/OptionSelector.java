@@ -37,6 +37,16 @@ public class OptionSelector<E extends Element, T extends Option<E>> {
     @JsonProperty("options")
     private List<T> options = new ArrayList<>();
 
+    public OptionSelector() {
+        super();
+    }
+
+    public OptionSelector(OptionSelector<E, T> optionSelector) {
+        this();
+        totalOptions = optionSelector.totalOptions;
+        options.addAll(optionSelector.options);
+    }
+
     public int getTotalOptions() {
         return totalOptions;
     }
@@ -46,6 +56,10 @@ public class OptionSelector<E extends Element, T extends Option<E>> {
     }
 
     public List<T> getOptions() {
+        return getSourceOptions();
+    }
+
+    public List<T> getSourceOptions() {
         return options;
     }
 

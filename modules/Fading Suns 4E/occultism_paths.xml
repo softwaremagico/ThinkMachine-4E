@@ -2143,7 +2143,7 @@
                         por cada 2 PV que gastes en impacto. Cada 20 % de altura y peso que aumentes o reduzcas
                         modificará tu tamaño en 1. \n
 
-                        Por cada nivel de tamaño que bajes, reduce tu velo cidad de movimiento en 1 metro y quítate 1
+                        Por cada nivel de tamaño que bajes, reduce tu velocidad de movimiento en 1 metro y quítate 1
                         punto de Vitalidad.
 
                         Por cada nivel de tamaño que subas, añade 1 metro a tu velocidad de movimiento y 1 punto a tu
@@ -2344,7 +2344,7 @@
                         not suffer from damage or debilitation based on your exposure. This only adapts you enough so
                         that you’re not killed by the environment — you could breathe clouds of chlorine gas, but you
                         still can’t see through it. Also, non-environmental effects still apply: if you’re adapted to an
-                        extremely hot climate, you’re still just as vulnerable to a flamegun as ever.
+                        extremely hot climate, you’re still just as vulnerable to a flame gun as ever.
                     </en>
                     <es>Aguantas el calor y el frío extremos. Si quieres ampliar este poder a otro tipo de entornos o
                         efectos, deberás gastar PV adicionales cuando lo actives, y, si tu entorno empeora después de
@@ -4316,7 +4316,7 @@
                     </es>
                 </resistance>
                 <impact>
-                    <en>You perceive the “mirror” of another’s soul, which appears as a flame centered on the region of
+                    <en>You perceive the “mirror” of another soul, which appears as a flame centered on the region of
                         their heart. The size of the flame you perceive is based on the Faith rating of the target:
                         Faith 10 appears as a large and bright flame, completely filling its mirror, while Faith 1
                         appears as a small candle flame at the end of a long and dark corridor. Because a soul’s mirror
@@ -4494,7 +4494,7 @@
                     <en>1 VP</en>
                     <es>1 PV</es>
                 </cost>
-                <characteristic>inutition</characteristic>
+                <characteristic>intuition</characteristic>
                 <skills>
                     <skill>observe</skill>
                 </skills>
@@ -4977,7 +4977,7 @@
                 </cost>
                 <characteristic>will</characteristic>
                 <skills>
-                    <skill>Charm</skill>
+                    <skill>charm</skill>
                 </skills>
                 <components>
                     <component>G</component>

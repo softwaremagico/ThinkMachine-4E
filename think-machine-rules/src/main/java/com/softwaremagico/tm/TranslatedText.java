@@ -25,6 +25,7 @@ package com.softwaremagico.tm;
  */
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.language.Translator;
 
 import java.util.Objects;
@@ -83,6 +84,15 @@ public class TranslatedText implements Comparable<TranslatedText> {
             return getSpanish();
         }
         return getEnglish();
+    }
+
+    public void validate() {
+        if (getEnglish() == null || getEnglish().isEmpty()) {
+            throw new InvalidXmlElementException("English text is empty.");
+        }
+        if (getSpanish() == null || getSpanish().isEmpty()) {
+            throw new InvalidXmlElementException("Spanish text is empty.");
+        }
     }
 
     @Override

@@ -33,6 +33,8 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 public class CharacteristicBonusOption extends Option<CharacteristicDefinition> {
     @JsonProperty("bonus")
     private int bonus;
+    @JsonProperty("extra")
+    private boolean extra = false;
 
     public CharacteristicBonusOption() {
         super();
@@ -52,6 +54,11 @@ public class CharacteristicBonusOption extends Option<CharacteristicDefinition> 
         setBonus(bonus);
     }
 
+    public CharacteristicBonusOption(CharacteristicDefinition characteristic, int bonus) {
+        this(characteristic.getId());
+        setBonus(bonus);
+    }
+
     public int getBonus() {
         return bonus;
     }
@@ -60,6 +67,13 @@ public class CharacteristicBonusOption extends Option<CharacteristicDefinition> 
         this.bonus = bonus;
     }
 
+    public boolean isExtra() {
+        return extra;
+    }
+
+    public void setExtra(boolean extra) {
+        this.extra = extra;
+    }
 
     @Override
     public CharacteristicDefinition getElement(String id) {
@@ -79,6 +93,8 @@ public class CharacteristicBonusOption extends Option<CharacteristicDefinition> 
                 return new TranslatedText(CharacteristicsDefinitionFactory.getInstance().getElement(getId()).getName(), " (+" + bonus + ")");
             } catch (InvalidXmlElementException e) {
                 return new TranslatedText("{" + getId() + "}");
+            } catch (NullPointerException e) {
+                throw new InvalidXmlElementException("CharacteristicBonusOption " + getId() + " has no name!");
             }
         }
         return null;

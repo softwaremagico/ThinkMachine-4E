@@ -25,23 +25,13 @@ package com.softwaremagico.tm.character.factions;
  */
 
 public enum FactionGroup {
-    GUILD,
+    MERCHANT,
 
-    MINOR_GUILD,
-
-    NOBILITY,
+    NOBLE,
 
     CHURCH,
 
     MINOR_CHURCH,
-
-    KNIGHTLY_ORDERS,
-
-    BARBARIAN,
-
-    XENO,
-
-    MILITARY,
 
     NONE;
 

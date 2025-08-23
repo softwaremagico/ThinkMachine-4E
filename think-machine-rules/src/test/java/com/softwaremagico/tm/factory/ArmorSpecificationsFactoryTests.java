@@ -26,18 +26,18 @@ package com.softwaremagico.tm.factory;
 
 
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.character.equipment.armors.ArmourSpecificationFactory;
+import com.softwaremagico.tm.character.equipment.armors.ArmorSpecificationFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Test(groups = {"armourFactory"})
+@Test(groups = {"armorFactory"})
 public class ArmorSpecificationsFactoryTests {
     private static final int DEFINED_SPECIFICATIONS = 12;
 
 
     @Test
-    public void readArmours() throws InvalidXmlElementException {
-        Assert.assertEquals(ArmourSpecificationFactory.getInstance().getElements().size(),
+    public void readArmors() throws InvalidXmlElementException {
+        Assert.assertEquals(ArmorSpecificationFactory.getInstance().getElements().size(),
                 DEFINED_SPECIFICATIONS);
     }
 }

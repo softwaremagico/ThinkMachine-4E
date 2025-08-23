@@ -1,10 +1,10 @@
-package com.softwaremagico.tm.character.equipment.armors;
+package com.softwaremagico.tm.restrictions;
 
 /*-
  * #%L
  * Think Machine 4E (Rules)
  * %%
- * Copyright (C) 2017 - 2024 Softwaremagico
+ * Copyright (C) 2017 - 2025 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -24,30 +24,35 @@ package com.softwaremagico.tm.character.equipment.armors;
  * #L%
  */
 
-import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.xml.XmlFactory;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.List;
+public class RestrictedCharacteristic {
+    @JsonProperty("name")
+    private String characteristic;
+    @JsonProperty("value")
+    private int value;
 
-public final class ArmourSpecificationFactory extends XmlFactory<ArmourSpecification> {
-    private static final String XML_FILE = "armours_specifications.xml";
-
-    private static final class ArmourSpecificationFactoryInit {
-        public static final ArmourSpecificationFactory INSTANCE = new ArmourSpecificationFactory();
+    public String getCharacteristic() {
+        return characteristic;
     }
 
-    public static ArmourSpecificationFactory getInstance() {
-        return ArmourSpecificationFactoryInit.INSTANCE;
+    public void setCharacteristic(String characteristic) {
+        this.characteristic = characteristic;
     }
 
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
 
     @Override
-    public String getXmlFile() {
-        return XML_FILE;
-    }
-
-    @Override
-    public List<ArmourSpecification> getElements() throws InvalidXmlElementException {
-        return readXml(ArmourSpecification.class);
+    public String toString() {
+        return "RestrictedCharacteristic{"
+                + "characteristic='" + characteristic + '\''
+                + ", value=" + value
+                + '}';
     }
 }

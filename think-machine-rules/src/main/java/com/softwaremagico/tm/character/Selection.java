@@ -25,10 +25,12 @@ package com.softwaremagico.tm.character;
  */
 
 import com.softwaremagico.tm.character.skills.Specialization;
+import com.softwaremagico.tm.utils.ComparableUtils;
+import com.softwaremagico.tm.utils.IComparable;
 
 import java.util.Objects;
 
-public class Selection {
+public class Selection implements IComparable {
     private String id;
     private Specialization specialization;
 
@@ -56,6 +58,15 @@ public class Selection {
 
     public void setSpecialization(Specialization specialization) {
         this.specialization = specialization;
+    }
+
+    public Selection getMainSelection() {
+        return new Selection(getId());
+    }
+
+    @Override
+    public String getComparisonId() {
+        return ComparableUtils.getComparisonId(getId(), getSpecialization());
     }
 
     @Override

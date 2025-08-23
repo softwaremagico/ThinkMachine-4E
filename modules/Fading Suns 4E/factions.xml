@@ -164,18 +164,20 @@
             </skillBonusOption>
             <skillBonusOption>
                 <total>1</total>
-                <skill>
-                    <id>melee</id>
-                    <bonus>1</bonus>
-                </skill>
-                <skill>
-                    <id>shoot</id>
-                    <bonus>1</bonus>
-                </skill>
-                <skill>
-                    <id>techRedemption</id>
-                    <bonus>1</bonus>
-                </skill>
+                <options>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>techRedemption</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
             </skillBonusOption>
         </skills>
         <blessing>
@@ -214,34 +216,34 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
-        <restrictions>
-            <upbringings>
-                <upbringing>noble</upbringing>
-            </upbringings>
+        <restrictions mode="all">
             <species>
                 <specie>human</specie>
             </species>
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
         </restrictions>
         <random>
             <names>
-                <male>Aban, Abbas, Abbud, Abbudin, Abdul, Abdel, 'Abd al, Abdullah, 'Abid, 'Abidin, Abu Bakr, Abu al
-                    Khayr, Adan, Adel, 'Adil, Adham, Adib, 'Adli, Adnan, 'Adnan, 'Afif, Afeef, Ahmad, Ahmed, 'Ajib,
-                    'Akif, Akil, Akram, Ala' al Din, Al 'Abbas, Aladdin, Ala' al din, Al Bara', Al Hakam, Al Harith,
-                    Alhasan, Alhusain, Alhusayn, Ali, 'Ali, 'Aliyy, Alim, Almahdi, Al Safi, Altaf, Altair, Al Tayyib, Al
-                    Tijani, Al Tufail, Al Tufayl, Amid, 'Amid, Amin, Ameen, Amir, Ameer, 'Amir, Amjad, Ammar, 'Ammar,
-                    'Amro, Anas, Anis, 'Antarah, Anwar, 'Aqil, Arfan, Arif, 'Arif, Asad, As'ad, Asadel, Ashraf, Asif,
-                    Asim, 'Asim, Aswad, Ata', 'Ataa, Ata' Ata' al Rahman, Athil, Athir, Atif, 'Atif, Awad, 'Awad,
+                <male>Aban, Abbas, Abbud, Abbudin, Abdul, Abdel, 'Abd al, Abdullah, 'Abid, 'Abidin, Abu Bakr,
+                    Abu al Khayr, Adan, Adel, 'Adil, Adham, Adib, 'Adli, Adnan, 'Adnan, 'Afif, Afeef, Ahmad, Ahmed,
+                    'Ajib, 'Akif, Akil, Akram, Ala' al Din, Al 'Abbas, Aladdin, Ala' al din, Al Bara', Al Hakam, Al
+                    Harith, Alhasan, Alhusain, Alhusayn, Ali, 'Ali, 'Aliyy, Alim, Almahdi, Al Safi, Altaf, Altair, Al
+                    Tayyib, Al Tijani, Al Tufail, Al Tufayl, Amid, 'Amid, Amin, Ameen, Amir, Ameer, 'Amir, Amjad, Ammar,
+                    'Ammar, 'Amro, Anas, Anis, 'Antarah, Anwar, 'Aqil, Arfan, Arif, 'Arif, Asad, As'ad, Asadel, Ashraf,
+                    Asif, Asim, 'Asim, Aswad, Ata', 'Ataa, Ata' Ata' al Rahman, Athil, Athir, Atif, 'Atif, Awad, 'Awad,
                     'Awf, Aws, Awwab, Ayham, Ayman, Ayser, Ayyub, Ayoob, Aza, 'Azab, Azhar, Azeem, Azim, Aziz, 'Aziz,
-                    Azzam, 'Azzam, Badi, Badi al Zaman, Badr, Badr al Din, Badri, Baha, Baha', Baha al Din, Bahiyy al
-                    Din, Bahij, Bahir, Bakr, Bakri, Baligh, Bandar, Barakah, Barir, Bashir, Bashshar, Basil, Basim,
-                    Bassam, Bayhas, Bilal, Bishr, Boulos, Budail, Budayl, Burhan, Bushr, Butrus, Dabir, Dani, Darwish,
-                    Da'ud, Dawud, Dhakir, Dhakiy, Dhakwan, Dhul Fiqar, Dirar, Diya, Diya al Din, Duqaq, Fadi, Fadil,
-                    Fadl, Fadl Allah, Fahd, Fahad, Fahmi, Faisal, Faysal, Fa'iz, Fakhir, Fakhr al Din, Fakhri, Fakhry,
-                    Fakih, Falah, Falih, Faraj, Farraj, Farhan, Farid, Fareed, Fariq, Fareeq, Faris, Faruq, Farooq,
-                    Fath, Fathi, Fatih, Fatin, Fateen, Fawwaz, Fawzan, Fawzi, Fayyad, Ferran, Fida, Fikri, Firas, Fouad,
-                    Fu'ad, Fudail, Gamal, Gamali, Ghaith, Ghayth, Ghali, Ghalib, Ghanim, Ghassan, Ghawth, Ghazi,
-                    Ghazwan, Ghiyath, Habbab, Habib, Hadad, Haddad, Hadi, Hafiz, Hakem, Hakim, Hakeem, Halim, Hamal,
-                    Hamas, Hamdan, Hamdi, Hamid, Hamim, Hamzah, Hana, Hana'i, Hanbal, Hani, Hanif, Hannad, Haris,
+                    Azzam, 'Azzam, Badi, Badi al Zaman, Badr, Badr al Din, Badri, Baha, Baha', Baha al Din,
+                    Bahiyy al Din, Bahij, Bahir, Bakr, Bakri, Baligh, Bandar, Barakah, Barir, Bashir, Bashshar, Basil,
+                    Basim, Bassam, Bayhas, Bilal, Bishr, Boulos, Budail, Budayl, Burhan, Bushr, Butrus, Dabir, Dani,
+                    Darwish, Da'ud, Dawud, Dhakir, Dhakiy, Dhakwan, Dhul Fiqar, Dirar, Diya, Diya al Din, Duqaq, Fadi,
+                    Fadil, Fadl, Fadl Allah, Fahd, Fahad, Fahmi, Faisal, Faysal, Fa'iz, Fakhir, Fakhr al Din, Fakhri,
+                    Fakhry, Fakih, Falah, Falih, Faraj, Farraj, Farhan, Farid, Fareed, Fariq, Fareeq, Faris, Faruq,
+                    Farooq, Fath, Fathi, Fatih, Fatin, Fateen, Fawwaz, Fawzan, Fawzi, Fayyad, Ferran, Fida, Fikri,
+                    Firas, Fouad, Fu'ad, Fudail, Gamal, Gamali, Ghaith, Ghayth, Ghali, Ghalib, Ghanim, Ghassan, Ghawth,
+                    Ghazi, Ghazwan, Ghiyath, Habbab, Habib, Hadad, Haddad, Hadi, Hafiz, Hakem, Hakim, Hakeem, Halim,
+                    Hamal, Hamas, Hamdan, Hamdi, Hamid, Hamim, Hamzah, Hana, Hana'i, Hanbal, Hani, Hanif, Hannad, Haris,
                     Harith, Haroun, Harun, Hashim, Hassan, Hatim, Haydar, Haytham, Hayyan, Hazim, Hilal, Hilel, Hilmi,
                     Hisham, Hud, Houd, Hudad, Hudhafah, Hudhaifah, Hudhayfah, Humam, Husain, Husayn, Hussein, Husam,
                     Husam al Din, Ibrahim, 'Id, Idris, Ihsan, Ihtisham, 'Ikrimah, Ilias, Imad, 'Imad, Imad al Din, Imam,
@@ -265,17 +267,17 @@
                     Moosa, Mus'ab, Mus'ad, Musa'id, Mushtaq, Muslih, Muslim, Mustafa, Muta', Mu'tasim, Mutawalli,
                     Mu'tazz, Muthanna, Muti, Muwaffaq, Muyassar, Muzaffar, Muzzammil, Nabhan, Nabih, Nabighah, Nabih,
                     Nabil, Nabeel, Nadhir, Nadim, Nadeem, Nadir, Nafi', Nahid, Na'il, Na'im, Naji, Najib, Najeeb, Najid,
-                    Najjar, Najm al Din, Na'man, Namir, Nash'ah, Nash'at, Nashwan, Nasib, Nasih, Nasim, Nasir, Nasir al
-                    Din, Nasr, Nasser, Nasri, Nasuh, Nawaf, Nawwaf, Nawfal, Nayif, Naif, Nazih, Nazeeh, Nazim, Nazeem,
-                    Nazmi, Nibras, Nidal, Nijad, Nimr, Nizar, Nu'aim, Nu'aym, Nuh, Nooh, Nuhaid, Nuhayd, Numair, Nu'man,
-                    Nur al Din, Nuri, Noori, Nusrah, Nusrat, Qasim, Qays, Qais, Qudamah, Qusay, Qatadah, Qutaybah,
-                    Qutaibah, Qutb, Qutuz, R, Rabah, Rabi, Radi, Rafi, Rafid, Rafiq, Raghib, Ragheb, Raghid, Rahman,
-                    Ra'id, Ra'if, Rais, Raja, Rajab, Raji, Rajih, Rakin, Ramadan, Rami, Ramih, Ramiz, Ramzi, Rani,
-                    Rashad, Rashid, Rasil, Rasin, Rasmi, Rasul, Ratib, Ra'uf, Rayhan, Rayyan, Razin, Reda, Rida, Ridha,
-                    Ridwan, Rihab, Riyad, Riyadh, Rizq, Ruhi, Rushd, Rushdi, Ruwaid, Ruwayd, Saad, Sa'adah, Sab, Sabih,
-                    Sabeeh, Sabir, Sabeer, Sabri, Sa'd, Sa'd al Din, Sadad, Sadid, Sadiq, Sa'dun, Sa'eed, Sa'id, Safi,
-                    Safiy, Safiy al Din, Safuh, Safwah, Safwat, Safwan, Sahib, Sahir, Sahl, Sa'ib, Saif, Sayf, Seif,
-                    Saif al Din, Sajid, Sajjad, Sakhr, Salah, Salah al Din, Salamah, Saleh, Salih, Salim, Saleem,
+                    Najjar, Najm al Din, Na'man, Namir, Nash'ah, Nash'at, Nashwan, Nasib, Nasih, Nasim, Nasir,
+                    Nasir al Din, Nasr, Nasser, Nasri, Nasuh, Nawaf, Nawwaf, Nawfal, Nayif, Naif, Nazih, Nazeeh, Nazim,
+                    Nazeem, Nazmi, Nibras, Nidal, Nijad, Nimr, Nizar, Nu'aim, Nu'aym, Nuh, Nooh, Nuhaid, Nuhayd, Numair,
+                    Nu'man, Nur al Din, Nuri, Noori, Nusrah, Nusrat, Qasim, Qays, Qais, Qudamah, Qusay, Qatadah,
+                    Qutaybah, Qutaibah, Qutb, Qutuz, R, Rabah, Rabi, Radi, Rafi, Rafid, Rafiq, Raghib, Ragheb, Raghid,
+                    Rahman, Ra'id, Ra'if, Rais, Raja, Rajab, Raji, Rajih, Rakin, Ramadan, Rami, Ramih, Ramiz, Ramzi,
+                    Rani, Rashad, Rashid, Rasil, Rasin, Rasmi, Rasul, Ratib, Ra'uf, Rayhan, Rayyan, Razin, Reda, Rida,
+                    Ridha, Ridwan, Rihab, Riyad, Riyadh, Rizq, Ruhi, Rushd, Rushdi, Ruwaid, Ruwayd, Saad, Sa'adah, Sab,
+                    Sabih, Sabeeh, Sabir, Sabeer, Sabri, Sa'd, Sa'd al Din, Sadad, Sadid, Sadiq, Sa'dun, Sa'eed, Sa'id,
+                    Safi, Safiy, Safiy al Din, Safuh, Safwah, Safwat, Safwan, Sahib, Sahir, Sahl, Sa'ib, Saif, Sayf,
+                    Seif, Saif al Din, Sajid, Sajjad, Sakhr, Salah, Salah al Din, Salamah, Saleh, Salih, Salim, Saleem,
                     Salman, Sami, Samih, Samir, Sameer, Samman, Saqr, Sariyah, Sati, Saud, Sayyid, Sha'ban, Shadi,
                     Shadin, Shafi, Shafiq, Shafeeq, Shahid, Shahin, Shahir, Shakib, Shakir, Shams al Din, Shamal,
                     Shamil, Shamim, Sharaf, Sharif, Shareef, Shawqi, Shihab, Shihab al Din, Shihad, Shu'aib, Shu'ayb,
@@ -347,11 +349,11 @@
                     Zeinab, Zena, Zikiya, Zimra, Zemira, Ziva, Zohar, Zuhairah, Zuhra, Zurah, Zulaikhah, Zumarrad
                 </female>
             </names>
-            <surnames>Al-Malik, Kapur, Jedidi, Draa, Massoud, Topic, Aboumerieme, Nabawy, TarikMemarzia, Sarouf,
+            <surnames>al-Malik, Kapur, Jedidi, Draa, Massoud, Topic, Aboumerieme, Nabawy, TarikMemarzia, Sarouf,
                 Lanjeri, Sarouf, Benkiran, Balla, Karmouche, Hassan, Ouardi, Reis, Belhachmi, Kawouk, Maamori, Kamal,
                 Avasarala, El Kadiri, Al-Salem
             </surnames>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -363,11 +365,6 @@
             <es>Decados</es>
         </name>
         <group>noble</group>
-        <restrictions>
-            <species>
-                <specie>human</specie>
-            </species>
-        </restrictions>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -553,7 +550,7 @@
             </name>
             <description>
                 <en>+2 Perception around political rivals</en>
-                <es>+2 Perception around political rivals</es>
+                <es>Percepción +2 entre rivales políticos</es>
             </description>
         </blessing>
         <curse>
@@ -581,13 +578,40 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
-        <restrictions>
+        <restrictions mode="all">
+            <species>
+                <specie>human</specie>
+            </species>
             <upbringings>
                 <upbringing>noble</upbringing>
             </upbringings>
         </restrictions>
         <random>
             <!--Recommended poisons-->
+            <names>
+                <male>Anatoly, Zach, Mordecai, Misha, Vaughn, Lev, Oleg, Yunek, Luka, Aidan, Gregory, Vasily, Aleksei,
+                    Rodion, Grigory, Gennadi, Evgeny, Pyotr, Vladimir, Nikitin, Dmitri, Nikoli, Alun, Zaretsky, Guillot,
+                    Triquet, Gregor, Alun, Igor, Ilya, Vladyslav, Denys, Dmytro, Maksym, Bogdan, Maksym, Ladislao,
+                    Nikola, Milutin, Igor, Bojan, Rados, Dejan, Branko, Dejan, Nemanja, Milan, Damir, Nenad, Boriboje,
+                    Vladan, Boris, Dorde, Aleksandar, Chad, Dane, Lazar, Sasha, Feliks, Fyodor, Emil, Gustav, Nicholas
+                </male>
+                <female>Tatyana, Tanya, Lena, Natalia, Yana, Alla, Dinara, Nastasia, Lubov, Jekaterina, Tashia,
+                    Annushka, Olga, Lada, Anichka, Alina, Katiusha, Catriona, Anisia, Nadia, Nydia, Nanya, Lucretia,
+                    Yulia, Sigourney, Tiana, Milica, Hana, Ivana, Natasa, Anja, Sonja, Slavisa, Jovana, Borjana,
+                    Sladana, Dusica, Olga, Corinne, Nevena, Mirjana, Elizaveta, Alena, Zoya
+                </female>
+            </names>
+            <surnames>Decados, Negin, Lensky, Korshunov, Volovodov, Larina, Petrovitch, Volkonsky, Malevik, Romanov,
+                Vladislav, Ivanoviche, Aleksandrov, Shtina, Sfilli, Slava, Sharm, Bogakov, Czerny, Gurov, Innokenti,
+                Valushnya, Krusczek, Knyazev, Kuzmenko, Bule, Reznichenko, Kamliuk, Dudak, Pomazan, Solomashenko,
+                Chmutov, Korkishko, Maslyukov, Devlin, Upcheva, Jovanovic, Dordevic, Vrzik, Dapcevik, Bestic, Sunter,
+                Kosovic, Vasic, Ivic, Vucic, Dordevic, Slepcevic, Plazinic, Maksimovic, Ceko, Ivanovic, Mihajlovic,
+                Nikolic, Komatina, Vidic, Bardic, Aleksic, Santrac, Platisa, Vukadinovic, Veselinovic, Vuksanovic,
+                Saletovic, Midzoski, Jankovic, Momcilovic, Todorovic, Sebez, Stamenkovic, Kosaric, Letic, Perlic,
+                Protic, Perisc, Spasic, Gvozdenvic, Jankovic, Vlaisavljevic, Pavlov, Vinogradova, Volkov, Bognadov,
+                Rubinsky, Konev, Patrichev, Boltik, Romsky, Glazunov
+            </surnames>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -599,11 +623,6 @@
             <es>Hawkwood</es>
         </name>
         <group>noble</group>
-        <restrictions>
-            <species>
-                <specie>human</specie>
-            </species>
-        </restrictions>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -625,7 +644,7 @@
                     <capability>
                         <id>factionLore</id>
                         <selectedSpecialization>
-                            <id>hazat</id>
+                            <id>hawkwood</id>
                         </selectedSpecialization>
                     </capability>
                 </options>
@@ -712,11 +731,11 @@
                 <options>
                     <skill>
                         <id>charm</id>
-                        <bonus>1</bonus>
+                        <bonus>2</bonus>
                     </skill>
                     <skill>
                         <id>impress</id>
-                        <bonus>1</bonus>
+                        <bonus>2</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
@@ -785,7 +804,10 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
-        <restrictions>
+        <restrictions mode="all">
+            <species>
+                <specie>human</specie>
+            </species>
             <upbringings>
                 <upbringing>noble</upbringing>
             </upbringings>
@@ -822,19 +844,19 @@
                 Lancasters, Koln, Hapsburg, Adamse, Plantagenet, Dawes, Fenris, Gesar, Gaelgran, Nimitz, Jervis, Cook,
                 Drake, Miller, Holden, Garvey, Edelweis, Smith, Jones, Williams, Taylor, Davies, Wilson, Evans, Murphy,
                 O'Kelly, O'Sullivan, O'Brien, Byrne, O'Ryan, O'Connor, Morton, Drummer, Dawes, Garyson, Gibb, Virk,
-                Spalding, Partridge, Schafer, Kreger, Rowan, Greenhill, von Lohengramm, von Kleingelt Mintz, von
-                Reuenthal, Attemborough, Poplin, von Schönkopf, von Mariendorf, von Oberstein, Cazerne, Bittenfeld,
+                Spalding, Partridge, Schafer, Kreger, Rowan, Greenhill, von Lohengramm, von Kleingelt Mintz,
+                von Reuenthal, Attemborough, Poplin, von Schönkopf, von Mariendorf, von Oberstein, Cazerne, Bittenfeld,
                 Müller, von Merkatz, Wahlen, Kircheis, von Grünewald, Bergengrün, von Streit, von Kreutzer, Fahrenheit,
                 von Bayerlein, Trunicht, Fellner, Kesler, von Selle, Lutz, Linz, Kempff, Fischer, Soulszzcuaritter,
-                Schumacher, von Mariendorf, von Landsberg, Lennenkampf, von Bülow, von Reckendorf, Blumhardt, von
-                Lichtenlade, Mittermeyer, Kisling, Steinmetz, von Rücke, Hauptmann, Grillparzer, Sithole, Falk,
+                Schumacher, von Mariendorf, von Landsberg, Lennenkampf, von Bülow, von Reckendorf, Blumhardt,
+                von Lichtenlade, Mittermeyer, Kisling, Steinmetz, von Rücke, Hauptmann, Grillparzer, Sithole, Falk,
                 von Braunschweig, Morton, Edwards, Lambert, Rockwell, Carlsen, Haiff, Willock, Brauhitch, von Modell,
-                von Thurneysen, Drewentz, von Mückenberger, von Silberberch, von Kohlrausch, von Stockhausen, von
-                Kümmel, Stelzer, Elsheimer, von Seeckt, Hofmeister, Lapp, Harbarschdat, von Westpfale, von Littenheim,
-                von Hasselback, Emerson, Sombart, Klusenstern Dawson, Windsor, Saucken, von Goldenbaum, Thorndike, von
-                Müsel, Wöhler, Braque, Gutensohn, von Eisenach, von Klopstock
+                von Thurneysen, Drewentz, von Mückenberger, von Silberberch, von Kohlrausch, von Stockhausen,
+                von Kümmel, Stelzer, Elsheimer, von Seeckt, Hofmeister, Lapp, Harbarschdat, von Westpfale,
+                von Littenheim, von Hasselback, Emerson, Sombart, Klusenstern Dawson, Windsor, Saucken, von Goldenbaum,
+                Thorndike, von Müsel, Wöhler, Braque, Gutensohn, von Eisenach, von Klopstock
             </surnames>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -845,11 +867,6 @@
             <es>Hazat</es>
         </name>
         <group>noble</group>
-        <restrictions>
-            <species>
-                <specie>human</specie>
-            </species>
-        </restrictions>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -1039,7 +1056,10 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
-        <restrictions>
+        <restrictions mode="all">
+            <species>
+                <specie>human</specie>
+            </species>
             <upbringings>
                 <upbringing>noble</upbringing>
             </upbringings>
@@ -1082,14 +1102,14 @@
                 Rivas, Rosellón, Sandoval, Sousa, Vadillo, Viera, Villalobos, Ballesteros, Baudelaire, Dalton, Defoe,
                 Alquezar, Albiac, Balda, Bolado, Bortia, Berna, Bastida, Capella, Cota, Duat, Guijarro, Iñigo, Ivorra,
                 Lacorte, Luna, Lloria, Monzos, Marsa, Marc, Millán, Noguera, Olmos, Palmer, Palafox, Rubio, Saborido,
-                Solaz, Sans, Timor, Toro, Urrea, Beldevere, Lampiño, Audaz, Delfino, González, Del Toro, Rosales, De la
-                Vega, Salazar, Camacho, Varela, Vargas, Velez, Quintero, Rodríguez, Saucedo, Rivera, Castro, Cervantes,
-                Ciarfalio, Jovellanos, Miranda, Navia, Riego, Vega, Ayamonte, Cenete, Comares, Medina, Quesada, Torres,
-                Alba, Lara, Castro, Cifuentes, Calderón, Villegas, Medinaceli, Miranda, Osuna, Valverde, Pizarro,
-                Feijóo, Silvela, Robles, Santalla, Trénor, Balboa, Bazán, Lezo, Doria, Masciale, Malerba, Machungo,
-                Rebelo, Saint-Pierré, Cazerne, Tonio, Oliveira, Togliatti
+                Solaz, Sans, Timor, Toro, Urrea, Beldevere, Lampiño, Audaz, Delfino, González, Del Toro, Rosales,
+                De la Vega, Salazar, Camacho, Varela, Vargas, Velez, Quintero, Rodríguez, Saucedo, Rivera, Castro,
+                Cervantes, Ciarfalio, Jovellanos, Miranda, Navia, Riego, Vega, Ayamonte, Cenete, Comares, Medina,
+                Quesada, Torres, Alba, Lara, Castro, Cifuentes, Calderón, Villegas, Medinaceli, Miranda, Osuna,
+                Valverde, Pizarro, Feijóo, Silvela, Robles, Santalla, Trénor, Balboa, Bazán, Lezo, Doria, Masciale,
+                Malerba, Machungo, Rebelo, Saint-Pierré, Cazerne, Tonio, Oliveira, Togliatti
             </surnames>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -1100,11 +1120,6 @@
             <es>Li Halan</es>
         </name>
         <group>noble</group>
-        <restrictions>
-            <species>
-                <specie>human</specie>
-            </species>
-        </restrictions>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -1313,9 +1328,12 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
-        <restrictions>
+        <restrictions mode="all">
+            <species>
+                <specie>human</specie>
+            </species>
             <upbringings>
-                <upbringing>courtier</upbringing>
+                <upbringing>noble</upbringing>
             </upbringings>
         </restrictions>
         <random>
@@ -1330,7 +1348,7 @@
                 Chôsokabe, Kaimura, Koike, Kunii, Sato, Yeuw, Lextius, Misamoto, Han, Wei-To, Naganaka, Kung-Zhau,
                 Okemo, Teng, Hidejiri, Jong, Togo, Yamamoto, Nagata, Wen-li, Wu-Cheng, Rui, Lang, Hazuki
             </surnames>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -1554,7 +1572,10 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedUpbringings>
+                <upbringin>brotherBattle</upbringin>
+            </recommendedUpbringings>
         </random>
     </faction>
 
@@ -1572,7 +1593,7 @@
                     <capability>
                         <id>factionLore</id>
                         <selectedSpecialization>
-                            <id>eskatonic</id>
+                            <id>eskatonics</id>
                         </selectedSpecialization>
                     </capability>
                 </options>
@@ -1587,7 +1608,8 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <id>latin</id>
+                        <id>read</id>
+                        <selectedSpecialization>latin</selectedSpecialization>
                     </capability>
                     <capability>
                         <group>knowledgeLore</group>
@@ -1748,7 +1770,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -1963,7 +1985,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -2169,15 +2191,15 @@
             </description>
         </curse>
         <favoredCallings>
-            <calling>Inquisitor</calling>
+            <calling>inquisitor</calling>
         </favoredCallings>
         <materialAwards>
             <materialAwardOption>
                 <total>1</total>
                 <options>
                     <item>
-                        <id></id>
-                        <type></type>
+                        <id>avestitePendant</id>
+                        <type>item</type>
                     </item>
                 </options>
             </materialAwardOption>
@@ -2188,7 +2210,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -2220,7 +2242,7 @@
                             <es>Oratoria</es>
                         </name>
                         <random>
-                            <probabilityMultiplier>10</probabilityMultiplier>
+                            <probabilityMultiplier>NORMAL</probabilityMultiplier>
                         </random>
                     </capability>
                 </options>
@@ -2411,7 +2433,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -2493,7 +2515,7 @@
                 <total>1</total>
                 <options>
                     <perk>
-                        <id>guildCommissionEnsign</id>
+                        <group>guildCommission</group>
                     </perk>
                 </options>
                 <openPerks>false</openPerks>
@@ -2518,6 +2540,15 @@
                     </skill>
                     <skill>
                         <id>focus</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>interface</id>
                         <bonus>1</bonus>
                     </skill>
                 </options>
@@ -2587,7 +2618,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -2671,7 +2702,7 @@
                 <total>1</total>
                 <options>
                     <perk>
-                        <id>guildCommissionApprentice</id>
+                        <group>guildCommission</group>
                     </perk>
                 </options>
                 <openPerks>false</openPerks>
@@ -2746,7 +2777,7 @@
             </description>
         </curse>
         <favoredCallings>
-            <calling>techRedemeer</calling>
+            <calling>techRedeemer</calling>
         </favoredCallings>
         <materialAwards>
             <materialAwardOption>
@@ -2764,7 +2795,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -2962,7 +2993,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -3043,7 +3074,7 @@
                 <total>1</total>
                 <options>
                     <perk>
-                        <id>guildCommissionAssociate</id>
+                        <group>guildCommission</group>
                     </perk>
                 </options>
                 <openPerks>false</openPerks>
@@ -3141,7 +3172,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -3238,7 +3269,7 @@
                 <total>1</total>
                 <options>
                     <perk>
-                        <id>guildCommissionAssociate</id>
+                        <group>guildCommission</group>
                     </perk>
                 </options>
                 <openPerks>false</openPerks>
@@ -3361,7 +3392,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -3378,15 +3409,9 @@
                 <options>
                     <capability>
                         <id>combatArmor</id>
-                        <selectedSpecialization>
-                            <id></id>
-                        </selectedSpecialization>
                     </capability>
                     <capability>
                         <id>warArmor</id>
-                        <selectedSpecialization>
-                            <id></id>
-                        </selectedSpecialization>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -3395,21 +3420,12 @@
                 <options>
                     <capability>
                         <id>artillery</id>
-                        <selectedSpecialization>
-                            <id></id>
-                        </selectedSpecialization>
                     </capability>
                     <capability>
                         <id>demolitions</id>
-                        <selectedSpecialization>
-                            <id></id>
-                        </selectedSpecialization>
                     </capability>
                     <capability>
                         <id>gunnery</id>
-                        <selectedSpecialization>
-                            <id></id>
-                        </selectedSpecialization>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -3559,7 +3575,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -3755,7 +3771,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -3969,7 +3985,7 @@
             </materialAwardOption>
         </materialAwards>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -4170,7 +4186,7 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </faction>
 
@@ -4406,7 +4422,22 @@
             </upbringings>
         </restrictions>
         <random>
-            <probabilityMultiplier>20</probabilityMultiplier>
+            <names>
+                <male>Arne, Birger, Bjørn, Bo, Erik, Frode, Gorm, Halfdan, Harald, Knud, Kåre, Leif, Njal, Roar, Rune,
+                    Sten, Skarde, Sune, Svend, Troels, Toke, Torsten, Trygve, Ulf, Ødger, Åge
+                </male>
+                <female>
+                    Astrid, Bodil, Frida, Gertrud, Gro, Estrid, Hilda, Gudrun, Gunhild, Helga, Inga, Liv, Randi, Signe,
+                    Sigrid, Revna, Sif, Tora, Tove, Thyra, Thurid, Yrsa, Ulfhild, Åse
+                </female>
+            </names>
+            <surnames>Anger, Angot, Anquetil, Auber, Aumont, Azouf, Auzoux, Aze, Brument, Burnouf, Ernouf, Estur,
+                Frigard, Gaument, Godefroy, Gonnor, Gounouf, Guillhouf, Harang, Harou, Hastain, Havard, Hérou,
+                Houlegate, Ingouf, Igouf, Yngouf, Ygouf, Youf, Néel, Onfroy, Onfroi, Osmond, Osmont, Osouf, Ozouf,
+                Quétil, Quétel, Rabec, Renouf, Thouroude, Troude, Trudeau, Torde, Tostain, Tourquétil, Tougard, Turgard,
+                Turgot, Turgis, Varanger, Varangot, Yver
+            </surnames>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
         </random>
     </faction>
 </factions>

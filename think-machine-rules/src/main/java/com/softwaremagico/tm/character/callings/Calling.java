@@ -29,13 +29,31 @@ import com.softwaremagico.tm.character.CharacterDefinitionStep;
 public class Calling extends CharacterDefinitionStep<Calling> {
     private static final int TOTAL_CHARACTERISTICS_OPTIONS = 5;
     private static final int TOTAL_SKILL_OPTIONS = 10;
+    private static final int TOTAL_PERKS_OPTIONS = 1;
+    private static final int TOTAL_CAPABILITIES_OPTIONS = 2;
 
+    public Calling() {
+        super();
+        setGroup(CallingGroup.NONE.name());
+    }
 
+    @Override
     public int getCharacteristicsTotalPoints() {
         return TOTAL_CHARACTERISTICS_OPTIONS;
     }
 
+    @Override
     public int getSkillsTotalPoints() {
         return TOTAL_SKILL_OPTIONS;
+    }
+
+    @Override
+    public int getTotalPerksOptions() {
+        return TOTAL_PERKS_OPTIONS;
+    }
+
+    @Override
+    public int getTotalCapabilitiesOptions() {
+        return TOTAL_CAPABILITIES_OPTIONS;
     }
 }

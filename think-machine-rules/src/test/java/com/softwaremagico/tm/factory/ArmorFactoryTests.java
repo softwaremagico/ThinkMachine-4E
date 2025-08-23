@@ -32,25 +32,25 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Test(groups = {"armourFactory"})
+@Test(groups = {"armorFactory"})
 public class ArmorFactoryTests {
     private static final int DEFINED_ARMOURS = 33;
 
 
     @Test
-    public void readArmours() throws InvalidXmlElementException {
+    public void readArmors() throws InvalidXmlElementException {
         Assert.assertEquals(ArmorFactory.getInstance().getElements().size(),
                 DEFINED_ARMOURS);
     }
 
     @Test
-    public void readArmoursSpecifications() throws InvalidXmlElementException {
+    public void readArmorsSpecifications() throws InvalidXmlElementException {
         Assert.assertEquals(ArmorFactory.getInstance().getElement("adeptRobes")
                 .getSpecifications().size(), 7);
     }
 
     @Test
-    public void readShieldsFromArmour() throws InvalidXmlElementException {
+    public void readShieldsFromArmor() throws InvalidXmlElementException {
         Assert.assertEquals(ArmorFactory.getInstance().getElement("synthsilk")
                 .getAllowedShields().size(), 4);
         Assert.assertEquals(ArmorFactory.getInstance().getElement("adeptRobes")
@@ -58,7 +58,7 @@ public class ArmorFactoryTests {
     }
 
     @Test
-    public void readDamagesFromArmour() throws InvalidXmlElementException {
+    public void readDamagesFromArmor() throws InvalidXmlElementException {
         Assert.assertEquals(
                 ArmorFactory.getInstance().getElement("ceramsteelExoframe")
                         .getDamageTypes().size(), 4);
@@ -67,7 +67,7 @@ public class ArmorFactoryTests {
     }
 
     @Test
-    public void readOthersFromArmour() throws InvalidXmlElementException {
+    public void readOthersFromArmor() throws InvalidXmlElementException {
         Assert.assertEquals(
                 ArmorFactory.getInstance().getElement("ceramsteelExoframe")
                         .getSpecifications().size(), 2);

@@ -40,7 +40,7 @@ public class FreeOptionsSelectionTests {
 
     @Test
     public void spyHasFreeSkillsOptions() {
-        Assert.assertEquals(CallingFactory.getInstance().getElement("spy").getSkillOptions().get(4).getOptions().size(),
+        Assert.assertEquals(CallingFactory.getInstance().getElement("spy").getSkillOptions().get(3).getOptions().size(),
                 SkillFactory.getInstance().getElements().size());
     }
 

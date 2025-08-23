@@ -26,14 +26,15 @@
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
+                <faction>theDispossessed</faction>
             </factions>
             <upbringings>
                 <upbringing>merchant</upbringing>
                 <upbringing>noble</upbringing>
             </upbringings>
             <callings>
-                <calling>theDispossessed</calling>
-                <calling>imperialCohort</calling>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
                 <calling>mercenary</calling>
                 <calling>pirate</calling>
                 <calling>templar</calling>
@@ -50,19 +51,20 @@
         </name>
         <restrictions>
             <factions>
-                <faction>yeoman</faction>
                 <faction>brotherBattle</faction>
             </factions>
             <upbringings>
                 <upbringing>merchant</upbringing>
                 <upbringing>noble</upbringing>
+                <upbringing>yeoman</upbringing>
             </upbringings>
             <callings>
                 <calling>amateur</calling>
                 <calling>bountyHunter</calling>
                 <calling>chainer</calling>
                 <calling>explorer</calling>
-                <calling>imperialCohort</calling>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
                 <calling>mercenary</calling>
                 <calling>pirate</calling>
                 <calling>scout</calling>
@@ -92,6 +94,7 @@
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
+                <faction>theDispossessed</faction>
             </factions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -112,7 +115,7 @@
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
-                <faction>inquisitor</faction>
+                <faction>theDispossessed</faction>
             </factions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -120,7 +123,9 @@
             </upbringings>
             <callings>
                 <calling>bountyHunter</calling>
-                <calling>imperialCohort</calling>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
+                <calling>inquisitor</calling>
                 <calling>mercenary</calling>
                 <calling>reclaimer</calling>
                 <calling>scout</calling>
@@ -140,6 +145,7 @@
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
+                <faction>theDispossessed</faction>
             </factions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -148,7 +154,8 @@
             <callings>
                 <calling>chainer</calling>
                 <calling>explorer</calling>
-                <calling>imperialCohort</calling>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
                 <calling>mercenary</calling>
                 <calling>pirate</calling>
                 <calling>scout</calling>
@@ -235,7 +242,6 @@
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
-                <faction>inquisitor</faction>
             </factions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -248,7 +254,9 @@
                 <calling>chainer</calling>
                 <calling>explorer</calling>
                 <calling>detective</calling>
-                <calling>imperialCohort</calling>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
+                <calling>inquisitor</calling>
                 <calling>mercenary</calling>
                 <calling>pirate</calling>
                 <calling>reclaimer</calling>
@@ -282,6 +290,9 @@
             <en>Beastback</en>
             <es>Monta</es>
         </name>
+        <random>
+            <preferences>PRIMITIVE, HIGH_RANK</preferences>
+        </random>
     </capability>
     <capability>
         <id>beastcraft</id>
@@ -290,14 +301,9 @@
             <en>Beastcraft</en>
             <es>Vehículos de Animales</es>
         </name>
-    </capability>
-    <capability>
-        <id>landcraft</id>
-        <group>transport</group>
-        <name>
-            <en>Landcraft</en>
-            <es>Vehículos Terrestres</es>
-        </name>
+        <random>
+            <preferences>PRIMITIVE</preferences>
+        </random>
     </capability>
     <capability>
         <id>landcraft</id>
@@ -324,7 +330,8 @@
             </upbringings>
             <callings>
                 <calling>explorer</calling>
-                <calling>imperialCohort</calling>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
                 <calling>mendicant</calling>
                 <calling>pirate</calling>
                 <calling>spy</calling>
@@ -341,6 +348,7 @@
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
+                <faction>theDispossessed</faction>
             </factions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -349,7 +357,6 @@
             <callings>
                 <calling>mercenary</calling>
                 <calling>scout</calling>
-                <calling>theDispossessed</calling>
             </callings>
         </restrictions>
     </capability>
@@ -360,6 +367,9 @@
             <en>Watercraft</en>
             <es>Vehículos Acuáticos</es>
         </name>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </capability>
 
     <capability>
@@ -1032,7 +1042,10 @@
                 </name>
                 <restrictions>
                     <capabilities>
-                        <capability>urthish</capability>
+                        <capability>
+                            <id>read</id>
+                            <selectedSpecialization>urthish</selectedSpecialization>
+                        </capability>
                     </capabilities>
                 </restrictions>
             </selectedSpecialization>
@@ -1060,7 +1073,7 @@
                     <es>Erdgheist</es>
                 </name>
                 <random>
-                    <probabilityMultiplier>0.01</probabilityMultiplier>
+                    <probabilityMultiplier>EXOTIC</probabilityMultiplier>
                 </random>
             </selectedSpecialization>
             <selectedSpecialization>
@@ -1070,7 +1083,7 @@
                     <es>El-Diin</es>
                 </name>
                 <random>
-                    <probabilityMultiplier>0.01</probabilityMultiplier>
+                    <probabilityMultiplier>EXOTIC</probabilityMultiplier>
                 </random>
             </selectedSpecialization>
             <selectedSpecialization>
@@ -1080,7 +1093,7 @@
                     <es>Gjartin</es>
                 </name>
                 <random>
-                    <probabilityMultiplier>0.01</probabilityMultiplier>
+                    <probabilityMultiplier>EXOTIC</probabilityMultiplier>
                 </random>
             </selectedSpecialization>
             <selectedSpecialization>
@@ -1090,7 +1103,7 @@
                     <es>Zuranidad</es>
                 </name>
                 <random>
-                    <probabilityMultiplier>0.1</probabilityMultiplier>
+                    <probabilityMultiplier>EXOTIC</probabilityMultiplier>
                 </random>
             </selectedSpecialization>
         </specializations>
@@ -1201,13 +1214,13 @@
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
+                <faction>theDispossessed</faction>
             </factions>
             <upbringings>
                 <upbringing>noble</upbringing>
                 <upbringing>merchant</upbringing>
             </upbringings>
             <callings>
-                <calling>theDispossessed</calling>
                 <calling>mercenary</calling>
                 <calling>scout</calling>
             </callings>
@@ -1307,16 +1320,16 @@
             <en>Surgery Lore</en>
             <es>Saber Cirugía</es>
         </name>
-        <restrictions>
+        <restrictions mode="any">
             <upbringings>
                 <upbringing>priest</upbringing>
+                <upbringing>merchant</upbringing>
             </upbringings>
             <callings>
-                <calling>merchant</calling>
                 <calling>chainer</calling>
                 <calling>enthusiast</calling>
                 <calling>healer</calling>
-                <calling>questingKing</calling>
+                <calling>questingKnight</calling>
                 <calling>scholar</calling>
             </callings>
         </restrictions>
@@ -1389,7 +1402,7 @@
 
     <capability>
         <id>appliedScience</id>
-        <group>scienceLores</group>
+        <group>scienceLore</group>
         <name>
             <en>Applied Science</en>
             <es>Ciencias Aplicadas</es>
@@ -1407,12 +1420,12 @@
     </capability>
     <capability>
         <id>artificialIntelligence</id>
-        <group>scienceLores</group>
+        <group>scienceLore</group>
         <name>
             <en>Artificial Intelligence</en>
             <es>Inteligencia Artificial</es>
         </name>
-        <restrictions>
+        <restrictions mode="any_character_definition">
             <upbringings>
                 <upbringing>merchant</upbringing>
             </upbringings>
@@ -1423,13 +1436,13 @@
                 <calling>techRedeemer</calling>
             </callings>
             <capabilities>
-                <capability>thinkMachine</capability>
+                <capability>thinkMachines</capability>
             </capabilities>
         </restrictions>
     </capability>
     <capability>
         <id>lifeScience</id>
-        <group>scienceLores</group>
+        <group>scienceLore</group>
         <name>
             <en>Life Science</en>
             <es>Ciencias de la Vida</es>
@@ -1437,7 +1450,7 @@
     </capability>
     <capability>
         <id>physicalScience</id>
-        <group>scienceLores</group>
+        <group>scienceLore</group>
         <name>
             <en>Physical Science</en>
             <es>Ciencias Naturales</es>
@@ -1453,7 +1466,7 @@
     </capability>
     <capability>
         <id>terraforming</id>
-        <group>scienceLores</group>
+        <group>scienceLore</group>
         <name>
             <en>Terraforming</en>
             <es>Terraformación</es>
@@ -1490,13 +1503,14 @@
             <callings>
                 <calling>enthusiast</calling>
                 <calling>explorer</calling>
-                <calling>imperialCohort</calling>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
                 <calling>occultist</calling>
                 <calling>questingKnight</calling>
                 <calling>reclaimer</calling>
                 <calling>spy</calling>
                 <calling>starPilot</calling>
-                <calling>techRedemer</calling>
+                <calling>techRedeemer</calling>
                 <calling>thief</calling>
                 <calling>trader</calling>
             </callings>
@@ -1522,13 +1536,14 @@
             <callings>
                 <calling>enthusiast</calling>
                 <calling>explorer</calling>
-                <calling>imperialCohort</calling>
+                <calling>imperialCohortPriest</calling>
+                <calling>imperialCohortMerchant</calling>
                 <calling>occultist</calling>
                 <calling>questingKnight</calling>
                 <calling>reclaimer</calling>
                 <calling>spy</calling>
                 <calling>starPilot</calling>
-                <calling>techRedemer</calling>
+                <calling>techRedeemer</calling>
                 <calling>thief</calling>
                 <calling>trader</calling>
             </callings>
@@ -1551,11 +1566,51 @@
             <callings>
                 <calling>reclaimer</calling>
                 <calling>starPilot</calling>
-                <calling>techRedemer</calling>
+                <calling>techRedeemer</calling>
             </callings>
             <capabilities>
                 <capability>techLore7</capability>
             </capabilities>
         </restrictions>
+    </capability>
+    <capability>
+        <id>weirdTech</id>
+        <group>weirdTech</group>
+        <name>
+            <en>Weird Tech</en>
+            <es>Tecnología Extraña</es>
+        </name>
+        <specializations>
+            <selectedSpecialization>
+                <id>soulShard</id>
+                <name>
+                    <en>Soul Shard</en>
+                    <es>Fragmentos de Alma</es>
+                </name>
+                <official>false</official>
+            </selectedSpecialization>
+            <selectedSpecialization>
+                <id>gargoyle</id>
+                <name>
+                    <en>Gargoyle</en>
+                    <es>Gárgolas</es>
+                </name>
+                <official>false</official>
+            </selectedSpecialization>
+            <selectedSpecialization>
+                <id>vauTech</id>
+                <name>
+                    <en>Vau Tech</en>
+                    <es>Tecnología Vau</es>
+                </name>
+                <official>false</official>
+            </selectedSpecialization>
+        </specializations>
+        <restrictions>
+            <callings>
+                <calling>occultist</calling>
+            </callings>
+        </restrictions>
+        <official>false</official>
     </capability>
 </capabilities>

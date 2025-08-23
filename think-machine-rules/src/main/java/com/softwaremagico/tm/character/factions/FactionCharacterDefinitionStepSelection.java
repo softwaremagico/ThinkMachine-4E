@@ -46,7 +46,7 @@ public class FactionCharacterDefinitionStepSelection extends CharacterDefinition
         try {
             super.validate();
         } catch (InvalidSelectionException e) {
-            throw new InvalidFactionException(e.getMessage(), e);
+            throw new InvalidFactionException("Error on faction '" + getId() + "'.", e);
         }
     }
 

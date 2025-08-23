@@ -29,20 +29,37 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.callings.Calling;
 import com.softwaremagico.tm.character.callings.CallingFactory;
+import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
+import com.softwaremagico.tm.character.capabilities.CapabilityOption;
+import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
+import com.softwaremagico.tm.character.skills.SkillBonusOption;
+import com.softwaremagico.tm.character.skills.SkillBonusOptions;
+import com.softwaremagico.tm.character.skills.SkillFactory;
+import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.Upbringing;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidCallingException;
 import com.softwaremagico.tm.exceptions.InvalidFactionException;
+import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidUpbringingException;
 import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Test(groups = "characterCreation")
-public class CharacterCreationTests {
+@Test(groups = "characterRules")
+public class CharacterRulesTests {
+
+    @Test(expectedExceptions = InvalidSpecieException.class)
+    public void invalidVoroxCharacteristics() {
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("vorox");
+        characterPlayer.setPrimaryCharacteristic("dexterity");
+        characterPlayer.setSecondaryCharacteristic("wits");
+        characterPlayer.getSpecie().validate();
+    }
 
 
     @Test(expectedExceptions = InvalidUpbringingException.class)
@@ -100,7 +117,7 @@ public class CharacterCreationTests {
         final Upbringing upbringing = UpbringingFactory.getInstance().getElement("noble");
         for (int i = 0; i < upbringing.getCharacteristicOptions().size(); i++) {
             for (int j = 0; j < upbringing.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getUpbringing().getCharacteristicOptions().get(i).getSelections()
+                characterPlayer.getUpbringing().getSelectedCharacteristicOptions().get(i).getSelections()
                         .add(new Selection(upbringing.getCharacteristicOptions().get(i).getOptions().get(j).getId()));
             }
         }
@@ -109,7 +126,7 @@ public class CharacterCreationTests {
         final Faction faction = FactionFactory.getInstance().getElement("alMalik");
         for (int i = 0; i < faction.getCharacteristicOptions().size(); i++) {
             for (int j = 0; j < faction.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getFaction().getCharacteristicOptions().get(i).getSelections()
+                characterPlayer.getFaction().getSelectedCharacteristicOptions().get(i).getSelections()
                         .add(new Selection(faction.getCharacteristicOptions().get(i).getOptions().get(j).getId()));
             }
         }
@@ -119,7 +136,7 @@ public class CharacterCreationTests {
         final Calling calling = CallingFactory.getInstance().getElement("commander");
         for (int i = 0; i < calling.getCharacteristicOptions().size(); i++) {
             for (int j = 0; j < calling.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getCalling().getCharacteristicOptions().get(i).getSelections()
+                characterPlayer.getCalling().getSelectedCharacteristicOptions().get(i).getSelections()
                         .add(new Selection(calling.getCharacteristicOptions().get(i).getOptions().get(j).getId()));
             }
         }
@@ -168,5 +185,105 @@ public class CharacterCreationTests {
         Assert.assertEquals(faction.getMaterialAwards().get(0).getOptions()
                 .get(faction.getMaterialAwards().get(0).getOptions().size() - 1)
                 .getType(), "handheldShield");
+    }
+
+    @Test
+    public void speciePerksAsCallingPerks() {
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("vorox");
+        characterPlayer.setUpbringing("yeoman");
+        characterPlayer.setFaction("far");
+        characterPlayer.setCalling("spy");
+
+        Assert.assertEquals(characterPlayer.getCalling().getPerksOptions().get(0).getOptions().size(),
+                CallingFactory.getInstance().getElement("spy").getPerksOptions().get(0).getOptions().size()
+                        + SpecieFactory.getInstance().getElement("vorox").getPerks().size());
+    }
+
+    @Test
+    public void materialAwardsKnightlyOrder() {
+        final Calling calling = CallingFactory.getInstance().getElement("knightlyOrder");
+        Assert.assertEquals(calling.getMaterialAwards().size(), 1);
+        Assert.assertEquals(calling.getMaterialAwards().get(0).getOptions().size(), 10);
+    }
+
+    @Test
+    public void callingSpecializedCapability() {
+        final Calling calling = CallingFactory.getInstance().getElement("questingKnight");
+        Assert.assertEquals(calling.getCapabilityOptions().size(), 2);
+        Assert.assertEquals(calling.getCapabilityOptions().get(1).getOptions().size(), 2);
+        Assert.assertEquals(calling.getCapabilityOptions().get(1).getOptions().get(0).getSelectedSpecialization().getId(), "barbarianWorlds");
+    }
+
+    @Test
+    public void callingQuestKnightMaterialAwards() {
+        final Calling calling = CallingFactory.getInstance().getElement("questingKnight");
+        Assert.assertEquals(calling.getMaterialAwards().size(), 2);
+        Assert.assertEquals(calling.getMaterialAwards().get(0).getOptions().size(), 6);
+        Assert.assertTrue(calling.getMaterialAwards().get(1).getOptions().size() > 1);
+    }
+
+    @Test
+    public void callingBrotherBattlerMaterialAwards() {
+        final Calling calling = CallingFactory.getInstance().getElement("brotherBattle");
+        Assert.assertEquals(calling.getMaterialAwards().size(), 1);
+        Assert.assertTrue(calling.getMaterialAwards().get(0).getOptions().size() > 150);
+    }
+
+    @Test
+    public void callingInquisitorMaterialAwards() {
+        final Calling calling = CallingFactory.getInstance().getElement("inquisitor");
+        Assert.assertEquals(calling.getMaterialAwards().size(), 1);
+        Assert.assertTrue(calling.getMaterialAwards().get(0).getOptions().get(0).getExtras().contains("flameproof"));
+    }
+
+
+    @Test
+    public void checkRaisedInSpace() {
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("noble");
+        characterPlayer.getUpbringing().setRaisedInSpace(true);
+
+        final CapabilityOption shipboardOperations = new CapabilityOption(CapabilityFactory.getInstance().getElement("shipboardOperations"));
+        for (CapabilityOptions capabilityOptions : characterPlayer.getUpbringing().getCapabilityOptions()) {
+            Assert.assertTrue(capabilityOptions.getOptions().contains(shipboardOperations));
+        }
+
+        final CapabilityOption thinkMachines = new CapabilityOption(CapabilityFactory.getInstance().getElement("thinkMachines"));
+        for (CapabilityOptions capabilityOptions : characterPlayer.getUpbringing().getCapabilityOptions()) {
+            Assert.assertTrue(capabilityOptions.getOptions().contains(thinkMachines));
+        }
+
+        final SkillBonusOption interfaceSkill = new SkillBonusOption(SkillFactory.getInstance().getElement("interface"));
+        for (SkillBonusOptions skillBonusOptions : characterPlayer.getUpbringing().getSkillOptions()) {
+            Assert.assertTrue(skillBonusOptions.getOptions().contains(interfaceSkill));
+        }
+
+        final SkillBonusOption techRedemptionSkill = new SkillBonusOption(SkillFactory.getInstance().getElement("techRedemption"));
+        for (SkillBonusOptions skillBonusOptions : characterPlayer.getUpbringing().getSkillOptions()) {
+            Assert.assertTrue(skillBonusOptions.getOptions().contains(techRedemptionSkill));
+        }
+
+        CharacterPlayer characterPlayer2 = new CharacterPlayer();
+        characterPlayer2.setSpecie("human");
+        characterPlayer2.setUpbringing("noble");
+        characterPlayer2.getUpbringing().setRaisedInSpace(false);
+
+        for (CapabilityOptions capabilityOptions : characterPlayer2.getUpbringing().getCapabilityOptions()) {
+            Assert.assertTrue(capabilityOptions.getOptions().contains(shipboardOperations));
+        }
+
+        for (CapabilityOptions capabilityOptions : characterPlayer2.getUpbringing().getCapabilityOptions()) {
+            Assert.assertTrue(capabilityOptions.getOptions().contains(thinkMachines));
+        }
+
+        for (SkillBonusOptions skillBonusOptions : characterPlayer2.getUpbringing().getSkillOptions()) {
+            Assert.assertTrue(skillBonusOptions.getOptions().contains(interfaceSkill));
+        }
+
+        for (SkillBonusOptions skillBonusOptions : characterPlayer2.getUpbringing().getSkillOptions()) {
+            Assert.assertTrue(skillBonusOptions.getOptions().contains(techRedemptionSkill));
+        }
     }
 }

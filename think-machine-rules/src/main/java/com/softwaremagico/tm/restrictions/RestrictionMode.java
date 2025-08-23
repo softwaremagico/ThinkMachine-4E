@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.equipment.armors;
+package com.softwaremagico.tm.restrictions;
 
 /*-
  * #%L
@@ -24,28 +24,9 @@ package com.softwaremagico.tm.character.equipment.armors;
  * #L%
  */
 
-
-import com.softwaremagico.tm.Element;
-import com.softwaremagico.tm.TranslatedText;
-
-public class ArmourSpecification extends Element {
-
-    public ArmourSpecification() {
-        super();
-    }
-
-    public ArmourSpecification(String id, TranslatedText name, TranslatedText description, String language, String moduleName) {
-        super(id, name, description, language, moduleName);
-    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
-
+public enum RestrictionMode {
+    ANY,
+    ANY_FROM_GROUP,
+    ANY_CHARACTER_DEFINITION,
+    ALL;
 }

@@ -34,6 +34,8 @@ import java.util.Objects;
 
 @JacksonXmlRootElement(localName = "characteristicDefinition")
 public class CharacteristicDefinition extends Element implements Comparable<Element>, IValue {
+    public static final int PRIMARY_CHARACTERISTIC_VALUE = 5;
+    public static final int SECONDARY_CHARACTERISTIC_VALUE = 4;
 
     private Abbreviation abbreviation;
 

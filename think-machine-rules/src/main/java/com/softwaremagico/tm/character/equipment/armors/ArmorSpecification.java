@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.factions.random;
+package com.softwaremagico.tm.character.equipment.armors;
 
 /*-
  * #%L
@@ -24,30 +24,28 @@ package com.softwaremagico.tm.character.factions.random;
  * #L%
  */
 
-import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.xml.XmlFactory;
 
-import java.util.List;
+import com.softwaremagico.tm.Element;
+import com.softwaremagico.tm.TranslatedText;
 
-public final class RandomFactionFactory extends XmlFactory<RandomFaction> {
-    private static final String XML_FILE = "factions.xml";
+public class ArmorSpecification extends Element {
 
-    private static final class RandomFactionFactoryInit {
-        public static final RandomFactionFactory INSTANCE = new RandomFactionFactory();
+    public ArmorSpecification() {
+        super();
     }
 
-    public static RandomFactionFactory getInstance() {
-        return RandomFactionFactoryInit.INSTANCE;
-    }
-
-
-    @Override
-    public String getXmlFile() {
-        return XML_FILE;
+    public ArmorSpecification(String id, TranslatedText name, TranslatedText description, String language, String moduleName) {
+        super(id, name, description, language, moduleName);
     }
 
     @Override
-    public List<RandomFaction> getElements() throws InvalidXmlElementException {
-        return readXml(RandomFaction.class);
+    public int hashCode() {
+        return super.hashCode();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
 }

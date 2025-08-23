@@ -30,5 +30,7 @@ public enum ResistanceCategory {
     CYBER_DEVICE,
     PRIVILEGE,
     SPECIE,
-    ITEM;
+    ITEM,
+    HANDHELD_SHIELD,
+    OTHER;
 }

@@ -27,6 +27,7 @@ package com.softwaremagico.tm.factory;
 import com.softwaremagico.tm.character.equipment.Size;
 import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.random.definition.ProbabilityMultiplier;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -53,6 +54,6 @@ public class ShieldFactoryTests {
 
     @Test
     public void getShieldProbability() throws InvalidXmlElementException {
-        Assert.assertEquals(ShieldFactory.getInstance().getElement("antiqueShield").getRandomDefinition().getProbabilityMultiplier(), 10d);
+        Assert.assertEquals(ShieldFactory.getInstance().getElement("antiqueShield").getRandomDefinition().getProbabilityMultiplier(), ProbabilityMultiplier.RARE);
     }
 }

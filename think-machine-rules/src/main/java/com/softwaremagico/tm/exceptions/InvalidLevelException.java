@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character.factions.random;
+package com.softwaremagico.tm.exceptions;
 
 /*-
  * #%L
@@ -24,30 +24,15 @@ package com.softwaremagico.tm.character.factions.random;
  * #L%
  */
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+public class InvalidLevelException extends RuntimeException {
 
-@JacksonXmlRootElement(localName = "names")
-public class RandomNames {
+    private static final long serialVersionUID = 123202286781081L;
 
-    @JsonProperty("male")
-    private String randomMaleNamesContent;
-    @JsonProperty("female")
-    private String randomFemaleNamesContent;
-
-    public String getRandomMaleNamesContent() {
-        return randomMaleNamesContent;
+    public InvalidLevelException(String message) {
+        super(message);
     }
 
-    public void setRandomMaleNamesContent(String randomMaleNamesContent) {
-        this.randomMaleNamesContent = randomMaleNamesContent;
-    }
-
-    public String getRandomFemaleNamesContent() {
-        return randomFemaleNamesContent;
-    }
-
-    public void setRandomFemaleNamesContent(String randomFemaleNamesContent) {
-        this.randomFemaleNamesContent = randomFemaleNamesContent;
+    public InvalidLevelException(String message, Exception e) {
+        super(message, e);
     }
 }

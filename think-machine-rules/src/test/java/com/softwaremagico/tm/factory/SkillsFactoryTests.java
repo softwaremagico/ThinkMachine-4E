@@ -43,6 +43,6 @@ public class SkillsFactoryTests {
         Assert.assertFalse(SkillFactory.getInstance().getElement("alchemy").getRestrictions().isRestricted());
         Assert.assertEquals(SkillFactory.getInstance().getElement("alchemy").getRestrictions().getRestrictedToFactions().size(), 1);
         Assert.assertEquals(SkillFactory.getInstance().getElement("alchemy").getRestrictions().getRestrictedToUpbringing().iterator().next(), "priest");
-        Assert.assertEquals(SkillFactory.getInstance().getElement("alchemy").getRestrictions().getRestrictedToCallings().size(), 6);
+        Assert.assertEquals(SkillFactory.getInstance().getElement("alchemy").getRestrictions().getRestrictedToCallings().size(), 9);
     }
 }

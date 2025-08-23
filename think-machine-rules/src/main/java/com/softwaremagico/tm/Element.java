@@ -8,6 +8,7 @@ import com.softwaremagico.tm.character.skills.Specialization;
 import com.softwaremagico.tm.exceptions.InvalidSpecializationException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
+import com.softwaremagico.tm.restrictions.Restrictions;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -66,8 +67,10 @@ public class Element extends XmlData implements Comparable<Element> {
 
     private List<Specialization> specializations;
 
+    @JsonProperty("official")
     private boolean official = true;
 
+    @JsonProperty("group")
     private String group;
 
     //Only fort sheet representation.
@@ -83,6 +86,11 @@ public class Element extends XmlData implements Comparable<Element> {
         this.moduleName = "";
         this.language = "";
         this.randomDefinition = new RandomElementDefinition();
+    }
+
+    public Element(String id) {
+        this();
+        setId(id);
     }
 
     public Element(String id, TranslatedText name, TranslatedText description, String language, String moduleName) {
@@ -198,7 +206,10 @@ public class Element extends XmlData implements Comparable<Element> {
 
     @Override
     public String toString() {
-        return getId();
+        if (getSpecializations() == null || getSpecializations().isEmpty()) {
+            return getId();
+        }
+        return getId() + " " + getSpecializations();
     }
 
     @Override
@@ -289,13 +300,35 @@ public class Element extends XmlData implements Comparable<Element> {
     @Override
     public void validate() throws InvalidXmlElementException {
         if (specializations != null) {
-            specializations.forEach(Element::validate);
+            try {
+                specializations.forEach(Element::validate);
+            } catch (InvalidXmlElementException e) {
+                throw new InvalidXmlElementException("Error on '" + getId() + "'.", e);
+            }
         }
         if (restrictions != null) {
-            restrictions.validate();
+            try {
+                restrictions.validate();
+            } catch (InvalidXmlElementException e) {
+                throw new InvalidXmlElementException("Error on '" + getId() + "'.", e);
+            }
         }
         if (randomDefinition != null) {
-            randomDefinition.validate();
+            try {
+                randomDefinition.validate();
+            } catch (InvalidXmlElementException e) {
+                throw new InvalidXmlElementException("Error on '" + getId() + "'.", e);
+            }
+        }
+        if (getName() == null && getId() != null && !getId().isEmpty()) {
+            throw new InvalidXmlElementException("Name not set on Element '" + getId() + "'.");
+        }
+        if (getName() != null) {
+            try {
+                getName().validate();
+            } catch (InvalidXmlElementException e) {
+                throw new InvalidXmlElementException("Error on item '" + getId() + "'", e);
+            }
         }
     }
 

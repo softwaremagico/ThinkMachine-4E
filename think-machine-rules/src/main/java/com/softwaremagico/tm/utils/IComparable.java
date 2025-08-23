@@ -1,10 +1,10 @@
-package com.softwaremagico.tm;
+package com.softwaremagico.tm.utils;
 
 /*-
  * #%L
  * Think Machine 4E (Rules)
  * %%
- * Copyright (C) 2017 - 2024 Softwaremagico
+ * Copyright (C) 2017 - 2025 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -24,8 +24,8 @@ package com.softwaremagico.tm;
  * #L%
  */
 
-public enum RestrictionMode {
-    ANY,
-    ANY_FROM_GROUP,
-    ALL;
+public interface IComparable {
+
+    String getComparisonId();
+
 }

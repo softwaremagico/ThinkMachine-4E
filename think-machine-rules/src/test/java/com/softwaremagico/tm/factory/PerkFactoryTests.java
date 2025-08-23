@@ -25,15 +25,17 @@ package com.softwaremagico.tm.factory;
  */
 
 
-import com.softwaremagico.tm.RestrictionMode;
 import com.softwaremagico.tm.character.perks.PerkFactory;
+import com.softwaremagico.tm.character.perks.PerkSource;
+import com.softwaremagico.tm.character.perks.PerkType;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.restrictions.RestrictionMode;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = {"perkFactory"})
 public class PerkFactoryTests {
-    private static final int DEFINED_PERKS = 86;
+    private static final int DEFINED_PERKS = 319;
 
 
     @Test
@@ -46,5 +48,17 @@ public class PerkFactoryTests {
     public void getPerkRestrictionMode() throws InvalidXmlElementException {
         Assert.assertEquals(PerkFactory.getInstance().getElement("chameleon").getRestrictions().getMode(),
                 RestrictionMode.ANY_FROM_GROUP);
+    }
+
+    @Test
+    public void getPerkType() throws InvalidXmlElementException {
+        Assert.assertEquals(PerkFactory.getInstance().getElement("absolution").getType(),
+                PerkType.PRIVILEGE);
+    }
+
+    @Test
+    public void getPerkClass() throws InvalidXmlElementException {
+        Assert.assertEquals(PerkFactory.getInstance().getElement("absolution").getSource(),
+                PerkSource.CALLING);
     }
 }

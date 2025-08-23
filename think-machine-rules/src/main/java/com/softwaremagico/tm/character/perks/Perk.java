@@ -29,19 +29,15 @@ import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
 
 public class Perk extends Element {
-    private boolean isAffliction = false;
     @JsonProperty("repeatable")
     private boolean repeatable = false;
     @JsonProperty("benefice")
     private TranslatedText benefice;
 
-    public boolean isAffliction() {
-        return isAffliction;
-    }
-
-    public void setAffliction(boolean affliction) {
-        isAffliction = affliction;
-    }
+    @JsonProperty
+    private PerkSource source;
+    @JsonProperty
+    private PerkType type;
 
     public TranslatedText getBenefice() {
         return benefice;
@@ -49,5 +45,29 @@ public class Perk extends Element {
 
     public void setBenefice(TranslatedText benefice) {
         this.benefice = benefice;
+    }
+
+    public boolean isRepeatable() {
+        return repeatable;
+    }
+
+    public void setRepeatable(boolean repeatable) {
+        this.repeatable = repeatable;
+    }
+
+    public PerkSource getSource() {
+        return source;
+    }
+
+    public void setSource(PerkSource source) {
+        this.source = source;
+    }
+
+    public PerkType getType() {
+        return type;
+    }
+
+    public void setType(PerkType type) {
+        this.type = type;
     }
 }

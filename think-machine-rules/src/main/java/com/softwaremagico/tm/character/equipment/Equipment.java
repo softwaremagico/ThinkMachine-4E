@@ -31,12 +31,12 @@ import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.equipment.armors.Armor;
 import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
 import com.softwaremagico.tm.character.equipment.armors.CustomizedArmor;
-import com.softwaremagico.tm.character.equipment.item.CustomizedItem;
-import com.softwaremagico.tm.character.equipment.item.Item;
-import com.softwaremagico.tm.character.equipment.item.ItemFactory;
 import com.softwaremagico.tm.character.equipment.handheldshield.CustomizedHandheldShield;
 import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShield;
 import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShieldFactory;
+import com.softwaremagico.tm.character.equipment.item.CustomizedItem;
+import com.softwaremagico.tm.character.equipment.item.Item;
+import com.softwaremagico.tm.character.equipment.item.ItemFactory;
 import com.softwaremagico.tm.character.equipment.item.Quality;
 import com.softwaremagico.tm.character.equipment.item.Status;
 import com.softwaremagico.tm.character.equipment.shields.CustomizedShield;
@@ -56,8 +56,10 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
@@ -100,11 +102,14 @@ public abstract class Equipment extends Element implements IElementWithTechnolog
     private Quality quality;
     @JsonProperty("status")
     private Status status;
+    @JsonProperty("others")
+    private Set<String> others;
 
     public Equipment() {
         super();
         this.cost = 0;
         this.techLevel = 0;
+        this.others = new HashSet<>();
     }
 
     public float getCost() {
@@ -239,6 +244,14 @@ public abstract class Equipment extends Element implements IElementWithTechnolog
 
     public void setFeatures(List<EquipmentFeature> features) {
         this.features = features;
+    }
+
+    public Set<String> getOthers() {
+        return others;
+    }
+
+    public void setOthers(Set<String> others) {
+        this.others = others;
     }
 
     @Override

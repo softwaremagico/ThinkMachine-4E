@@ -26,9 +26,13 @@ package com.softwaremagico.tm.character;
 
 import com.softwaremagico.tm.character.callings.CallingCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.callings.CallingFactory;
+import com.softwaremagico.tm.character.callings.CallingGroup;
 import com.softwaremagico.tm.character.capabilities.CapabilityWithSpecialization;
 import com.softwaremagico.tm.character.characteristics.Characteristic;
+import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
+import com.softwaremagico.tm.character.characteristics.CharacteristicType;
+import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
 import com.softwaremagico.tm.character.combat.CombatActionRequirement;
 import com.softwaremagico.tm.character.cybernetics.Cyberdevice;
 import com.softwaremagico.tm.character.cybernetics.Cybernetics;
@@ -37,6 +41,7 @@ import com.softwaremagico.tm.character.equipment.Equipment;
 import com.softwaremagico.tm.character.equipment.EquipmentOption;
 import com.softwaremagico.tm.character.equipment.armors.Armor;
 import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
+import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShield;
 import com.softwaremagico.tm.character.equipment.item.Item;
 import com.softwaremagico.tm.character.equipment.shields.Shield;
 import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
@@ -44,12 +49,14 @@ import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.factions.FactionCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.factions.FactionGroup;
+import com.softwaremagico.tm.character.level.LevelSelector;
 import com.softwaremagico.tm.character.occultism.Occultism;
 import com.softwaremagico.tm.character.occultism.OccultismPath;
 import com.softwaremagico.tm.character.occultism.OccultismPathFactory;
 import com.softwaremagico.tm.character.occultism.OccultismPower;
 import com.softwaremagico.tm.character.occultism.OccultismType;
 import com.softwaremagico.tm.character.occultism.OccultismTypeFactory;
+import com.softwaremagico.tm.character.perks.Affliction;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.perks.SpecializedPerk;
 import com.softwaremagico.tm.character.resistances.Resistance;
@@ -62,15 +69,19 @@ import com.softwaremagico.tm.character.upbringing.UpbringingCharacterDefinitionS
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidCharacteristicException;
 import com.softwaremagico.tm.exceptions.InvalidCyberdeviceException;
+import com.softwaremagico.tm.exceptions.InvalidFactionException;
+import com.softwaremagico.tm.exceptions.InvalidLevelException;
 import com.softwaremagico.tm.exceptions.InvalidOccultismPowerException;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
+import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import com.softwaremagico.tm.exceptions.RestrictedElementException;
 import com.softwaremagico.tm.exceptions.UnofficialCharacterException;
 import com.softwaremagico.tm.exceptions.UnofficialElementNotAllowedException;
 import com.softwaremagico.tm.log.MachineLog;
 import com.softwaremagico.tm.txt.CharacterSheet;
+import com.softwaremagico.tm.utils.ComparableUtils;
 import com.softwaremagico.tm.xml.XmlFactory;
 
 import java.util.ArrayList;
@@ -82,24 +93,29 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.Stack;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class CharacterPlayer {
     public static final int MAX_INITIAL_VALUE = 8;
+    public static final int MAX_INTERMEDIAL_VALUE = 9;
+    public static final int LEVEL_MAX_VALUE = 10;
     private static final int BANK_INITIAL_VALUE = 5;
     private static final int INITIAL_TECH_LEVEL = 4;
 
     // Basic description of the character.
     private CharacterInfo info;
 
-    private int level = 1;
+    private String primaryCharacteristic;
+    private String secondaryCharacteristic;
 
     private SpecieCharacterDefinitionStepSelection specie;
     private UpbringingCharacterDefinitionStepSelection upbringing;
     private FactionCharacterDefinitionStepSelection faction;
     private CallingCharacterDefinitionStepSelection calling;
 
-    // All Psi/Teurgy powers
+    // All Psi/Theurgy powers
     private Occultism occultism;
 
     private Cybernetics cybernetics;
@@ -107,6 +123,10 @@ public class CharacterPlayer {
     private Set<Equipment> equipmentPurchased;
 
     private final Settings settings;
+
+    private Affliction affliction;
+
+    private final Stack<LevelSelector> levels = new Stack<>();
 
     public CharacterPlayer() {
         settings = new Settings();
@@ -126,6 +146,63 @@ public class CharacterPlayer {
 
     public SpecieCharacterDefinitionStepSelection getSpecie() {
         return specie;
+    }
+
+    public void validate() {
+        try {
+            if (specie != null) {
+                this.specie.validate();
+            }
+            if (upbringing != null) {
+                this.upbringing.validate();
+            }
+            if (faction != null) {
+                this.faction.validate();
+            }
+            if (calling != null) {
+                this.calling.validate();
+            }
+            if (getPrimaryCharacteristic() == null || getSecondaryCharacteristic() == null) {
+                throw new InvalidCharacteristicException("You must choose your primary and secondary characteristic.");
+            }
+            //Check characteristics values
+            for (CharacteristicDefinition characteristicDefinition : CharacteristicsDefinitionFactory.getInstance().getElements()) {
+                if (characteristicDefinition.getType() != CharacteristicType.OTHERS) {
+                    final int characteristicValue = getCharacteristicValue(characteristicDefinition.getCharacteristicName());
+                    if ((getLevel() < 2 && characteristicValue > MAX_INITIAL_VALUE)
+                            || (getLevel() < LEVEL_MAX_VALUE && characteristicValue > MAX_INTERMEDIAL_VALUE)) {
+                        throw new InvalidCharacteristicException("Characteristic '" + characteristicDefinition.getCharacteristicName()
+                                + "' has exceeded its maximum value at level '" + getLevel() + "'.");
+                    }
+                    if (characteristicValue > (SpecieFactory.getInstance().getElement(getSpecie().getId())
+                            .getSpecieCharacteristic(characteristicDefinition.getCharacteristicName()).getMaximumValue())) {
+                        throw new InvalidCharacteristicException("Characteristic '" + characteristicDefinition.getCharacteristicName()
+                                + "' has exceeded its maximum value of '"
+                                + (SpecieFactory.getInstance().getElement(getSpecie().getId())
+                                .getSpecieCharacteristic(characteristicDefinition.getCharacteristicName()).getMaximumValue())
+                                + "' by specie.");
+                    }
+                }
+            }
+
+            //Check skills values
+            for (Skill skill : SkillFactory.getInstance().getElements()) {
+                final int skillValue = getSkillValue(skill);
+                if ((getLevel() < 2 && skillValue > MAX_INITIAL_VALUE)
+                        || (getLevel() < LEVEL_MAX_VALUE && skillValue > MAX_INTERMEDIAL_VALUE)) {
+                    throw new InvalidCharacteristicException("Skill '" + skill.getId()
+                            + "' has exceeded its maximum value at level '" + getLevel() + "'.");
+                }
+            }
+
+            checkDuplicatedPerks();
+            checkDuplicatedCapabilities();
+
+            //Check levels.
+            getLevels().forEach(LevelSelector::validate);
+        } catch (InvalidSelectionException e) {
+            throw new InvalidFactionException("Error on character '" + this + "'.", e);
+        }
     }
 
     public void setSpecie(String specie) {
@@ -152,7 +229,6 @@ public class CharacterPlayer {
     public FactionCharacterDefinitionStepSelection getFaction() {
         return faction;
     }
-
 
     public UpbringingCharacterDefinitionStepSelection getUpbringing() {
         return upbringing;
@@ -239,6 +315,11 @@ public class CharacterPlayer {
         }
     }
 
+    public boolean isFavoredCalling() {
+        return (getFaction() != null && getCalling() != null
+                && FactionFactory.getInstance().getElement(getFaction()).getFavoredCallings().contains(getCalling().getId()));
+    }
+
     public Settings getSettings() {
         return settings;
     }
@@ -283,14 +364,36 @@ public class CharacterPlayer {
         }
     }
 
+    public String getPrimaryCharacteristic() {
+        return primaryCharacteristic;
+    }
+
+    public void setPrimaryCharacteristic(String primaryCharacteristic) {
+        this.primaryCharacteristic = primaryCharacteristic;
+    }
+
+    public String getSecondaryCharacteristic() {
+        return secondaryCharacteristic;
+    }
+
+    public void setSecondaryCharacteristic(String secondaryCharacteristic) {
+        this.secondaryCharacteristic = secondaryCharacteristic;
+    }
+
     public int getCharacteristicValue(String characteristic) throws MaxInitialValueExceededException {
         final CharacteristicName characteristicName = CharacteristicName.get(characteristic);
         if (characteristicName == null) {
             throw new InvalidCharacteristicException("No characteristic '" + characteristic + "' exists.");
         }
-        int bonus = 0;
-        if (specie != null) {
-            bonus += SpecieFactory.getInstance().getElement(getSpecie()).getSpecieCharacteristic(characteristic).getInitialValue();
+        int bonus;
+        if (getPrimaryCharacteristic() != null && Objects.equals(getPrimaryCharacteristic(), characteristic)) {
+            bonus = CharacteristicDefinition.PRIMARY_CHARACTERISTIC_VALUE;
+        } else if (getSecondaryCharacteristic() != null && Objects.equals(getSecondaryCharacteristic(), characteristic)) {
+            bonus = CharacteristicDefinition.SECONDARY_CHARACTERISTIC_VALUE;
+        } else if (specie != null) {
+            bonus = SpecieFactory.getInstance().getElement(getSpecie()).getSpecieCharacteristic(characteristic).getInitialValue();
+        } else {
+            bonus = Characteristic.INITIAL_VALUE;
         }
         if (upbringing != null) {
             bonus += upbringing.getCharacteristicBonus(characteristic);
@@ -301,9 +404,15 @@ public class CharacterPlayer {
         if (calling != null) {
             bonus += calling.getCharacteristicBonus(characteristic);
         }
-        if (getLevel() < 2 && bonus > MAX_INITIAL_VALUE) {
+        if (bonus > MAX_INITIAL_VALUE + getLevel() - 1) {
             throw new MaxInitialValueExceededException("Characteristic '" + characteristic + "' has exceeded the maximum value of '"
-                    + bonus + "' with '" + MAX_INITIAL_VALUE + "'.", bonus, MAX_INITIAL_VALUE);
+                    + (MAX_INITIAL_VALUE + getLevel() - 1) + "' with '" + bonus + "'.", bonus, (MAX_INITIAL_VALUE + getLevel() - 1));
+        }
+        if (specie != null && bonus > SpecieFactory.getInstance().getElement(specie.getId()).getSpecieCharacteristic(characteristic).getMaximumValue()) {
+            throw new MaxValueExceededException("Characteristic '" + characteristic + "' has exceeded the maximum value of '"
+                    + SpecieFactory.getInstance().getElement(specie.getId()).getSpecieCharacteristic(characteristic).getMaximumValue() + "' with '"
+                    + bonus + "'.", bonus,
+                    SpecieFactory.getInstance().getElement(specie.getId()).getSpecieCharacteristic(characteristic).getMaximumValue());
         }
         return bonus;
     }
@@ -317,14 +426,14 @@ public class CharacterPlayer {
      *
      * @return the status of the character.
      */
-    public String getRank() {
+    public Rank getRank() {
         return null;
     }
 
     public List<SpecializedPerk> getPerks() {
         final List<SpecializedPerk> perks = new ArrayList<>();
         if (upbringing != null) {
-            upbringing.getPerksOptions().forEach(perkOption ->
+            upbringing.getSelectedPerksOptions().forEach(perkOption ->
                     perkOption.getSelections().forEach(selection -> {
                         try {
                             perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection), selection.getSpecialization()));
@@ -334,7 +443,7 @@ public class CharacterPlayer {
                     }));
         }
         if (faction != null) {
-            faction.getPerksOptions().forEach(perkOption ->
+            faction.getSelectedPerksOptions().forEach(perkOption ->
                     perkOption.getSelections().forEach(selection -> {
                         try {
                             perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection), selection.getSpecialization()));
@@ -344,7 +453,7 @@ public class CharacterPlayer {
                     }));
         }
         if (calling != null) {
-            calling.getPerksOptions().forEach(perkOption ->
+            calling.getSelectedPerksOptions().forEach(perkOption ->
                     perkOption.getSelections().forEach(selection -> {
                         try {
                             perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection), selection.getSpecialization()));
@@ -361,31 +470,203 @@ public class CharacterPlayer {
     }
 
     public Integer getVitalityValue() throws InvalidXmlElementException {
-        return getCharacteristicValue(CharacteristicName.ENDURANCE)
+        final AtomicInteger vitality = new AtomicInteger(getCharacteristicValue(CharacteristicName.ENDURANCE)
                 + getCharacteristicValue(CharacteristicName.WILL)
                 + getCharacteristicValue(CharacteristicName.FAITH)
-                + (specie != null ? SpecieFactory.getInstance().getElement(specie).getSize() : 0)
-                + getLevel();
+                + (specie != null ? SpecieFactory.getInstance().getElement(specie).getSize() : 0));
+        getLevels().forEach(level -> {
+            vitality.addAndGet(level.getExtraVitality());
+        });
+        return vitality.get();
     }
 
     public Set<CapabilityWithSpecialization> getCapabilitiesWithSpecialization() {
         final Set<CapabilityWithSpecialization> capabilities = new HashSet<>();
+        if (specie != null) {
+            specie.getSelectedCapabilityOptions().forEach(capabilityOption ->
+                    capabilityOption.getSelections().forEach(selection ->
+                            capabilities.add(CapabilityWithSpecialization.from(selection))));
+        }
         if (upbringing != null) {
-            upbringing.getCapabilityOptions().forEach(capabilityOption ->
+            upbringing.getSelectedCapabilityOptions().forEach(capabilityOption ->
                     capabilityOption.getSelections().forEach(selection ->
                             capabilities.add(CapabilityWithSpecialization.from(selection))));
         }
         if (faction != null) {
-            faction.getCapabilityOptions().forEach(capabilityOption ->
+            faction.getSelectedCapabilityOptions().forEach(capabilityOption ->
                     capabilityOption.getSelections().forEach(selection ->
                             capabilities.add(CapabilityWithSpecialization.from(selection))));
         }
         if (calling != null) {
-            calling.getCapabilityOptions().forEach(capabilityOption ->
+            calling.getSelectedCapabilityOptions().forEach(capabilityOption ->
                     capabilityOption.getSelections().forEach(selection ->
                             capabilities.add(CapabilityWithSpecialization.from(selection))));
         }
         return capabilities;
+    }
+
+
+    public boolean hasCapability(String capability, String specialization) {
+        final String comparedCapability = ComparableUtils.getComparisonId(capability, specialization);
+        if (hasCapability(comparedCapability, specie)) {
+            return true;
+        }
+        if (hasCapability(comparedCapability, upbringing)) {
+            return true;
+        }
+        if (hasCapability(comparedCapability, faction)) {
+            return true;
+        }
+        if (hasCapability(comparedCapability, calling)) {
+            return true;
+        }
+        for (LevelSelector levelSelector : getLevels()) {
+            if (hasCapability(capability, levelSelector)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean hasCapability(String comparedCapabilityId, CharacterDefinitionStepSelection step) {
+        if (step != null) {
+            return step.getSelectedCapabilities().stream().map(c -> ComparableUtils.getComparisonId(c.getId(), c.getSpecialization()))
+                    .anyMatch(x -> Objects.equals(x, comparedCapabilityId));
+        }
+        return false;
+    }
+
+
+    public boolean hasPerk(String perk) {
+        if (hasPerk(perk, specie)) {
+            return true;
+        }
+        if (hasPerk(perk, upbringing)) {
+            return true;
+        }
+        if (hasPerk(perk, faction)) {
+            return true;
+        }
+        if (hasPerk(perk, calling)) {
+            return true;
+        }
+        for (LevelSelector levelSelector : getLevels()) {
+            if (hasPerk(perk, levelSelector)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public boolean hasPerk(String perk, CharacterDefinitionStepSelection step) {
+        if (step != null) {
+            return step.getSelectedPerks().stream().map(Selection::getId)
+                    .anyMatch(x -> Objects.equals(x, perk));
+        }
+        return false;
+    }
+
+
+    public Collection<String> getPerks(CharacterDefinitionStepSelection step) {
+        if (step != null) {
+            return step.getSelectedPerks().stream().map(p -> ComparableUtils.getComparisonId(p.getId(), p.getSpecialization()))
+                    .collect(Collectors.toList());
+        }
+        return new ArrayList<>();
+    }
+
+
+    public void checkDuplicatedPerks() {
+        //Check duplicate perks.
+        final Collection<String> speciePerks = getPerks(specie);
+        final Collection<String> upbringingPerks = getPerks(upbringing);
+        final Collection<String> factionPerks = getPerks(faction);
+        final Collection<String> callingPerks = getPerks(calling);
+
+        final Collection<String> completePerkList = new HashSet<>(speciePerks);
+        Collection<String> nextPerks = new HashSet<>(upbringingPerks);
+
+        upbringingPerks.retainAll(completePerkList);
+        if (!upbringingPerks.isEmpty()) {
+            throw new InvalidXmlElementException("Duplicated perks '" + upbringingPerks + "' on upbringing '" + getUpbringing() + "'.");
+        }
+        completePerkList.addAll(nextPerks);
+
+        nextPerks = new ArrayList<>(factionPerks);
+        factionPerks.retainAll(completePerkList);
+        if (!factionPerks.isEmpty()) {
+            throw new InvalidXmlElementException("Duplicated perks '" + upbringingPerks + "' on faction '" + getFaction() + "'.");
+        }
+        completePerkList.addAll(nextPerks);
+
+        nextPerks = new ArrayList<>(callingPerks);
+        callingPerks.retainAll(completePerkList);
+        if (!callingPerks.isEmpty()) {
+            throw new InvalidXmlElementException("Duplicated perks '" + callingPerks + "' on calling '" + getCalling() + "'.");
+        }
+        completePerkList.addAll(nextPerks);
+
+        for (LevelSelector levelSelector : getLevels()) {
+            final Collection<String> levelPerks = getPerks(levelSelector);
+            nextPerks = new ArrayList<>(levelPerks);
+            levelPerks.retainAll(completePerkList);
+            if (!levelPerks.isEmpty()) {
+                throw new InvalidXmlElementException("Duplicated perk '" + levelPerks + "' on level '" + levelSelector + "'.");
+            }
+            completePerkList.addAll(nextPerks);
+        }
+
+    }
+
+    public void checkDuplicatedCapabilities() {
+        //Check duplicate capabilities.
+        final Collection<String> specieCapabilities = getCapabilities(specie);
+        final Collection<String> upbringingCapabilities = getCapabilities(upbringing);
+        final Collection<String> factionCapabilities = getCapabilities(faction);
+        final Collection<String> callingCapabilities = getCapabilities(calling);
+
+        final Collection<String> completeCapabilitiesList = new HashSet<>(specieCapabilities);
+        Collection<String> nextCapabilities = new HashSet<>(upbringingCapabilities);
+
+        upbringingCapabilities.retainAll(completeCapabilitiesList);
+        if (!upbringingCapabilities.isEmpty()) {
+            throw new InvalidXmlElementException("Duplicated capability '" + upbringingCapabilities + "' on upbringing '" + getUpbringing() + "'.");
+        }
+        completeCapabilitiesList.addAll(nextCapabilities);
+
+        nextCapabilities = new ArrayList<>(factionCapabilities);
+        factionCapabilities.retainAll(completeCapabilitiesList);
+        if (!factionCapabilities.isEmpty()) {
+            throw new InvalidXmlElementException("Duplicated capability '" + upbringingCapabilities + "' on faction '" + getFaction() + "'.");
+        }
+        completeCapabilitiesList.addAll(nextCapabilities);
+
+        nextCapabilities = new ArrayList<>(callingCapabilities);
+        callingCapabilities.retainAll(completeCapabilitiesList);
+        if (!callingCapabilities.isEmpty()) {
+            throw new InvalidXmlElementException("Duplicated capability '" + callingCapabilities + "' on calling '" + getCalling() + "'.");
+        }
+        completeCapabilitiesList.addAll(nextCapabilities);
+
+        for (LevelSelector levelSelector : getLevels()) {
+            final Collection<String> levelCapabilities = getCapabilities(levelSelector);
+            nextCapabilities = new ArrayList<>(levelCapabilities);
+            levelCapabilities.retainAll(completeCapabilitiesList);
+            if (!levelCapabilities.isEmpty()) {
+                throw new InvalidXmlElementException("Duplicated capability '" + levelCapabilities + "' on level '" + levelSelector + "'.");
+            }
+            completeCapabilitiesList.addAll(nextCapabilities);
+        }
+    }
+
+
+    public Collection<String> getCapabilities(CharacterDefinitionStepSelection step) {
+        if (step != null) {
+            return step.getSelectedCapabilities().stream().map(c -> ComparableUtils.getComparisonId(c.getId(), c.getSpecialization()))
+                    .collect(Collectors.toList());
+        }
+        return new ArrayList<>();
     }
 
 
@@ -414,37 +695,67 @@ public class CharacterPlayer {
     }
 
     public int getLevel() {
-        return level;
+        return 1 + levels.size();
     }
 
-    public void setLevel(int level) {
-        this.level = level;
+    public LevelSelector getLevel(int index) {
+        return levels.get(index - 1);
+    }
+
+    public Stack<LevelSelector> getLevels() {
+        return levels;
+    }
+
+    public LevelSelector addLevel() {
+        if (getFaction() == null || getSpecie() == null || getCalling() == null) {
+            throw new InvalidLevelException("Please, finalize level 1 first.");
+        }
+        try {
+            validate();
+        } catch (InvalidXmlElementException e) {
+            throw new InvalidLevelException("Please, finalize previous level first.", e);
+        }
+        final LevelSelector newLevel = new LevelSelector(this, getLevel() + 1);
+        levels.add(newLevel);
+        return newLevel;
     }
 
     public int getBank() throws InvalidXmlElementException {
-        return BANK_INITIAL_VALUE;
+        final AtomicInteger bank = new AtomicInteger(BANK_INITIAL_VALUE);
+        getLevels().forEach(level ->
+                bank.addAndGet(level.getExtraVPBank()));
+        return bank.get();
     }
 
     public int getSurgesRating() throws InvalidXmlElementException {
-        return Math.max(Math.max(getCharacteristicValue(CharacteristicName.STRENGTH),
+        final AtomicInteger surge = new AtomicInteger(Math.max(Math.max(getCharacteristicValue(CharacteristicName.STRENGTH),
                         getCharacteristicValue(CharacteristicName.WITS)),
-                getCharacteristicValue(CharacteristicName.FAITH))
-                + getLevel();
+                getCharacteristicValue(CharacteristicName.FAITH)));
+        getLevels().forEach(level ->
+                surge.addAndGet(level.getExtraSurgeRating()));
+        return surge.get();
     }
 
     public int getSurgesNumber() throws InvalidXmlElementException {
-        return 1;
+        final AtomicInteger surge = new AtomicInteger(1);
+        getLevels().forEach(level ->
+                surge.addAndGet(level.getExtraSurgeNumber()));
+        return surge.get();
     }
 
     public int getRevivalsRating() throws InvalidXmlElementException {
-        return Math.max(Math.max(getCharacteristicValue(CharacteristicName.STRENGTH),
-                        getCharacteristicValue(CharacteristicName.WITS)),
-                getCharacteristicValue(CharacteristicName.FAITH))
-                + getLevel();
+        final AtomicInteger revivals = new AtomicInteger(
+                (specie != null ? SpecieFactory.getInstance().getElement(specie).getSize() : 0));
+        getLevels().forEach(level ->
+                revivals.addAndGet(level.getExtraRevivalRating()));
+        return revivals.get();
     }
 
     public int getRevivalsNumber() throws InvalidXmlElementException {
-        return 1;
+        final AtomicInteger revivals = new AtomicInteger(1);
+        getLevels().forEach(level ->
+                revivals.addAndGet(level.getExtraRevivalNumber()));
+        return revivals.get();
     }
 
 
@@ -473,10 +784,10 @@ public class CharacterPlayer {
         }
         final Set<Selection> selected;
         if (ignoreRemoved) {
-            selected = definitionStepSelection.getMaterialAwards().stream().map(CharacterSelectedEquipment::getSelections)
+            selected = definitionStepSelection.getSelectedMaterialAwards().stream().map(CharacterSelectedEquipment::getSelections)
                     .flatMap(Collection::stream).collect(Collectors.toSet());
         } else {
-            selected = definitionStepSelection.getMaterialAwards().stream().map(CharacterSelectedEquipment::getRemainder)
+            selected = definitionStepSelection.getSelectedMaterialAwards().stream().map(CharacterSelectedEquipment::getRemainder)
                     .flatMap(Collection::stream).collect(Collectors.toSet());
         }
         return ((CharacterDefinitionStep<?>) factory.getElement(definitionStepSelection.getId())).getMaterialAwards(selected);
@@ -555,6 +866,28 @@ public class CharacterPlayer {
         return Collections.max(shields, Comparator.comparing(Shield::getCost));
     }
 
+    /**
+     * Gets best shield purchased and acquired with benefices.
+     *
+     * @return all weapons of the character.
+     */
+    public HandheldShield getBestHandHandledShield() {
+        final List<HandheldShield> handheldShields = getEquipment(HandheldShield.class);
+        if (handheldShields.isEmpty()) {
+            return null;
+        }
+        return Collections.max(handheldShields, Comparator.comparing(HandheldShield::getCost));
+    }
+
+    public void setPurchasedHandheldShield(HandheldShield handheldShield) throws UnofficialElementNotAllowedException {
+        if (handheldShield != null && !handheldShield.isOfficial() && getSettings().isOnlyOfficialAllowed()) {
+            throw new UnofficialElementNotAllowedException("HandheldShields shield '" + handheldShield + "' is not official and cannot be added due "
+                    + "to configuration limitations.");
+        }
+        getEquipmentPurchased(HandheldShield.class).forEach(e -> getEquipmentPurchased().remove(e));
+        getEquipmentPurchased().add(handheldShield);
+    }
+
     public Shield getPurchasedShield() {
         return getEquipmentPurchased(Shield.class).stream().findFirst().orElse(null);
     }
@@ -631,15 +964,6 @@ public class CharacterPlayer {
                 capability.getId().startsWith("techLore") && Objects.equals(capability.getGroup(), "techLore")).count();
     }
 
-    @Override
-    public String toString() {
-        final String name = getCompleteNameRepresentation();
-        if (!name.isEmpty()) {
-            return name;
-        }
-        return super.toString();
-    }
-
     public int getStartingValue(CharacteristicName characteristicName) {
         return Characteristic.INITIAL_VALUE;
     }
@@ -670,7 +994,7 @@ public class CharacterPlayer {
             throw new UnofficialCharacterException("Specie '" + getSpecie() + "' is not official.");
         }
         if ((getBestArmor() != null && !getBestArmor().isOfficial())) {
-            throw new UnofficialCharacterException("Armour '" + getBestArmor() + "' is not official.");
+            throw new UnofficialCharacterException("Armor '" + getBestArmor() + "' is not official.");
         }
         if ((getBestShield() != null && !getBestShield().isOfficial())) {
             throw new UnofficialCharacterException("Shield '" + getBestShield() + "' is not official.");
@@ -703,7 +1027,7 @@ public class CharacterPlayer {
         }
 
         if ((getBestArmor() != null && ArmorFactory.getInstance().getElement(getBestArmor()).getRestrictions().isRestricted(this))) {
-            throw new RestrictedElementException("Armour '" + getBestArmor() + "' is restricted.");
+            throw new RestrictedElementException("Armor '" + getBestArmor() + "' is restricted.");
         }
         if ((getBestShield() != null && ShieldFactory.getInstance().getElement(getBestShield()).getRestrictions().isRestricted(this))) {
             throw new RestrictedElementException("Shield '" + getBestShield() + "' is restricted.");
@@ -712,14 +1036,6 @@ public class CharacterPlayer {
         if (!getWeapons().stream().allMatch(w -> w.getRestrictions().isRestricted(this))) {
             throw new RestrictedElementException("Weapons '" + getWeapons() + "' have some restricted element.");
         }
-//
-//        if (!blessings.stream().allMatch(b -> b.isRestricted(this))) {
-//            throw new RestrictedElementException("Blessings '" + blessings + "' have some restricted element.");
-//        }
-//
-//        if (!benefices.stream().allMatch(b -> b.isRestricted(this))) {
-//            throw new RestrictedElementException("Benefices '" + benefices + "' have some restricted element.");
-//        }
 //
 //        if (!cybernetics.getElements().stream().allMatch(c -> c.isRestricted(this))) {
 //            throw new RestrictedElementException("Cybernetics '" + cybernetics + "' have some restricted element.");
@@ -736,6 +1052,19 @@ public class CharacterPlayer {
         }
     }
 
+    public boolean isOccultist() {
+        if (getCharacteristicValue(CharacteristicName.PSI) > 0) {
+            return true;
+        }
+        if (getCharacteristicValue(CharacteristicName.THEURGY) > 0) {
+            return true;
+        }
+        if (getCalling() != null) {
+            final String callingGroup = CallingFactory.getInstance().getElement(getCalling().getId()).getGroup();
+            return CharacteristicName.PSI.name().equalsIgnoreCase(callingGroup) || CharacteristicName.THEURGY.name().equalsIgnoreCase(callingGroup);
+        }
+        return false;
+    }
 
     private Occultism getOccultism() {
         return occultism;
@@ -805,14 +1134,20 @@ public class CharacterPlayer {
                 || Objects.equals(getFaction().getId(), "vagabonds") || Objects.equals(getFaction().getId(), "swordsOfLextius"))) {
             return OccultismTypeFactory.getTheurgy();
         }
-        if (getFaction() != null && (Objects.equals(getFaction().getId(), "dervishes"))) {
+        if (getCalling() != null && (Objects.equals(getCalling().getId(), "dervish"))) {
             return OccultismTypeFactory.getPsi();
         }
         if (getSpecie() != null && (Objects.equals(getSpecie().getId(), "ascorbite"))) {
             return OccultismTypeFactory.getPsi();
         }
+        if (getCalling() != null && (CallingGroup.get(getCalling().getGroup()) == CallingGroup.PSI)) {
+            return OccultismTypeFactory.getPsi();
+        }
+        if (getCalling() != null && (CallingGroup.get(getCalling().getGroup()) == CallingGroup.THEURGY)) {
+            return OccultismTypeFactory.getTheurgy();
+        }
         try {
-            //Check if has some path purchased already. Get its occultismType;
+            //Check if it has some path purchased already. Get its occultismType;
             if (!getOccultism().getSelectedPowers().isEmpty()) {
                 final Map.Entry<String, List<OccultismPower>> occultismPowers = getOccultism().getSelectedPowers().entrySet().iterator().next();
                 if (occultismPowers.getValue() != null && !occultismPowers.getValue().isEmpty()) {
@@ -823,7 +1158,7 @@ public class CharacterPlayer {
                     }
                 }
             }
-            //Check if has some occultism level added already.
+            //Check if it has some occultism level added already.
             for (final OccultismType occultismType : OccultismTypeFactory.getInstance().getElements()) {
                 int defaultOccultismLevel = 0;
                 if (getSpecie() != null) {
@@ -848,6 +1183,9 @@ public class CharacterPlayer {
 
     public boolean hasOccultismPower(OccultismPower power) {
         final OccultismPath path = OccultismPathFactory.getInstance().getOccultismPath(power);
+        if (path == null) {
+            return false;
+        }
         return getOccultism().hasPower(path, power);
     }
 
@@ -937,5 +1275,26 @@ public class CharacterPlayer {
 
     public void removeCyberdevice(Cyberdevice cyberdevice) {
         getCybernetics().getElements().remove(cyberdevice);
+    }
+
+    public Affliction getAffliction() {
+        return affliction;
+    }
+
+    public void setAffliction(Affliction affliction) {
+        this.affliction = affliction;
+    }
+
+    @Override
+    public String toString() {
+        final String name = getCompleteNameRepresentation();
+        return "CharacterPlayer{"
+                + (name != null && !name.isBlank() ? "name=" + name + ", " : "")
+                + "specie=" + specie
+                + ", upbringing=" + upbringing
+                + ", faction=" + faction
+                + ", calling=" + calling
+                + ", level=" + getLevel()
+                + '}';
     }
 }

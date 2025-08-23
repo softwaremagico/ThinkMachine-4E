@@ -39,9 +39,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 public class OccultismPower extends Element {
+    private static final String WILDCARD_SKILL = "*";
     private String characteristic;
     @JsonProperty("skills")
     private List<String> skills;
@@ -195,7 +197,13 @@ public class OccultismPower extends Element {
     @Override
     public void validate() throws InvalidXmlElementException {
         super.validate();
-        skills.forEach(skill -> SkillFactory.getInstance().getElement(skill));
+        if (skills != null) {
+            for (String skill : skills) {
+                if (!Objects.equals(skill, WILDCARD_SKILL)) {
+                    SkillFactory.getInstance().getElement(skill);
+                }
+            }
+        }
         CharacteristicsDefinitionFactory.getInstance().getElement(getCharacteristic());
         TimeFactory.getInstance().getElement(getTime());
     }

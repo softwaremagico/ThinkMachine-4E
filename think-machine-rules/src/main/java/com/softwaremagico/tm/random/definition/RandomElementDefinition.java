@@ -24,31 +24,45 @@ package com.softwaremagico.tm.random.definition;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.XmlData;
+import com.softwaremagico.tm.character.Gender;
+import com.softwaremagico.tm.character.Name;
+import com.softwaremagico.tm.character.Surname;
 import com.softwaremagico.tm.character.characteristics.Characteristic;
 import com.softwaremagico.tm.character.equipment.Agora;
 
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class RandomElementDefinition extends XmlData {
-    private static final double COMMON_PROBABILITY = 100d;
-    private static final double RARE_PROBABILITY = 10d;
-    private static final double EXOTIC_PROBABILITY = 1d;
 
     private ElementClassification classification;
     private Integer staticProbability;
     private Integer minimumTechLevel;
     private Integer maximumTechLevel;
-    private Double probabilityMultiplier;
-    private Set<String> restrictedFactions = new HashSet<>();
+    private ProbabilityMultiplier probabilityMultiplier;
     private Set<String> recommendedFactions = new HashSet<>();
-    private Set<String> forbiddenSpecies = new HashSet<>();
-    private Set<String> restrictedSpecies = new HashSet<>();
+    private Set<String> recommendedFactionsGroups = new HashSet<>();
     private Set<String> recommendedSpecies = new HashSet<>();
-    private Set<String> restrictedUpbringing = new HashSet<>();
     private Set<String> recommendedUpbringings = new HashSet<>();
+    private Set<String> forbiddenPreferences = new HashSet<>();
+    private Set<String> restrictedPreferences = new HashSet<>();
+    private Set<String> recommendedPreferences = new HashSet<>();
     private RandomProbabilityDefinition probability;
+
+    @JsonProperty("names")
+    private Names namesElements;
+    @JsonProperty("surnames")
+    private String surnameElements;
+
+    @JsonIgnore
+    private Set<Name> names;
+    @JsonIgnore
+    private Set<Surname> surnames;
 
     public RandomElementDefinition() {
         super();
@@ -71,36 +85,36 @@ public class RandomElementDefinition extends XmlData {
         if (randomDefinition.getMaximumTechLevel() != null) {
             setMaximumTechLevel(randomDefinition.getMaximumTechLevel());
         }
-        if (randomDefinition.getProbabilityMultiplier() != null) {
-            setProbabilityMultiplier(randomDefinition.getProbabilityMultiplier());
-        }
-        if (randomDefinition.getRestrictedFactions() != null && !randomDefinition.getRestrictedFactions().isEmpty()) {
-            restrictedFactions.clear();
-            restrictedFactions.addAll(randomDefinition.getRestrictedFactions());
+        if (randomDefinition.probabilityMultiplier != null) {
+            setProbabilityMultiplier(randomDefinition.probabilityMultiplier);
         }
         if (randomDefinition.getRecommendedFactions() != null && !randomDefinition.getRecommendedFactions().isEmpty()) {
             recommendedFactions.clear();
             recommendedFactions.addAll(randomDefinition.getRecommendedFactions());
         }
+        if (randomDefinition.getRecommendedFactionsGroups() != null && !randomDefinition.getRecommendedFactionsGroups().isEmpty()) {
+            recommendedFactionsGroups.clear();
+            recommendedFactionsGroups.addAll(randomDefinition.getRecommendedFactions());
+        }
         if (randomDefinition.getRecommendedSpecies() != null && !randomDefinition.getRecommendedSpecies().isEmpty()) {
             recommendedSpecies.clear();
             recommendedSpecies.addAll(randomDefinition.getRecommendedSpecies());
         }
-        if (randomDefinition.getForbiddenSpecies() != null && !randomDefinition.getForbiddenSpecies().isEmpty()) {
-            forbiddenSpecies.clear();
-            forbiddenSpecies.addAll(randomDefinition.getForbiddenSpecies());
-        }
-        if (randomDefinition.getRestrictedSpecies() != null && !randomDefinition.getRestrictedSpecies().isEmpty()) {
-            restrictedSpecies.clear();
-            restrictedSpecies.addAll(randomDefinition.getRestrictedSpecies());
-        }
-        if (randomDefinition.getRestrictedUpbringing() != null && !randomDefinition.getRestrictedUpbringing().isEmpty()) {
-            restrictedUpbringing.clear();
-            restrictedUpbringing.addAll(randomDefinition.getRestrictedUpbringing());
-        }
         if (randomDefinition.getRecommendedUpbringings() != null && !randomDefinition.getRecommendedUpbringings().isEmpty()) {
             recommendedUpbringings.clear();
             recommendedUpbringings.addAll(randomDefinition.getRecommendedUpbringings());
+        }
+        if (randomDefinition.getForbiddenPreferences() != null && !randomDefinition.getForbiddenPreferences().isEmpty()) {
+            forbiddenPreferences.clear();
+            forbiddenPreferences.addAll(randomDefinition.getForbiddenPreferences());
+        }
+        if (randomDefinition.getRestrictedPreferences() != null && !randomDefinition.getRestrictedPreferences().isEmpty()) {
+            restrictedPreferences.clear();
+            restrictedPreferences.addAll(randomDefinition.getRestrictedPreferences());
+        }
+        if (randomDefinition.getRecommendedPreferences() != null && !randomDefinition.getRecommendedPreferences().isEmpty()) {
+            recommendedPreferences.clear();
+            recommendedPreferences.addAll(randomDefinition.getRecommendedPreferences());
         }
         if (randomDefinition.getProbability() != null) {
             setProbability(randomDefinition.getProbability());
@@ -108,10 +122,7 @@ public class RandomElementDefinition extends XmlData {
     }
 
     public Integer getMinimumTechLevel() {
-        if (minimumTechLevel == null) {
-            return 0;
-        }
-        return minimumTechLevel;
+        return Objects.requireNonNullElse(minimumTechLevel, 0);
     }
 
     public void setMinimumTechLevel(Integer minimumTechLevel) {
@@ -134,10 +145,12 @@ public class RandomElementDefinition extends XmlData {
         }
     }
 
-    public void addRecommendedSpecies(String race) {
-        if (race != null) {
-            restrictedSpecies.add(race);
-        }
+    public Set<String> getRecommendedFactionsGroups() {
+        return recommendedFactionsGroups;
+    }
+
+    public void setRecommendedFactionsGroups(Set<String> recommendedFactionsGroups) {
+        this.recommendedFactionsGroups = recommendedFactionsGroups;
     }
 
     public RandomProbabilityDefinition getProbability() {
@@ -148,9 +161,9 @@ public class RandomElementDefinition extends XmlData {
         this.probability = probability;
     }
 
-    public void addRecommendedRace(String race) {
-        if (race != null) {
-            recommendedSpecies.add(race);
+    public void addRecommendedSpecie(String specie) {
+        if (specie != null) {
+            recommendedSpecies.add(specie);
         }
     }
 
@@ -159,10 +172,7 @@ public class RandomElementDefinition extends XmlData {
     }
 
     public Integer getMaximumTechLevel() {
-        if (maximumTechLevel == null) {
-            return Characteristic.MAX_VALUE;
-        }
-        return maximumTechLevel;
+        return Objects.requireNonNullElse(maximumTechLevel, Characteristic.MAX_VALUE);
     }
 
     public void setMaximumTechLevel(Integer maximumTechLevel) {
@@ -177,11 +187,32 @@ public class RandomElementDefinition extends XmlData {
         this.staticProbability = staticProbability;
     }
 
-    public Double getProbabilityMultiplier() {
-        if (probabilityMultiplier == null) {
-            return 1d;
-        }
-        return probabilityMultiplier;
+    public ProbabilityMultiplier getProbabilityMultiplier() {
+        return Objects.requireNonNullElse(probabilityMultiplier, ProbabilityMultiplier.NORMAL);
+    }
+
+    public Set<String> getForbiddenPreferences() {
+        return forbiddenPreferences;
+    }
+
+    public void setForbiddenPreferences(Set<String> forbiddenPreferences) {
+        this.forbiddenPreferences = forbiddenPreferences;
+    }
+
+    public Set<String> getRestrictedPreferences() {
+        return restrictedPreferences;
+    }
+
+    public void setRestrictedPreferences(Set<String> restrictedPreferences) {
+        this.restrictedPreferences = restrictedPreferences;
+    }
+
+    public Set<String> getRecommendedPreferences() {
+        return recommendedPreferences;
+    }
+
+    public void setRecommendedPreferences(Set<String> recommendedPreferences) {
+        this.recommendedPreferences = recommendedPreferences;
     }
 
     public void setAgoraProbabilityMultiplier(Agora agora) {
@@ -189,67 +220,23 @@ public class RandomElementDefinition extends XmlData {
             switch (agora) {
                 case COMMON:
                 case KNOWN_WORLDS:
-                    this.probabilityMultiplier = COMMON_PROBABILITY;
+                    this.probabilityMultiplier = ProbabilityMultiplier.COMMON;
                     break;
                 case RARE:
-                    this.probabilityMultiplier = RARE_PROBABILITY;
+                    this.probabilityMultiplier = ProbabilityMultiplier.RARE;
                     break;
                 case EXOTIC:
-                    this.probabilityMultiplier = EXOTIC_PROBABILITY;
+                    this.probabilityMultiplier = ProbabilityMultiplier.EXOTIC;
                     break;
                 default:
+                    this.probabilityMultiplier = ProbabilityMultiplier.NORMAL;
                     break;
             }
         }
     }
 
-    public void setProbabilityMultiplier(Double probabilityMultiplier) {
-        if (probabilityMultiplier != null) {
-            this.probabilityMultiplier = probabilityMultiplier;
-        }
-    }
-
-    public Set<String> getRestrictedFactions() {
-        return restrictedFactions;
-    }
-
-    public void addRestrictedFactionGroup(String restrictedFactionGroup) {
-        if (restrictedFactionGroup != null) {
-            restrictedUpbringing.add(restrictedFactionGroup);
-        }
-    }
-
-    public void addRestrictedRace(String restrictedRace) {
-        if (restrictedRace != null) {
-            restrictedSpecies.add(restrictedRace);
-        }
-    }
-
-    public Set<String> getRestrictedSpecies() {
-        return restrictedSpecies;
-    }
-
-    public void addForbiddenRace(String forbiddenRace) {
-        if (forbiddenRace != null) {
-            forbiddenSpecies.add(forbiddenRace);
-        }
-    }
-
-    public Set<String> getForbiddenSpecies() {
-        return forbiddenSpecies;
-    }
-
-    public Set<String> getRestrictedUpbringing() {
-        return restrictedUpbringing;
-    }
-
-    public void setRestrictedFactions(String restrictedFactionsContent) {
-        restrictedFactions = new HashSet<>();
-        readCommaSeparatedTokens(restrictedFactions, restrictedFactionsContent);
-    }
-
-    public void setRestrictedFactions(Set<String> restrictedFactions) {
-        this.restrictedFactions = restrictedFactions;
+    public void setProbabilityMultiplier(ProbabilityMultiplier probabilityMultiplier) {
+        this.probabilityMultiplier = probabilityMultiplier;
     }
 
     public void setRecommendedFactions(String recommendedFactionsContent) {
@@ -261,24 +248,6 @@ public class RandomElementDefinition extends XmlData {
         this.recommendedFactions = recommendedFactions;
     }
 
-    public void setForbiddenSpecies(String forbiddenSpeciesContent) {
-        forbiddenSpecies = new HashSet<>();
-        readCommaSeparatedTokens(forbiddenSpecies, forbiddenSpeciesContent);
-    }
-
-    public void setForbiddenSpecies(Set<String> forbiddenSpecies) {
-        this.forbiddenSpecies = forbiddenSpecies;
-    }
-
-    public void setRestrictedSpecies(String restrictedSpeciesContent) {
-        restrictedSpecies = new HashSet<>();
-        readCommaSeparatedTokens(restrictedSpecies, restrictedSpeciesContent);
-    }
-
-    public void setRestrictedSpecies(Set<String> restrictedSpecies) {
-        this.restrictedSpecies = restrictedSpecies;
-    }
-
     public void setRecommendedSpecies(String recommendedSpeciesContent) {
         recommendedSpecies = new HashSet<>();
         readCommaSeparatedTokens(recommendedSpecies, recommendedSpeciesContent);
@@ -288,12 +257,12 @@ public class RandomElementDefinition extends XmlData {
         this.recommendedSpecies = recommendedSpecies;
     }
 
-    public void setRestrictedFactionGroups(Set<String> restrictedUpbringing) {
-        this.restrictedUpbringing = restrictedUpbringing;
-    }
-
     public Set<String> getRecommendedUpbringings() {
         return recommendedUpbringings;
+    }
+
+    public void setRecommendedUpbringings(String recommendedUpbringing) {
+        this.recommendedUpbringings = new HashSet<>(recommendedUpbringings);
     }
 
     public void setRecommendedUpbringings(Set<String> recommendedUpbringings) {
@@ -311,5 +280,35 @@ public class RandomElementDefinition extends XmlData {
     @Override
     public String toString() {
         return minimumTechLevel + "";
+    }
+
+    public Set<Surname> getSurnames(String faction, String specie) {
+        if (surnames == null) {
+            surnames = new HashSet<>();
+            if (surnameElements != null) {
+                Arrays.stream(surnameElements.split(",")).forEach(s ->
+                        surnames.add(new Surname(replaceAnyBlancSpace(s), faction, specie))
+                );
+            }
+        }
+        return surnames;
+    }
+
+    public Set<Name> getNames(String faction, String specie, Gender gender) {
+        final Set<Name> names = new HashSet<>();
+        if (gender == Gender.MALE && namesElements != null) {
+            Arrays.stream(namesElements.getMaleNames().split(",")).forEach(s ->
+                    names.add(new Name(replaceAnyBlancSpace(s), gender, faction, specie))
+            );
+        } else if (gender == Gender.FEMALE && namesElements != null) {
+            Arrays.stream(namesElements.getFemaleNames().split(",")).forEach(s ->
+                    names.add(new Name(replaceAnyBlancSpace(s), gender, faction, specie))
+            );
+        }
+        return names;
+    }
+
+    private String replaceAnyBlancSpace(String value) {
+        return value.trim().replaceAll("\\s+", " ");
     }
 }

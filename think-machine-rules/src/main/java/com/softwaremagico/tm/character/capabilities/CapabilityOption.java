@@ -30,8 +30,10 @@ import com.softwaremagico.tm.Option;
 import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.skills.Specialization;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.utils.ComparableUtils;
+import com.softwaremagico.tm.utils.IComparable;
 
-public class CapabilityOption extends Option<Capability> {
+public class CapabilityOption extends Option<Capability> implements IComparable {
     @JsonProperty("selectedSpecialization")
     private Specialization selectedSpecialization;
 
@@ -71,6 +73,11 @@ public class CapabilityOption extends Option<Capability> {
                 + (selectedSpecialization != null ? " (" + selectedSpecialization.getId() + ")" : "");
     }
 
+    @Override
+    public String getComparisonId() {
+        return ComparableUtils.getComparisonId(getId(), getSelectedSpecialization());
+    }
+
     @JsonIgnore
     @Override
     public TranslatedText getName() {
@@ -89,6 +96,13 @@ public class CapabilityOption extends Option<Capability> {
     @Override
     public void validate() throws InvalidXmlElementException {
         super.validate();
+        if (getId() != null) {
+            CapabilityFactory.getInstance().getElement(getId());
+        } else if (getGroup() != null) {
+            if (CapabilityFactory.getInstance().getElementsByGroup(getGroup()).isEmpty()) {
+                throw new InvalidXmlElementException("Invalid group '" + getGroup() + "' on capability. ");
+            }
+        }
         if (selectedSpecialization != null) {
             if (!CapabilityFactory.getInstance().getElement(getId()).getSpecializations().contains(selectedSpecialization)) {
                 throw new InvalidXmlElementException("Capability " + getId() + " has not element with specialization '" + selectedSpecialization + "'.");

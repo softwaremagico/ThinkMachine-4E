@@ -45,10 +45,15 @@ public class SkillBonusOptions extends OptionSelector<Skill, SkillBonusOption> {
         if (finalSkills == null) {
             try {
                 if (super.getOptions() == null || super.getOptions().isEmpty()
-                        || (super.getOptions().size() == 1 && super.getOptions().get(0).getId() == null)) {
+                        || (!super.getOptions().isEmpty() && super.getOptions().get(0).getId() == null)) {
                     finalSkills = new ArrayList<>();
-                    finalSkills.addAll(SkillFactory.getInstance().getElements().stream()
-                            .map(SkillBonusOption::new).collect(Collectors.toList()));
+                    if (super.getOptions() != null && !super.getOptions().isEmpty()) {
+                        finalSkills.addAll(SkillFactory.getInstance().getElements().stream()
+                                .map(skill -> new SkillBonusOption(skill, super.getOptions().get(0).getBonus())).collect(Collectors.toList()));
+                    } else {
+                        finalSkills.addAll(SkillFactory.getInstance().getElements().stream()
+                                .map(SkillBonusOption::new).collect(Collectors.toList()));
+                    }
                 } else {
                     finalSkills = super.getOptions();
                 }
@@ -81,6 +86,10 @@ public class SkillBonusOptions extends OptionSelector<Skill, SkillBonusOption> {
             getOptions().forEach(option -> {
                 if (option.getId() != null) {
                     SkillFactory.getInstance().getElement(option.getId());
+                } else if (option.getGroup() != null) {
+                    if (SkillFactory.getInstance().getElementsByGroup(option.getGroup()).isEmpty()) {
+                        throw new InvalidXmlElementException("Invalid group '" + option.getGroup() + "' on skill. ");
+                    }
                 }
             });
         }
