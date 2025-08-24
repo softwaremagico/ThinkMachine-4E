@@ -64,6 +64,18 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
     }
 
     @Override
+    protected double getUserPreferenceBonus(CharacteristicDefinition element) {
+        double multiplier = super.getUserPreferenceBonus(element);
+        if (getPreferences().contains(RandomPreference.SPECIALIZED)) {
+            multiplier += getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName());
+        } else if (getPreferences().contains(RandomPreference.BALANCED)) {
+            multiplier += CharacteristicDefinition.MAX_CHARACTERISTIC_VALUE
+                    - getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName());
+        }
+        return multiplier;
+    }
+
+    @Override
     protected int getWeight(CharacteristicDefinition element) throws InvalidRandomElementSelectedException {
         if (element.getType() == CharacteristicType.OTHERS) {
             return 0;

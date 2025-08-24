@@ -26,6 +26,7 @@ package com.softwaremagico.tm.character.specie;
 
 import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
@@ -56,5 +57,10 @@ public class SpecieCharacterDefinitionStepSelection extends CharacterDefinitionS
         } catch (InvalidSelectionException e) {
             throw new InvalidSpecieException(e.getMessage(), e);
         }
+    }
+
+    @Override
+    public Phase getPhase() {
+        return Phase.SPECIE;
     }
 }

@@ -53,6 +53,7 @@ public class CapabilityOptions extends OptionSelector<Capability, CapabilityOpti
     public CapabilityOptions(CapabilityOptions optionSelector, List<CapabilityOption> finalCapabilities) {
         super(optionSelector);
         this.finalCapabilities = finalCapabilities;
+        setOptions(finalCapabilities);
     }
 
     @Override

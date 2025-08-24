@@ -173,57 +173,52 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         }
     }
 
-    private double getUserPreferenceBonus(Element element) {
-        return getUserPreferenceBonus(element.getRandomDefinition());
-    }
-
-    protected double getUserPreferenceBonus(RandomElementDefinition randomDefinition) {
+    protected double getUserPreferenceBonus(Element element) {
         double multiplier = 1d;
 
-        if (randomDefinition == null) {
+        if (element.getRandomDefinition() == null) {
             return multiplier;
         }
 
-
         // Recommended to specie.
         if (getCharacterPlayer() != null && getCharacterPlayer().getSpecie() != null
-                && randomDefinition.getRecommendedSpecies().contains(getCharacterPlayer().getSpecie().getId())) {
+                && element.getRandomDefinition().getRecommendedSpecies().contains(getCharacterPlayer().getSpecie().getId())) {
             RandomGenerationLog.debug(this.getClass().getName(),
                     "Random definition as recommended for '{}'.", getCharacterPlayer().getSpecie());
             multiplier *= HIGH_MULTIPLIER;
             // Recommended to my upbringing.
         } else if (getCharacterPlayer() != null && getCharacterPlayer().getUpbringing() != null
-                && randomDefinition.getRecommendedUpbringings().contains(getCharacterPlayer().getUpbringing().getId())) {
+                && element.getRandomDefinition().getRecommendedUpbringings().contains(getCharacterPlayer().getUpbringing().getId())) {
             RandomGenerationLog.debug(this.getClass().getName(),
                     "Random definition as recommended for '{}'.", getCharacterPlayer().getUpbringing());
             multiplier *= HIGH_MULTIPLIER;
             // Recommended to my faction group.
         } else if (getCharacterPlayer() != null && getCharacterPlayer().getFaction() != null
-                && randomDefinition
+                && element.getRandomDefinition()
                 .getRecommendedFactionsGroups().contains(getCharacterPlayer().getFaction().getGroup())) {
             RandomGenerationLog.debug(this.getClass().getName(), "Random definition as recommended for '{}'.",
                     getCharacterPlayer().getFaction().getGroup());
             multiplier *= BASIC_MULTIPLIER;
             // Recommended to my faction.
         } else if (getCharacterPlayer() != null && getCharacterPlayer().getFaction() != null
-                && randomDefinition.getRecommendedFactions().contains(getCharacterPlayer().getFaction().getId())) {
+                && element.getRandomDefinition().getRecommendedFactions().contains(getCharacterPlayer().getFaction().getId())) {
             RandomGenerationLog.debug(this.getClass().getName(),
                     "Random definition as recommended for '{}'.", getCharacterPlayer().getFaction());
             multiplier *= HIGH_MULTIPLIER;
-        } else if (randomDefinition.getProbabilityMultiplier() != null) {
+        } else if (element.getRandomDefinition().getProbabilityMultiplier() != null) {
             RandomValuesLog.debug(this.getClass().getName(),
-                    "Random definition multiplier is '{}'.", randomDefinition.getProbabilityMultiplier());
-            multiplier *= randomDefinition.getProbabilityMultiplier().getValue();
-        } else if (randomDefinition.getProbability() != null) {
+                    "Random definition multiplier is '{}'.", element.getRandomDefinition().getProbabilityMultiplier());
+            multiplier *= element.getRandomDefinition().getProbabilityMultiplier().getValue();
+        } else if (element.getRandomDefinition().getProbability() != null) {
             RandomGenerationLog.debug(this.getClass().getName(), "Random definition defines with bonus probability of '"
-                    + randomDefinition.getProbability().getProbabilityMultiplier() + "'.");
-            multiplier *= randomDefinition.getProbability().getProbabilityMultiplier();
+                    + element.getRandomDefinition().getProbability().getProbabilityMultiplier() + "'.");
+            multiplier *= element.getRandomDefinition().getProbability().getProbabilityMultiplier();
         }
 
         // Recommended by user preferences.
         if (preferences != null) {
             final List<String> common = preferences.stream().map(Enum::name).collect(Collectors.toList());
-            common.retainAll(randomDefinition.getRecommendedPreferences());
+            common.retainAll(element.getRandomDefinition().getRecommendedPreferences());
             RandomGenerationLog.debug(this.getClass().getName(),
                     "Random definition as recommended for '{}'.", (USER_SELECTION_MULTIPLIER * common.size()));
             multiplier += (USER_SELECTION_MULTIPLIER * common.size());

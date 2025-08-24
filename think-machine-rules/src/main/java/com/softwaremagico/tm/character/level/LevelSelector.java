@@ -31,6 +31,7 @@ import com.softwaremagico.tm.character.CharacterSelectedElement;
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.equipment.CharacterSelectedEquipment;
 import com.softwaremagico.tm.character.perks.PerkOptions;
+import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 
 import java.util.ArrayList;
@@ -76,12 +77,16 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
     @Override
     public List<Selection> getSelectedPerks() {
         final List<Selection> selectedPerks = new ArrayList<>();
-        getSelectedClassPerksOptions().forEach(perkOption ->
-                selectedPerks.addAll(perkOption.getSelections().stream().filter(selection -> selection.getId() != null)
-                        .collect(Collectors.toSet())));
-        getSelectedCallingPerksOptions().forEach(perkOption ->
-                selectedPerks.addAll(perkOption.getSelections().stream().filter(selection -> selection.getId() != null)
-                        .collect(Collectors.toSet())));
+        if (getSelectedClassPerksOptions() != null) {
+            getSelectedClassPerksOptions().forEach(perkOption ->
+                    selectedPerks.addAll(perkOption.getSelections().stream().filter(selection -> selection.getId() != null)
+                            .collect(Collectors.toSet())));
+        }
+        if (getSelectedCallingPerksOptions() != null) {
+            getSelectedCallingPerksOptions().forEach(perkOption ->
+                    selectedPerks.addAll(perkOption.getSelections().stream().filter(selection -> selection.getId() != null)
+                            .collect(Collectors.toSet())));
+        }
         return selectedPerks;
     }
 
@@ -139,19 +144,32 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
         }
     }
 
+    @Override
+    public Phase getPhase() {
+        return Phase.LEVEL;
+    }
+
     public List<PerkOptions> getClassPerksOptions() {
-        return ((Level) getCharacterDefinitionStep()).getClassPerksOptions();
+        return ((Level) getCharacterDefinitionStep()).getFactionPerksOptions();
+    }
+
+    public List<PerkOptions> getNotRepeatedClassPerksOptions() {
+        return ((Level) getCharacterDefinitionStep()).getNotRepeatedFactionPerksOptions();
     }
 
     public List<PerkOptions> getCallingPerksOptions() {
         return ((Level) getCharacterDefinitionStep()).getCallingPerksOptions();
     }
 
+    public List<PerkOptions> getNotRepeatedCallingPerksOptions() {
+        return ((Level) getCharacterDefinitionStep()).getNotRepeatedCallingPerksOptions();
+    }
+
     protected void validateClassPerks() {
-        validatePerks(selectedClassPerksOptions, getClassPerksOptions());
+        validatePerks(selectedClassPerksOptions, getNotRepeatedClassPerksOptions(), getClassPerksOptions());
     }
 
     protected void validateCallingPerks() {
-        validatePerks(selectedClassPerksOptions, getCallingPerksOptions());
+        validatePerks(selectedClassPerksOptions, getNotRepeatedCallingPerksOptions(), getCallingPerksOptions());
     }
 }

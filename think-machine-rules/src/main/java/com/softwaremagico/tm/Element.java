@@ -65,6 +65,7 @@ public class Element extends XmlData implements Comparable<Element> {
     @JsonProperty("resistances")
     private List<Resistance> resistances;
 
+    @JsonProperty("specializations")
     private List<Specialization> specializations;
 
     @JsonProperty("official")
