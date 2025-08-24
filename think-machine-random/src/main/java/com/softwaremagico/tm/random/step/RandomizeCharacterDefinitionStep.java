@@ -29,7 +29,9 @@ import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.capabilities.Capability;
+import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
+import com.softwaremagico.tm.exceptions.InvalidSkillException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
@@ -37,6 +39,7 @@ import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedExcep
 import java.util.Set;
 
 public class RandomizeCharacterDefinitionStep<T extends Element> {
+    private static final int TRIES = 10;
 
     private final CharacterPlayer characterPlayer;
     private final CharacterDefinitionStepSelection characterDefinitionStepSelection;
@@ -129,15 +132,35 @@ public class RandomizeCharacterDefinitionStep<T extends Element> {
                 final RandomSkill randomSkill =
                         new RandomSkill(getCharacterPlayer(), getPreferences(),
                                 characterDefinitionStepSelection.getSkillOptions().get(i));
-
                 try {
                     for (int j = 0; j < characterDefinitionStepSelection.getSkillOptions().get(i).getTotalOptions(); j++) {
                         //No default selections.
                         if (characterDefinitionStepSelection.getSelectedSkillOptions().get(i).getSelections().size() > j) {
                             continue;
                         }
+
+                        int tries = 0;
+                        boolean skillFound = false;
+                        Skill selectedSkill;
+                        do {
+                            selectedSkill = randomSkill.selectElementByWeight();
+
+                            try {
+                                //Check if skill selections does not exceed skill level limit.
+                                getCharacterPlayer().checkSkillValueByLevel(getCharacterPlayer().getSkillValue(selectedSkill)
+                                        + characterDefinitionStepSelection.getSkillOptions().get(i).getSkillBonus(selectedSkill.getId()).getBonus());
+                            } catch (InvalidSkillException e) {
+                                tries++;
+                                if (randomSkill.getWeightedElements().size() > 1) {
+                                    randomSkill.removeElementWeight(selectedSkill);
+                                }
+                                continue;
+                            }
+                            skillFound = true;
+                        } while (!skillFound && tries < TRIES);
+
                         characterDefinitionStepSelection.getSelectedSkillOptions().get(i).getSelections()
-                                .add(new Selection(randomSkill.selectElementByWeight().getId()));
+                                .add(new Selection(selectedSkill.getId()));
                     }
                 } catch (InvalidXmlElementException e) {
                     throw new InvalidXmlElementException("Error on skill options '"

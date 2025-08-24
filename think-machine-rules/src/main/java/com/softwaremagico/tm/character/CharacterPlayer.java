@@ -74,6 +74,7 @@ import com.softwaremagico.tm.exceptions.InvalidFactionException;
 import com.softwaremagico.tm.exceptions.InvalidLevelException;
 import com.softwaremagico.tm.exceptions.InvalidOccultismPowerException;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
+import com.softwaremagico.tm.exceptions.InvalidSkillException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
 import com.softwaremagico.tm.exceptions.MaxValueExceededException;
@@ -189,9 +190,10 @@ public class CharacterPlayer {
             //Check skills values
             for (Skill skill : SkillFactory.getInstance().getElements()) {
                 final int skillValue = getSkillValue(skill);
-                if ((getLevel() < 2 && skillValue > MAX_INITIAL_VALUE)
-                        || (getLevel() < LEVEL_MAX_VALUE && skillValue > MAX_INTERMEDIAL_VALUE)) {
-                    throw new InvalidCharacteristicException("Skill '" + skill.getId()
+                try {
+                    checkSkillValueByLevel(skillValue);
+                } catch (InvalidSkillException e) {
+                    throw new InvalidSkillException("Skill '" + skill.getId()
                             + "' has exceeded its maximum value at level '" + getLevel() + "'.");
                 }
             }
@@ -203,6 +205,13 @@ public class CharacterPlayer {
             getLevels().forEach(LevelSelector::validate);
         } catch (InvalidSelectionException e) {
             throw new InvalidFactionException("Error on character '" + this + "'.", e);
+        }
+    }
+
+    public void checkSkillValueByLevel(int skillValue) {
+        if ((getLevel() < 2 && skillValue > MAX_INITIAL_VALUE)
+                || (getLevel() < LEVEL_MAX_VALUE && skillValue > MAX_INTERMEDIAL_VALUE)) {
+            throw new InvalidSkillException("Skill has exceeded its maximum value '" + skillValue + "' at level '" + getLevel() + "'.");
         }
     }
 
