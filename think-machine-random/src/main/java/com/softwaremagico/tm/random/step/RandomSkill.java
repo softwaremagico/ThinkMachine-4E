@@ -26,6 +26,7 @@ package com.softwaremagico.tm.random.step;
 
 import com.softwaremagico.tm.Option;
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
 import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
@@ -52,6 +53,20 @@ public class RandomSkill extends RandomSelector<Skill> {
     protected Collection<Skill> getAllElements() throws InvalidXmlElementException {
         return skillOptions.getOptions().stream().map(Option::getElement).toList();
     }
+
+
+    @Override
+    protected double getUserPreferenceBonus(Skill element) {
+        double multiplier = super.getUserPreferenceBonus(element);
+        if (getPreferences().contains(RandomPreference.SPECIALIZED)) {
+            multiplier += getCharacterPlayer().getSkillValue(element);
+        } else if (getPreferences().contains(RandomPreference.BALANCED)) {
+            multiplier += CharacteristicDefinition.MAX_CHARACTERISTIC_VALUE
+                    - getCharacterPlayer().getSkillValue(element);
+        }
+        return multiplier;
+    }
+
 
     @Override
     protected int getWeight(Skill element) throws InvalidRandomElementSelectedException {
