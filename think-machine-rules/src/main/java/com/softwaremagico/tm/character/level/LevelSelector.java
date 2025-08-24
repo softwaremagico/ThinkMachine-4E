@@ -31,6 +31,7 @@ import com.softwaremagico.tm.character.CharacterSelectedElement;
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.equipment.CharacterSelectedEquipment;
 import com.softwaremagico.tm.character.perks.PerkOptions;
+import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 
 import java.util.ArrayList;
@@ -137,6 +138,11 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
         } catch (InvalidSelectionException e) {
             throw new InvalidSelectionException("Error on level '" + getLevel() + "'.", e);
         }
+    }
+
+    @Override
+    public Phase getPhase() {
+        return Phase.LEVEL;
     }
 
     public List<PerkOptions> getClassPerksOptions() {

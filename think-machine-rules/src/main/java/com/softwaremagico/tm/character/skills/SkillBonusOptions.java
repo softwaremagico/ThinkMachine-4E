@@ -40,6 +40,19 @@ public class SkillBonusOptions extends OptionSelector<Skill, SkillBonusOption> {
     @JsonIgnore
     private Map<String, SkillBonusOption> skillBonusById;
 
+    public SkillBonusOptions() {
+        super();
+    }
+
+    public SkillBonusOptions(SkillBonusOptions optionSelector) {
+        this(optionSelector, new ArrayList<>(optionSelector.getSourceOptions()));
+    }
+
+    public SkillBonusOptions(SkillBonusOptions optionSelector, List<SkillBonusOption> finalSkills) {
+        super(optionSelector);
+        this.finalSkills = finalSkills;
+    }
+
     @Override
     public List<SkillBonusOption> getOptions() {
         if (finalSkills == null) {

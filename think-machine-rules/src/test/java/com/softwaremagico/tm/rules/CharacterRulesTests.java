@@ -49,6 +49,8 @@ import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 @Test(groups = "characterRules")
 public class CharacterRulesTests {
 
@@ -148,9 +150,9 @@ public class CharacterRulesTests {
         CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleDecadosCommander();
 
         Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.STRENGTH), 3);
-        Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.DEXTERITY), 5);
+        Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.DEXTERITY), 7);
         Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.ENDURANCE), 4);
-        Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.WITS), 5);
+        Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.WITS), 6);
         Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.PERCEPTION), 4);
         Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.WILL), 6);
         Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.PRESENCE), 8);
@@ -241,6 +243,7 @@ public class CharacterRulesTests {
     @Test
     public void checkRaisedInSpace() {
         CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.getInfo().setNames("Raised");
         characterPlayer.setSpecie("human");
         characterPlayer.setUpbringing("noble");
         characterPlayer.getUpbringing().setRaisedInSpace(true);
@@ -266,24 +269,25 @@ public class CharacterRulesTests {
         }
 
         CharacterPlayer characterPlayer2 = new CharacterPlayer();
+        characterPlayer2.getInfo().setNames("NotRaised");
         characterPlayer2.setSpecie("human");
         characterPlayer2.setUpbringing("noble");
         characterPlayer2.getUpbringing().setRaisedInSpace(false);
 
         for (CapabilityOptions capabilityOptions : characterPlayer2.getUpbringing().getNotRepeatedCapabilityOptions()) {
-            Assert.assertTrue(capabilityOptions.getOptions().contains(shipboardOperations));
+            Assert.assertFalse(capabilityOptions.getOptions().contains(shipboardOperations));
         }
 
         for (CapabilityOptions capabilityOptions : characterPlayer2.getUpbringing().getNotRepeatedCapabilityOptions()) {
-            Assert.assertTrue(capabilityOptions.getOptions().contains(thinkMachines));
+            Assert.assertFalse(capabilityOptions.getOptions().contains(thinkMachines));
         }
 
         for (SkillBonusOptions skillBonusOptions : characterPlayer2.getUpbringing().getSkillOptions()) {
-            Assert.assertTrue(skillBonusOptions.getOptions().contains(interfaceSkill));
+            Assert.assertFalse(skillBonusOptions.getOptions().contains(interfaceSkill));
         }
 
         for (SkillBonusOptions skillBonusOptions : characterPlayer2.getUpbringing().getSkillOptions()) {
-            Assert.assertTrue(skillBonusOptions.getOptions().contains(techRedemptionSkill));
+            Assert.assertFalse(skillBonusOptions.getOptions().contains(techRedemptionSkill));
         }
     }
 

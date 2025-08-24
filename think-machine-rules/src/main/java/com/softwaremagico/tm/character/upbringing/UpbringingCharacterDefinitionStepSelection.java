@@ -32,10 +32,12 @@ import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.skills.SkillBonusOption;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
 import com.softwaremagico.tm.character.skills.SkillFactory;
+import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidUpbringingException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UpbringingCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection {
@@ -68,6 +70,11 @@ public class UpbringingCharacterDefinitionStepSelection extends CharacterDefinit
         }
     }
 
+    @Override
+    public Phase getPhase() {
+        return Phase.UPBRINGING;
+    }
+
 
     @Override
     public List<CapabilityOptions> getNotRepeatedCapabilityOptions() {
@@ -90,19 +97,24 @@ public class UpbringingCharacterDefinitionStepSelection extends CharacterDefinit
 
     @Override
     public List<SkillBonusOptions> getSkillOptions() {
-        final List<SkillBonusOptions> skillBonusOptions = super.getSkillOptions();
-        if (isRaisedInSpace()) {
-            skillBonusOptions.forEach(skillBonusOption -> {
-                final SkillBonusOption interfaceSkill = new SkillBonusOption(SkillFactory.getInstance().getElement("interface"));
-                if (!skillBonusOption.getOptions().contains(interfaceSkill)) {
-                    skillBonusOption.getOptions().add(interfaceSkill);
-                }
-                final SkillBonusOption techRedemptionSkill = new SkillBonusOption(SkillFactory.getInstance().getElement("techRedemption"));
-                if (!skillBonusOption.getOptions().contains(techRedemptionSkill)) {
-                    skillBonusOption.getOptions().add(techRedemptionSkill);
-                }
-            });
+        if (!isRaisedInSpace()) {
+            return super.getSkillOptions();
         }
-        return skillBonusOptions;
+        final List<SkillBonusOptions> newSkillBonusOptions = new ArrayList<>();
+        final List<SkillBonusOptions> oldSkillBonusOptions = new ArrayList<>(super.getSkillOptions());
+        oldSkillBonusOptions.forEach(skillBonusOption -> newSkillBonusOptions.add(new SkillBonusOptions(skillBonusOption)));
+        newSkillBonusOptions.forEach(skillBonusOptions -> {
+            final SkillBonusOption interfaceSkill = new SkillBonusOption(SkillFactory.getInstance().getElement("interface"),
+                    skillBonusOptions.getOptions().get(0).getBonus());
+            if (!skillBonusOptions.getOptions().contains(interfaceSkill)) {
+                skillBonusOptions.getOptions().add(interfaceSkill);
+            }
+            final SkillBonusOption techRedemptionSkill = new SkillBonusOption(SkillFactory.getInstance().getElement("techRedemption"),
+                    skillBonusOptions.getOptions().get(0).getBonus());
+            if (!skillBonusOptions.getOptions().contains(techRedemptionSkill)) {
+                skillBonusOptions.getOptions().add(techRedemptionSkill);
+            }
+        });
+        return newSkillBonusOptions;
     }
 }

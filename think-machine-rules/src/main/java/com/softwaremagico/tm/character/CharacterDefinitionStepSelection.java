@@ -37,6 +37,7 @@ import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.character.perks.PerkOptions;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
+import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
 import com.softwaremagico.tm.exceptions.InvalidSelectedElementException;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
@@ -328,13 +329,15 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         return getCharacterDefinitionStep().getCapabilityOptions();
     }
 
+    public abstract Phase getPhase();
+
     public List<CapabilityOptions> getNotRepeatedCapabilityOptions() {
         final List<CapabilityOptions> capabilityOptions = new ArrayList<>();
         for (CapabilityOptions capabilityOption : getCharacterDefinitionStep().getCapabilityOptions()) {
             //Get not duplicated options that are selected on previous steps.
             final List<CapabilityOption> oldOptions = new ArrayList<>(capabilityOption.getOptions());
             final List<CapabilityOption> options = capabilityOption.getOptions().stream().filter(o -> !getCharacterPlayer()
-                            .hasCapability(o.getId(), o.getSelectedSpecialization() != null ? o.getSelectedSpecialization().getId() : null))
+                            .hasCapability(o.getId(), o.getSelectedSpecialization() != null ? o.getSelectedSpecialization().getId() : null, getPhase()))
                     .collect(Collectors.toList());
             //If no option is available. Must select between any not restricted to the character.
             if (!options.isEmpty()) {
@@ -369,7 +372,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
             //Get not duplicated options that are selected on previous steps.
             final List<PerkOption> oldOptions = new ArrayList<>(perkOption.getOptions());
             final List<PerkOption> options = perkOption.getOptions().stream().filter(o -> !getCharacterPlayer()
-                    .hasPerk(o.getId())).collect(Collectors.toList());
+                    .hasPerk(o.getId(), getPhase())).collect(Collectors.toList());
             //If no option is available. Must select between any not restricted to the character.
             if (!options.isEmpty()) {
                 perkOptions.add(new PerkOptions(perkOption, options));

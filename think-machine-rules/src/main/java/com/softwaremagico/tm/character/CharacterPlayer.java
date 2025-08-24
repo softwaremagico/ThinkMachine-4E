@@ -67,6 +67,7 @@ import com.softwaremagico.tm.character.specie.SpecieCharacterDefinitionStepSelec
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.UpbringingCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
+import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidCharacteristicException;
 import com.softwaremagico.tm.exceptions.InvalidCyberdeviceException;
 import com.softwaremagico.tm.exceptions.InvalidFactionException;
@@ -506,23 +507,25 @@ public class CharacterPlayer {
     }
 
 
-    public boolean hasCapability(String capability, String specialization) {
+    public boolean hasCapability(String capability, String specialization, Phase phase) {
         final String comparedCapability = ComparableUtils.getComparisonId(capability, specialization);
-        if (hasCapability(comparedCapability, specie)) {
+        if (Phase.SPECIE.isCheckedPhase(phase) && hasCapability(comparedCapability, specie)) {
             return true;
         }
-        if (hasCapability(comparedCapability, upbringing)) {
+        if (Phase.UPBRINGING.isCheckedPhase(phase) && hasCapability(comparedCapability, upbringing)) {
             return true;
         }
-        if (hasCapability(comparedCapability, faction)) {
+        if (Phase.FACTION.isCheckedPhase(phase) && hasCapability(comparedCapability, faction)) {
             return true;
         }
-        if (hasCapability(comparedCapability, calling)) {
+        if (Phase.CALLING.isCheckedPhase(phase) && hasCapability(comparedCapability, calling)) {
             return true;
         }
-        for (LevelSelector levelSelector : getLevels()) {
-            if (hasCapability(capability, levelSelector)) {
-                return true;
+        if (Phase.LEVEL.isCheckedPhase(phase)) {
+            for (LevelSelector levelSelector : getLevels()) {
+                if (hasCapability(capability, levelSelector)) {
+                    return true;
+                }
             }
         }
         return false;
@@ -537,7 +540,7 @@ public class CharacterPlayer {
     }
 
 
-    public boolean hasPerk(String perk) {
+    public boolean hasPerk(String perk, Phase phase) {
         if (hasPerk(perk, specie)) {
             return true;
         }
