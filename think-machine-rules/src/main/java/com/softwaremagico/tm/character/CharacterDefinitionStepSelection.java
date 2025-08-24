@@ -189,11 +189,9 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     public int getSkillBonus(String skill) {
         int bonus = 0;
         for (int i = 0; i < getSelectedSkillOptions().size(); i++) {
-            for (int j = 0; j < getSelectedSkillOptions().get(i).getSelections().size(); j++) {
-                if (getSelectedSkillOptions().get(i).getSelections().stream().map(Selection::getId)
-                        .filter(Objects::nonNull).collect(Collectors.toSet()).contains(skill)) {
-                    bonus += getSkillOptions().get(i).getSkillBonus(skill).getBonus();
-                }
+            if (getSelectedSkillOptions().get(i).getSelections().stream().map(Selection::getId)
+                    .filter(Objects::nonNull).collect(Collectors.toSet()).contains(skill)) {
+                bonus += getSkillOptions().get(i).getSkillBonus(skill).getBonus();
             }
         }
         return bonus;

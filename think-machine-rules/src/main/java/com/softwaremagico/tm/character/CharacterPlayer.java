@@ -334,21 +334,35 @@ public class CharacterPlayer {
 
     public int getSkillValue(String skill) throws MaxInitialValueExceededException {
         int bonus = 0;
+        final StringBuilder stringBuilder = new StringBuilder();
         if (SkillFactory.getInstance().getElement(skill).isNatural()) {
             bonus += Skill.NATURAL_SKILL_INITIAL_VALUE;
         }
         if (upbringing != null) {
-            bonus += upbringing.getSkillBonus(skill);
+            final int skillBonus = upbringing.getSkillBonus(skill);
+            bonus += skillBonus;
+            if (skillBonus > 0) {
+                stringBuilder.append("Upbringing: ").append(skillBonus);
+            }
         }
         if (faction != null) {
-            bonus += faction.getSkillBonus(skill);
+            final int skillBonus = faction.getSkillBonus(skill);
+            bonus += skillBonus;
+            if (skillBonus > 0) {
+                stringBuilder.append((stringBuilder.length() > 0 ? ", " : "")).append("Faction: ").append(skillBonus);
+            }
         }
         if (calling != null) {
-            bonus += calling.getSkillBonus(skill);
+            final int skillBonus = calling.getSkillBonus(skill);
+            bonus += skillBonus;
+            calling.getSkillBonus(skill);
+            if (skillBonus > 0) {
+                stringBuilder.append((stringBuilder.length() > 0 ? ", " : "")).append("Calling: ").append(skillBonus);
+            }
         }
         if (bonus > MAX_INITIAL_VALUE) {
-            throw new MaxInitialValueExceededException("Skill '" + skill + "' has exceeded the maximum value of '" + MAX_INITIAL_VALUE + "' .",
-                    bonus, MAX_INITIAL_VALUE);
+            throw new MaxInitialValueExceededException("Skill '" + skill + "' has exceeded the maximum value of '" + MAX_INITIAL_VALUE + "'. Bonuses from: '"
+                    + stringBuilder + "'.", bonus, MAX_INITIAL_VALUE);
         }
         return bonus;
     }
