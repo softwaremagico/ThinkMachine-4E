@@ -79,7 +79,7 @@ public class LevelTests {
 
     @Test
     public void favoredCallingsInLevel() {
-        final CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleDecadosCommander();
+        final CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleHawkwoodCommander();
 
         characterPlayer.addLevel();
         final LevelSelector level = characterPlayer.addLevel();

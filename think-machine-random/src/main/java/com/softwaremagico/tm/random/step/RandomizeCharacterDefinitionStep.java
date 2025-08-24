@@ -154,7 +154,8 @@ public class RandomizeCharacterDefinitionStep<T extends Element> {
             for (int i = 0; i < characterDefinitionStepSelection.getNotRepeatedPerksOptions().size(); i++) {
                 final RandomPerk randomPerk =
                         new RandomPerk(getCharacterPlayer(), getPreferences(),
-                                characterDefinitionStepSelection.getNotRepeatedPerksOptions().get(i));
+                                characterDefinitionStepSelection.getNotRepeatedPerksOptions().get(i),
+                                characterDefinitionStepSelection.getPhase());
 
                 try {
                     for (int j = 0; j < characterDefinitionStepSelection.getNotRepeatedPerksOptions().get(i).getTotalOptions(); j++) {

@@ -541,21 +541,23 @@ public class CharacterPlayer {
 
 
     public boolean hasPerk(String perk, Phase phase) {
-        if (hasPerk(perk, specie)) {
+        if (Phase.SPECIE.isCheckedPhase(phase) && hasPerk(perk, specie)) {
             return true;
         }
-        if (hasPerk(perk, upbringing)) {
+        if (Phase.UPBRINGING.isCheckedPhase(phase) && hasPerk(perk, upbringing)) {
             return true;
         }
-        if (hasPerk(perk, faction)) {
+        if (Phase.FACTION.isCheckedPhase(phase) && hasPerk(perk, faction)) {
             return true;
         }
-        if (hasPerk(perk, calling)) {
+        if (Phase.CALLING.isCheckedPhase(phase) && hasPerk(perk, calling)) {
             return true;
         }
-        for (LevelSelector levelSelector : getLevels()) {
-            if (hasPerk(perk, levelSelector)) {
-                return true;
+        if (Phase.LEVEL.isCheckedPhase(phase)) {
+            for (LevelSelector levelSelector : getLevels()) {
+                if (hasPerk(perk, levelSelector)) {
+                    return true;
+                }
             }
         }
         return false;

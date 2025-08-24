@@ -252,7 +252,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                         + "' capabilities options and only '"
                         + getCapabilityOptions().get(i).getOptions().size() + "' are available.");
             }
-            final List<Selection> availableOptions = getCapabilityOptions().get(i).getOptions()
+            final List<Selection> availableOptions = getNotRepeatedCapabilityOptions().get(i).getOptions()
                     .stream().map(co -> new Selection(co.getId(), co.getSelectedSpecialization())).collect(Collectors.toList());
             for (Selection selection : selectedCapabilityOptions.get(i).getSelections()) {
                 //Compare specializations, or capabilities without specialization if not defined in the options.
@@ -367,6 +367,9 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     }
 
     public List<PerkOptions> getNotRepeatedPerksOptions() {
+        if (getCharacterDefinitionStep().getPerksOptions() == null) {
+            return null;
+        }
         final List<PerkOptions> perkOptions = new ArrayList<>();
         for (PerkOptions perkOption : getCharacterDefinitionStep().getPerksOptions()) {
             //Get not duplicated options that are selected on previous steps.

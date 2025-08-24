@@ -28,6 +28,7 @@ import com.softwaremagico.tm.Option;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.perks.Perk;
 import com.softwaremagico.tm.character.perks.PerkOptions;
+import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
@@ -39,11 +40,13 @@ import java.util.Set;
 public class RandomPerk extends RandomSelector<Perk> {
 
     private final PerkOptions perkOptions;
+    private final Phase phase;
 
     public RandomPerk(CharacterPlayer characterPlayer, Set<RandomPreference> preferences,
-                      PerkOptions perkOptions) throws InvalidXmlElementException {
+                      PerkOptions perkOptions, Phase phase) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
         this.perkOptions = perkOptions;
+        this.phase = phase;
     }
 
     @Override
@@ -55,7 +58,7 @@ public class RandomPerk extends RandomSelector<Perk> {
     @Override
     protected int getWeight(Perk element) throws InvalidRandomElementSelectedException {
         // Already has a perk.
-        if (getCharacterPlayer().hasPerk(element.getId())) {
+        if (getCharacterPlayer().hasPerk(element.getId(), phase)) {
             return 0;
         }
         return BASIC_PROBABILITY;

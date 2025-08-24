@@ -77,12 +77,16 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
     @Override
     public List<Selection> getSelectedPerks() {
         final List<Selection> selectedPerks = new ArrayList<>();
-        getSelectedClassPerksOptions().forEach(perkOption ->
-                selectedPerks.addAll(perkOption.getSelections().stream().filter(selection -> selection.getId() != null)
-                        .collect(Collectors.toSet())));
-        getSelectedCallingPerksOptions().forEach(perkOption ->
-                selectedPerks.addAll(perkOption.getSelections().stream().filter(selection -> selection.getId() != null)
-                        .collect(Collectors.toSet())));
+        if (getSelectedClassPerksOptions() != null) {
+            getSelectedClassPerksOptions().forEach(perkOption ->
+                    selectedPerks.addAll(perkOption.getSelections().stream().filter(selection -> selection.getId() != null)
+                            .collect(Collectors.toSet())));
+        }
+        if (getSelectedCallingPerksOptions() != null) {
+            getSelectedCallingPerksOptions().forEach(perkOption ->
+                    selectedPerks.addAll(perkOption.getSelections().stream().filter(selection -> selection.getId() != null)
+                            .collect(Collectors.toSet())));
+        }
         return selectedPerks;
     }
 
@@ -146,11 +150,11 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
     }
 
     public List<PerkOptions> getClassPerksOptions() {
-        return ((Level) getCharacterDefinitionStep()).getClassPerksOptions();
+        return ((Level) getCharacterDefinitionStep()).getFactionPerksOptions();
     }
 
     public List<PerkOptions> getNotRepeatedClassPerksOptions() {
-        return ((Level) getCharacterDefinitionStep()).getNotRepeatedClassPerksOptions();
+        return ((Level) getCharacterDefinitionStep()).getNotRepeatedFactionPerksOptions();
     }
 
     public List<PerkOptions> getCallingPerksOptions() {

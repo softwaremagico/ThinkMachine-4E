@@ -66,6 +66,26 @@ public final class CharacterExamples {
         return characterPlayer;
     }
 
+    public static CharacterPlayer generateHumanNobleHawkwoodCommander() {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+
+        characterPlayer.getInfo().addName(new Name("Oliver", Gender.MALE, null, null));
+        characterPlayer.getInfo().setSurname(new Surname("Queen", null, null));
+        characterPlayer.getInfo().setPlayer("Player 1");
+        characterPlayer.getInfo().setGender(Gender.MALE);
+        characterPlayer.getInfo().setAge(AGE);
+        characterPlayer.getInfo().setPlanet(PlanetFactory.getInstance().getElement("sutek"));
+
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("noble");
+        characterPlayer.setFaction("hawkwood");
+        characterPlayer.setCalling("commander");
+
+        populateCharacter(characterPlayer);
+
+        return characterPlayer;
+    }
+
     public static void populateCharacter(CharacterPlayer characterPlayer) {
         characterPlayer.setPrimaryCharacteristic("dexterity");
         characterPlayer.setSecondaryCharacteristic("wits");
@@ -188,7 +208,7 @@ public final class CharacterExamples {
                 characterPlayer.getCalling().getSelectedPerksOptions().get(i).getSelections()
                         .add(new Selection(characterPlayer.getCalling().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getId(),
                                 characterPlayer.getCalling().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations() != null
-                                && !characterPlayer.getCalling().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations().isEmpty()
+                                        && !characterPlayer.getCalling().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations().isEmpty()
                                         ? characterPlayer.getCalling().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations().get(0)
                                         : null));
             }
