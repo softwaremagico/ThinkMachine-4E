@@ -41,13 +41,24 @@ public class ExportTxtTests {
     private static final String LANGUAGE = "es";
 
     @Test
-    public void checkCustomCharacter() throws URISyntaxException, IOException {
+    public void checkDecadosCommanderCharacter() throws URISyntaxException, IOException {
         Translator.setLanguage(LANGUAGE);
         final CharacterPlayer player = CharacterExamples.generateHumanNobleDecadosCommander();
         final CharacterSheet characterSheet = new CharacterSheet(player);
 
         final String text = new String(Files.readAllBytes(Paths.get(getClass().getClassLoader()
-                .getResource("CustomCharacter.txt").toURI())));
+                .getResource("DecadosCommander.txt").toURI())));
+        Assert.assertEquals(characterSheet.toString().trim(), text.trim());
+    }
+
+    @Test
+    public void checkHumanHawkwoodCommanderCharacter() throws URISyntaxException, IOException {
+        Translator.setLanguage(LANGUAGE);
+        final CharacterPlayer player = CharacterExamples.generateHumanNobleHawkwoodCommander();
+        final CharacterSheet characterSheet = new CharacterSheet(player);
+
+        final String text = new String(Files.readAllBytes(Paths.get(getClass().getClassLoader()
+                .getResource("HawkwoodCommander.txt").toURI())));
         Assert.assertEquals(characterSheet.toString().trim(), text.trim());
     }
 }

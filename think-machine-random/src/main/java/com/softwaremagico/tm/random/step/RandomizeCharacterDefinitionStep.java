@@ -176,8 +176,8 @@ public class RandomizeCharacterDefinitionStep<T extends Element> {
 
 
     private void assignMaterialAwards() throws InvalidRandomElementSelectedException {
-        if (characterDefinitionStepSelection.getMaterialAwardsOptions() != null &&
-                !characterDefinitionStepSelection.getMaterialAwardsOptions().isEmpty()) {
+        if (characterDefinitionStepSelection.getMaterialAwardsOptions() != null
+                && !characterDefinitionStepSelection.getMaterialAwardsOptions().isEmpty()) {
             for (int i = 0; i < characterDefinitionStepSelection.getMaterialAwardsOptions().size(); i++) {
                 final RandomMaterialAward randomMaterialAward =
                         new RandomMaterialAward(getCharacterPlayer(), getPreferences(),
