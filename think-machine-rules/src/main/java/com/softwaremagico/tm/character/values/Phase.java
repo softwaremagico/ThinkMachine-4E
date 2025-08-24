@@ -1,10 +1,10 @@
-package com.softwaremagico.tm.character.capabilities;
+package com.softwaremagico.tm.character.values;
 
 /*-
  * #%L
  * Think Machine 4E (Rules)
  * %%
- * Copyright (C) 2017 - 2024 Softwaremagico
+ * Copyright (C) 2017 - 2025 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -24,24 +24,23 @@ package com.softwaremagico.tm.character.capabilities;
  * #L%
  */
 
-import com.softwaremagico.tm.character.CharacterDefinitionStep;
-import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
-import com.softwaremagico.tm.character.CharacterPlayer;
-import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
+public enum Phase {
+    SPECIE(0),
+    UPBRINGING(1),
+    FACTION(2),
+    CALLING(3),
+    LEVEL(4);
 
-public class CapabilitySelection extends CharacterDefinitionStepSelection {
-    private String specialization;
+    private final int index;
 
-    public CapabilitySelection(CharacterPlayer characterPlayer, String capability) throws InvalidGeneratedCharacter {
-        super(characterPlayer, new CharacterDefinitionStep<>());
-        setId(capability);
+    Phase(int index) {
+        this.index = index;
     }
 
-    public String getSpecialization() {
-        return specialization;
-    }
-
-    public void setSpecialization(String specialization) {
-        this.specialization = specialization;
+    public boolean isCheckedPhase(Phase phase) {
+        if (phase != null) {
+            return index < phase.index;
+        }
+        return false;
     }
 }

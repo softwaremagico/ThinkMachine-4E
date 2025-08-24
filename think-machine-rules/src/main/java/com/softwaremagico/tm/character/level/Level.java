@@ -150,16 +150,31 @@ public class Level extends CharacterDefinitionStep<Level> {
         return null;
     }
 
-    public List<PerkOptions> getClassPerksOptions() {
-        if (characterPlayer.getCalling() == null) {
+    public List<PerkOptions> getFactionPerksOptions() {
+        if (characterPlayer.getFaction() == null || characterPlayer.getCalling() == null) {
             return new ArrayList<>();
         }
         final List<PerkOptions> perks = characterPlayer.getFaction().getPerksOptions();
         if (characterPlayer.isFavoredCalling()) {
             for (PerkOptions perkOptions : perks) {
-                perkOptions.getOptions().addAll(getCallingPerksOptions().get(0).getOptions().stream().filter(p ->
-                        p.getElement().getType() == PerkType.PRIVILEGE
-                ).collect(Collectors.toList()));
+                perkOptions.getOptions().addAll(characterPlayer.getCalling().getPerksOptions().get(0).getOptions().stream()
+                        .filter(p -> p.getElement().getType() == PerkType.PRIVILEGE
+                        ).collect(Collectors.toList()));
+            }
+        }
+        return perks;
+    }
+
+    public List<PerkOptions> getNotRepeatedFactionPerksOptions() {
+        if (characterPlayer.getCalling() == null) {
+            return new ArrayList<>();
+        }
+        final List<PerkOptions> perks = characterPlayer.getFaction().getNotRepeatedPerksOptions();
+        if (characterPlayer.isFavoredCalling()) {
+            for (PerkOptions perkOptions : perks) {
+                perkOptions.getOptions().addAll(characterPlayer.getCalling().getNotRepeatedPerksOptions().get(0).getOptions().stream()
+                        .filter(p -> p.getElement().getType() == PerkType.PRIVILEGE
+                        ).collect(Collectors.toList()));
             }
         }
         return perks;
@@ -170,6 +185,13 @@ public class Level extends CharacterDefinitionStep<Level> {
             return new ArrayList<>();
         }
         return characterPlayer.getCalling().getPerksOptions();
+    }
+
+    public List<PerkOptions> getNotRepeatedCallingPerksOptions() {
+        if (characterPlayer.getCalling() == null) {
+            return new ArrayList<>();
+        }
+        return characterPlayer.getCalling().getNotRepeatedPerksOptions();
     }
 
     @Override

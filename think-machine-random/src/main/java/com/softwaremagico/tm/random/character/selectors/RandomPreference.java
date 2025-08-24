@@ -39,5 +39,5 @@ public enum RandomPreference {
     GOOD,
     EVIL,
     SPECIALIZED,
-    GENERALIZED;
+    BALANCED;
 }

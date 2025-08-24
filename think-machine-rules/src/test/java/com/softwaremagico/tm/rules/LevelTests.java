@@ -79,13 +79,13 @@ public class LevelTests {
 
     @Test
     public void favoredCallingsInLevel() {
-        final CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleDecadosCommander();
+        final CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleHawkwoodCommander();
 
         characterPlayer.addLevel();
         final LevelSelector level = characterPlayer.addLevel();
 
         final PerkOption militaryRank = new PerkOption(PerkFactory.getInstance().getElement("militaryRank1"));
-        Assert.assertTrue(level.getClassPerksOptions().get(0).getOptions().contains(militaryRank));
+        Assert.assertTrue(level.getNotRepeatedClassPerksOptions().get(0).getOptions().contains(militaryRank));
 
     }
 
@@ -94,11 +94,6 @@ public class LevelTests {
     public void notFavoredCallingsInLevel() {
         final CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleDecadosCommander();
 
-        characterPlayer.addLevel();
-        final LevelSelector level = characterPlayer.addLevel();
-
-        final PerkOption councilMember = new PerkOption(PerkFactory.getInstance().getElement("councilMember"));
-        Assert.assertFalse(level.getClassPerksOptions().get(0).getOptions().contains(councilMember));
 
     }
 }

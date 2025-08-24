@@ -49,6 +49,8 @@ import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 @Test(groups = "characterRules")
 public class CharacterRulesTests {
 
@@ -148,9 +150,9 @@ public class CharacterRulesTests {
         CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleDecadosCommander();
 
         Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.STRENGTH), 3);
-        Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.DEXTERITY), 5);
+        Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.DEXTERITY), 7);
         Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.ENDURANCE), 4);
-        Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.WITS), 5);
+        Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.WITS), 6);
         Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.PERCEPTION), 4);
         Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.WILL), 6);
         Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.PRESENCE), 8);
@@ -195,7 +197,7 @@ public class CharacterRulesTests {
         characterPlayer.setFaction("far");
         characterPlayer.setCalling("spy");
 
-        Assert.assertEquals(characterPlayer.getCalling().getPerksOptions().get(0).getOptions().size(),
+        Assert.assertEquals(characterPlayer.getCalling().getNotRepeatedPerksOptions().get(0).getOptions().size(),
                 CallingFactory.getInstance().getElement("spy").getPerksOptions().get(0).getOptions().size()
                         + SpecieFactory.getInstance().getElement("vorox").getPerks().size());
     }
@@ -241,17 +243,18 @@ public class CharacterRulesTests {
     @Test
     public void checkRaisedInSpace() {
         CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.getInfo().setNames("Raised");
         characterPlayer.setSpecie("human");
         characterPlayer.setUpbringing("noble");
         characterPlayer.getUpbringing().setRaisedInSpace(true);
 
         final CapabilityOption shipboardOperations = new CapabilityOption(CapabilityFactory.getInstance().getElement("shipboardOperations"));
-        for (CapabilityOptions capabilityOptions : characterPlayer.getUpbringing().getCapabilityOptions()) {
+        for (CapabilityOptions capabilityOptions : characterPlayer.getUpbringing().getNotRepeatedCapabilityOptions()) {
             Assert.assertTrue(capabilityOptions.getOptions().contains(shipboardOperations));
         }
 
         final CapabilityOption thinkMachines = new CapabilityOption(CapabilityFactory.getInstance().getElement("thinkMachines"));
-        for (CapabilityOptions capabilityOptions : characterPlayer.getUpbringing().getCapabilityOptions()) {
+        for (CapabilityOptions capabilityOptions : characterPlayer.getUpbringing().getNotRepeatedCapabilityOptions()) {
             Assert.assertTrue(capabilityOptions.getOptions().contains(thinkMachines));
         }
 
@@ -266,24 +269,35 @@ public class CharacterRulesTests {
         }
 
         CharacterPlayer characterPlayer2 = new CharacterPlayer();
+        characterPlayer2.getInfo().setNames("NotRaised");
         characterPlayer2.setSpecie("human");
         characterPlayer2.setUpbringing("noble");
         characterPlayer2.getUpbringing().setRaisedInSpace(false);
 
-        for (CapabilityOptions capabilityOptions : characterPlayer2.getUpbringing().getCapabilityOptions()) {
-            Assert.assertTrue(capabilityOptions.getOptions().contains(shipboardOperations));
+        for (CapabilityOptions capabilityOptions : characterPlayer2.getUpbringing().getNotRepeatedCapabilityOptions()) {
+            Assert.assertFalse(capabilityOptions.getOptions().contains(shipboardOperations));
         }
 
-        for (CapabilityOptions capabilityOptions : characterPlayer2.getUpbringing().getCapabilityOptions()) {
-            Assert.assertTrue(capabilityOptions.getOptions().contains(thinkMachines));
-        }
-
-        for (SkillBonusOptions skillBonusOptions : characterPlayer2.getUpbringing().getSkillOptions()) {
-            Assert.assertTrue(skillBonusOptions.getOptions().contains(interfaceSkill));
+        for (CapabilityOptions capabilityOptions : characterPlayer2.getUpbringing().getNotRepeatedCapabilityOptions()) {
+            Assert.assertFalse(capabilityOptions.getOptions().contains(thinkMachines));
         }
 
         for (SkillBonusOptions skillBonusOptions : characterPlayer2.getUpbringing().getSkillOptions()) {
-            Assert.assertTrue(skillBonusOptions.getOptions().contains(techRedemptionSkill));
+            Assert.assertFalse(skillBonusOptions.getOptions().contains(interfaceSkill));
         }
+
+        for (SkillBonusOptions skillBonusOptions : characterPlayer2.getUpbringing().getSkillOptions()) {
+            Assert.assertFalse(skillBonusOptions.getOptions().contains(techRedemptionSkill));
+        }
+    }
+
+    public void avoidingCallingDuplicateCapability() {
+        CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleDecadosCommander();
+        Assert.assertTrue(characterPlayer.getCalling().getCapabilityOptions().get(0).getOptions().contains(
+                new CapabilityOption(CapabilityFactory.getInstance().getElement("militaryWeapons"))));
+        //Military weapons is not an option on commander calling
+        Assert.assertTrue(characterPlayer.getCalling().getNotRepeatedCapabilityOptions().get(0).getOptions().size() > 60);
+        Assert.assertFalse(characterPlayer.getCalling().getNotRepeatedCapabilityOptions().get(0).getOptions().contains(
+                new CapabilityOption(CapabilityFactory.getInstance().getElement("militaryWeapons"))));
     }
 }

@@ -55,6 +55,7 @@ public class PerkOptions extends OptionSelector<Perk, PerkOption> {
     public PerkOptions(PerkOptions optionSelector, List<PerkOption> finalPerks) {
         super(optionSelector);
         this.finalPerks = finalPerks;
+        setOptions(finalPerks);
     }
 
     @Override
