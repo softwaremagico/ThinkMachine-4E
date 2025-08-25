@@ -211,6 +211,12 @@ public class CharacterPlayer {
     }
 
     public void checkMaxValueByLevel(Element element, int value) {
+        if (element == null) {
+            checkMaxValueByLevel(element.getId(), value);
+        }
+    }
+
+    public void checkMaxValueByLevel(String element, int value) {
         if ((getLevel() < 2 && value > MAX_INITIAL_VALUE)
                 || (getLevel() < LEVEL_MAX_VALUE && value > MAX_INTERMEDIAL_VALUE)) {
             throw new InvalidXmlElementException("Element '" + element + "' has exceeded its maximum value '" + value + "' at level '" + getLevel() + "'.");
@@ -371,10 +377,7 @@ public class CharacterPlayer {
                 stringBuilder.append((stringBuilder.length() > 0 ? ", " : "")).append("Calling: ").append(skillBonus);
             }
         }
-        if (bonus > MAX_INITIAL_VALUE) {
-            throw new MaxInitialValueExceededException("Skill '" + skill + "' has exceeded the maximum value of '" + MAX_INITIAL_VALUE + "'. Bonuses from: '"
-                    + stringBuilder + "'.", bonus, MAX_INITIAL_VALUE);
-        }
+        checkMaxValueByLevel(skill, bonus);
         return bonus;
     }
 

@@ -139,8 +139,8 @@ public class RandomizeCharacterDefinitionStep {
                         boolean skillFound = false;
                         Skill selectedSkill;
                         do {
-                            final RandomSkill randomSkill =
-                                    new RandomSkill(getCharacterPlayer(), getPreferences(),
+                            final RandomSkillBonusOption randomSkill =
+                                    new RandomSkillBonusOption(getCharacterPlayer(), getPreferences(),
                                             characterDefinitionStepSelection.getSkillOptions().get(i));
                             selectedSkill = randomSkill.selectElementByWeight();
                             try {

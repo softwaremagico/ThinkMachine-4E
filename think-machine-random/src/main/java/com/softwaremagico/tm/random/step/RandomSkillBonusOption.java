@@ -24,41 +24,30 @@ package com.softwaremagico.tm.random.step;
  * #L%
  */
 
+import com.softwaremagico.tm.Option;
 import com.softwaremagico.tm.character.CharacterPlayer;
-import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
 import com.softwaremagico.tm.character.skills.Skill;
-import com.softwaremagico.tm.character.skills.SkillFactory;
+import com.softwaremagico.tm.character.skills.SkillBonusOptions;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
-import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
 import java.util.Collection;
 import java.util.Set;
 
-public class RandomSkill extends RandomSelector<Skill> {
+public class RandomSkillBonusOption extends RandomSkill {
 
+    private final SkillBonusOptions skillOptions;
 
-    public RandomSkill(CharacterPlayer characterPlayer, Set<RandomPreference> preferences) throws InvalidXmlElementException {
+    public RandomSkillBonusOption(CharacterPlayer characterPlayer, Set<RandomPreference> preferences,
+                                  SkillBonusOptions skillOptions) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
+        this.skillOptions = skillOptions;
     }
 
     @Override
     protected Collection<Skill> getAllElements() throws InvalidXmlElementException {
-        return SkillFactory.getInstance().getElements();
-    }
-
-
-    @Override
-    protected double getUserPreferenceBonus(Skill element) {
-        double multiplier = super.getUserPreferenceBonus(element);
-        if (getPreferences().contains(RandomPreference.SPECIALIZED)) {
-            multiplier += Math.pow(getCharacterPlayer().getSkillValue(element), 2);
-        } else if (getPreferences().contains(RandomPreference.BALANCED)) {
-            multiplier += Math.pow(CharacteristicDefinition.MAX_CHARACTERISTIC_VALUE
-                    - (double) getCharacterPlayer().getSkillValue(element), 2);
-        }
-        return multiplier;
+        return skillOptions.getOptions().stream().map(Option::getElement).toList();
     }
 
 
@@ -66,11 +55,12 @@ public class RandomSkill extends RandomSelector<Skill> {
     protected int getWeight(Skill element) throws InvalidRandomElementSelectedException {
         //Max skill at some levels.
         try {
-            getCharacterPlayer().checkMaxValueByLevel(element, getCharacterPlayer().getSkillValue(element) + 1);
+            getCharacterPlayer().checkMaxValueByLevel(element, getCharacterPlayer().getSkillValue(element)
+                    + skillOptions.getBonus());
         } catch (InvalidXmlElementException e) {
             return 0;
         }
-        if (getCharacterPlayer().getSkillValue(element) + 1 >= Skill.SKILL_MAX_VALUE) {
+        if (getCharacterPlayer().getSkillValue(element) + skillOptions.getBonus() >= Skill.SKILL_MAX_VALUE) {
             return 0;
         }
         return super.getWeight(element);
