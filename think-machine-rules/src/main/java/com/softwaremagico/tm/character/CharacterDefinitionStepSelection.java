@@ -206,6 +206,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                 .collect(Collectors.toSet()).contains(ComparableUtils.getComparisonId(capability, specialization));
     }
 
+    @JsonIgnore
     public List<Selection> getSelectedCapabilities() {
         final List<Selection> selectedCapabilities = new ArrayList<>();
         selectedCapabilityOptions.forEach(capabilityOption ->
@@ -214,6 +215,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         return selectedCapabilities;
     }
 
+    @JsonIgnore
     public List<Selection> getSelectedPerks() {
         final List<Selection> selectedPerks = new ArrayList<>();
         selectedPerksOptions.forEach(perkOption ->
@@ -254,7 +256,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                         + "' capabilities options and only '"
                         + getCapabilityOptions().get(i).getOptions().size() + "' are available.");
             }
-            final List<Selection> availableOptions = getNotRepeatedCapabilityOptions().get(i).getOptions()
+            final List<Selection> availableOptions = getAllCapabilityOptions().get(i).getOptions()
                     .stream().map(co -> new Selection(co.getId(), co.getSelectedSpecialization())).collect(Collectors.toList());
             for (Selection selection : selectedCapabilityOptions.get(i).getSelections()) {
                 //Compare specializations, or capabilities without specialization if not defined in the options.
@@ -320,19 +322,52 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                         .stream().map(po -> new Selection(po.getId())).collect(Collectors.toList());
                 for (Selection selection : selectedClassPerksOptions.get(i).getSelections()) {
                     if (!availableOptions.contains(selection)) {
-                        throw new InvalidSelectedElementException("Selected perk '" + selection + "' does not exist.", selection);
+                        throw new InvalidSelectedElementException("Selected perk '" + selection + "' does not exist. Available perks are: "
+                                + availableOptions, selection);
                     }
                 }
             }
         }
     }
 
+    /**
+     * Gets all options that are defined on the xml.
+     *
+     * @return
+     */
     public List<CapabilityOptions> getCapabilityOptions() {
         return getCharacterDefinitionStep().getCapabilityOptions();
     }
 
+    /**
+     * Gets all options that are valid selections by the user.
+     *
+     * @return
+     */
+    private List<CapabilityOptions> getAllCapabilityOptions() {
+        final List<CapabilityOptions> capabilityOptions = new ArrayList<>();
+        for (CapabilityOptions capabilityOption : getCharacterDefinitionStep().getCapabilityOptions()) {
+            //If no option is available. Must select between any not restricted to the character.
+            if (!capabilityOption.getOptions().isEmpty()) {
+                capabilityOptions.add(new CapabilityOptions(capabilityOption, capabilityOption.getOptions()));
+            } else {
+                final CapabilityOptions newCapabilityOptions = new CapabilityOptions(capabilityOption, CapabilityFactory.getInstance().getElements()
+                        .stream().filter(
+                                e -> !e.getRestrictions().isRestricted(characterPlayer))
+                        .map(CapabilityOption::new).collect(Collectors.toList()));
+                capabilityOptions.add(newCapabilityOptions);
+            }
+        }
+        return capabilityOptions;
+    }
+
     public abstract Phase getPhase();
 
+    /**
+     * Gets all options that are valid selections by the user except the ones that have been already selected.
+     *
+     * @return
+     */
     public List<CapabilityOptions> getNotRepeatedCapabilityOptions() {
         final List<CapabilityOptions> capabilityOptions = new ArrayList<>();
         for (CapabilityOptions capabilityOption : getCharacterDefinitionStep().getCapabilityOptions()) {

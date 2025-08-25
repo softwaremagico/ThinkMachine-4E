@@ -84,6 +84,13 @@ public class SkillBonusOptions extends OptionSelector<Skill, SkillBonusOption> {
         return skillBonusById.get(skill);
     }
 
+    public int getBonus() {
+        if (super.getOptions() != null && !super.getOptions().isEmpty()) {
+            return getOptions().get(0).getBonus();
+        }
+        return 1;
+    }
+
     @Override
     public String toString() {
         return "SkillOption{"

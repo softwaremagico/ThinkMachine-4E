@@ -29,7 +29,6 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
 import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
-import com.softwaremagico.tm.exceptions.InvalidSkillException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
@@ -71,7 +70,8 @@ public class RandomSkill extends RandomSelector<Skill> {
     protected int getWeight(Skill element) throws InvalidRandomElementSelectedException {
         //Max skill at some levels.
         try {
-            getCharacterPlayer().checkMaxValueByLevel(element, getCharacterPlayer().getSkillValue(element) + 1);
+            getCharacterPlayer().checkMaxValueByLevel(element, getCharacterPlayer().getSkillValue(element)
+                    + skillOptions.getBonus());
         } catch (InvalidXmlElementException e) {
             return 0;
         }

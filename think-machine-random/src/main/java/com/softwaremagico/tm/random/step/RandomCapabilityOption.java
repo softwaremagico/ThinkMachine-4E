@@ -6,6 +6,7 @@ import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
 import com.softwaremagico.tm.character.capabilities.CapabilityOption;
 import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.skills.Specialization;
+import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
@@ -19,17 +20,19 @@ import java.util.Set;
 public class RandomCapabilityOption extends RandomSelector<CapabilityOption> {
 
     private final CapabilityOptions capabilityOptions;
+    private final Phase phase;
 
     public RandomCapabilityOption(CharacterPlayer characterPlayer, Set<RandomPreference> preferences,
-                                  CapabilityOptions capabilityOptions) throws InvalidXmlElementException {
+                                  CapabilityOptions capabilityOptions, Phase phase) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
         this.capabilityOptions = capabilityOptions;
+        this.phase = phase;
     }
 
     @Override
     protected int getWeight(CapabilityOption element) throws InvalidRandomElementSelectedException {
         if (getCharacterPlayer().hasCapability(element.getId(), element.getSelectedSpecialization() != null
-                ? element.getSelectedSpecialization().getId() : null, null)) {
+                ? element.getSelectedSpecialization().getId() : null, phase)) {
             return 0;
         }
         return super.getWeight(element);

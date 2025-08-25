@@ -105,14 +105,16 @@ public class RandomizeCharacterDefinitionStep {
                     }
                     final RandomCapabilityOption randomCapability =
                             new RandomCapabilityOption(getCharacterPlayer(), getPreferences(),
-                                    characterDefinitionStepSelection.getNotRepeatedCapabilityOptions().get(i));
+                                    characterDefinitionStepSelection.getNotRepeatedCapabilityOptions().get(i),
+                                    characterDefinitionStepSelection.getPhase());
                     try {
                         final CapabilityOption selectedCapability = randomCapability.selectElementByWeight();
                         //Here already exists one capability by specialization.
+                        final Selection selection = new Selection(selectedCapability.getId(),
+                                selectedCapability.getSelectedSpecialization() != null
+                                        ? selectedCapability.getSelectedSpecialization() : null);
                         characterDefinitionStepSelection.getSelectedCapabilityOptions().get(i).getSelections()
-                                .add(new Selection(selectedCapability.getId(),
-                                        selectedCapability.getSelectedSpecialization() != null
-                                                ? selectedCapability.getSelectedSpecialization() : null));
+                                .add(selection);
                     } catch (InvalidXmlElementException e) {
                         throw new InvalidXmlElementException("Error on capabilities options '"
                                 + characterDefinitionStepSelection.getNotRepeatedCapabilityOptions().get(i) + "'.", e);

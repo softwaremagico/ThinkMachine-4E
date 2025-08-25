@@ -546,9 +546,10 @@ public class CharacterPlayer {
         if (Phase.CALLING.isCheckedPhase(phase) && hasCapability(comparedCapability, calling)) {
             return true;
         }
-        if (Phase.LEVEL.isCheckedPhase(phase)) {
+        //Levels always check other levels.
+        if (Phase.LEVEL.isCheckedPhase(phase) || phase == Phase.LEVEL) {
             for (LevelSelector levelSelector : getLevels()) {
-                if (hasCapability(capability, levelSelector)) {
+                if (hasCapability(comparedCapability, levelSelector)) {
                     return true;
                 }
             }
@@ -578,7 +579,8 @@ public class CharacterPlayer {
         if (Phase.CALLING.isCheckedPhase(phase) && hasPerk(perk, calling)) {
             return true;
         }
-        if (Phase.LEVEL.isCheckedPhase(phase)) {
+        //Levels always check other levels.
+        if (Phase.LEVEL.isCheckedPhase(phase) || phase == Phase.LEVEL) {
             for (LevelSelector levelSelector : getLevels()) {
                 if (hasPerk(perk, levelSelector)) {
                     return true;
@@ -684,6 +686,7 @@ public class CharacterPlayer {
             nextCapabilities = new ArrayList<>(levelCapabilities);
             levelCapabilities.retainAll(completeCapabilitiesList);
             if (!levelCapabilities.isEmpty()) {
+                hasCapability("religionLore", "elDiin", Phase.LEVEL);
                 throw new InvalidXmlElementException("Duplicated capability '" + levelCapabilities + "' on level '" + levelSelector + "'.");
             }
             completeCapabilitiesList.addAll(nextCapabilities);
