@@ -624,7 +624,7 @@ public class CharacterPlayer {
         nextPerks = new ArrayList<>(factionPerks);
         factionPerks.retainAll(completePerkList);
         if (!factionPerks.isEmpty()) {
-            throw new InvalidXmlElementException("Duplicated perks '" + upbringingPerks + "' on faction '" + getFaction() + "'.");
+            throw new InvalidXmlElementException("Duplicated perks '" + factionPerks + "' on faction '" + getFaction() + "'.");
         }
         completePerkList.addAll(nextPerks);
 
@@ -736,12 +736,12 @@ public class CharacterPlayer {
 
     public LevelSelector addLevel() {
         if (getFaction() == null || getSpecie() == null || getCalling() == null) {
-            throw new InvalidLevelException("Please, finalize level 1 first.");
+            throw new InvalidLevelException("Please, finalize or correct level 1 first.");
         }
         try {
             validate();
         } catch (InvalidXmlElementException e) {
-            throw new InvalidLevelException("Please, finalize previous level first.", e);
+            throw new InvalidLevelException("Please, finalize or correct previous level first.", e);
         }
         final LevelSelector newLevel = new LevelSelector(this, getLevel() + 1);
         levels.add(newLevel);
@@ -818,7 +818,7 @@ public class CharacterPlayer {
             selected = definitionStepSelection.getSelectedMaterialAwards().stream().map(CharacterSelectedEquipment::getRemainder)
                     .flatMap(Collection::stream).collect(Collectors.toSet());
         }
-        return ((CharacterDefinitionStep<?>) factory.getElement(definitionStepSelection.getId())).getMaterialAwards(selected);
+        return ((CharacterDefinitionStep) factory.getElement(definitionStepSelection.getId())).getMaterialAwards(selected);
     }
 
     public List<EquipmentOption> getMaterialAwardsSelected() {

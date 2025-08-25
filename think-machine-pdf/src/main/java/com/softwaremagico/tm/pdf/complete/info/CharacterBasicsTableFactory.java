@@ -158,10 +158,8 @@ public abstract class CharacterBasicsTableFactory extends BaseElement {
 
     protected static String getTranslatedTag(String tag, int maxWidth) {
         final String value = TextFactory.getInstance().getElement(tag).getName().getTranslatedText();
-        if (value != null) {
-            if (value.length() > maxWidth) {
-                return value.substring(0, maxWidth + 1);
-            }
+        if (value != null && value.length() > maxWidth) {
+            return value.substring(0, maxWidth + 1);
         }
         return value + ": ";
     }

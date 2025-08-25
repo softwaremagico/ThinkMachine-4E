@@ -26,7 +26,7 @@ package com.softwaremagico.tm.character.upbringing;
 
 import com.softwaremagico.tm.character.CharacterDefinitionStep;
 
-public class Upbringing extends CharacterDefinitionStep<Upbringing> {
+public class Upbringing extends CharacterDefinitionStep {
 
     private static final int TOTAL_CHARACTERISTICS_OPTIONS = 5;
     private static final int TOTAL_SKILL_OPTIONS = 5;

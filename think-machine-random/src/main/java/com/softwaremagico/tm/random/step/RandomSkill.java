@@ -58,10 +58,10 @@ public class RandomSkill extends RandomSelector<Skill> {
     protected double getUserPreferenceBonus(Skill element) {
         double multiplier = super.getUserPreferenceBonus(element);
         if (getPreferences().contains(RandomPreference.SPECIALIZED)) {
-            multiplier += getCharacterPlayer().getSkillValue(element);
+            multiplier += Math.pow(getCharacterPlayer().getSkillValue(element), 2);
         } else if (getPreferences().contains(RandomPreference.BALANCED)) {
-            multiplier += CharacteristicDefinition.MAX_CHARACTERISTIC_VALUE
-                    - getCharacterPlayer().getSkillValue(element);
+            multiplier += Math.pow(CharacteristicDefinition.MAX_CHARACTERISTIC_VALUE
+                    - (double) getCharacterPlayer().getSkillValue(element), 2);
         }
         return multiplier;
     }

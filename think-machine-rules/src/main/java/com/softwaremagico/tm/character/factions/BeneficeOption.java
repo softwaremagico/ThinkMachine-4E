@@ -32,6 +32,7 @@ public class BeneficeOption extends Element {
     private int value;
 
     public BeneficeOption() {
+        super();
     }
 
     public int getValue() {

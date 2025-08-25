@@ -39,7 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Level extends CharacterDefinitionStep<Level> {
+public class Level extends CharacterDefinitionStep {
     private static final int THREE = 3;
     private static final int FIVE = 5;
 
@@ -173,7 +173,7 @@ public class Level extends CharacterDefinitionStep<Level> {
         if (characterPlayer.isFavoredCalling()) {
             for (PerkOptions perkOptions : perks) {
                 perkOptions.getOptions().addAll(characterPlayer.getCalling().getNotRepeatedPerksOptions().get(0).getOptions().stream()
-                        .filter(p -> p.getElement().getType() == PerkType.PRIVILEGE
+                        .filter(p -> p.getElement() != null && p.getElement().getType() == PerkType.PRIVILEGE
                         ).collect(Collectors.toList()));
             }
         }

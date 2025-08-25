@@ -34,7 +34,7 @@ public class CellDottedBorderEvent implements PdfPCellEvent {
     private static final float DASH = 3f;
 
     public CellDottedBorderEvent() {
-
+        super();
     }
 
     public void cellLayout(PdfPCell cell, Rectangle position, PdfContentByte[] canvases) {

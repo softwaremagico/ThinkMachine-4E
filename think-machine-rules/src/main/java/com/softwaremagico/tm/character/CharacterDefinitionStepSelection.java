@@ -53,7 +53,7 @@ import java.util.stream.Collectors;
 public abstract class CharacterDefinitionStepSelection extends Element {
 
     private final CharacterPlayer characterPlayer;
-    private final CharacterDefinitionStep<?> characterDefinitionStep;
+    private final CharacterDefinitionStep characterDefinitionStep;
 
     @JsonProperty("capabilities")
     private List<CharacterSelectedElement> selectedCapabilityOptions;
@@ -66,7 +66,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     @JsonProperty("materialAwards")
     private List<CharacterSelectedEquipment> selectedMaterialAwards;
 
-    public CharacterDefinitionStepSelection(CharacterPlayer characterPlayer, CharacterDefinitionStep<?> characterDefinitionStep)
+    public CharacterDefinitionStepSelection(CharacterPlayer characterPlayer, CharacterDefinitionStep characterDefinitionStep)
             throws InvalidGeneratedCharacter {
         copy(characterDefinitionStep);
 
@@ -136,7 +136,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         }
     }
 
-    protected CharacterDefinitionStep<?> getCharacterDefinitionStep() {
+    protected CharacterDefinitionStep getCharacterDefinitionStep() {
         return characterDefinitionStep;
     }
 
@@ -366,7 +366,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
 
     public List<PerkOptions> getNotRepeatedPerksOptions() {
         if (getCharacterDefinitionStep().getPerksOptions() == null) {
-            return null;
+            return new ArrayList<>();
         }
         final List<PerkOptions> perkOptions = new ArrayList<>();
         for (PerkOptions perkOption : getCharacterDefinitionStep().getPerksOptions()) {

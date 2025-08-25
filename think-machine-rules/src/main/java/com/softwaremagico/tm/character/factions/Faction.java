@@ -35,7 +35,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @JacksonXmlRootElement(localName = "faction")
-public class Faction extends CharacterDefinitionStep<Faction> {
+public class Faction extends CharacterDefinitionStep {
     private static final int TOTAL_CHARACTERISTICS_OPTIONS = 5;
     private static final int TOTAL_SKILL_OPTIONS = 5;
     private static final int TOTAL_PERKS_OPTIONS = 1;

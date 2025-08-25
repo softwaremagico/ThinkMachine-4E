@@ -165,7 +165,6 @@ public class BaseElement {
         table.setWidthPercentage(WIDTH);
         table.addCell(createWhiteSeparator());
         table.addCell(createBlackSeparator());
-        // table.addCell(createWhiteSeparator());
 
         final PdfPCell cell = new PdfPCell();
         cell.addElement(table);

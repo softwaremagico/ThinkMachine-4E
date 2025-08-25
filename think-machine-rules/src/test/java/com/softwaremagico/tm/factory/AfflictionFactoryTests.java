@@ -26,9 +26,7 @@ package com.softwaremagico.tm.factory;
 
 
 import com.softwaremagico.tm.character.perks.AfflictionFactory;
-import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.restrictions.RestrictionMode;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

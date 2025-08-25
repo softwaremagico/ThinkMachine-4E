@@ -72,7 +72,6 @@ public class CapabilitiesTableFactory extends BaseElement {
                 for (CapabilityWithSpecialization capability : capabilities) {
                     final PdfPCell cell = new PdfPCell(new Paragraph(BaseElement.getChunk(capability.getNameRepresentation(), NAME_COLUMN_WIDTH,
                             FadingSunsTheme.getHandwrittingFont(), FadingSunsTheme.HANDWRITTING_DEFAULT_FONT_SIZE)));
-                    //cell.setPaddingLeft(FadingSunsTheme.LINE_PADDING);
                     cell.setBorder(0);
                     cell.setMinimumHeight(FadingSunsTheme.ROW_HEIGHT);
                     cell.setVerticalAlignment(Element.ALIGN_BOTTOM);

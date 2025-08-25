@@ -94,6 +94,10 @@ public class LevelTests {
     public void notFavoredCallingsInLevel() {
         final CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleDecadosCommander();
 
+        characterPlayer.addLevel();
+        final LevelSelector level = characterPlayer.addLevel();
 
+        final PerkOption militaryRank = new PerkOption(PerkFactory.getInstance().getElement("militaryRank1"));
+        Assert.assertFalse(level.getNotRepeatedClassPerksOptions().get(0).getOptions().contains(militaryRank));
     }
 }

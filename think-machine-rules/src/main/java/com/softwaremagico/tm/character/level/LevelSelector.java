@@ -124,12 +124,12 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
 
     @Override
     public void setSelectedPerksOptions(List<CharacterSelectedElement> selectedPerksOptions) {
-        throw new UnsupportedOperationException("Not allowed!");
+        //Ignored
     }
 
     @Override
     public void setSelectedMaterialAwards(List<CharacterSelectedEquipment> selectedMaterialAwards) {
-        throw new UnsupportedOperationException("Not allowed!");
+        //Ignored
     }
 
     @Override

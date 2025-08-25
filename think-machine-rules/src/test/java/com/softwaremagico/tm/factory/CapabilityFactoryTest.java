@@ -27,7 +27,6 @@ package com.softwaremagico.tm.factory;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
-import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import org.testng.Assert;
 import org.testng.annotations.Test;

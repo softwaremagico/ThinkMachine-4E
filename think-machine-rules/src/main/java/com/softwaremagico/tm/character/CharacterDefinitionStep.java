@@ -48,7 +48,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class CharacterDefinitionStep<T extends Element> extends Element {
+public class CharacterDefinitionStep extends Element {
     private static final int TOTAL_CHARACTERISTICS_OPTIONS = 0;
     private static final int TOTAL_SKILL_OPTIONS = 0;
     private static final int TOTAL_PERKS_OPTIONS = 0;
@@ -191,11 +191,11 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
         }
 
         int totalCharacteristicsPoints = 0;
-        for (CharacteristicBonusOptions characteristicBonusOptions : getCharacteristicOptions()) {
-            if (characteristicBonusOptions.getOptions().get(0).getElement() == null
-                    || characteristicBonusOptions.getOptions().get(0).getElement().getType() == null
-                    || !characteristicBonusOptions.getOptions().get(0).isExtra()) {
-                totalCharacteristicsPoints += characteristicBonusOptions.getTotalOptions() * characteristicBonusOptions.getOptions().get(0).getBonus();
+        for (CharacteristicBonusOptions characteristicOptions : getCharacteristicOptions()) {
+            if (characteristicOptions.getOptions().get(0).getElement() == null
+                    || characteristicOptions.getOptions().get(0).getElement().getType() == null
+                    || !characteristicOptions.getOptions().get(0).isExtra()) {
+                totalCharacteristicsPoints += characteristicOptions.getTotalOptions() * characteristicOptions.getOptions().get(0).getBonus();
             }
         }
         if (totalCharacteristicsPoints != getCharacteristicsTotalPoints()) {
@@ -205,9 +205,9 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
         }
 
         //All options, same bonus.
-        for (CharacteristicBonusOptions characteristicBonusOptions : getCharacteristicOptions()) {
+        for (CharacteristicBonusOptions characteristicOptions : getCharacteristicOptions()) {
             Integer bonus = null;
-            for (CharacteristicBonusOption characteristicBonusOption : characteristicBonusOptions.getOptions()) {
+            for (CharacteristicBonusOption characteristicBonusOption : characteristicOptions.getOptions()) {
                 if (bonus == null) {
                     bonus = characteristicBonusOption.getBonus();
                 } else {
@@ -220,8 +220,8 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
 
 
         int totalSkillPoints = 0;
-        for (SkillBonusOptions skillBonusOptions : getSkillOptions()) {
-            totalSkillPoints += skillBonusOptions.getTotalOptions() * skillBonusOptions.getOptions().get(0).getBonus();
+        for (SkillBonusOptions skillOptions : getSkillOptions()) {
+            totalSkillPoints += skillOptions.getTotalOptions() * skillOptions.getOptions().get(0).getBonus();
         }
         if (totalSkillPoints != getSkillsTotalPoints()) {
             throw new InvalidXmlElementException("Element '" + getId() + "' has invalid skill options: '" + getSkillsTotalPoints()
@@ -229,9 +229,9 @@ public class CharacterDefinitionStep<T extends Element> extends Element {
         }
 
         //All options, same bonus.
-        for (SkillBonusOptions skillBonusOptions : getSkillOptions()) {
+        for (SkillBonusOptions skillOptions : getSkillOptions()) {
             Integer bonus = null;
-            for (SkillBonusOption skillBonusOption : skillBonusOptions.getOptions()) {
+            for (SkillBonusOption skillBonusOption : skillOptions.getOptions()) {
                 if (bonus == null) {
                     bonus = skillBonusOption.getBonus();
                 } else {
