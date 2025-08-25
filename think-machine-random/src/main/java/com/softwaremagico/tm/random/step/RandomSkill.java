@@ -71,8 +71,8 @@ public class RandomSkill extends RandomSelector<Skill> {
     protected int getWeight(Skill element) throws InvalidRandomElementSelectedException {
         //Max skill at some levels.
         try {
-            getCharacterPlayer().checkSkillValueByLevel(getCharacterPlayer().getSkillValue(element) + 1);
-        } catch (InvalidSkillException e) {
+            getCharacterPlayer().checkMaxValueByLevel(element, getCharacterPlayer().getSkillValue(element) + 1);
+        } catch (InvalidXmlElementException e) {
             return 0;
         }
         return super.getWeight(element);

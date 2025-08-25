@@ -24,6 +24,7 @@ package com.softwaremagico.tm.character.level;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
@@ -90,6 +91,7 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
         return selectedPerks;
     }
 
+    @JsonIgnore
     public Level getLevelDefinition() {
         return ((Level) getCharacterDefinitionStep());
     }
@@ -98,26 +100,32 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
         return level;
     }
 
+    @JsonIgnore
     public int getExtraSurgeRating() {
         return getLevelDefinition().getExtraSurgeRating();
     }
 
+    @JsonIgnore
     public int getExtraSurgeNumber() {
         return getLevelDefinition().getExtraSurgeNumber();
     }
 
+    @JsonIgnore
     public int getExtraVitality() {
         return getLevelDefinition().getExtraVitality();
     }
 
+    @JsonIgnore
     public int getExtraVPBank() {
         return getLevelDefinition().getExtraVPBank();
     }
 
+    @JsonIgnore
     public int getExtraRevivalRating() {
         return getLevelDefinition().getExtraRevivalRating();
     }
 
+    @JsonIgnore
     public int getExtraRevivalNumber() {
         return getLevelDefinition().getExtraRevivalNumber();
     }
@@ -149,18 +157,22 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
         return Phase.LEVEL;
     }
 
+    @JsonIgnore
     public List<PerkOptions> getClassPerksOptions() {
         return ((Level) getCharacterDefinitionStep()).getFactionPerksOptions();
     }
 
+    @JsonIgnore
     public List<PerkOptions> getNotRepeatedClassPerksOptions() {
         return ((Level) getCharacterDefinitionStep()).getNotRepeatedFactionPerksOptions();
     }
 
+    @JsonIgnore
     public List<PerkOptions> getCallingPerksOptions() {
         return ((Level) getCharacterDefinitionStep()).getCallingPerksOptions();
     }
 
+    @JsonIgnore
     public List<PerkOptions> getNotRepeatedCallingPerksOptions() {
         return ((Level) getCharacterDefinitionStep()).getNotRepeatedCallingPerksOptions();
     }

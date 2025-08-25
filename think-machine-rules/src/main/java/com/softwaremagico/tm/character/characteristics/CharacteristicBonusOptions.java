@@ -75,6 +75,13 @@ public class CharacteristicBonusOptions extends OptionSelector<CharacteristicDef
         return new CharacteristicBonusOption(characteristic, 0);
     }
 
+    public int getBonus() {
+        if (super.getOptions() != null && !super.getOptions().isEmpty()) {
+            return getOptions().get(0).getBonus();
+        }
+        return 1;
+    }
+
     @Override
     public String toString() {
         return "CharacteristicOption{"

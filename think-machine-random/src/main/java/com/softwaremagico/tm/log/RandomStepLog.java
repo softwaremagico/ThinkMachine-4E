@@ -24,14 +24,15 @@ package com.softwaremagico.tm.log;
  * #L%
  */
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public final class CostCalculatorLog extends BasicLogger {
+public final class RandomStepLog extends BasicLogger {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CostCalculatorLog.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RandomStepLog.class);
 
-    private CostCalculatorLog() {
+    private RandomStepLog() {
 
     }
 

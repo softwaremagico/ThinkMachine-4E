@@ -33,6 +33,7 @@ import com.softwaremagico.tm.character.occultism.OccultismType;
 import com.softwaremagico.tm.character.specie.Specie;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
+import com.softwaremagico.tm.exceptions.InvalidSkillException;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.RandomGenerationLog;
@@ -44,8 +45,6 @@ import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedExcep
 import java.util.Collection;
 import java.util.Objects;
 import java.util.Set;
-
-import static com.softwaremagico.tm.character.CharacterPlayer.MAX_INITIAL_VALUE;
 
 public class RandomCharacteristics extends RandomSelector<CharacteristicDefinition> implements AssignableRandomSelector {
 
@@ -90,9 +89,9 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
         }
 
         //Max characteristic at some levels.
-        if (getCharacterPlayer().getSpecie() != null
-                && (getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName())
-                >= getCharacterPlayer().getLevel() + MAX_INITIAL_VALUE - 1)) {
+        try {
+            getCharacterPlayer().checkMaxValueByLevel(element, getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName()) + 1);
+        } catch (InvalidSkillException e) {
             return 0;
         }
 

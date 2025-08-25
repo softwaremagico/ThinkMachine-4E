@@ -28,6 +28,7 @@ import com.softwaremagico.tm.XmlData;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.RandomGenerationLog;
+import com.softwaremagico.tm.log.RandomSelectorLog;
 import com.softwaremagico.tm.log.RandomValuesLog;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
@@ -216,11 +217,11 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         }
 
         // Recommended by user preferences.
-        if (preferences != null) {
+        if (preferences != null && !preferences.isEmpty()) {
             final List<String> common = preferences.stream().map(Enum::name).collect(Collectors.toList());
             common.retainAll(element.getRandomDefinition().getRecommendedPreferences());
             RandomGenerationLog.debug(this.getClass().getName(),
-                    "Random definition as recommended for '{}'.", (USER_SELECTION_MULTIPLIER * common.size()));
+                    "Random definition multiplier '{}'.", (USER_SELECTION_MULTIPLIER * common.size()));
             multiplier += (USER_SELECTION_MULTIPLIER * common.size());
         }
 
@@ -287,6 +288,10 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         if (element.getRandomDefinition().getStaticProbability() != null) {
             return element.getRandomDefinition().getStaticProbability();
         }
+        //Reduce the elements with multiple specializations.
+        if (element.getSpecializations() != null && !element.getSpecializations().isEmpty()) {
+            return (int) Math.ceil((double) BASIC_PROBABILITY / element.getSpecializations().size());
+        }
         return BASIC_PROBABILITY;
     }
 
@@ -316,6 +321,8 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         if (selectedElement == null) {
             throw new InvalidRandomElementSelectedException("No elements to select");
         }
+        RandomSelectorLog.debug(this.getClass().getName(), "Selected element '" + selectedElement + "' from weighted elements '"
+                + getWeightedElements() + "'.");
         return selectedElement;
     }
 

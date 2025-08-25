@@ -24,6 +24,7 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
+import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.callings.CallingCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.callings.CallingGroup;
@@ -171,10 +172,11 @@ public class CharacterPlayer {
             for (CharacteristicDefinition characteristicDefinition : CharacteristicsDefinitionFactory.getInstance().getElements()) {
                 if (characteristicDefinition.getType() != CharacteristicType.OTHERS) {
                     final int characteristicValue = getCharacteristicValue(characteristicDefinition.getCharacteristicName());
-                    if ((getLevel() < 2 && characteristicValue > MAX_INITIAL_VALUE)
-                            || (getLevel() < LEVEL_MAX_VALUE && characteristicValue > MAX_INTERMEDIAL_VALUE)) {
+                    try {
+                        checkMaxValueByLevel(characteristicDefinition, characteristicValue);
+                    } catch (InvalidXmlElementException e) {
                         throw new InvalidCharacteristicException("Characteristic '" + characteristicDefinition.getCharacteristicName()
-                                + "' has exceeded its maximum value at level '" + getLevel() + "'.");
+                                + "' has exceeded its maximum value at level '" + getLevel() + "'.", e);
                     }
                     if (characteristicValue > (SpecieFactory.getInstance().getElement(getSpecie().getId())
                             .getSpecieCharacteristic(characteristicDefinition.getCharacteristicName()).getMaximumValue())) {
@@ -191,7 +193,7 @@ public class CharacterPlayer {
             for (Skill skill : SkillFactory.getInstance().getElements()) {
                 final int skillValue = getSkillValue(skill);
                 try {
-                    checkSkillValueByLevel(skillValue);
+                    checkMaxValueByLevel(skill, skillValue);
                 } catch (InvalidSkillException e) {
                     throw new InvalidSkillException("Skill '" + skill.getId()
                             + "' has exceeded its maximum value at level '" + getLevel() + "'.");
@@ -208,10 +210,10 @@ public class CharacterPlayer {
         }
     }
 
-    public void checkSkillValueByLevel(int skillValue) {
-        if ((getLevel() < 2 && skillValue > MAX_INITIAL_VALUE)
-                || (getLevel() < LEVEL_MAX_VALUE && skillValue > MAX_INTERMEDIAL_VALUE)) {
-            throw new InvalidSkillException("Skill has exceeded its maximum value '" + skillValue + "' at level '" + getLevel() + "'.");
+    public void checkMaxValueByLevel(Element element, int value) {
+        if ((getLevel() < 2 && value > MAX_INITIAL_VALUE)
+                || (getLevel() < LEVEL_MAX_VALUE && value > MAX_INTERMEDIAL_VALUE)) {
+            throw new InvalidXmlElementException("Element '" + element + "' has exceeded its maximum value '" + value + "' at level '" + getLevel() + "'.");
         }
     }
 
@@ -736,12 +738,12 @@ public class CharacterPlayer {
 
     public LevelSelector addLevel() {
         if (getFaction() == null || getSpecie() == null || getCalling() == null) {
-            throw new InvalidLevelException("Please, finalize or correct level 1 first.");
+            throw new InvalidLevelException("Error on character '" + this + "'. Please, finalize or correct level 1 first.");
         }
         try {
             validate();
         } catch (InvalidXmlElementException e) {
-            throw new InvalidLevelException("Please, finalize or correct previous level first.", e);
+            throw new InvalidLevelException("Error on character '" + this + "'. Please, finalize or correct previous level first.", e);
         }
         final LevelSelector newLevel = new LevelSelector(this, getLevel() + 1);
         levels.add(newLevel);

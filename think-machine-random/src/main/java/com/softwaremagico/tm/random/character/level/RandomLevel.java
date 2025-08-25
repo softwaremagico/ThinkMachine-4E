@@ -29,7 +29,7 @@ public class RandomLevel extends RandomSelector<Level> implements AssignableRand
         while (getCharacterPlayer().getLevel() < finalLevel) {
             final LevelSelector levelSelector = getCharacterPlayer().addLevel();
 
-            final RandomizeCharacterDefinitionStep<Level> randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep<>(
+            final RandomizeCharacterDefinitionStep randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep(
                     getCharacterPlayer(),
                     levelSelector,
                     getPreferences()

@@ -24,6 +24,7 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.softwaremagico.tm.character.skills.Specialization;
 import com.softwaremagico.tm.utils.ComparableUtils;
 import com.softwaremagico.tm.utils.IComparable;
@@ -60,6 +61,7 @@ public class Selection implements IComparable {
         this.specialization = specialization;
     }
 
+    @JsonIgnore
     public Selection getMainSelection() {
         return new Selection(getId());
     }

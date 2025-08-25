@@ -35,6 +35,12 @@
     <logger name="com.softwaremagico.tm.log.RandomGenerationLog" additivity="false" level="INFO">
         <appender-ref ref="CONSOLE"/>
     </logger>
+    <logger name="com.softwaremagico.tm.log.RandomSelectorLog" additivity="false" level="DEBUG">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <logger name="com.softwaremagico.tm.log.RandomStepLog" additivity="false" level="DEBUG">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
     <logger name="com.softwaremagico.tm.random.log.RandomTestGenerationLog" additivity="false" level="INFO">
         <appender-ref ref="CONSOLE"/>
     </logger>
@@ -42,9 +48,6 @@
         <appender-ref ref="CONSOLE"/>
     </logger>
     <logger name="com.softwaremagico.tm.log.MachineModulesLog" additivity="false" level="INFO">
-        <appender-ref ref="CONSOLE"/>
-    </logger>
-    <logger name="com.softwaremagico.tm.log.CostCalculatorLog" additivity="false" level="INFO">
         <appender-ref ref="CONSOLE"/>
     </logger>
     <logger name="com.softwaremagico.tm.log.ConfigurationLog" additivity="false" level="INFO">

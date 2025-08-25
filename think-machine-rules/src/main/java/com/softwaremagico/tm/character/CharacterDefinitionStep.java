@@ -93,8 +93,8 @@ public class CharacterDefinitionStep extends Element {
         this.skillBonusOptions = skillBonusOptions;
     }
 
-
-    public List<PerkOptions> getPerksOptions() {
+    @JsonIgnore
+    public List<PerkOptions> getFinalPerksOptions() {
         if (finalPerkOptions == null) {
             //No perks defined.
             finalPerkOptions = new ArrayList<>();
@@ -121,18 +121,22 @@ public class CharacterDefinitionStep extends Element {
         this.perksOptions = perksOptions;
     }
 
+    @JsonIgnore
     public int getCharacteristicsTotalPoints() {
         return TOTAL_CHARACTERISTICS_OPTIONS;
     }
 
+    @JsonIgnore
     public int getSkillsTotalPoints() {
         return TOTAL_SKILL_OPTIONS;
     }
 
+    @JsonIgnore
     public int getTotalPerksOptions() {
         return TOTAL_PERKS_OPTIONS;
     }
 
+    @JsonIgnore
     public int getTotalCapabilitiesOptions() {
         return TOTAL_CAPABILITIES_OPTIONS;
     }

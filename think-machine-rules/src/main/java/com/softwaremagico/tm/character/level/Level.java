@@ -146,7 +146,7 @@ public class Level extends CharacterDefinitionStep {
     }
 
     @Override
-    public List<PerkOptions> getPerksOptions() {
+    public List<PerkOptions> getFinalPerksOptions() {
         return null;
     }
 

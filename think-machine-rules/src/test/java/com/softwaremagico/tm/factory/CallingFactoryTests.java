@@ -59,7 +59,7 @@ public class CallingFactoryTests {
 
     @Test
     public void getPerksOption() throws InvalidXmlElementException {
-        Assert.assertEquals(CallingFactory.getInstance().getElement("commander").getPerksOptions().size(), 1);
-        Assert.assertEquals(CallingFactory.getInstance().getElement("commander").getPerksOptions().get(0).getOptions().size(), 48);
+        Assert.assertEquals(CallingFactory.getInstance().getElement("commander").getFinalPerksOptions().size(), 1);
+        Assert.assertEquals(CallingFactory.getInstance().getElement("commander").getFinalPerksOptions().get(0).getOptions().size(), 48);
     }
 }

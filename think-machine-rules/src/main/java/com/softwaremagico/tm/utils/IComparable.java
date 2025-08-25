@@ -24,8 +24,11 @@ package com.softwaremagico.tm.utils;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public interface IComparable {
 
+    @JsonIgnore
     String getComparisonId();
 
 }

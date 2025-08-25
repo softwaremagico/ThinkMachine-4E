@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 @Test(groups = {"randomLevel"})
 public class RandomLevelTest {
-    private final static int LEVEL_TEST = 10;
+    private static final int LEVEL_TEST = 10;
 
     private static final int CHARACTERS_CREATED = 100;
 

@@ -54,7 +54,7 @@ public class RandomCalling extends RandomSelector<Calling> implements Assignable
             getCharacterPlayer().setCalling(selectElementByWeight().getId());
         }
 
-        final RandomizeCharacterDefinitionStep<Faction> randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep<>(
+        final RandomizeCharacterDefinitionStep randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep(
                 getCharacterPlayer(),
                 getCharacterPlayer().getCalling(),
                 getPreferences()

@@ -50,7 +50,7 @@ public class RandomUpbringing extends RandomSelector<Upbringing> implements Assi
             getCharacterPlayer().setUpbringing(selectElementByWeight().getId());
         }
 
-        final RandomizeCharacterDefinitionStep<Upbringing> randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep<>(
+        final RandomizeCharacterDefinitionStep randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep(
                 getCharacterPlayer(),
                 getCharacterPlayer().getUpbringing(),
                 getPreferences()

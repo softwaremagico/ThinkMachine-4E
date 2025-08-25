@@ -24,6 +24,7 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.OptionSelector;
@@ -52,18 +53,20 @@ import java.util.stream.Collectors;
 
 public abstract class CharacterDefinitionStepSelection extends Element {
 
+    @JsonIgnore
     private final CharacterPlayer characterPlayer;
+    @JsonIgnore
     private final CharacterDefinitionStep characterDefinitionStep;
 
-    @JsonProperty("capabilities")
+    @JsonProperty(value = "capabilities")
     private List<CharacterSelectedElement> selectedCapabilityOptions;
-    @JsonProperty("characteristics")
+    @JsonProperty(value = "characteristics")
     private List<CharacterSelectedElement> selectedCharacteristicOptions;
-    @JsonProperty("skills")
+    @JsonProperty(value = "skills")
     private List<CharacterSelectedElement> selectedSkillOptions;
-    @JsonProperty("perks")
+    @JsonProperty(value = "perks")
     private List<CharacterSelectedElement> selectedPerksOptions;
-    @JsonProperty("materialAwards")
+    @JsonProperty(value = "materialAwards")
     private List<CharacterSelectedEquipment> selectedMaterialAwards;
 
     public CharacterDefinitionStepSelection(CharacterPlayer characterPlayer, CharacterDefinitionStep characterDefinitionStep)
@@ -140,6 +143,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         return characterDefinitionStep;
     }
 
+    @JsonIgnore
     public CharacterPlayer getCharacterPlayer() {
         return characterPlayer;
     }
@@ -361,15 +365,15 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     }
 
     public List<PerkOptions> getPerksOptions() {
-        return getCharacterDefinitionStep().getPerksOptions();
+        return getCharacterDefinitionStep().getFinalPerksOptions();
     }
 
     public List<PerkOptions> getNotRepeatedPerksOptions() {
-        if (getCharacterDefinitionStep().getPerksOptions() == null) {
+        if (getCharacterDefinitionStep().getFinalPerksOptions() == null) {
             return new ArrayList<>();
         }
         final List<PerkOptions> perkOptions = new ArrayList<>();
-        for (PerkOptions perkOption : getCharacterDefinitionStep().getPerksOptions()) {
+        for (PerkOptions perkOption : getCharacterDefinitionStep().getFinalPerksOptions()) {
             //Get not duplicated options that are selected on previous steps.
             final List<PerkOption> oldOptions = new ArrayList<>(perkOption.getOptions());
             final List<PerkOption> options = perkOption.getOptions().stream().filter(o -> !getCharacterPlayer()

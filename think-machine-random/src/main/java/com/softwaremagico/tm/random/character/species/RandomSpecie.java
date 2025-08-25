@@ -50,7 +50,7 @@ public class RandomSpecie extends RandomSelector<Specie> implements AssignableRa
             getCharacterPlayer().setSpecie(selectElementByWeight().getId());
         }
 
-        final RandomizeCharacterDefinitionStep<Specie> randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep<>(
+        final RandomizeCharacterDefinitionStep randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep(
                 getCharacterPlayer(),
                 getCharacterPlayer().getSpecie(),
                 getPreferences()

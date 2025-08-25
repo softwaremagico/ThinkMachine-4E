@@ -158,7 +158,7 @@ public class Specie extends CharacterDefinitionStep {
     @Override
     public void validate() throws InvalidXmlElementException {
         super.validate();
-        getPerksOptions().forEach(PerkOptions::validate);
+        getFinalPerksOptions().forEach(PerkOptions::validate);
         if (getPrimaryCharacteristics() != null) {
             getPrimaryCharacteristics().forEach(characteristic ->
                     CharacteristicsDefinitionFactory.getInstance().getElement(characteristic));

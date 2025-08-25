@@ -31,4 +31,8 @@ public class InvalidCharacteristicException extends InvalidXmlElementException {
     public InvalidCharacteristicException(String message) {
         super(message);
     }
+
+    public InvalidCharacteristicException(String message, Exception e) {
+        super(message, e);
+    }
 }

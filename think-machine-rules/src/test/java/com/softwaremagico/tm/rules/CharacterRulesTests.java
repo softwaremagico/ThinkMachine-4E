@@ -49,8 +49,6 @@ import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.List;
-
 @Test(groups = "characterRules")
 public class CharacterRulesTests {
 
@@ -198,7 +196,7 @@ public class CharacterRulesTests {
         characterPlayer.setCalling("spy");
 
         Assert.assertEquals(characterPlayer.getCalling().getNotRepeatedPerksOptions().get(0).getOptions().size(),
-                CallingFactory.getInstance().getElement("spy").getPerksOptions().get(0).getOptions().size()
+                CallingFactory.getInstance().getElement("spy").getFinalPerksOptions().get(0).getOptions().size()
                         + SpecieFactory.getInstance().getElement("vorox").getPerks().size());
     }
 

@@ -28,7 +28,9 @@ import com.softwaremagico.tm.Option;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOptions;
 import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
+import com.softwaremagico.tm.character.characteristics.CharacteristicType;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.log.RandomStepLog;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
@@ -50,6 +52,18 @@ public class RandomCharacteristicBonusOption extends RandomCharacteristics {
         //Extra characteristics (as psi) always can be chosen.
         if (characteristicBonusOptions.getCharacteristicBonus(element.getId()).isExtra()) {
             return 1;
+        }
+        if (element.getType() == CharacteristicType.OTHERS) {
+            return 0;
+        }
+        //Max characteristic at some levels.
+        try {
+            getCharacterPlayer().checkMaxValueByLevel(element, getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName())
+                    + characteristicBonusOptions.getBonus());
+            RandomStepLog.debug(this.getClass(), "Max level '" + element + "' value: " + getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName()) + " + "
+                    + characteristicBonusOptions.getBonus());
+        } catch (InvalidXmlElementException e) {
+            return 0;
         }
         return super.getWeight(element);
     }

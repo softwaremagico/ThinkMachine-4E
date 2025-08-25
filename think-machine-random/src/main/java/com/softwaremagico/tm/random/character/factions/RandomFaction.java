@@ -50,7 +50,7 @@ public class RandomFaction extends RandomSelector<Faction> implements Assignable
             getCharacterPlayer().setFaction(selectElementByWeight().getId());
         }
 
-        final RandomizeCharacterDefinitionStep<Faction> randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep<>(
+        final RandomizeCharacterDefinitionStep randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep(
                 getCharacterPlayer(),
                 getCharacterPlayer().getFaction(),
                 getPreferences()

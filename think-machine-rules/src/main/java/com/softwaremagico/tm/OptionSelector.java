@@ -24,6 +24,7 @@ package com.softwaremagico.tm;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
@@ -59,6 +60,7 @@ public class OptionSelector<E extends Element, T extends Option<E>> {
         return getSourceOptions();
     }
 
+    @JsonIgnore
     public List<T> getSourceOptions() {
         return options;
     }

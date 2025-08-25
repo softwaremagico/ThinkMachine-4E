@@ -46,20 +46,20 @@ public class Element extends XmlData implements Comparable<Element> {
     @JsonProperty("id")
     private String id;
 
-    @JsonProperty("name")
+    @JsonProperty(value = "name")
     private TranslatedText name;
 
-    @JsonProperty("description")
+    @JsonProperty(value = "description")
     private TranslatedText description;
 
     private String moduleName;
 
     private String language;
 
-    @JsonProperty("random")
+    @JsonProperty(value = "random")
     private RandomElementDefinition randomDefinition;
 
-    @JsonProperty("restrictions")
+    @JsonProperty(value = "restrictions")
     private Restrictions restrictions;
 
     @JsonProperty("resistances")
@@ -108,6 +108,7 @@ public class Element extends XmlData implements Comparable<Element> {
         this.moduleName = moduleName;
     }
 
+    @JsonIgnore
     public TranslatedText getName() {
         return name;
     }
@@ -120,10 +121,12 @@ public class Element extends XmlData implements Comparable<Element> {
         this.name = name;
     }
 
+    @JsonIgnore
     public TranslatedText getDescription() {
         return description;
     }
 
+    @JsonIgnore
     public String getNameRepresentation() {
         if (getName() != null) {
             return getName().getTranslatedText();
@@ -240,6 +243,7 @@ public class Element extends XmlData implements Comparable<Element> {
         }
     }
 
+    @JsonIgnore
     public RandomElementDefinition getRandomDefinition() {
         return randomDefinition;
     }

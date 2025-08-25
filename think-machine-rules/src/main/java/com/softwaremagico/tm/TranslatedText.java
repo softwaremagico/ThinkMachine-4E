@@ -24,6 +24,7 @@ package com.softwaremagico.tm;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.language.Translator;
@@ -79,6 +80,7 @@ public class TranslatedText implements Comparable<TranslatedText> {
         this.english = english;
     }
 
+    @JsonIgnore
     public String getTranslatedText() {
         if (Objects.equals("es", Translator.getLanguage())) {
             return getSpanish();

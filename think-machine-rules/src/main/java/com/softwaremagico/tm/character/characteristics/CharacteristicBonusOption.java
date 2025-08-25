@@ -38,6 +38,7 @@ public class CharacteristicBonusOption extends Option<CharacteristicDefinition> 
 
     public CharacteristicBonusOption() {
         super();
+        setBonus(1);
     }
 
     public CharacteristicBonusOption(CharacteristicDefinition characteristic) {
