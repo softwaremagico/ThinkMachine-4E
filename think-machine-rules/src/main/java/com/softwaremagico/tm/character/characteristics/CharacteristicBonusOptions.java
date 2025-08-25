@@ -44,10 +44,17 @@ public class CharacteristicBonusOptions extends OptionSelector<CharacteristicDef
     public List<CharacteristicBonusOption> getOptions() {
         if (finalCharacteristics == null) {
             try {
-                if (super.getOptions() == null || super.getOptions().isEmpty()) {
+                if (super.getOptions() == null || super.getOptions().isEmpty()
+                        || (!super.getOptions().isEmpty() && super.getOptions().get(0).getId() == null)) {
                     finalCharacteristics = new ArrayList<>();
-                    finalCharacteristics.addAll(CharacteristicsDefinitionFactory.getInstance().getElements().stream()
-                            .map(CharacteristicBonusOption::new).collect(Collectors.toList()));
+                    if (super.getOptions() != null && !super.getOptions().isEmpty()) {
+                        finalCharacteristics.addAll(CharacteristicsDefinitionFactory.getInstance().getElements().stream()
+                                .map(c -> new CharacteristicBonusOption(c, super.getOptions().get(0).getBonus()))
+                                .collect(Collectors.toList()));
+                    } else {
+                        finalCharacteristics.addAll(CharacteristicsDefinitionFactory.getInstance().getElements().stream()
+                                .map(CharacteristicBonusOption::new).collect(Collectors.toList()));
+                    }
                 } else {
                     finalCharacteristics = super.getOptions();
                 }

@@ -44,6 +44,20 @@ public class PerkOptions extends OptionSelector<Perk, PerkOption> {
         super();
     }
 
+    public PerkOptions(PerkOptions perkOptions) {
+        super(perkOptions);
+        if (perkOptions.finalPerks != null) {
+            this.finalPerks = new ArrayList<>(perkOptions.finalPerks);
+        }
+        this.includeOpenPerks = perkOptions.includeOpenPerks;
+    }
+
+    public PerkOptions(PerkOptions optionSelector, List<PerkOption> finalPerks) {
+        super(optionSelector);
+        this.finalPerks = finalPerks;
+        setOptions(finalPerks);
+    }
+
     @Override
     public List<PerkOption> getOptions() {
         if (finalPerks == null) {
@@ -97,6 +111,10 @@ public class PerkOptions extends OptionSelector<Perk, PerkOption> {
             getOptions().forEach(option -> {
                 if (option.getId() != null) {
                     PerkFactory.getInstance().getElement(option.getId());
+                } else if (option.getGroup() != null) {
+                    if (PerkFactory.getInstance().getElementsByGroup(option.getGroup()).isEmpty()) {
+                        throw new InvalidXmlElementException("Invalid group '" + option.getGroup() + "' on perk. ");
+                    }
                 }
             });
         }

@@ -25,7 +25,6 @@ package com.softwaremagico.tm.character.perks;
  */
 
 import com.softwaremagico.tm.Option;
-import com.softwaremagico.tm.character.capabilities.Capability;
 
 public class PerkOption extends Option<Perk> {
 
@@ -36,11 +35,7 @@ public class PerkOption extends Option<Perk> {
     public PerkOption(Perk perk) {
         this();
         setId(perk.getId());
-    }
-
-    public PerkOption(Capability capability) {
-        this();
-        setId(capability.getId());
+        setSpecializations(perk.getSpecializations());
     }
 
     @Override

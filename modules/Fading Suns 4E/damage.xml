@@ -106,14 +106,14 @@
         </name>
     </damage>
     <damage>
-        <id>halveArmour</id>
+        <id>halveArmor</id>
         <name>
             <en>Halve Armor</en>
             <es>Armadura a la Mitad</es>
         </name>
     </damage>
     <damage>
-        <id>ignoreArmour</id>
+        <id>ignoreArmor</id>
         <name>
             <en>Ignore Armor</en>
             <es>Ignora la Armadura</es>

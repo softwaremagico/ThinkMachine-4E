@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.softwaremagico</groupId>
     <artifactId>think-machine-4e</artifactId>
-    <version>4.0.4-SNAPSHOT</version>
+    <version>4.1.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Think Machine 4E</name>
     <url>https://github.com/softwaremagico/ThinkMachine-4E</url>
@@ -15,6 +15,7 @@
 
     <modules>
         <module>think-machine-rules</module>
+        <module>think-machine-random</module>
         <module>think-machine-pdf</module>
     </modules>
 

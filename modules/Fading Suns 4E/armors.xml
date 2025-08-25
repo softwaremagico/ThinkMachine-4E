@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<armours>
-    <armour>
+<armors>
+    <armor>
         <id>ceramsteelExoframe</id>
         <type>armor</type>
+        <group>warArmor</group>
         <name>
             <en>Ceramsteel Exoframe</en>
             <es>Exoesqueleto de Acerámica</es>
@@ -81,10 +82,11 @@
             <other>abcProtection</other>
             <other>powerPack</other>
         </others>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>adeptRobes</id>
         <type>armor</type>
+        <group>warArmor</group>
         <name>
             <en>Adept Robes</en>
             <es>Túnicas de Adepto</es>
@@ -147,10 +149,11 @@
             <other>binoculars</other>
             <other>radiationProtection</other>
         </others>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>chainMailMetal</id>
         <type>armor</type>
+        <group>warArmor</group>
         <name>
             <en>Chain Mail (Metal)</en>
             <es>Cota de Mallas (Metal)</es>
@@ -189,10 +192,11 @@
         <others>
             <other>metal</other>
         </others>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>chainMailPlastic</id>
         <type>armor</type>
+        <group>warArmor</group>
         <name>
             <en>Chain Mail (Plastic)</en>
             <es>Cota de Mallas (Plástico)</es>
@@ -229,10 +233,11 @@
             <shield>assaultShield</shield>
             <shield>battleShield</shield>
         </shields>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>chainMailPlasteel</id>
         <type>armor</type>
+        <group>warArmor</group>
         <name>
             <en>Chain Mail (Plasteel)</en>
             <es>Cota de Mallas (Plastiacero)</es>
@@ -269,8 +274,8 @@
             <shield>assaultShield</shield>
             <shield>battleShield</shield>
         </shields>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>frictionlessGel</id>
         <type>armor</type>
         <name>
@@ -319,10 +324,11 @@
             <shield>assaultShield</shield>
             <shield>battleShield</shield>
         </shields>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>halfPlateMetal</id>
         <type>armor</type>
+        <group>combatArmor</group>
         <name>
             <en>Half Plate (Metal)</en>
             <es>Coraza (Metal)</es>
@@ -362,10 +368,11 @@
         <others>
             <other>metal</other>
         </others>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>halfPlatePlastic</id>
         <type>armor</type>
+        <group>combatArmor</group>
         <name>
             <en>Half Plate (Plastic)</en>
             <es>Coraza (Plástico)</es>
@@ -403,10 +410,11 @@
         <shields>
             <shield>battleShield</shield>
         </shields>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>halfPlatePlasteel</id>
         <type>armor</type>
+        <group>combatArmor</group>
         <name>
             <en>Half Plate (Plasteel)</en>
             <es>Coraza (Plastiacero)</es>
@@ -444,10 +452,11 @@
         <shields>
             <shield>battleShield</shield>
         </shields>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>heavyClothing</id>
         <type>armor</type>
+        <group>civilianArmor</group>
         <name>
             <en>Thick Clothing</en>
             <es>Ropa Gruesa</es>
@@ -488,10 +497,11 @@
             <shield>assaultShield</shield>
             <shield>battleShield</shield>
         </shields>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>leatherJerkin</id>
         <type>armor</type>
+        <group>civilianArmor</group>
         <name>
             <en>Leather Jerkin</en>
             <es>Jubón de Cuero</es>
@@ -530,10 +540,11 @@
             <shield>assaultShield</shield>
             <shield>battleShield</shield>
         </shields>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>leatherJerkinStuddedMetal</id>
         <type>armor</type>
+        <group>combatArmor</group>
         <name>
             <en>Leather Jerkin Studded (Metal)</en>
             <es>Jubón de Cuero Tachonado (Metal)</es>
@@ -574,10 +585,11 @@
         <others>
             <other>metal</other>
         </others>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>leatherJerkinStuddedPlastic</id>
         <type>armor</type>
+        <group>combatArmor</group>
         <name>
             <en>Leather Jerkin Studded (Plastic)</en>
             <es>Jubón de Cuero Tachonado (Plástico)</es>
@@ -616,10 +628,11 @@
             <shield>assaultShield</shield>
             <shield>battleShield</shield>
         </shields>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>leatherJerkinStuddedPlasteel</id>
         <type>armor</type>
+        <group>combatArmor</group>
         <name>
             <en>Leather Jerkin Studded (Plasteel)</en>
             <es>Jubón de Cuero Tachonado (Plastiacero)</es>
@@ -658,10 +671,11 @@
             <shield>assaultShield</shield>
             <shield>battleShield</shield>
         </shields>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>paddedClothing</id>
         <type>armor</type>
+        <group>civilianArmor</group>
         <name>
             <en>Padded Clothing</en>
             <es>Ropa Acolchada</es>
@@ -701,10 +715,11 @@
             <shield>assaultShield</shield>
             <shield>battleShield</shield>
         </shields>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>polymerKnit</id>
         <type>armor</type>
+        <group>civilianArmor</group>
         <name>
             <en>Polymer Knit</en>
             <es>Tejido de Polímero</es>
@@ -751,10 +766,11 @@
             <shield>assaultShield</shield>
             <shield>battleShield</shield>
         </shields>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>plateMailSuitMetal</id>
         <type>armor</type>
+        <group>warArmor</group>
         <name>
             <en>Plate Mail Suit (Metal)</en>
             <es>Armadura de Placas Completa (Metal)</es>
@@ -797,10 +813,11 @@
         <others>
             <other>metal</other>
         </others>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>plateMailSuitPlastic</id>
         <type>armor</type>
+        <group>warArmor</group>
         <name>
             <en>Plate Mail Suit (Plastic)</en>
             <es>Armadura de Placas Completa (Plástico)</es>
@@ -844,10 +861,11 @@
         <others>
             <other>abcProtection</other>
         </others>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>plateMailSuitPlasteel</id>
         <type>armor</type>
+        <group>warArmor</group>
         <name>
             <en>Plate Mail Suit (Plasteel)</en>
             <es>Armadura de Placas Completa (Plastiacero)</es>
@@ -891,8 +909,8 @@
         <others>
             <other>abcProtection</other>
         </others>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>psiCloak</id>
         <type>armor</type>
         <name>
@@ -939,10 +957,11 @@
             <other>occult</other>
             <other>neural</other>
         </others>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>scaleMailMetal</id>
         <type>armor</type>
+        <group>warArmor</group>
         <name>
             <en>Scale Mail (Metal)</en>
             <es>Cota de Placas (Metal)</es>
@@ -980,10 +999,11 @@
         <others>
             <other>metal</other>
         </others>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>scaleMailPlastic</id>
         <type>armor</type>
+        <group>warArmor</group>
         <name>
             <en>Scale Mail (Plastic)</en>
             <es>Cota de Placas (Plástico)</es>
@@ -1019,10 +1039,11 @@
         <shields>
             <shield>battleShield</shield>
         </shields>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>scaleMailPlasteel</id>
         <type>armor</type>
+        <group>warArmor</group>
         <name>
             <en>Scale Mail (Plasteel)</en>
             <es>Cota de Placas (Plastiacero)</es>
@@ -1058,10 +1079,11 @@
         <shields>
             <shield>battleShield</shield>
         </shields>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>spacesuit</id>
         <type>armor</type>
+        <group>spaceArmor</group>
         <name>
             <en>Spacesuit</en>
             <es>Traje Espacial</es>
@@ -1112,10 +1134,11 @@
             <other>abcProtection</other>
             <other>radiationProtection</other>
         </others>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>antiquarianSpacesuit</id>
         <type>armor</type>
+        <group>spaceArmor</group>
         <name>
             <en>Antiquarian Spacesuit</en>
             <es>Traje Espacial Antiguo</es>
@@ -1164,10 +1187,11 @@
             <other>abcProtection</other>
             <other>radiationProtection</other>
         </others>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>armoredSpacesuit</id>
         <type>armor</type>
+        <group>spaceArmor</group>
         <name>
             <en>Armored Spacesuit</en>
             <es>Traje Espacial Blindado</es>
@@ -1220,10 +1244,11 @@
             <other>abcProtection</other>
             <other>radiationProtection</other>
         </others>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>marauderSpacesuit</id>
         <type>armor</type>
+        <group>spaceArmor</group>
         <name>
             <en>Marauder Spacesuit</en>
             <es>Traje Espacial de Saqueador</es>
@@ -1275,10 +1300,11 @@
             <other>abcProtection</other>
             <other>radiationProtection</other>
         </others>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>synthsilk</id>
         <type>armor</type>
+        <group>civilianArmor</group>
         <name>
             <en>Synthsilk</en>
             <es>Seda Sintética</es>
@@ -1326,10 +1352,11 @@
             <shield>assaultShield</shield>
             <shield>battleShield</shield>
         </shields>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>stiffsynth</id>
         <type>armor</type>
+        <group>civilianArmor</group>
         <name>
             <en>Stiffsynth</en>
             <es>Cuero Sintético</es>
@@ -1377,10 +1404,11 @@
             <shield>assaultShield</shield>
             <shield>battleShield</shield>
         </shields>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>smartsynth</id>
         <type>armor</type>
+        <group>civilianArmor</group>
         <name>
             <en>Smartsynth</en>
             <es>Inteligencia Sintética</es>
@@ -1420,10 +1448,11 @@
             <shield>assaultShield</shield>
             <shield>battleShield</shield>
         </shields>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>synthsilkCape</id>
         <type>armor</type>
+        <group>civilianArmor</group>
         <name>
             <en>Synthsilk cape</en>
             <es>Capa de Sinteseda</es>
@@ -1458,10 +1487,11 @@
                 <faction>hazat</faction>
             </factions>
         </restrictions>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>looseSynthsilkRobes</id>
         <type>armor</type>
+        <group>civilianArmor</group>
         <name>
             <en>Loose Synthsilk Robes</en>
             <es>Túnica de Sinteseda Holgada</es>
@@ -1496,10 +1526,11 @@
                 <faction>liHalan</faction>
             </factions>
         </restrictions>
-    </armour>
-    <armour>
+    </armor>
+    <armor>
         <id>muSpASuit</id>
         <type>armor</type>
+        <group>civilianArmor</group>
         <name>
             <en>Multi-spectrum Synth Armor</en>
             <es>Armadura Sintética Multiespectro</es>
@@ -1539,5 +1570,5 @@
                 <faction>musters</faction>
             </factions>
         </restrictions>
-    </armour>
-</armours>
+    </armor>
+</armors>

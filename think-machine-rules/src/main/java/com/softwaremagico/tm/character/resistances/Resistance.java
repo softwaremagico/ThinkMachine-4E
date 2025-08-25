@@ -133,6 +133,11 @@ public class Resistance {
             bonus += resistancesByCategory.get(ResistanceCategory.ITEM).stream().max(Comparator.comparing(Resistance::getBonus))
                     .orElse(new Resistance()).getBonus();
         }
+        //Handhandled Shields are extras.
+        if (resistancesByCategory.get(ResistanceCategory.HANDHELD_SHIELD) != null) {
+            bonus += resistancesByCategory.get(ResistanceCategory.HANDHELD_SHIELD).stream().max(Comparator.comparing(Resistance::getBonus))
+                    .orElse(new Resistance()).getBonus();
+        }
         return bonus;
     }
 
@@ -152,6 +157,12 @@ public class Resistance {
         }
         if (characterPlayer.getBestArmor() != null) {
             characterPlayer.getBestArmor().getResistances().forEach(resistance -> {
+                resistancesByCategory.computeIfAbsent(resistance.getType(), k -> new HashMap<>());
+                resistancesByCategory.get(resistance.getType()).computeIfAbsent(resistance.getCategory(), k -> new ArrayList<>()).add(resistance);
+            });
+        }
+        if (characterPlayer.getBestHandHandledShield() != null) {
+            characterPlayer.getBestHandHandledShield().getResistances().forEach(resistance -> {
                 resistancesByCategory.computeIfAbsent(resistance.getType(), k -> new HashMap<>());
                 resistancesByCategory.get(resistance.getType()).computeIfAbsent(resistance.getCategory(), k -> new ArrayList<>()).add(resistance);
             });
@@ -183,23 +194,23 @@ public class Resistance {
         }
         final List<Resistance> resistances = new ArrayList<>();
 
-        characterDefinitionStepSelection.getCapabilityOptions().forEach(element ->
+        characterDefinitionStepSelection.getSelectedCapabilityOptions().forEach(element ->
                 element.getSelections().forEach(selection ->
                         resistances.addAll(CapabilityFactory.getInstance().getElement(selection.getId()).getResistances())));
 
-        characterDefinitionStepSelection.getCharacteristicOptions().forEach(element ->
+        characterDefinitionStepSelection.getSelectedCharacteristicOptions().forEach(element ->
                 element.getSelections().forEach(selection ->
                         resistances.addAll(CharacteristicsDefinitionFactory.getInstance().getElement(selection.getId()).getResistances())));
 
-        characterDefinitionStepSelection.getSkillOptions().forEach(element ->
+        characterDefinitionStepSelection.getSelectedSkillOptions().forEach(element ->
                 element.getSelections().forEach(selection ->
                         resistances.addAll(SkillFactory.getInstance().getElement(selection.getId()).getResistances())));
 
-        characterDefinitionStepSelection.getPerksOptions().forEach(element ->
+        characterDefinitionStepSelection.getSelectedPerksOptions().forEach(element ->
                 element.getSelections().forEach(selection ->
                         resistances.addAll(PerkFactory.getInstance().getElement(selection.getId()).getResistances())));
 
-        characterDefinitionStepSelection.getMaterialAwards().forEach(element ->
+        characterDefinitionStepSelection.getSelectedMaterialAwards().forEach(element ->
                 element.getSelections().forEach(selection -> {
                     if (!element.getRemoved().contains(selection)) {
                         //Armors are ignored, as selecting best later.

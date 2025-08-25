@@ -39,8 +39,13 @@ import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
 import com.softwaremagico.tm.character.equipment.thinkmachines.CustomizedThinkMachine;
 import com.softwaremagico.tm.character.equipment.thinkmachines.ThinkMachineFactory;
 import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
+import com.softwaremagico.tm.character.equipment.weapons.WeaponClass;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponType;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class EquipmentOption extends Option<Equipment> {
 
@@ -51,11 +56,14 @@ public class EquipmentOption extends Option<Equipment> {
     private String type;
 
     @JsonProperty("weaponClass")
-    private String weaponClass;
+    private WeaponClass weaponClass;
 
     private Quality quality;
 
     private Status status;
+
+    @JsonProperty("extras")
+    private Set<String> extras;
 
     public EquipmentOption() {
         super();
@@ -71,6 +79,7 @@ public class EquipmentOption extends Option<Equipment> {
         this();
         setId(equipment.getId());
         setQuantity(equipment.getQuantity());
+        setExtras(equipment.getOthers());
     }
 
     public EquipmentOption(Equipment equipment, int quantity) {
@@ -80,7 +89,7 @@ public class EquipmentOption extends Option<Equipment> {
     }
 
     public EquipmentOption(Equipment equipment, Quality quality, Status status, int quantity, WeaponType weaponType,
-                           String weaponClass, String type) {
+                           WeaponClass weaponClass, String type, String... extras) {
         this();
         setId(equipment.getId());
         setQuantity(quantity);
@@ -89,6 +98,7 @@ public class EquipmentOption extends Option<Equipment> {
         setWeaponType(weaponType);
         setWeaponClass(weaponClass);
         setType(type);
+        setExtras(new HashSet<>(List.of(extras)));
     }
 
     public WeaponType getWeaponType() {
@@ -99,11 +109,11 @@ public class EquipmentOption extends Option<Equipment> {
         this.weaponType = weaponType;
     }
 
-    public String getWeaponClass() {
+    public WeaponClass getWeaponClass() {
         return weaponClass;
     }
 
-    public void setWeaponClass(String weaponClass) {
+    public void setWeaponClass(WeaponClass weaponClass) {
         this.weaponClass = weaponClass;
     }
 
@@ -165,6 +175,14 @@ public class EquipmentOption extends Option<Equipment> {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Set<String> getExtras() {
+        return extras;
+    }
+
+    public void setExtras(Set<String> extras) {
+        this.extras = extras;
     }
 
     @Override

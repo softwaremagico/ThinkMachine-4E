@@ -33,12 +33,12 @@ import java.util.List;
 public final class ArmorFactory extends XmlFactory<Armor> {
     private static final String XML_FILE = "armors.xml";
 
-    private static final class ArmourFactoryInit {
+    private static final class ArmorFactoryInit {
         public static final ArmorFactory INSTANCE = new ArmorFactory();
     }
 
     public static ArmorFactory getInstance() {
-        return ArmourFactoryInit.INSTANCE;
+        return ArmorFactoryInit.INSTANCE;
     }
 
 

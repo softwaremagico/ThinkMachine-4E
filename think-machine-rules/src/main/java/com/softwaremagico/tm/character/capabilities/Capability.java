@@ -25,7 +25,30 @@ package com.softwaremagico.tm.character.capabilities;
  */
 
 import com.softwaremagico.tm.Element;
+import com.softwaremagico.tm.character.skills.Specialization;
+
+import java.util.List;
 
 public class Capability extends Element {
+
+    public Capability() {
+        super();
+    }
+
+    public Capability(String id) {
+        super(id);
+    }
+
+    public Capability(String id, String specialization) {
+        this(id, specialization != null ? new Specialization(specialization) : null);
+    }
+
+    public Capability(String id, Specialization specialization) {
+        super(id);
+        if (specialization != null) {
+            setSpecializations(List.of(specialization));
+        }
+    }
+
 
 }

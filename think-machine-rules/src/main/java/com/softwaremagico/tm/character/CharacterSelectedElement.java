@@ -38,4 +38,11 @@ public class CharacterSelectedElement {
     public void setSelections(Collection<Selection> selections) {
         this.selections = new HashSet<>(selections);
     }
+
+    @Override
+    public String toString() {
+        return "CharacterSelectedElement{"
+                + "selections=" + selections
+                + '}';
+    }
 }

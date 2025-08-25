@@ -55,6 +55,14 @@ public class SpecializedPerk extends Perk {
         return getId() + (getSpecialization() != null ? " (" + getSpecialization().getId() + ")" : "");
     }
 
+    @Override
+    public String getNameRepresentation() {
+        if (getName() != null) {
+            return getName().getTranslatedText() + (getSpecialization() != null ? " (" + getSpecialization().getNameRepresentation() + ")" : "");
+        }
+        return "";
+    }
+
     public static List<SpecializedPerk> create(List<Perk> perks) {
         final List<SpecializedPerk> specializedPerks = new ArrayList<>();
         perks.forEach(perk -> specializedPerks.add(new SpecializedPerk(perk, null)));

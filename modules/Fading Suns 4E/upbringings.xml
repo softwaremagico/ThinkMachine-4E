@@ -128,7 +128,7 @@
                 </options>
                 <openPerks>false</openPerks>
             </perkOptions>
-            <options>
+            <perkOptions>
                 <total>1</total>
                 <options>
                     <perk>
@@ -141,13 +141,13 @@
                         <id>layDownTheLaw</id>
                     </perk>
                     <perk>
-                        <id>martialArts</id>
+                        <group>martialArts</group>
                     </perk>
                     <perk>
                         <id>nimble</id>
                     </perk>
                     <perk>
-                        <id>nobleTitle</id>
+                        <group>nobleTitle</group>
                     </perk>
                     <perk>
                         <id>noblesseOblige</id>
@@ -159,16 +159,16 @@
                         <id>retainer</id>
                     </perk>
                     <perk>
-                        <id>riches</id>
+                        <group>riches</group>
                     </perk>
                     <perk>
                         <id>saintLextiusBlessing</id>
                     </perk>
                     <perk>
-                        <id>towGunFighting</id>
+                        <id>twoGunFighting</id>
                     </perk>
                 </options>
-            </options>
+            </perkOptions>
         </perks>
         <skills>
             <skillBonusOption>
@@ -224,6 +224,7 @@
 
     <upbringing>
         <id>priest</id>
+        <group>priest</group>
         <name>
             <en>Priest</en>
             <es>Sacerdote</es>
@@ -233,7 +234,7 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <group>cathedralCustoms</group>
+                        <id>cathedralCustoms</id>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -256,18 +257,33 @@
                     </capability>
                     <capability>
                         <id>musicalInstrument</id>
+                    </capability>
+                    <capability>
+                        <id>musicalInstrument</id>
                         <selectedSpecialization>
                             <id>brass</id>
                         </selectedSpecialization>
+                    </capability>
+                    <capability>
+                        <id>musicalInstrument</id>
                         <selectedSpecialization>
                             <id>strings</id>
                         </selectedSpecialization>
+                    </capability>
+                    <capability>
+                        <id>musicalInstrument</id>
                         <selectedSpecialization>
                             <id>woodwind</id>
                         </selectedSpecialization>
+                    </capability>
+                    <capability>
+                        <id>musicalInstrument</id>
                         <selectedSpecialization>
                             <id>percussion</id>
                         </selectedSpecialization>
+                    </capability>
+                    <capability>
+                        <id>musicalInstrument</id>
                         <selectedSpecialization>
                             <id>keyboards</id>
                         </selectedSpecialization>
@@ -370,7 +386,7 @@
                 </options>
                 <openPerks>false</openPerks>
             </perkOptions>
-            <options>
+            <perkOptions>
                 <total>1</total>
                 <options>
                     <perk>
@@ -407,7 +423,7 @@
                         <id>legate</id>
                     </perk>
                     <perk>
-                        <id>martialArts</id>
+                        <group>martialArts</group>
                     </perk>
                     <perk>
                         <id>nimble</id>
@@ -425,7 +441,7 @@
                         <id>righteousSermon</id>
                     </perk>
                     <perk>
-                        <id>riches</id>
+                        <group>riches</group>
                     </perk>
                     <perk>
                         <id>shepherdOfTheFlock</id>
@@ -437,7 +453,7 @@
                         <id>witchHunt</id>
                     </perk>
                 </options>
-            </options>
+            </perkOptions>
         </perks>
         <skills>
             <skillBonusOption>
@@ -480,6 +496,7 @@
     </upbringing>
     <upbringing>
         <id>brotherBattle</id>
+        <group>priest</group>
         <name>
             <en>Brother Battle Monastery</en>
             <es>Monasterio de Hermanos de Batalla</es>
@@ -489,7 +506,7 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <group>cathedralCustoms</group>
+                        <id>cathedralCustoms</id>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -497,10 +514,10 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <group>combatArmor</group>
+                        <id>combatArmor</id>
                     </capability>
                     <capability>
-                        <group>warArmor</group>
+                        <id>warArmor</id>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -629,7 +646,7 @@
                         <id>legate</id>
                     </perk>
                     <perk>
-                        <id>martialArts</id>
+                        <group>martialArts</group>
                     </perk>
                     <perk>
                         <id>nimble</id>
@@ -647,7 +664,7 @@
                         <id>righteousSermon</id>
                     </perk>
                     <perk>
-                        <id>riches</id>
+                        <group>riches</group>
                     </perk>
                     <perk>
                         <id>shepherdOfTheFlock</id>
@@ -855,7 +872,7 @@
                         <id>marksmanship</id>
                     </perk>
                     <perk>
-                        <id>martialArts</id>
+                        <group>martialArts</group>
                     </perk>
                     <perk>
                         <id>nimble</id>
@@ -864,7 +881,7 @@
                         <id>retainer</id>
                     </perk>
                     <perk>
-                        <id>riches</id>
+                        <group>riches</group>
                     </perk>
                     <perk>
                         <id>saintsBlessing</id>
@@ -880,7 +897,54 @@
                 <total>1</total>
                 <options>
                     <skill>
-                        <id>academia</id>
+                        <id>charm</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>drive</id>
+                        <bonus>2</bonus>
+                    </skill>
+                    <skill>
+                        <id>pilot</id>
+                        <bonus>2</bonus>
+                    </skill>
+                    <skill>
+                        <id>techRedemption</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>fight</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>observe</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>vigor</id>
                         <bonus>1</bonus>
                     </skill>
                 </options>
@@ -947,22 +1011,47 @@
         <characteristics>
             <characteristicBonusOptions>
                 <total>1</total>
+                <options>
+                    <characteristic>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
             </characteristicBonusOptions>
             <characteristicBonusOptions>
                 <total>1</total>
+                <options>
+                    <characteristic>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
             </characteristicBonusOptions>
             <characteristicBonusOptions>
                 <total>1</total>
+                <options>
+                    <characteristic>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
             </characteristicBonusOptions>
             <characteristicBonusOptions>
                 <total>1</total>
+                <options>
+                    <characteristic>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
             </characteristicBonusOptions>
             <characteristicBonusOptions>
                 <total>1</total>
+                <options>
+                    <characteristic>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
             </characteristicBonusOptions>
         </characteristics>
         <perks>
-            <perkOptions>
+            <options>
                 <total>1</total>
                 <options>
                     <perk>
@@ -970,18 +1059,18 @@
                     </perk>
                 </options>
                 <openPerks>false</openPerks>
-            </perkOptions>
-            <perkOptions>
+            </options>
+            <options>
                 <total>1</total>
                 <options>
                     <perk>
                         <id>householder</id>
                     </perk>
                     <perk>
-                        <id>martialArts</id>
+                        <group>martialArts</group>
                     </perk>
                     <perk>
-                        <id>militaryRank</id>
+                        <group>militaryRank</group>
                     </perk>
                     <perk>
                         <id>nimble</id>
@@ -990,13 +1079,13 @@
                         <id>peasantHero</id>
                     </perk>
                     <perk>
-                        <id>professionalReputation</id>
+                        <group>professionalReputation</group>
                     </perk>
                     <perk>
                         <id>saintsBlessing</id>
                     </perk>
                 </options>
-            </perkOptions>
+            </options>
         </perks>
         <skills>
             <skillBonusOption>

@@ -25,7 +25,7 @@
                 <include name="occultismFactory"/>
                 <include name="planetsFactory"/>
                 <include name="shieldFactory"/>
-                <include name="armourFactory"/>
+                <include name="armorFactory"/>
                 <include name="combatStyleFactory"/>
                 <include name="callingFactory"/>
                 <include name="capabilityFactory"/>
@@ -34,14 +34,17 @@
                 <include name="itemFactory"/>
                 <include name="thinkMachineFactory"/>
                 <include name="perkFactory"/>
+                <include name="afflictionFactory"/>
                 <include name="techCompulsionFactory"/>
                 <include name="timeFactory"/>
                 <include name="cyberdevicesFactory"/>
-                <exclude name="factoryValidation"/>
-                <include name="characterCreation"/>
+                <include name="factoryValidation"/>
+                <include name="characterRules"/>
                 <include name="psychicCreation"/>
                 <include name="freeOptionsSelectionTest"/>
                 <include name="exportTxt"/>
+                <include name="perks"/>
+                <include name="level"/>
             </run>
         </groups>
         <classes>
@@ -63,15 +66,18 @@
             <class name="com.softwaremagico.tm.factory.CapabilityFactoryTest"/>
             <class name="com.softwaremagico.tm.factory.UpbringingFactoryTest"/>
             <class name="com.softwaremagico.tm.factory.PerkFactoryTests"/>
+            <class name="com.softwaremagico.tm.factory.AfflictionFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.ValidateFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.EquipmentTraitsFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.TechCompulsionFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.OccultismFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.TimeFactoryTests"/>
             <class name="com.softwaremagico.tm.factory.CyberdevicesFactoryTests"/>
-            <class name="com.softwaremagico.tm.rules.CharacterCreationTests"/>
+            <class name="com.softwaremagico.tm.rules.CharacterRulesTests"/>
             <class name="com.softwaremagico.tm.rules.PsychicCreationTests"/>
             <class name="com.softwaremagico.tm.rules.FreeOptionsSelectionTests"/>
+            <class name="com.softwaremagico.tm.rules.PerksTests"/>
+            <class name="com.softwaremagico.tm.rules.LevelTests"/>
             <class name="com.softwaremagico.tm.txt.ExportTxtTests"/>
         </classes>
     </test>

@@ -169,7 +169,8 @@
             </stance>
         </stances>
         <random>
-            <recommendedFactions>ukar, decados</recommendedFactions>
+            <recommendedFactions>decados</recommendedFactions>
+            <recommendedSpecies>ukar</recommendedSpecies>
         </random>
     </style>
     <style>
@@ -323,7 +324,7 @@
                     </requirement2>
                 </requirements>
                 <others>
-                    <en>1W to -1d of armour.</en>
+                    <en>1W to -1d of armor.</en>
                     <es>1W para -1d de armadura.</es>
                 </others>
             </combatAction>
@@ -387,7 +388,7 @@
                 <goal>+2</goal>
                 <damage>4</damage>
                 <others>
-                    <en>Ignores armour*</en>
+                    <en>Ignores armor*</en>
                     <es>Ignora armadura*</es>
                 </others>
             </combatAction>
@@ -427,7 +428,7 @@
             </stance>
         </stances>
         <random>
-            <recommendedFactions>muster</recommendedFactions>
+            <recommendedFactions>musters</recommendedFactions>
         </random>
     </style>
     <style>
@@ -666,7 +667,7 @@
                     </requirement2>
                 </requirements>
                 <others>
-                    <en>-1d Armour by VP.</en>
+                    <en>-1d Armor by VP.</en>
                     <es>-1d Armadura por PV.</es>
                 </others>
             </combatAction>
@@ -685,8 +686,21 @@
             </stance>
         </stances>
         <random>
-            <recommendedFactions>ukar, scravers</recommendedFactions>
+            <recommendedFactions>scravers</recommendedFactions>
+            <recommendedFactions>ukar</recommendedFactions>
         </random>
+        <restrictions mode="any_character_definition">
+            <upbringings>
+                <upbringing>noble</upbringing>
+                <merchant>merchant</merchant>
+            </upbringings>
+            <species>
+                <specie>ukar</specie>
+            </species>
+            <perks>
+                <perk>kraxi1</perk>
+            </perks>
+        </restrictions>
     </style>
     <style>
         <id>serpentis</id>
@@ -775,6 +789,17 @@
                 </description>
             </stance>
         </stances>
+        <restrictions mode="all">
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+            <capabilities>
+                <capability>dance</capability>
+            </capabilities>
+            <perks>
+                <perk>serpentis1</perk>
+            </perks>
+        </restrictions>
     </style>
     <style>
         <id>torero</id>
@@ -855,7 +880,14 @@
                 </description>
             </stance>
         </stances>
-        <restrictedUpbringings>noble</restrictedUpbringings>
+        <restrictions mode="any_from_group">
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+            <perks>
+                <perk>torero1</perk>
+            </perks>
+        </restrictions>
     </style>
     <style>
         <id>phoenixRifleCorps</id>
@@ -1026,7 +1058,7 @@
             <recommendedUpbringings>
                 <id>merchant</id>
             </recommendedUpbringings>
-            <recommendedFactions>muster, scravers</recommendedFactions>
+            <recommendedFactions>musters, scravers</recommendedFactions>
         </random>
     </style>
 </combat_styles>

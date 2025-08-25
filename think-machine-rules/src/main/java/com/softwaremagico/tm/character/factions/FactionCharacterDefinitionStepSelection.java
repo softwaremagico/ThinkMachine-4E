@@ -26,6 +26,7 @@ package com.softwaremagico.tm.character.factions;
 
 import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidFactionException;
 import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
@@ -46,8 +47,13 @@ public class FactionCharacterDefinitionStepSelection extends CharacterDefinition
         try {
             super.validate();
         } catch (InvalidSelectionException e) {
-            throw new InvalidFactionException(e.getMessage(), e);
+            throw new InvalidFactionException("Error on faction '" + getId() + "'.", e);
         }
+    }
+
+    @Override
+    public Phase getPhase() {
+        return Phase.FACTION;
     }
 
     public Faction get() {

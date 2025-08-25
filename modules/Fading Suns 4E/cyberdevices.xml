@@ -30,10 +30,15 @@
         </benefice>
         <techLevel>6</techLevel>
         <techCompulsion>inerrant</techCompulsion>
+        <restrictions>
+            <perks>
+                <perk>advisor</perk>
+            </perks>
+        </restrictions>
     </cyberdevice>
 
     <cyberdevice>
-        <id>aimAssitance</id>
+        <id>aimAssistance</id>
         <name>
             <en>Aim Assitance</en>
             <es>Puntería Asistida</es>
@@ -64,7 +69,10 @@
         </benefice>
         <techLevel>7</techLevel>
         <techCompulsion>bloodthirsty</techCompulsion>
-        <restrictions>
+        <restrictions mode="any_from_group">
+            <perks>
+                <perk>aimAssistance</perk>
+            </perks>
             <callings>
                 <calling>duelist</calling>
                 <calling>pirate</calling>
@@ -99,7 +107,10 @@
         </benefice>
         <techLevel>6</techLevel>
         <techCompulsion>inerrant</techCompulsion>
-        <restrictions>
+        <restrictions mode="any_from_group">
+            <perks>
+                <perk>destinator</perk>
+            </perks>
             <callings>
                 <calling>explorer</calling>
                 <calling>scout</calling>
@@ -153,7 +164,10 @@
         </benefice>
         <techLevel>7</techLevel>
         <techCompulsion>inerrant</techCompulsion>
-        <restrictions>
+        <restrictions mode="any_from_group">
+            <perks>
+                <perk>machineSpirit</perk>
+            </perks>
             <callings>
                 <calling>techRedeemer</calling>
             </callings>
@@ -188,7 +202,10 @@
         </benefice>
         <techLevel>6</techLevel>
         <techCompulsion>inerrant</techCompulsion>
-        <restrictions>
+        <restrictions mode="any_from_group">
+            <perks>
+                <perk>memoryExpander</perk>
+            </perks>
             <callings>
                 <calling>scholar</calling>
                 <calling>scout</calling>

@@ -33,7 +33,7 @@ import com.softwaremagico.tm.character.equipment.DamageTypeFactory;
 import com.softwaremagico.tm.character.equipment.EquipmentTraitFactory;
 import com.softwaremagico.tm.character.equipment.TechCompulsionFactory;
 import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
-import com.softwaremagico.tm.character.equipment.armors.ArmourSpecificationFactory;
+import com.softwaremagico.tm.character.equipment.armors.ArmorSpecificationFactory;
 import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShieldFactory;
 import com.softwaremagico.tm.character.equipment.item.ItemFactory;
 import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
@@ -41,9 +41,11 @@ import com.softwaremagico.tm.character.equipment.thinkmachines.ThinkMachineFacto
 import com.softwaremagico.tm.character.equipment.weapons.AccessoryFactory;
 import com.softwaremagico.tm.character.equipment.weapons.AmmunitionFactory;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
+import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.occultism.OccultismPathFactory;
 import com.softwaremagico.tm.character.occultism.OccultismTypeFactory;
 import com.softwaremagico.tm.character.occultism.TheurgyComponentFactory;
+import com.softwaremagico.tm.character.perks.AfflictionFactory;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.character.skills.SkillFactory;
@@ -73,8 +75,8 @@ public class ValidateFactoryTests {
     }
 
     @Test
-    public void validateArmourSpecificationsFactory() throws InvalidXmlElementException {
-        ArmourSpecificationFactory.getInstance().validate();
+    public void validateArmorSpecificationsFactory() throws InvalidXmlElementException {
+        ArmorSpecificationFactory.getInstance().validate();
     }
 
     @Test
@@ -107,10 +109,10 @@ public class ValidateFactoryTests {
         EquipmentTraitFactory.getInstance().validate();
     }
 
-//    @Test
-//    public void validateFactionFactory() throws InvalidXmlElementException {
-//        FactionFactory.getInstance().validate();
-//    }
+    @Test
+    public void validateFactionFactory() throws InvalidXmlElementException {
+        FactionFactory.getInstance().validate();
+    }
 
     @Test
     public void validateHandheldShieldFactory() throws InvalidXmlElementException {
@@ -132,6 +134,11 @@ public class ValidateFactoryTests {
     @Test
     public void validatePerksFactory() throws InvalidXmlElementException {
         PerkFactory.getInstance().validate();
+    }
+
+    @Test
+    public void validateAfflictionsFactory() throws InvalidXmlElementException {
+        AfflictionFactory.getInstance().validate();
     }
 
     @Test

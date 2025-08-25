@@ -78,7 +78,7 @@ public class CharacterInfo {
         this.names = new ArrayList<>();
         final String[] namesSeparated = names.split("(?=\\p{Lu})");
         for (final String name : namesSeparated) {
-            addName(new Name(name, null, null, gender, null));
+            addName(new Name(name, null, null, gender, null, null));
         }
     }
 
@@ -209,7 +209,7 @@ public class CharacterInfo {
         if (surname == null || surname.isEmpty()) {
             this.surname = null;
         } else {
-            this.surname = new Surname(surname, null, null, null);
+            this.surname = new Surname(surname, null, null, null, null);
         }
     }
 

@@ -42,11 +42,13 @@ public abstract class Option<T extends Element> extends Element {
     @JsonIgnore
     @Override
     public TranslatedText getName() {
-        if (getId() != null) {
+        if (getId() != null && !getId().isEmpty()) {
             try {
                 return getElement(getId()).getName();
             } catch (InvalidXmlElementException e) {
                 return new TranslatedText("{" + getId() + "}");
+            } catch (NullPointerException e) {
+                throw new InvalidXmlElementException("Option " + getId() + " has no name!");
             }
         }
         return null;

@@ -43,6 +43,12 @@ public class SkillBonusOption extends Option<Skill> {
         setId(skill.getId());
     }
 
+    public SkillBonusOption(Skill skill, int bonus) {
+        this();
+        setId(skill.getId());
+        setBonus(bonus);
+    }
+
     public int getBonus() {
         return bonus;
     }

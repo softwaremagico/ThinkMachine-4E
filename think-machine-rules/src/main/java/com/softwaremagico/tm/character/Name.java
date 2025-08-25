@@ -31,34 +31,43 @@ import com.softwaremagico.tm.TranslatedText;
 public class Name extends Element {
 
     @JsonIgnore
-    private Gender gender;
+    private final Gender gender;
 
     @JsonIgnore
-    private String faction;
+    private final String faction;
 
-    public Name(String name, String language, String moduleName, Gender gender, String faction) {
-        super(getId(name, faction, moduleName), new TranslatedText(name), null, language, moduleName);
+    @JsonIgnore
+    private final String specie;
+
+    public Name(String name, String language, String moduleName, Gender gender, String faction, String specie) {
+        super(getId(name, faction, specie, moduleName), new TranslatedText(name.trim()), null, language, moduleName);
         this.gender = gender;
         this.faction = faction;
+        this.specie = specie;
     }
 
-    public Name(String name, Gender gender, String faction) {
-        super(name, new TranslatedText(name), null, null, null);
+    public Name(String name, Gender gender, String faction, String specie) {
+        super(name, new TranslatedText(name.trim()), null, null, null);
         this.gender = gender;
         this.faction = faction;
+        this.specie = specie;
     }
 
     public String getFaction() {
         return faction;
     }
 
-
     public Gender getGender() {
         return gender;
     }
 
-    private static String getId(String name, String faction, String moduleName) {
+    public String getSpecie() {
+        return specie;
+    }
+
+    private static String getId(String name, String faction, String specie, String moduleName) {
         return name.replaceAll("\\s+", "_").toLowerCase() + (faction != null ? "_" + faction : "")
+                + (specie != null ? "_" + specie : "")
                 + (moduleName != null ? "_" + moduleName.replaceAll("\\s+", "_").toLowerCase() : "");
     }
 

@@ -26,15 +26,36 @@ package com.softwaremagico.tm.character.upbringing;
 
 import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
+import com.softwaremagico.tm.character.capabilities.CapabilityOption;
+import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
+import com.softwaremagico.tm.character.skills.SkillBonusOption;
+import com.softwaremagico.tm.character.skills.SkillBonusOptions;
+import com.softwaremagico.tm.character.skills.SkillFactory;
+import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidUpbringingException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UpbringingCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection {
+    private static final String NOBLE_UPBRINGING = "noble";
+
+    private boolean raisedInSpace = false;
 
     public UpbringingCharacterDefinitionStepSelection(CharacterPlayer characterPlayer, String upbringing) throws InvalidGeneratedCharacter {
         super(characterPlayer, UpbringingFactory.getInstance().getElement(upbringing));
         setId(upbringing);
+    }
+
+    public boolean isRaisedInSpace() {
+        return raisedInSpace;
+    }
+
+    public void setRaisedInSpace(boolean raisedInSpace) {
+        this.raisedInSpace = raisedInSpace;
     }
 
     @Override
@@ -47,5 +68,53 @@ public class UpbringingCharacterDefinitionStepSelection extends CharacterDefinit
         } catch (InvalidSelectionException e) {
             throw new InvalidUpbringingException(e.getMessage(), e);
         }
+    }
+
+    @Override
+    public Phase getPhase() {
+        return Phase.UPBRINGING;
+    }
+
+
+    @Override
+    public List<CapabilityOptions> getNotRepeatedCapabilityOptions() {
+        final List<CapabilityOptions> capabilityOptions = super.getNotRepeatedCapabilityOptions();
+        if (isRaisedInSpace()) {
+            capabilityOptions.forEach(capabilityOption -> {
+                final CapabilityOption shipboardOperations = new CapabilityOption(CapabilityFactory.getInstance().getElement("shipboardOperations"));
+                if (!capabilityOption.getOptions().contains(shipboardOperations)) {
+                    capabilityOption.getOptions().add(shipboardOperations);
+                }
+                final CapabilityOption thinkMachines = new CapabilityOption(CapabilityFactory.getInstance().getElement("thinkMachines"));
+                if (!capabilityOption.getOptions().contains(thinkMachines)) {
+                    capabilityOption.getOptions().add(thinkMachines);
+                }
+            });
+        }
+        return capabilityOptions;
+    }
+
+
+    @Override
+    public List<SkillBonusOptions> getSkillOptions() {
+        if (!isRaisedInSpace()) {
+            return super.getSkillOptions();
+        }
+        final List<SkillBonusOptions> newSkillBonusOptions = new ArrayList<>();
+        final List<SkillBonusOptions> oldSkillBonusOptions = new ArrayList<>(super.getSkillOptions());
+        oldSkillBonusOptions.forEach(skillBonusOption -> newSkillBonusOptions.add(new SkillBonusOptions(skillBonusOption)));
+        newSkillBonusOptions.forEach(skillBonusOptions -> {
+            final SkillBonusOption interfaceSkill = new SkillBonusOption(SkillFactory.getInstance().getElement("interface"),
+                    skillBonusOptions.getOptions().get(0).getBonus());
+            if (!skillBonusOptions.getOptions().contains(interfaceSkill)) {
+                skillBonusOptions.getOptions().add(interfaceSkill);
+            }
+            final SkillBonusOption techRedemptionSkill = new SkillBonusOption(SkillFactory.getInstance().getElement("techRedemption"),
+                    skillBonusOptions.getOptions().get(0).getBonus());
+            if (!skillBonusOptions.getOptions().contains(techRedemptionSkill)) {
+                skillBonusOptions.getOptions().add(techRedemptionSkill);
+            }
+        });
+        return newSkillBonusOptions;
     }
 }

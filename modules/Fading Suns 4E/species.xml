@@ -92,7 +92,7 @@
         </movement>
         <size>5</size>
         <random>
-            <staticProbability>1000</staticProbability>
+            <probabilityMultiplier>DOMINANT</probabilityMultiplier>
         </random>
     </human>
     <obun>
@@ -204,7 +204,18 @@
             </perk>
         </perks>
         <random>
-            <staticProbability>10</staticProbability>
+            <names>
+                <male>Soleel, Virta, Akamai, Akoni, Koi, Keanu, Kale, Kaleo, Kekoa, Makani, Akamu, Hilo, Pekelo, Tangi
+                </male>
+                <female>Loaana, Alana, Leilani, Kalani, Lea, Kaila, Noelani, Kailani, Ailani, Kahikina, Nohealani
+                </female>
+            </names>
+            <surnames>HanSeer, HanLoaaj, Harn, Haleigha, Haulani, Kahiau, Maylee, Pazhani, Pualani</surnames>
+            <probabilityMultiplier>NORMAL</probabilityMultiplier>
+            <recommendedPreferences>
+                <prefernce>PSI</prefernce>
+                <prefernce>THEURGY</prefernce>
+            </recommendedPreferences>
         </random>
     </obun>
     <ukar>
@@ -223,7 +234,7 @@
             </characteristic>
             <characteristic>
                 <id>dexterity</id>
-                <value>4</value>
+                <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
             </characteristic>
@@ -247,7 +258,7 @@
             </characteristic>
             <characteristic>
                 <id>will</id>
-                <value>4</value>
+                <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
             </characteristic>
@@ -300,8 +311,57 @@
         <size>5</size>
         <blessings>sensitiveTouch, bitter</blessings>
         <benefices>ostraziced2</benefices>
+        <perks>
+            <perk>
+                <id>nothingToLose</id>
+            </perk>
+            <perk>
+                <id>simmeringRage</id>
+            </perk>
+            <perk>
+                <id>counterTheDark</id>
+            </perk>
+            <perk>
+                <id>dabbleInTheDark</id>
+            </perk>
+            <perk>
+                <id>deduce</id>
+            </perk>
+            <perk>
+                <id>enlightened</id>
+            </perk>
+            <perk>
+                <id>scentOfTheWitch</id>
+            </perk>
+            <perk>
+                <id>wyrdKnowledge</id>
+            </perk>
+            <perk>
+                <id>attuneFetish</id>
+            </perk>
+            <perk>
+                <id>covenMembership</id>
+            </perk>
+            <perk>
+                <id>imbueTabernacle</id>
+            </perk>
+            <perk>
+                <id>psychicPowers</id>
+            </perk>
+        </perks>
         <random>
-            <staticProbability>10</staticProbability>
+            <names>
+                <male>Thollo, Anikrunta, Shelkoro, Teddeth, Ronga, Rajan, Zotos, Aedwir, Dyn'dran, Torquil, Shavik,
+                    Varkellin, Taudwon, Mipar
+                </male>
+                <female>Gisdrom, Sadra-Syn, Abril, Amena, Aischa, Rasha, Aseel, Nooda, Ranim, Reem</female>
+            </names>
+            <surnames>Nadakira, Wahind, Malak, Nolents, Oed Nata, Borduk, Nont, Veldiryn, Nilite, Tushan</surnames>
+            <probabilityMultiplier>NORMAL</probabilityMultiplier>
+            <recommendedPreferences>
+                <prefernce>PSI</prefernce>
+                <prefernce>MILITANT</prefernce>
+            </recommendedPreferences>
         </random>
     </ukar>
     <vorox>
@@ -314,7 +374,7 @@
         <specieCharacteristics>
             <characteristic>
                 <id>strength</id>
-                <value>4</value>
+                <value>3</value>
                 <maximumInitialValue>10</maximumInitialValue>
                 <maximumValue>12</maximumValue>
             </characteristic>
@@ -326,7 +386,7 @@
             </characteristic>
             <characteristic>
                 <id>endurance</id>
-                <value>4</value>
+                <value>3</value>
                 <maximumInitialValue>10</maximumInitialValue>
                 <maximumValue>12</maximumValue>
             </characteristic>
@@ -369,14 +429,14 @@
             <characteristic>
                 <id>psi</id>
                 <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
+                <maximumInitialValue>0</maximumInitialValue>
+                <maximumValue>0</maximumValue>
             </characteristic>
             <characteristic>
                 <id>urge</id>
                 <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
+                <maximumInitialValue>0</maximumInitialValue>
+                <maximumValue>0</maximumValue>
             </characteristic>
             <characteristic>
                 <id>theurgy</id>
@@ -391,612 +451,60 @@
                 <maximumValue>0</maximumValue>
             </characteristic>
         </specieCharacteristics>
+        <primaryCharacteristics>
+            <characteristic>strength</characteristic>
+            <characteristic>endurance</characteristic>
+        </primaryCharacteristics>
         <movement>
             <value>14</value>
         </movement>
         <size>7</size>
         <blessings>predatory, giant, sensitiveSmell, uncouth</blessings>
         <benefices>bite, extraLimbs, noOccult, ostraziced2</benefices>
+        <perks>
+            <perk>
+                <id>smellDanger</id>
+            </perk>
+            <perk>
+                <id>animalFriend</id>
+            </perk>
+            <perk>
+                <id>chameleon</id>
+            </perk>
+            <perk>
+                <id>destinator</id>
+            </perk>
+            <perk>
+                <id>guts</id>
+            </perk>
+            <perk>
+                <id>memoryExpander</id>
+            </perk>
+            <perk>
+                <group>militaryRank</group>
+            </perk>
+            <perk>
+                <id>oriented</id>
+            </perk>
+            <perk>
+                <id>spotter</id>
+            </perk>
+            <perk>
+                <id>wildDomain</id>
+            </perk>
+        </perks>
         <random>
-            <staticProbability>10</staticProbability>
+            <names>
+                <male>Gelu, Gresh, Malum, Kirbold, Strakk, Roxtus, Sorgulg, Cabugbu, Zoughat, Gomatug, Narhbub, Ignorg,
+                    Togugh, Nubu, Poogugh
+                </male>
+                <female>Velika, Orde, Kabrua, Orbul, Shelur, Shelur, Atub, Bula, Ghorza, Shagar</female>
+            </names>
+            <surnames>Rolfish, Gashnakh, Ragash, Oghash, Yazgash, Rogmesh, Borgakh, Lagakh, Sharamph</surnames>
+            <probabilityMultiplier>NORMAL</probabilityMultiplier>
+            <recommendedPreferences>
+                <prefernce>MILITANT</prefernce>
+            </recommendedPreferences>
         </random>
     </vorox>
-    <shantor>
-        <id>shantor</id>
-        <name>
-            <en>Shantor</en>
-            <es>Shantor</es>
-        </name>
-        <cost>8</cost>
-        <specieCharacteristics>
-            <characteristic>
-                <id>strength</id>
-                <value>5</value>
-                <maximumInitialValue>12</maximumInitialValue>
-                <maximumValue>14</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>dexterity</id>
-                <value>3</value>
-                <maximumInitialValue>10</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>endurance</id>
-                <value>4</value>
-                <maximumInitialValue>11</maximumInitialValue>
-                <maximumValue>13</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>wits</id>
-                <value>2</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>perception</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>will</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>presence</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>intuition</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>faith</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>psi</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>urge</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>theurgy</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>hubris</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-        </specieCharacteristics>
-        <movement>
-            <value>16</value>
-        </movement>
-        <size>5</size>
-        <blessings>alertSleeping, awkward, huge, receptiveEars, fourLegged, noFineManipulation</blessings>
-        <benefices>restrictedLanguage [urthish], ostraziced4, noOccult</benefices>
-        <planets>shaprut</planets>
-        <official>false</official>
-        <random>
-            <staticProbability>0</staticProbability>
-        </random>
-    </shantor>
-    <gannok>
-        <id>gannok</id>
-        <name>
-            <en>Gannok</en>
-            <es>Gannok</es>
-        </name>
-        <cost>8</cost>
-        <specieCharacteristics>
-            <characteristic>
-                <id>strength</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>dexterity</id>
-                <value>4</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>endurance</id>
-                <value>4</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>wits</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>perception</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>will</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>presence</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>intuition</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>faith</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>psi</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>urge</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>theurgy</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>hubris</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-        </specieCharacteristics>
-        <movement>
-            <value>5</value>
-        </movement>
-        <size>3</size>
-        <blessings>agileToes, greaseMonkey, simbiotImmunity, longFingersAndToes, omnidigestion, prehensileTail,
-            regeneration, dwarf, hungry, stench
-        </blessings>
-        <benefices>ostraziced2</benefices>
-        <planets>bannockburn, leagueheim</planets>
-        <official>false</official>
-        <random>
-            <staticProbability>0</staticProbability>
-        </random>
-    </gannok>
-    <etyri>
-        <id>etyri</id>
-        <name>
-            <en>Etyri</en>
-            <es>Etyri</es>
-        </name>
-        <cost>3</cost>
-        <specieCharacteristics>
-            <characteristic>
-                <id>strength</id>
-                <value>2</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>8</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>dexterity</id>
-                <value>4</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>11</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>endurance</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>wits</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>perception</id>
-                <value>4</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>12</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>will</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>presence</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>intuition</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>faith</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>psi</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>urge</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>theurgy</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>hubris</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-        </specieCharacteristics>
-        <movement>
-            <value>5</value>
-        </movement>
-        <size>5</size>
-        <blessings>keenEyes, etyriClaw, etyriBeak, flight, claustrophobic, hollowBones</blessings>
-        <benefices>ostraziced2</benefices>
-        <planets>grail</planets>
-        <official>false</official>
-        <random>
-            <staticProbability>0</staticProbability>
-        </random>
-    </etyri>
-    <hironem>
-        <id>hironem</id>
-        <name>
-            <en>Hironem</en>
-            <es>Hironem</es>
-        </name>
-        <cost>-2</cost>
-        <specieCharacteristics>
-            <characteristic>
-                <id>strength</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>dexterity</id>
-                <value>4</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>endurance</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>wits</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>perception</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>will</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>presence</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>intuition</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>faith</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>psi</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>urge</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>theurgy</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>hubris</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-        </specieCharacteristics>
-        <movement>
-            <value>5</value>
-        </movement>
-        <size>5</size>
-        <blessings>ssuVision</blessings>
-        <benefices>ostraziced2, noPsi, coldBlood</benefices>
-        <planets>cadiz</planets>
-        <official>false</official>
-        <random>
-            <staticProbability>0</staticProbability>
-        </random>
-    </hironem>
-    <ascorbite>
-        <id>ascorbite</id>
-        <name>
-            <en>Ascorbite</en>
-            <es>Ascorbita</es>
-        </name>
-        <cost>5</cost>
-        <specieCharacteristics>
-            <characteristic>
-                <id>strength</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>dexterity</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>endurance</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>wits</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>perception</id>
-                <value>4</value>
-                <maximumInitialValue>9</maximumInitialValue>
-                <maximumValue>11</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>will</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>presence</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>intuition</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>faith</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>psi</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>urge</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>theurgy</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>hubris</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-        </specieCharacteristics>
-        <movement>
-            <value>5</value>
-        </movement>
-        <size>5</size>
-        <blessings>adaptability, caparace, doubleJointed, farLeap, obstinate, strongGrip, bloodsucker, fixedDevelopment,
-            weird
-        </blessings>
-        <benefices>ostraziced2</benefices>
-        <planets>severus</planets>
-        <official>false</official>
-        <random>
-            <staticProbability>0</staticProbability>
-        </random>
-    </ascorbite>
-    <oroym>
-        <id>oroym</id>
-        <name>
-            <en>Oro'ym</en>
-            <es>Oro'ym</es>
-        </name>
-        <cost>5</cost>
-        <specieCharacteristics>
-            <characteristic>
-                <id>strength</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>11</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>dexterity</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>endurance</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>11</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>wits</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>perception</id>
-                <value>4</value>
-                <maximumInitialValue>9</maximumInitialValue>
-                <maximumValue>11</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>will</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>presence</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>intuition</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>faith</id>
-                <value>3</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>psi</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>urge</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>theurgy</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
-                <id>hubris</id>
-                <value>0</value>
-                <maximumInitialValue>8</maximumInitialValue>
-                <maximumValue>10</maximumValue>
-            </characteristic>
-        </specieCharacteristics>
-        <movement>
-            <value>5</value>
-        </movement>
-        <size>5</size>
-        <blessings>fangs, gills, regrowth, strongTail, webbedHands, coldBlooded, requiresMoisture</blessings>
-        <benefices>ostraziced2</benefices>
-        <planets>severus</planets>
-        <official>false</official>
-        <random>
-            <staticProbability>0</staticProbability>
-        </random>
-    </oroym>
 </species>
