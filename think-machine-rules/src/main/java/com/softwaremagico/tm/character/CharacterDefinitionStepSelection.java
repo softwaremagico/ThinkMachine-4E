@@ -256,7 +256,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                         + "' capabilities options and only '"
                         + getCapabilityOptions().get(i).getOptions().size() + "' are available.");
             }
-            final List<Selection> availableOptions = getAllCapabilityOptions().get(i).getOptions()
+            final List<Selection> availableOptions = getNotRepeatedCapabilityOptions(getPhase()).get(i).getOptions()
                     .stream().map(co -> new Selection(co.getId(), co.getSelectedSpecialization())).collect(Collectors.toList());
             for (Selection selection : selectedCapabilityOptions.get(i).getSelections()) {
                 //Compare specializations, or capabilities without specialization if not defined in the options.
@@ -369,12 +369,21 @@ public abstract class CharacterDefinitionStepSelection extends Element {
      * @return
      */
     public List<CapabilityOptions> getNotRepeatedCapabilityOptions() {
+        return getNotRepeatedCapabilityOptions(getPhase());
+    }
+
+    /**
+     * Gets all options that are valid selections by the user except the ones that have been already selected.
+     *
+     * @return
+     */
+    public List<CapabilityOptions> getNotRepeatedCapabilityOptions(Phase phase) {
         final List<CapabilityOptions> capabilityOptions = new ArrayList<>();
         for (CapabilityOptions capabilityOption : getCharacterDefinitionStep().getCapabilityOptions()) {
             //Get not duplicated options that are selected on previous steps.
             final List<CapabilityOption> oldOptions = new ArrayList<>(capabilityOption.getOptions());
             final List<CapabilityOption> options = capabilityOption.getOptions().stream().filter(o -> !getCharacterPlayer()
-                            .hasCapability(o.getId(), o.getSelectedSpecialization() != null ? o.getSelectedSpecialization().getId() : null, getPhase()))
+                            .hasCapability(o.getId(), o.getSelectedSpecialization() != null ? o.getSelectedSpecialization().getId() : null, phase))
                     .collect(Collectors.toList());
             //If no option is available. Must select between any not restricted to the character.
             if (!options.isEmpty()) {

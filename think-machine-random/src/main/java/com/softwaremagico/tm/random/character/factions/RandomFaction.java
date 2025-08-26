@@ -36,6 +36,7 @@ import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedExcep
 import com.softwaremagico.tm.random.step.RandomizeCharacterDefinitionStep;
 
 import java.util.Collection;
+import java.util.Objects;
 import java.util.Set;
 
 public class RandomFaction extends RandomSelector<Faction> implements AssignableRandomSelector {
@@ -72,6 +73,15 @@ public class RandomFaction extends RandomSelector<Faction> implements Assignable
             throw new InvalidRandomElementSelectedException("Faction '" + faction + "' restricted for species '"
                     + faction.getRestrictions().getRestrictedToSpecies()
                     + "'. Character is '" + getCharacterPlayer().getSpecie() + "'.");
+        }
+
+        //Brother Battle almos always brother Battle faction.
+        if (Objects.equals(getCharacterPlayer().getUpbringing().getId(), BROTHER_BATTLE)) {
+            if (Objects.equals(faction.getId(), BROTHER_BATTLE)) {
+                return GOOD_PROBABILITY;
+            } else {
+                return EXOTIC_PROBABILITY;
+            }
         }
 
         // Favored callings can define the faction.

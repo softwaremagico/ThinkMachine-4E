@@ -40,6 +40,7 @@ import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedExcep
 import com.softwaremagico.tm.random.step.RandomizeCharacterDefinitionStep;
 
 import java.util.Collection;
+import java.util.Objects;
 import java.util.Set;
 
 public class RandomCalling extends RandomSelector<Calling> implements AssignableRandomSelector {
@@ -78,6 +79,15 @@ public class RandomCalling extends RandomSelector<Calling> implements Assignable
         if (calling.getGroup() != null && CallingGroup.get(calling.getGroup()) == CallingGroup.THEURGY
                 && getCharacterPlayer().getOccultismType() == OccultismTypeFactory.getPsi()) {
             return 0;
+        }
+
+        //Brother Battle almos always brother Battle faction.
+        if (Objects.equals(getCharacterPlayer().getFaction().getId(), BROTHER_BATTLE)) {
+            if (Objects.equals(calling.getId(), BROTHER_BATTLE)) {
+                return GOOD_PROBABILITY;
+            } else {
+                return EXOTIC_PROBABILITY;
+            }
         }
 
         if (FactionFactory.getInstance().getElement(getCharacterPlayer().getFaction()).getFavoredCallings().contains(calling.getId())) {

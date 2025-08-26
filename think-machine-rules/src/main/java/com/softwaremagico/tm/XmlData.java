@@ -31,6 +31,10 @@ import java.util.StringTokenizer;
 
 public abstract class XmlData {
 
+    protected static final String BROTHER_BATTLE = "brotherBattle";
+    protected static final String PLANET_LORE = "planetLore";
+    protected static final String FACTION_LORE = "factionLore";
+
 
     protected void readCommaSeparatedTokens(Collection<String> collection, String collectionData) {
         if (collectionData != null) {
