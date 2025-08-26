@@ -290,7 +290,9 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                 if (!availableOptions.contains(selection)) {
                     throw new InvalidSelectedElementException("Selected characteristic '" + selection + "' does not exist.", selection);
                 }
-                totalBonus += getCharacteristicOptions().get(i).getCharacteristicBonus(selection.getId()).getBonus();
+                if (getCharacteristicOptions().get(i).getOptions().size() != 1 || !getCharacteristicOptions().get(i).getOptions().get(0).isExtra()) {
+                    totalBonus += getCharacteristicOptions().get(i).getCharacteristicBonus(selection.getId()).getBonus();
+                }
             }
         }
 
@@ -342,7 +344,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
             for (int i = 0; i < selectedClassPerksOptions.size(); i++) {
                 if (selectedClassPerksOptions.get(i).getSelections().size() > perkOptions.get(i).getOptions().size()) {
                     throw new TooManySelectionsException("You have selected '" + selectedClassPerksOptions.get(i).getSelections().size()
-                            + "' capabilities options and only '"
+                            + "' perks options and only '"
                             + perkOptions.get(i).getOptions().size()
                             + "' are available.");
                 }

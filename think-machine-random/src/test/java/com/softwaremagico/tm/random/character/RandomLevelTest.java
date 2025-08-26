@@ -1,11 +1,16 @@
 package com.softwaremagico.tm.random.character;
 
+import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.level.LevelSelector;
+import com.softwaremagico.tm.character.perks.SpecializedPerk;
 import com.softwaremagico.tm.random.character.level.RandomLevel;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.stream.Collectors;
 
 @Test(groups = {"randomLevel"})
 public class RandomLevelTest {
@@ -79,6 +84,40 @@ public class RandomLevelTest {
         randomizeCharacter.createCharacter();
 
         Assert.assertEquals(characterPlayer.getLevel(), LEVEL_TEST);
+        characterPlayer.validate();
+    }
+
+    @Test
+    public void createDervishRandomCharacterTest() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("yeoman");
+        characterPlayer.setFaction("societyOfStPaulus");
+        characterPlayer.setCalling("dervish");
+
+        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer, LEVEL_TEST);
+        randomizeCharacter.createCharacter();
+
+        Assert.assertEquals(characterPlayer.getLevel(), LEVEL_TEST);
+        characterPlayer.validate();
+    }
+
+    @Test
+    public void createTwoRanksPerksRandomCharacterTest() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("priest");
+        characterPlayer.setFaction("orthodox");
+        characterPlayer.setCalling("clergy");
+
+        //If I select Novitiate, on orthodox must add the next rank
+        characterPlayer.getUpbringing().getSelectedPerksOptions().get(1).getSelections().add(new Selection("churchOrdinationNovitiate"));
+
+        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
+        randomizeCharacter.createCharacter();
+
+        Assert.assertTrue(characterPlayer.getPerks().stream().map(Element::getId).collect(Collectors.toSet())
+                .contains("churchOrdinationCanon"));
         characterPlayer.validate();
     }
 }

@@ -77,12 +77,12 @@ public class RandomizeCharacter {
         try {
             selectSpecie();
             selectGender();
-            selectPrimaryCharacteristics();
             selectUpbringing();
             selectFaction();
             selectPlanet();
             selectNames();
             selectCalling();
+            selectPrimaryCharacteristics();
             completeSpecie();
             completeUpbringing();
             completeFaction();

@@ -33,10 +33,11 @@ import com.softwaremagico.tm.character.occultism.OccultismType;
 import com.softwaremagico.tm.character.specie.Specie;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
-import com.softwaremagico.tm.exceptions.InvalidSkillException;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import com.softwaremagico.tm.log.RandomGenerationLog;
+import com.softwaremagico.tm.log.RandomSelectorLog;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
@@ -123,12 +124,16 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
     private void selectPrimaryCharacteristics() throws InvalidRandomElementSelectedException {
         final String mainCharacteristic = selectStandardCharacteristic();
         getCharacterPlayer().setPrimaryCharacteristic(mainCharacteristic);
+        RandomSelectorLog.debug(this.getClass().getSimpleName(), "Selecting primary characteristic '" + mainCharacteristic
+                + "' with current value '" + getCharacterPlayer().getCharacteristicValue(mainCharacteristic) + "'.");
 
         String secondaryCharacteristic;
         do {
             secondaryCharacteristic = selectStandardCharacteristic();
         } while (Objects.equals(mainCharacteristic, secondaryCharacteristic));
         getCharacterPlayer().setSecondaryCharacteristic(secondaryCharacteristic);
+        RandomSelectorLog.debug(this.getClass().getSimpleName(), "Selecting secondary characteristic '" + secondaryCharacteristic
+                + "' with current value '" + getCharacterPlayer().getCharacteristicValue(secondaryCharacteristic) + "'.");
 
         //Some species forces primary characteristics.
         try {
@@ -144,11 +149,20 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
     private String selectStandardCharacteristic() throws InvalidRandomElementSelectedException {
         String characteristic;
         final Specie specie = SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie());
+        boolean validCharacteristic = false;
         do {
             characteristic = selectElementByWeight().getId();
+            try {
+                getCharacterPlayer().checkMaxValueByLevel(characteristic, getCharacterPlayer().getCharacteristicValue(characteristic)
+                        + CharacteristicDefinition.PRIMARY_CHARACTERISTIC_VALUE);
+                validCharacteristic = true;
+            } catch (MaxValueExceededException | InvalidXmlElementException ignored) {
+                //Select another characteristic.
+            }
         } while (CharacteristicsDefinitionFactory.getInstance().getElement(characteristic).getType() == CharacteristicType.OCCULTISM
                 || CharacteristicsDefinitionFactory.getInstance().getElement(characteristic).getType() == CharacteristicType.OTHERS
-                || (specie != null && specie.getPrimaryCharacteristics() != null && !specie.getPrimaryCharacteristics().contains(characteristic)));
+                || (specie != null && specie.getPrimaryCharacteristics() != null && !specie.getPrimaryCharacteristics().contains(characteristic))
+                || !validCharacteristic);
         return characteristic;
     }
 }
