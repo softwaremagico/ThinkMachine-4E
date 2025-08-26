@@ -52,6 +52,8 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 public abstract class CharacterDefinitionStepSelection extends Element {
+    private static final int CHARACTERISTIC_POINTS = 5;
+    private static final int SKILL_POINTS = 5;
 
     @JsonIgnore
     private final CharacterPlayer characterPlayer;
@@ -268,7 +270,13 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         }
     }
 
+    @JsonIgnore
+    protected int getCharacteristicTotalPoints() {
+        return CHARACTERISTIC_POINTS;
+    }
+
     protected void validateCharacteristics() {
+        int totalBonus = 0;
         for (int i = 0; i < selectedCharacteristicOptions.size(); i++) {
             if (selectedCharacteristicOptions.get(i).getSelections().size() > getCharacteristicOptions().get(i).getOptions().size()) {
                 throw new TooManySelectionsException("You have selected '" + selectedCharacteristicOptions.get(i).getSelections().size()
@@ -282,11 +290,24 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                 if (!availableOptions.contains(selection)) {
                     throw new InvalidSelectedElementException("Selected characteristic '" + selection + "' does not exist.", selection);
                 }
+                totalBonus += getCharacteristicOptions().get(i).getCharacteristicBonus(selection.getId()).getBonus();
             }
+        }
+
+        //Check total
+        if (totalBonus != getCharacteristicTotalPoints()) {
+            throw new InvalidSelectedElementException("Total points assigned to characteristics are '" + totalBonus + "' from '"
+                    + getCharacteristicTotalPoints() + "'.");
         }
     }
 
+    @JsonIgnore
+    protected int getSkillTotalPoints() {
+        return SKILL_POINTS;
+    }
+
     protected void validateSkills() {
+        int totalBonus = 0;
         for (int i = 0; i < selectedSkillOptions.size(); i++) {
             if (selectedSkillOptions.get(i).getSelections().size() > getSkillOptions().get(i).getOptions().size()) {
                 throw new TooManySelectionsException("You have selected '" + selectedSkillOptions.get(i).getSelections().size()
@@ -300,7 +321,14 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                 if (!availableOptions.contains(selection)) {
                     throw new InvalidSelectedElementException("Selected skill '" + selection + "' does not exist.", selection);
                 }
+                totalBonus += getSkillOptions().get(i).getSkillBonus(selection.getId()).getBonus();
             }
+        }
+
+        //Check total
+        if (totalBonus != getSkillTotalPoints()) {
+            throw new InvalidSelectedElementException("Total points assigned to skills are '" + totalBonus + "' from '"
+                    + getSkillTotalPoints() + "'.");
         }
     }
 

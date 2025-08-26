@@ -35,4 +35,34 @@ public class RandomLevelTest {
             characterPlayer.validate();
         }
     }
+
+    @Test
+    public void createHawkwoodCommanderRandomCharacterTest() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("noble");
+        characterPlayer.setFaction("hawkwood");
+        characterPlayer.setCalling("commander");
+
+        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer, LEVEL_TEST);
+        randomizeCharacter.createCharacter();
+
+        Assert.assertEquals(characterPlayer.getLevel(), LEVEL_TEST);
+        characterPlayer.validate();
+    }
+
+    @Test
+    public void createScraverImperialCohortMerchantRandomCharacterTest() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("merchant");
+        characterPlayer.setFaction("scravers");
+        characterPlayer.setCalling("imperialCohortMerchant");
+
+        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer, LEVEL_TEST);
+        randomizeCharacter.createCharacter();
+
+        Assert.assertEquals(characterPlayer.getLevel(), LEVEL_TEST);
+        characterPlayer.validate();
+    }
 }

@@ -28,12 +28,12 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.callings.Calling;
 import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.callings.CallingGroup;
-import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.occultism.OccultismTypeFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
+import com.softwaremagico.tm.random.character.selectors.RandomInnerStepsSelector;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
@@ -43,7 +43,7 @@ import java.util.Collection;
 import java.util.Objects;
 import java.util.Set;
 
-public class RandomCalling extends RandomSelector<Calling> implements AssignableRandomSelector {
+public class RandomCalling extends RandomSelector<Calling> implements AssignableRandomSelector, RandomInnerStepsSelector {
 
     public RandomCalling(CharacterPlayer characterPlayer, Set<RandomPreference> preferences) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
@@ -54,7 +54,10 @@ public class RandomCalling extends RandomSelector<Calling> implements Assignable
         if (getCharacterPlayer().getCalling() == null || getCharacterPlayer().getCalling().getId() == null) {
             getCharacterPlayer().setCalling(selectElementByWeight().getId());
         }
+    }
 
+    @Override
+    public void complete() throws InvalidSpecieException, InvalidRandomElementSelectedException {
         final RandomizeCharacterDefinitionStep randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep(
                 getCharacterPlayer(),
                 getCharacterPlayer().getCalling(),

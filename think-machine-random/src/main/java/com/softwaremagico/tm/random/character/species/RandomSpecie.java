@@ -30,6 +30,7 @@ import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
+import com.softwaremagico.tm.random.character.selectors.RandomInnerStepsSelector;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
@@ -38,7 +39,7 @@ import com.softwaremagico.tm.random.step.RandomizeCharacterDefinitionStep;
 import java.util.Collection;
 import java.util.Set;
 
-public class RandomSpecie extends RandomSelector<Specie> implements AssignableRandomSelector {
+public class RandomSpecie extends RandomSelector<Specie> implements AssignableRandomSelector, RandomInnerStepsSelector {
 
     public RandomSpecie(CharacterPlayer characterPlayer, Set<RandomPreference> preferences) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
@@ -49,13 +50,15 @@ public class RandomSpecie extends RandomSelector<Specie> implements AssignableRa
         if (getCharacterPlayer().getSpecie() == null || getCharacterPlayer().getSpecie().getId() == null) {
             getCharacterPlayer().setSpecie(selectElementByWeight().getId());
         }
+    }
 
+    @Override
+    public void complete() throws InvalidSpecieException, InvalidRandomElementSelectedException {
         final RandomizeCharacterDefinitionStep randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep(
                 getCharacterPlayer(),
                 getCharacterPlayer().getSpecie(),
                 getPreferences()
         );
-
         randomizeCharacterDefinitionStep.assign();
     }
 

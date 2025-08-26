@@ -36,6 +36,7 @@ public class SkillBonusOption extends Option<Skill> {
 
     public SkillBonusOption() {
         super();
+        setBonus(1);
     }
 
     public SkillBonusOption(Skill skill) {

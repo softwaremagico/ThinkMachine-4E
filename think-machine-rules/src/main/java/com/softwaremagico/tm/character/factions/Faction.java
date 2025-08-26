@@ -47,6 +47,7 @@ public class Faction extends CharacterDefinitionStep {
     private List<String> favoredCallings;
 
     public Faction() {
+        super();
     }
 
     public boolean isOnlyForHuman() {

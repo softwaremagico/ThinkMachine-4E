@@ -38,7 +38,7 @@ import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedExcep
 import java.util.Set;
 
 public class RandomizeCharacterDefinitionStep {
-    private static final int TRIES = 10;
+    private static final int TRIES = 20;
 
     private final CharacterPlayer characterPlayer;
     private final CharacterDefinitionStepSelection characterDefinitionStepSelection;

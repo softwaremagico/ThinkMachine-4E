@@ -51,6 +51,11 @@ public class RandomizeCharacter {
     private final Set<RandomPreference> preferences;
     private final int desiredLevel;
 
+    private RandomSpecie randomSpecie;
+    private RandomCalling randomCalling;
+    private RandomFaction randomFaction;
+    private RandomUpbringing randomUpbringing;
+
     public RandomizeCharacter(CharacterPlayer characterPlayer, RandomPreference... preferences) {
         this(characterPlayer, 1, preferences);
     }
@@ -77,7 +82,11 @@ public class RandomizeCharacter {
             selectFaction();
             selectPlanet();
             selectNames();
-            selectCallings();
+            selectCalling();
+            completeSpecie();
+            completeUpbringing();
+            completeFaction();
+            completeCalling();
             setLevels();
             RandomGenerationLog.info(this.getClass(), "Character created: " + characterPlayer.toString());
         } catch (InvalidXmlElementException e) {
@@ -86,22 +95,34 @@ public class RandomizeCharacter {
     }
 
     private void selectSpecie() throws InvalidRandomElementSelectedException {
-        final RandomSpecie randomSpecie = new RandomSpecie(characterPlayer, preferences);
+        randomSpecie = new RandomSpecie(characterPlayer, preferences);
         randomSpecie.assign();
     }
 
-    private void selectGender() throws InvalidRandomElementSelectedException {
+    private void completeSpecie() throws InvalidRandomElementSelectedException {
+        randomSpecie.complete();
+    }
+
+    private void selectGender() {
         characterPlayer.getInfo().setGender(Gender.randomGender());
     }
 
     private void selectUpbringing() throws InvalidRandomElementSelectedException {
-        final RandomUpbringing randomUpbringing = new RandomUpbringing(characterPlayer, preferences);
+        randomUpbringing = new RandomUpbringing(characterPlayer, preferences);
         randomUpbringing.assign();
     }
 
+    private void completeUpbringing() throws InvalidRandomElementSelectedException {
+        randomUpbringing.complete();
+    }
+
     private void selectFaction() throws InvalidRandomElementSelectedException {
-        final RandomFaction randomFaction = new RandomFaction(characterPlayer, preferences);
+        randomFaction = new RandomFaction(characterPlayer, preferences);
         randomFaction.assign();
+    }
+
+    private void completeFaction() throws InvalidRandomElementSelectedException {
+        randomFaction.complete();
     }
 
     private void selectPlanet() throws InvalidRandomElementSelectedException {
@@ -116,9 +137,13 @@ public class RandomizeCharacter {
         randomSurname.assign();
     }
 
-    private void selectCallings() throws InvalidRandomElementSelectedException {
-        final RandomCalling randomCalling = new RandomCalling(characterPlayer, preferences);
+    private void selectCalling() throws InvalidRandomElementSelectedException {
+        randomCalling = new RandomCalling(characterPlayer, preferences);
         randomCalling.assign();
+    }
+
+    private void completeCalling() throws InvalidRandomElementSelectedException {
+        randomCalling.complete();
     }
 
     private void setLevels() throws InvalidRandomElementSelectedException {
@@ -126,9 +151,8 @@ public class RandomizeCharacter {
         randomLevel.assign();
     }
 
-
     private void selectPrimaryCharacteristics() throws InvalidRandomElementSelectedException {
         final RandomCharacteristics randomCharacteristics = new RandomCharacteristics(characterPlayer, preferences);
-        randomCharacteristics.selectPrimaryCharacteristics();
+        randomCharacteristics.assign();
     }
 }

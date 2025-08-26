@@ -24,6 +24,7 @@ package com.softwaremagico.tm.character.callings;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.perks.PerkOption;
@@ -38,6 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CallingCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection {
+    private static final int CALLING_SKILL_POINTS = 10;
 
     public CallingCharacterDefinitionStepSelection(CharacterPlayer characterPlayer, String calling) throws InvalidGeneratedCharacter {
         super(characterPlayer, CallingFactory.getInstance().getElement(calling));
@@ -60,6 +62,13 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
     @Override
     public Phase getPhase() {
         return Phase.CALLING;
+    }
+
+
+    @Override
+    @JsonIgnore
+    protected int getSkillTotalPoints() {
+        return CALLING_SKILL_POINTS;
     }
 
     /**

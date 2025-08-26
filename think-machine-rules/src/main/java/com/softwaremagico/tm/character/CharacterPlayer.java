@@ -211,7 +211,7 @@ public class CharacterPlayer {
     }
 
     public void checkMaxValueByLevel(Element element, int value) {
-        if (element == null) {
+        if (element != null) {
             checkMaxValueByLevel(element.getId(), value);
         }
     }
@@ -260,7 +260,7 @@ public class CharacterPlayer {
         if (upbringing != null) {
             this.upbringing = new UpbringingCharacterDefinitionStepSelection(this, upbringing);
             try {
-                this.upbringing.validate();
+                UpbringingFactory.getInstance().getElement(this.upbringing.getId()).getRestrictions().isRestricted(this);
             } catch (InvalidSelectionException e) {
                 this.upbringing = null;
                 throw e;
@@ -270,7 +270,7 @@ public class CharacterPlayer {
         }
         try {
             if (this.faction != null) {
-                this.faction.validate();
+                FactionFactory.getInstance().getElement(this.faction.getId()).getRestrictions().isRestricted(this);
             }
         } catch (InvalidSelectionException e) {
             setFaction((String) null);
@@ -278,7 +278,7 @@ public class CharacterPlayer {
 
         try {
             if (this.calling != null) {
-                this.calling.validate();
+                CallingFactory.getInstance().getElement(this.calling.getId()).getRestrictions().isRestricted(this);
             }
         } catch (InvalidSelectionException e) {
             setCalling((String) null);
@@ -294,7 +294,7 @@ public class CharacterPlayer {
         if (faction != null) {
             this.faction = new FactionCharacterDefinitionStepSelection(this, faction);
             try {
-                this.faction.validate();
+                FactionFactory.getInstance().getElement(this.faction.getId()).getRestrictions().isRestricted(this);
             } catch (InvalidSelectionException e) {
                 this.faction = null;
                 throw e;
@@ -304,7 +304,7 @@ public class CharacterPlayer {
         }
         try {
             if (this.calling != null) {
-                this.calling.validate();
+                CallingFactory.getInstance().getElement(this.calling.getId()).getRestrictions().isRestricted(this);
             }
         } catch (InvalidSelectionException e) {
             setCalling((String) null);
@@ -323,7 +323,7 @@ public class CharacterPlayer {
         if (calling != null) {
             this.calling = new CallingCharacterDefinitionStepSelection(this, calling);
             try {
-                this.calling.validate();
+                CallingFactory.getInstance().getElement(this.calling.getId()).getRestrictions().isRestricted(this);
             } catch (InvalidSelectionException e) {
                 this.calling = null;
                 throw e;

@@ -527,4 +527,28 @@ public class RandomCharacterTest {
 
         characterPlayer.validate();
     }
+
+    @Test
+    public void selectAmateurCombination() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.getInfo().setPlanet("nowhere");
+        characterPlayer.getInfo().setGender(Gender.FEMALE);
+        characterPlayer.setUpbringing("merchant");
+        characterPlayer.setFaction("charioteers");
+        characterPlayer.setCalling("amateur");
+        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
+        randomizeCharacter.createCharacter();
+
+        Assert.assertNotNull(characterPlayer.getSpecie());
+        Assert.assertNotNull(characterPlayer.getPrimaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getSecondaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getFaction());
+        Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
+        Assert.assertNotNull(characterPlayer.getCalling());
+        Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
+        Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+
+        characterPlayer.validate();
+    }
 }

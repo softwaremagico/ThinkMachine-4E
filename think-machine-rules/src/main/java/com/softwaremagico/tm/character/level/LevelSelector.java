@@ -140,6 +140,20 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
         //Ignored
     }
 
+
+    @Override
+    @JsonIgnore
+    protected int getCharacteristicTotalPoints() {
+        return getLevelDefinition().getCharacteristicsTotalPoints();
+    }
+
+
+    @Override
+    @JsonIgnore
+    protected int getSkillTotalPoints() {
+        return getLevelDefinition().getSkillsTotalPoints();
+    }
+
     @Override
     public void validate() throws InvalidSelectionException {
         try {

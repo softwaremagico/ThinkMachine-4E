@@ -31,6 +31,7 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
 import com.softwaremagico.tm.character.characteristics.CharacteristicType;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.MaxValueExceededException;
+import com.softwaremagico.tm.log.RandomSelectorLog;
 import com.softwaremagico.tm.log.RandomStepLog;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
@@ -59,14 +60,22 @@ public class RandomCharacteristicBonusOption extends RandomCharacteristics {
         }
         //Max characteristic at some levels.
         try {
-            getCharacterPlayer().checkMaxValueByLevel(element, getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName())
-                    + characteristicBonusOptions.getBonus());
-            RandomStepLog.debug(this.getClass(), "Max level '" + element + "' value: " + getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName()) + " + "
-                    + characteristicBonusOptions.getBonus());
+            final int charValue = getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName());
+            getCharacterPlayer().checkMaxValueByLevel(element, charValue + characteristicBonusOptions.getBonus());
+            RandomStepLog.debug(this.getClass(), "Max level '" + element + "' value: " + charValue
+                    + " + " + characteristicBonusOptions.getBonus() + " from " + characteristicBonusOptions.getOptions());
         } catch (InvalidXmlElementException | MaxValueExceededException e) {
             return 0;
         }
         return super.getWeight(element);
+    }
+
+    @Override
+    public CharacteristicDefinition selectElementByWeight() throws InvalidRandomElementSelectedException {
+        final CharacteristicDefinition characteristicDefinition = super.selectElementByWeight();
+        RandomSelectorLog.debug(this.getClass(), "Characteristic selected '" + characteristicDefinition.toString() + "' has current value '"
+                + getCharacterPlayer().getCharacteristicValue(characteristicDefinition.getCharacteristicName()) + "'.");
+        return characteristicDefinition;
     }
 
 

@@ -91,7 +91,7 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
         //Max characteristic at some levels.
         try {
             getCharacterPlayer().checkMaxValueByLevel(element, getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName()) + 1);
-        } catch (InvalidSkillException e) {
+        } catch (InvalidXmlElementException e) {
             return 0;
         }
 
@@ -106,9 +106,8 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
             return 0;
         }
 
-        if (Objects.equals(getCharacterPlayer().getPrimaryCharacteristic(), element.getId())) {
-            return LITTLE_PROBABILITY;
-        } else if (Objects.equals(getCharacterPlayer().getSecondaryCharacteristic(), element.getId())) {
+        if (!getPreferences().contains(RandomPreference.BALANCED) && Objects.equals(getCharacterPlayer().getPrimaryCharacteristic(), element.getId())
+                || Objects.equals(getCharacterPlayer().getSecondaryCharacteristic(), element.getId())) {
             return LITTLE_PROBABILITY;
         }
 
@@ -121,7 +120,7 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
     }
 
 
-    public void selectPrimaryCharacteristics() throws InvalidRandomElementSelectedException {
+    private void selectPrimaryCharacteristics() throws InvalidRandomElementSelectedException {
         final String mainCharacteristic = selectStandardCharacteristic();
         getCharacterPlayer().setPrimaryCharacteristic(mainCharacteristic);
 

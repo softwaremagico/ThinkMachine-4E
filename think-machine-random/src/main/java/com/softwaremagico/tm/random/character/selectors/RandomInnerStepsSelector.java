@@ -1,10 +1,10 @@
-package com.softwaremagico.tm.character;
+package com.softwaremagico.tm.random.character.selectors;
 
 /*-
  * #%L
- * Think Machine 4E (Rules)
+ * Think Machine 4E (Random Generator)
  * %%
- * Copyright (C) 2017 - 2024 Softwaremagico
+ * Copyright (C) 2017 - 2025 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -24,25 +24,10 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import com.softwaremagico.tm.exceptions.InvalidSpecieException;
+import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
-public class CharacterSelectedElement {
-    private List<Selection> selections = new ArrayList<>();
+public interface RandomInnerStepsSelector {
 
-    public List<Selection> getSelections() {
-        return selections;
-    }
-
-    public void setSelections(Collection<Selection> selections) {
-        this.selections = new ArrayList<>(selections);
-    }
-
-    @Override
-    public String toString() {
-        return "CharacterSelectedElement{"
-                + "selections=" + selections
-                + '}';
-    }
+    void complete() throws InvalidSpecieException, InvalidRandomElementSelectedException;
 }

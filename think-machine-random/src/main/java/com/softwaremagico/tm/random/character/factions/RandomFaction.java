@@ -30,6 +30,7 @@ import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
+import com.softwaremagico.tm.random.character.selectors.RandomInnerStepsSelector;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
@@ -39,7 +40,7 @@ import java.util.Collection;
 import java.util.Objects;
 import java.util.Set;
 
-public class RandomFaction extends RandomSelector<Faction> implements AssignableRandomSelector {
+public class RandomFaction extends RandomSelector<Faction> implements AssignableRandomSelector, RandomInnerStepsSelector {
 
     public RandomFaction(CharacterPlayer characterPlayer, Set<RandomPreference> preferences) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
@@ -51,6 +52,10 @@ public class RandomFaction extends RandomSelector<Faction> implements Assignable
             getCharacterPlayer().setFaction(selectElementByWeight().getId());
         }
 
+    }
+
+    @Override
+    public void complete() throws InvalidSpecieException, InvalidRandomElementSelectedException {
         final RandomizeCharacterDefinitionStep randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep(
                 getCharacterPlayer(),
                 getCharacterPlayer().getFaction(),

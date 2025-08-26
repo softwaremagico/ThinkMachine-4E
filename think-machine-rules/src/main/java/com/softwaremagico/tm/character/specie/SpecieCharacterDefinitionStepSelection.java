@@ -24,6 +24,7 @@ package com.softwaremagico.tm.character.specie;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.values.Phase;
@@ -39,6 +40,16 @@ public class SpecieCharacterDefinitionStepSelection extends CharacterDefinitionS
     public SpecieCharacterDefinitionStepSelection(CharacterPlayer characterPlayer, String specie) throws InvalidGeneratedCharacter {
         super(characterPlayer, SpecieFactory.getInstance().getElement(specie));
         setId(specie);
+    }
+
+    @JsonIgnore
+    protected int getCharacteristicTotalPoints() {
+        return 0;
+    }
+
+    @JsonIgnore
+    protected int getSkillTotalPoints() {
+        return 0;
     }
 
     @Override
