@@ -169,6 +169,15 @@
         </abbreviation>
         <characteristicType>occultism</characteristicType>
         <type>characteristicDefinition</type>
+        <restrictions>
+            <species>
+                <specie>vorox</specie>
+                <specie>ukar</specie>
+            </species>
+        </restrictions>
+        <random>
+            <recommendedCallings>theurgist</recommendedCallings>
+        </random>
     </characteristicDefinition>
     <characteristicDefinition>
         <id>hubris</id>
@@ -182,6 +191,12 @@
         </abbreviation>
         <characteristicType>others</characteristicType>
         <type>characteristicDefinition</type>
+        <restrictions>
+            <species>
+                <specie>vorox</specie>
+                <specie>ukar</specie>
+            </species>
+        </restrictions>
         <random>
             <staticProbability>0</staticProbability>
         </random>
@@ -198,6 +213,14 @@
         </abbreviation>
         <characteristicType>occultism</characteristicType>
         <type>characteristicDefinition</type>
+        <restrictions>
+            <species>
+                <specie>vorox</specie>
+            </species>
+        </restrictions>
+        <random>
+            <recommendedCallings>psychic</recommendedCallings>
+        </random>
     </characteristicDefinition>
     <characteristicDefinition>
         <id>urge</id>
@@ -211,6 +234,11 @@
         </abbreviation>
         <characteristicType>others</characteristicType>
         <type>characteristicDefinition</type>
+        <restrictions>
+            <species>
+                <specie>vorox</specie>
+            </species>
+        </restrictions>
         <random>
             <staticProbability>0</staticProbability>
         </random>

@@ -206,6 +206,13 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             RandomGenerationLog.debug(this.getClass().getName(),
                     "Random definition as recommended for '{}'.", getCharacterPlayer().getFaction());
             multiplier *= HIGH_MULTIPLIER;
+            // Recommended to my calling.
+        } else if (getCharacterPlayer() != null && getCharacterPlayer().getCalling() != null
+                && element.getRandomDefinition().getRecommendedCallings().contains(getCharacterPlayer().getCalling().getId())) {
+            RandomGenerationLog.debug(this.getClass().getName(),
+                    "Random definition as recommended for '{}'.", getCharacterPlayer().getCalling());
+            multiplier *= HIGH_MULTIPLIER;
+            // Recommended to my faction group.
         } else if (element.getRandomDefinition().getProbabilityMultiplier() != null) {
             RandomValuesLog.debug(this.getClass().getName(),
                     "Random definition multiplier is '{}'.", element.getRandomDefinition().getProbabilityMultiplier());

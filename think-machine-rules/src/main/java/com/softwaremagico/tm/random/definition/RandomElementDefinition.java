@@ -49,6 +49,7 @@ public class RandomElementDefinition extends XmlData {
     private Set<String> recommendedFactionsGroups = new HashSet<>();
     private Set<String> recommendedSpecies = new HashSet<>();
     private Set<String> recommendedUpbringings = new HashSet<>();
+    private Set<String> recommendedCallings = new HashSet<>();
     private Set<String> forbiddenPreferences = new HashSet<>();
     private Set<String> restrictedPreferences = new HashSet<>();
     private Set<String> recommendedPreferences = new HashSet<>();
@@ -104,6 +105,10 @@ public class RandomElementDefinition extends XmlData {
             recommendedUpbringings.clear();
             recommendedUpbringings.addAll(randomDefinition.getRecommendedUpbringings());
         }
+        if (randomDefinition.getRecommendedCallings() != null && !randomDefinition.getRecommendedCallings().isEmpty()) {
+            recommendedCallings.clear();
+            recommendedCallings.addAll(randomDefinition.getRecommendedCallings());
+        }
         if (randomDefinition.getForbiddenPreferences() != null && !randomDefinition.getForbiddenPreferences().isEmpty()) {
             forbiddenPreferences.clear();
             forbiddenPreferences.addAll(randomDefinition.getForbiddenPreferences());
@@ -133,20 +138,21 @@ public class RandomElementDefinition extends XmlData {
         return recommendedFactions;
     }
 
-    public void addRecommendedFactionGroup(String recommendedFactionGroup) {
-        if (recommendedFactionGroup != null) {
-            recommendedUpbringings.add(recommendedFactionGroup);
-        }
-    }
-
-    public void addRecommendedFaction(String faction) {
-        if (faction != null) {
-            recommendedFactions.add(faction);
-        }
-    }
-
     public Set<String> getRecommendedFactionsGroups() {
         return recommendedFactionsGroups;
+    }
+
+    public Set<String> getRecommendedCallings() {
+        return recommendedCallings;
+    }
+
+    public void setRecommendedCallings(Set<String> recommendedCallings) {
+        this.recommendedCallings = recommendedCallings;
+    }
+
+    public void setRecommendedCallings(String recommendedCalling) {
+        recommendedCallings = new HashSet<>();
+        readCommaSeparatedTokens(recommendedCallings, recommendedCalling);
     }
 
     public void setRecommendedFactionsGroups(Set<String> recommendedFactionsGroups) {
@@ -262,7 +268,8 @@ public class RandomElementDefinition extends XmlData {
     }
 
     public void setRecommendedUpbringings(String recommendedUpbringing) {
-        this.recommendedUpbringings = new HashSet<>(recommendedUpbringings);
+        recommendedUpbringings = new HashSet<>();
+        readCommaSeparatedTokens(recommendedUpbringings, recommendedUpbringing);
     }
 
     public void setRecommendedUpbringings(Set<String> recommendedUpbringings) {

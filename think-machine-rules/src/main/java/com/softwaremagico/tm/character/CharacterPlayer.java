@@ -219,7 +219,14 @@ public class CharacterPlayer {
     public void checkMaxValueByLevel(String element, int value) {
         if ((getLevel() < 2 && value > MAX_INITIAL_VALUE)
                 || (getLevel() < LEVEL_MAX_VALUE && value > MAX_INTERMEDIAL_VALUE)) {
-            throw new InvalidXmlElementException("Element '" + element + "' has exceeded its maximum value '" + value + "' at level '" + getLevel() + "'.");
+            String composition;
+            try {
+                composition = getCharacteristicComposition(element);
+            } catch (Exception e) {
+                composition = getSkillComposition(element);
+            }
+            throw new InvalidXmlElementException("Element '" + element + "' has exceeded its maximum value '" + value + "' at level '" + getLevel() + "'. "
+                    + composition);
         }
     }
 
@@ -351,34 +358,50 @@ public class CharacterPlayer {
 
     public int getSkillValue(String skill) throws MaxInitialValueExceededException {
         int bonus = 0;
-        final StringBuilder stringBuilder = new StringBuilder();
         if (SkillFactory.getInstance().getElement(skill).isNatural()) {
             bonus += Skill.NATURAL_SKILL_INITIAL_VALUE;
         }
         if (upbringing != null) {
             final int skillBonus = upbringing.getSkillBonus(skill);
             bonus += skillBonus;
-            if (skillBonus > 0) {
-                stringBuilder.append("Upbringing: ").append(skillBonus);
-            }
         }
         if (faction != null) {
             final int skillBonus = faction.getSkillBonus(skill);
             bonus += skillBonus;
-            if (skillBonus > 0) {
-                stringBuilder.append((stringBuilder.length() > 0 ? ", " : "")).append("Faction: ").append(skillBonus);
-            }
         }
         if (calling != null) {
             final int skillBonus = calling.getSkillBonus(skill);
             bonus += skillBonus;
-            calling.getSkillBonus(skill);
+        }
+        try {
+            checkMaxValueByLevel(skill, bonus);
+        } catch (InvalidXmlElementException e) {
+            throw new InvalidXmlElementException("Invalid skill total. " + getSkillComposition(skill), e);
+        }
+        return bonus;
+    }
+
+    public String getSkillComposition(String skill) {
+        final StringBuilder stringBuilder = new StringBuilder();
+        if (upbringing != null) {
+            final int skillBonus = upbringing.getSkillBonus(skill);
             if (skillBonus > 0) {
-                stringBuilder.append((stringBuilder.length() > 0 ? ", " : "")).append("Calling: ").append(skillBonus);
+                stringBuilder.append("upbringing: ").append(skillBonus);
             }
         }
-        checkMaxValueByLevel(skill, bonus);
-        return bonus;
+        if (faction != null) {
+            final int skillBonus = faction.getSkillBonus(skill);
+            if (skillBonus > 0) {
+                stringBuilder.append((stringBuilder.length() > 0 ? ", " : "")).append("faction: ").append(skillBonus);
+            }
+        }
+        if (calling != null) {
+            final int skillBonus = calling.getSkillBonus(skill);
+            if (skillBonus > 0) {
+                stringBuilder.append((stringBuilder.length() > 0 ? ", " : "")).append("calling: ").append(skillBonus);
+            }
+        }
+        return stringBuilder.toString();
     }
 
     public int getCharacteristicValue(CharacteristicName characteristic) throws MaxInitialValueExceededException {
@@ -414,36 +437,83 @@ public class CharacterPlayer {
         if (characteristicName == null) {
             throw new InvalidCharacteristicException("No characteristic '" + characteristic + "' exists.");
         }
-        int bonus;
+        int bonus = 0;
         if (getPrimaryCharacteristic() != null && Objects.equals(getPrimaryCharacteristic(), characteristic)) {
             bonus = CharacteristicDefinition.PRIMARY_CHARACTERISTIC_VALUE;
         } else if (getSecondaryCharacteristic() != null && Objects.equals(getSecondaryCharacteristic(), characteristic)) {
             bonus = CharacteristicDefinition.SECONDARY_CHARACTERISTIC_VALUE;
         } else if (specie != null) {
             bonus = SpecieFactory.getInstance().getElement(getSpecie()).getSpecieCharacteristic(characteristic).getInitialValue();
-        } else {
+        } else if (characteristicName.getCharacteristicType().equals(CharacteristicType.BODY)
+                || characteristicName.getCharacteristicType().equals(CharacteristicType.MIND)
+                || characteristicName.getCharacteristicType().equals(CharacteristicType.SPIRIT)) {
             bonus = Characteristic.INITIAL_VALUE;
         }
         if (upbringing != null) {
-            bonus += upbringing.getCharacteristicBonus(characteristic);
+            final int upbringingBonus = upbringing.getCharacteristicBonus(characteristic);
+            bonus += upbringingBonus;
         }
         if (faction != null) {
-            bonus += faction.getCharacteristicBonus(characteristic);
+            final int factionBonus = faction.getCharacteristicBonus(characteristic);
+            bonus += factionBonus;
         }
         if (calling != null) {
-            bonus += calling.getCharacteristicBonus(characteristic);
+            final int callingBonus = calling.getCharacteristicBonus(characteristic);
+            bonus += callingBonus;
         }
         if (bonus > MAX_INITIAL_VALUE + getLevel() - 1) {
             throw new MaxInitialValueExceededException("Characteristic '" + characteristic + "' has exceeded the maximum value of '"
-                    + (MAX_INITIAL_VALUE + getLevel() - 1) + "' with '" + bonus + "'.", bonus, (MAX_INITIAL_VALUE + getLevel() - 1));
+                    + (MAX_INITIAL_VALUE + getLevel() - 1) + "' with '" + bonus + "'. " + getCharacteristicComposition(characteristic),
+                    bonus, (MAX_INITIAL_VALUE + getLevel() - 1));
         }
         if (specie != null && bonus > SpecieFactory.getInstance().getElement(specie.getId()).getSpecieCharacteristic(characteristic).getMaximumValue()) {
             throw new MaxValueExceededException("Characteristic '" + characteristic + "' has exceeded the maximum value of '"
                     + SpecieFactory.getInstance().getElement(specie.getId()).getSpecieCharacteristic(characteristic).getMaximumValue() + "' with '"
-                    + bonus + "'.", bonus,
+                    + bonus + "'. " + getCharacteristicComposition(characteristic), bonus,
                     SpecieFactory.getInstance().getElement(specie.getId()).getSpecieCharacteristic(characteristic).getMaximumValue());
         }
         return bonus;
+    }
+
+    public String getCharacteristicComposition(String characteristic) {
+        final CharacteristicName characteristicName = CharacteristicName.get(characteristic);
+        if (characteristicName == null) {
+            throw new InvalidCharacteristicException("No characteristic '" + characteristic + "' exists.");
+        }
+        final StringBuilder stringBuilder = new StringBuilder();
+        if (getPrimaryCharacteristic() != null && Objects.equals(getPrimaryCharacteristic(), characteristic)) {
+            stringBuilder.append("Primary characteristic: ").append(CharacteristicDefinition.PRIMARY_CHARACTERISTIC_VALUE);
+        } else if (getSecondaryCharacteristic() != null && Objects.equals(getSecondaryCharacteristic(), characteristic)) {
+            stringBuilder.append("Secondary characteristic: ").append(CharacteristicDefinition.SECONDARY_CHARACTERISTIC_VALUE);
+        } else if (specie != null) {
+            final int bonus = SpecieFactory.getInstance().getElement(getSpecie()).getSpecieCharacteristic(characteristic).getInitialValue();
+            if (bonus > 0) {
+                stringBuilder.append("Specie bonus: ").append(bonus);
+            }
+        } else if (characteristicName.getCharacteristicType().equals(CharacteristicType.BODY)
+                || characteristicName.getCharacteristicType().equals(CharacteristicType.MIND)
+                || characteristicName.getCharacteristicType().equals(CharacteristicType.SPIRIT)) {
+            stringBuilder.append("Basic bonus: ").append(Characteristic.INITIAL_VALUE);
+        }
+        if (upbringing != null) {
+            final int upbringingBonus = upbringing.getCharacteristicBonus(characteristic);
+            if (upbringingBonus > 0) {
+                stringBuilder.append((stringBuilder.length() > 0 ? ", " : "")).append("upbringing: ").append(upbringingBonus);
+            }
+        }
+        if (faction != null) {
+            final int factionBonus = faction.getCharacteristicBonus(characteristic);
+            if (factionBonus > 0) {
+                stringBuilder.append((stringBuilder.length() > 0 ? ", " : "")).append("faction: ").append(factionBonus);
+            }
+        }
+        if (calling != null) {
+            final int callingBonus = calling.getCharacteristicBonus(characteristic);
+            if (callingBonus > 0) {
+                stringBuilder.append((stringBuilder.length() > 0 ? ", " : "")).append("calling: ").append(callingBonus);
+            }
+        }
+        return stringBuilder.toString();
     }
 
     public CombatActionRequirement getCharacteristicCombatValue(String id) {
