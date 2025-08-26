@@ -347,9 +347,11 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     private List<CapabilityOptions> getAllCapabilityOptions() {
         final List<CapabilityOptions> capabilityOptions = new ArrayList<>();
         for (CapabilityOptions capabilityOption : getCharacterDefinitionStep().getCapabilityOptions()) {
+            final List<CapabilityOption> availableOptions = capabilityOption.getOptions().stream().filter(
+                    e -> !e.getRestrictions().isRestricted(characterPlayer)).collect(Collectors.toList());
             //If no option is available. Must select between any not restricted to the character.
-            if (!capabilityOption.getOptions().isEmpty()) {
-                capabilityOptions.add(new CapabilityOptions(capabilityOption, capabilityOption.getOptions()));
+            if (!availableOptions.isEmpty()) {
+                capabilityOptions.add(new CapabilityOptions(capabilityOption, availableOptions));
             } else {
                 final CapabilityOptions newCapabilityOptions = new CapabilityOptions(capabilityOption, CapabilityFactory.getInstance().getElements()
                         .stream().filter(
@@ -383,7 +385,8 @@ public abstract class CharacterDefinitionStepSelection extends Element {
             //Get not duplicated options that are selected on previous steps.
             final List<CapabilityOption> oldOptions = new ArrayList<>(capabilityOption.getOptions());
             final List<CapabilityOption> options = capabilityOption.getOptions().stream().filter(o -> !getCharacterPlayer()
-                            .hasCapability(o.getId(), o.getSelectedSpecialization() != null ? o.getSelectedSpecialization().getId() : null, phase))
+                            .hasCapability(o.getId(), o.getSelectedSpecialization() != null ? o.getSelectedSpecialization().getId() : null,
+                                    phase, getId())).filter(o -> !o.getRestrictions().isRestricted(characterPlayer))
                     .collect(Collectors.toList());
             //If no option is available. Must select between any not restricted to the character.
             if (!options.isEmpty()) {

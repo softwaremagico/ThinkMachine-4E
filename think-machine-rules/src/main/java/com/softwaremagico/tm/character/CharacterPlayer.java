@@ -535,7 +535,7 @@ public class CharacterPlayer {
     }
 
 
-    public boolean hasCapability(String capability, String specialization, Phase phase) {
+    public boolean hasCapability(String capability, String specialization, Phase phase, String stepId) {
         final String comparedCapability = ComparableUtils.getComparisonId(capability, specialization);
         if (Phase.SPECIE.isCheckedPhase(phase) && hasCapability(comparedCapability, specie)) {
             return true;
@@ -552,6 +552,9 @@ public class CharacterPlayer {
         //Levels always check other levels.
         if (Phase.LEVEL.isCheckedPhase(phase) || phase == Phase.LEVEL) {
             for (LevelSelector levelSelector : getLevels()) {
+                if (Objects.equals(levelSelector.getId(), stepId)) {
+                    break;
+                }
                 if (hasCapability(comparedCapability, levelSelector)) {
                     return true;
                 }
@@ -689,7 +692,6 @@ public class CharacterPlayer {
             nextCapabilities = new ArrayList<>(levelCapabilities);
             levelCapabilities.retainAll(completeCapabilitiesList);
             if (!levelCapabilities.isEmpty()) {
-                hasCapability("religionLore", "elDiin", Phase.LEVEL);
                 throw new InvalidXmlElementException("Duplicated capability '" + levelCapabilities + "' on level '" + levelSelector + "'.");
             }
             completeCapabilitiesList.addAll(nextCapabilities);

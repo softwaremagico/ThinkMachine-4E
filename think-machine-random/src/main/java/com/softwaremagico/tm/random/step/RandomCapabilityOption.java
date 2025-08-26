@@ -33,7 +33,7 @@ public class RandomCapabilityOption extends RandomSelector<CapabilityOption> {
     @Override
     protected int getWeight(CapabilityOption element) throws InvalidRandomElementSelectedException {
         if (getCharacterPlayer().hasCapability(element.getId(), element.getSelectedSpecialization() != null
-                ? element.getSelectedSpecialization().getId() : null, phase)) {
+                ? element.getSelectedSpecialization().getId() : null, phase, null)) {
             return 0;
         }
         //Better to know your own planet!
