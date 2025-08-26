@@ -27,6 +27,7 @@ public class RandomLevelTest {
     @Test
     public void createFullRandomCharacterTest() throws InvalidRandomElementSelectedException {
         for (int i = 0; i < CHARACTERS_CREATED; i++) {
+            System.out.println("#######################################################");
             final CharacterPlayer characterPlayer = new CharacterPlayer();
             final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer, LEVEL_TEST);
             randomizeCharacter.createCharacter();
@@ -58,6 +59,21 @@ public class RandomLevelTest {
         characterPlayer.setUpbringing("merchant");
         characterPlayer.setFaction("scravers");
         characterPlayer.setCalling("imperialCohortMerchant");
+
+        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer, LEVEL_TEST);
+        randomizeCharacter.createCharacter();
+
+        Assert.assertEquals(characterPlayer.getLevel(), LEVEL_TEST);
+        characterPlayer.validate();
+    }
+
+    @Test
+    public void createObunPriestRandomCharacterTest() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("obun");
+        characterPlayer.setUpbringing("priest");
+        characterPlayer.setFaction("avestites");
+        characterPlayer.setCalling("inquisitor");
 
         final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer, LEVEL_TEST);
         randomizeCharacter.createCharacter();

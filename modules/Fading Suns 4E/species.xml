@@ -187,10 +187,13 @@
         </movement>
         <size>5</size>
         <capabilities>
-            <capability>
-                <id>speak</id>
-                <selectedSpecialization>lojmaa</selectedSpecialization>
-            </capability>
+            <capabilitiesOption>
+                <total>1</total>
+                <capability>
+                    <id>speak</id>
+                    <selectedSpecialization>lojmaa</selectedSpecialization>
+                </capability>
+            </capabilitiesOption>
         </capabilities>
         <perks>
             <perk>
@@ -309,8 +312,15 @@
             <value>5</value>
         </movement>
         <size>5</size>
-        <blessings>sensitiveTouch, bitter</blessings>
-        <benefices>ostraziced2</benefices>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <capability>
+                    <id>speak</id>
+                    <selectedSpecialization>uryari</selectedSpecialization>
+                </capability>
+            </capabilitiesOption>
+        </capabilities>
         <perks>
             <perk>
                 <id>nothingToLose</id>
@@ -459,8 +469,15 @@
             <value>14</value>
         </movement>
         <size>7</size>
-        <blessings>predatory, giant, sensitiveSmell, uncouth</blessings>
-        <benefices>bite, extraLimbs, noOccult, ostraziced2</benefices>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <capability>
+                    <id>speak</id>
+                    <selectedSpecialization>voroxian</selectedSpecialization>
+                </capability>
+            </capabilitiesOption>
+        </capabilities>
         <perks>
             <perk>
                 <id>smellDanger</id>
