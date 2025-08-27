@@ -36,13 +36,13 @@ import java.util.Objects;
 
 @Test(groups = {"raceFactory"})
 public class SpecieFactoryTests {
-    private static final int DEFINED_Species = 4;
+    private static final int DEFINED_SPECIES = 4;
 
 
     @Test
     public void readSpecies() throws InvalidXmlElementException {
         Assert.assertEquals(SpecieFactory.getInstance().getElements()
-                .size(), DEFINED_Species);
+                .size(), DEFINED_SPECIES);
     }
 
 
