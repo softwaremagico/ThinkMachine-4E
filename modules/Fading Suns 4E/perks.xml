@@ -750,10 +750,11 @@
         </name>
         <source>calling</source>
         <type>ability</type>
-        <restrictions>
+        <restrictions mode="all">
             <species>
                 <specie>obun</specie>
             </species>
+            <level>1</level>
         </restrictions>
     </perk>
     <perk>

@@ -35,6 +35,9 @@ import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
+import com.softwaremagico.tm.character.perks.PerkFactory;
+import com.softwaremagico.tm.character.perks.PerkOption;
+import com.softwaremagico.tm.character.perks.PerkOptions;
 import com.softwaremagico.tm.character.skills.SkillBonusOption;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
 import com.softwaremagico.tm.character.skills.SkillFactory;
@@ -316,5 +319,44 @@ public class CharacterRulesTests {
         CharacterExamples.populateCalling(characterPlayer);
 
         characterPlayer.validate();
+    }
+
+    @Test
+    public void childOfDhiyanaOnlyAvailableAtLevel1() {
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.getInfo().setNames("Dhiyanez");
+        characterPlayer.setSpecie("obun");
+        characterPlayer.setUpbringing("priest");
+        characterPlayer.setFaction("sanctuaryAeon");
+        characterPlayer.setCalling("mendicant");
+
+        //Specie perks are added to callings.
+        boolean exists = false;
+        for (PerkOptions perkOptions : characterPlayer.getUpbringing().getNotRepeatedPerksOptions()) {
+            if (perkOptions.getOptions().contains(new PerkOption(PerkFactory.getInstance().getElement("childOfDhiyana")))) {
+                exists = true;
+            }
+        }
+        Assert.assertFalse(exists);
+
+        for (PerkOptions perkOptions : characterPlayer.getCalling().getNotRepeatedPerksOptions()) {
+            if (perkOptions.getOptions().contains(new PerkOption(PerkFactory.getInstance().getElement("childOfDhiyana")))) {
+                exists = true;
+            }
+        }
+        Assert.assertTrue(exists);
+
+        CharacterExamples.populateCharacter(characterPlayer);
+
+        //But it is not available at level 2.
+        characterPlayer.addLevel();
+
+        exists = false;
+        for (PerkOptions perkOptions : characterPlayer.getCalling().getNotRepeatedPerksOptions()) {
+            if (perkOptions.getOptions().contains(new PerkOption(PerkFactory.getInstance().getElement("childOfDhiyana")))) {
+                exists = true;
+            }
+        }
+        Assert.assertFalse(exists);
     }
 }

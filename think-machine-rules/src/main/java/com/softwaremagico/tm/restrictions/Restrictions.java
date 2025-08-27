@@ -89,6 +89,9 @@ public class Restrictions extends XmlData {
     @JsonProperty("skills")
     private Set<RestrictedSkill> restrictedSkills = new HashSet<>();
 
+    @JsonProperty("level")
+    private Integer restrictedLevel;
+
     @JacksonXmlProperty(isAttribute = true)
     private RestrictionMode mode = RestrictionMode.ANY;
 
@@ -192,6 +195,14 @@ public class Restrictions extends XmlData {
         this.restricted = restricted;
     }
 
+    public Integer getRestrictedLevel() {
+        return restrictedLevel;
+    }
+
+    public void setRestrictedLevel(Integer restrictedLevel) {
+        this.restrictedLevel = restrictedLevel;
+    }
+
     public boolean isRestricted(CharacterPlayer characterPlayer) {
         switch (mode) {
             case ANY_FROM_GROUP:
@@ -218,7 +229,8 @@ public class Restrictions extends XmlData {
                 && (restrictedToPerksGroups == null || restrictedToPerksGroups.isEmpty())
                 && (restrictedToCapabilitiesGroups == null || restrictedToCapabilitiesGroups.isEmpty())
                 && (restrictedCharacteristics == null || restrictedCharacteristics.isEmpty())
-                && (restrictedSkills == null || restrictedSkills.isEmpty());
+                && (restrictedSkills == null || restrictedSkills.isEmpty())
+                && restrictedLevel == null;
     }
 
     public boolean isRestrictedByAllCharacteristics(CharacterPlayer characterPlayer) {
@@ -291,6 +303,10 @@ public class Restrictions extends XmlData {
                 .contains(FactionGroup.get(characterPlayer.getFaction().getGroup())));
     }
 
+    public boolean isRestrictedByLevel(CharacterPlayer characterPlayer) {
+        return getRestrictedLevel() != null && (characterPlayer.getLevel() != getRestrictedLevel());
+    }
+
 
     private boolean accomplishAnyRestriction(CharacterPlayer characterPlayer) {
         if (characterPlayer == null) {
@@ -310,6 +326,8 @@ public class Restrictions extends XmlData {
                     || isRestrictedByAnyCharacteristic(characterPlayer)
                     // Check skills
                     || isRestrictedByAnySkill(characterPlayer)
+                    //Check level
+                    || isRestrictedByLevel(characterPlayer)
                     // Check upbringing
                     || (!getRestrictedToUpbringing().isEmpty() && (characterPlayer.getUpbringing() != null && getRestrictedToUpbringing()
                     .contains(characterPlayer.getUpbringing().getId())))
@@ -359,6 +377,8 @@ public class Restrictions extends XmlData {
                     && !isRestrictedByAnyCharacteristic(characterPlayer)
                     // Check skills
                     && !isRestrictedByAnySkill(characterPlayer)
+                    //Check level
+                    && !isRestrictedByLevel(characterPlayer)
                     // Check upbringing
                     && (getRestrictedToUpbringing().isEmpty() || (characterPlayer.getUpbringing() != null && getRestrictedToUpbringing()
                     .contains(characterPlayer.getUpbringing().getId())))
@@ -406,6 +426,8 @@ public class Restrictions extends XmlData {
                     && !isRestrictedByAllCharacteristics(characterPlayer)
                     // Check skills
                     && !isRestrictedByAllSkills(characterPlayer)
+                    //Check level
+                    && !isRestrictedByLevel(characterPlayer)
                     // Check upbringing. Only one can be present.
                     && (getRestrictedToUpbringing().isEmpty() || (characterPlayer.getUpbringing() != null && getRestrictedToUpbringing()
                     .contains(characterPlayer.getUpbringing().getId())))

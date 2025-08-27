@@ -27,6 +27,7 @@ package com.softwaremagico.tm.character.callings;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.character.perks.PerkOptions;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
@@ -86,7 +87,8 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
                 //Add no duplicates.
                 if (speciePerks != null) {
                     speciePerks.forEach(speciePerk -> {
-                        if (!perkOptions.getOptions().contains(speciePerk)) {
+                        if (!PerkFactory.getInstance().getElement(speciePerk.getId()).getRestrictions().isRestricted(getCharacterPlayer())
+                                && !perkOptions.getOptions().contains(speciePerk)) {
                             perkOptions.getOptions().add(speciePerk);
                         }
                     });
