@@ -149,6 +149,7 @@ public class RandomTests {
 
         final RandomUpbringing randomUpbringing = new RandomUpbringing(characterPlayer, null);
         randomUpbringing.assign();
+        randomUpbringing.complete();
 
         Assert.assertEquals(characterPlayer.getUpbringing().getSelectedCharacteristicOptions().size(), 4);
         Assert.assertEquals(CharacteristicsDefinitionFactory.getInstance().getElement(characterPlayer.getUpbringing().getSelectedCharacteristicOptions().get(0).getSelections().iterator().next().getId()).getType(), CharacteristicType.BODY);
@@ -156,7 +157,7 @@ public class RandomTests {
     }
 
     @Test
-    public void randomFavouredCallingHasBetterWeight() throws InvalidRandomElementSelectedException {
+    public void randomFavouredCallingHasBetterWeight() {
         final CharacterPlayer characterPlayer = new CharacterPlayer();
         characterPlayer.setSpecie("human");
         characterPlayer.getInfo().setPlanet("nowhere");

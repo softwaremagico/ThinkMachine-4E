@@ -33,6 +33,8 @@ import com.softwaremagico.tm.character.perks.PerkOption;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 @Test(groups = "level")
 public class LevelTests {
 
@@ -61,6 +63,8 @@ public class LevelTests {
         final CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleDecadosCommander();
 
         characterPlayer.addLevel();
+        CharacterExamples.populateLevel(characterPlayer);
+
         final LevelSelector level = characterPlayer.addLevel();
 
         Assert.assertEquals(level.getLevelDefinition().getCharacteristicsTotalPoints(), 1);
@@ -82,6 +86,8 @@ public class LevelTests {
         final CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleHawkwoodCommander();
 
         characterPlayer.addLevel();
+        CharacterExamples.populateLevel(characterPlayer);
+
         final LevelSelector level = characterPlayer.addLevel();
 
         final PerkOption militaryRank = new PerkOption(PerkFactory.getInstance().getElement("militaryRank1"));
@@ -95,6 +101,8 @@ public class LevelTests {
         final CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleDecadosCommander();
 
         characterPlayer.addLevel();
+        CharacterExamples.populateLevel(characterPlayer);
+
         final LevelSelector level = characterPlayer.addLevel();
 
         final PerkOption militaryRank = new PerkOption(PerkFactory.getInstance().getElement("militaryRank1"));

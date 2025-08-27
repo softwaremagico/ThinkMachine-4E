@@ -118,7 +118,8 @@ public final class CharacterExamples {
             }
         }
         for (int i = 0; i < characterPlayer.getUpbringing().getNotRepeatedPerksOptions().size(); i++) {
-            for (int j = 0; j < characterPlayer.getUpbringing().getNotRepeatedPerksOptions().get(i).getTotalOptions(); j++) {
+            for (int j = characterPlayer.getUpbringing().getSelectedPerksOptions().get(i).getSelections().size();
+                 j < characterPlayer.getUpbringing().getNotRepeatedPerksOptions().get(i).getTotalOptions(); j++) {
                 characterPlayer.getUpbringing().getSelectedPerksOptions().get(i).getSelections()
                         .add(new Selection(characterPlayer.getUpbringing().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getId(),
                                 characterPlayer.getUpbringing().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations() != null
@@ -218,6 +219,43 @@ public final class CharacterExamples {
                  j < characterPlayer.getCalling().getMaterialAwardsOptions().get(i).getTotalOptions(); j++) {
                 characterPlayer.getCalling().getSelectedMaterialAwards().get(i).getSelections()
                         .add(new Selection(characterPlayer.getCalling().getMaterialAwardsOptions().get(i).getOptions().get(j).getId()));
+            }
+        }
+    }
+
+
+    public static void populateLevel(CharacterPlayer characterPlayer) {
+        for (int i = 0; i < characterPlayer.getLevels().peek().getCharacteristicOptions().size(); i++) {
+            for (int j = characterPlayer.getLevels().peek().getSelectedCharacteristicOptions().get(i).getSelections().size();
+                 j < characterPlayer.getLevels().peek().getCharacteristicOptions().get(i).getTotalOptions(); j++) {
+                characterPlayer.getLevels().peek().getSelectedCharacteristicOptions().get(i).getSelections()
+                        .add(new Selection(characterPlayer.getLevels().peek().getCharacteristicOptions().get(i).getOptions().get(j).getId()));
+            }
+        }
+        for (int i = 0; i < characterPlayer.getLevels().peek().getNotRepeatedCapabilityOptions().size(); i++) {
+            for (int j = characterPlayer.getLevels().peek().getSelectedCapabilityOptions().get(i).getSelections().size();
+                 j < characterPlayer.getLevels().peek().getNotRepeatedCapabilityOptions().get(i).getTotalOptions(); j++) {
+                characterPlayer.getLevels().peek().getSelectedCapabilityOptions().get(i).getSelections()
+                        .add(new Selection(characterPlayer.getLevels().peek().getNotRepeatedCapabilityOptions().get(i).getOptions().get(j).getId()));
+            }
+        }
+        for (int i = 0; i < characterPlayer.getLevels().peek().getSkillOptions().size(); i++) {
+            for (int j = characterPlayer.getLevels().peek().getSelectedSkillOptions().get(i).getSelections().size();
+                 j < characterPlayer.getLevels().peek().getSkillOptions().get(i).getTotalOptions(); j++) {
+                characterPlayer.getLevels().peek().getSelectedSkillOptions().get(i).getSelections()
+                        .add(new Selection(characterPlayer.getLevels().peek().getSkillOptions().get(i).getOptions().get(j).getId()));
+            }
+        }
+        for (int i = 0; i < characterPlayer.getLevels().peek().getNotRepeatedPerksOptions().size(); i++) {
+            for (int j = characterPlayer.getLevels().peek().getSelectedPerksOptions().get(i).getSelections().size();
+                 j < characterPlayer.getLevels().peek().getNotRepeatedPerksOptions().get(i).getTotalOptions(); j++) {
+                characterPlayer.getLevels().peek().getSelectedPerksOptions().get(i).getSelections()
+                        .add(new Selection(characterPlayer.getLevels().peek().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getId(),
+                                characterPlayer.getLevels().peek().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations() != null
+                                        && !characterPlayer.getLevels().peek().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations()
+                                        .isEmpty()
+                                        ? characterPlayer.getLevels().peek().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations().get(0)
+                                        : null));
             }
         }
     }

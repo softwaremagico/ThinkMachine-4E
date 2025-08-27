@@ -69,6 +69,7 @@ import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.UpbringingCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.character.values.Phase;
+import com.softwaremagico.tm.exceptions.InvalidCallingException;
 import com.softwaremagico.tm.exceptions.InvalidCharacteristicException;
 import com.softwaremagico.tm.exceptions.InvalidCyberdeviceException;
 import com.softwaremagico.tm.exceptions.InvalidFactionException;
@@ -76,6 +77,7 @@ import com.softwaremagico.tm.exceptions.InvalidLevelException;
 import com.softwaremagico.tm.exceptions.InvalidOccultismPowerException;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidSkillException;
+import com.softwaremagico.tm.exceptions.InvalidUpbringingException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
 import com.softwaremagico.tm.exceptions.MaxValueExceededException;
@@ -266,29 +268,23 @@ public class CharacterPlayer {
     public void setUpbringing(String upbringing) {
         if (upbringing != null) {
             this.upbringing = new UpbringingCharacterDefinitionStepSelection(this, upbringing);
-            try {
-                UpbringingFactory.getInstance().getElement(this.upbringing.getId()).getRestrictions().isRestricted(this);
-            } catch (InvalidSelectionException e) {
+            if (UpbringingFactory.getInstance().getElement(this.upbringing.getId()).getRestrictions().isRestricted(this)) {
                 this.upbringing = null;
-                throw e;
+                throw new InvalidUpbringingException("Upbrinfing '" + upbringing + "' is restricted to the character.");
             }
         } else {
             this.upbringing = null;
         }
-        try {
-            if (this.faction != null) {
-                FactionFactory.getInstance().getElement(this.faction.getId()).getRestrictions().isRestricted(this);
+        if (this.faction != null) {
+            if (FactionFactory.getInstance().getElement(this.faction.getId()).getRestrictions().isRestricted(this)) {
+                setFaction((String) null);
             }
-        } catch (InvalidSelectionException e) {
-            setFaction((String) null);
         }
 
-        try {
-            if (this.calling != null) {
-                CallingFactory.getInstance().getElement(this.calling.getId()).getRestrictions().isRestricted(this);
+        if (this.calling != null) {
+            if (CallingFactory.getInstance().getElement(this.calling.getId()).getRestrictions().isRestricted(this)) {
+                setCalling((String) null);
             }
-        } catch (InvalidSelectionException e) {
-            setCalling((String) null);
         }
     }
 
@@ -300,18 +296,16 @@ public class CharacterPlayer {
     public void setFaction(String faction) {
         if (faction != null) {
             this.faction = new FactionCharacterDefinitionStepSelection(this, faction);
-            try {
-                FactionFactory.getInstance().getElement(this.faction.getId()).getRestrictions().isRestricted(this);
-            } catch (InvalidSelectionException e) {
+            if (FactionFactory.getInstance().getElement(this.faction.getId()).getRestrictions().isRestricted(this)) {
                 this.faction = null;
-                throw e;
+                throw new InvalidFactionException("Faction '" + faction + "' is restricted to the character.");
             }
         } else {
             this.faction = null;
         }
         try {
-            if (this.calling != null) {
-                CallingFactory.getInstance().getElement(this.calling.getId()).getRestrictions().isRestricted(this);
+            if (this.calling != null && CallingFactory.getInstance().getElement(this.calling.getId()).getRestrictions().isRestricted(this)) {
+                setCalling((String) null);
             }
         } catch (InvalidSelectionException e) {
             setCalling((String) null);
@@ -329,11 +323,9 @@ public class CharacterPlayer {
     public void setCalling(String calling) {
         if (calling != null) {
             this.calling = new CallingCharacterDefinitionStepSelection(this, calling);
-            try {
-                CallingFactory.getInstance().getElement(this.calling.getId()).getRestrictions().isRestricted(this);
-            } catch (InvalidSelectionException e) {
+            if (CallingFactory.getInstance().getElement(this.calling.getId()).getRestrictions().isRestricted(this)) {
                 this.calling = null;
-                throw e;
+                throw new InvalidCallingException("Calling '" + calling + "' is restricted to the character.");
             }
         } else {
             this.calling = null;
@@ -573,9 +565,7 @@ public class CharacterPlayer {
                 + getCharacteristicValue(CharacteristicName.WILL)
                 + getCharacteristicValue(CharacteristicName.FAITH)
                 + (specie != null ? SpecieFactory.getInstance().getElement(specie).getSize() : 0));
-        getLevels().forEach(level -> {
-            vitality.addAndGet(level.getExtraVitality());
-        });
+        getLevels().forEach(level -> vitality.addAndGet(level.getExtraVitality()));
         return vitality.get();
     }
 
@@ -1110,11 +1100,7 @@ public class CharacterPlayer {
         if (!getWeapons().stream().allMatch(Equipment::isOfficial)) {
             throw new UnofficialCharacterException("Equipment '" + getWeapons() + "' are not all official.");
         }
-//
-//        if (!cybernetics.getElements().stream().allMatch(SelectedCyberneticDevice::isOfficial)) {
-//            throw new UnofficialCharacterException("Cybernetics '" + cybernetics + "' are not all official.");
-//        }
-//
+
         for (final String occultismPathId : occultism.getSelectedPowers().keySet()) {
             try {
                 if (!OccultismPathFactory.getInstance().getElement(occultismPathId).isOfficial()) {
@@ -1144,11 +1130,6 @@ public class CharacterPlayer {
         if (!getWeapons().stream().allMatch(w -> w.getRestrictions().isRestricted(this))) {
             throw new RestrictedElementException("Weapons '" + getWeapons() + "' have some restricted element.");
         }
-//
-//        if (!cybernetics.getElements().stream().allMatch(c -> c.isRestricted(this))) {
-//            throw new RestrictedElementException("Cybernetics '" + cybernetics + "' have some restricted element.");
-//        }
-//
         for (final String occultismPathId : occultism.getSelectedPowers().keySet()) {
             try {
                 if (!OccultismPathFactory.getInstance().getElement(occultismPathId).getRestrictions().isRestricted(this)) {
@@ -1191,7 +1172,7 @@ public class CharacterPlayer {
         return getCharacteristicValue(occultismType.getId());
     }
 
-    public int setOccultismLevel(OccultismType occultismType, int newValue) {
+    public int setOccultismLevel(OccultismType occultismType) {
         return getCharacteristicValue(occultismType.getId());
     }
 
@@ -1255,7 +1236,7 @@ public class CharacterPlayer {
             return OccultismTypeFactory.getTheurgy();
         }
         try {
-            //Check if it has some path purchased already. Get its occultismType;
+            // Check if it has some path purchased already. Get its occultismType;
             if (!getOccultism().getSelectedPowers().isEmpty()) {
                 final Map.Entry<String, List<OccultismPower>> occultismPowers = getOccultism().getSelectedPowers().entrySet().iterator().next();
                 if (occultismPowers.getValue() != null && !occultismPowers.getValue().isEmpty()) {
@@ -1266,7 +1247,7 @@ public class CharacterPlayer {
                     }
                 }
             }
-            //Check if it has some occultism level added already.
+            // Check if it has some occultism level added already.
             for (final OccultismType occultismType : OccultismTypeFactory.getInstance().getElements()) {
                 int defaultOccultismLevel = 0;
                 if (getSpecie() != null) {

@@ -171,8 +171,8 @@
         <type>characteristicDefinition</type>
         <restrictions>
             <species>
-                <specie>vorox</specie>
-                <specie>ukar</specie>
+                <specie>human</specie>
+                <specie>obun</specie>
             </species>
         </restrictions>
         <random>
@@ -193,8 +193,8 @@
         <type>characteristicDefinition</type>
         <restrictions>
             <species>
-                <specie>vorox</specie>
-                <specie>ukar</specie>
+                <specie>human</specie>
+                <specie>obun</specie>
             </species>
         </restrictions>
         <random>
@@ -215,7 +215,9 @@
         <type>characteristicDefinition</type>
         <restrictions>
             <species>
-                <specie>vorox</specie>
+                <specie>human</specie>
+                <specie>obun</specie>
+                <specie>ukar</specie>
             </species>
         </restrictions>
         <random>
@@ -236,7 +238,9 @@
         <type>characteristicDefinition</type>
         <restrictions>
             <species>
-                <specie>vorox</specie>
+                <specie>human</specie>
+                <specie>obun</specie>
+                <specie>ukar</specie>
             </species>
         </restrictions>
         <random>

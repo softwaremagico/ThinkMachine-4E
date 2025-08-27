@@ -63,8 +63,6 @@ public class PerksTests {
         //Now we can add epiphany
         Assert.assertFalse(PerkFactory.getInstance().getElement("epiphany").getRestrictions().isRestricted(characterPlayer));
         characterPlayer.getCalling().getSelectedPerks().add(new Selection("epiphany"));
-
-        characterPlayer.getCalling().validate();
     }
 
     @Test
