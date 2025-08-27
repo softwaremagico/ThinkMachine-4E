@@ -17,24 +17,20 @@ import java.util.List;
 import java.util.Set;
 
 public class RandomLevel extends RandomSelector<Level> implements AssignableRandomSelector, RandomInnerStepsSelector {
-    private final int finalLevel;
+    private LevelSelector levelSelector;
 
-    public RandomLevel(CharacterPlayer characterPlayer, int finalLevel, Set<RandomPreference> preferences) throws InvalidXmlElementException {
+    public RandomLevel(CharacterPlayer characterPlayer, Set<RandomPreference> preferences) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
-        this.finalLevel = finalLevel;
     }
 
 
     @Override
     public void assign() throws InvalidSpecieException, InvalidRandomElementSelectedException {
-        while (getCharacterPlayer().getLevel() < finalLevel) {
-            complete();
-        }
+        levelSelector = getCharacterPlayer().addLevel();
     }
 
     @Override
     public void complete() throws InvalidSpecieException, InvalidRandomElementSelectedException {
-        final LevelSelector levelSelector = getCharacterPlayer().addLevel();
         final RandomizeCharacterDefinitionStep randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep(
                 getCharacterPlayer(),
                 levelSelector,

@@ -33,6 +33,11 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.utils.ComparableUtils;
 import com.softwaremagico.tm.utils.IComparable;
 
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
 public class CapabilityOption extends Option<Capability> implements IComparable {
     @JsonProperty("selectedSpecialization")
     private Specialization selectedSpecialization;
@@ -53,6 +58,25 @@ public class CapabilityOption extends Option<Capability> implements IComparable 
             setSelectedSpecialization(selectedSpecialization);
         }
     }
+
+    public static Set<CapabilityOption> getCapabilityOptions(Collection<Capability> capabilities) {
+        final Set<CapabilityOption> capabilityOptions = new HashSet<>();
+        capabilities.forEach(capability -> capabilityOptions.addAll(getCapabilityOptions(capability)));
+        return capabilityOptions;
+    }
+
+    public static Set<CapabilityOption> getCapabilityOptions(Capability capability) {
+        final Set<CapabilityOption> capabilityOptions = new HashSet<>();
+        if (capability.getSpecializations() == null || capability.getSpecializations().isEmpty()) {
+            capabilityOptions.add(new CapabilityOption(capability));
+        } else {
+            capability.getSpecializations().forEach(specialization -> {
+                capabilityOptions.add(new CapabilityOption(capability, specialization));
+            });
+        }
+        return capabilityOptions;
+    }
+
 
     public Specialization getSelectedSpecialization() {
         return selectedSpecialization;
@@ -104,5 +128,26 @@ public class CapabilityOption extends Option<Capability> implements IComparable 
         if (selectedSpecialization != null && !CapabilityFactory.getInstance().getElement(getId()).getSpecializations().contains(selectedSpecialization)) {
             throw new InvalidXmlElementException("Capability " + getId() + " has not element with specialization '" + selectedSpecialization + "'.");
         }
+    }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (!(o instanceof CapabilityOption)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+
+        final CapabilityOption that = (CapabilityOption) o;
+        return Objects.equals(selectedSpecialization, that.selectedSpecialization);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        final int prime = 31;
+        result = prime * result + Objects.hashCode(selectedSpecialization);
+        return result;
     }
 }

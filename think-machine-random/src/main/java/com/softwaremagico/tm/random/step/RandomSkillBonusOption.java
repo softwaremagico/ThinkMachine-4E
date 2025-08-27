@@ -29,6 +29,7 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import com.softwaremagico.tm.log.RandomStepLog;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
@@ -61,7 +62,7 @@ public class RandomSkillBonusOption extends RandomSkill {
             RandomStepLog.debug(this.getClass(), "Max level '" + element + "' value: "
                     + getCharacterPlayer().getSkillValue(element)
                     + " + " + skillOptions.getBonus() + " from " + skillOptions.getOptions());
-        } catch (InvalidXmlElementException e) {
+        } catch (InvalidXmlElementException | MaxValueExceededException e) {
             return 0;
         }
         if (getCharacterPlayer().getSkillValue(element) + skillOptions.getBonus() >= Skill.SKILL_MAX_VALUE) {

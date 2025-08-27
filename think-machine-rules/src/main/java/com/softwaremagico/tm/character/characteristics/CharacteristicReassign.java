@@ -1,10 +1,10 @@
-package com.softwaremagico.tm.exceptions;
+package com.softwaremagico.tm.character.characteristics;
 
 /*-
  * #%L
  * Think Machine 4E (Rules)
  * %%
- * Copyright (C) 2017 - 2024 Softwaremagico
+ * Copyright (C) 2017 - 2025 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -24,21 +24,28 @@ package com.softwaremagico.tm.exceptions;
  * #L%
  */
 
-public class MaxInitialValueExceededException extends RuntimeException {
-    private final int bonus;
-    private final int maxValue;
+import com.softwaremagico.tm.exceptions.InvalidCharacteristicException;
 
-    public MaxInitialValueExceededException(String message, int bonus, int maxValue) {
-        super(message);
-        this.bonus = bonus;
-        this.maxValue = maxValue;
+import java.util.Objects;
+
+public class CharacteristicReassign {
+    private final String from;
+    private final String to;
+
+
+    public CharacteristicReassign(String from, String to) {
+        this.from = from;
+        this.to = to;
+        if (from == null || to == null || Objects.equals(from, to)) {
+            throw new InvalidCharacteristicException("You cannot reassign to the same characteristic.");
+        }
     }
 
-    public int getBonus() {
-        return bonus;
+    public String getFrom() {
+        return from;
     }
 
-    public int getMaxValue() {
-        return maxValue;
+    public String getTo() {
+        return to;
     }
 }

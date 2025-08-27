@@ -24,15 +24,15 @@ public class RandomLevelTest {
         final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
         randomizeCharacter.createCharacter();
 
-        final RandomLevel randomLevel = new RandomLevel(characterPlayer, 2, null);
+        final RandomLevel randomLevel = new RandomLevel(characterPlayer, null);
         randomLevel.assign();
+        randomLevel.complete();
         characterPlayer.getLevels().forEach(LevelSelector::validate);
     }
 
     @Test
     public void createFullRandomCharacterTest() throws InvalidRandomElementSelectedException {
         for (int i = 0; i < CHARACTERS_CREATED; i++) {
-            System.out.println("#######################################################");
             final CharacterPlayer characterPlayer = new CharacterPlayer();
             final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer, LEVEL_TEST);
             randomizeCharacter.createCharacter();

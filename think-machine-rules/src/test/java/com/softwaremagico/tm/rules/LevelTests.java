@@ -33,8 +33,6 @@ import com.softwaremagico.tm.character.perks.PerkOption;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.List;
-
 @Test(groups = "level")
 public class LevelTests {
 

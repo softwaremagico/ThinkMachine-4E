@@ -49,6 +49,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public abstract class CharacterDefinitionStepSelection extends Element {
@@ -425,7 +426,10 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                 final CapabilityOptions newCapabilityOptions = new CapabilityOptions(capabilityOption, CapabilityFactory.getInstance().getElements()
                         .stream().filter(
                                 e -> !e.getRestrictions().isRestricted(characterPlayer))
-                        .map(CapabilityOption::new).collect(Collectors.toList()));
+                        .map(CapabilityOption::getCapabilityOptions).collect(Collectors.toSet()).stream().flatMap(Set::stream)
+                        .filter(o -> !getCharacterPlayer()
+                                .hasCapability(o.getId(), o.getSelectedSpecialization() != null ? o.getSelectedSpecialization().getId() : null,
+                                        phase, getId())).collect(Collectors.toList()));
                 newCapabilityOptions.getOptions().removeAll(oldOptions);
                 capabilityOptions.add(newCapabilityOptions);
             }

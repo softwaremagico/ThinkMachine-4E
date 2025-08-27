@@ -48,7 +48,7 @@ import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
+import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import com.softwaremagico.tm.log.MachineLog;
 
 import java.util.ArrayList;
@@ -133,7 +133,7 @@ public class CharacterSheet {
         int skillValue;
         try {
             skillValue = characterPlayer.getSkillValue(skill);
-        } catch (MaxInitialValueExceededException e) {
+        } catch (MaxValueExceededException e) {
             MachineLog.warning(this.getClass(), e.getMessage());
             skillValue = CharacterPlayer.MAX_INITIAL_VALUE;
         }
@@ -151,7 +151,7 @@ public class CharacterSheet {
             int skillValue;
             try {
                 skillValue = characterPlayer.getSkillValue(skill);
-            } catch (MaxInitialValueExceededException e) {
+            } catch (MaxValueExceededException e) {
                 skillValue = CharacterPlayer.MAX_INITIAL_VALUE;
             }
             if ((skill.isNatural() && skillValue > Skill.NATURAL_SKILL_INITIAL_VALUE)

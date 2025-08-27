@@ -26,7 +26,10 @@ package com.softwaremagico.tm.random.character;
 
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Gender;
+import com.softwaremagico.tm.character.characteristics.CharacteristicName;
+import com.softwaremagico.tm.character.characteristics.CharacteristicReassign;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import com.softwaremagico.tm.log.RandomGenerationLog;
 import com.softwaremagico.tm.random.character.callings.RandomCalling;
 import com.softwaremagico.tm.random.character.factions.RandomFaction;
@@ -87,6 +90,7 @@ public class RandomizeCharacter {
             completeUpbringing();
             completeFaction();
             completeCalling();
+            reassignCharacteristics();
             setLevels();
             RandomGenerationLog.info(this.getClass(), "Character created: " + characterPlayer.toString());
         } catch (InvalidXmlElementException e) {
@@ -147,12 +151,30 @@ public class RandomizeCharacter {
     }
 
     private void setLevels() throws InvalidRandomElementSelectedException {
-        final RandomLevel randomLevel = new RandomLevel(characterPlayer, desiredLevel, preferences);
-        randomLevel.assign();
+        while (characterPlayer.getLevel() < desiredLevel) {
+            final RandomLevel randomLevel = new RandomLevel(characterPlayer, preferences);
+            randomLevel.assign();
+            randomLevel.complete();
+            reassignCharacteristics();
+        }
     }
 
     private void selectPrimaryCharacteristics() throws InvalidRandomElementSelectedException {
         final RandomCharacteristics randomCharacteristics = new RandomCharacteristics(characterPlayer, preferences);
         randomCharacteristics.assign();
+    }
+
+    private void reassignCharacteristics() throws InvalidRandomElementSelectedException {
+        for (CharacteristicName characteristicName : CharacteristicName.getModificableCharacteristics()) {
+            try {
+                characterPlayer.getCharacteristicValue(characteristicName);
+            } catch (MaxValueExceededException e) {
+                for (int i = 0; i < e.getBonus() - e.getMaxValue(); i++) {
+                    final RandomCharacteristics randomCharacteristics = new RandomCharacteristics(characterPlayer, preferences);
+                    characterPlayer.getCharacteristicReassigns().add(new CharacteristicReassign(e.getCharacteristic(),
+                            randomCharacteristics.selectElementByWeight().getId()));
+                }
+            }
+        }
     }
 }

@@ -551,4 +551,26 @@ public class RandomCharacterTest {
 
         characterPlayer.validate();
     }
+
+    @Test
+    public void alMalikCommanderReassignPresence() throws InvalidRandomElementSelectedException {
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("noble");
+        characterPlayer.setFaction("alMalik");
+        characterPlayer.setCalling("commander");
+
+        characterPlayer.setPrimaryCharacteristic("presence");
+        characterPlayer.setSecondaryCharacteristic("wits");
+
+        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
+        randomizeCharacter.createCharacter();
+
+        characterPlayer.getCharacteristicComposition("presence");
+
+        characterPlayer.validate();
+
+        //1 points from presence reassigned to different characteristics.
+        Assert.assertEquals(characterPlayer.getCharacteristicReassigns().size(), 1);
+    }
 }

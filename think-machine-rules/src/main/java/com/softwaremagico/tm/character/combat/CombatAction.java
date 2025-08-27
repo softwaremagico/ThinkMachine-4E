@@ -30,7 +30,7 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
 import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.values.IValue;
-import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
+import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 
 import java.util.Objects;
 import java.util.Set;
@@ -79,7 +79,7 @@ public class CombatAction extends Element {
                         if (characterPlayer.getSkillValue((Skill) restriction) >= requirement.getValue()) {
                             allowed = true;
                         }
-                    } catch (MaxInitialValueExceededException e) {
+                    } catch (MaxValueExceededException e) {
                         allowed = true;
                     }
                 } else if (restriction instanceof CharacteristicDefinition) {

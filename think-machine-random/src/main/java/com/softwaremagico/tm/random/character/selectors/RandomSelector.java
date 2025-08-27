@@ -27,6 +27,7 @@ package com.softwaremagico.tm.random.character.selectors;
 import com.softwaremagico.tm.XmlData;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import com.softwaremagico.tm.log.RandomGenerationLog;
 import com.softwaremagico.tm.log.RandomSelectorLog;
 import com.softwaremagico.tm.log.RandomValuesLog;
@@ -123,7 +124,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         for (final Element element : getAllElements()) {
             try {
                 validateElement(element);
-            } catch (InvalidRandomElementSelectedException e) {
+            } catch (InvalidRandomElementSelectedException | MaxValueExceededException e) {
                 // Element not valid. Ignore it.
                 continue;
             }

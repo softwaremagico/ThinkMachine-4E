@@ -45,7 +45,7 @@ import com.softwaremagico.tm.exceptions.InvalidCallingException;
 import com.softwaremagico.tm.exceptions.InvalidFactionException;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidUpbringingException;
-import com.softwaremagico.tm.exceptions.MaxInitialValueExceededException;
+import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -108,7 +108,7 @@ public class CharacterRulesTests {
         characterPlayer.setCalling("commander");
     }
 
-    @Test(expectedExceptions = MaxInitialValueExceededException.class)
+    @Test(expectedExceptions = MaxValueExceededException.class)
     public void characterCreationCharacteristicsMaxValueRebased() {
         CharacterPlayer characterPlayer = new CharacterPlayer();
         characterPlayer.setSpecie("human");
@@ -144,7 +144,7 @@ public class CharacterRulesTests {
     }
 
     @Test
-    public void checkHumanNobleDecadosCommander() throws MaxInitialValueExceededException {
+    public void checkHumanNobleDecadosCommander() throws MaxValueExceededException {
         CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleDecadosCommander();
 
         Assert.assertEquals(characterPlayer.getCharacteristicValue(CharacteristicName.STRENGTH), 3);
@@ -297,5 +297,24 @@ public class CharacterRulesTests {
         Assert.assertTrue(characterPlayer.getCalling().getNotRepeatedCapabilityOptions().get(0).getOptions().size() > 60);
         Assert.assertFalse(characterPlayer.getCalling().getNotRepeatedCapabilityOptions().get(0).getOptions().contains(
                 new CapabilityOption(CapabilityFactory.getInstance().getElement("militaryWeapons"))));
+    }
+
+    @Test(expectedExceptions = MaxValueExceededException.class)
+    public void alMalikCommanderMaxCharacteristic() {
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.getInfo().setNames("Raised");
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("noble");
+        characterPlayer.setFaction("alMalik");
+        characterPlayer.setCalling("commander");
+
+        characterPlayer.setPrimaryCharacteristic("presence");
+        characterPlayer.setSecondaryCharacteristic("wits");
+
+        CharacterExamples.populateUpbringing(characterPlayer);
+        CharacterExamples.populateFaction(characterPlayer);
+        CharacterExamples.populateCalling(characterPlayer);
+
+        characterPlayer.validate();
     }
 }

@@ -96,6 +96,13 @@ public enum CharacteristicName {
                 CharacteristicName.WILL, CharacteristicName.PRESENCE, CharacteristicName.INTUITION, CharacteristicName.FAITH};
     }
 
+    public static CharacteristicName[] getModificableCharacteristics() {
+        return new CharacteristicName[]{CharacteristicName.STRENGTH, CharacteristicName.DEXTERITY,
+                CharacteristicName.ENDURANCE, CharacteristicName.WITS, CharacteristicName.PERCEPTION,
+                CharacteristicName.WILL, CharacteristicName.PRESENCE, CharacteristicName.INTUITION, CharacteristicName.FAITH,
+                CharacteristicName.PSI, CharacteristicName.THEURGY};
+    }
+
     public static CharacteristicName get(String tag) {
         for (final CharacteristicName characteristicName : CharacteristicName.values()) {
             if (characteristicName.name().equalsIgnoreCase(tag)) {

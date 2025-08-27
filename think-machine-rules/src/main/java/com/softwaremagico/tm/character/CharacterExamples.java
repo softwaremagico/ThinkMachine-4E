@@ -24,6 +24,7 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
+import com.softwaremagico.tm.character.characteristics.CharacteristicReassign;
 import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
 import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
@@ -83,6 +84,8 @@ public final class CharacterExamples {
 
         populateCharacter(characterPlayer);
 
+        characterPlayer.getCharacteristicReassigns().add(new CharacteristicReassign("presence", "strength"));
+
         return characterPlayer;
     }
 
@@ -95,168 +98,65 @@ public final class CharacterExamples {
     }
 
     public static void populateUpbringing(CharacterPlayer characterPlayer) {
-        for (int i = 0; i < characterPlayer.getUpbringing().getCharacteristicOptions().size(); i++) {
-            for (int j = characterPlayer.getUpbringing().getSelectedCharacteristicOptions().get(i).getSelections().size();
-                 j < characterPlayer.getUpbringing().getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getUpbringing().getSelectedCharacteristicOptions().get(i).getSelections()
-                        .add(new Selection(characterPlayer.getUpbringing().getCharacteristicOptions().get(i).getOptions().get(j).getId()));
-            }
-        }
-        for (int i = 0; i < characterPlayer.getUpbringing().getNotRepeatedCapabilityOptions().size(); i++) {
-            for (int j = characterPlayer.getUpbringing().getSelectedCapabilityOptions().get(i).getSelections().size();
-                 j < characterPlayer.getUpbringing().getNotRepeatedCapabilityOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getUpbringing().getSelectedCapabilityOptions().get(i).getSelections()
-                        .add(new Selection(characterPlayer.getUpbringing().getNotRepeatedCapabilityOptions().get(i).getOptions().get(j).getId(),
-                                characterPlayer.getUpbringing().getNotRepeatedCapabilityOptions().get(i).getOptions().get(j).getSelectedSpecialization()));
-            }
-        }
-        for (int i = 0; i < characterPlayer.getUpbringing().getSkillOptions().size(); i++) {
-            for (int j = characterPlayer.getUpbringing().getSelectedSkillOptions().get(i).getSelections().size();
-                 j < characterPlayer.getUpbringing().getSkillOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getUpbringing().getSelectedSkillOptions().get(i).getSelections()
-                        .add(new Selection(characterPlayer.getUpbringing().getSkillOptions().get(i).getOptions().get(j).getId()));
-            }
-        }
-        for (int i = 0; i < characterPlayer.getUpbringing().getNotRepeatedPerksOptions().size(); i++) {
-            for (int j = characterPlayer.getUpbringing().getSelectedPerksOptions().get(i).getSelections().size();
-                 j < characterPlayer.getUpbringing().getNotRepeatedPerksOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getUpbringing().getSelectedPerksOptions().get(i).getSelections()
-                        .add(new Selection(characterPlayer.getUpbringing().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getId(),
-                                characterPlayer.getUpbringing().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations() != null
-                                        && !characterPlayer.getUpbringing().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations()
-                                        .isEmpty()
-                                        ? characterPlayer.getUpbringing().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations().get(0)
-                                        : null));
-            }
-        }
-        for (int i = 0; i < characterPlayer.getUpbringing().getMaterialAwardsOptions().size(); i++) {
-            for (int j = characterPlayer.getUpbringing().getSelectedMaterialAwards().get(i).getSelections().size();
-                 j < characterPlayer.getUpbringing().getMaterialAwardsOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getUpbringing().getSelectedMaterialAwards().get(i).getSelections()
-                        .add(new Selection(characterPlayer.getUpbringing().getMaterialAwardsOptions().get(i).getOptions().get(j).getId()));
-            }
-        }
+        populateCharacterStep(characterPlayer, characterPlayer.getUpbringing());
     }
 
     public static void populateFaction(CharacterPlayer characterPlayer) {
-        for (int i = 0; i < characterPlayer.getFaction().getCharacteristicOptions().size(); i++) {
-            for (int j = characterPlayer.getFaction().getSelectedCharacteristicOptions().get(i).getSelections().size();
-                 j < characterPlayer.getFaction().getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getFaction().getSelectedCharacteristicOptions().get(i).getSelections()
-                        .add(new Selection(characterPlayer.getFaction().getCharacteristicOptions().get(i).getOptions().get(j).getId()));
-            }
-        }
-        for (int i = 0; i < characterPlayer.getFaction().getNotRepeatedCapabilityOptions().size(); i++) {
-            for (int j = characterPlayer.getFaction().getSelectedCapabilityOptions().get(i).getSelections().size();
-                 j < characterPlayer.getFaction().getNotRepeatedCapabilityOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getFaction().getSelectedCapabilityOptions().get(i).getSelections()
-                        .add(new Selection(characterPlayer.getFaction().getNotRepeatedCapabilityOptions().get(i).getOptions().get(j).getId()));
-            }
-        }
-        for (int i = 0; i < characterPlayer.getFaction().getSkillOptions().size(); i++) {
-            for (int j = characterPlayer.getFaction().getSelectedSkillOptions().get(i).getSelections().size();
-                 j < characterPlayer.getFaction().getSkillOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getFaction().getSelectedSkillOptions().get(i).getSelections()
-                        .add(new Selection(characterPlayer.getFaction().getSkillOptions().get(i).getOptions().get(j).getId()));
-            }
-        }
-        for (int i = 0; i < characterPlayer.getFaction().getMaterialAwardsOptions().size(); i++) {
-            for (int j = characterPlayer.getFaction().getSelectedMaterialAwards().get(i).getSelections().size();
-                 j < characterPlayer.getFaction().getMaterialAwardsOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getFaction().getSelectedMaterialAwards().get(i).getSelections()
-                        .add(new Selection(characterPlayer.getFaction().getMaterialAwardsOptions().get(i).getOptions().get(j).getId()));
-            }
-        }
-        for (int i = 0; i < characterPlayer.getFaction().getNotRepeatedPerksOptions().size(); i++) {
-            for (int j = characterPlayer.getFaction().getSelectedPerksOptions().get(i).getSelections().size();
-                 j < characterPlayer.getFaction().getNotRepeatedPerksOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getFaction().getSelectedPerksOptions().get(i).getSelections()
-                        .add(new Selection(characterPlayer.getFaction().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getId(),
-                                characterPlayer.getFaction().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations() != null
-                                        && !characterPlayer.getFaction().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations()
-                                        .isEmpty()
-                                        ? characterPlayer.getFaction().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations().get(0)
-                                        : null));
-            }
-        }
+        populateCharacterStep(characterPlayer, characterPlayer.getFaction());
     }
 
     public static void populateCalling(CharacterPlayer characterPlayer) {
-        for (int i = 0; i < characterPlayer.getCalling().getCharacteristicOptions().size(); i++) {
-            for (int j = characterPlayer.getCalling().getSelectedCharacteristicOptions().get(i).getSelections().size();
-                 j < characterPlayer.getCalling().getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getCalling().getSelectedCharacteristicOptions().get(i).getSelections()
-                        .add(new Selection(characterPlayer.getCalling().getCharacteristicOptions().get(i).getOptions().get(j).getId()));
-            }
-        }
-        for (int i = 0; i < characterPlayer.getCalling().getNotRepeatedCapabilityOptions().size(); i++) {
-            for (int j = characterPlayer.getCalling().getSelectedCapabilityOptions().get(i).getSelections().size();
-                 j < characterPlayer.getCalling().getNotRepeatedCapabilityOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getCalling().getSelectedCapabilityOptions().get(i).getSelections()
-                        .add(new Selection(characterPlayer.getCalling().getNotRepeatedCapabilityOptions().get(i).getOptions().get(j).getId()));
-            }
-        }
-        for (int i = 0; i < characterPlayer.getCalling().getSkillOptions().size(); i++) {
-            for (int j = characterPlayer.getCalling().getSelectedSkillOptions().get(i).getSelections().size();
-                 j < characterPlayer.getCalling().getSkillOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getCalling().getSelectedSkillOptions().get(i).getSelections()
-                        .add(new Selection(characterPlayer.getCalling().getSkillOptions().get(i).getOptions().get(j).getId()));
-            }
-        }
-        for (int i = 0; i < characterPlayer.getCalling().getNotRepeatedPerksOptions().size(); i++) {
-            for (int j = characterPlayer.getCalling().getSelectedPerksOptions().get(i).getSelections().size();
-                 j < characterPlayer.getCalling().getNotRepeatedPerksOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getCalling().getSelectedPerksOptions().get(i).getSelections()
-                        .add(new Selection(characterPlayer.getCalling().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getId(),
-                                characterPlayer.getCalling().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations() != null
-                                        && !characterPlayer.getCalling().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations().isEmpty()
-                                        ? characterPlayer.getCalling().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations().get(0)
-                                        : null));
-            }
-        }
-        for (int i = 0; i < characterPlayer.getCalling().getMaterialAwardsOptions().size(); i++) {
-            for (int j = characterPlayer.getCalling().getSelectedMaterialAwards().get(i).getSelections().size();
-                 j < characterPlayer.getCalling().getMaterialAwardsOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getCalling().getSelectedMaterialAwards().get(i).getSelections()
-                        .add(new Selection(characterPlayer.getCalling().getMaterialAwardsOptions().get(i).getOptions().get(j).getId()));
-            }
-        }
+        populateCharacterStep(characterPlayer, characterPlayer.getCalling());
     }
 
 
     public static void populateLevel(CharacterPlayer characterPlayer) {
-        for (int i = 0; i < characterPlayer.getLevels().peek().getCharacteristicOptions().size(); i++) {
-            for (int j = characterPlayer.getLevels().peek().getSelectedCharacteristicOptions().get(i).getSelections().size();
-                 j < characterPlayer.getLevels().peek().getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getLevels().peek().getSelectedCharacteristicOptions().get(i).getSelections()
-                        .add(new Selection(characterPlayer.getLevels().peek().getCharacteristicOptions().get(i).getOptions().get(j).getId()));
+        populateCharacterStep(characterPlayer, characterPlayer.getLevels().peek());
+    }
+
+    public static void populateCharacterStep(CharacterPlayer characterPlayer, CharacterDefinitionStepSelection step) {
+        for (int i = 0; i < step.getCharacteristicOptions().size(); i++) {
+            for (int j = step.getSelectedCharacteristicOptions().get(i).getSelections().size();
+                 j < step.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
+                step.getSelectedCharacteristicOptions().get(i).getSelections()
+                        .add(new Selection(step.getCharacteristicOptions().get(i).getOptions().get(j).getId()));
             }
         }
-        for (int i = 0; i < characterPlayer.getLevels().peek().getNotRepeatedCapabilityOptions().size(); i++) {
-            for (int j = characterPlayer.getLevels().peek().getSelectedCapabilityOptions().get(i).getSelections().size();
-                 j < characterPlayer.getLevels().peek().getNotRepeatedCapabilityOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getLevels().peek().getSelectedCapabilityOptions().get(i).getSelections()
-                        .add(new Selection(characterPlayer.getLevels().peek().getNotRepeatedCapabilityOptions().get(i).getOptions().get(j).getId()));
+        for (int i = 0; i < step.getNotRepeatedCapabilityOptions().size(); i++) {
+            for (int j = step.getSelectedCapabilityOptions().get(i).getSelections().size();
+                 j < step.getNotRepeatedCapabilityOptions().get(i).getTotalOptions(); j++) {
+                step.getSelectedCapabilityOptions().get(i).getSelections()
+                        .add(new Selection(step.getNotRepeatedCapabilityOptions().get(i).getOptions().get(j).getId(),
+                                step.getNotRepeatedCapabilityOptions().get(i).getOptions().get(j).getSelectedSpecialization()));
             }
         }
-        for (int i = 0; i < characterPlayer.getLevels().peek().getSkillOptions().size(); i++) {
-            for (int j = characterPlayer.getLevels().peek().getSelectedSkillOptions().get(i).getSelections().size();
-                 j < characterPlayer.getLevels().peek().getSkillOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getLevels().peek().getSelectedSkillOptions().get(i).getSelections()
-                        .add(new Selection(characterPlayer.getLevels().peek().getSkillOptions().get(i).getOptions().get(j).getId()));
+        for (int i = 0; i < step.getSkillOptions().size(); i++) {
+            for (int j = step.getSelectedSkillOptions().get(i).getSelections().size();
+                 j < step.getSkillOptions().get(i).getTotalOptions(); j++) {
+                step.getSelectedSkillOptions().get(i).getSelections()
+                        .add(new Selection(step.getSkillOptions().get(i).getOptions().get(j).getId()));
             }
         }
-        for (int i = 0; i < characterPlayer.getLevels().peek().getNotRepeatedPerksOptions().size(); i++) {
-            for (int j = characterPlayer.getLevels().peek().getSelectedPerksOptions().get(i).getSelections().size();
-                 j < characterPlayer.getLevels().peek().getNotRepeatedPerksOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getLevels().peek().getSelectedPerksOptions().get(i).getSelections()
-                        .add(new Selection(characterPlayer.getLevels().peek().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getId(),
-                                characterPlayer.getLevels().peek().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations() != null
-                                        && !characterPlayer.getLevels().peek().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations()
-                                        .isEmpty()
-                                        ? characterPlayer.getLevels().peek().getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations().get(0)
+        for (int i = 0; i < step.getNotRepeatedPerksOptions().size(); i++) {
+            for (int j = step.getSelectedPerksOptions().get(i).getSelections().size();
+                 j < step.getNotRepeatedPerksOptions().get(i).getTotalOptions(); j++) {
+                step.getSelectedPerksOptions().get(i).getSelections()
+                        .add(new Selection(step.getNotRepeatedPerksOptions().get(i).getOptions().get(j).getId(),
+                                step.getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations() != null
+                                        && !step.getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations().isEmpty()
+                                        ? step.getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations().get(0)
                                         : null));
             }
         }
+        if (step.getMaterialAwardsOptions() != null) {
+            for (int i = 0; i < step.getMaterialAwardsOptions().size(); i++) {
+                for (int j = step.getSelectedMaterialAwards().get(i).getSelections().size();
+                     j < step.getMaterialAwardsOptions().get(i).getTotalOptions(); j++) {
+                    step.getSelectedMaterialAwards().get(i).getSelections()
+                            .add(new Selection(step.getMaterialAwardsOptions().get(i).getOptions().get(j).getId()));
+                }
+            }
+        }
+
     }
 }

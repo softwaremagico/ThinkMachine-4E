@@ -81,18 +81,15 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
             return 0;
         }
 
-        //Max value achieved by specie.
-        if (getCharacterPlayer().getSpecie() != null
-                && (getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName())
-                >= SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId())
-                .getSpecieCharacteristic(element.getCharacteristicName()).getMaximumValue())) {
-            return 0;
-        }
-
-        //Max characteristic at some levels.
+        //Max value achieved by specie and Max characteristic at some levels.
         try {
-            getCharacterPlayer().checkMaxValueByLevel(element, getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName()) + 1);
-        } catch (InvalidXmlElementException e) {
+            if (getCharacterPlayer().getSpecie() != null
+                    && (getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName())
+                    >= SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId())
+                    .getSpecieCharacteristic(element.getCharacteristicName()).getMaximumValue())) {
+                return 0;
+            }
+        } catch (MaxValueExceededException e) {
             return 0;
         }
 
