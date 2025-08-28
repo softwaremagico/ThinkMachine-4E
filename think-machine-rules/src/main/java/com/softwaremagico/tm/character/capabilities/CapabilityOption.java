@@ -30,6 +30,7 @@ import com.softwaremagico.tm.Option;
 import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.skills.Specialization;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.restrictions.Restrictions;
 import com.softwaremagico.tm.utils.ComparableUtils;
 import com.softwaremagico.tm.utils.IComparable;
 
@@ -84,6 +85,14 @@ public class CapabilityOption extends Option<Capability> implements IComparable 
 
     public void setSelectedSpecialization(Specialization selectedSpecialization) {
         this.selectedSpecialization = selectedSpecialization;
+    }
+
+    @Override
+    public Restrictions getRestrictions() {
+        if (getId() != null) {
+            return CapabilityFactory.getInstance().getElement(getId()).getRestrictions();
+        }
+        return super.getRestrictions();
     }
 
     @Override

@@ -26,6 +26,7 @@ package com.softwaremagico.tm.random.character;
 
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Gender;
+import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.characteristics.CharacteristicReassign;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
@@ -160,7 +161,8 @@ public class RandomizeCharacter {
     }
 
     private void selectPrimaryCharacteristics() throws InvalidRandomElementSelectedException {
-        final RandomCharacteristics randomCharacteristics = new RandomCharacteristics(characterPlayer, preferences);
+        final RandomCharacteristics randomCharacteristics = new RandomCharacteristics(characterPlayer, preferences,
+                CharacteristicDefinition.PRIMARY_CHARACTERISTIC_VALUE - CharacteristicDefinition.INITIAL_CHARACTERISTIC_VALUE);
         randomCharacteristics.assign();
     }
 

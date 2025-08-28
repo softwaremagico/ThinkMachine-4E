@@ -29,7 +29,6 @@ import com.softwaremagico.tm.character.callings.CallingCharacterDefinitionStepSe
 import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.callings.CallingGroup;
 import com.softwaremagico.tm.character.capabilities.CapabilityWithSpecialization;
-import com.softwaremagico.tm.character.characteristics.Characteristic;
 import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.characteristics.CharacteristicReassign;
@@ -435,7 +434,7 @@ public class CharacterPlayer {
         } else if (characteristicName.getCharacteristicType().equals(CharacteristicType.BODY)
                 || characteristicName.getCharacteristicType().equals(CharacteristicType.MIND)
                 || characteristicName.getCharacteristicType().equals(CharacteristicType.SPIRIT)) {
-            bonus = Characteristic.INITIAL_VALUE;
+            bonus = CharacteristicDefinition.INITIAL_CHARACTERISTIC_VALUE;
         }
         if (upbringing != null) {
             final int upbringingBonus = upbringing.getCharacteristicBonus(characteristic);
@@ -483,7 +482,7 @@ public class CharacterPlayer {
         } else if (characteristicName.getCharacteristicType().equals(CharacteristicType.BODY)
                 || characteristicName.getCharacteristicType().equals(CharacteristicType.MIND)
                 || characteristicName.getCharacteristicType().equals(CharacteristicType.SPIRIT)) {
-            stringBuilder.append("Basic bonus: ").append(Characteristic.INITIAL_VALUE);
+            stringBuilder.append("Basic bonus: ").append(CharacteristicDefinition.INITIAL_CHARACTERISTIC_VALUE);
         }
         if (upbringing != null) {
             final int upbringingBonus = upbringing.getCharacteristicBonus(characteristic);
@@ -1082,10 +1081,6 @@ public class CharacterPlayer {
     public int getTechLevel() {
         return INITIAL_TECH_LEVEL + (int) getCapabilitiesWithSpecialization().stream().filter(capability ->
                 capability.getId().startsWith("techLore") && Objects.equals(capability.getGroup(), "techLore")).count();
-    }
-
-    public int getStartingValue(CharacteristicName characteristicName) {
-        return Characteristic.INITIAL_VALUE;
     }
 
     public float getCashMoney() {

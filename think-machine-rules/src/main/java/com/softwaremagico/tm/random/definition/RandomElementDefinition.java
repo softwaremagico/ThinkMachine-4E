@@ -30,7 +30,7 @@ import com.softwaremagico.tm.XmlData;
 import com.softwaremagico.tm.character.Gender;
 import com.softwaremagico.tm.character.Name;
 import com.softwaremagico.tm.character.Surname;
-import com.softwaremagico.tm.character.characteristics.Characteristic;
+import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
 import com.softwaremagico.tm.character.equipment.Agora;
 
 import java.util.Arrays;
@@ -178,7 +178,7 @@ public class RandomElementDefinition extends XmlData {
     }
 
     public Integer getMaximumTechLevel() {
-        return Objects.requireNonNullElse(maximumTechLevel, Characteristic.MAX_VALUE);
+        return Objects.requireNonNullElse(maximumTechLevel, CharacteristicDefinition.MAX_CHARACTERISTIC_VALUE);
     }
 
     public void setMaximumTechLevel(Integer maximumTechLevel) {

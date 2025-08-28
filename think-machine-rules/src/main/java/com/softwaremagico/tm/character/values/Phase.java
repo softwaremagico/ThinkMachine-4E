@@ -39,7 +39,7 @@ public enum Phase {
 
     public boolean isCheckedPhase(Phase phase) {
         if (phase != null) {
-            return index < phase.index;
+            return index != phase.index;
         }
         return false;
     }

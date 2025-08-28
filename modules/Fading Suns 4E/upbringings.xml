@@ -975,9 +975,11 @@
             </capabilitiesOption>
             <capabilitiesOption>
                 <total>1</total>
-                <capability>
-                    <id>planetLore</id>
-                </capability>
+                <options>
+                    <capability>
+                        <id>planetLore</id>
+                    </capability>
+                </options>
             </capabilitiesOption>
             <capabilitiesOption>
                 <total>1</total>

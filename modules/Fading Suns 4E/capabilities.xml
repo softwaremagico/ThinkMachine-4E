@@ -1130,6 +1130,9 @@
                     <en>Urthish</en>
                     <es>Urthés</es>
                 </name>
+                <random>
+                    <probabilityMultiplier>DOMINANT</probabilityMultiplier>
+                </random>
             </selectedSpecialization>
             <selectedSpecialization>
                 <id>latin</id>
@@ -1137,6 +1140,11 @@
                     <en>Latin</en>
                     <es>Latin</es>
                 </name>
+                <random>
+                    <recommendedUpbringings>
+                        <id>priest</id>
+                    </recommendedUpbringings>
+                </random>
             </selectedSpecialization>
             <selectedSpecialization>
                 <id>vuldrish</id>

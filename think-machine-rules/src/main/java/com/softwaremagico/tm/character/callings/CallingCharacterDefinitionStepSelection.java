@@ -72,6 +72,13 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
         return CALLING_SKILL_POINTS;
     }
 
+    @Override
+    public List<PerkOptions> getPerksOptions() {
+        final List<PerkOptions> callingPerks = getCharacterDefinitionStep().getFinalPerksOptions();
+        addSpeciePerks(callingPerks);
+        return callingPerks;
+    }
+
     /**
      * Some species have default perks for callings
      *
@@ -81,6 +88,11 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
     public List<PerkOptions> getNotRepeatedPerksOptions() {
         final List<PerkOptions> callingPerks = new ArrayList<>();
         super.getNotRepeatedPerksOptions().forEach(perkOptions -> callingPerks.add(new PerkOptions(perkOptions)));
+        addSpeciePerks(callingPerks);
+        return callingPerks;
+    }
+
+    private void addSpeciePerks(final List<PerkOptions> callingPerks) {
         if (getCharacterPlayer().getSpecie() != null) {
             final List<PerkOption> speciePerks = SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId()).getPerks();
             callingPerks.forEach(perkOptions -> {
@@ -94,7 +106,6 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
                 }
             });
         }
-        return callingPerks;
     }
 }
 

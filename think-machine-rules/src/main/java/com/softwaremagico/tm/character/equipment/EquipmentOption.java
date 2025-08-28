@@ -42,6 +42,7 @@ import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponClass;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponType;
+import com.softwaremagico.tm.restrictions.Restrictions;
 
 import java.util.HashSet;
 import java.util.List;
@@ -123,6 +124,14 @@ public class EquipmentOption extends Option<Equipment> {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Override
+    public Restrictions getRestrictions() {
+        if (getId() != null) {
+            return getElement(getId()).getRestrictions();
+        }
+        return super.getRestrictions();
     }
 
     @Override

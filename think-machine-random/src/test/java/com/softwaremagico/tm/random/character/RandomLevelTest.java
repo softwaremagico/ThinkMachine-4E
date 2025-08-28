@@ -4,7 +4,6 @@ import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.level.LevelSelector;
-import com.softwaremagico.tm.character.perks.SpecializedPerk;
 import com.softwaremagico.tm.random.character.level.RandomLevel;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import org.testng.Assert;

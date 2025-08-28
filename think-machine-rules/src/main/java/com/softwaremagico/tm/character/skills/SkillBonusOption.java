@@ -29,6 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Option;
 import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.restrictions.Restrictions;
 
 public class SkillBonusOption extends Option<Skill> {
     @JsonProperty("bonus")
@@ -56,6 +57,14 @@ public class SkillBonusOption extends Option<Skill> {
 
     public void setBonus(int bonus) {
         this.bonus = bonus;
+    }
+
+    @Override
+    public Restrictions getRestrictions() {
+        if (getId() != null) {
+            return SkillFactory.getInstance().getElement(getId()).getRestrictions();
+        }
+        return super.getRestrictions();
     }
 
 

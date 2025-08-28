@@ -8,7 +8,7 @@ Habilidades: Academia (6), Arte (4), Conducir (4), Cuerpo a Cuerpo (5), Disparar
 
 Competencias: Armas Militares, Armas de Energía, Cocina, Hablar (Urthés), Leer (Urthés), Monta, Pintura, Saber Planetario (Sutek), Saber de Facción (Hawkwood), Usos de la Corte, Vehículos de Guerra.
 
-Beneficios: Esgrima (Duelo 1), Imperioso, Leva, Título Nobiliario (Caballero).
+Beneficios: Alentar, Esgrima (Duelo 1), Imperioso, Título Nobiliario (Caballero).
 
 Bendiciones:
 	- Obstinado (Meta +1 en tiradas de Constitución, Voluntad y Fe cuando te retan.)

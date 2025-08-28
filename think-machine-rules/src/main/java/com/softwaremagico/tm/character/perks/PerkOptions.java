@@ -55,23 +55,23 @@ public class PerkOptions extends OptionSelector<Perk, PerkOption> {
     public PerkOptions(PerkOptions optionSelector, List<PerkOption> finalPerks) {
         super(optionSelector);
         this.finalPerks = finalPerks;
-        setOptions(finalPerks);
+        setOptions(new ArrayList<>(finalPerks));
     }
 
     @Override
     public List<PerkOption> getOptions() {
         if (finalPerks == null) {
             finalPerks = new ArrayList<>();
-            for (PerkOption perkOptions : super.getOptions()) {
-                if (perkOptions.getGroup() != null) {
+            for (PerkOption perkOption : super.getOptions()) {
+                if (perkOption.getGroup() != null) {
                     try {
-                        finalPerks.addAll(PerkFactory.getInstance().getElementsByGroup(perkOptions.getGroup()).stream()
+                        finalPerks.addAll(PerkFactory.getInstance().getElementsByGroup(perkOption.getGroup()).stream()
                                 .map(PerkOption::new).collect(Collectors.toList()));
                     } catch (InvalidXmlElementException e) {
                         MachineLog.errorMessage(this.getClass(), e);
                     }
                 } else {
-                    finalPerks.add(perkOptions);
+                    finalPerks.add(perkOption);
                 }
             }
         }

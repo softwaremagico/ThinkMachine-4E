@@ -29,6 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Option;
 import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.restrictions.Restrictions;
 
 public class CharacteristicBonusOption extends Option<CharacteristicDefinition> {
     @JsonProperty("bonus")
@@ -74,6 +75,14 @@ public class CharacteristicBonusOption extends Option<CharacteristicDefinition> 
 
     public void setExtra(boolean extra) {
         this.extra = extra;
+    }
+
+    @Override
+    public Restrictions getRestrictions() {
+        if (getId() != null) {
+            return CharacteristicsDefinitionFactory.getInstance().getElement(getId()).getRestrictions();
+        }
+        return super.getRestrictions();
     }
 
     @Override

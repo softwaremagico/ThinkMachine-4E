@@ -339,19 +339,19 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         validatePerks(selectedPerksOptions, getNotRepeatedPerksOptions(), getPerksOptions());
     }
 
-    protected void validatePerks(List<CharacterSelectedElement> selectedClassPerksOptions, List<PerkOptions> perkOptions,
+    protected void validatePerks(List<CharacterSelectedElement> selectedPerksOptions, List<PerkOptions> perkOptions,
                                  List<PerkOptions> completePerkList) {
-        if (perkOptions != null && selectedClassPerksOptions != null) {
-            for (int i = 0; i < selectedClassPerksOptions.size(); i++) {
-                if (selectedClassPerksOptions.get(i).getSelections().size() > perkOptions.get(i).getOptions().size()) {
-                    throw new TooManySelectionsException("You have selected '" + selectedClassPerksOptions.get(i).getSelections().size()
+        if (perkOptions != null && selectedPerksOptions != null) {
+            for (int i = 0; i < selectedPerksOptions.size(); i++) {
+                if (selectedPerksOptions.get(i).getSelections().size() > perkOptions.get(i).getOptions().size()) {
+                    throw new TooManySelectionsException("You have selected '" + selectedPerksOptions.get(i).getSelections().size()
                             + "' perks options and only '"
                             + perkOptions.get(i).getOptions().size()
                             + "' are available.");
                 }
                 final List<Selection> availableOptions = completePerkList.get(i).getOptions()
                         .stream().map(po -> new Selection(po.getId())).collect(Collectors.toList());
-                for (Selection selection : selectedClassPerksOptions.get(i).getSelections()) {
+                for (Selection selection : selectedPerksOptions.get(i).getSelections()) {
                     if (!availableOptions.contains(selection)) {
                         throw new InvalidSelectedElementException("Selected perk '" + selection + "' does not exist. Available perks are: "
                                 + availableOptions, selection);
@@ -453,24 +453,27 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         if (getCharacterDefinitionStep().getFinalPerksOptions() == null) {
             return new ArrayList<>();
         }
-        final List<PerkOptions> perkOptions = new ArrayList<>();
-        for (PerkOptions perkOption : getCharacterDefinitionStep().getFinalPerksOptions()) {
-            //Get not duplicated options that are selected on previous steps.
-            final List<PerkOption> oldOptions = new ArrayList<>(perkOption.getOptions());
-            final List<PerkOption> options = perkOption.getOptions().stream().filter(o -> !getCharacterPlayer()
+        final List<PerkOptions> finalPerkOptions = new ArrayList<>();
+        for (PerkOptions perkOptions : getCharacterDefinitionStep().getFinalPerksOptions()) {
+            //Get not duplicated options that are selected on previous steps. We need to filter again by restriction, as some perks are restricted by
+            // character's current level.
+            final List<PerkOption> oldOptions = perkOptions.getOptions().stream().filter(e -> !e.getRestrictions().isRestricted(characterPlayer))
+                    .collect(Collectors.toList());
+            final List<PerkOption> options = oldOptions.stream().filter(o -> !getCharacterPlayer()
                     .hasPerk(o.getId(), getPhase())).collect(Collectors.toList());
             //If no option is available. Must select between any not restricted to the character.
             if (!options.isEmpty()) {
-                perkOptions.add(new PerkOptions(perkOption, options));
+                finalPerkOptions.add(new PerkOptions(perkOptions, options));
             } else {
-                final PerkOptions newPerkOptions = new PerkOptions(perkOption, PerkFactory.getInstance().getElements()
+                final PerkOptions newPerkOptions = new PerkOptions(perkOptions, PerkFactory.getInstance().getElements()
                         .stream().filter(e -> !e.getRestrictions().isRestricted(characterPlayer))
                         .map(PerkOption::new).collect(Collectors.toList()));
+                //Remove old options. As if no option is available means that all oldOptions are already selected.
                 newPerkOptions.getOptions().removeAll(oldOptions);
-                perkOptions.add(newPerkOptions);
+                finalPerkOptions.add(newPerkOptions);
             }
         }
-        return perkOptions;
+        return finalPerkOptions;
     }
 
     public List<EquipmentOptions> getMaterialAwardsOptions() {

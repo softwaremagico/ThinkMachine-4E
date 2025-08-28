@@ -904,9 +904,11 @@
             </capabilitiesOption>
             <capabilitiesOption>
                 <total>1</total>
-                <capability>
-                    <id>warfareLore</id>
-                </capability>
+                <options>
+                    <capability>
+                        <id>warfareLore</id>
+                    </capability>
+                </options>
             </capabilitiesOption>
         </capabilities>
         <characteristics>
@@ -1600,9 +1602,11 @@
             </capabilitiesOption>
             <capabilitiesOption>
                 <total>1</total>
-                <capability>
-                    <id>occultLore</id>
-                </capability>
+                <options>
+                    <capability>
+                        <id>occultLore</id>
+                    </capability>
+                </options>
             </capabilitiesOption>
             <capabilitiesOption>
                 <total>1</total>
@@ -1802,12 +1806,14 @@
             </capabilitiesOption>
             <capabilitiesOption>
                 <total>1</total>
-                <capability>
-                    <id>factionLore</id>
-                    <selectedSpecialization>
-                        <id>sanctuaryAeon</id>
-                    </selectedSpecialization>
-                </capability>
+                <options>
+                    <capability>
+                        <id>factionLore</id>
+                        <selectedSpecialization>
+                            <id>sanctuaryAeon</id>
+                        </selectedSpecialization>
+                    </capability>
+                </options>
             </capabilitiesOption>
             <capabilitiesOption>
                 <total>1</total>
@@ -2031,9 +2037,11 @@
             </capabilitiesOption>
             <capabilitiesOption>
                 <total>1</total>
-                <capability>
-                    <id>tortureLore</id>
-                </capability>
+                <options>
+                    <capability>
+                        <id>tortureLore</id>
+                    </capability>
+                </options>
             </capabilitiesOption>
         </capabilities>
         <characteristics>

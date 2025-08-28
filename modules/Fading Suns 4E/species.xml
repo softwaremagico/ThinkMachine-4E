@@ -189,10 +189,12 @@
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
-                <capability>
-                    <id>speak</id>
-                    <selectedSpecialization>lojmaa</selectedSpecialization>
-                </capability>
+                <options>
+                    <capability>
+                        <id>speak</id>
+                        <selectedSpecialization>lojmaa</selectedSpecialization>
+                    </capability>
+                </options>
             </capabilitiesOption>
         </capabilities>
         <perks>
@@ -315,10 +317,12 @@
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
-                <capability>
-                    <id>speak</id>
-                    <selectedSpecialization>uryari</selectedSpecialization>
-                </capability>
+                <options>
+                    <capability>
+                        <id>speak</id>
+                        <selectedSpecialization>uryari</selectedSpecialization>
+                    </capability>
+                </options>
             </capabilitiesOption>
         </capabilities>
         <perks>
@@ -472,10 +476,12 @@
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
-                <capability>
-                    <id>speak</id>
-                    <selectedSpecialization>voroxian</selectedSpecialization>
-                </capability>
+                <options>
+                    <capability>
+                        <id>speak</id>
+                        <selectedSpecialization>voroxian</selectedSpecialization>
+                    </capability>
+                </options>
             </capabilitiesOption>
         </capabilities>
         <perks>

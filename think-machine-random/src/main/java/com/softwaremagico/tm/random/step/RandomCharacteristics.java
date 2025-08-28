@@ -48,9 +48,16 @@ import java.util.Objects;
 import java.util.Set;
 
 public class RandomCharacteristics extends RandomSelector<CharacteristicDefinition> implements AssignableRandomSelector {
+    private final int bonus;
 
     public RandomCharacteristics(CharacterPlayer characterPlayer, Set<RandomPreference> preferences) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
+        this.bonus = 0;
+    }
+
+    public RandomCharacteristics(CharacterPlayer characterPlayer, Set<RandomPreference> preferences, int bonus) throws InvalidXmlElementException {
+        super(characterPlayer, preferences);
+        this.bonus = bonus;
     }
 
     @Override
@@ -112,6 +119,14 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
         //No occultists without points does not add extra points.
         if (element.getType() == CharacteristicType.OCCULTISM && !getCharacterPlayer().isOccultist()) {
             return EXOTIC_PROBABILITY;
+        }
+
+        //Max characteristic achieved.
+        try {
+            final int charValue = getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName());
+            getCharacterPlayer().checkMaxValueByLevel(element, charValue + bonus);
+        } catch (InvalidXmlElementException | MaxValueExceededException e) {
+            return 0;
         }
 
         return super.getWeight(element);

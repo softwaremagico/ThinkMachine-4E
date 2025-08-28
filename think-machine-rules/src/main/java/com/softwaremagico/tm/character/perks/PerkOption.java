@@ -25,6 +25,7 @@ package com.softwaremagico.tm.character.perks;
  */
 
 import com.softwaremagico.tm.Option;
+import com.softwaremagico.tm.restrictions.Restrictions;
 
 public class PerkOption extends Option<Perk> {
 
@@ -36,6 +37,14 @@ public class PerkOption extends Option<Perk> {
         this();
         setId(perk.getId());
         setSpecializations(perk.getSpecializations());
+    }
+
+    @Override
+    public Restrictions getRestrictions() {
+        if (getId() != null) {
+            return PerkFactory.getInstance().getElement(getId()).getRestrictions();
+        }
+        return super.getRestrictions();
     }
 
     @Override

@@ -352,6 +352,8 @@ public class CharacterRulesTests {
         //But it is not available at level 2.
         characterPlayer.addLevel();
 
+        Assert.assertTrue(PerkFactory.getInstance().getElement("childOfDhiyana").getRestrictions().isRestricted(characterPlayer));
+
         exists = false;
         for (PerkOptions perkOptions : characterPlayer.getCalling().getNotRepeatedPerksOptions()) {
             if (perkOptions.getOptions().contains(new PerkOption(PerkFactory.getInstance().getElement("childOfDhiyana")))) {
