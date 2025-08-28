@@ -143,7 +143,7 @@ public abstract class XmlFactory<T extends Element> {
             if (elementList == null) {
                 elementList = readXml(entityClass, ModuleManager.DEFAULT_MODULE);
             }
-            return elementList;
+            return new ArrayList<>(elementList);
         } catch (IOException e) {
             MachineLog.errorMessage(this.getClass(), e);
             throw new InvalidXmlElementException("Error reading xml for '" + entityClass + "'", e);

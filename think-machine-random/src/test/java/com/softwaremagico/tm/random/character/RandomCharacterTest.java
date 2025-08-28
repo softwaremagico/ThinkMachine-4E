@@ -27,6 +27,7 @@ package com.softwaremagico.tm.random.character;
 
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Gender;
+import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.log.RandomTestGenerationLog;
 import org.testng.Assert;

@@ -147,7 +147,7 @@ public class Level extends CharacterDefinitionStep {
 
     @Override
     public List<PerkOptions> getFinalPerksOptions() {
-        return null;
+        return new ArrayList<>();
     }
 
     public List<PerkOptions> getFactionPerksOptions() {
@@ -158,7 +158,7 @@ public class Level extends CharacterDefinitionStep {
         if (characterPlayer.isFavoredCalling()) {
             for (PerkOptions perkOptions : perks) {
                 perkOptions.getOptions().addAll(characterPlayer.getCalling().getPerksOptions().get(0).getOptions().stream()
-                        .filter(p -> p.getElement().getType() == PerkType.PRIVILEGE
+                        .filter(p -> p.getElement() != null && p.getElement().getType() == PerkType.PRIVILEGE
                         ).collect(Collectors.toList()));
             }
         }

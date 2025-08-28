@@ -63,6 +63,7 @@ public class RandomizeCharacterDefinitionStep {
 
 
     public void assign() throws InvalidSelectionException, InvalidRandomElementSelectedException {
+        characterDefinitionStepSelection.updateDefaultOptions();
         assignCharacteristics();
         assignCapabilities();
         assignSkills();
@@ -87,8 +88,9 @@ public class RandomizeCharacterDefinitionStep {
                                 .add(new Selection(randomCharacteristicBonusOption.selectElementByWeight().getId()));
                     }
                 } catch (InvalidXmlElementException e) {
-                    throw new InvalidXmlElementException("Error on characteristics options '"
-                            + characterDefinitionStepSelection.getCharacteristicOptions().get(i) + "'.", e);
+                    //If no options are available. Force one characteristic and later, will be balanced.
+                    characterDefinitionStepSelection.getSelectedCharacteristicOptions().get(i).getSelections()
+                            .add(new Selection(characterDefinitionStepSelection.getCharacteristicOptions().get(i).getOptions().get(0).getId()));
                 }
             }
         }

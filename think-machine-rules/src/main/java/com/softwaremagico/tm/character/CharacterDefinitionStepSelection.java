@@ -111,6 +111,20 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         selectDefaultOptions();
     }
 
+    public void updateDefaultOptions() {
+        resetDefaultOptions();
+        selectDefaultOptions();
+    }
+
+    private void resetDefaultOptions() {
+        resetDefaultOptions(new ArrayList<>(getNotRepeatedCapabilityOptions()), selectedCapabilityOptions);
+        resetDefaultOptions(new ArrayList<>(getCharacteristicOptions()), selectedCharacteristicOptions);
+        resetDefaultOptions(new ArrayList<>(getSkillOptions()), selectedSkillOptions);
+        if (getNotRepeatedPerksOptions() != null) {
+            resetDefaultOptions(new ArrayList<>(getNotRepeatedPerksOptions()), selectedPerksOptions);
+        }
+    }
+
     public void selectDefaultOptions() {
         setDefaultOptions(new ArrayList<>(getNotRepeatedCapabilityOptions()), selectedCapabilityOptions);
         setDefaultOptions(new ArrayList<>(getCharacteristicOptions()), selectedCharacteristicOptions);
@@ -137,6 +151,29 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                     selectedElements.get(i).setSelections(new ArrayList<>(List.of(new Selection(options
                             .get(i).getOptions().get(0).getId(), options
                             .get(i).getOptions().get(0).getSpecializations().get(0)))));
+                }
+            }
+        }
+    }
+
+    /**
+     * Removes the default selected options.
+     *
+     * @param options
+     * @param selectedElements
+     */
+    private void resetDefaultOptions(List<OptionSelector<?, ?>> options, List<CharacterSelectedElement> selectedElements) {
+        for (int i = 0; i < options.size(); i++) {
+            if (options.get(i).getOptions().size() == 1) {
+                if (options.get(i).getOptions().get(0) instanceof CapabilityOption) {
+                    if (((CapabilityOption) options.get(i).getOptions().get(0)).getSelectedSpecialization() != null) {
+                        selectedElements.get(i).setSelections(new ArrayList<>());
+                    }
+                } else if (options.get(i).getOptions().get(0).getSpecializations() == null
+                        || options.get(i).getOptions().get(0).getSpecializations().isEmpty()) {
+                    selectedElements.get(i).setSelections(new ArrayList<>());
+                } else if (options.get(i).getOptions().get(0).getSpecializations().size() == 1) {
+                    selectedElements.get(i).setSelections(new ArrayList<>());
                 }
             }
         }
@@ -238,6 +275,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     @Override
     public void validate() throws InvalidSelectionException {
         super.validate();
+        updateDefaultOptions();
         if (getRestrictions().isRestricted(characterPlayer)) {
             throw new InvalidSelectionException("Restrictions for  '" + getId() + "' are not meet.");
         }

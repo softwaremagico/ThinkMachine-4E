@@ -124,20 +124,13 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         for (final Element element : getAllElements()) {
             try {
                 validateElement(element);
-            } catch (InvalidRandomElementSelectedException | MaxValueExceededException e) {
-                // Element not valid. Ignore it.
-                continue;
-            }
-
-            try {
                 final int weight = getElementWeight(element);
                 if (weight > 0) {
                     calculatedWeight.put(count, element);
                     count += weight;
                 }
-            } catch (InvalidRandomElementSelectedException e) {
+            } catch (InvalidRandomElementSelectedException | MaxValueExceededException e) {
                 // Element not valid. Ignore it.
-                continue;
             }
         }
         //Last element probability.

@@ -48,4 +48,12 @@ public class CharacteristicReassign {
     public String getTo() {
         return to;
     }
+
+    @Override
+    public String toString() {
+        return "CharacteristicReassign{"
+                + "from='" + from + '\''
+                + ", to='" + to + '\''
+                + '}';
+    }
 }

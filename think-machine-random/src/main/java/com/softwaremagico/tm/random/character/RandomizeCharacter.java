@@ -94,7 +94,7 @@ public class RandomizeCharacter {
             reassignCharacteristics();
             setLevels();
             RandomGenerationLog.info(this.getClass(), "Character created: " + characterPlayer.toString());
-        } catch (InvalidXmlElementException e) {
+        } catch (InvalidXmlElementException | MaxValueExceededException e) {
             throw new InvalidXmlElementException("Error on '" + characterPlayer + "'.", e);
         }
     }
@@ -172,7 +172,7 @@ public class RandomizeCharacter {
                 characterPlayer.getCharacteristicValue(characteristicName);
             } catch (MaxValueExceededException e) {
                 for (int i = 0; i < e.getBonus() - e.getMaxValue(); i++) {
-                    final RandomCharacteristics randomCharacteristics = new RandomCharacteristics(characterPlayer, preferences);
+                    final RandomCharacteristics randomCharacteristics = new RandomCharacteristics(characterPlayer, preferences, 1);
                     characterPlayer.getCharacteristicReassigns().add(new CharacteristicReassign(e.getCharacteristic(),
                             randomCharacteristics.selectElementByWeight().getId()));
                 }

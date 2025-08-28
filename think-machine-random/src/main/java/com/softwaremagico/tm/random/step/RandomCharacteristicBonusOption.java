@@ -45,7 +45,7 @@ public class RandomCharacteristicBonusOption extends RandomCharacteristics {
 
     public RandomCharacteristicBonusOption(CharacterPlayer characterPlayer, Set<RandomPreference> preferences,
                                            CharacteristicBonusOptions characteristicBonusOptions) throws InvalidXmlElementException {
-        super(characterPlayer, preferences);
+        super(characterPlayer, preferences, characteristicBonusOptions.getBonus());
         this.characteristicBonusOptions = characteristicBonusOptions;
     }
 

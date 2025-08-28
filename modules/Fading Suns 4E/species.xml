@@ -466,12 +466,8 @@
             </characteristic>
         </specieCharacteristics>
         <primaryCharacteristics>
-            <characteristic>
-                <id>strength</id>
-            </characteristic>
-            <characteristic>
-                <id>endurance</id>
-            </characteristic>
+            <characteristic>strength</characteristic>
+            <characteristic>endurance</characteristic>
         </primaryCharacteristics>
         <movement>
             <value>14</value>

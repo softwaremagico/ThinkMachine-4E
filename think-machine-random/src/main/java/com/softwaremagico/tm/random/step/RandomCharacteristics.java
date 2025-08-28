@@ -88,10 +88,18 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
             return 0;
         }
 
+        //Max characteristic achieved by level
+        try {
+            final int charValue = getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName());
+            getCharacterPlayer().checkMaxValueByLevel(element, charValue + bonus);
+        } catch (InvalidXmlElementException | MaxValueExceededException e) {
+            return 0;
+        }
+
         //Max value achieved by specie and Max characteristic at some levels.
         try {
             if (getCharacterPlayer().getSpecie() != null
-                    && (getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName())
+                    && (getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName()) + bonus
                     >= SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId())
                     .getSpecieCharacteristic(element.getCharacteristicName()).getMaximumValue())) {
                 return 0;
@@ -121,27 +129,19 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
             return EXOTIC_PROBABILITY;
         }
 
-        //Max characteristic achieved.
-        try {
-            final int charValue = getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName());
-            getCharacterPlayer().checkMaxValueByLevel(element, charValue + bonus);
-        } catch (InvalidXmlElementException | MaxValueExceededException e) {
-            return 0;
-        }
-
         return super.getWeight(element);
     }
 
 
     private void selectPrimaryCharacteristics() throws InvalidRandomElementSelectedException {
-        final String mainCharacteristic = selectStandardCharacteristic();
+        final String mainCharacteristic = selectInitialCharacteristic();
         getCharacterPlayer().setPrimaryCharacteristic(mainCharacteristic);
         RandomSelectorLog.debug(this.getClass().getSimpleName(), "Selecting primary characteristic '" + mainCharacteristic
                 + "' with current value '" + getCharacterPlayer().getCharacteristicValue(mainCharacteristic) + "'.");
 
         String secondaryCharacteristic;
         do {
-            secondaryCharacteristic = selectStandardCharacteristic();
+            secondaryCharacteristic = selectInitialCharacteristic();
         } while (Objects.equals(mainCharacteristic, secondaryCharacteristic));
         getCharacterPlayer().setSecondaryCharacteristic(secondaryCharacteristic);
         RandomSelectorLog.debug(this.getClass().getSimpleName(), "Selecting secondary characteristic '" + secondaryCharacteristic
@@ -158,7 +158,7 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
                 mainCharacteristic, secondaryCharacteristic);
     }
 
-    private String selectStandardCharacteristic() throws InvalidRandomElementSelectedException {
+    private String selectInitialCharacteristic() throws InvalidRandomElementSelectedException {
         String characteristic;
         final Specie specie = SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie());
         boolean validCharacteristic = false;
@@ -166,7 +166,7 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
             characteristic = selectElementByWeight().getId();
             try {
                 getCharacterPlayer().checkMaxValueByLevel(characteristic, getCharacterPlayer().getCharacteristicValue(characteristic)
-                        + CharacteristicDefinition.PRIMARY_CHARACTERISTIC_VALUE);
+                        + CharacteristicDefinition.PRIMARY_CHARACTERISTIC_VALUE - CharacteristicDefinition.INITIAL_CHARACTERISTIC_VALUE);
                 validCharacteristic = true;
             } catch (MaxValueExceededException | InvalidXmlElementException ignored) {
                 //Select another characteristic.

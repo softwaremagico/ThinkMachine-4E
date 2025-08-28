@@ -184,7 +184,7 @@ public class CharacterPlayer {
                                     .getSpecieCharacteristic(characteristicDefinition.getCharacteristicName()).getMaximumValue())
                                     + "' by specie.");
                         }
-                    } catch (InvalidXmlElementException e) {
+                    } catch (InvalidXmlElementException | MaxValueExceededException e) {
                         throw new InvalidCharacteristicException("Characteristic '" + characteristicDefinition.getCharacteristicName()
                                 + "' has exceeded its maximum value at level '" + getLevel() + "'.", e);
                     }
@@ -193,9 +193,8 @@ public class CharacterPlayer {
 
             //Check skills values
             for (Skill skill : SkillFactory.getInstance().getElements()) {
-                final int skillValue = getSkillValue(skill);
                 try {
-                    checkMaxValueByLevel(skill, skillValue);
+                    getSkillValue(skill);
                 } catch (InvalidSkillException e) {
                     throw new InvalidSkillException("Skill '" + skill.getId()
                             + "' has exceeded its maximum value at level '" + getLevel() + "'.");
@@ -212,13 +211,13 @@ public class CharacterPlayer {
         }
     }
 
-    public void checkMaxValueByLevel(Element element, int value) {
+    public void checkMaxValueByLevel(Element element, int value) throws MaxValueExceededException {
         if (element != null) {
             checkMaxValueByLevel(element.getId(), value);
         }
     }
 
-    public void checkMaxValueByLevel(String element, int value) {
+    public void checkMaxValueByLevel(String element, int value) throws MaxValueExceededException {
         if ((getLevel() < 2 && value > MAX_INITIAL_VALUE)
                 || (getLevel() < LEVEL_MAX_VALUE && value > MAX_INTERMEDIAL_VALUE)) {
             String composition;
@@ -501,6 +500,10 @@ public class CharacterPlayer {
             if (callingBonus > 0) {
                 stringBuilder.append((stringBuilder.length() > 0 ? ", " : "")).append("calling: ").append(callingBonus);
             }
+        }
+        final int balancedBonus = getCharacteristicReassignValueIncreased(characteristic);
+        if (balancedBonus > 0) {
+            stringBuilder.append((stringBuilder.length() > 0 ? ", " : "")).append("balance: ").append(balancedBonus);
         }
         return stringBuilder.toString();
     }
