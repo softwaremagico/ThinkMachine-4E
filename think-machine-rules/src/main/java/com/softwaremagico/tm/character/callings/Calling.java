@@ -24,11 +24,7 @@ package com.softwaremagico.tm.character.callings;
  * #L%
  */
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.softwaremagico.tm.character.CharacterDefinitionStep;
-import com.softwaremagico.tm.character.perks.PerkOptions;
-
-import java.util.List;
 
 public class Calling extends CharacterDefinitionStep {
     private static final int TOTAL_CHARACTERISTICS_OPTIONS = 5;

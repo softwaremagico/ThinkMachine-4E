@@ -236,11 +236,14 @@
         </name>
         <source>calling</source>
         <type>ability</type>
-        <restrictions>
+        <restrictions mode="any">
             <callings>
                 <calling>explorer</calling>
                 <calling>scout</calling>
             </callings>
+            <species>
+                <specie>vorox</specie>
+            </species>
         </restrictions>
     </perk>
     <perk>
@@ -713,10 +716,7 @@
         </name>
         <source>calling</source>
         <type>ability</type>
-        <restrictions mode="any_from_group">
-            <callings>
-                <calling>scout</calling>
-            </callings>
+        <restrictions>
             <perks>
                 <perk>wildDomain</perk>
             </perks>
@@ -1656,7 +1656,10 @@
         </name>
         <source>calling</source>
         <type>ability</type>
-        <restrictions>
+        <restrictions mode="any">
+            <species>
+                <specie>vorox</specie>
+            </species>
             <callings>
                 <calling>explorer</calling>
                 <calling>scout</calling>
@@ -2730,7 +2733,10 @@
         </name>
         <source>calling</source>
         <type>ability</type>
-        <restrictions>
+        <restrictions mode="any">
+            <species>
+                <specie>vorox</specie>
+            </species>
             <callings>
                 <calling>explorer</calling>
                 <calling>scout</calling>
@@ -3529,7 +3535,10 @@
         </name>
         <source>calling</source>
         <type>ability</type>
-        <restrictions>
+        <restrictions mode="any">
+            <species>
+                <specie>vorox</specie>
+            </species>
             <callings>
                 <calling>reclaimer</calling>
                 <calling>scout</calling>
@@ -3949,7 +3958,10 @@
         </name>
         <source>calling</source>
         <type>ability</type>
-        <restrictions>
+        <restrictions mode="any">
+            <species>
+                <specie>vorox</specie>
+            </species>
             <callings>
                 <calling>scout</calling>
             </callings>
@@ -5220,6 +5232,9 @@
         <source>calling</source>
         <type>cyberdevice</type>
         <restrictions>
+            <species>
+                <specie>vorox</specie>
+            </species>
             <callings>
                 <calling>explorer</calling>
                 <calling>scout</calling>
@@ -5250,7 +5265,10 @@
         </name>
         <source>calling</source>
         <type>cyberdevice</type>
-        <restrictions>
+        <restrictions mode="any">
+            <species>
+                <specie>vorox</specie>
+            </species>
             <callings>
                 <calling>scholar</calling>
                 <calling>scout</calling>

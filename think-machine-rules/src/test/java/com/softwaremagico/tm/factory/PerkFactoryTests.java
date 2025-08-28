@@ -46,7 +46,7 @@ public class PerkFactoryTests {
 
     @Test
     public void getPerkRestrictionMode() throws InvalidXmlElementException {
-        Assert.assertEquals(PerkFactory.getInstance().getElement("chameleon").getRestrictions().getMode(),
+        Assert.assertEquals(PerkFactory.getInstance().getElement("chartophylax").getRestrictions().getMode(),
                 RestrictionMode.ANY_FROM_GROUP);
     }
 

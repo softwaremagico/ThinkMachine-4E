@@ -39,7 +39,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.net.URLClassLoader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -60,7 +59,7 @@ public abstract class XmlFactory<T extends Element> {
     private List<T> elementList = null;
     private Set<String> elementGroups;
 
-    public XmlFactory() {
+    protected XmlFactory() {
 
     }
 
@@ -115,6 +114,20 @@ public abstract class XmlFactory<T extends Element> {
         return getElements().stream().filter(t -> ids.contains(t.getId())).collect(Collectors.toList());
     }
 
+    public Collection<T> getElements(Element e) throws InvalidXmlElementException {
+        final Set<T> relatedElements = new HashSet<>();
+        if (e == null) {
+            return relatedElements;
+        }
+        if (e.getId() != null) {
+            relatedElements.add(getElement(e));
+        }
+        if (e.getGroup() != null) {
+            relatedElements.addAll(getElementsByGroup(e.getGroup()));
+        }
+        return relatedElements;
+    }
+
     public List<T> getElementsByGroup(String group) throws InvalidXmlElementException {
         return getElements().stream().filter(t -> Objects.equals(group, t.getGroup())).collect(Collectors.toList());
     }
@@ -143,12 +156,12 @@ public abstract class XmlFactory<T extends Element> {
     }
 
     public List<T> readXml(String xmlContent, Class<T> entityClass) throws JsonProcessingException {
-        final List<T> elements = getObjectMapper().readerForListOf(entityClass).readValue(xmlContent);
+        final List<T> fileElements = getObjectMapper().readerForListOf(entityClass).readValue(xmlContent);
         final AtomicInteger order = new AtomicInteger();
-        elements.forEach(element -> element.setOrder(order.getAndIncrement()));
+        fileElements.forEach(element -> element.setOrder(order.getAndIncrement()));
         this.elements = new HashMap<>();
-        elements.forEach(element -> this.elements.put(element.getId(), element));
-        return elements;
+        fileElements.forEach(element -> this.elements.put(element.getId(), element));
+        return fileElements;
     }
 
     public void validate() throws InvalidXmlElementException {
@@ -171,7 +184,7 @@ public abstract class XmlFactory<T extends Element> {
                 resource = new File(filePath).toURI().toURL();
             } else {
                 // Is inside a module.
-                resource = URLClassLoader.getSystemResource(filePath);
+                resource = ClassLoader.getSystemResource(filePath);
             }
             MachineLog.debug(XmlFactory.class.getName(), "Found xml factory '" + filePath + "' at '" + resource + "'.");
             final StringBuilder resultStringBuilder = new StringBuilder();
@@ -194,7 +207,7 @@ public abstract class XmlFactory<T extends Element> {
     public Set<String> getElementGroups() {
         if (elementGroups == null) {
             elementGroups = new HashSet<>();
-            getElements().forEach(elements -> elementGroups.add(elements.getGroup()));
+            getElements().forEach(elementsWithGroup -> elementGroups.add(elementsWithGroup.getGroup()));
         }
         return elementGroups;
     }

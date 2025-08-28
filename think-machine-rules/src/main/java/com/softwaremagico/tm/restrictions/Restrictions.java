@@ -466,8 +466,8 @@ public class Restrictions extends XmlData {
             return isOpen()
                     || isRaisedInSpace(characterPlayer)
                     //Must much specie or upbringing or calling or faction.
-                    || ((((getRestrictedToSpecies().isEmpty() || (characterPlayer.getSpecie() != null && getRestrictedToSpecies()
-                    .contains(characterPlayer.getSpecie().getId())))
+                    || (((getRestrictedToSpecies().isEmpty() || (characterPlayer.getSpecie() != null && getRestrictedToSpecies()
+                    .contains(characterPlayer.getSpecie().getId()))
                     // Check upbringing. Only one can be present.
                     || (getRestrictedToUpbringing().isEmpty() || (characterPlayer.getUpbringing() != null && getRestrictedToUpbringing()
                     .contains(characterPlayer.getUpbringing().getId())))

@@ -86,15 +86,15 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
             callingPerks.forEach(perkOptions -> {
                 //Add no duplicates.
                 if (speciePerks != null) {
-                    speciePerks.forEach(speciePerk -> {
-                        if (!PerkFactory.getInstance().getElement(speciePerk.getId()).getRestrictions().isRestricted(getCharacterPlayer())
-                                && !perkOptions.getOptions().contains(speciePerk)) {
+                    speciePerks.forEach(speciePerk -> PerkFactory.getInstance().getElements(speciePerk).forEach(perk -> {
+                        if (!perk.getRestrictions().isRestricted(getCharacterPlayer()) && !perkOptions.getOptions().contains(speciePerk)) {
                             perkOptions.getOptions().add(speciePerk);
                         }
-                    });
+                    }));
                 }
             });
         }
         return callingPerks;
     }
 }
+
