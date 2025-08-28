@@ -52,8 +52,12 @@
                 </options>
             </capabilitiesOption>
             <capabilitiesOption>
-                <capability>warfareLore</capability>
                 <total>1</total>
+                <options>
+                    <capability>
+                        <id>warfareLore</id>
+                    </capability>
+                </options>
             </capabilitiesOption>
         </capabilities>
         <characteristics>
@@ -1613,7 +1617,9 @@
                 <options>
                     <capability>
                         <id>read</id>
-                        <selectedSpecialization>latin</selectedSpecialization>
+                        <selectedSpecialization>
+                            <id>latin</id>
+                        </selectedSpecialization>
                     </capability>
                     <capability>
                         <group>knowledgeLore</group>
