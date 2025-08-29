@@ -491,7 +491,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
             return new ArrayList<>();
         }
         final List<CharacterPerkOptions> finalPerkOptions = new ArrayList<>();
-        for (PerkOptions perkOptions : getCharacterDefinitionStep().getFinalPerksOptions()) {
+        for (CharacterPerkOptions perkOptions : getCharacterDefinitionStep().getFinalPerksOptions()) {
             //Get not duplicated options that are selected on previous steps. We need to filter again by restriction, as some perks are restricted by
             // character's current level.
             final List<PerkOption> oldOptions = perkOptions.getOptions().stream().filter(e -> !e.getRestrictions().isRestricted(characterPlayer))

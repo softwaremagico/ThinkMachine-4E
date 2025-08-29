@@ -56,15 +56,9 @@ public class CharacterPerkOptions extends PerkOptions {
         for (PerkOption option : getOptions()) {
             if (option.getSpecializations() != null) {
                 for (Specialization specialization : option.getSpecializations()) {
-                    if (option.getId() == null) {
-                        throw new RuntimeException("Not woreking");
-                    }
                     selections.add(new Selection(option.getId(), specialization));
                 }
             } else {
-                if (option.getId() == null) {
-                    throw new RuntimeException("Not woreking");
-                }
                 selections.add(new Selection(option.getId()));
             }
         }
