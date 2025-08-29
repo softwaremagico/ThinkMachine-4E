@@ -37,7 +37,10 @@ import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CallingCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection {
     private static final int CALLING_SKILL_POINTS = 10;
@@ -86,13 +89,14 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
      */
     @Override
     public List<CharacterPerkOptions> getNotRepeatedPerksOptions() {
-        final List<CharacterPerkOptions> callingPerks = new ArrayList<>();
+        final Set<CharacterPerkOptions> callingPerks = new HashSet<>();
         super.getNotRepeatedPerksOptions().forEach(perkOptions -> callingPerks.add(new CharacterPerkOptions(perkOptions)));
         addSpeciePerks(callingPerks);
-        return callingPerks;
+        //List without duplicates.
+        return new ArrayList<>(callingPerks);
     }
 
-    private void addSpeciePerks(final List<CharacterPerkOptions> callingPerks) {
+    private void addSpeciePerks(final Collection<CharacterPerkOptions> callingPerks) {
         if (getCharacterPlayer().getSpecie() != null) {
             final List<PerkOption> speciePerks = SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId()).getPerks();
             callingPerks.forEach(perkOptions -> {
@@ -100,7 +104,7 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
                 if (speciePerks != null) {
                     speciePerks.forEach(speciePerk -> PerkFactory.getInstance().getElements(speciePerk).forEach(perk -> {
                         if (!perk.getRestrictions().isRestricted(getCharacterPlayer()) && !perkOptions.getOptions().contains(speciePerk)) {
-                            perkOptions.getOptions().add(speciePerk);
+                            perkOptions.getOptions().addAll(speciePerk.expandGroup());
                         }
                     }));
                 }

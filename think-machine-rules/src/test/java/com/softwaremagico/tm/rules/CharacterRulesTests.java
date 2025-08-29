@@ -201,7 +201,7 @@ public class CharacterRulesTests {
         Assert.assertEquals(characterPlayer.getCalling().getNotRepeatedPerksOptions().get(0).getOptions().size(),
                 CallingFactory.getInstance().getElement("spy").getFinalPerksOptions().get(0).getOptions().size()
                         //Wild Domain has as a requirement a previous perk.
-                        + SpecieFactory.getInstance().getElement("vorox").getPerks().size() - 1);
+                        + 13);
     }
 
     @Test
