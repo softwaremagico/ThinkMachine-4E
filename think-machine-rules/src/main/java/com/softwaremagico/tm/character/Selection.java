@@ -25,32 +25,23 @@ package com.softwaremagico.tm.character;
  */
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.skills.Specialization;
 import com.softwaremagico.tm.utils.ComparableUtils;
 import com.softwaremagico.tm.utils.IComparable;
 
 import java.util.Objects;
 
-public class Selection implements IComparable {
-    private String id;
+public class Selection extends Element implements IComparable {
     private Specialization specialization;
 
     public Selection(String id) {
-        super();
-        this.id = id;
+        super(id);
     }
 
     public Selection(String id, Specialization specialization) {
         this(id);
         this.specialization = specialization;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public Specialization getSpecialization() {
@@ -80,12 +71,12 @@ public class Selection implements IComparable {
             return false;
         }
         final Selection selection = (Selection) o;
-        return Objects.equals(id, selection.id) && Objects.equals(specialization, selection.specialization);
+        return Objects.equals(getId(), selection.getId()) && Objects.equals(specialization, selection.specialization);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, specialization);
+        return Objects.hash(getId(), specialization);
     }
 
     @Override

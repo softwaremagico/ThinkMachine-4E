@@ -362,4 +362,24 @@ public class CharacterRulesTests {
         }
         Assert.assertFalse(exists);
     }
+
+    @Test
+    public void selectPriestEskatonicSpyCombination()  {
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("priest");
+        characterPlayer.setFaction("eskatonic");
+        characterPlayer.setCalling("spy");
+
+        characterPlayer.setPrimaryCharacteristic("presence");
+        characterPlayer.setSecondaryCharacteristic("wits");
+
+        CharacterExamples.populateUpbringing(characterPlayer);
+        CharacterExamples.populateFaction(characterPlayer);
+        CharacterExamples.populateCalling(characterPlayer);
+
+        characterPlayer.validate();
+
+        characterPlayer.validate();
+    }
 }

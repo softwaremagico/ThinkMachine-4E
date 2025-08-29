@@ -71,9 +71,8 @@ public class CapabilityOption extends Option<Capability> implements IComparable 
         if (capability.getSpecializations() == null || capability.getSpecializations().isEmpty()) {
             capabilityOptions.add(new CapabilityOption(capability));
         } else {
-            capability.getSpecializations().forEach(specialization -> {
-                capabilityOptions.add(new CapabilityOption(capability, specialization));
-            });
+            capability.getSpecializations().forEach(specialization ->
+                    capabilityOptions.add(new CapabilityOption(capability, specialization)));
         }
         return capabilityOptions;
     }

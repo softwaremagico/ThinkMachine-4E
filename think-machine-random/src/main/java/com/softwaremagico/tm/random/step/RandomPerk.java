@@ -24,10 +24,9 @@ package com.softwaremagico.tm.random.step;
  * #L%
  */
 
-import com.softwaremagico.tm.Option;
 import com.softwaremagico.tm.character.CharacterPlayer;
-import com.softwaremagico.tm.character.perks.Perk;
-import com.softwaremagico.tm.character.perks.PerkOptions;
+import com.softwaremagico.tm.character.Selection;
+import com.softwaremagico.tm.character.perks.CharacterPerkOptions;
 import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
@@ -37,28 +36,28 @@ import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedExcep
 import java.util.Collection;
 import java.util.Set;
 
-public class RandomPerk extends RandomSelector<Perk> {
+public class RandomPerk extends RandomSelector<Selection> {
 
-    private final PerkOptions perkOptions;
+    private final CharacterPerkOptions perkOptions;
     private final Phase phase;
 
     public RandomPerk(CharacterPlayer characterPlayer, Set<RandomPreference> preferences,
-                      PerkOptions perkOptions, Phase phase) throws InvalidXmlElementException {
+                      CharacterPerkOptions perkOptions, Phase phase) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
         this.perkOptions = perkOptions;
         this.phase = phase;
     }
 
     @Override
-    protected Collection<Perk> getAllElements() throws InvalidXmlElementException {
-        return perkOptions.getOptions().stream().map(Option::getElement).toList();
+    protected Collection<Selection> getAllElements() throws InvalidXmlElementException {
+        return perkOptions.getAvailableSelections();
     }
 
 
     @Override
-    protected int getWeight(Perk element) throws InvalidRandomElementSelectedException {
+    protected int getWeight(Selection element) throws InvalidRandomElementSelectedException {
         // Already has a perk.
-        if (getCharacterPlayer().hasPerk(element.getId(), phase)) {
+        if (getCharacterPlayer().hasSelection(element, phase)) {
             return 0;
         }
         return BASIC_PROBABILITY;

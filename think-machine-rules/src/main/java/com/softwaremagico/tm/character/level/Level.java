@@ -30,6 +30,7 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOptions;
 import com.softwaremagico.tm.character.equipment.EquipmentOptions;
+import com.softwaremagico.tm.character.perks.CharacterPerkOptions;
 import com.softwaremagico.tm.character.perks.PerkOptions;
 import com.softwaremagico.tm.character.perks.PerkType;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
@@ -146,15 +147,15 @@ public class Level extends CharacterDefinitionStep {
     }
 
     @Override
-    public List<PerkOptions> getFinalPerksOptions() {
+    public List<CharacterPerkOptions> getFinalPerksOptions() {
         return new ArrayList<>();
     }
 
-    public List<PerkOptions> getFactionPerksOptions() {
+    public List<CharacterPerkOptions> getFactionPerksOptions() {
         if (characterPlayer.getFaction() == null || characterPlayer.getCalling() == null) {
             return new ArrayList<>();
         }
-        final List<PerkOptions> perks = characterPlayer.getFaction().getPerksOptions();
+        final List<CharacterPerkOptions> perks = characterPlayer.getFaction().getPerksOptions();
         if (characterPlayer.isFavoredCalling()) {
             for (PerkOptions perkOptions : perks) {
                 perkOptions.getOptions().addAll(characterPlayer.getCalling().getPerksOptions().get(0).getOptions().stream()
@@ -165,11 +166,11 @@ public class Level extends CharacterDefinitionStep {
         return perks;
     }
 
-    public List<PerkOptions> getNotRepeatedFactionPerksOptions() {
+    public List<CharacterPerkOptions> getNotRepeatedFactionPerksOptions() {
         if (characterPlayer.getCalling() == null) {
             return new ArrayList<>();
         }
-        final List<PerkOptions> perks = characterPlayer.getFaction().getNotRepeatedPerksOptions();
+        final List<CharacterPerkOptions> perks = characterPlayer.getFaction().getNotRepeatedPerksOptions();
         if (characterPlayer.isFavoredCalling()) {
             for (PerkOptions perkOptions : perks) {
                 perkOptions.getOptions().addAll(characterPlayer.getCalling().getNotRepeatedPerksOptions().get(0).getOptions().stream()
@@ -180,14 +181,14 @@ public class Level extends CharacterDefinitionStep {
         return perks;
     }
 
-    public List<PerkOptions> getCallingPerksOptions() {
+    public List<CharacterPerkOptions> getCallingPerksOptions() {
         if (characterPlayer.getCalling() == null) {
             return new ArrayList<>();
         }
         return characterPlayer.getCalling().getPerksOptions();
     }
 
-    public List<PerkOptions> getNotRepeatedCallingPerksOptions() {
+    public List<CharacterPerkOptions> getNotRepeatedCallingPerksOptions() {
         if (characterPlayer.getCalling() == null) {
             return new ArrayList<>();
         }

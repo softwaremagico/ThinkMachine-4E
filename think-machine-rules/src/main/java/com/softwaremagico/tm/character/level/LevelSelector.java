@@ -31,7 +31,7 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.CharacterSelectedElement;
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.equipment.CharacterSelectedEquipment;
-import com.softwaremagico.tm.character.perks.PerkOptions;
+import com.softwaremagico.tm.character.perks.CharacterPerkOptions;
 import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 
@@ -173,22 +173,22 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
     }
 
     @JsonIgnore
-    public List<PerkOptions> getClassPerksOptions() {
+    public List<CharacterPerkOptions> getClassPerksOptions() {
         return ((Level) getCharacterDefinitionStep()).getFactionPerksOptions();
     }
 
     @JsonIgnore
-    public List<PerkOptions> getNotRepeatedClassPerksOptions() {
+    public List<CharacterPerkOptions> getNotRepeatedClassPerksOptions() {
         return ((Level) getCharacterDefinitionStep()).getNotRepeatedFactionPerksOptions();
     }
 
     @JsonIgnore
-    public List<PerkOptions> getCallingPerksOptions() {
+    public List<CharacterPerkOptions> getCallingPerksOptions() {
         return ((Level) getCharacterDefinitionStep()).getCallingPerksOptions();
     }
 
     @JsonIgnore
-    public List<PerkOptions> getNotRepeatedCallingPerksOptions() {
+    public List<CharacterPerkOptions> getNotRepeatedCallingPerksOptions() {
         return ((Level) getCharacterDefinitionStep()).getNotRepeatedCallingPerksOptions();
     }
 

@@ -28,11 +28,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.OptionSelector;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.log.MachineLog;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class PerkOptions extends OptionSelector<Perk, PerkOption> {
     @JsonIgnore
@@ -54,29 +52,21 @@ public class PerkOptions extends OptionSelector<Perk, PerkOption> {
 
     public PerkOptions(PerkOptions optionSelector, List<PerkOption> finalPerks) {
         super(optionSelector);
-        this.finalPerks = finalPerks;
-        setOptions(new ArrayList<>(finalPerks));
+        this.finalPerks = new ArrayList<>(finalPerks);
+        setOptions(this.finalPerks);
     }
 
     @Override
     public List<PerkOption> getOptions() {
-        if (finalPerks == null) {
+        if (finalPerks == null || finalPerks.isEmpty()) {
             finalPerks = new ArrayList<>();
             for (PerkOption perkOption : super.getOptions()) {
-                if (perkOption.getGroup() != null) {
-                    try {
-                        finalPerks.addAll(PerkFactory.getInstance().getElementsByGroup(perkOption.getGroup()).stream()
-                                .map(PerkOption::new).collect(Collectors.toList()));
-                    } catch (InvalidXmlElementException e) {
-                        MachineLog.errorMessage(this.getClass(), e);
-                    }
-                } else {
-                    finalPerks.add(perkOption);
-                }
+                finalPerks.addAll(perkOption.expandGroup());
             }
         }
-        return finalPerks;
+        return new ArrayList<>(finalPerks);
     }
+
 
     public boolean isIncludeOpenPerks() {
         return includeOpenPerks;
@@ -84,16 +74,6 @@ public class PerkOptions extends OptionSelector<Perk, PerkOption> {
 
     public void setIncludeOpenPerks(boolean includeOpenPerks) {
         this.includeOpenPerks = includeOpenPerks;
-    }
-
-    public PerkOptions copy() {
-        final PerkOptions perkOptions = new PerkOptions();
-        perkOptions.setTotalOptions(this.getTotalOptions());
-        perkOptions.setIncludeOpenPerks(this.isIncludeOpenPerks());
-        if (super.getOptions() != null) {
-            perkOptions.setOptions(new ArrayList<>(super.getOptions()));
-        }
-        return perkOptions;
     }
 
     @Override

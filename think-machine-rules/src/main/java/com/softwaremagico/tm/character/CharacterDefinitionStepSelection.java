@@ -34,6 +34,7 @@ import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOptions;
 import com.softwaremagico.tm.character.equipment.CharacterSelectedEquipment;
 import com.softwaremagico.tm.character.equipment.EquipmentOptions;
+import com.softwaremagico.tm.character.perks.CharacterPerkOptions;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.character.perks.PerkOptions;
@@ -121,7 +122,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         resetDefaultOptions(new ArrayList<>(getNotRepeatedCapabilityOptions()), selectedCapabilityOptions);
         resetDefaultOptions(new ArrayList<>(getCharacteristicOptions()), selectedCharacteristicOptions);
         resetDefaultOptions(new ArrayList<>(getSkillOptions()), selectedSkillOptions);
-        final List<PerkOptions> perkOptions = getNotRepeatedPerksOptions();
+        final List<CharacterPerkOptions> perkOptions = getNotRepeatedPerksOptions();
         if (perkOptions != null) {
             resetDefaultOptions(new ArrayList<>(perkOptions), selectedPerksOptions);
         }
@@ -131,7 +132,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         setDefaultOptions(new ArrayList<>(getNotRepeatedCapabilityOptions()), selectedCapabilityOptions);
         setDefaultOptions(new ArrayList<>(getCharacteristicOptions()), selectedCharacteristicOptions);
         setDefaultOptions(new ArrayList<>(getSkillOptions()), selectedSkillOptions);
-        final List<PerkOptions> perkOptions = getNotRepeatedPerksOptions();
+        final List<CharacterPerkOptions> perkOptions = getNotRepeatedPerksOptions();
         if (perkOptions != null) {
             setDefaultOptions(new ArrayList<>(perkOptions), selectedPerksOptions);
         }
@@ -376,8 +377,8 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         validatePerks(selectedPerksOptions, getNotRepeatedPerksOptions(), getPerksOptions());
     }
 
-    protected void validatePerks(List<CharacterSelectedElement> selectedPerksOptions, List<PerkOptions> perkOptions,
-                                 List<PerkOptions> completePerkList) {
+    protected void validatePerks(List<CharacterSelectedElement> selectedPerksOptions, List<CharacterPerkOptions> perkOptions,
+                                 List<CharacterPerkOptions> completePerkList) {
         if (perkOptions != null && selectedPerksOptions != null) {
             for (int i = 0; i < selectedPerksOptions.size(); i++) {
                 if (selectedPerksOptions.get(i).getSelections().size() > perkOptions.get(i).getOptions().size()) {
@@ -386,8 +387,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                             + perkOptions.get(i).getOptions().size()
                             + "' are available.");
                 }
-                final List<Selection> availableOptions = completePerkList.get(i).getOptions()
-                        .stream().map(po -> new Selection(po.getId())).collect(Collectors.toList());
+                final Set<Selection> availableOptions = completePerkList.get(i).getAvailableSelections();
                 for (Selection selection : selectedPerksOptions.get(i).getSelections()) {
                     if (!availableOptions.contains(selection)) {
                         throw new InvalidSelectedElementException("Selected perk '" + selection + "' does not exist. Available perks are: "
@@ -482,15 +482,15 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         return getCharacterDefinitionStep().getSkillOptions();
     }
 
-    public List<PerkOptions> getPerksOptions() {
+    public List<CharacterPerkOptions> getPerksOptions() {
         return getCharacterDefinitionStep().getFinalPerksOptions();
     }
 
-    public List<PerkOptions> getNotRepeatedPerksOptions() {
+    public List<CharacterPerkOptions> getNotRepeatedPerksOptions() {
         if (getCharacterDefinitionStep().getFinalPerksOptions() == null) {
             return new ArrayList<>();
         }
-        final List<PerkOptions> finalPerkOptions = new ArrayList<>();
+        final List<CharacterPerkOptions> finalPerkOptions = new ArrayList<>();
         for (PerkOptions perkOptions : getCharacterDefinitionStep().getFinalPerksOptions()) {
             //Get not duplicated options that are selected on previous steps. We need to filter again by restriction, as some perks are restricted by
             // character's current level.
@@ -500,11 +500,11 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                     .hasPerk(o.getId(), getPhase())).collect(Collectors.toList());
             //If no option is available. Must select between any not restricted to the character.
             if (!options.isEmpty()) {
-                finalPerkOptions.add(new PerkOptions(perkOptions, options));
+                finalPerkOptions.add(new CharacterPerkOptions(new PerkOptions(perkOptions, options)));
             } else {
-                final PerkOptions newPerkOptions = new PerkOptions(perkOptions, PerkFactory.getInstance().getElements()
+                final CharacterPerkOptions newPerkOptions = new CharacterPerkOptions(new PerkOptions(perkOptions, PerkFactory.getInstance().getElements()
                         .stream().filter(e -> !e.getRestrictions().isRestricted(characterPlayer))
-                        .map(PerkOption::new).collect(Collectors.toList()));
+                        .map(PerkOption::new).collect(Collectors.toList())));
                 //Remove old options. As if no option is available means that all oldOptions are already selected.
                 newPerkOptions.getOptions().removeAll(oldOptions);
                 finalPerkOptions.add(newPerkOptions);

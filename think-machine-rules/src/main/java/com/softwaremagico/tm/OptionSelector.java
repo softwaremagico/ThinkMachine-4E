@@ -73,7 +73,7 @@ public class OptionSelector<E extends Element, T extends Option<E>> {
         if (getOptions() == null) {
             setOptions(new ArrayList<>());
         }
-        getOptions().addAll(options);
+        this.options.addAll(options);
     }
 
     public void validate() throws InvalidXmlElementException {

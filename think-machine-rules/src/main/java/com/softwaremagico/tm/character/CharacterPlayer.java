@@ -677,11 +677,46 @@ public class CharacterPlayer {
         return false;
     }
 
+    public boolean hasSelection(Selection perk, Phase phase) {
+        if (Phase.SPECIE.isCheckedPhase(phase) && hasSelection(perk, specie)) {
+            return true;
+        }
+        if (Phase.UPBRINGING.isCheckedPhase(phase) && hasSelection(perk, upbringing)) {
+            return true;
+        }
+        if (Phase.FACTION.isCheckedPhase(phase) && hasSelection(perk, faction)) {
+            return true;
+        }
+        if (Phase.CALLING.isCheckedPhase(phase) && hasSelection(perk, calling)) {
+            return true;
+        }
+        //Levels always check other levels.
+        if (Phase.LEVEL.isCheckedPhase(phase) || phase == Phase.LEVEL) {
+            for (LevelSelector levelSelector : getLevels()) {
+                if (hasSelection(perk, levelSelector)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 
     public boolean hasPerk(String perk, CharacterDefinitionStepSelection step) {
         if (step != null) {
             for (Selection selection : step.getSelectedPerks()) {
                 if (Objects.equals(selection.getId(), perk)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean hasSelection(Selection selection, CharacterDefinitionStepSelection step) {
+        if (step != null) {
+            for (Selection selectedSelection : step.getSelectedPerks()) {
+                if (Objects.equals(selection, selectedSelection)) {
                     return true;
                 }
             }

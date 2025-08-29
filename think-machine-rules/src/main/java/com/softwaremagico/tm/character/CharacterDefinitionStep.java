@@ -33,6 +33,7 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOption
 import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOptions;
 import com.softwaremagico.tm.character.equipment.EquipmentOption;
 import com.softwaremagico.tm.character.equipment.EquipmentOptions;
+import com.softwaremagico.tm.character.perks.CharacterPerkOptions;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.character.perks.PerkOptions;
@@ -66,7 +67,7 @@ public class CharacterDefinitionStep extends Element {
     private List<EquipmentOptions> materialAwards = new ArrayList<>();
 
     @JsonIgnore
-    private List<PerkOptions> finalPerkOptions;
+    private List<CharacterPerkOptions> finalPerkOptions;
 
 
     public List<CapabilityOptions> getCapabilityOptions() {
@@ -93,14 +94,18 @@ public class CharacterDefinitionStep extends Element {
         this.skillBonusOptions = skillBonusOptions;
     }
 
+    public List<PerkOptions> getSourcePerks() {
+        return perksOptions;
+    }
+
     @JsonIgnore
-    public List<PerkOptions> getFinalPerksOptions() {
+    public List<CharacterPerkOptions> getFinalPerksOptions() {
         if (finalPerkOptions == null) {
             //No perks defined.
             finalPerkOptions = new ArrayList<>();
-            for (PerkOptions perkOptions : perksOptions) {
+            for (PerkOptions perkOptions : getSourcePerks()) {
                 if (perkOptions.isIncludeOpenPerks()) {
-                    final PerkOptions completedPerkOption = perkOptions.copy();
+                    final CharacterPerkOptions completedPerkOption = new CharacterPerkOptions(perkOptions);
                     //Add Open perks
                     try {
                         completedPerkOption.addOptions(PerkFactory.getInstance().getOpenElements().stream()
@@ -110,11 +115,11 @@ public class CharacterDefinitionStep extends Element {
                     }
                     finalPerkOptions.add(completedPerkOption);
                 } else {
-                    finalPerkOptions.add(perkOptions);
+                    finalPerkOptions.add(new CharacterPerkOptions(perkOptions));
                 }
             }
         }
-        return finalPerkOptions;
+        return new ArrayList<>(finalPerkOptions);
     }
 
     public void setPerksOptions(List<PerkOptions> perksOptions) {
@@ -179,9 +184,9 @@ public class CharacterDefinitionStep extends Element {
                 throw new InvalidXmlElementException("Error on skill option in '" + getId() + "'.", e);
             }
         }
-        if (perksOptions != null) {
+        if (getSourcePerks() != null) {
             try {
-                perksOptions.forEach(OptionSelector::validate);
+                getSourcePerks().forEach(OptionSelector::validate);
             } catch (InvalidXmlElementException e) {
                 throw new InvalidXmlElementException("Error on perk option in '" + getId() + "'.", e);
             }
@@ -245,9 +250,9 @@ public class CharacterDefinitionStep extends Element {
                 }
             }
         }
-        if (perksOptions.size() != getTotalPerksOptions()) {
+        if (getSourcePerks().size() != getTotalPerksOptions()) {
             throw new InvalidXmlElementException("Element '" + getId() + "' must have '" + getTotalPerksOptions() + "' perks options."
-                    + " Now have '" + perksOptions.size() + "'.");
+                    + " Now have '" + getSourcePerks().size() + "'.");
         }
 
         //Mercurian has 3!

@@ -31,7 +31,7 @@ import com.softwaremagico.tm.character.capabilities.CapabilityOption;
 import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOptions;
 import com.softwaremagico.tm.character.equipment.EquipmentOptions;
-import com.softwaremagico.tm.character.perks.PerkOptions;
+import com.softwaremagico.tm.character.perks.CharacterPerkOptions;
 import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
@@ -181,7 +181,7 @@ public class RandomizeCharacterDefinitionStep {
 
 
     private void assignPerks() throws InvalidRandomElementSelectedException {
-        final List<PerkOptions> perkOptions = characterDefinitionStepSelection.getNotRepeatedPerksOptions();
+        final List<CharacterPerkOptions> perkOptions = characterDefinitionStepSelection.getNotRepeatedPerksOptions();
         if (perkOptions != null && !perkOptions.isEmpty()) {
             for (int i = 0; i < perkOptions.size(); i++) {
                 try {
@@ -195,7 +195,7 @@ public class RandomizeCharacterDefinitionStep {
                                         perkOptions.get(i),
                                         characterDefinitionStepSelection.getPhase());
                         characterDefinitionStepSelection.getSelectedPerksOptions().get(i).getSelections()
-                                .add(new Selection(randomPerk.selectElementByWeight().getId()));
+                                .add(randomPerk.selectElementByWeight());
                     }
                 } catch (InvalidXmlElementException e) {
                     throw new InvalidXmlElementException("Error on perks options '"

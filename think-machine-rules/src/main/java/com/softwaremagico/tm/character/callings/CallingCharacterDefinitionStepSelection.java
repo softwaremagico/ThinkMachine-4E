@@ -27,9 +27,9 @@ package com.softwaremagico.tm.character.callings;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.perks.CharacterPerkOptions;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.perks.PerkOption;
-import com.softwaremagico.tm.character.perks.PerkOptions;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidCallingException;
@@ -73,8 +73,8 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
     }
 
     @Override
-    public List<PerkOptions> getPerksOptions() {
-        final List<PerkOptions> callingPerks = getCharacterDefinitionStep().getFinalPerksOptions();
+    public List<CharacterPerkOptions> getPerksOptions() {
+        final List<CharacterPerkOptions> callingPerks = getCharacterDefinitionStep().getFinalPerksOptions();
         addSpeciePerks(callingPerks);
         return callingPerks;
     }
@@ -85,14 +85,14 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
      * @return
      */
     @Override
-    public List<PerkOptions> getNotRepeatedPerksOptions() {
-        final List<PerkOptions> callingPerks = new ArrayList<>();
-        super.getNotRepeatedPerksOptions().forEach(perkOptions -> callingPerks.add(new PerkOptions(perkOptions)));
+    public List<CharacterPerkOptions> getNotRepeatedPerksOptions() {
+        final List<CharacterPerkOptions> callingPerks = new ArrayList<>();
+        super.getNotRepeatedPerksOptions().forEach(perkOptions -> callingPerks.add(new CharacterPerkOptions(perkOptions)));
         addSpeciePerks(callingPerks);
         return callingPerks;
     }
 
-    private void addSpeciePerks(final List<PerkOptions> callingPerks) {
+    private void addSpeciePerks(final List<CharacterPerkOptions> callingPerks) {
         if (getCharacterPlayer().getSpecie() != null) {
             final List<PerkOption> speciePerks = SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId()).getPerks();
             callingPerks.forEach(perkOptions -> {
