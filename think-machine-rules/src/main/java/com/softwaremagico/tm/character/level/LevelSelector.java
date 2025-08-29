@@ -35,8 +35,9 @@ import com.softwaremagico.tm.character.perks.PerkOptions;
 import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class LevelSelector extends CharacterDefinitionStepSelection {
@@ -76,8 +77,8 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
     }
 
     @Override
-    public List<Selection> getSelectedPerks() {
-        final List<Selection> selectedPerks = new ArrayList<>();
+    public Set<Selection> getSelectedPerks() {
+        final Set<Selection> selectedPerks = new HashSet<>();
         if (getSelectedClassPerksOptions() != null) {
             getSelectedClassPerksOptions().forEach(perkOption ->
                     selectedPerks.addAll(perkOption.getSelections().stream().filter(selection -> selection.getId() != null)

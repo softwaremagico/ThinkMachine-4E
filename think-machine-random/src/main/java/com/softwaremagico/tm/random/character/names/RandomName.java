@@ -43,8 +43,6 @@ import java.util.Set;
 
 public class RandomName extends RandomSelector<Name> implements AssignableRandomSelector {
 
-    private static final int STATUS_COST_MODIFIER = 4;
-
     public RandomName(CharacterPlayer characterPlayer, Set<RandomPreference> preferences) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
     }
@@ -61,16 +59,14 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
 
         final NamesProbability namesProbability = NamesProbability.getByStatus(getCharacterPlayer().getRank());
 
+        final Set<Name> selectedNames = new HashSet<>();
         for (int i = 0; i < namesProbability.randomGaussian(); i++) {
             try {
                 final Name selectedName = selectElementByWeight();
-                getCharacterPlayer().getInfo().addName(selectedName);
-                removeElementWeight(selectedName);
-                // Remove names from different factions. All names must be from the same faction
-                for (final Name name : FactionFactory.getInstance().getAllNames()) {
-                    if (!Objects.equals(name.getFaction(), selectedName.getFaction())) {
-                        removeElementWeight(name);
-                    }
+                if (!selectedNames.contains(selectedName)
+                        && (selectedNames.isEmpty()) || selectedNames.iterator().next().getFaction().equals(selectedName.getFaction())) {
+                    getCharacterPlayer().getInfo().addName(selectedName);
+                    selectedNames.add(selectedName);
                 }
             } catch (InvalidRandomElementSelectedException e) {
                 throw new InvalidRandomElementSelectedException("No possible name for faction '"

@@ -353,11 +353,6 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         }
     }
 
-    protected void updateWeight(Element element, int newWeight) {
-        removeElementWeight(element);
-        weightedElements.put(newWeight, element);
-    }
-
     public SortedMap<Integer, Element> getWeightedElements() {
         return weightedElements;
     }

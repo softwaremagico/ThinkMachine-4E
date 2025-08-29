@@ -3608,7 +3608,7 @@
                 <total>1</total>
                 <options>
                     <capability>
-                       <id>commonsCustoms</id>
+                        <id>commonsCustoms</id>
                     </capability>
                     <capability>
                         <id>courtCustoms</id>
@@ -5694,7 +5694,7 @@
                         <selectedSpecialization>latin</selectedSpecialization>
                     </capability>
                     <capability>
-                       <id>commonsCustoms</id>
+                        <id>commonsCustoms</id>
                     </capability>
                     <capability>
                         <id>courtCustoms</id>
@@ -10363,6 +10363,13 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <restrictions>
+            <species>
+                <specie>human</specie>
+                <specie>obun</specie>
+                <specie>ukar</specie>
+            </species>
+        </restrictions>
     </calling>
 
     <calling>
@@ -11020,6 +11027,12 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <restrictions>
+            <species>
+                <specie>human</specie>
+                <specie>obun</specie>
+            </species>
+        </restrictions>
     </calling>
 
 </callings>

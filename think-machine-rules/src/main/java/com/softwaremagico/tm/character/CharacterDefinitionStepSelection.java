@@ -47,6 +47,7 @@ import com.softwaremagico.tm.utils.ComparableUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -120,8 +121,9 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         resetDefaultOptions(new ArrayList<>(getNotRepeatedCapabilityOptions()), selectedCapabilityOptions);
         resetDefaultOptions(new ArrayList<>(getCharacteristicOptions()), selectedCharacteristicOptions);
         resetDefaultOptions(new ArrayList<>(getSkillOptions()), selectedSkillOptions);
-        if (getNotRepeatedPerksOptions() != null) {
-            resetDefaultOptions(new ArrayList<>(getNotRepeatedPerksOptions()), selectedPerksOptions);
+        final List<PerkOptions> perkOptions = getNotRepeatedPerksOptions();
+        if (perkOptions != null) {
+            resetDefaultOptions(new ArrayList<>(perkOptions), selectedPerksOptions);
         }
     }
 
@@ -129,8 +131,9 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         setDefaultOptions(new ArrayList<>(getNotRepeatedCapabilityOptions()), selectedCapabilityOptions);
         setDefaultOptions(new ArrayList<>(getCharacteristicOptions()), selectedCharacteristicOptions);
         setDefaultOptions(new ArrayList<>(getSkillOptions()), selectedSkillOptions);
-        if (getNotRepeatedPerksOptions() != null) {
-            setDefaultOptions(new ArrayList<>(getNotRepeatedPerksOptions()), selectedPerksOptions);
+        final List<PerkOptions> perkOptions = getNotRepeatedPerksOptions();
+        if (perkOptions != null) {
+            setDefaultOptions(new ArrayList<>(perkOptions), selectedPerksOptions);
         }
     }
 
@@ -247,21 +250,17 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     }
 
     @JsonIgnore
-    public List<Selection> getSelectedCapabilities() {
-        final List<Selection> selectedCapabilities = new ArrayList<>();
-        selectedCapabilityOptions.forEach(capabilityOption ->
-                selectedCapabilities.addAll(capabilityOption.getSelections().stream().filter(selection -> selection.getId() != null)
-                        .collect(Collectors.toSet())));
-        return selectedCapabilities;
+    public Set<Selection> getSelectedCapabilities() {
+        final Set<Selection> result = new HashSet<>();
+        selectedCapabilityOptions.forEach(selection -> result.addAll(selection.getSelections()));
+        return result;
     }
 
     @JsonIgnore
-    public List<Selection> getSelectedPerks() {
-        final List<Selection> selectedPerks = new ArrayList<>();
-        selectedPerksOptions.forEach(perkOption ->
-                selectedPerks.addAll(perkOption.getSelections().stream().filter(selection -> selection.getId() != null)
-                        .collect(Collectors.toSet())));
-        return selectedPerks;
+    public Set<Selection> getSelectedPerks() {
+        final Set<Selection> result = new HashSet<>();
+        selectedPerksOptions.forEach(selection -> result.addAll(selection.getSelections()));
+        return result;
     }
 
     public List<CharacterSelectedEquipment> getSelectedMaterialAwards() {

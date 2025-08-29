@@ -174,19 +174,16 @@ public class CharacterPlayer {
             //Check characteristics values
             for (CharacteristicDefinition characteristicDefinition : CharacteristicsDefinitionFactory.getInstance().getElements()) {
                 if (characteristicDefinition.getType() != CharacteristicType.OTHERS) {
-                    try {
-                        final int characteristicValue = getCharacteristicValue(characteristicDefinition.getCharacteristicName());
-                        if (characteristicValue > (SpecieFactory.getInstance().getElement(getSpecie().getId())
-                                .getSpecieCharacteristic(characteristicDefinition.getCharacteristicName()).getMaximumValue())) {
-                            throw new InvalidCharacteristicException("Characteristic '" + characteristicDefinition.getCharacteristicName()
-                                    + "' has exceeded its maximum value of '"
-                                    + (SpecieFactory.getInstance().getElement(getSpecie().getId())
-                                    .getSpecieCharacteristic(characteristicDefinition.getCharacteristicName()).getMaximumValue())
-                                    + "' by specie.");
-                        }
-                    } catch (InvalidXmlElementException | MaxValueExceededException e) {
-                        throw new InvalidCharacteristicException("Characteristic '" + characteristicDefinition.getCharacteristicName()
-                                + "' has exceeded its maximum value at level '" + getLevel() + "'.", e);
+                    final int characteristicValue = getCharacteristicValue(characteristicDefinition.getCharacteristicName());
+                    if (characteristicValue > (SpecieFactory.getInstance().getElement(getSpecie().getId())
+                            .getSpecieCharacteristic(characteristicDefinition.getCharacteristicName()).getMaximumValue())) {
+                        throw new MaxValueExceededException("Characteristic '" + characteristicDefinition.getCharacteristicName()
+                                + "' has exceeded its maximum value of '"
+                                + (SpecieFactory.getInstance().getElement(getSpecie().getId())
+                                .getSpecieCharacteristic(characteristicDefinition.getCharacteristicName()).getMaximumValue())
+                                + "' by specie.", characteristicDefinition.getId(), characteristicValue,
+                                (SpecieFactory.getInstance().getElement(getSpecie().getId())
+                                        .getSpecieCharacteristic(characteristicDefinition.getCharacteristicName()).getMaximumValue()));
                     }
                 }
             }
@@ -683,8 +680,11 @@ public class CharacterPlayer {
 
     public boolean hasPerk(String perk, CharacterDefinitionStepSelection step) {
         if (step != null) {
-            return step.getSelectedPerks().stream().map(Selection::getId)
-                    .anyMatch(x -> Objects.equals(x, perk));
+            for (Selection selection : step.getSelectedPerks()) {
+                if (Objects.equals(selection.getId(), perk)) {
+                    return true;
+                }
+            }
         }
         return false;
     }

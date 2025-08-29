@@ -37,6 +37,13 @@ public class MaxValueExceededException extends RuntimeException {
         this.maxValue = maxValue;
     }
 
+    public MaxValueExceededException(String message, String characteristic, Throwable e) {
+        super(message, e);
+        this.characteristic = characteristic;
+        this.bonus = 0;
+        this.maxValue = 0;
+    }
+
     public int getBonus() {
         return bonus;
     }
