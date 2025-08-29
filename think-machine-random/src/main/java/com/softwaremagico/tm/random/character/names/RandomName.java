@@ -140,6 +140,6 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
             }
         }
 
-        return super.getWeight(name);
+        return BASIC_PROBABILITY;
     }
 }

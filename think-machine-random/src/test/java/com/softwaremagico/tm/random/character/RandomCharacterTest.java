@@ -588,4 +588,18 @@ public class RandomCharacterTest {
         //2 points from perform reassigned to different skills.
         Assert.assertEquals(characterPlayer.getSkillsReassigns().size(), 2);
     }
+
+    @Test
+    public void yeomanSocietyOfStPaulusExplorerPerform() throws InvalidRandomElementSelectedException {
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("yeoman");
+        characterPlayer.setFaction("societyOfStPaulus");
+        characterPlayer.setCalling("explorer");
+
+        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
+        randomizeCharacter.createCharacter();
+
+        characterPlayer.validate();
+    }
 }

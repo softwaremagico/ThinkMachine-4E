@@ -133,7 +133,7 @@ public class RandomSurname extends RandomSelector<Surname> implements Assignable
             throw new InvalidRandomElementSelectedException("Surname '" + surname + "' from an invalid faction '"
                     + getCharacterPlayer().getFaction() + "'.");
         }
-        return super.getWeight(surname);
+        return BASIC_PROBABILITY;
     }
 
 }

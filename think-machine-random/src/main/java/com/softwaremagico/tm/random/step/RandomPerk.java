@@ -27,6 +27,8 @@ package com.softwaremagico.tm.random.step;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.perks.CharacterPerkOptions;
+import com.softwaremagico.tm.character.perks.Perk;
+import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
@@ -60,6 +62,11 @@ public class RandomPerk extends RandomSelector<Selection> {
         if (getCharacterPlayer().hasSelection(element, phase)) {
             return 0;
         }
-        return BASIC_PROBABILITY;
+        //Reduce the elements with multiple specializations.
+        final Perk sourcePerk = PerkFactory.getInstance().getElement(element);
+        if (sourcePerk.getSpecializations() != null && !sourcePerk.getSpecializations().isEmpty()) {
+            return (int) Math.ceil((double) BASIC_PROBABILITY / sourcePerk.getSpecializations().size());
+        }
+        return super.getWeight(element);
     }
 }
