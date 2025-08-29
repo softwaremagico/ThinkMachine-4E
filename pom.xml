@@ -23,7 +23,7 @@
         <connection>scm:git:ssh://git@github.com/softwaremagico/ThinkMachine-4E.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/softwaremagico/ThinkMachine-4E.git</developerConnection>
         <url>https://github.com/softwaremagico/ThinkMachine-4E.git</url>
-        <tag>think-machine-4e-4.1.2-SNAPSHOT</tag>
+        <tag>think-machine-4e</tag>
     </scm>
 
     <issueManagement>
