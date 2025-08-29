@@ -26,20 +26,20 @@ package com.softwaremagico.tm.exceptions;
 
 public class MaxValueExceededException extends RuntimeException {
     private static final long serialVersionUID = -6952414025114964424L;
-    private final String characteristic;
+    private final String element;
     private final int bonus;
     private final int maxValue;
 
-    public MaxValueExceededException(String message, String characteristic, int bonus, int maxValue) {
+    public MaxValueExceededException(String message, String element, int bonus, int maxValue) {
         super(message);
-        this.characteristic = characteristic;
+        this.element = element;
         this.bonus = bonus;
         this.maxValue = maxValue;
     }
 
-    public MaxValueExceededException(String message, String characteristic, Throwable e) {
+    public MaxValueExceededException(String message, String element, Throwable e) {
         super(message, e);
-        this.characteristic = characteristic;
+        this.element = element;
         this.bonus = 0;
         this.maxValue = 0;
     }
@@ -52,7 +52,7 @@ public class MaxValueExceededException extends RuntimeException {
         return maxValue;
     }
 
-    public String getCharacteristic() {
-        return characteristic;
+    public String getElement() {
+        return element;
     }
 }

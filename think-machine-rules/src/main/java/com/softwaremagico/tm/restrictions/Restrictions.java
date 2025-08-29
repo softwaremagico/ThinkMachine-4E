@@ -41,6 +41,7 @@ import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import com.softwaremagico.tm.log.MachineLog;
 import com.softwaremagico.tm.utils.ComparableUtils;
 
@@ -251,8 +252,12 @@ public class Restrictions extends XmlData {
         if (getRestrictedSkills() != null && !getRestrictedSkills().isEmpty()) {
             for (RestrictedSkill restrictedSkill : getRestrictedSkills()) {
                 final Skill skill = SkillFactory.getInstance().getElement(restrictedSkill.getSkill());
-                if (characterPlayer.getSkillValue(skill) < restrictedSkill.getValue()) {
-                    return true;
+                try {
+                    if (characterPlayer.getSkillValue(skill) < restrictedSkill.getValue()) {
+                        return true;
+                    }
+                } catch (MaxValueExceededException ignore) {
+                    //If it is at max, cannot be restricted.
                 }
             }
             return false;

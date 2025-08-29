@@ -43,7 +43,7 @@ public class RandomSkillBonusOption extends RandomSkill {
 
     public RandomSkillBonusOption(CharacterPlayer characterPlayer, Set<RandomPreference> preferences,
                                   SkillBonusOptions skillOptions) throws InvalidXmlElementException {
-        super(characterPlayer, preferences);
+        super(characterPlayer, preferences, skillOptions.getBonus());
         this.skillOptions = skillOptions;
     }
 

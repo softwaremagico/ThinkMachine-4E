@@ -27,7 +27,6 @@ package com.softwaremagico.tm.random.character;
 
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Gender;
-import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.log.RandomTestGenerationLog;
 import org.testng.Assert;
@@ -567,11 +566,26 @@ public class RandomCharacterTest {
         final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
         randomizeCharacter.createCharacter();
 
-        characterPlayer.getCharacteristicComposition("presence");
-
         characterPlayer.validate();
 
         //1 points from presence reassigned to different characteristics.
         Assert.assertEquals(characterPlayer.getCharacteristicReassigns().size(), 1);
+    }
+
+    @Test
+    public void priestOrthodoxChoristerBalancePerform() throws InvalidRandomElementSelectedException {
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("priest");
+        characterPlayer.setFaction("orthodox");
+        characterPlayer.setCalling("chorister");
+
+        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
+        randomizeCharacter.createCharacter();
+
+        characterPlayer.validate();
+
+        //2 points from perform reassigned to different skills.
+        Assert.assertEquals(characterPlayer.getSkillsReassigns().size(), 2);
     }
 }

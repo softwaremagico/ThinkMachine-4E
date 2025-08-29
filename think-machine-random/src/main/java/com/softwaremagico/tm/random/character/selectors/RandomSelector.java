@@ -285,6 +285,10 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
      * @return weight as integer
      */
     protected int getWeight(Element element) throws InvalidRandomElementSelectedException {
+        //Restricted element cannot be selected.
+        if (element.getRestrictions().isRestricted(characterPlayer)) {
+            return 0;
+        }
         // Some probabilities are defined directly.
         if (element.getRandomDefinition().getStaticProbability() != null) {
             return element.getRandomDefinition().getStaticProbability();

@@ -29,6 +29,9 @@ import com.softwaremagico.tm.character.Gender;
 import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.characteristics.CharacteristicReassign;
+import com.softwaremagico.tm.character.skills.Skill;
+import com.softwaremagico.tm.character.skills.SkillFactory;
+import com.softwaremagico.tm.character.skills.SkillsReassign;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import com.softwaremagico.tm.log.RandomGenerationLog;
@@ -43,6 +46,7 @@ import com.softwaremagico.tm.random.character.species.RandomSpecie;
 import com.softwaremagico.tm.random.character.upbringings.RandomUpbringing;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.step.RandomCharacteristics;
+import com.softwaremagico.tm.random.step.RandomSkill;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -92,6 +96,7 @@ public class RandomizeCharacter {
             completeFaction();
             completeCalling();
             reassignCharacteristics();
+            reassignSkills();
             setLevels();
             RandomGenerationLog.info(this.getClass(), "Character created: " + characterPlayer.toString());
         } catch (InvalidXmlElementException | MaxValueExceededException e) {
@@ -157,6 +162,7 @@ public class RandomizeCharacter {
             randomLevel.assign();
             randomLevel.complete();
             reassignCharacteristics();
+            reassignSkills();
         }
     }
 
@@ -173,8 +179,22 @@ public class RandomizeCharacter {
             } catch (MaxValueExceededException e) {
                 for (int i = 0; i < e.getBonus() - e.getMaxValue(); i++) {
                     final RandomCharacteristics randomCharacteristics = new RandomCharacteristics(characterPlayer, preferences, 1);
-                    characterPlayer.getCharacteristicReassigns().add(new CharacteristicReassign(e.getCharacteristic(),
+                    characterPlayer.getCharacteristicReassigns().add(new CharacteristicReassign(e.getElement(),
                             randomCharacteristics.selectElementByWeight().getId()));
+                }
+            }
+        }
+    }
+
+    private void reassignSkills() throws InvalidRandomElementSelectedException {
+        for (Skill skill : SkillFactory.getInstance().getElements()) {
+            try {
+                characterPlayer.getSkillValue(skill.getId());
+            } catch (MaxValueExceededException e) {
+                for (int i = 0; i < e.getBonus() - e.getMaxValue(); i++) {
+                    final RandomSkill randomSkill = new RandomSkill(characterPlayer, preferences, 1);
+                    characterPlayer.getSkillsReassigns().add(new SkillsReassign(e.getElement(),
+                            randomSkill.selectElementByWeight().getId()));
                 }
             }
         }

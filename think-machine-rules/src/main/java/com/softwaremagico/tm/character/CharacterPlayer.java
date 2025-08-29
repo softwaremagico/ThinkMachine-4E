@@ -64,6 +64,7 @@ import com.softwaremagico.tm.character.resistances.Resistance;
 import com.softwaremagico.tm.character.resistances.ResistanceType;
 import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillFactory;
+import com.softwaremagico.tm.character.skills.SkillsReassign;
 import com.softwaremagico.tm.character.specie.SpecieCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.UpbringingCharacterDefinitionStepSelection;
@@ -133,6 +134,7 @@ public class CharacterPlayer {
     private final Stack<LevelSelector> levels = new Stack<>();
 
     private final List<CharacteristicReassign> characteristicReassigns = new ArrayList<>();
+    private final List<SkillsReassign> skillsReassigns = new ArrayList<>();
 
     public CharacterPlayer() {
         settings = new Settings();
@@ -361,11 +363,12 @@ public class CharacterPlayer {
             final int skillBonus = calling.getSkillBonus(skill);
             bonus += skillBonus;
         }
-        try {
-            checkMaxValueByLevel(skill, bonus);
-        } catch (InvalidXmlElementException e) {
-            throw new InvalidXmlElementException("Invalid skill total. " + getSkillComposition(skill), e);
-        }
+
+        bonus -= getSkillReassignValueDecreased(skill);
+        bonus += getSkillReassignValueIncreased(skill);
+
+        checkMaxValueByLevel(skill, bonus);
+
         return bonus;
     }
 
@@ -390,6 +393,30 @@ public class CharacterPlayer {
             }
         }
         return stringBuilder.toString();
+    }
+
+    public int getSkillReassignValueDecreased(String skill) {
+        int total = 0;
+        for (SkillsReassign skillsReassign : skillsReassigns) {
+            if (skillsReassign.getFrom().equals(skill)) {
+                total++;
+            }
+        }
+        return total;
+    }
+
+    public int getSkillReassignValueIncreased(String skill) {
+        int total = 0;
+        for (SkillsReassign skillsReassign : skillsReassigns) {
+            if (skillsReassign.getTo().equals(skill)) {
+                total++;
+            }
+        }
+        return total;
+    }
+
+    public List<SkillsReassign> getSkillsReassigns() {
+        return skillsReassigns;
     }
 
     public int getCharacteristicValue(CharacteristicName characteristic) throws MaxValueExceededException {

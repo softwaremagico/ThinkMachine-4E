@@ -37,10 +37,17 @@ import java.util.Collection;
 import java.util.Set;
 
 public class RandomSkill extends RandomSelector<Skill> {
+    private final int bonus;
 
 
     public RandomSkill(CharacterPlayer characterPlayer, Set<RandomPreference> preferences) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
+        this.bonus = 0;
+    }
+
+    public RandomSkill(CharacterPlayer characterPlayer, Set<RandomPreference> preferences, int bonus) throws InvalidXmlElementException {
+        super(characterPlayer, preferences);
+        this.bonus = bonus;
     }
 
     @Override
@@ -66,7 +73,7 @@ public class RandomSkill extends RandomSelector<Skill> {
     protected int getWeight(Skill element) throws InvalidRandomElementSelectedException {
         //Max skill at some levels.
         try {
-            getCharacterPlayer().checkMaxValueByLevel(element, getCharacterPlayer().getSkillValue(element) + 1);
+            getCharacterPlayer().checkMaxValueByLevel(element, getCharacterPlayer().getSkillValue(element) + bonus);
         } catch (InvalidXmlElementException e) {
             return 0;
         }
