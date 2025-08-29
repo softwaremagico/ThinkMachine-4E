@@ -31,7 +31,7 @@ import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.softwaremagico.tm.character.CharacterPlayer;
-import com.softwaremagico.tm.character.characteristics.Characteristic;
+import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.characteristics.CharacteristicType;
 import com.softwaremagico.tm.pdf.complete.FadingSunsTheme;
@@ -67,8 +67,8 @@ public final class CharacteristicsColumn extends BaseElement {
                 characteristicTitle.setVerticalAlignment(Element.ALIGN_TOP);
                 table.addCell(characteristicTitle);
 
-                final PdfPCell characteristicTitleInitialValue = new PdfPCell(new Paragraph("(" + (characterPlayer == null
-                        ? Characteristic.INITIAL_VALUE : characterPlayer.getStartingValue(characteristicName)) + ")",
+                final PdfPCell characteristicTitleInitialValue = new PdfPCell(new Paragraph("("
+                        + CharacteristicDefinition.INITIAL_CHARACTERISTIC_VALUE + ")",
                         new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
                 characteristicTitleInitialValue.setBorder(0);
                 table.addCell(characteristicTitleInitialValue);
