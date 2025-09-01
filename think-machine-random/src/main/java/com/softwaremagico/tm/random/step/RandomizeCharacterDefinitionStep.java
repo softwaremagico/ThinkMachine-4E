@@ -59,11 +59,11 @@ public class RandomizeCharacterDefinitionStep {
         this.preferences = preferences;
     }
 
-    private CharacterPlayer getCharacterPlayer() {
+    protected CharacterPlayer getCharacterPlayer() {
         return characterPlayer;
     }
 
-    private Set<RandomPreference> getPreferences() {
+    protected Set<RandomPreference> getPreferences() {
         return preferences;
     }
 
@@ -83,11 +83,8 @@ public class RandomizeCharacterDefinitionStep {
         if (characteristicBonusOptions != null && !characteristicBonusOptions.isEmpty()) {
             for (int i = 0; i < characteristicBonusOptions.size(); i++) {
                 try {
-                    for (int j = 0; j < characteristicBonusOptions.get(i).getTotalOptions(); j++) {
-                        //No default selections.
-                        if (characterDefinitionStepSelection.getSelectedCharacteristicOptions().get(i).getSelections().size() > j) {
-                            continue;
-                        }
+                    for (int j = characterDefinitionStepSelection.getSelectedCharacteristicOptions().get(i).getSelections().size();
+                         j < characteristicBonusOptions.get(i).getTotalOptions(); j++) {
                         final RandomCharacteristicBonusOption randomCharacteristicBonusOption =
                                 new RandomCharacteristicBonusOption(getCharacterPlayer(), getPreferences(),
                                         characteristicBonusOptions.get(i));
@@ -108,11 +105,8 @@ public class RandomizeCharacterDefinitionStep {
         final List<CapabilityOptions> capabilityOptions = characterDefinitionStepSelection.getNotRepeatedCapabilityOptions();
         if (capabilityOptions != null && !capabilityOptions.isEmpty()) {
             for (int i = 0; i < capabilityOptions.size(); i++) {
-                for (int j = 0; j < capabilityOptions.get(i).getTotalOptions(); j++) {
-                    //No default selections.
-                    if (characterDefinitionStepSelection.getSelectedCapabilityOptions().get(i).getSelections().size() > j) {
-                        continue;
-                    }
+                for (int j = characterDefinitionStepSelection.getSelectedCapabilityOptions().get(i).getSelections().size();
+                     j < capabilityOptions.get(i).getTotalOptions(); j++) {
                     final RandomCapabilityOption randomCapability =
                             new RandomCapabilityOption(getCharacterPlayer(), getPreferences(),
                                     capabilityOptions.get(i),
@@ -140,11 +134,8 @@ public class RandomizeCharacterDefinitionStep {
         if (skillOptions != null && !skillOptions.isEmpty()) {
             for (int i = 0; i < skillOptions.size(); i++) {
                 try {
-                    for (int j = 0; j < skillOptions.get(i).getTotalOptions(); j++) {
-                        //No default selections.
-                        if (characterDefinitionStepSelection.getSelectedSkillOptions().get(i).getSelections().size() > j) {
-                            continue;
-                        }
+                    for (int j = characterDefinitionStepSelection.getSelectedSkillOptions().get(i).getSelections().size();
+                         j < skillOptions.get(i).getTotalOptions(); j++) {
 
                         int tries = 0;
                         boolean skillFound = false;
@@ -180,16 +171,13 @@ public class RandomizeCharacterDefinitionStep {
     }
 
 
-    private void assignPerks() throws InvalidRandomElementSelectedException {
+    protected void assignPerks() throws InvalidRandomElementSelectedException {
         final List<CharacterPerkOptions> perkOptions = characterDefinitionStepSelection.getNotRepeatedPerksOptions();
         if (perkOptions != null && !perkOptions.isEmpty()) {
             for (int i = 0; i < perkOptions.size(); i++) {
                 try {
-                    for (int j = 0; j < perkOptions.get(i).getTotalOptions(); j++) {
-                        //No default selections.
-                        if (characterDefinitionStepSelection.getSelectedPerksOptions().get(i).getSelections().size() > j) {
-                            continue;
-                        }
+                    for (int j = characterDefinitionStepSelection.getSelectedPerksOptions().get(i).getSelections().size();
+                         j < perkOptions.get(i).getTotalOptions(); j++) {
                         final RandomPerk randomPerk =
                                 new RandomPerk(getCharacterPlayer(), getPreferences(),
                                         perkOptions.get(i),
@@ -211,11 +199,8 @@ public class RandomizeCharacterDefinitionStep {
         if (materialAwardsOptions != null && !materialAwardsOptions.isEmpty()) {
             for (int i = 0; i < materialAwardsOptions.size(); i++) {
                 try {
-                    for (int j = 0; j < materialAwardsOptions.get(i).getTotalOptions(); j++) {
-                        //No default selections.
-                        if (characterDefinitionStepSelection.getSelectedMaterialAwards().get(i).getSelections().size() > j) {
-                            continue;
-                        }
+                    for (int j = characterDefinitionStepSelection.getSelectedMaterialAwards().get(i).getSelections().size();
+                         j < materialAwardsOptions.get(i).getTotalOptions(); j++) {
                         final RandomMaterialAward randomMaterialAward =
                                 new RandomMaterialAward(getCharacterPlayer(), getPreferences(),
                                         materialAwardsOptions.get(i));

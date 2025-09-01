@@ -102,24 +102,30 @@ public class CharacterDefinitionStep extends Element {
     public List<CharacterPerkOptions> getFinalPerksOptions() {
         if (finalPerkOptions == null) {
             //No perks defined.
-            finalPerkOptions = new ArrayList<>();
-            for (PerkOptions perkOptions : getSourcePerks()) {
-                if (perkOptions.isIncludeOpenPerks()) {
-                    final CharacterPerkOptions completedPerkOption = new CharacterPerkOptions(perkOptions);
-                    //Add Open perks
-                    try {
-                        completedPerkOption.addOptions(PerkFactory.getInstance().getOpenElements().stream()
-                                .map(PerkOption::new).collect(Collectors.toList()));
-                    } catch (InvalidXmlElementException e) {
-                        MachineLog.errorMessage(this.getClass(), e);
-                    }
-                    finalPerkOptions.add(completedPerkOption);
-                } else {
-                    finalPerkOptions.add(new CharacterPerkOptions(perkOptions));
-                }
-            }
+            finalPerkOptions = getFinalPerksOptions(getSourcePerks());
         }
         return new ArrayList<>(finalPerkOptions);
+    }
+
+    @JsonIgnore
+    public List<CharacterPerkOptions> getFinalPerksOptions(List<PerkOptions> sourcePerkOptions) {
+        final List<CharacterPerkOptions> completePerkList = new ArrayList<>();
+        for (PerkOptions perkOptions : sourcePerkOptions) {
+            if (perkOptions.isIncludeOpenPerks()) {
+                final CharacterPerkOptions completedPerkOption = new CharacterPerkOptions(perkOptions);
+                //Add Open perks
+                try {
+                    completedPerkOption.addOptions(PerkFactory.getInstance().getOpenElements().stream()
+                            .map(PerkOption::new).collect(Collectors.toList()));
+                } catch (InvalidXmlElementException e) {
+                    MachineLog.errorMessage(this.getClass(), e);
+                }
+                completePerkList.add(completedPerkOption);
+            } else {
+                completePerkList.add(new CharacterPerkOptions(perkOptions));
+            }
+        }
+        return completePerkList;
     }
 
     public void setPerksOptions(List<PerkOptions> perksOptions) {

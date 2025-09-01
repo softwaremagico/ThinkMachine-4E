@@ -181,6 +181,20 @@ public class Level extends CharacterDefinitionStep {
         return perks;
     }
 
+    public List<CharacterPerkOptions> getUpbringingPerksOptions() {
+        if (characterPlayer.getUpbringing() == null) {
+            return new ArrayList<>();
+        }
+        return characterPlayer.getUpbringing().getPerksOptions();
+    }
+
+    public List<CharacterPerkOptions> getNotRepeatedUpbringingPerksOptions() {
+        if (characterPlayer.getUpbringing() == null) {
+            return new ArrayList<>();
+        }
+        return characterPlayer.getUpbringing().getNotRepeatedPerksOptions();
+    }
+
     public List<CharacterPerkOptions> getCallingPerksOptions() {
         if (characterPlayer.getCalling() == null) {
             return new ArrayList<>();

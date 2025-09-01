@@ -324,6 +324,7 @@
         <restrictions>
             <callings>
                 <calling>psychic</calling>
+                <calling>dervish</calling>
             </callings>
         </restrictions>
     </perk>
@@ -967,6 +968,7 @@
         <restrictions>
             <callings>
                 <calling>psychic</calling>
+                <calling>dervish</calling>
             </callings>
         </restrictions>
     </perk>
@@ -1325,6 +1327,7 @@
                 <calling>occultist</calling>
                 <calling>psychic</calling>
                 <calling>theurgist</calling>
+                <calling>dervish</calling>
             </callings>
         </restrictions>
     </perk>
@@ -1814,6 +1817,7 @@
                 <calling>brotherBattle</calling>
                 <calling>psychic</calling>
                 <calling>theurgist</calling>
+                <calling>dervish</calling>
             </callings>
         </restrictions>
     </perk>
@@ -3336,6 +3340,7 @@
                 <calling>occultist</calling>
                 <calling>psychic</calling>
                 <calling>theurgist</calling>
+                <calling>dervish</calling>
             </callings>
         </restrictions>
     </perk>
@@ -5170,6 +5175,7 @@
         <restrictions mode="any">
             <callings>
                 <calling>psychic</calling>
+                <calling>dervish</calling>
             </callings>
             <species>
                 <specie>ukar</specie>

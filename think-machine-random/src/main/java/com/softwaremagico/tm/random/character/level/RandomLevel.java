@@ -34,7 +34,7 @@ import com.softwaremagico.tm.random.character.selectors.RandomInnerStepsSelector
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
-import com.softwaremagico.tm.random.step.RandomizeCharacterDefinitionStep;
+import com.softwaremagico.tm.random.step.RandomizeCharacterLevelStep;
 
 import java.util.Collection;
 import java.util.List;
@@ -55,7 +55,7 @@ public class RandomLevel extends RandomSelector<Level> implements AssignableRand
 
     @Override
     public void complete() throws InvalidSpecieException, InvalidRandomElementSelectedException {
-        final RandomizeCharacterDefinitionStep randomizeCharacterDefinitionStep = new RandomizeCharacterDefinitionStep(
+        final RandomizeCharacterLevelStep randomizeCharacterDefinitionStep = new RandomizeCharacterLevelStep(
                 getCharacterPlayer(),
                 levelSelector,
                 getPreferences()

@@ -34,15 +34,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PerkOption extends Option<Perk> {
+    private final boolean repeatable;
 
     public PerkOption() {
         super();
+        repeatable = false;
     }
 
     public PerkOption(Perk perk) {
-        this();
+        super();
         setId(perk.getId());
         setSpecializations(perk.getSpecializations());
+        repeatable = perk.isRepeatable();
     }
 
     public List<PerkOption> expandGroup() {
@@ -66,6 +69,10 @@ public class PerkOption extends Option<Perk> {
             return PerkFactory.getInstance().getElement(getId()).getRestrictions();
         }
         return super.getRestrictions();
+    }
+
+    public boolean isRepeatable() {
+        return repeatable;
     }
 
     @Override

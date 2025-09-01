@@ -28,6 +28,7 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicReassign;
 import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
 import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
+import com.softwaremagico.tm.character.level.LevelSelector;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
 
 public final class CharacterExamples {
@@ -98,23 +99,49 @@ public final class CharacterExamples {
     }
 
     public static void populateUpbringing(CharacterPlayer characterPlayer) {
-        populateCharacterStep(characterPlayer, characterPlayer.getUpbringing());
+        populateCharacterStep(characterPlayer.getUpbringing());
     }
 
     public static void populateFaction(CharacterPlayer characterPlayer) {
-        populateCharacterStep(characterPlayer, characterPlayer.getFaction());
+        populateCharacterStep(characterPlayer.getFaction());
     }
 
     public static void populateCalling(CharacterPlayer characterPlayer) {
-        populateCharacterStep(characterPlayer, characterPlayer.getCalling());
+        populateCharacterStep(characterPlayer.getCalling());
     }
 
 
     public static void populateLevel(CharacterPlayer characterPlayer) {
-        populateCharacterStep(characterPlayer, characterPlayer.getLevels().peek());
+        populateCharacterStep(characterPlayer.getLevels().peek());
+
+        final LevelSelector level = characterPlayer.getLevels().peek();
+
+        for (int i = 0; i < level.getNotRepeatedClassPerksOptions().size(); i++) {
+            for (int j = level.getSelectedClassPerksOptions().get(i).getSelections().size();
+                 j < level.getNotRepeatedClassPerksOptions().get(i).getTotalOptions(); j++) {
+                level.getSelectedClassPerksOptions().get(i).getSelections()
+                        .add(new Selection(level.getNotRepeatedClassPerksOptions().get(i).getOptions().get(j).getId(),
+                                level.getNotRepeatedClassPerksOptions().get(i).getOptions().get(j).getSpecializations() != null
+                                        && !level.getNotRepeatedClassPerksOptions().get(i).getOptions().get(j).getSpecializations().isEmpty()
+                                        ? level.getNotRepeatedClassPerksOptions().get(i).getOptions().get(j).getSpecializations().get(0)
+                                        : null));
+            }
+        }
+
+        for (int i = 0; i < level.getNotRepeatedCallingPerksOptions().size(); i++) {
+            for (int j = level.getSelectedCallingPerksOptions().get(i).getSelections().size();
+                 j < level.getNotRepeatedCallingPerksOptions().get(i).getTotalOptions(); j++) {
+                level.getSelectedCallingPerksOptions().get(i).getSelections()
+                        .add(new Selection(level.getNotRepeatedCallingPerksOptions().get(i).getOptions().get(j).getId(),
+                                level.getNotRepeatedCallingPerksOptions().get(i).getOptions().get(j).getSpecializations() != null
+                                        && !level.getNotRepeatedCallingPerksOptions().get(i).getOptions().get(j).getSpecializations().isEmpty()
+                                        ? level.getNotRepeatedCallingPerksOptions().get(i).getOptions().get(j).getSpecializations().get(0)
+                                        : null));
+            }
+        }
     }
 
-    public static void populateCharacterStep(CharacterPlayer characterPlayer, CharacterDefinitionStepSelection step) {
+    public static void populateCharacterStep(CharacterDefinitionStepSelection step) {
         for (int i = 0; i < step.getCharacteristicOptions().size(); i++) {
             for (int j = step.getSelectedCharacteristicOptions().get(i).getSelections().size();
                  j < step.getCharacteristicOptions().get(i).getTotalOptions(); j++) {

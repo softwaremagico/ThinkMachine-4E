@@ -41,7 +41,6 @@ import com.softwaremagico.tm.character.perks.PerkOptions;
 import com.softwaremagico.tm.character.skills.SkillBonusOption;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
 import com.softwaremagico.tm.character.skills.SkillFactory;
-import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.Upbringing;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidCallingException;
@@ -364,7 +363,7 @@ public class CharacterRulesTests {
     }
 
     @Test
-    public void selectPriestEskatonicSpyCombination()  {
+    public void selectPriestEskatonicSpyCombination() {
         CharacterPlayer characterPlayer = new CharacterPlayer();
         characterPlayer.setSpecie("human");
         characterPlayer.setUpbringing("priest");
@@ -379,7 +378,58 @@ public class CharacterRulesTests {
         CharacterExamples.populateCalling(characterPlayer);
 
         characterPlayer.validate();
+    }
 
+    public void allowingRepeatablePerks() {
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("noble");
+        characterPlayer.setFaction("hazat");
+        characterPlayer.setCalling("dervish");
+
+        characterPlayer.setPrimaryCharacteristic("faith");
+        characterPlayer.setSecondaryCharacteristic("wits");
+
+        CharacterExamples.populateUpbringing(characterPlayer);
+        CharacterExamples.populateFaction(characterPlayer);
+        CharacterExamples.populateCalling(characterPlayer);
+
+        for (int i = 0; i < characterPlayer.getCalling().getNotRepeatedPerksOptions().size(); i++) {
+            for (int j = 0; j < characterPlayer.getCalling().getNotRepeatedPerksOptions().get(i).getTotalOptions(); j++) {
+                characterPlayer.getCalling().getSelectedPerksOptions().get(i).getSelections().clear();
+                characterPlayer.getCalling().getSelectedPerksOptions().get(i).getSelections()
+                        .add(new Selection("psychicPowers"));
+            }
+        }
+
+        //Remove too many values for charm skill.
+        for (int i = 0; i < characterPlayer.getCalling().getSkillOptions().size(); i++) {
+            for (int j = 0; j < characterPlayer.getCalling().getSkillOptions().get(i).getTotalOptions(); j++) {
+                characterPlayer.getCalling().getSelectedSkillOptions().get(i).getSelections().clear();
+                characterPlayer.getCalling().getSelectedSkillOptions().get(i).getSelections()
+                        .add(new Selection(characterPlayer.getCalling().getSkillOptions().get(i).getOptions()
+                                .get(i % characterPlayer.getCalling().getSkillOptions().get(i).getOptions().size()).getId()));
+            }
+        }
+
+        characterPlayer.addLevel();
+
+        CharacterExamples.populateLevel(characterPlayer);
+
+        characterPlayer.addLevel();
+
+        CharacterExamples.populateLevel(characterPlayer);
+
+
+        for (int i = 0; i < characterPlayer.getLevels().peek().getNotRepeatedCallingPerksOptions().size(); i++) {
+            for (int j = characterPlayer.getLevels().peek().getSelectedCallingPerksOptions().get(i).getSelections().size();
+                 j < characterPlayer.getLevels().peek().getNotRepeatedCallingPerksOptions().get(i).getTotalOptions(); j++) {
+                characterPlayer.getLevels().peek().getSelectedPerksOptions().get(i).getSelections()
+                        .add(new Selection("psychicPowers"));
+            }
+        }
+
+        //Still is valid as psychicPowers is repeatable.
         characterPlayer.validate();
     }
 }

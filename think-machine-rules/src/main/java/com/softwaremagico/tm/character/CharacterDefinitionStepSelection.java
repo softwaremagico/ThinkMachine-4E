@@ -497,7 +497,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
             final List<PerkOption> oldOptions = perkOptions.getOptions().stream().filter(e -> !e.getRestrictions().isRestricted(characterPlayer))
                     .collect(Collectors.toList());
             final List<PerkOption> options = oldOptions.stream().filter(o -> !getCharacterPlayer()
-                    .hasPerk(o.getId(), getPhase())).collect(Collectors.toList());
+                    .hasPerk(o.getId(), getPhase()) || PerkFactory.getInstance().getElement(o).isRepeatable()).collect(Collectors.toList());
             //If no option is available. Must select between any not restricted to the character.
             if (!options.isEmpty()) {
                 finalPerkOptions.add(new CharacterPerkOptions(new PerkOptions(perkOptions, options)));

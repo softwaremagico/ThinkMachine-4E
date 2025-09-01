@@ -773,21 +773,33 @@ public class CharacterPlayer {
 
         upbringingPerks.retainAll(completePerkList);
         if (!upbringingPerks.isEmpty()) {
-            throw new InvalidXmlElementException("Duplicated perks '" + upbringingPerks + "' on upbringing '" + getUpbringing() + "'.");
+            for (String perk : upbringingPerks) {
+                if (!isRepeatablePerk(perk)) {
+                    throw new InvalidXmlElementException("Duplicated perks '" + upbringingPerks + "' on upbringing '" + getUpbringing() + "'.");
+                }
+            }
         }
         completePerkList.addAll(nextPerks);
 
         nextPerks = new ArrayList<>(factionPerks);
         factionPerks.retainAll(completePerkList);
         if (!factionPerks.isEmpty()) {
-            throw new InvalidXmlElementException("Duplicated perks '" + factionPerks + "' on faction '" + getFaction() + "'.");
+            for (String perk : factionPerks) {
+                if (!isRepeatablePerk(perk)) {
+                    throw new InvalidXmlElementException("Duplicated perks '" + factionPerks + "' on faction '" + getFaction() + "'.");
+                }
+            }
         }
         completePerkList.addAll(nextPerks);
 
         nextPerks = new ArrayList<>(callingPerks);
         callingPerks.retainAll(completePerkList);
         if (!callingPerks.isEmpty()) {
-            throw new InvalidXmlElementException("Duplicated perks '" + callingPerks + "' on calling '" + getCalling() + "'.");
+            for (String perk : callingPerks) {
+                if (!isRepeatablePerk(perk)) {
+                    throw new InvalidXmlElementException("Duplicated perks '" + callingPerks + "' on calling '" + getCalling() + "'.");
+                }
+            }
         }
         completePerkList.addAll(nextPerks);
 
@@ -796,11 +808,18 @@ public class CharacterPlayer {
             nextPerks = new ArrayList<>(levelPerks);
             levelPerks.retainAll(completePerkList);
             if (!levelPerks.isEmpty()) {
-                throw new InvalidXmlElementException("Duplicated perk '" + levelPerks + "' on level '" + levelSelector + "'.");
+                for (String perk : callingPerks) {
+                    if (!isRepeatablePerk(perk)) {
+                        throw new InvalidXmlElementException("Duplicated perk '" + levelPerks + "' on level '" + levelSelector + "'.");
+                    }
+                }
             }
             completePerkList.addAll(nextPerks);
         }
+    }
 
+    private boolean isRepeatablePerk(String perk) {
+        return PerkFactory.getInstance().getElement(perk).isRepeatable();
     }
 
     public void checkDuplicatedCapabilities() {
