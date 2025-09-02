@@ -46,7 +46,7 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
     private static final int CALLING_SKILL_POINTS = 10;
 
     public CallingCharacterDefinitionStepSelection(CharacterPlayer characterPlayer, String calling) throws InvalidGeneratedCharacter {
-        super(characterPlayer, CallingFactory.getInstance().getElement(calling));
+        super(characterPlayer, CallingFactory.getInstance().getElement(calling), Phase.CALLING);
         setId(calling);
     }
 
@@ -61,11 +61,6 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
         } catch (InvalidSelectionException e) {
             throw new InvalidCallingException(e.getMessage(), e);
         }
-    }
-
-    @Override
-    public Phase getPhase() {
-        return Phase.CALLING;
     }
 
 

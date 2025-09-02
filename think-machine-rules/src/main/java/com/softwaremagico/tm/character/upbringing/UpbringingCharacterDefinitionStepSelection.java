@@ -41,12 +41,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UpbringingCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection {
-    private static final String NOBLE_UPBRINGING = "noble";
 
     private boolean raisedInSpace = false;
 
     public UpbringingCharacterDefinitionStepSelection(CharacterPlayer characterPlayer, String upbringing) throws InvalidGeneratedCharacter {
-        super(characterPlayer, UpbringingFactory.getInstance().getElement(upbringing));
+        super(characterPlayer, UpbringingFactory.getInstance().getElement(upbringing), Phase.UPBRINGING);
         setId(upbringing);
     }
 
@@ -69,12 +68,6 @@ public class UpbringingCharacterDefinitionStepSelection extends CharacterDefinit
             throw new InvalidUpbringingException(e.getMessage(), e);
         }
     }
-
-    @Override
-    public Phase getPhase() {
-        return Phase.UPBRINGING;
-    }
-
 
     @Override
     public List<CapabilityOptions> getNotRepeatedCapabilityOptions(Phase phase) {

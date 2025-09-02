@@ -38,7 +38,7 @@ import java.util.List;
 public class SpecieCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection {
 
     public SpecieCharacterDefinitionStepSelection(CharacterPlayer characterPlayer, String specie) throws InvalidGeneratedCharacter {
-        super(characterPlayer, SpecieFactory.getInstance().getElement(specie));
+        super(characterPlayer, SpecieFactory.getInstance().getElement(specie), Phase.SPECIE);
         setId(specie);
     }
 
@@ -68,10 +68,5 @@ public class SpecieCharacterDefinitionStepSelection extends CharacterDefinitionS
         } catch (InvalidSelectionException e) {
             throw new InvalidSpecieException(e.getMessage(), e);
         }
-    }
-
-    @Override
-    public Phase getPhase() {
-        return Phase.SPECIE;
     }
 }

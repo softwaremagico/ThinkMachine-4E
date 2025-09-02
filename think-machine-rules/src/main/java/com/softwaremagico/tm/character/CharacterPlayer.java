@@ -241,6 +241,7 @@ public class CharacterPlayer {
                 this.specie = null;
                 throw e;
             }
+            this.specie.selectDefaultOptions();
         } else {
             this.specie = null;
         }
@@ -272,6 +273,7 @@ public class CharacterPlayer {
                 this.upbringing = null;
                 throw new InvalidUpbringingException("Upbrinfing '" + upbringing + "' is restricted to the character.");
             }
+            this.upbringing.selectDefaultOptions();
         } else {
             this.upbringing = null;
         }
@@ -300,6 +302,7 @@ public class CharacterPlayer {
                 this.faction = null;
                 throw new InvalidFactionException("Faction '" + faction + "' is restricted to the character.");
             }
+            this.faction.selectDefaultOptions();
         } else {
             this.faction = null;
         }
@@ -327,6 +330,7 @@ public class CharacterPlayer {
                 this.calling = null;
                 throw new InvalidCallingException("Calling '" + calling + "' is restricted to the character.");
             }
+            this.calling.selectDefaultOptions();
         } else {
             this.calling = null;
         }
@@ -718,21 +722,28 @@ public class CharacterPlayer {
                 }
             }
         }
-        return !possibleSelections.isEmpty();
+        return possibleSelections.isEmpty();
+    }
+
+    public boolean hasSelection(Selection perkSelection, CharacterDefinitionStepSelection step) {
+        if (step == null) {
+            return false;
+        }
+        return hasSelection(perkSelection, step.getPhase(), step.getLevel());
     }
 
     public boolean hasSelection(Selection perkSelection, Phase phase, Integer level) {
         final List<CharacterDefinitionStepSelection> stepsToCheck = new ArrayList<>();
-        if (Phase.SPECIE.isCheckedPhase(phase)) {
+        if (specie != null && Phase.SPECIE.isCheckedPhase(phase)) {
             stepsToCheck.add(specie);
         }
-        if (Phase.UPBRINGING.isCheckedPhase(phase)) {
+        if (upbringing != null && Phase.UPBRINGING.isCheckedPhase(phase)) {
             stepsToCheck.add(upbringing);
         }
-        if (Phase.FACTION.isCheckedPhase(phase)) {
+        if (faction != null && Phase.FACTION.isCheckedPhase(phase)) {
             stepsToCheck.add(faction);
         }
-        if (Phase.CALLING.isCheckedPhase(phase)) {
+        if (calling != null && Phase.CALLING.isCheckedPhase(phase)) {
             stepsToCheck.add(calling);
         }
         //Levels always check previous levels.
@@ -742,14 +753,6 @@ public class CharacterPlayer {
             }
         }
         return hasSelection(perkSelection, stepsToCheck);
-    }
-
-
-    public boolean hasSelection(Selection selection, CharacterDefinitionStepSelection step) {
-        if (step != null) {
-            return step.getSelectedPerks().contains(selection);
-        }
-        return false;
     }
 
     public boolean hasSelection(Selection selection, Collection<CharacterDefinitionStepSelection> steps) {

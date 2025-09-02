@@ -53,7 +53,7 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
     private final int level;
 
     public LevelSelector(CharacterPlayer characterPlayer, int level) {
-        super(characterPlayer, LevelFactory.getInstance().getElement(characterPlayer, level));
+        super(characterPlayer, LevelFactory.getInstance().getElement(characterPlayer, level), Phase.LEVEL);
         this.level = level;
 
         setSelectedClassPerksOptions(Arrays.asList(new CharacterSelectedElement[getClassPerksOptions().size()]));
@@ -109,6 +109,7 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
         return ((Level) getCharacterDefinitionStep());
     }
 
+    @Override
     public int getLevel() {
         return level;
     }
@@ -176,11 +177,6 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
         } catch (InvalidSelectionException e) {
             throw new InvalidSelectionException("Error on level '" + getLevel() + "'.", e);
         }
-    }
-
-    @Override
-    public Phase getPhase() {
-        return Phase.LEVEL;
     }
 
     @JsonIgnore

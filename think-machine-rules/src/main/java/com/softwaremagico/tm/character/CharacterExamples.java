@@ -29,6 +29,7 @@ import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
 import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
 import com.softwaremagico.tm.character.level.LevelSelector;
+import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
 
 public final class CharacterExamples {
@@ -168,11 +169,7 @@ public final class CharacterExamples {
             for (int j = step.getSelectedPerksOptions().get(i).getSelections().size();
                  j < step.getNotSelectedPerksOptions().get(i).getTotalOptions(); j++) {
                 step.getSelectedPerksOptions().get(i).getSelections()
-                        .add(new Selection(step.getNotSelectedPerksOptions().get(i).getOptions().get(j).getId(),
-                                step.getNotSelectedPerksOptions().get(i).getOptions().get(j).getSpecializations() != null
-                                        && !step.getNotSelectedPerksOptions().get(i).getOptions().get(j).getSpecializations().isEmpty()
-                                        ? step.getNotSelectedPerksOptions().get(i).getOptions().get(j).getSpecializations().get(0)
-                                        : null));
+                        .add(getSelection(step, step.getNotSelectedPerksOptions().get(i).getOptions().get(j)));
             }
         }
         if (step.getMaterialAwardsOptions() != null) {
@@ -184,6 +181,19 @@ public final class CharacterExamples {
                 }
             }
         }
+    }
 
+    private static Selection getSelection(CharacterDefinitionStepSelection step, PerkOption option) {
+        if (option.getSpecializations() == null || option.getSpecializations().isEmpty()) {
+            return new Selection(option.getId());
+        }
+        //Choose a different selection.
+        Selection selection = null;
+        int i = 0;
+        do {
+            selection = new Selection(option.getId(), option.getSpecializations().get(i));
+            i++;
+        } while (step.getCharacterPlayer().hasSelection(selection, step) && i < option.getSpecializations().size());
+        return selection;
     }
 }
