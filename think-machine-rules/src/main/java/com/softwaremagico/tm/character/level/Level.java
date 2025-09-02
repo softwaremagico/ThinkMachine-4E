@@ -34,6 +34,7 @@ import com.softwaremagico.tm.character.perks.CharacterPerkOptions;
 import com.softwaremagico.tm.character.perks.PerkOptions;
 import com.softwaremagico.tm.character.perks.PerkType;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
+import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.ArrayList;
@@ -147,7 +148,7 @@ public class Level extends CharacterDefinitionStep {
     }
 
     @Override
-    public List<CharacterPerkOptions> getFinalPerksOptions() {
+    public List<CharacterPerkOptions> getCharacterAvailablePerksOptions() {
         return new ArrayList<>();
     }
 
@@ -170,10 +171,10 @@ public class Level extends CharacterDefinitionStep {
         if (characterPlayer.getCalling() == null) {
             return new ArrayList<>();
         }
-        final List<CharacterPerkOptions> perks = characterPlayer.getFaction().getNotRepeatedPerksOptions();
+        final List<CharacterPerkOptions> perks = characterPlayer.getFaction().getNotSelectedPerksOptions();
         if (characterPlayer.isFavoredCalling()) {
             for (PerkOptions perkOptions : perks) {
-                perkOptions.getOptions().addAll(characterPlayer.getCalling().getNotRepeatedPerksOptions().get(0).getOptions().stream()
+                perkOptions.getOptions().addAll(characterPlayer.getCalling().getNotSelectedPerksOptions().get(0).getOptions().stream()
                         .filter(p -> p.getElement() != null && p.getElement().getType() == PerkType.PRIVILEGE
                         ).collect(Collectors.toList()));
             }
@@ -192,7 +193,7 @@ public class Level extends CharacterDefinitionStep {
         if (characterPlayer.getUpbringing() == null) {
             return new ArrayList<>();
         }
-        return characterPlayer.getUpbringing().getNotRepeatedPerksOptions();
+        return characterPlayer.getUpbringing().getNotSelectedPerksOptions(Phase.LEVEL);
     }
 
     public List<CharacterPerkOptions> getCallingPerksOptions() {
@@ -206,7 +207,7 @@ public class Level extends CharacterDefinitionStep {
         if (characterPlayer.getCalling() == null) {
             return new ArrayList<>();
         }
-        return characterPlayer.getCalling().getNotRepeatedPerksOptions();
+        return characterPlayer.getCalling().getNotSelectedPerksOptions(Phase.LEVEL);
     }
 
     @Override

@@ -99,16 +99,16 @@ public class CharacterDefinitionStep extends Element {
     }
 
     @JsonIgnore
-    public List<CharacterPerkOptions> getFinalPerksOptions() {
+    public List<CharacterPerkOptions> getCharacterAvailablePerksOptions() {
         if (finalPerkOptions == null) {
             //No perks defined.
-            finalPerkOptions = getFinalPerksOptions(getSourcePerks());
+            finalPerkOptions = getCharacterAvailablePerksOptions(getSourcePerks());
         }
         return new ArrayList<>(finalPerkOptions);
     }
 
     @JsonIgnore
-    public List<CharacterPerkOptions> getFinalPerksOptions(List<PerkOptions> sourcePerkOptions) {
+    public List<CharacterPerkOptions> getCharacterAvailablePerksOptions(List<PerkOptions> sourcePerkOptions) {
         final List<CharacterPerkOptions> completePerkList = new ArrayList<>();
         for (PerkOptions perkOptions : sourcePerkOptions) {
             if (perkOptions.isIncludeOpenPerks()) {

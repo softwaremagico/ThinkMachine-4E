@@ -59,12 +59,14 @@ import com.softwaremagico.tm.character.occultism.OccultismType;
 import com.softwaremagico.tm.character.occultism.OccultismTypeFactory;
 import com.softwaremagico.tm.character.perks.Affliction;
 import com.softwaremagico.tm.character.perks.PerkFactory;
+import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.character.perks.SpecializedPerk;
 import com.softwaremagico.tm.character.resistances.Resistance;
 import com.softwaremagico.tm.character.resistances.ResistanceType;
 import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.skills.SkillsReassign;
+import com.softwaremagico.tm.character.skills.Specialization;
 import com.softwaremagico.tm.character.specie.SpecieCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.UpbringingCharacterDefinitionStepSelection;
@@ -680,70 +682,82 @@ public class CharacterPlayer {
     }
 
 
-    public boolean hasPerk(String perk, Phase phase) {
-        if (Phase.SPECIE.isCheckedPhase(phase) && hasPerk(perk, specie)) {
-            return true;
+    /**
+     * A perk can be an option if at least has one specialization that is not selected.
+     *
+     * @param perk  perk to check.
+     * @param phase until which phase is checked.
+     * @return true if at least one option can be selected.
+     */
+    public boolean hasOption(PerkOption perk, Phase phase) {
+        final ArrayList<Selection> possibleSelections = new ArrayList<>();
+        if (perk.getSpecializations() == null || perk.getSpecializations().isEmpty()) {
+            possibleSelections.add(new Selection(perk.getId()));
+        } else {
+            for (Specialization specialization : perk.getSpecializations()) {
+                possibleSelections.add(new Selection(perk.getId(), specialization));
+            }
         }
-        if (Phase.UPBRINGING.isCheckedPhase(phase) && hasPerk(perk, upbringing)) {
-            return true;
+        for (Selection selection : new ArrayList<>(possibleSelections)) {
+            if (Phase.SPECIE.isCheckedPhase(phase)) {
+                possibleSelections.removeAll(specie.getSelectedPerks());
+            }
+            if (Phase.UPBRINGING.isCheckedPhase(phase) && hasSelection(selection, upbringing)) {
+                possibleSelections.removeAll(upbringing.getSelectedPerks());
+            }
+            if (Phase.FACTION.isCheckedPhase(phase) && hasSelection(selection, faction)) {
+                possibleSelections.removeAll(faction.getSelectedPerks());
+            }
+            if (Phase.CALLING.isCheckedPhase(phase) && hasSelection(selection, calling)) {
+                possibleSelections.removeAll(calling.getSelectedPerks());
+            }
+            //Levels always check other levels.
+            if (Phase.LEVEL.isCheckedPhase(phase) || phase == Phase.LEVEL) {
+                for (LevelSelector levelSelector : getLevels()) {
+                    possibleSelections.removeAll(levelSelector.getSelectedPerks());
+                }
+            }
         }
-        if (Phase.FACTION.isCheckedPhase(phase) && hasPerk(perk, faction)) {
-            return true;
+        return !possibleSelections.isEmpty();
+    }
+
+    public boolean hasSelection(Selection perkSelection, Phase phase, Integer level) {
+        final List<CharacterDefinitionStepSelection> stepsToCheck = new ArrayList<>();
+        if (Phase.SPECIE.isCheckedPhase(phase)) {
+            stepsToCheck.add(specie);
         }
-        if (Phase.CALLING.isCheckedPhase(phase) && hasPerk(perk, calling)) {
-            return true;
+        if (Phase.UPBRINGING.isCheckedPhase(phase)) {
+            stepsToCheck.add(upbringing);
         }
-        //Levels always check other levels.
+        if (Phase.FACTION.isCheckedPhase(phase)) {
+            stepsToCheck.add(faction);
+        }
+        if (Phase.CALLING.isCheckedPhase(phase)) {
+            stepsToCheck.add(calling);
+        }
+        //Levels always check previous levels.
         if (Phase.LEVEL.isCheckedPhase(phase) || phase == Phase.LEVEL) {
-            for (LevelSelector levelSelector : getLevels()) {
-                if (hasPerk(perk, levelSelector)) {
-                    return true;
-                }
+            for (int i = 0; i < getLevels().size() && (level != null && i < level); i++) {
+                stepsToCheck.add(getLevels().get(i));
             }
         }
-        return false;
+        return hasSelection(perkSelection, stepsToCheck);
     }
 
-    public boolean hasSelection(Selection perk, Phase phase) {
-        if (Phase.SPECIE.isCheckedPhase(phase) && hasSelection(perk, specie)) {
-            return true;
-        }
-        if (Phase.UPBRINGING.isCheckedPhase(phase) && hasSelection(perk, upbringing)) {
-            return true;
-        }
-        if (Phase.FACTION.isCheckedPhase(phase) && hasSelection(perk, faction)) {
-            return true;
-        }
-        if (Phase.CALLING.isCheckedPhase(phase) && hasSelection(perk, calling)) {
-            return true;
-        }
-        //Levels always check other levels.
-        if (Phase.LEVEL.isCheckedPhase(phase) || phase == Phase.LEVEL) {
-            for (LevelSelector levelSelector : getLevels()) {
-                if (hasSelection(perk, levelSelector)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-
-    public boolean hasPerk(String perk, CharacterDefinitionStepSelection step) {
-        if (step != null) {
-            for (Selection selection : step.getSelectedPerks()) {
-                if (Objects.equals(selection.getId(), perk)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
 
     public boolean hasSelection(Selection selection, CharacterDefinitionStepSelection step) {
         if (step != null) {
-            for (Selection selectedSelection : step.getSelectedPerks()) {
-                if (Objects.equals(selection, selectedSelection)) {
+            return step.getSelectedPerks().contains(selection);
+        }
+        return false;
+    }
+
+    public boolean hasSelection(Selection selection, Collection<CharacterDefinitionStepSelection> steps) {
+        if (steps != null) {
+            final List<Selection> selectedElements = new ArrayList<>();
+            for (CharacterDefinitionStepSelection step : steps) {
+                selectedElements.addAll(step.getSelectedPerks());
+                if (selectedElements.contains(selection)) {
                     return true;
                 }
             }
@@ -752,10 +766,9 @@ public class CharacterPlayer {
     }
 
 
-    public Collection<String> getPerks(CharacterDefinitionStepSelection step) {
+    public Collection<Selection> getPerks(CharacterDefinitionStepSelection step) {
         if (step != null) {
-            return step.getSelectedPerks().stream().map(p -> ComparableUtils.getComparisonId(p.getId(), p.getSpecialization()))
-                    .collect(Collectors.toList());
+            return step.getSelectedPerks();
         }
         return new ArrayList<>();
     }
@@ -763,17 +776,17 @@ public class CharacterPlayer {
 
     public void checkDuplicatedPerks() {
         //Check duplicate perks.
-        final Collection<String> speciePerks = getPerks(specie);
-        final Collection<String> upbringingPerks = getPerks(upbringing);
-        final Collection<String> factionPerks = getPerks(faction);
-        final Collection<String> callingPerks = getPerks(calling);
+        final Collection<Selection> speciePerks = getPerks(specie);
+        final Collection<Selection> upbringingPerks = getPerks(upbringing);
+        final Collection<Selection> factionPerks = getPerks(faction);
+        final Collection<Selection> callingPerks = getPerks(calling);
 
-        final Collection<String> completePerkList = new HashSet<>(speciePerks);
-        Collection<String> nextPerks = new HashSet<>(upbringingPerks);
+        final Collection<Selection> completePerkList = new HashSet<>(speciePerks);
+        Collection<Selection> nextPerks = new HashSet<>(upbringingPerks);
 
         upbringingPerks.retainAll(completePerkList);
         if (!upbringingPerks.isEmpty()) {
-            for (String perk : upbringingPerks) {
+            for (Selection perk : upbringingPerks) {
                 if (!isRepeatablePerk(perk)) {
                     throw new InvalidXmlElementException("Duplicated perks '" + upbringingPerks + "' on upbringing '" + getUpbringing() + "'.");
                 }
@@ -784,7 +797,7 @@ public class CharacterPlayer {
         nextPerks = new ArrayList<>(factionPerks);
         factionPerks.retainAll(completePerkList);
         if (!factionPerks.isEmpty()) {
-            for (String perk : factionPerks) {
+            for (Selection perk : factionPerks) {
                 if (!isRepeatablePerk(perk)) {
                     throw new InvalidXmlElementException("Duplicated perks '" + factionPerks + "' on faction '" + getFaction() + "'.");
                 }
@@ -795,7 +808,7 @@ public class CharacterPlayer {
         nextPerks = new ArrayList<>(callingPerks);
         callingPerks.retainAll(completePerkList);
         if (!callingPerks.isEmpty()) {
-            for (String perk : callingPerks) {
+            for (Selection perk : callingPerks) {
                 if (!isRepeatablePerk(perk)) {
                     throw new InvalidXmlElementException("Duplicated perks '" + callingPerks + "' on calling '" + getCalling() + "'.");
                 }
@@ -804,11 +817,11 @@ public class CharacterPlayer {
         completePerkList.addAll(nextPerks);
 
         for (LevelSelector levelSelector : getLevels()) {
-            final Collection<String> levelPerks = getPerks(levelSelector);
+            final Collection<Selection> levelPerks = getPerks(levelSelector);
             nextPerks = new ArrayList<>(levelPerks);
             levelPerks.retainAll(completePerkList);
             if (!levelPerks.isEmpty()) {
-                for (String perk : callingPerks) {
+                for (Selection perk : callingPerks) {
                     if (!isRepeatablePerk(perk)) {
                         throw new InvalidXmlElementException("Duplicated perk '" + levelPerks + "' on level '" + levelSelector + "'.");
                     }
@@ -818,7 +831,7 @@ public class CharacterPlayer {
         }
     }
 
-    private boolean isRepeatablePerk(String perk) {
+    private boolean isRepeatablePerk(Selection perk) {
         return PerkFactory.getInstance().getElement(perk).isRepeatable();
     }
 

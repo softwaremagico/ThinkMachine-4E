@@ -190,7 +190,7 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
 
     @JsonIgnore
     public List<CharacterPerkOptions> getFinalClassPerksOptions() {
-        return getCharacterDefinitionStep().getFinalPerksOptions(new ArrayList<>(getClassPerksOptions()));
+        return getCharacterDefinitionStep().getCharacterAvailablePerksOptions(new ArrayList<>(getClassPerksOptions()));
     }
 
     @JsonIgnore
@@ -205,7 +205,7 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
 
     @JsonIgnore
     public List<CharacterPerkOptions> getFinalCallingPerksOptions() {
-        return getCharacterDefinitionStep().getFinalPerksOptions(new ArrayList<>(getCallingPerksOptions()));
+        return getCharacterDefinitionStep().getCharacterAvailablePerksOptions(new ArrayList<>(getCallingPerksOptions()));
     }
 
     @JsonIgnore

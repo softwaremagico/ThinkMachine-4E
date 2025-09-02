@@ -42,12 +42,14 @@ public class RandomPerk extends RandomSelector<Selection> {
 
     private final CharacterPerkOptions perkOptions;
     private final Phase phase;
+    private final Integer level;
 
     public RandomPerk(CharacterPlayer characterPlayer, Set<RandomPreference> preferences,
-                      CharacterPerkOptions perkOptions, Phase phase) throws InvalidXmlElementException {
+                      CharacterPerkOptions perkOptions, Phase phase, Integer level) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
         this.perkOptions = perkOptions;
         this.phase = phase;
+        this.level = level;
     }
 
     @Override
@@ -59,7 +61,7 @@ public class RandomPerk extends RandomSelector<Selection> {
     @Override
     protected int getWeight(Selection element) throws InvalidRandomElementSelectedException {
         // Already has a perk.
-        if (getCharacterPlayer().hasSelection(element, phase)) {
+        if (getCharacterPlayer().hasSelection(element, phase, level)) {
             return 0;
         }
         //Reduce the elements with multiple specializations.

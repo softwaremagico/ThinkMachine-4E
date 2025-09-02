@@ -164,14 +164,14 @@ public final class CharacterExamples {
                         .add(new Selection(step.getSkillOptions().get(i).getOptions().get(j).getId()));
             }
         }
-        for (int i = 0; i < step.getNotRepeatedPerksOptions().size(); i++) {
+        for (int i = 0; i < step.getNotSelectedPerksOptions().size(); i++) {
             for (int j = step.getSelectedPerksOptions().get(i).getSelections().size();
-                 j < step.getNotRepeatedPerksOptions().get(i).getTotalOptions(); j++) {
+                 j < step.getNotSelectedPerksOptions().get(i).getTotalOptions(); j++) {
                 step.getSelectedPerksOptions().get(i).getSelections()
-                        .add(new Selection(step.getNotRepeatedPerksOptions().get(i).getOptions().get(j).getId(),
-                                step.getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations() != null
-                                        && !step.getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations().isEmpty()
-                                        ? step.getNotRepeatedPerksOptions().get(i).getOptions().get(j).getSpecializations().get(0)
+                        .add(new Selection(step.getNotSelectedPerksOptions().get(i).getOptions().get(j).getId(),
+                                step.getNotSelectedPerksOptions().get(i).getOptions().get(j).getSpecializations() != null
+                                        && !step.getNotSelectedPerksOptions().get(i).getOptions().get(j).getSpecializations().isEmpty()
+                                        ? step.getNotSelectedPerksOptions().get(i).getOptions().get(j).getSpecializations().get(0)
                                         : null));
             }
         }

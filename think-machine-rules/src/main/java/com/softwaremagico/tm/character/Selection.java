@@ -26,14 +26,18 @@ package com.softwaremagico.tm.character;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.softwaremagico.tm.Element;
+import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.character.skills.Specialization;
 import com.softwaremagico.tm.utils.ComparableUtils;
 import com.softwaremagico.tm.utils.IComparable;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 public class Selection extends Element implements IComparable {
     private Specialization specialization;
+    private boolean repeatable = false;
 
     public Selection(String id) {
         super(id);
@@ -62,6 +66,14 @@ public class Selection extends Element implements IComparable {
         return ComparableUtils.getComparisonId(getId(), getSpecialization());
     }
 
+    public boolean isRepeatable() {
+        return repeatable;
+    }
+
+    public void setRepeatable(boolean repeatable) {
+        this.repeatable = repeatable;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -82,5 +94,19 @@ public class Selection extends Element implements IComparable {
     @Override
     public String toString() {
         return getId() + (getSpecialization() != null ? " (" + getSpecialization() + ")" : "");
+    }
+
+    public static Set<Selection> convert(PerkOption perkOption) {
+        final Set<Selection> selections = new HashSet<>();
+        if (perkOption.getSpecializations() == null || perkOption.getSpecializations().isEmpty()) {
+            final Selection selection = new Selection(perkOption.getId());
+            selection.setRepeatable(perkOption.isRepeatable());
+            selections.add(selection);
+        } else {
+            for (Specialization specialization : perkOption.getSpecializations()) {
+                selections.add(new Selection(perkOption.getId(), specialization));
+            }
+        }
+        return selections;
     }
 }

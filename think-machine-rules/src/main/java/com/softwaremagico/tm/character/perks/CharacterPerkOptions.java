@@ -34,7 +34,7 @@ import java.util.List;
 import java.util.Set;
 
 public class CharacterPerkOptions extends PerkOptions {
-    private List<PerkOption> finalPerks;
+    private final List<PerkOption> finalPerks;
 
     public CharacterPerkOptions(PerkOptions perkOptions) {
         setTotalOptions(perkOptions.getTotalOptions());

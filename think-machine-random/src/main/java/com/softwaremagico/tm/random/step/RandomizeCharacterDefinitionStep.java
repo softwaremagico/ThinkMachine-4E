@@ -31,6 +31,7 @@ import com.softwaremagico.tm.character.capabilities.CapabilityOption;
 import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOptions;
 import com.softwaremagico.tm.character.equipment.EquipmentOptions;
+import com.softwaremagico.tm.character.level.LevelSelector;
 import com.softwaremagico.tm.character.perks.CharacterPerkOptions;
 import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
@@ -172,7 +173,7 @@ public class RandomizeCharacterDefinitionStep {
 
 
     protected void assignPerks() throws InvalidRandomElementSelectedException {
-        final List<CharacterPerkOptions> perkOptions = characterDefinitionStepSelection.getNotRepeatedPerksOptions();
+        final List<CharacterPerkOptions> perkOptions = characterDefinitionStepSelection.getNotSelectedPerksOptions();
         if (perkOptions != null && !perkOptions.isEmpty()) {
             for (int i = 0; i < perkOptions.size(); i++) {
                 try {
@@ -181,7 +182,9 @@ public class RandomizeCharacterDefinitionStep {
                         final RandomPerk randomPerk =
                                 new RandomPerk(getCharacterPlayer(), getPreferences(),
                                         perkOptions.get(i),
-                                        characterDefinitionStepSelection.getPhase());
+                                        characterDefinitionStepSelection.getPhase(),
+                                        characterDefinitionStepSelection instanceof LevelSelector
+                                                ? ((LevelSelector) characterDefinitionStepSelection).getLevel() : null);
                         characterDefinitionStepSelection.getSelectedPerksOptions().get(i).getSelections()
                                 .add(randomPerk.selectElementByWeight());
                     }

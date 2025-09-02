@@ -197,10 +197,8 @@ public class CharacterRulesTests {
         characterPlayer.setFaction("far");
         characterPlayer.setCalling("spy");
 
-        Assert.assertEquals(characterPlayer.getCalling().getNotRepeatedPerksOptions().get(0).getOptions().size(),
-                CallingFactory.getInstance().getElement("spy").getFinalPerksOptions().get(0).getOptions().size()
-                        //Wild Domain has as a requirement a previous perk.
-                        + 13);
+        Assert.assertEquals(characterPlayer.getCalling().getNotSelectedPerksOptions().get(0).getOptions().size(),
+                55);
     }
 
     @Test
@@ -332,14 +330,14 @@ public class CharacterRulesTests {
 
         //Specie perks are added to callings.
         boolean exists = false;
-        for (PerkOptions perkOptions : characterPlayer.getUpbringing().getNotRepeatedPerksOptions()) {
+        for (PerkOptions perkOptions : characterPlayer.getUpbringing().getNotSelectedPerksOptions()) {
             if (perkOptions.getOptions().contains(new PerkOption(PerkFactory.getInstance().getElement("childOfDhiyana")))) {
                 exists = true;
             }
         }
         Assert.assertFalse(exists);
 
-        for (PerkOptions perkOptions : characterPlayer.getCalling().getNotRepeatedPerksOptions()) {
+        for (PerkOptions perkOptions : characterPlayer.getCalling().getNotSelectedPerksOptions()) {
             if (perkOptions.getOptions().contains(new PerkOption(PerkFactory.getInstance().getElement("childOfDhiyana")))) {
                 exists = true;
             }
@@ -354,7 +352,7 @@ public class CharacterRulesTests {
         Assert.assertTrue(PerkFactory.getInstance().getElement("childOfDhiyana").getRestrictions().isRestricted(characterPlayer));
 
         exists = false;
-        for (PerkOptions perkOptions : characterPlayer.getCalling().getNotRepeatedPerksOptions()) {
+        for (PerkOptions perkOptions : characterPlayer.getCalling().getNotSelectedPerksOptions()) {
             if (perkOptions.getOptions().contains(new PerkOption(PerkFactory.getInstance().getElement("childOfDhiyana")))) {
                 exists = true;
             }
@@ -394,8 +392,8 @@ public class CharacterRulesTests {
         CharacterExamples.populateFaction(characterPlayer);
         CharacterExamples.populateCalling(characterPlayer);
 
-        for (int i = 0; i < characterPlayer.getCalling().getNotRepeatedPerksOptions().size(); i++) {
-            for (int j = 0; j < characterPlayer.getCalling().getNotRepeatedPerksOptions().get(i).getTotalOptions(); j++) {
+        for (int i = 0; i < characterPlayer.getCalling().getNotSelectedPerksOptions().size(); i++) {
+            for (int j = 0; j < characterPlayer.getCalling().getNotSelectedPerksOptions().get(i).getTotalOptions(); j++) {
                 characterPlayer.getCalling().getSelectedPerksOptions().get(i).getSelections().clear();
                 characterPlayer.getCalling().getSelectedPerksOptions().get(i).getSelections()
                         .add(new Selection("psychicPowers"));

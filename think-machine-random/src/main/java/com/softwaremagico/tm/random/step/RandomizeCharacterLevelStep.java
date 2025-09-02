@@ -37,7 +37,7 @@ public class RandomizeCharacterLevelStep extends RandomizeCharacterDefinitionSte
                         final RandomPerk randomPerk =
                                 new RandomPerk(getCharacterPlayer(), getPreferences(),
                                         perkOptions.get(i),
-                                        levelSelector.getPhase());
+                                        levelSelector.getPhase(), levelSelector.getLevel());
                         levelSelector.getSelectedClassPerksOptions().get(i).getSelections()
                                 .add(randomPerk.selectElementByWeight());
                     }
@@ -60,7 +60,7 @@ public class RandomizeCharacterLevelStep extends RandomizeCharacterDefinitionSte
                         final RandomPerk randomPerk =
                                 new RandomPerk(getCharacterPlayer(), getPreferences(),
                                         perkOptions.get(i),
-                                        levelSelector.getPhase());
+                                        levelSelector.getPhase(), levelSelector.getLevel());
                         levelSelector.getSelectedCallingPerksOptions().get(i).getSelections()
                                 .add(randomPerk.selectElementByWeight());
                     }
