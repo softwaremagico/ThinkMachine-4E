@@ -95,7 +95,7 @@ public class RandomizeCharacterDefinitionStep {
                 } catch (InvalidXmlElementException e) {
                     //If no options are available. Force one characteristic and later, will be balanced.
                     characterDefinitionStepSelection.getSelectedCharacteristicOptions().get(i).getSelections()
-                            .add(new Selection(characteristicBonusOptions.get(i).getOptions().get(0).getId()));
+                            .add(new Selection(characteristicBonusOptions.get(i).getOptions().iterator().next().getId()));
                 }
             }
         }
