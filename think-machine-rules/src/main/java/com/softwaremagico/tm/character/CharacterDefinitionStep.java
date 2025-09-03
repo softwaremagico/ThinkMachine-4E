@@ -207,10 +207,11 @@ public class CharacterDefinitionStep extends Element {
 
         int totalCharacteristicsPoints = 0;
         for (CharacteristicBonusOptions characteristicOptions : getCharacteristicOptions()) {
-            if (characteristicOptions.getOptions().get(0).getElement() == null
-                    || characteristicOptions.getOptions().get(0).getElement().getType() == null
-                    || !characteristicOptions.getOptions().get(0).isExtra()) {
-                totalCharacteristicsPoints += characteristicOptions.getTotalOptions() * characteristicOptions.getOptions().get(0).getBonus();
+            final CharacteristicBonusOption option = characteristicOptions.getOptions().iterator().next();
+            if (option.getElement() == null
+                    || option.getElement().getType() == null
+                    || !option.isExtra()) {
+                totalCharacteristicsPoints += characteristicOptions.getTotalOptions() * option.getBonus();
             }
         }
         if (totalCharacteristicsPoints != getCharacteristicsTotalPoints()) {
@@ -236,7 +237,7 @@ public class CharacterDefinitionStep extends Element {
 
         int totalSkillPoints = 0;
         for (SkillBonusOptions skillOptions : getSkillOptions()) {
-            totalSkillPoints += skillOptions.getTotalOptions() * skillOptions.getOptions().get(0).getBonus();
+            totalSkillPoints += skillOptions.getTotalOptions() * skillOptions.getOptions().iterator().next().getBonus();
         }
         if (totalSkillPoints != getSkillsTotalPoints()) {
             throw new InvalidXmlElementException("Element '" + getId() + "' has invalid skill options: '" + getSkillsTotalPoints()

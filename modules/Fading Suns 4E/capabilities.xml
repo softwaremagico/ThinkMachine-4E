@@ -1005,14 +1005,6 @@
         </specializations>
     </capability>
     <capability>
-        <id>religionLore</id>
-        <group>knowledgeLore</group>
-        <name>
-            <en>Religion Lore</en>
-            <es>Saber Religioso</es>
-        </name>
-    </capability>
-    <capability>
         <id>read</id>
         <group>knowledgeLore</group>
         <name>

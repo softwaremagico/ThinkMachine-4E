@@ -98,15 +98,11 @@ public class UpbringingCharacterDefinitionStepSelection extends CharacterDefinit
         oldSkillBonusOptions.forEach(skillBonusOption -> newSkillBonusOptions.add(new SkillBonusOptions(skillBonusOption)));
         newSkillBonusOptions.forEach(skillBonusOptions -> {
             final SkillBonusOption interfaceSkill = new SkillBonusOption(SkillFactory.getInstance().getElement("interface"),
-                    skillBonusOptions.getOptions().get(0).getBonus());
-            if (!skillBonusOptions.getOptions().contains(interfaceSkill)) {
-                skillBonusOptions.getOptions().add(interfaceSkill);
-            }
+                    skillBonusOptions.getBonus());
+            skillBonusOptions.getOptions().add(interfaceSkill);
             final SkillBonusOption techRedemptionSkill = new SkillBonusOption(SkillFactory.getInstance().getElement("techRedemption"),
-                    skillBonusOptions.getOptions().get(0).getBonus());
-            if (!skillBonusOptions.getOptions().contains(techRedemptionSkill)) {
-                skillBonusOptions.getOptions().add(techRedemptionSkill);
-            }
+                    skillBonusOptions.getBonus());
+            skillBonusOptions.getOptions().add(techRedemptionSkill);
         });
         return newSkillBonusOptions;
     }

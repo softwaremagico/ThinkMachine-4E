@@ -49,6 +49,7 @@ import com.softwaremagico.tm.utils.ComparableUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -143,20 +144,18 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     private void setDefaultOptions(List<OptionSelector<?, ?>> options, List<CharacterSelectedElement> selectedElements) {
         for (int i = 0; i < options.size(); i++) {
             if (options.get(i).getOptions().size() == 1) {
-                if (options.get(i).getOptions().get(0) instanceof CapabilityOption) {
-                    if (((CapabilityOption) options.get(i).getOptions().get(0)).getSelectedSpecialization() != null) {
-                        selectedElements.get(i).setSelections(new ArrayList<>(List.of(new Selection(options
-                                .get(i).getOptions().get(0).getId(),
-                                ((CapabilityOption) options.get(i).getOptions().get(0)).getSelectedSpecialization()))));
+                final Element option = options.get(i).getOptions().iterator().next();
+                if (option instanceof CapabilityOption) {
+                    if (((CapabilityOption) option).getSelectedSpecialization() != null) {
+                        selectedElements.get(i).setSelections(new ArrayList<>(List.of(new Selection(option.getId(),
+                                ((CapabilityOption) option).getSelectedSpecialization()))));
                     }
-                } else if (options.get(i).getOptions().get(0).getSpecializations() == null
-                        || options.get(i).getOptions().get(0).getSpecializations().isEmpty()) {
-                    selectedElements.get(i).setSelections(new ArrayList<>(List.of(new Selection(options
-                            .get(i).getOptions().get(0).getId()))));
-                } else if (options.get(i).getOptions().get(0).getSpecializations().size() == 1) {
-                    selectedElements.get(i).setSelections(new ArrayList<>(List.of(new Selection(options
-                            .get(i).getOptions().get(0).getId(), options
-                            .get(i).getOptions().get(0).getSpecializations().get(0)))));
+                } else if (option.getSpecializations() == null
+                        || option.getSpecializations().isEmpty()) {
+                    selectedElements.get(i).setSelections(new ArrayList<>(List.of(new Selection(option.getId()))));
+                } else if (option.getSpecializations().size() == 1) {
+                    selectedElements.get(i).setSelections(new ArrayList<>(List.of(new Selection(option.getId(),
+                            option.getSpecializations().get(0)))));
                 }
             }
         }
@@ -171,14 +170,15 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     private void resetDefaultOptions(List<OptionSelector<?, ?>> options, List<CharacterSelectedElement> selectedElements) {
         for (int i = 0; i < options.size(); i++) {
             if (options.get(i).getOptions().size() == 1) {
-                if (options.get(i).getOptions().get(0) instanceof CapabilityOption) {
-                    if (((CapabilityOption) options.get(i).getOptions().get(0)).getSelectedSpecialization() != null) {
+                final Element option = options.get(i).getOptions().iterator().next();
+                if (option instanceof CapabilityOption) {
+                    if (((CapabilityOption) option).getSelectedSpecialization() != null) {
                         selectedElements.get(i).setSelections(new ArrayList<>());
                     }
-                } else if (options.get(i).getOptions().get(0).getSpecializations() == null
-                        || options.get(i).getOptions().get(0).getSpecializations().isEmpty()) {
+                } else if (option.getSpecializations() == null
+                        || option.getSpecializations().isEmpty()) {
                     selectedElements.get(i).setSelections(new ArrayList<>());
-                } else if (options.get(i).getOptions().get(0).getSpecializations().size() == 1) {
+                } else if (option.getSpecializations().size() == 1) {
                     selectedElements.get(i).setSelections(new ArrayList<>());
                 }
             }
@@ -331,7 +331,8 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                 if (!availableOptions.contains(selection)) {
                     throw new InvalidSelectedElementException("Selected characteristic '" + selection + "' does not exist.", selection);
                 }
-                if (getCharacteristicOptions().get(i).getOptions().size() != 1 || !getCharacteristicOptions().get(i).getOptions().get(0).isExtra()) {
+                if (getCharacteristicOptions().get(i).getOptions().size() != 1 || !getCharacteristicOptions().get(i).getOptions().iterator().next()
+                        .isExtra()) {
                     totalBonus += getCharacteristicOptions().get(i).getCharacteristicBonus(selection.getId()).getBonus();
                 }
             }
@@ -391,14 +392,13 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                                  List<CharacterPerkOptions> originalSourcePerkList) {
         if (availablePerkOptions != null && selectedPerksOptions != null && originalSourcePerkList != null) {
             for (int i = 0; i < selectedPerksOptions.size(); i++) {
-                if (selectedPerksOptions.get(i).getSelections().size() > originalSourcePerkList.get(i).getOptions().size()) {
+                if (selectedPerksOptions.get(i).getSelections().size() > availablePerkOptions.get(i).getOptions().size()) {
                     throw new TooManySelectionsException("You have selected '" + selectedPerksOptions.get(i).getSelections().size()
                             + "' perks options and only '"
-                            + originalSourcePerkList.get(i).getOptions().size()
+                            + availablePerkOptions.get(i).getOptions().size()
                             + "' are available.");
                 }
-                //final Set<Selection> availableOptions = availablePerkOptions.get(i).getAvailableSelections();
-                final Set<Selection> availableOptions = originalSourcePerkList.get(i).getAvailableSelections();
+                final Set<Selection> availableOptions = availablePerkOptions.get(i).getAvailableSelections();
                 for (Selection selection : selectedPerksOptions.get(i).getSelections()) {
                     if (!availableOptions.contains(selection)) {
                         throw new InvalidSelectedElementException("Selected perk '" + selection + "' does not exist. Available perks are: "
@@ -416,30 +416,6 @@ public abstract class CharacterDefinitionStepSelection extends Element {
      */
     public List<CapabilityOptions> getCapabilityOptions() {
         return getCharacterDefinitionStep().getCapabilityOptions();
-    }
-
-    /**
-     * Gets all options that are valid selections by the user.
-     *
-     * @return
-     */
-    private List<CapabilityOptions> getAllCapabilityOptions() {
-        final List<CapabilityOptions> capabilityOptions = new ArrayList<>();
-        for (CapabilityOptions capabilityOption : getCharacterDefinitionStep().getCapabilityOptions()) {
-            final List<CapabilityOption> availableOptions = capabilityOption.getOptions().stream().filter(
-                    e -> !e.getRestrictions().isRestricted(characterPlayer)).collect(Collectors.toList());
-            //If no option is available. Must select between any not restricted to the character.
-            if (!availableOptions.isEmpty()) {
-                capabilityOptions.add(new CapabilityOptions(capabilityOption, availableOptions));
-            } else {
-                final CapabilityOptions newCapabilityOptions = new CapabilityOptions(capabilityOption, CapabilityFactory.getInstance().getElements()
-                        .stream().filter(
-                                e -> !e.getRestrictions().isRestricted(characterPlayer))
-                        .map(CapabilityOption::new).collect(Collectors.toList()));
-                capabilityOptions.add(newCapabilityOptions);
-            }
-        }
-        return capabilityOptions;
     }
 
     public Phase getPhase() {
@@ -465,10 +441,10 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         for (CapabilityOptions capabilityOption : getCharacterDefinitionStep().getCapabilityOptions()) {
             //Get not duplicated options that are selected on previous steps.
             final List<CapabilityOption> oldOptions = new ArrayList<>(capabilityOption.getOptions());
-            final List<CapabilityOption> options = capabilityOption.getOptions().stream().filter(o -> !getCharacterPlayer()
+            final LinkedHashSet<CapabilityOption> options = capabilityOption.getOptions().stream().filter(o -> !getCharacterPlayer()
                             .hasCapability(o.getId(), o.getSelectedSpecialization() != null ? o.getSelectedSpecialization().getId() : null,
                                     phase, getId())).filter(o -> !o.getRestrictions().isRestricted(characterPlayer))
-                    .collect(Collectors.toList());
+                    .collect(Collectors.toCollection(LinkedHashSet::new));
             //If no option is available. Must select between any not restricted to the character.
             if (!options.isEmpty()) {
                 capabilityOptions.add(new CapabilityOptions(capabilityOption, options));
@@ -479,7 +455,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                         .map(CapabilityOption::getCapabilityOptions).collect(Collectors.toSet()).stream().flatMap(Set::stream)
                         .filter(o -> !getCharacterPlayer()
                                 .hasCapability(o.getId(), o.getSelectedSpecialization() != null ? o.getSelectedSpecialization().getId() : null,
-                                        phase, getId())).collect(Collectors.toList()));
+                                        phase, getId())).collect(Collectors.toCollection(LinkedHashSet::new)));
                 newCapabilityOptions.getOptions().removeAll(oldOptions);
                 capabilityOptions.add(newCapabilityOptions);
             }
@@ -515,7 +491,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                     .filter(e -> !e.getRestrictions().isRestricted(characterPlayer))
                     .collect(Collectors.toList());
             final List<PerkOption> availableOptions = originalOptions.stream().filter(o ->
-                    !getCharacterPlayer().hasOption(o, phase)
+                    !getCharacterPlayer().hasOption(o, phase, getLevel())
                             || PerkFactory.getInstance().getElement(o).isRepeatable()).collect(Collectors.toList());
             //If no option is available. Must select between any not restricted to the character.
             if (!availableOptions.isEmpty()) {

@@ -43,4 +43,11 @@ public enum Phase {
         }
         return false;
     }
+
+    public boolean checkedUntilPhase(Phase phase) {
+        if (phase != null) {
+            return index >= phase.index;
+        }
+        return false;
+    }
 }

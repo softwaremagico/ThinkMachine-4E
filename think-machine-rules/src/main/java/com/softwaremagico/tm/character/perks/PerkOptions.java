@@ -29,12 +29,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.OptionSelector;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
-import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 public class PerkOptions extends OptionSelector<Perk, PerkOption> {
     @JsonIgnore
-    private List<PerkOption> finalPerks;
+    private LinkedHashSet<PerkOption> finalPerks;
     @JsonProperty("openPerks")
     private boolean includeOpenPerks = true;
 
@@ -45,26 +45,26 @@ public class PerkOptions extends OptionSelector<Perk, PerkOption> {
     public PerkOptions(PerkOptions perkOptions) {
         super(perkOptions);
         if (perkOptions.finalPerks != null) {
-            this.finalPerks = new ArrayList<>(perkOptions.finalPerks);
+            this.finalPerks = new LinkedHashSet<>(perkOptions.finalPerks);
         }
         this.includeOpenPerks = perkOptions.includeOpenPerks;
     }
 
     public PerkOptions(PerkOptions optionSelector, List<PerkOption> finalPerks) {
         super(optionSelector);
-        this.finalPerks = new ArrayList<>(finalPerks);
+        this.finalPerks = new LinkedHashSet<>(finalPerks);
         setOptions(this.finalPerks);
     }
 
     @Override
-    public List<PerkOption> getOptions() {
+    public LinkedHashSet<PerkOption> getOptions() {
         if (finalPerks == null || finalPerks.isEmpty()) {
-            finalPerks = new ArrayList<>();
+            finalPerks = new LinkedHashSet<>();
             for (PerkOption perkOption : super.getOptions()) {
                 finalPerks.addAll(perkOption.expandGroup());
             }
         }
-        return new ArrayList<>(finalPerks);
+        return new LinkedHashSet<>(finalPerks);
     }
 
 

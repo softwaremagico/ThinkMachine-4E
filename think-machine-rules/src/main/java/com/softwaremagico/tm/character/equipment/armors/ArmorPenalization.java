@@ -79,4 +79,14 @@ public class ArmorPenalization {
     public void setEnduranceModification(int enduranceModification) {
         this.enduranceModification = enduranceModification;
     }
+
+    @Override
+    public String toString() {
+        return "ArmorPenalization{"
+                + "dexterityModification=" + dexterityModification
+                + ", strengthModification=" + strengthModification
+                + ", initiativeModification=" + initiativeModification
+                + ", enduranceModification=" + enduranceModification
+                + '}';
+    }
 }

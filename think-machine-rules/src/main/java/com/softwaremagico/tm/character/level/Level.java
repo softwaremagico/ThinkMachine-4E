@@ -31,6 +31,7 @@ import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOptions;
 import com.softwaremagico.tm.character.equipment.EquipmentOptions;
 import com.softwaremagico.tm.character.perks.CharacterPerkOptions;
+import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.character.perks.PerkOptions;
 import com.softwaremagico.tm.character.perks.PerkType;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
@@ -186,14 +187,41 @@ public class Level extends CharacterDefinitionStep {
         if (characterPlayer.getUpbringing() == null) {
             return new ArrayList<>();
         }
-        return characterPlayer.getUpbringing().getPerksOptions();
+        final List<CharacterPerkOptions> perks = characterPlayer.getUpbringing().getPerksOptions();
+        if (characterPlayer.isFavoredCalling()) {
+            for (PerkOptions perkOptions : perks) {
+                //Set privilege calling perks. But already taken must be filtered.
+                perkOptions.getOptions().addAll(characterPlayer.getCalling().getPerksOptions().get(0).getOptions().stream()
+                        .filter(p -> p.getElement() != null && p.getElement().getType() == PerkType.PRIVILEGE
+                        ).collect(Collectors.toList()));
+            }
+        }
+        return perks;
     }
 
-    public List<CharacterPerkOptions> getNotRepeatedUpbringingPerksOptions() {
+    public List<CharacterPerkOptions> getNotSelectedPerkOptions() {
         if (characterPlayer.getUpbringing() == null) {
             return new ArrayList<>();
         }
-        return characterPlayer.getUpbringing().getNotSelectedPerksOptions(Phase.LEVEL);
+        final List<CharacterPerkOptions> perks = characterPlayer.getUpbringing().getNotSelectedPerksOptions(Phase.LEVEL);
+        if (characterPlayer.isFavoredCalling()) {
+            final List<PerkOption> favouredOptions = getFavouredPerksOptions();
+            for (PerkOptions perkOptions : perks) {
+                //Set privilege calling perks. But already taken must be filtered.
+                perkOptions.getOptions().addAll(favouredOptions);
+            }
+        }
+        return perks;
+    }
+
+    private List<PerkOption> getFavouredPerksOptions() {
+        if (characterPlayer.isFavoredCalling()) {
+            //Get privilege perks.
+            final List<PerkOption> options = characterPlayer.getCalling().getNotSelectedPerksOptions(Phase.LEVEL).get(0).getOptions().stream()
+                    .filter(p -> p.getElement() != null && p.getElement().getType() == PerkType.PRIVILEGE
+                    ).collect(Collectors.toList());
+        }
+        return new ArrayList<>();
     }
 
     public List<CharacterPerkOptions> getCallingPerksOptions() {

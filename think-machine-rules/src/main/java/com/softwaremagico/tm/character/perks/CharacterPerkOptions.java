@@ -27,27 +27,26 @@ package com.softwaremagico.tm.character.perks;
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.skills.Specialization;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class CharacterPerkOptions extends PerkOptions {
-    private final List<PerkOption> finalPerks;
+    private final LinkedHashSet<PerkOption> finalPerks;
 
     public CharacterPerkOptions(PerkOptions perkOptions) {
         setTotalOptions(perkOptions.getTotalOptions());
         setIncludeOpenPerks(perkOptions.isIncludeOpenPerks());
         if (perkOptions.getSourceOptions() != null) {
-            setOptions(new ArrayList<>(perkOptions.getSourceOptions()));
+            setOptions(new LinkedHashSet<>(perkOptions.getSourceOptions()));
         }
-        finalPerks = new ArrayList<>();
+        finalPerks = new LinkedHashSet<>();
         super.getOptions().forEach(option -> finalPerks.addAll(option.expandGroup()));
     }
 
     @Override
-    public List<PerkOption> getOptions() {
+    public LinkedHashSet<PerkOption> getOptions() {
         return finalPerks;
     }
 

@@ -189,9 +189,10 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
         return getCharacterDefinitionStep().getCharacterAvailablePerksOptions(new ArrayList<>(getClassPerksOptions()));
     }
 
+    @Override
     @JsonIgnore
-    public List<CharacterPerkOptions> getNotRepeatedClassPerksOptions() {
-        return ((Level) getCharacterDefinitionStep()).getNotRepeatedUpbringingPerksOptions();
+    public List<CharacterPerkOptions> getNotSelectedPerksOptions() {
+        return ((Level) getCharacterDefinitionStep()).getNotSelectedPerkOptions();
     }
 
     @JsonIgnore
@@ -210,7 +211,7 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
     }
 
     protected void validateClassPerks() {
-        validatePerks(selectedClassPerksOptions, getNotRepeatedClassPerksOptions(), getFinalClassPerksOptions());
+        validatePerks(selectedClassPerksOptions, getNotSelectedPerksOptions(), getFinalClassPerksOptions());
     }
 
     protected void validateCallingPerks() {
@@ -218,6 +219,7 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
     }
 
     @Override
+    @JsonIgnore
     public List<CharacterSelectedElement> getSelectedPerksOptions() {
         throw new UnsupportedOperationException("Use class or calling perk options.");
     }

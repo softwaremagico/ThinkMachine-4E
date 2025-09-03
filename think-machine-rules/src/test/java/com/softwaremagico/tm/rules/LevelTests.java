@@ -27,11 +27,15 @@ package com.softwaremagico.tm.rules;
 import com.softwaremagico.tm.character.CharacterExamples;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Selection;
+import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOption;
 import com.softwaremagico.tm.character.level.LevelSelector;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.perks.PerkOption;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Test(groups = "level")
 public class LevelTests {
@@ -49,9 +53,11 @@ public class LevelTests {
         Assert.assertEquals(level.getLevelDefinition().getTotalCallingPerksOptions(), 1);
 
         for (int i = 0; i < level.getCharacteristicOptions().size(); i++) {
-            for (int j = 0; j < level.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
+            final List<CharacteristicBonusOption> options = new ArrayList<>(level.getCharacteristicOptions().get(i).getOptions());
+            for (int j = level.getSelectedCharacteristicOptions().get(i).getSelections().size();
+                 j < level.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
                 level.getSelectedCharacteristicOptions().get(i).getSelections()
-                        .add(new Selection(level.getCharacteristicOptions().get(i).getOptions().get(j).getId()));
+                        .add(new Selection(options.get(j).getId()));
             }
         }
     }
@@ -72,9 +78,11 @@ public class LevelTests {
         Assert.assertEquals(level.getLevelDefinition().getTotalCallingPerksOptions(), 1);
 
         for (int i = 0; i < level.getCharacteristicOptions().size(); i++) {
-            for (int j = 0; j < level.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
+            final List<CharacteristicBonusOption> options = new ArrayList<>(level.getCharacteristicOptions().get(i).getOptions());
+            for (int j = level.getSelectedCharacteristicOptions().get(i).getSelections().size();
+                 j < level.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
                 level.getSelectedCharacteristicOptions().get(i).getSelections()
-                        .add(new Selection(level.getCharacteristicOptions().get(i).getOptions().get(j).getId()));
+                        .add(new Selection(options.get(j).getId()));
             }
         }
     }
@@ -89,7 +97,7 @@ public class LevelTests {
         final LevelSelector level = characterPlayer.addLevel();
 
         final PerkOption militaryRank = new PerkOption(PerkFactory.getInstance().getElement("militaryRank1"));
-        Assert.assertTrue(level.getNotRepeatedClassPerksOptions().get(0).getOptions().contains(militaryRank));
+        Assert.assertTrue(level.getNotSelectedPerksOptions().get(0).getOptions().contains(militaryRank));
 
     }
 
@@ -104,6 +112,6 @@ public class LevelTests {
         final LevelSelector level = characterPlayer.addLevel();
 
         final PerkOption militaryRank = new PerkOption(PerkFactory.getInstance().getElement("militaryRank1"));
-        Assert.assertFalse(level.getNotRepeatedClassPerksOptions().get(0).getOptions().contains(militaryRank));
+        Assert.assertFalse(level.getNotSelectedPerksOptions().get(0).getOptions().contains(militaryRank));
     }
 }

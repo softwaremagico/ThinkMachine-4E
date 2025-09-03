@@ -693,7 +693,7 @@ public class CharacterPlayer {
      * @param phase until which phase is checked.
      * @return true if at least one option can be selected.
      */
-    public boolean hasOption(PerkOption perk, Phase phase) {
+    public boolean hasOption(PerkOption perk, Phase phase, Integer level) {
         final ArrayList<Selection> possibleSelections = new ArrayList<>();
         if (perk.getSpecializations() == null || perk.getSpecializations().isEmpty()) {
             possibleSelections.add(new Selection(perk.getId()));
@@ -717,8 +717,8 @@ public class CharacterPlayer {
             }
             //Levels always check other levels.
             if (Phase.LEVEL.isCheckedPhase(phase) || phase == Phase.LEVEL) {
-                for (LevelSelector levelSelector : getLevels()) {
-                    possibleSelections.removeAll(levelSelector.getSelectedPerks());
+                for (int i = 0; i < getLevels().size() && (level != null && i < level); i++) {
+                    possibleSelections.removeAll(getLevels().get(i).getSelectedPerks());
                 }
             }
         }
@@ -734,20 +734,20 @@ public class CharacterPlayer {
 
     public boolean hasSelection(Selection perkSelection, Phase phase, Integer level) {
         final List<CharacterDefinitionStepSelection> stepsToCheck = new ArrayList<>();
-        if (specie != null && Phase.SPECIE.isCheckedPhase(phase)) {
+        if (specie != null && phase.checkedUntilPhase(Phase.SPECIE)) {
             stepsToCheck.add(specie);
         }
-        if (upbringing != null && Phase.UPBRINGING.isCheckedPhase(phase)) {
+        if (upbringing != null && phase.checkedUntilPhase(Phase.UPBRINGING)) {
             stepsToCheck.add(upbringing);
         }
-        if (faction != null && Phase.FACTION.isCheckedPhase(phase)) {
+        if (faction != null && phase.checkedUntilPhase(Phase.FACTION)) {
             stepsToCheck.add(faction);
         }
-        if (calling != null && Phase.CALLING.isCheckedPhase(phase)) {
+        if (calling != null && phase.checkedUntilPhase(Phase.CALLING)) {
             stepsToCheck.add(calling);
         }
         //Levels always check previous levels.
-        if (Phase.LEVEL.isCheckedPhase(phase) || phase == Phase.LEVEL) {
+        if (phase.checkedUntilPhase(Phase.LEVEL) || phase == Phase.LEVEL) {
             for (int i = 0; i < getLevels().size() && (level != null && i < level); i++) {
                 stepsToCheck.add(getLevels().get(i));
             }

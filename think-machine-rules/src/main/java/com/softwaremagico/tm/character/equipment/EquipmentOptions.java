@@ -42,6 +42,7 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -50,16 +51,16 @@ import java.util.stream.Collectors;
 public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption> {
 
     @JsonIgnore
-    private List<EquipmentOption> finalItems;
+    private LinkedHashSet<EquipmentOption> finalItems;
 
     @JsonProperty("requiredProperty")
     private Set<String> requiredProperty;
 
 
     @Override
-    public List<EquipmentOption> getOptions() {
+    public LinkedHashSet<EquipmentOption> getOptions() {
         if (finalItems == null) {
-            finalItems = new ArrayList<>();
+            finalItems = new LinkedHashSet<>();
             if (super.getOptions() != null && !super.getOptions().isEmpty()) {
                 super.getOptions().forEach(item -> {
                     final List<EquipmentOption> optionItems = new ArrayList<>();
@@ -123,7 +124,7 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
                 });
             } else {
                 //Can be any
-                finalItems = new ArrayList<>();
+                finalItems = new LinkedHashSet<>();
                 finalItems.addAll(ItemFactory.getInstance().getElements().stream()
                         .map(EquipmentOption::new).collect(Collectors.toList()));
                 finalItems.addAll(WeaponFactory.getInstance().getElements().stream()
@@ -140,7 +141,7 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
             //Filter by required properties.
             if (getRequiredProperty() != null && !getRequiredProperty().isEmpty()) {
                 finalItems = finalItems.stream().filter(item2 -> item2.getExtras().containsAll(getRequiredProperty()))
-                        .collect(Collectors.toList());
+                        .collect(Collectors.toCollection(LinkedHashSet::new));
             }
         }
         return finalItems;
@@ -148,7 +149,7 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
 
     public Set<EquipmentOption> getOptions(Collection<Selection> items) {
         return getOptions().stream().filter(e -> items.stream().map(Selection::getId).collect(Collectors.toList())
-                .contains(e.getId())).collect(Collectors.toSet());
+                .contains(e.getId())).collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
     public Set<String> getRequiredProperty() {

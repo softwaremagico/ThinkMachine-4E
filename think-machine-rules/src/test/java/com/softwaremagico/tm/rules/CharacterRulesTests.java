@@ -32,6 +32,7 @@ import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
 import com.softwaremagico.tm.character.capabilities.CapabilityOption;
 import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
+import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOption;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
@@ -50,6 +51,10 @@ import com.softwaremagico.tm.exceptions.InvalidUpbringingException;
 import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 @Test(groups = "characterRules")
 public class CharacterRulesTests {
@@ -118,18 +123,20 @@ public class CharacterRulesTests {
         characterPlayer.setUpbringing("noble");
         final Upbringing upbringing = UpbringingFactory.getInstance().getElement("noble");
         for (int i = 0; i < upbringing.getCharacteristicOptions().size(); i++) {
+            final List<CharacteristicBonusOption> options = new ArrayList<>(upbringing.getCharacteristicOptions().get(i).getOptions());
             for (int j = 0; j < upbringing.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
                 characterPlayer.getUpbringing().getSelectedCharacteristicOptions().get(i).getSelections()
-                        .add(new Selection(upbringing.getCharacteristicOptions().get(i).getOptions().get(j).getId()));
+                        .add(new Selection(options.get(j).getId()));
             }
         }
 
         characterPlayer.setFaction("alMalik");
         final Faction faction = FactionFactory.getInstance().getElement("alMalik");
         for (int i = 0; i < faction.getCharacteristicOptions().size(); i++) {
+            final List<CharacteristicBonusOption> options = new ArrayList<>(faction.getCharacteristicOptions().get(i).getOptions());
             for (int j = 0; j < faction.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getFaction().getSelectedCharacteristicOptions().get(i).getSelections()
-                        .add(new Selection(faction.getCharacteristicOptions().get(i).getOptions().get(j).getId()));
+                characterPlayer.getUpbringing().getSelectedCharacteristicOptions().get(i).getSelections()
+                        .add(new Selection(options.get(j).getId()));
             }
         }
 
@@ -137,9 +144,10 @@ public class CharacterRulesTests {
         characterPlayer.setCalling("commander");
         final Calling calling = CallingFactory.getInstance().getElement("commander");
         for (int i = 0; i < calling.getCharacteristicOptions().size(); i++) {
+            final List<CharacteristicBonusOption> options = new ArrayList<>(calling.getCharacteristicOptions().get(i).getOptions());
             for (int j = 0; j < calling.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                characterPlayer.getCalling().getSelectedCharacteristicOptions().get(i).getSelections()
-                        .add(new Selection(calling.getCharacteristicOptions().get(i).getOptions().get(j).getId()));
+                characterPlayer.getUpbringing().getSelectedCharacteristicOptions().get(i).getSelections()
+                        .add(new Selection(options.get(j).getId()));
             }
         }
         characterPlayer.getCharacteristicValue(CharacteristicName.PRESENCE.getId());
@@ -166,7 +174,7 @@ public class CharacterRulesTests {
         Assert.assertEquals(faction.getMaterialAwards().size(), 1);
         Assert.assertEquals(faction.getMaterialAwards().get(0).getTotalOptions(), 1);
         Assert.assertEquals(faction.getMaterialAwards().get(0).getOptions().size(), 1);
-        Assert.assertEquals(faction.getMaterialAwards().get(0).getOptions().get(0).getId(), "estheticOrb");
+        Assert.assertEquals(faction.getMaterialAwards().get(0).getOptions().iterator().next().getId(), "estheticOrb");
     }
 
     @Test
@@ -175,7 +183,7 @@ public class CharacterRulesTests {
         Assert.assertEquals(faction.getMaterialAwards().size(), 1);
         Assert.assertEquals(faction.getMaterialAwards().get(0).getTotalOptions(), 1);
         Assert.assertTrue(faction.getMaterialAwards().get(0).getOptions().size() > 8);
-        Assert.assertEquals(faction.getMaterialAwards().get(0).getOptions().get(0).getId(), "glankesh");
+        Assert.assertEquals(faction.getMaterialAwards().get(0).getOptions().iterator().next().getId(), "glankesh");
     }
 
     @Test
@@ -184,9 +192,8 @@ public class CharacterRulesTests {
         Assert.assertEquals(faction.getMaterialAwards().size(), 1);
         Assert.assertEquals(faction.getMaterialAwards().get(0).getTotalOptions(), 1);
         Assert.assertTrue(faction.getMaterialAwards().get(0).getOptions().size() > 25);
-        Assert.assertEquals(faction.getMaterialAwards().get(0).getOptions()
-                .get(faction.getMaterialAwards().get(0).getOptions().size() - 1)
-                .getType(), "handheldShield");
+        Assert.assertTrue(faction.getMaterialAwards().get(0).getOptions().stream()
+                .anyMatch(equipmentOption -> Objects.equals(equipmentOption.getType(), "handheldShield")));
     }
 
     @Test
@@ -198,14 +205,15 @@ public class CharacterRulesTests {
         characterPlayer.setCalling("spy");
 
         Assert.assertEquals(characterPlayer.getCalling().getNotSelectedPerksOptions().get(0).getOptions().size(),
-                45);
+                40);
     }
 
     @Test
     public void materialAwardsKnightlyOrder() {
         final Calling calling = CallingFactory.getInstance().getElement("knightlyOrder");
         Assert.assertEquals(calling.getMaterialAwards().size(), 1);
-        Assert.assertEquals(calling.getMaterialAwards().get(0).getOptions().size(), 10);
+        //4 weapons with group "militaryWeapon"
+        Assert.assertEquals(calling.getMaterialAwards().get(0).getOptions().size(), 4);
     }
 
     @Test
@@ -213,7 +221,8 @@ public class CharacterRulesTests {
         final Calling calling = CallingFactory.getInstance().getElement("questingKnight");
         Assert.assertEquals(calling.getCapabilityOptions().size(), 2);
         Assert.assertEquals(calling.getCapabilityOptions().get(1).getOptions().size(), 2);
-        Assert.assertEquals(calling.getCapabilityOptions().get(1).getOptions().get(0).getSelectedSpecialization().getId(), "barbarianWorlds");
+        Assert.assertEquals(calling.getCapabilityOptions().get(1).getOptions().iterator().next()
+                .getSelectedSpecialization().getId(), "barbarianWorlds");
     }
 
     @Test
@@ -235,7 +244,8 @@ public class CharacterRulesTests {
     public void callingInquisitorMaterialAwards() {
         final Calling calling = CallingFactory.getInstance().getElement("inquisitor");
         Assert.assertEquals(calling.getMaterialAwards().size(), 1);
-        Assert.assertTrue(calling.getMaterialAwards().get(0).getOptions().get(0).getExtras().contains("flameproof"));
+        Assert.assertTrue(calling.getMaterialAwards().get(0).getOptions().iterator().next()
+                .getExtras().contains("flameproof"));
     }
 
 
@@ -402,10 +412,11 @@ public class CharacterRulesTests {
 
         //Remove too many values for charm skill.
         for (int i = 0; i < characterPlayer.getCalling().getSkillOptions().size(); i++) {
+            final List<SkillBonusOption> skillOptions = new ArrayList<>(characterPlayer.getCalling().getSkillOptions().get(i).getOptions());
             for (int j = 0; j < characterPlayer.getCalling().getSkillOptions().get(i).getTotalOptions(); j++) {
                 characterPlayer.getCalling().getSelectedSkillOptions().get(i).getSelections().clear();
                 characterPlayer.getCalling().getSelectedSkillOptions().get(i).getSelections()
-                        .add(new Selection(characterPlayer.getCalling().getSkillOptions().get(i).getOptions()
+                        .add(new Selection(skillOptions
                                 .get(i % characterPlayer.getCalling().getSkillOptions().get(i).getOptions().size()).getId()));
             }
         }
