@@ -221,6 +221,9 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
     @Override
     @JsonIgnore
     public List<CharacterSelectedElement> getSelectedPerksOptions() {
-        throw new UnsupportedOperationException("Use class or calling perk options.");
+        final List<CharacterSelectedElement> selectedPerksOptions = new ArrayList<>();
+        selectedPerksOptions.addAll(getSelectedClassPerksOptions());
+        selectedPerksOptions.addAll(getSelectedCallingPerksOptions());
+        return selectedPerksOptions;
     }
 }

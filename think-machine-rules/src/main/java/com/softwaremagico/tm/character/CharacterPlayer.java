@@ -576,37 +576,38 @@ public class CharacterPlayer {
     }
 
     public List<SpecializedPerk> getPerks() {
+        return getPerks((Integer) null);
+    }
+
+    public List<SpecializedPerk> getPerks(Integer level) {
         final List<SpecializedPerk> perks = new ArrayList<>();
         if (upbringing != null) {
-            upbringing.getSelectedPerksOptions().forEach(perkOption ->
-                    perkOption.getSelections().forEach(selection -> {
-                        try {
-                            perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection), selection.getSpecialization()));
-                        } catch (Exception e) {
-                            MachineLog.warning(this.getClass(), e.getMessage());
-                        }
-                    }));
+            perks.addAll(getSelectedPerks(upbringing));
         }
         if (faction != null) {
-            faction.getSelectedPerksOptions().forEach(perkOption ->
-                    perkOption.getSelections().forEach(selection -> {
-                        try {
-                            perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection), selection.getSpecialization()));
-                        } catch (Exception e) {
-                            MachineLog.warning(this.getClass(), e.getMessage());
-                        }
-                    }));
+            perks.addAll(getSelectedPerks(faction));
         }
         if (calling != null) {
-            calling.getSelectedPerksOptions().forEach(perkOption ->
-                    perkOption.getSelections().forEach(selection -> {
-                        try {
-                            perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection), selection.getSpecialization()));
-                        } catch (Exception e) {
-                            MachineLog.warning(this.getClass(), e.getMessage());
-                        }
-                    }));
+            perks.addAll(getSelectedPerks(calling));
         }
+        for (LevelSelector levelSelector : getLevels()) {
+            if (level == null || level <= levelSelector.getLevel()) {
+                perks.addAll(getSelectedPerks(levelSelector));
+            }
+        }
+        return perks;
+    }
+
+    private List<SpecializedPerk> getSelectedPerks(CharacterDefinitionStepSelection step) {
+        final List<SpecializedPerk> perks = new ArrayList<>();
+        step.getSelectedPerksOptions().forEach(perkOption ->
+                perkOption.getSelections().forEach(selection -> {
+                    try {
+                        perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection), selection.getSpecialization()));
+                    } catch (Exception e) {
+                        MachineLog.warning(this.getClass(), e.getMessage());
+                    }
+                }));
         return perks;
     }
 

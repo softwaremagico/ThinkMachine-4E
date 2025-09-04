@@ -36,6 +36,7 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOption
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
+import com.softwaremagico.tm.character.level.Level;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.character.perks.PerkOptions;
@@ -440,5 +441,16 @@ public class CharacterRulesTests {
 
         //Still is valid as psychicPowers is repeatable.
         characterPlayer.validate();
+    }
+
+    public void getFavouredPerks() {
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("noble");
+        characterPlayer.setFaction("hawkwood");
+        characterPlayer.setCalling("commander");
+
+        final Level level = new Level(characterPlayer, 2);
+        level.getFavouredPerksOptions();
     }
 }

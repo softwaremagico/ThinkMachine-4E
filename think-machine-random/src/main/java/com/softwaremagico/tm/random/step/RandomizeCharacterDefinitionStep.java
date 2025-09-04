@@ -184,7 +184,7 @@ public class RandomizeCharacterDefinitionStep {
                                         perkOptions.get(i),
                                         characterDefinitionStepSelection.getPhase(),
                                         characterDefinitionStepSelection instanceof LevelSelector
-                                                ? ((LevelSelector) characterDefinitionStepSelection).getLevel() : null);
+                                                ? (characterDefinitionStepSelection).getLevel() : null);
                         characterDefinitionStepSelection.getSelectedPerksOptions().get(i).getSelections()
                                 .add(randomPerk.selectElementByWeight());
                     }
