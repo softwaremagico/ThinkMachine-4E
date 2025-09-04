@@ -29,10 +29,10 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOption
 import com.softwaremagico.tm.character.characteristics.CharacteristicReassign;
 import com.softwaremagico.tm.character.equipment.EquipmentOption;
 import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
+import com.softwaremagico.tm.character.equipment.item.ItemFactory;
 import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
 import com.softwaremagico.tm.character.level.LevelSelector;
-import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.character.skills.SkillBonusOption;
 
@@ -65,7 +65,7 @@ public final class CharacterExamples {
 
 
         //Remove a material Award. Dress Sword
-        characterPlayer.getCalling().getSelectedMaterialAwards().get(1).addRemoved(new Selection("dressSword"));
+        characterPlayer.getCalling().getSelectedMaterialAwards().get(1).addRemoved(new Selection(ItemFactory.getInstance().getElement("dressSword")));
 
 
         //Add a weapon
@@ -127,7 +127,7 @@ public final class CharacterExamples {
             for (int j = level.getSelectedCharacteristicOptions().get(i).getSelections().size();
                  j < level.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
                 level.getSelectedCharacteristicOptions().get(i).getSelections()
-                        .add(new Selection(options.get(j).getId()));
+                        .add(new Selection(options.get(j)));
             }
         }
         for (int i = 0; i < level.getNotRepeatedCapabilityOptions().size(); i++) {
@@ -135,7 +135,7 @@ public final class CharacterExamples {
             for (int j = level.getSelectedCapabilityOptions().get(i).getSelections().size();
                  j < level.getNotRepeatedCapabilityOptions().get(i).getTotalOptions(); j++) {
                 level.getSelectedCapabilityOptions().get(i).getSelections()
-                        .add(new Selection(options.get(j).getId(), options.get(j).getSelectedSpecialization()));
+                        .add(new Selection(options.get(j), options.get(j).getSelectedSpecialization()));
             }
         }
         for (int i = 0; i < level.getSkillOptions().size(); i++) {
@@ -143,28 +143,24 @@ public final class CharacterExamples {
             for (int j = level.getSelectedSkillOptions().get(i).getSelections().size();
                  j < level.getSkillOptions().get(i).getTotalOptions(); j++) {
                 level.getSelectedSkillOptions().get(i).getSelections()
-                        .add(new Selection(options.get(j).getId()));
+                        .add(new Selection(options.get(j)));
             }
         }
         for (int i = 0; i < level.getNotSelectedPerksOptions().size(); i++) {
-            final List<PerkOption> options = new ArrayList<>(level.getNotSelectedPerksOptions().get(i).getOptions());
+            final List<Selection> options = new ArrayList<>(level.getNotSelectedPerksOptions().get(i).getAvailableSelections());
             for (int j = level.getSelectedClassPerksOptions().get(i).getSelections().size();
                  j < level.getNotSelectedPerksOptions().get(i).getTotalOptions(); j++) {
                 level.getSelectedClassPerksOptions().get(i).getSelections()
-                        .add(getSelection(level, options.get(j)));
+                        .add(options.get(j));
             }
         }
 
         for (int i = 0; i < level.getNotRepeatedCallingPerksOptions().size(); i++) {
-            final List<PerkOption> options = new ArrayList<>(level.getNotRepeatedCallingPerksOptions().get(i).getOptions());
+            final List<Selection> options = new ArrayList<>(level.getNotRepeatedCallingPerksOptions().get(i).getAvailableSelections());
             for (int j = level.getSelectedCallingPerksOptions().get(i).getSelections().size();
                  j < level.getNotRepeatedCallingPerksOptions().get(i).getTotalOptions(); j++) {
                 level.getSelectedCallingPerksOptions().get(i).getSelections()
-                        .add(new Selection(options.get(j).getId(),
-                                options.get(j).getSpecializations() != null
-                                        && !options.get(j).getSpecializations().isEmpty()
-                                        ? options.get(j).getSpecializations().get(0)
-                                        : null));
+                        .add(options.get(j));
             }
         }
     }
@@ -175,7 +171,7 @@ public final class CharacterExamples {
             for (int j = step.getSelectedCharacteristicOptions().get(i).getSelections().size();
                  j < step.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
                 step.getSelectedCharacteristicOptions().get(i).getSelections()
-                        .add(new Selection(options.get(j).getId()));
+                        .add(new Selection(options.get(j)));
             }
         }
         for (int i = 0; i < step.getNotRepeatedCapabilityOptions().size(); i++) {
@@ -183,7 +179,7 @@ public final class CharacterExamples {
             for (int j = step.getSelectedCapabilityOptions().get(i).getSelections().size();
                  j < step.getNotRepeatedCapabilityOptions().get(i).getTotalOptions(); j++) {
                 step.getSelectedCapabilityOptions().get(i).getSelections()
-                        .add(new Selection(options.get(j).getId(),
+                        .add(new Selection(options.get(j),
                                 options.get(j).getSelectedSpecialization()));
             }
         }
@@ -192,15 +188,15 @@ public final class CharacterExamples {
             for (int j = step.getSelectedSkillOptions().get(i).getSelections().size();
                  j < step.getSkillOptions().get(i).getTotalOptions(); j++) {
                 step.getSelectedSkillOptions().get(i).getSelections()
-                        .add(new Selection(options.get(j).getId()));
+                        .add(new Selection(options.get(j)));
             }
         }
         for (int i = 0; i < step.getNotSelectedPerksOptions().size(); i++) {
-            final List<PerkOption> options = new ArrayList<>(step.getNotSelectedPerksOptions().get(i).getOptions());
+            final List<Selection> options = new ArrayList<>(step.getNotSelectedPerksOptions().get(i).getAvailableSelections());
             for (int j = step.getSelectedPerksOptions().get(i).getSelections().size();
                  j < step.getNotSelectedPerksOptions().get(i).getTotalOptions(); j++) {
                 step.getSelectedPerksOptions().get(i).getSelections()
-                        .add(getSelection(step, options.get(j)));
+                        .add(options.get(j));
             }
         }
         if (step.getMaterialAwardsOptions() != null) {
@@ -209,23 +205,9 @@ public final class CharacterExamples {
                 for (int j = step.getSelectedMaterialAwards().get(i).getSelections().size();
                      j < step.getMaterialAwardsOptions().get(i).getTotalOptions(); j++) {
                     step.getSelectedMaterialAwards().get(i).getSelections()
-                            .add(new Selection(options.get(j).getId()));
+                            .add(new Selection(options.get(j)));
                 }
             }
         }
-    }
-
-    private static Selection getSelection(CharacterDefinitionStepSelection step, PerkOption option) {
-        if (option.getSpecializations() == null || option.getSpecializations().isEmpty()) {
-            return new Selection(option.getId());
-        }
-        //Choose a different selection.
-        Selection selection = null;
-        int i = 0;
-        do {
-            selection = new Selection(option.getId(), option.getSpecializations().get(i));
-            i++;
-        } while (step.getCharacterPlayer().hasSelection(selection, step) && i < option.getSpecializations().size());
-        return selection;
     }
 }

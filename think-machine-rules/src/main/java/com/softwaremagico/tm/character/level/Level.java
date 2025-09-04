@@ -27,21 +27,20 @@ package com.softwaremagico.tm.character.level;
 import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.CharacterDefinitionStep;
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOptions;
 import com.softwaremagico.tm.character.equipment.EquipmentOptions;
 import com.softwaremagico.tm.character.perks.CharacterPerkOptions;
 import com.softwaremagico.tm.character.perks.PerkFactory;
-import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.character.perks.PerkOptions;
-import com.softwaremagico.tm.character.perks.PerkSource;
 import com.softwaremagico.tm.character.perks.PerkType;
 import com.softwaremagico.tm.character.perks.SpecializedPerk;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
 import com.softwaremagico.tm.character.values.Phase;
-import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -204,31 +203,30 @@ public class Level extends CharacterDefinitionStep {
         return perks;
     }
 
-    public List<CharacterPerkOptions> getNotSelectedPerkOptions() {
+    public List<CharacterPerkOptions> getAvailableSelections() {
         if (characterPlayer.getUpbringing() == null) {
             return new ArrayList<>();
         }
-        final List<CharacterPerkOptions> perks = characterPlayer.getUpbringing().getNotSelectedPerksOptions(Phase.LEVEL);
+        final List<CharacterPerkOptions> perks = characterPlayer.getUpbringing().getNotSelectedPerksOptions(Phase.LEVEL, index);
         if (characterPlayer.isFavoredCalling()) {
-            final Set<PerkOption> favouredOptions = getFavouredPerksOptions();
-            for (PerkOptions perkOptions : perks) {
+            final Set<Selection> favouredOptions = getFavouredPerksOptions();
+            for (CharacterPerkOptions characterPerkOptions : perks) {
                 //Set privilege calling perks. But already taken must be filtered.
-                perkOptions.getOptions().addAll(favouredOptions);
+                characterPerkOptions.getAvailableSelections().addAll(favouredOptions);
             }
         }
         return perks;
     }
 
-    public Set<PerkOption> getFavouredPerksOptions() {
+    public Set<Selection> getFavouredPerksOptions() {
         if (characterPlayer.isFavoredCalling()) {
             //Get privilege perks.
             final List<SpecializedPerk> selectedPerks = characterPlayer.getPerks(getIndex() - 1);
-            return PerkFactory.getInstance().getElements().stream().filter(perk ->
-                            perk.getSource() == PerkSource.CLASS && perk.getType() == PerkType.PRIVILEGE
-                                    && !perk.getRestrictions().isRestricted(characterPlayer)
-                    //TODO(): remove existing perks.
-//                            && (!perk.getSpecializations().isEmpty() || !selectedPerks.contains(new SpecializedPerk(perk))
-            ).map(PerkOption::new).collect(Collectors.toSet());
+            final Set<Selection> favouredPerks = PerkFactory.getInstance().getClassPrivilegeSelections().stream().filter(perk ->
+                    perk.getRestrictions().isRestricted(characterPlayer)
+            ).collect(Collectors.toSet());
+            selectedPerks.forEach(s -> favouredPerks.remove(new Selection(s)));
+            return favouredPerks;
         }
         return new HashSet<>();
     }
@@ -244,7 +242,7 @@ public class Level extends CharacterDefinitionStep {
         if (characterPlayer.getCalling() == null) {
             return new ArrayList<>();
         }
-        return characterPlayer.getCalling().getNotSelectedPerksOptions(Phase.LEVEL);
+        return characterPlayer.getCalling().getNotSelectedPerksOptions(Phase.LEVEL, index);
     }
 
     @Override
@@ -260,7 +258,7 @@ public class Level extends CharacterDefinitionStep {
 
     @Override
     public List<EquipmentOptions> getMaterialAwards() {
-        return null;
+        return Collections.emptyList();
     }
 
     @Override
@@ -289,10 +287,5 @@ public class Level extends CharacterDefinitionStep {
     @Override
     public int getTotalCapabilitiesOptions() {
         return getExtraCapabilities();
-    }
-
-    @Override
-    public void validate() throws InvalidXmlElementException {
-        super.validate();
     }
 }

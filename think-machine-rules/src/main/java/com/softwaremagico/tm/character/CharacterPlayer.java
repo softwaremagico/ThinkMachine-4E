@@ -697,10 +697,10 @@ public class CharacterPlayer {
     public boolean hasOption(PerkOption perk, Phase phase, Integer level) {
         final ArrayList<Selection> possibleSelections = new ArrayList<>();
         if (perk.getSpecializations() == null || perk.getSpecializations().isEmpty()) {
-            possibleSelections.add(new Selection(perk.getId()));
+            possibleSelections.add(new Selection(perk));
         } else {
             for (Specialization specialization : perk.getSpecializations()) {
-                possibleSelections.add(new Selection(perk.getId(), specialization));
+                possibleSelections.add(new Selection(perk, specialization));
             }
         }
         for (Selection selection : new ArrayList<>(possibleSelections)) {
@@ -735,20 +735,20 @@ public class CharacterPlayer {
 
     public boolean hasSelection(Selection perkSelection, Phase phase, Integer level) {
         final List<CharacterDefinitionStepSelection> stepsToCheck = new ArrayList<>();
-        if (specie != null && phase.checkedUntilPhase(Phase.SPECIE)) {
+        if (phase != null && specie != null && phase.checkedUntilPhase(Phase.SPECIE)) {
             stepsToCheck.add(specie);
         }
-        if (upbringing != null && phase.checkedUntilPhase(Phase.UPBRINGING)) {
+        if (phase != null && upbringing != null && phase.checkedUntilPhase(Phase.UPBRINGING)) {
             stepsToCheck.add(upbringing);
         }
-        if (faction != null && phase.checkedUntilPhase(Phase.FACTION)) {
+        if (phase != null && faction != null && phase.checkedUntilPhase(Phase.FACTION)) {
             stepsToCheck.add(faction);
         }
-        if (calling != null && phase.checkedUntilPhase(Phase.CALLING)) {
+        if (phase != null && calling != null && phase.checkedUntilPhase(Phase.CALLING)) {
             stepsToCheck.add(calling);
         }
         //Levels always check previous levels.
-        if (phase.checkedUntilPhase(Phase.LEVEL) || phase == Phase.LEVEL) {
+        if (phase != null && phase.checkedUntilPhase(Phase.LEVEL) || phase == Phase.LEVEL) {
             for (int i = 0; i < getLevels().size() && (level != null && i < level); i++) {
                 stepsToCheck.add(getLevels().get(i));
             }

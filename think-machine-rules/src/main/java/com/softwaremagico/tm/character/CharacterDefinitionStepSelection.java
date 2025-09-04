@@ -48,6 +48,7 @@ import com.softwaremagico.tm.utils.ComparableUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -147,14 +148,14 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                 final Element option = options.get(i).getOptions().iterator().next();
                 if (option instanceof CapabilityOption) {
                     if (((CapabilityOption) option).getSelectedSpecialization() != null) {
-                        selectedElements.get(i).setSelections(new ArrayList<>(List.of(new Selection(option.getId(),
+                        selectedElements.get(i).setSelections(new ArrayList<>(List.of(new Selection(option,
                                 ((CapabilityOption) option).getSelectedSpecialization()))));
                     }
                 } else if (option.getSpecializations() == null
                         || option.getSpecializations().isEmpty()) {
-                    selectedElements.get(i).setSelections(new ArrayList<>(List.of(new Selection(option.getId()))));
+                    selectedElements.get(i).setSelections(new ArrayList<>(List.of(new Selection(option, null))));
                 } else if (option.getSpecializations().size() == 1) {
-                    selectedElements.get(i).setSelections(new ArrayList<>(List.of(new Selection(option.getId(),
+                    selectedElements.get(i).setSelections(new ArrayList<>(List.of(new Selection(option,
                             option.getSpecializations().get(0)))));
                 }
             }
@@ -300,7 +301,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                         + getCapabilityOptions().get(i).getOptions().size() + "' are available.");
             }
             final List<Selection> availableOptions = getNotRepeatedCapabilityOptions(getPhase()).get(i).getOptions()
-                    .stream().map(co -> new Selection(co.getId(), co.getSelectedSpecialization())).collect(Collectors.toList());
+                    .stream().map(co -> new Selection(co, co.getSelectedSpecialization())).collect(Collectors.toList());
             for (Selection selection : selectedCapabilityOptions.get(i).getSelections()) {
                 //Compare specializations, or capabilities without specialization if not defined in the options.
                 if (!availableOptions.contains(selection) && !availableOptions.contains(selection.getMainSelection())) {
@@ -326,7 +327,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                         + "' are available.");
             }
             final List<Selection> availableOptions = getCharacteristicOptions().get(i).getOptions()
-                    .stream().map(co -> new Selection(co.getId())).collect(Collectors.toList());
+                    .stream().map(co -> new Selection(co)).collect(Collectors.toList());
             for (Selection selection : selectedCharacteristicOptions.get(i).getSelections()) {
                 if (!availableOptions.contains(selection)) {
                     throw new InvalidSelectedElementException("Selected characteristic '" + selection + "' does not exist.", selection);
@@ -360,7 +361,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                         + "' are available.");
             }
             final List<Selection> availableOptions = getSkillOptions().get(i).getOptions()
-                    .stream().map(so -> new Selection(so.getId())).collect(Collectors.toList());
+                    .stream().map(Selection::new).collect(Collectors.toList());
             for (Selection selection : selectedSkillOptions.get(i).getSelections()) {
                 if (!availableOptions.contains(selection)) {
                     throw new InvalidSelectedElementException("Selected skill '" + selection + "' does not exist.", selection);
@@ -456,7 +457,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                         .filter(o -> !getCharacterPlayer()
                                 .hasCapability(o.getId(), o.getSelectedSpecialization() != null ? o.getSelectedSpecialization().getId() : null,
                                         phase, getId())).collect(Collectors.toCollection(LinkedHashSet::new)));
-                newCapabilityOptions.getOptions().removeAll(oldOptions);
+                oldOptions.forEach(newCapabilityOptions.getOptions()::remove);
                 capabilityOptions.add(newCapabilityOptions);
             }
         }
@@ -476,10 +477,10 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     }
 
     public List<CharacterPerkOptions> getNotSelectedPerksOptions() {
-        return getNotSelectedPerksOptions(getPhase());
+        return getNotSelectedPerksOptions(getPhase(), getLevel());
     }
 
-    public List<CharacterPerkOptions> getNotSelectedPerksOptions(Phase phase) {
+    public List<CharacterPerkOptions> getNotSelectedPerksOptions(Phase phase, int level) {
         if (getCharacterDefinitionStep().getCharacterAvailablePerksOptions() == null) {
             return new ArrayList<>();
         }
@@ -487,22 +488,25 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         for (CharacterPerkOptions availablePerkOptions : getCharacterDefinitionStep().getCharacterAvailablePerksOptions()) {
             //Get not duplicated options that are selected on previous steps.
             // We need to filter again by restriction, as some perks are restricted by character's current level.
-            final List<PerkOption> originalOptions = availablePerkOptions.getOptions().stream()
+            final List<Selection> originalSelections = availablePerkOptions.getOptions().stream()
                     .filter(e -> !e.getRestrictions().isRestricted(characterPlayer))
+                    .map(PerkOption::getOptionsBySpecialization).flatMap(Collection::stream)
                     .collect(Collectors.toList());
-            final List<PerkOption> availableOptions = originalOptions.stream().filter(o ->
-                    !getCharacterPlayer().hasOption(o, phase, getLevel())
-                            || PerkFactory.getInstance().getElement(o).isRepeatable()).collect(Collectors.toList());
+            final Set<Selection> availableSelections = originalSelections.stream().filter(o ->
+                    !getCharacterPlayer().hasSelection(o, phase.getPreviousPhase(), level - 1)
+                            || PerkFactory.getInstance().getElement(o).isRepeatable()).collect(Collectors.toSet());
             //If no option is available. Must select between any not restricted to the character.
-            if (!availableOptions.isEmpty()) {
-                finalPerkOptions.add(new CharacterPerkOptions(new PerkOptions(availablePerkOptions, availableOptions)));
+            if (!availableSelections.isEmpty()) {
+                //Only are the filtered selections available.
+                finalPerkOptions.add(new CharacterPerkOptions(availablePerkOptions, availableSelections));
             } else {
+                //Create a new options with any available selection.
                 final CharacterPerkOptions newPerkOptions = new CharacterPerkOptions(
                         new PerkOptions(availablePerkOptions, PerkFactory.getInstance().getElements()
                                 .stream().filter(e -> !e.getRestrictions().isRestricted(characterPlayer))
                                 .map(PerkOption::new).collect(Collectors.toList())));
                 //Remove orinal options. As if no option is available means that all 'oldOptions' are already selected by the user.
-                newPerkOptions.getOptions().removeAll(originalOptions);
+                originalSelections.forEach(newPerkOptions.getAvailableSelections()::remove);
                 finalPerkOptions.add(newPerkOptions);
             }
         }

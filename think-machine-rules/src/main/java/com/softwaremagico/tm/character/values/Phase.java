@@ -50,4 +50,13 @@ public enum Phase {
         }
         return false;
     }
+
+    public Phase getPreviousPhase() {
+        for (Phase phase : values()) {
+            if (phase.index == index - 1) {
+                return phase;
+            }
+        }
+        return null;
+    }
 }

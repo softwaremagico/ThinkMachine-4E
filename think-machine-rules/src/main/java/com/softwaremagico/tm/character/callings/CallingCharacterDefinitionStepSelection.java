@@ -85,7 +85,8 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
     @Override
     public List<CharacterPerkOptions> getNotSelectedPerksOptions() {
         final Set<CharacterPerkOptions> callingPerks = new HashSet<>();
-        super.getNotSelectedPerksOptions().forEach(perkOptions -> callingPerks.add(new CharacterPerkOptions(perkOptions)));
+        super.getNotSelectedPerksOptions().forEach(perkOptions -> callingPerks.add(
+                new CharacterPerkOptions(perkOptions, perkOptions.getAvailableSelections())));
         addSpeciePerks(callingPerks);
         //List without duplicates.
         return new ArrayList<>(callingPerks);

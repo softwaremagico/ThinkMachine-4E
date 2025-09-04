@@ -8,7 +8,7 @@ Habilidades: Academia (6), Arte (4), Conducir (4), Cuerpo a Cuerpo (6), Disfraz 
 
 Competencias: Armas Militares, Armas de Balas, Cocina, Hablar (Urthés), Leer (Urthés), Monta, Pintura, Saber Enfermedades, Saber Planetario (Sutek), Saber de Facción (Decados), Usos de la Corte.
 
-Beneficios: Alentar, Esgrima (Duelo 1), Imperioso, Título Nobiliario (Caballero).
+Beneficios: Educación Alienígena (Ascorbita), Educación Alienígena (Vorox), Imperioso, Título Nobiliario (Caballero).
 
 Bendiciones:
 	- Receloso (Percepción +2 entre rivales políticos)

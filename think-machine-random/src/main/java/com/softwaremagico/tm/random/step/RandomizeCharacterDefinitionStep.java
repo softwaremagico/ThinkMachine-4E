@@ -90,12 +90,12 @@ public class RandomizeCharacterDefinitionStep {
                                 new RandomCharacteristicBonusOption(getCharacterPlayer(), getPreferences(),
                                         characteristicBonusOptions.get(i));
                         characterDefinitionStepSelection.getSelectedCharacteristicOptions().get(i).getSelections()
-                                .add(new Selection(randomCharacteristicBonusOption.selectElementByWeight().getId()));
+                                .add(new Selection(randomCharacteristicBonusOption.selectElementByWeight()));
                     }
                 } catch (InvalidXmlElementException e) {
                     //If no options are available. Force one characteristic and later, will be balanced.
                     characterDefinitionStepSelection.getSelectedCharacteristicOptions().get(i).getSelections()
-                            .add(new Selection(characteristicBonusOptions.get(i).getOptions().iterator().next().getId()));
+                            .add(new Selection(characteristicBonusOptions.get(i).getOptions().iterator().next()));
                 }
             }
         }
@@ -115,7 +115,7 @@ public class RandomizeCharacterDefinitionStep {
                     try {
                         final CapabilityOption selectedCapability = randomCapability.selectElementByWeight();
                         //Here already exists one capability by specialization.
-                        final Selection selection = new Selection(selectedCapability.getId(),
+                        final Selection selection = new Selection(selectedCapability,
                                 selectedCapability.getSelectedSpecialization() != null
                                         ? selectedCapability.getSelectedSpecialization() : null);
                         characterDefinitionStepSelection.getSelectedCapabilityOptions().get(i).getSelections()
@@ -161,7 +161,7 @@ public class RandomizeCharacterDefinitionStep {
                         } while (!skillFound && tries < TRIES);
 
                         characterDefinitionStepSelection.getSelectedSkillOptions().get(i).getSelections()
-                                .add(new Selection(selectedSkill.getId()));
+                                .add(new Selection(selectedSkill));
                     }
                 } catch (InvalidXmlElementException e) {
                     throw new InvalidXmlElementException("Error on skill options '"
@@ -208,7 +208,7 @@ public class RandomizeCharacterDefinitionStep {
                                 new RandomMaterialAward(getCharacterPlayer(), getPreferences(),
                                         materialAwardsOptions.get(i));
                         characterDefinitionStepSelection.getSelectedMaterialAwards().get(i).getSelections()
-                                .add(new Selection(randomMaterialAward.selectElementByWeight().getId()));
+                                .add(new Selection(randomMaterialAward.selectElementByWeight()));
                     }
                 } catch (InvalidXmlElementException e) {
                     throw new InvalidXmlElementException("Error on material awards '"

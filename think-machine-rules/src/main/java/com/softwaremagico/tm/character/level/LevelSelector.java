@@ -192,7 +192,7 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
     @Override
     @JsonIgnore
     public List<CharacterPerkOptions> getNotSelectedPerksOptions() {
-        return ((Level) getCharacterDefinitionStep()).getNotSelectedPerkOptions();
+        return ((Level) getCharacterDefinitionStep()).getAvailableSelections();
     }
 
     @JsonIgnore

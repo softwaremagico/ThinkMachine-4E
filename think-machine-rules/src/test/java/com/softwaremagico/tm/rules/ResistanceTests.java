@@ -26,6 +26,7 @@ package com.softwaremagico.tm.rules;
 
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Selection;
+import com.softwaremagico.tm.character.perks.PerkFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -40,7 +41,8 @@ public class ResistanceTests {
         characterPlayer.setFaction("musters");
         characterPlayer.setCalling("dervish");
         Assert.assertEquals(characterPlayer.getMindResistance(), 2);
-        characterPlayer.getCalling().getSelectedPerksOptions().get(0).getSelections().add(new Selection("dervishRankRecruit"));
+        characterPlayer.getCalling().getSelectedPerksOptions().get(0).getSelections()
+                .add(new Selection(PerkFactory.getInstance().getElement("dervishRankRecruit")));
         Assert.assertEquals(characterPlayer.getMindResistance(), 3);
     }
 
@@ -54,7 +56,8 @@ public class ResistanceTests {
         characterPlayer.setCalling("dervish");
         //2 as knight
         Assert.assertEquals(characterPlayer.getMindResistance(), 2);
-        characterPlayer.getCalling().getSelectedPerksOptions().get(0).getSelections().add(new Selection("dervishRankRecruit"));
+        characterPlayer.getCalling().getSelectedPerksOptions().get(0).getSelections()
+                .add(new Selection(PerkFactory.getInstance().getElement("dervishRankRecruit")));
         //2 as knight + 1 as dervish recruit
         Assert.assertEquals(characterPlayer.getMindResistance(), 3);
     }

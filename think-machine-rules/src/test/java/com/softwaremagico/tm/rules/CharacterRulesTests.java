@@ -127,7 +127,7 @@ public class CharacterRulesTests {
             final List<CharacteristicBonusOption> options = new ArrayList<>(upbringing.getCharacteristicOptions().get(i).getOptions());
             for (int j = 0; j < upbringing.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
                 characterPlayer.getUpbringing().getSelectedCharacteristicOptions().get(i).getSelections()
-                        .add(new Selection(options.get(j).getId()));
+                        .add(new Selection(options.get(j)));
             }
         }
 
@@ -137,7 +137,7 @@ public class CharacterRulesTests {
             final List<CharacteristicBonusOption> options = new ArrayList<>(faction.getCharacteristicOptions().get(i).getOptions());
             for (int j = 0; j < faction.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
                 characterPlayer.getUpbringing().getSelectedCharacteristicOptions().get(i).getSelections()
-                        .add(new Selection(options.get(j).getId()));
+                        .add(new Selection(options.get(j)));
             }
         }
 
@@ -148,7 +148,7 @@ public class CharacterRulesTests {
             final List<CharacteristicBonusOption> options = new ArrayList<>(calling.getCharacteristicOptions().get(i).getOptions());
             for (int j = 0; j < calling.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
                 characterPlayer.getUpbringing().getSelectedCharacteristicOptions().get(i).getSelections()
-                        .add(new Selection(options.get(j).getId()));
+                        .add(new Selection(options.get(j)));
             }
         }
         characterPlayer.getCharacteristicValue(CharacteristicName.PRESENCE.getId());
@@ -407,7 +407,7 @@ public class CharacterRulesTests {
             for (int j = 0; j < characterPlayer.getCalling().getNotSelectedPerksOptions().get(i).getTotalOptions(); j++) {
                 characterPlayer.getCalling().getSelectedPerksOptions().get(i).getSelections().clear();
                 characterPlayer.getCalling().getSelectedPerksOptions().get(i).getSelections()
-                        .add(new Selection("psychicPowers"));
+                        .add(new Selection(PerkFactory.getInstance().getElement("psychicPowers")));
             }
         }
 
@@ -418,7 +418,7 @@ public class CharacterRulesTests {
                 characterPlayer.getCalling().getSelectedSkillOptions().get(i).getSelections().clear();
                 characterPlayer.getCalling().getSelectedSkillOptions().get(i).getSelections()
                         .add(new Selection(skillOptions
-                                .get(i % characterPlayer.getCalling().getSkillOptions().get(i).getOptions().size()).getId()));
+                                .get(i % characterPlayer.getCalling().getSkillOptions().get(i).getOptions().size())));
             }
         }
 
@@ -435,7 +435,7 @@ public class CharacterRulesTests {
             for (int j = characterPlayer.getLevels().peek().getSelectedCallingPerksOptions().get(i).getSelections().size();
                  j < characterPlayer.getLevels().peek().getNotRepeatedCallingPerksOptions().get(i).getTotalOptions(); j++) {
                 characterPlayer.getLevels().peek().getSelectedPerksOptions().get(i).getSelections()
-                        .add(new Selection("psychicPowers"));
+                        .add(new Selection(PerkFactory.getInstance().getElement("psychicPowers")));
             }
         }
 

@@ -63,6 +63,9 @@ public class PerkOptions extends OptionSelector<Perk, PerkOption> {
             for (PerkOption perkOption : super.getOptions()) {
                 finalPerks.addAll(perkOption.expandGroup());
             }
+            if (isIncludeOpenPerks()) {
+                PerkFactory.getInstance().getOpenElements().forEach(element -> finalPerks.add(new PerkOption(element)));
+            }
         }
         return new LinkedHashSet<>(finalPerks);
     }

@@ -57,7 +57,7 @@ public class LevelTests {
             for (int j = level.getSelectedCharacteristicOptions().get(i).getSelections().size();
                  j < level.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
                 level.getSelectedCharacteristicOptions().get(i).getSelections()
-                        .add(new Selection(options.get(j).getId()));
+                        .add(new Selection(options.get(j)));
             }
         }
     }
@@ -82,7 +82,7 @@ public class LevelTests {
             for (int j = level.getSelectedCharacteristicOptions().get(i).getSelections().size();
                  j < level.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
                 level.getSelectedCharacteristicOptions().get(i).getSelections()
-                        .add(new Selection(options.get(j).getId()));
+                        .add(new Selection(options.get(j)));
             }
         }
     }
