@@ -29,6 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.OptionSelector;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
+import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.List;
 
@@ -56,6 +57,14 @@ public class PerkOptions extends OptionSelector<Perk, PerkOption> {
         setOptions(this.finalPerks);
     }
 
+    public PerkOptions(Collection<PerkOption> sourcePerks) {
+        super();
+        setTotalOptions(1);
+        setOptions(new LinkedHashSet<>(sourcePerks));
+        setIncludeOpenPerks(false);
+        initFinalPerks();
+    }
+
     public LinkedHashSet<PerkOption> getFinalPerks() {
         return finalPerks;
     }
@@ -63,15 +72,19 @@ public class PerkOptions extends OptionSelector<Perk, PerkOption> {
     @Override
     public LinkedHashSet<PerkOption> getOptions() {
         if (finalPerks == null || finalPerks.isEmpty()) {
-            finalPerks = new LinkedHashSet<>();
-            for (PerkOption perkOption : super.getOptions()) {
-                finalPerks.addAll(perkOption.expandGroup());
-            }
-            if (isIncludeOpenPerks()) {
-                PerkFactory.getInstance().getOpenElements().forEach(element -> finalPerks.add(new PerkOption(element)));
-            }
+            initFinalPerks();
         }
         return new LinkedHashSet<>(finalPerks);
+    }
+
+    private void initFinalPerks() {
+        finalPerks = new LinkedHashSet<>();
+        for (PerkOption perkOption : super.getOptions()) {
+            finalPerks.addAll(perkOption.expandGroup());
+        }
+        if (isIncludeOpenPerks()) {
+            PerkFactory.getInstance().getOpenElements().forEach(element -> finalPerks.add(new PerkOption(element)));
+        }
     }
 
 

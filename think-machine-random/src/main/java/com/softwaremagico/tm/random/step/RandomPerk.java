@@ -61,7 +61,7 @@ public class RandomPerk extends RandomSelector<Selection> {
     @Override
     protected int getWeight(Selection element) throws InvalidRandomElementSelectedException {
         // Already has a perk.
-        if (getCharacterPlayer().hasSelection(element, phase, level)) {
+        if (getCharacterPlayer().hasSelection(element, phase, null)) {
             return 0;
         }
         //Reduce the elements with multiple specializations.

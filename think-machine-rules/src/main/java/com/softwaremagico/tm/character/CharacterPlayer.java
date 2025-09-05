@@ -749,7 +749,7 @@ public class CharacterPlayer {
         }
         //Levels always check previous levels.
         if (phase != null && phase.checkedUntilPhase(Phase.LEVEL) || phase == Phase.LEVEL) {
-            for (int i = 0; i < getLevels().size() && (level != null && i < level); i++) {
+            for (int i = 0; i < getLevels().size() && (level == null || i < level - 1); i++) {
                 stepsToCheck.add(getLevels().get(i));
             }
         }

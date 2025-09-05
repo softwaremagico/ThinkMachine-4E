@@ -122,7 +122,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         selectDefaultOptions();
     }
 
-    private void resetDefaultOptions() {
+    protected void resetDefaultOptions() {
         resetDefaultOptions(new ArrayList<>(getNotRepeatedCapabilityOptions()), selectedCapabilityOptions);
         resetDefaultOptions(new ArrayList<>(getCharacteristicOptions()), selectedCharacteristicOptions);
         resetDefaultOptions(new ArrayList<>(getSkillOptions()), selectedSkillOptions);
@@ -402,6 +402,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                 final Set<Selection> availableOptions = availablePerkOptions.get(i).getAvailableSelections();
                 for (Selection selection : selectedPerksOptions.get(i).getSelections()) {
                     if (!availableOptions.contains(selection)) {
+                        getCharacterPlayer().hasSelection(selection, phase, getLevel());
                         throw new InvalidSelectedElementException("Selected perk '" + selection + "' does not exist. Available perks are: "
                                 + availableOptions, selection);
                     }
@@ -491,14 +492,9 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         final List<CharacterPerkOptions> finalPerkOptions = new ArrayList<>();
         for (CharacterPerkOptions availablePerkOptions : getCharacterDefinitionStep().getCharacterAvailablePerksOptions()) {
             //Get not duplicated options that are selected on previous steps.
+            final Set<Selection> originalSelections = getOriginalSelection(availablePerkOptions.getOptions());
             // We need to filter again by restriction, as some perks are restricted by character's current level.
-            final List<Selection> originalSelections = availablePerkOptions.getOptions().stream()
-                    .filter(e -> !e.getRestrictions().isRestricted(characterPlayer))
-                    .map(PerkOption::getOptionsBySpecialization).flatMap(Collection::stream)
-                    .collect(Collectors.toList());
-            final Set<Selection> availableSelections = originalSelections.stream().filter(o ->
-                    !getCharacterPlayer().hasSelection(o, phase.getPreviousPhase(), level - 1)
-                            || PerkFactory.getInstance().getElement(o).isRepeatable()).collect(Collectors.toSet());
+            final Set<Selection> availableSelections = getAvailableSelections(originalSelections, getLevel());
             //If no option is available. Must select between any not restricted to the character.
             if (!addStandardPerksIfEmpty || !availableSelections.isEmpty()) {
                 //Only are the filtered selections available.
@@ -515,6 +511,21 @@ public abstract class CharacterDefinitionStepSelection extends Element {
             }
         }
         return finalPerkOptions;
+    }
+
+    protected Set<Selection> getOriginalSelection(Collection<PerkOption> perkOptions) {
+        return perkOptions.stream()
+                .filter(e -> !e.getRestrictions().isRestricted(characterPlayer))
+                .map(PerkOption::getOptionsBySpecialization).flatMap(Collection::stream)
+                .collect(Collectors.toSet());
+    }
+
+    protected Set<Selection> getAvailableSelections(Collection<Selection> perkOptions, int level) {
+        //Get not duplicated options that are selected on previous steps.
+        return perkOptions.stream().filter(o ->
+                //Levels' previous phase can vary depending on the level index.
+                !getCharacterPlayer().hasSelection(o, level > 2 ? Phase.LEVEL : phase.getPreviousPhase(), level - 1)
+                        || PerkFactory.getInstance().getElement(o).isRepeatable()).collect(Collectors.toSet());
     }
 
     public List<EquipmentOptions> getMaterialAwardsOptions() {

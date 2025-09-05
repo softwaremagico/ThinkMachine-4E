@@ -29,8 +29,10 @@ import com.softwaremagico.tm.character.skills.Specialization;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.xml.XmlFactory;
 
+import java.util.EnumMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -38,6 +40,7 @@ public class PerkFactory extends XmlFactory<Perk> {
     private static final String XML_FILE = "perks.xml";
     private Set<Perk> classPrivilegePerks = null;
     private Set<Selection> classPrivilegeSelections = null;
+    private Map<PerkSource, Set<Perk>> perksBySource;
 
     private static final class PerkFactoryInit {
         public static final PerkFactory INSTANCE = new PerkFactory();
@@ -56,6 +59,21 @@ public class PerkFactory extends XmlFactory<Perk> {
     @Override
     public List<Perk> getElements() throws InvalidXmlElementException {
         return readXml(Perk.class);
+    }
+
+    private void classifyPerks() {
+        perksBySource = new EnumMap<>(PerkSource.class);
+        for (Perk perk : getElements()) {
+            perksBySource.computeIfAbsent(perk.getSource(), k -> new HashSet<>());
+            perksBySource.get(perk.getSource()).add(perk);
+        }
+    }
+
+    public Set<Perk> getBySource(PerkSource source) {
+        if (perksBySource == null) {
+            classifyPerks();
+        }
+        return perksBySource.get(source);
     }
 
     public Set<Perk> getClassPrivilegePerks() {

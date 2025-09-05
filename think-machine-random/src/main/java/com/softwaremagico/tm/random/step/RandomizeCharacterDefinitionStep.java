@@ -38,6 +38,7 @@ import com.softwaremagico.tm.character.skills.SkillBonusOptions;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidSkillException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.log.RandomSelectorLog;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
@@ -185,8 +186,11 @@ public class RandomizeCharacterDefinitionStep {
                                         characterDefinitionStepSelection.getPhase(),
                                         characterDefinitionStepSelection instanceof LevelSelector
                                                 ? (characterDefinitionStepSelection).getLevel() : null);
+                        final Selection selectedPerk = randomPerk.selectElementByWeight();
+                        RandomSelectorLog.debug(this.getClass(), "Selected perk '{}' on phase '{}' from options '{}'.",
+                                selectedPerk, characterDefinitionStepSelection.getPhase(), perkOptions.get(i).getAvailableSelections());
                         characterDefinitionStepSelection.getSelectedPerksOptions().get(i).getSelections()
-                                .add(randomPerk.selectElementByWeight());
+                                .add(selectedPerk);
                     }
                 } catch (InvalidXmlElementException e) {
                     throw new InvalidXmlElementException("Error on perks options '"

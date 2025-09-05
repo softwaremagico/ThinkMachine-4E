@@ -96,9 +96,9 @@ public class LevelTests {
 
         final LevelSelector level = characterPlayer.addLevel();
 
-        final PerkOption riches1 = new PerkOption(PerkFactory.getInstance().getElement("riches1"));
-        Assert.assertTrue(level.getNotSelectedPerksOptions(false).get(0).getAvailableSelections()
-                .contains(new Selection(riches1)));
+        final PerkOption royalties = new PerkOption(PerkFactory.getInstance().getElement("cash1000"));
+        Assert.assertTrue(level.getClassPerksOptions().get(0).getAvailableSelections()
+                .contains(new Selection(royalties)));
 
     }
 
@@ -112,8 +112,8 @@ public class LevelTests {
 
         final LevelSelector level = characterPlayer.addLevel();
 
-        final PerkOption riches1 = new PerkOption(PerkFactory.getInstance().getElement("riches1"));
-        Assert.assertFalse(level.getNotSelectedPerksOptions(false).get(0).getAvailableSelections()
-                .contains(new Selection(riches1)));
+        final PerkOption royalties = new PerkOption(PerkFactory.getInstance().getElement("cash1000"));
+        Assert.assertFalse(level.getClassPerksOptions().get(0).getAvailableSelections()
+                .contains(new Selection(royalties)));
     }
 }

@@ -26,9 +26,9 @@ package com.softwaremagico.tm.character.perks;
 
 import com.softwaremagico.tm.character.Selection;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -48,17 +48,29 @@ public class CharacterPerkOptions extends PerkOptions {
         updateFinalPerks();
     }
 
+    public CharacterPerkOptions(CharacterPerkOptions perkOptions, Set<Selection> availableSelections) {
+        this(perkOptions);
+        setAvailableSelections(availableSelections);
+    }
+
+    public CharacterPerkOptions(Collection<PerkOption> perkOptionList) {
+        setTotalOptions(1);
+        setIncludeOpenPerks(false);
+        setOptions(new LinkedHashSet<>(perkOptionList));
+        updateFinalPerks();
+    }
+
+    public CharacterPerkOptions(Collection<PerkOption> perkOptionList, Set<Selection> availableSelections) {
+        this(perkOptionList);
+        setAvailableSelections(availableSelections);
+    }
+
     private void updateFinalPerks() {
         finalPerks = new LinkedHashSet<>();
         if (getFinalPerks() != null) {
             getFinalPerks().clear();
         }
         super.getOptions().forEach(option -> finalPerks.addAll(option.expandGroup()));
-    }
-
-    public CharacterPerkOptions(CharacterPerkOptions perkOptions, Set<Selection> availableSelections) {
-        this(perkOptions);
-        setAvailableSelections(availableSelections);
     }
 
     @Override
