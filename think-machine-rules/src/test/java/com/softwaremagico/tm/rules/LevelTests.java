@@ -88,22 +88,23 @@ public class LevelTests {
     }
 
     @Test
-    public void favoredCallingsInLevel() {
-        final CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleHawkwoodCommander();
+    public void favoredCallingsInLevel_hasRiches() {
+        final CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleDecadosSybarite();
 
         characterPlayer.addLevel();
         CharacterExamples.populateLevel(characterPlayer);
 
         final LevelSelector level = characterPlayer.addLevel();
 
-        final PerkOption militaryRank = new PerkOption(PerkFactory.getInstance().getElement("militaryRank1"));
-        Assert.assertTrue(level.getNotSelectedPerksOptions().get(0).getOptions().contains(militaryRank));
+        final PerkOption riches1 = new PerkOption(PerkFactory.getInstance().getElement("riches1"));
+        Assert.assertTrue(level.getNotSelectedPerksOptions(false).get(0).getAvailableSelections()
+                .contains(new Selection(riches1)));
 
     }
 
 
     @Test
-    public void notFavoredCallingsInLevel() {
+    public void notFavoredCallingsInLevel_hasNotRiches() {
         final CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleDecadosCommander();
 
         characterPlayer.addLevel();
@@ -111,7 +112,8 @@ public class LevelTests {
 
         final LevelSelector level = characterPlayer.addLevel();
 
-        final PerkOption militaryRank = new PerkOption(PerkFactory.getInstance().getElement("militaryRank1"));
-        Assert.assertFalse(level.getNotSelectedPerksOptions().get(0).getOptions().contains(militaryRank));
+        final PerkOption riches1 = new PerkOption(PerkFactory.getInstance().getElement("riches1"));
+        Assert.assertFalse(level.getNotSelectedPerksOptions(false).get(0).getAvailableSelections()
+                .contains(new Selection(riches1)));
     }
 }

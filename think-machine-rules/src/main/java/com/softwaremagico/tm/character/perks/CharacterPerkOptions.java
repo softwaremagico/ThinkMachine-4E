@@ -28,6 +28,7 @@ import com.softwaremagico.tm.character.Selection;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -35,7 +36,7 @@ import java.util.Set;
  * Selections contains the current possible selections for the character.
  */
 public class CharacterPerkOptions extends PerkOptions {
-    private final LinkedHashSet<PerkOption> finalPerks;
+    private LinkedHashSet<PerkOption> finalPerks;
     private Set<Selection> availableSelections;
 
     public CharacterPerkOptions(PerkOptions perkOptions) {
@@ -44,7 +45,14 @@ public class CharacterPerkOptions extends PerkOptions {
         if (perkOptions.getSourceOptions() != null) {
             setOptions(new LinkedHashSet<>(perkOptions.getSourceOptions()));
         }
+        updateFinalPerks();
+    }
+
+    private void updateFinalPerks() {
         finalPerks = new LinkedHashSet<>();
+        if (getFinalPerks() != null) {
+            getFinalPerks().clear();
+        }
         super.getOptions().forEach(option -> finalPerks.addAll(option.expandGroup()));
     }
 
@@ -68,5 +76,20 @@ public class CharacterPerkOptions extends PerkOptions {
 
     public void setAvailableSelections(Set<Selection> availableSelections) {
         this.availableSelections = availableSelections;
+    }
+
+    public static CharacterPerkOptions combineCharacterPerks(List<CharacterPerkOptions> characterPerkOptionsList) {
+        if (characterPerkOptionsList == null || characterPerkOptionsList.isEmpty()) {
+            return null;
+        }
+        final CharacterPerkOptions characterPerkOptions = new CharacterPerkOptions(characterPerkOptionsList.get(0));
+        for (int i = 1; i < characterPerkOptionsList.size(); i++) {
+            characterPerkOptions.getSourceOptions().addAll(characterPerkOptionsList.get(i).getSourceOptions());
+            if (characterPerkOptionsList.get(i).isIncludeOpenPerks()) {
+                characterPerkOptions.setIncludeOpenPerks(true);
+            }
+        }
+        characterPerkOptions.updateFinalPerks();
+        return characterPerkOptions;
     }
 }

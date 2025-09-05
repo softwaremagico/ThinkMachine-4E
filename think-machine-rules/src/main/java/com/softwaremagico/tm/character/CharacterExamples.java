@@ -98,6 +98,28 @@ public final class CharacterExamples {
         return characterPlayer;
     }
 
+    public static CharacterPlayer generateHumanNobleDecadosSybarite() {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+
+        characterPlayer.getInfo().addName(new Name("Oliver", Gender.MALE, null, null));
+        characterPlayer.getInfo().setSurname(new Surname("Queen", null, null));
+        characterPlayer.getInfo().setPlayer("Player 1");
+        characterPlayer.getInfo().setGender(Gender.MALE);
+        characterPlayer.getInfo().setAge(AGE);
+        characterPlayer.getInfo().setPlanet(PlanetFactory.getInstance().getElement("sutek"));
+
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("noble");
+        characterPlayer.setFaction("decados");
+        characterPlayer.setCalling("sybarite");
+
+        populateCharacter(characterPlayer);
+
+        characterPlayer.getCharacteristicReassigns().add(new CharacteristicReassign("presence", "strength"));
+
+        return characterPlayer;
+    }
+
     public static void populateCharacter(CharacterPlayer characterPlayer) {
         characterPlayer.setPrimaryCharacteristic("dexterity");
         characterPlayer.setSecondaryCharacteristic("wits");
@@ -146,10 +168,10 @@ public final class CharacterExamples {
                         .add(new Selection(options.get(j)));
             }
         }
-        for (int i = 0; i < level.getNotSelectedPerksOptions().size(); i++) {
-            final List<Selection> options = new ArrayList<>(level.getNotSelectedPerksOptions().get(i).getAvailableSelections());
+        for (int i = 0; i < level.getNotSelectedPerksOptions(true).size(); i++) {
+            final List<Selection> options = new ArrayList<>(level.getNotSelectedPerksOptions(true).get(i).getAvailableSelections());
             for (int j = level.getSelectedClassPerksOptions().get(i).getSelections().size();
-                 j < level.getNotSelectedPerksOptions().get(i).getTotalOptions(); j++) {
+                 j < level.getNotSelectedPerksOptions(true).get(i).getTotalOptions(); j++) {
                 level.getSelectedClassPerksOptions().get(i).getSelections()
                         .add(options.get(j));
             }
@@ -191,10 +213,10 @@ public final class CharacterExamples {
                         .add(new Selection(options.get(j)));
             }
         }
-        for (int i = 0; i < step.getNotSelectedPerksOptions().size(); i++) {
-            final List<Selection> options = new ArrayList<>(step.getNotSelectedPerksOptions().get(i).getAvailableSelections());
+        for (int i = 0; i < step.getNotSelectedPerksOptions(true).size(); i++) {
+            final List<Selection> options = new ArrayList<>(step.getNotSelectedPerksOptions(true).get(i).getAvailableSelections());
             for (int j = step.getSelectedPerksOptions().get(i).getSelections().size();
-                 j < step.getNotSelectedPerksOptions().get(i).getTotalOptions(); j++) {
+                 j < step.getNotSelectedPerksOptions(true).get(i).getTotalOptions(); j++) {
                 step.getSelectedPerksOptions().get(i).getSelections()
                         .add(options.get(j));
             }

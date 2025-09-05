@@ -191,8 +191,8 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
 
     @Override
     @JsonIgnore
-    public List<CharacterPerkOptions> getNotSelectedPerksOptions() {
-        return ((Level) getCharacterDefinitionStep()).getAvailableSelections();
+    public List<CharacterPerkOptions> getNotSelectedPerksOptions(boolean addStandardPerksIfEmpty) {
+        return ((Level) getCharacterDefinitionStep()).getAvailableSelections(addStandardPerksIfEmpty);
     }
 
     @JsonIgnore
@@ -211,7 +211,7 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
     }
 
     protected void validateClassPerks() {
-        validatePerks(selectedClassPerksOptions, getNotSelectedPerksOptions(), getFinalClassPerksOptions());
+        validatePerks(selectedClassPerksOptions, getNotSelectedPerksOptions(true), getFinalClassPerksOptions());
     }
 
     protected void validateCallingPerks() {

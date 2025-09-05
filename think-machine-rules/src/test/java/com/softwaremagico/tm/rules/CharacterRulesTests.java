@@ -205,7 +205,7 @@ public class CharacterRulesTests {
         characterPlayer.setFaction("far");
         characterPlayer.setCalling("spy");
 
-        Assert.assertEquals(characterPlayer.getCalling().getNotSelectedPerksOptions().get(0).getOptions().size(),
+        Assert.assertEquals(characterPlayer.getCalling().getNotSelectedPerksOptions(true).get(0).getOptions().size(),
                 40);
     }
 
@@ -341,14 +341,14 @@ public class CharacterRulesTests {
 
         //Specie perks are added to callings.
         boolean exists = false;
-        for (PerkOptions perkOptions : characterPlayer.getUpbringing().getNotSelectedPerksOptions()) {
+        for (PerkOptions perkOptions : characterPlayer.getUpbringing().getNotSelectedPerksOptions(true)) {
             if (perkOptions.getOptions().contains(new PerkOption(PerkFactory.getInstance().getElement("childOfDhiyana")))) {
                 exists = true;
             }
         }
         Assert.assertFalse(exists);
 
-        for (PerkOptions perkOptions : characterPlayer.getCalling().getNotSelectedPerksOptions()) {
+        for (PerkOptions perkOptions : characterPlayer.getCalling().getNotSelectedPerksOptions(true)) {
             if (perkOptions.getOptions().contains(new PerkOption(PerkFactory.getInstance().getElement("childOfDhiyana")))) {
                 exists = true;
             }
@@ -363,7 +363,7 @@ public class CharacterRulesTests {
         Assert.assertTrue(PerkFactory.getInstance().getElement("childOfDhiyana").getRestrictions().isRestricted(characterPlayer));
 
         exists = false;
-        for (PerkOptions perkOptions : characterPlayer.getCalling().getNotSelectedPerksOptions()) {
+        for (PerkOptions perkOptions : characterPlayer.getCalling().getNotSelectedPerksOptions(true)) {
             if (perkOptions.getOptions().contains(new PerkOption(PerkFactory.getInstance().getElement("childOfDhiyana")))) {
                 exists = true;
             }
@@ -403,8 +403,8 @@ public class CharacterRulesTests {
         CharacterExamples.populateFaction(characterPlayer);
         CharacterExamples.populateCalling(characterPlayer);
 
-        for (int i = 0; i < characterPlayer.getCalling().getNotSelectedPerksOptions().size(); i++) {
-            for (int j = 0; j < characterPlayer.getCalling().getNotSelectedPerksOptions().get(i).getTotalOptions(); j++) {
+        for (int i = 0; i < characterPlayer.getCalling().getNotSelectedPerksOptions(true).size(); i++) {
+            for (int j = 0; j < characterPlayer.getCalling().getNotSelectedPerksOptions(true).get(i).getTotalOptions(); j++) {
                 characterPlayer.getCalling().getSelectedPerksOptions().get(i).getSelections().clear();
                 characterPlayer.getCalling().getSelectedPerksOptions().get(i).getSelections()
                         .add(new Selection(PerkFactory.getInstance().getElement("psychicPowers")));

@@ -71,7 +71,7 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
     }
 
     @Override
-    public List<CharacterPerkOptions> getPerksOptions() {
+    public List<CharacterPerkOptions> getCharacterAvailablePerksOptions() {
         final List<CharacterPerkOptions> callingPerks = getCharacterDefinitionStep().getCharacterAvailablePerksOptions();
         addSpeciePerks(callingPerks);
         return callingPerks;
@@ -83,9 +83,9 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
      * @return
      */
     @Override
-    public List<CharacterPerkOptions> getNotSelectedPerksOptions() {
+    public List<CharacterPerkOptions> getNotSelectedPerksOptions(boolean addStandardPerksIfEmpty) {
         final Set<CharacterPerkOptions> callingPerks = new HashSet<>();
-        super.getNotSelectedPerksOptions().forEach(perkOptions -> callingPerks.add(
+        super.getNotSelectedPerksOptions(addStandardPerksIfEmpty).forEach(perkOptions -> callingPerks.add(
                 new CharacterPerkOptions(perkOptions, perkOptions.getAvailableSelections())));
         addSpeciePerks(callingPerks);
         //List without duplicates.

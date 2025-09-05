@@ -102,9 +102,9 @@ public abstract class CharacterDefinitionStepSelection extends Element {
             selectedSkillOptions.set(i, new CharacterSelectedElement());
         }
 
-        if (getPerksOptions() != null) {
-            setSelectedPerksOptions(Arrays.asList(new CharacterSelectedElement[getPerksOptions().size()]));
-            for (int i = 0; i < getPerksOptions().size(); i++) {
+        if (getCharacterAvailablePerksOptions() != null) {
+            setSelectedPerksOptions(Arrays.asList(new CharacterSelectedElement[getCharacterAvailablePerksOptions().size()]));
+            for (int i = 0; i < getCharacterAvailablePerksOptions().size(); i++) {
                 selectedPerksOptions.set(i, new CharacterSelectedElement());
             }
         }
@@ -126,7 +126,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         resetDefaultOptions(new ArrayList<>(getNotRepeatedCapabilityOptions()), selectedCapabilityOptions);
         resetDefaultOptions(new ArrayList<>(getCharacteristicOptions()), selectedCharacteristicOptions);
         resetDefaultOptions(new ArrayList<>(getSkillOptions()), selectedSkillOptions);
-        final List<CharacterPerkOptions> perkOptions = getNotSelectedPerksOptions();
+        final List<CharacterPerkOptions> perkOptions = getNotSelectedPerksOptions(true);
         if (perkOptions != null) {
             resetDefaultOptions(new ArrayList<>(perkOptions), selectedPerksOptions);
         }
@@ -136,7 +136,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         setDefaultOptions(new ArrayList<>(getNotRepeatedCapabilityOptions()), selectedCapabilityOptions);
         setDefaultOptions(new ArrayList<>(getCharacteristicOptions()), selectedCharacteristicOptions);
         setDefaultOptions(new ArrayList<>(getSkillOptions()), selectedSkillOptions);
-        final List<CharacterPerkOptions> perkOptions = getNotSelectedPerksOptions();
+        final List<CharacterPerkOptions> perkOptions = getNotSelectedPerksOptions(true);
         if (perkOptions != null) {
             setDefaultOptions(new ArrayList<>(perkOptions), selectedPerksOptions);
         }
@@ -378,7 +378,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     }
 
     protected void validatePerks() {
-        validatePerks(selectedPerksOptions, getNotSelectedPerksOptions(), getPerksOptions());
+        validatePerks(selectedPerksOptions, getNotSelectedPerksOptions(true), getCharacterAvailablePerksOptions());
     }
 
 
@@ -468,19 +468,23 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         return getCharacterDefinitionStep().getCharacteristicOptions();
     }
 
+    public List<PerkOptions> getSourcePerks() {
+        return getCharacterDefinitionStep().getSourcePerks();
+    }
+
     public List<SkillBonusOptions> getSkillOptions() {
         return getCharacterDefinitionStep().getSkillOptions();
     }
 
-    public List<CharacterPerkOptions> getPerksOptions() {
+    public List<CharacterPerkOptions> getCharacterAvailablePerksOptions() {
         return getCharacterDefinitionStep().getCharacterAvailablePerksOptions();
     }
 
-    public List<CharacterPerkOptions> getNotSelectedPerksOptions() {
-        return getNotSelectedPerksOptions(getPhase(), getLevel());
+    public List<CharacterPerkOptions> getNotSelectedPerksOptions(boolean addStandardPerksIfEmpty) {
+        return getNotSelectedPerksOptions(getPhase(), getLevel(), addStandardPerksIfEmpty);
     }
 
-    public List<CharacterPerkOptions> getNotSelectedPerksOptions(Phase phase, int level) {
+    public List<CharacterPerkOptions> getNotSelectedPerksOptions(Phase phase, int level, boolean addStandardPerksIfEmpty) {
         if (getCharacterDefinitionStep().getCharacterAvailablePerksOptions() == null) {
             return new ArrayList<>();
         }
@@ -496,7 +500,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                     !getCharacterPlayer().hasSelection(o, phase.getPreviousPhase(), level - 1)
                             || PerkFactory.getInstance().getElement(o).isRepeatable()).collect(Collectors.toSet());
             //If no option is available. Must select between any not restricted to the character.
-            if (!availableSelections.isEmpty()) {
+            if (!addStandardPerksIfEmpty || !availableSelections.isEmpty()) {
                 //Only are the filtered selections available.
                 finalPerkOptions.add(new CharacterPerkOptions(availablePerkOptions, availableSelections));
             } else {

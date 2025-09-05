@@ -56,6 +56,10 @@ public class PerkOptions extends OptionSelector<Perk, PerkOption> {
         setOptions(this.finalPerks);
     }
 
+    public LinkedHashSet<PerkOption> getFinalPerks() {
+        return finalPerks;
+    }
+
     @Override
     public LinkedHashSet<PerkOption> getOptions() {
         if (finalPerks == null || finalPerks.isEmpty()) {
@@ -101,5 +105,20 @@ public class PerkOptions extends OptionSelector<Perk, PerkOption> {
                 }
             });
         }
+    }
+
+    public static PerkOptions combine(List<PerkOptions> perkOptions) {
+        if (perkOptions == null || perkOptions.isEmpty()) {
+            return null;
+        }
+        final PerkOptions characterPerkOptions = new PerkOptions(perkOptions.get(0));
+        for (int i = 1; i < perkOptions.size(); i++) {
+            characterPerkOptions.getSourceOptions().addAll(perkOptions.get(i).getSourceOptions());
+            if (perkOptions.get(i).isIncludeOpenPerks()) {
+                characterPerkOptions.setIncludeOpenPerks(true);
+            }
+        }
+        characterPerkOptions.finalPerks = null;
+        return characterPerkOptions;
     }
 }

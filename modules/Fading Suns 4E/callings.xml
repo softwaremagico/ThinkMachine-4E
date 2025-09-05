@@ -3037,16 +3037,8 @@
         </skills>
         <materialAwards>
             <materialAwardOption>
-                <total>3</total>
+                <total>1</total>
                 <options>
-                    <item>
-                        <id>disguiseOutfit</id>
-                        <type>item</type>
-                    </item>
-                    <item>
-                        <id>disguiseOutfit</id>
-                        <type>item</type>
-                    </item>
                     <item>
                         <id>disguiseOutfit</id>
                         <type>item</type>

@@ -173,7 +173,7 @@ public class RandomizeCharacterDefinitionStep {
 
 
     protected void assignPerks() throws InvalidRandomElementSelectedException {
-        final List<CharacterPerkOptions> perkOptions = characterDefinitionStepSelection.getNotSelectedPerksOptions();
+        final List<CharacterPerkOptions> perkOptions = characterDefinitionStepSelection.getNotSelectedPerksOptions(true);
         if (perkOptions != null && !perkOptions.isEmpty()) {
             for (int i = 0; i < perkOptions.size(); i++) {
                 try {
