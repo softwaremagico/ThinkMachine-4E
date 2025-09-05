@@ -26,6 +26,7 @@ package com.softwaremagico.tm.rules;
 
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Selection;
+import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.exceptions.InvalidSelectedElementException;
 import org.testng.Assert;
@@ -44,7 +45,7 @@ public class PerksTests {
 
         //We cannot add epiphany. (We can always add epiphany as the user always has factionLore).
         Assert.assertTrue(PerkFactory.getInstance().getElement("epiphany").getRestrictions().isRestricted(characterPlayer));
-        characterPlayer.getCalling().getSelectedPerks().add(new Selection("epiphany"));
+        characterPlayer.getCalling().getSelectedPerks().add(new Selection(PerkFactory.getInstance().getElement("epiphany")));
 
         characterPlayer.getCalling().validate();
     }
@@ -58,11 +59,11 @@ public class PerksTests {
         characterPlayer.setCalling("monkScholarlyTradition");
 
         //Add one lore that is needed by Epiphany
-        characterPlayer.getCalling().getSelectedCapabilities().add(new Selection("diseaseLore"));
+        characterPlayer.getCalling().getSelectedCapabilities().add(new Selection(CapabilityFactory.getInstance().getElement("diseaseLore")));
 
         //Now we can add epiphany
         Assert.assertFalse(PerkFactory.getInstance().getElement("epiphany").getRestrictions().isRestricted(characterPlayer));
-        characterPlayer.getCalling().getSelectedPerks().add(new Selection("epiphany"));
+        characterPlayer.getCalling().getSelectedPerks().add(new Selection(PerkFactory.getInstance().getElement("epiphany")));
     }
 
     @Test
@@ -75,7 +76,7 @@ public class PerksTests {
 
         //We cannot add epiphany. Needs Customs Lore.
         Assert.assertTrue(PerkFactory.getInstance().getElement("gossipNetwork").getRestrictions().isRestricted(characterPlayer));
-        characterPlayer.getCalling().getSelectedPerks().add(new Selection("gossipNetwork"));
+        characterPlayer.getCalling().getSelectedPerks().add(new Selection(PerkFactory.getInstance().getElement("gossipNetwork")));
     }
 
     @Test
@@ -87,11 +88,12 @@ public class PerksTests {
         characterPlayer.setCalling("monkScholarlyTradition");
 
         //Add one lore that is needed by Epiphany
-        characterPlayer.getCalling().getSelectedCapabilityOptions().get(0).getSelections().add(new Selection("cathedralCustoms"));
+        characterPlayer.getCalling().getSelectedCapabilityOptions().get(0).getSelections()
+                .add(new Selection(CapabilityFactory.getInstance().getElement("cathedralCustoms")));
 
         //Now we can add gossipNetwork
         Assert.assertFalse(PerkFactory.getInstance().getElement("gossipNetwork").getRestrictions().isRestricted(characterPlayer));
-        characterPlayer.getCalling().getSelectedPerks().add(new Selection("gossipNetwork"));
+        characterPlayer.getCalling().getSelectedPerks().add(new Selection(PerkFactory.getInstance().getElement("gossipNetwork")));
     }
 
     @Test
@@ -104,7 +106,7 @@ public class PerksTests {
 
         //Now we can add investPhylactery
         Assert.assertTrue(PerkFactory.getInstance().getElement("investPhylactery").getRestrictions().isRestricted(characterPlayer));
-        characterPlayer.getCalling().getSelectedPerks().add(new Selection("investPhylactery"));
+        characterPlayer.getCalling().getSelectedPerks().add(new Selection(PerkFactory.getInstance().getElement("investPhylactery")));
     }
 
     @Test(enabled = false)
@@ -119,7 +121,7 @@ public class PerksTests {
 
         //Now we can add investPhylactery
         Assert.assertFalse(PerkFactory.getInstance().getElement("investPhylactery").getRestrictions().isRestricted(characterPlayer));
-        characterPlayer.getCalling().getSelectedPerks().add(new Selection("investPhylactery"));
+        characterPlayer.getCalling().getSelectedPerks().add(new Selection(PerkFactory.getInstance().getElement("investPhylactery")));
     }
 
     @Test(enabled = false)
@@ -134,7 +136,7 @@ public class PerksTests {
 
         //Now we can add masterOfDeception
         Assert.assertTrue(PerkFactory.getInstance().getElement("masterOfDeception").getRestrictions().isRestricted(characterPlayer));
-        characterPlayer.getCalling().getSelectedPerks().add(new Selection("masterOfDeception"));
+        characterPlayer.getCalling().getSelectedPerks().add(new Selection(PerkFactory.getInstance().getElement("masterOfDeception")));
     }
 
     @Test
@@ -147,7 +149,7 @@ public class PerksTests {
 
         //Now we can add masterOfDeception
         Assert.assertFalse(PerkFactory.getInstance().getElement("masterOfDeception").getRestrictions().isRestricted(characterPlayer));
-        characterPlayer.getCalling().getSelectedPerks().add(new Selection("masterOfDeception"));
+        characterPlayer.getCalling().getSelectedPerks().add(new Selection(PerkFactory.getInstance().getElement("masterOfDeception")));
     }
 
     @Test

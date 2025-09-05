@@ -28,15 +28,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
+import java.util.LinkedHashSet;
 
 public class OptionSelector<E extends Element, T extends Option<E>> {
     @JsonProperty("total")
     private int totalOptions = 1;
     @JsonProperty("options")
-    private List<T> options = new ArrayList<>();
+    private LinkedHashSet<T> options = new LinkedHashSet<>();
 
     public OptionSelector() {
         super();
@@ -56,22 +55,22 @@ public class OptionSelector<E extends Element, T extends Option<E>> {
         this.totalOptions = totalOptions;
     }
 
-    public List<T> getOptions() {
+    public LinkedHashSet<T> getOptions() {
         return getSourceOptions();
     }
 
     @JsonIgnore
-    public List<T> getSourceOptions() {
+    public LinkedHashSet<T> getSourceOptions() {
         return options;
     }
 
-    public void setOptions(List<T> options) {
+    public void setOptions(LinkedHashSet<T> options) {
         this.options = options;
     }
 
     public void addOptions(Collection<T> options) {
         if (getOptions() == null) {
-            setOptions(new ArrayList<>());
+            setOptions(new LinkedHashSet<>());
         }
         this.options.addAll(options);
     }

@@ -34,7 +34,7 @@ import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 public class FactionCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection {
 
     public FactionCharacterDefinitionStepSelection(CharacterPlayer characterPlayer, String faction) throws InvalidGeneratedCharacter {
-        super(characterPlayer, FactionFactory.getInstance().getElement(faction));
+        super(characterPlayer, FactionFactory.getInstance().getElement(faction), Phase.FACTION);
         setId(faction);
     }
 
@@ -49,11 +49,6 @@ public class FactionCharacterDefinitionStepSelection extends CharacterDefinition
         } catch (InvalidSelectionException e) {
             throw new InvalidFactionException("Error on faction '" + getId() + "'.", e);
         }
-    }
-
-    @Override
-    public Phase getPhase() {
-        return Phase.FACTION;
     }
 
     public Faction get() {

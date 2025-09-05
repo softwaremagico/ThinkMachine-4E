@@ -1,10 +1,36 @@
 package com.softwaremagico.tm.random.step;
 
+/*-
+ * #%L
+ * Think Machine 4E (Random Generator)
+ * %%
+ * Copyright (C) 2017 - 2025 Softwaremagico
+ * %%
+ * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
+ * <softwaremagico@gmail.com> Valencia (Spain).
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation; either version 2 of the License, or (at your option) any later
+ * version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * this program; If not, see <http://www.gnu.org/licenses/gpl-3.0.html>.
+ * #L%
+ */
+
 import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.level.LevelSelector;
 import com.softwaremagico.tm.character.perks.CharacterPerkOptions;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.log.RandomSelectorLog;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
@@ -31,19 +57,24 @@ public class RandomizeCharacterLevelStep extends RandomizeCharacterDefinitionSte
 
         if (perkOptions != null && !perkOptions.isEmpty()) {
             for (int i = 0; i < perkOptions.size(); i++) {
-                try {
-                    for (int j = levelSelector.getSelectedClassPerksOptions().get(i).getSelections().size();
-                         j < perkOptions.get(i).getTotalOptions(); j++) {
-                        final RandomPerk randomPerk =
-                                new RandomPerk(getCharacterPlayer(), getPreferences(),
-                                        perkOptions.get(i),
-                                        levelSelector.getPhase());
-                        levelSelector.getSelectedClassPerksOptions().get(i).getSelections()
-                                .add(randomPerk.selectElementByWeight());
+                if (perkOptions.get(i).getTotalOptions() > 0) {
+                    try {
+                        for (int j = levelSelector.getSelectedClassPerksOptions().get(i).getSelections().size();
+                             j < perkOptions.get(i).getTotalOptions(); j++) {
+                            final RandomPerk randomPerk =
+                                    new RandomPerk(getCharacterPlayer(), getPreferences(),
+                                            perkOptions.get(i),
+                                            levelSelector.getPhase(), levelSelector.getLevel());
+                            final Selection selectedPerk = randomPerk.selectElementByWeight();
+                            RandomSelectorLog.debug(this.getClass(), "Selected perk '{}' on phase '{}' on index '{}' from options '{}'.",
+                                    selectedPerk, levelSelector.getPhase(), levelSelector.getLevel(), perkOptions.get(i).getAvailableSelections());
+                            levelSelector.getSelectedClassPerksOptions().get(i).getSelections()
+                                    .add(selectedPerk);
+                        }
+                    } catch (InvalidXmlElementException e) {
+                        throw new InvalidXmlElementException("Error on perks options '"
+                                + perkOptions.get(i) + "' from level.", e);
                     }
-                } catch (InvalidXmlElementException e) {
-                    throw new InvalidXmlElementException("Error on perks options '"
-                            + perkOptions.get(i) + "' from level.", e);
                 }
             }
         }
@@ -54,19 +85,21 @@ public class RandomizeCharacterLevelStep extends RandomizeCharacterDefinitionSte
 
         if (perkOptions != null && !perkOptions.isEmpty()) {
             for (int i = 0; i < perkOptions.size(); i++) {
-                try {
-                    for (int j = levelSelector.getSelectedCallingPerksOptions().get(i).getSelections().size();
-                         j < perkOptions.get(i).getTotalOptions(); j++) {
-                        final RandomPerk randomPerk =
-                                new RandomPerk(getCharacterPlayer(), getPreferences(),
-                                        perkOptions.get(i),
-                                        levelSelector.getPhase());
-                        levelSelector.getSelectedCallingPerksOptions().get(i).getSelections()
-                                .add(randomPerk.selectElementByWeight());
+                if (perkOptions.get(i).getTotalOptions() > 0) {
+                    try {
+                        for (int j = levelSelector.getSelectedCallingPerksOptions().get(i).getSelections().size();
+                             j < perkOptions.get(i).getTotalOptions(); j++) {
+                            final RandomPerk randomPerk =
+                                    new RandomPerk(getCharacterPlayer(), getPreferences(),
+                                            perkOptions.get(i),
+                                            levelSelector.getPhase(), levelSelector.getLevel());
+                            levelSelector.getSelectedCallingPerksOptions().get(i).getSelections()
+                                    .add(randomPerk.selectElementByWeight());
+                        }
+                    } catch (InvalidXmlElementException e) {
+                        throw new InvalidXmlElementException("Error on perks options '"
+                                + perkOptions.get(i) + "' from level.", e);
                     }
-                } catch (InvalidXmlElementException e) {
-                    throw new InvalidXmlElementException("Error on perks options '"
-                            + perkOptions.get(i) + "' from level.", e);
                 }
             }
         }

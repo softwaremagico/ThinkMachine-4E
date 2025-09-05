@@ -27,11 +27,15 @@ package com.softwaremagico.tm.rules;
 import com.softwaremagico.tm.character.CharacterExamples;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Selection;
+import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOption;
 import com.softwaremagico.tm.character.level.LevelSelector;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.perks.PerkOption;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Test(groups = "level")
 public class LevelTests {
@@ -49,9 +53,11 @@ public class LevelTests {
         Assert.assertEquals(level.getLevelDefinition().getTotalCallingPerksOptions(), 1);
 
         for (int i = 0; i < level.getCharacteristicOptions().size(); i++) {
-            for (int j = 0; j < level.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
+            final List<CharacteristicBonusOption> options = new ArrayList<>(level.getCharacteristicOptions().get(i).getOptions());
+            for (int j = level.getSelectedCharacteristicOptions().get(i).getSelections().size();
+                 j < level.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
                 level.getSelectedCharacteristicOptions().get(i).getSelections()
-                        .add(new Selection(level.getCharacteristicOptions().get(i).getOptions().get(j).getId()));
+                        .add(new Selection(options.get(j)));
             }
         }
     }
@@ -72,30 +78,33 @@ public class LevelTests {
         Assert.assertEquals(level.getLevelDefinition().getTotalCallingPerksOptions(), 1);
 
         for (int i = 0; i < level.getCharacteristicOptions().size(); i++) {
-            for (int j = 0; j < level.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
+            final List<CharacteristicBonusOption> options = new ArrayList<>(level.getCharacteristicOptions().get(i).getOptions());
+            for (int j = level.getSelectedCharacteristicOptions().get(i).getSelections().size();
+                 j < level.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
                 level.getSelectedCharacteristicOptions().get(i).getSelections()
-                        .add(new Selection(level.getCharacteristicOptions().get(i).getOptions().get(j).getId()));
+                        .add(new Selection(options.get(j)));
             }
         }
     }
 
     @Test
-    public void favoredCallingsInLevel() {
-        final CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleHawkwoodCommander();
+    public void favoredCallingsInLevel_hasRiches() {
+        final CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleDecadosSybarite();
 
         characterPlayer.addLevel();
         CharacterExamples.populateLevel(characterPlayer);
 
         final LevelSelector level = characterPlayer.addLevel();
 
-        final PerkOption militaryRank = new PerkOption(PerkFactory.getInstance().getElement("militaryRank1"));
-        Assert.assertTrue(level.getNotRepeatedClassPerksOptions().get(0).getOptions().contains(militaryRank));
+        final PerkOption royalties = new PerkOption(PerkFactory.getInstance().getElement("cash1000"));
+        Assert.assertTrue(level.getClassPerksOptions().get(0).getAvailableSelections()
+                .contains(new Selection(royalties)));
 
     }
 
 
     @Test
-    public void notFavoredCallingsInLevel() {
+    public void notFavoredCallingsInLevel_hasNotRiches() {
         final CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleDecadosCommander();
 
         characterPlayer.addLevel();
@@ -103,7 +112,8 @@ public class LevelTests {
 
         final LevelSelector level = characterPlayer.addLevel();
 
-        final PerkOption militaryRank = new PerkOption(PerkFactory.getInstance().getElement("militaryRank1"));
-        Assert.assertFalse(level.getNotRepeatedClassPerksOptions().get(0).getOptions().contains(militaryRank));
+        final PerkOption royalties = new PerkOption(PerkFactory.getInstance().getElement("cash1000"));
+        Assert.assertFalse(level.getClassPerksOptions().get(0).getAvailableSelections()
+                .contains(new Selection(royalties)));
     }
 }

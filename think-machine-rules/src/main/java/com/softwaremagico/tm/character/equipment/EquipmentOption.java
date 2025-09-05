@@ -46,6 +46,7 @@ import com.softwaremagico.tm.restrictions.Restrictions;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 public class EquipmentOption extends Option<Equipment> {
@@ -197,5 +198,31 @@ public class EquipmentOption extends Option<Equipment> {
     @Override
     public String toString() {
         return getId() + (getQuantity() > 1 ? " (" + getQuantity() + ")" : "");
+    }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (!(o instanceof EquipmentOption)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+
+        final EquipmentOption that = (EquipmentOption) o;
+        return weaponType == that.weaponType && Objects.equals(type, that.type) && weaponClass == that.weaponClass
+                && quality == that.quality && status == that.status;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + Objects.hashCode(weaponType);
+        result = prime * result + Objects.hashCode(type);
+        result = prime * result + Objects.hashCode(weaponClass);
+        result = prime * result + Objects.hashCode(quality);
+        result = prime * result + Objects.hashCode(status);
+        return result;
     }
 }

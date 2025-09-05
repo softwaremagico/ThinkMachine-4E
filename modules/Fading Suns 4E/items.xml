@@ -516,8 +516,8 @@
         <id>disguiseOutfit</id>
         <type>item</type>
         <name>
-            <en>Disguise Outfit</en>
-            <es>Disfraz</es>
+            <en>Disguise Outfit (x3)</en>
+            <es>Disfraz (x3)</es>
         </name>
         <description>
             <en>Disguise outfits for masked balls.</en>
@@ -913,25 +913,6 @@
         </description>
     </equipment>
     <equipment>
-        <id>ceramsteelCuffs</id>
-        <type>item</type>
-        <name>
-            <en>Ceramsteel cuffs</en>
-            <es>Esposas de acerámico</es>
-        </name>
-        <description>
-            <en>Mechanical handcuffs; Herculean Resistance to break and Tough Resistance to pick.</en>
-            <es>Esposas mecánicas; Resistencia Hercúlea para romperlas y Resistencia Ardua para abrirlas.</es>
-        </description>
-        <techLevel>5</techLevel>
-        <techCompulsion>cruel</techCompulsion>
-        <restrictions>
-            <callings>
-                <calling>chainer</calling>
-            </callings>
-        </restrictions>
-    </equipment>
-    <equipment>
         <id>hovernet</id>
         <type>item</type>
         <name>
@@ -1208,22 +1189,6 @@
                 <calling>scholar</calling>
             </callings>
         </restrictions>
-    </equipment>
-    <equipment>
-        <id>avestitePendant</id>
-        <type>item</type>
-        <name>
-            <en>Avestite Pendant</en>
-            <es>Colgante Avestita</es>
-        </name>
-        <description>
-            <en>You wear a pendant bearing the symbol of the Holy Flame. With the flick of a switch, this symbol becomes
-                a searing brand which an Avestite can use to brand sinners’ foreheads.
-            </en>
-            <es>Llevas un colgante con el símbolo de la Llama Sagrada. En un abrir y cerrar de ojos, el símbolo se
-                convierte en un hierro al rojo vivo con el que un avestita puede marcar las frentes de los pecadores.
-            </es>
-        </description>
     </equipment>
     <equipment>
         <id>formularyOfStKalle</id>

@@ -27,13 +27,14 @@ package com.softwaremagico.tm.factory;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
+import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = {"capabilityFactory"})
 public class CapabilityFactoryTest {
-    public static final int TOTAL_ELEMENTS = 76;
+    public static final int TOTAL_ELEMENTS = 75;
 
     @Test
     public void checkTotalElements() throws InvalidXmlElementException {
@@ -63,7 +64,7 @@ public class CapabilityFactoryTest {
         characterPlayer.setFaction("musters");
         characterPlayer.setCalling("techRedeemer");
         characterPlayer.getCalling().getSelectedCapabilityOptions().get(1).getSelections()
-                .add(new Selection("thinkMachines"));
+                .add(new Selection(CapabilityFactory.getInstance().getElement("thinkMachines")));
         Assert.assertFalse(CapabilityFactory.getInstance().getElement("artificialIntelligence").getRestrictions().isRestricted(characterPlayer));
     }
 

@@ -230,8 +230,7 @@ public class Restrictions extends XmlData {
                 && (restrictedToPerksGroups == null || restrictedToPerksGroups.isEmpty())
                 && (restrictedToCapabilitiesGroups == null || restrictedToCapabilitiesGroups.isEmpty())
                 && (restrictedCharacteristics == null || restrictedCharacteristics.isEmpty())
-                && (restrictedSkills == null || restrictedSkills.isEmpty())
-                && restrictedLevel == null;
+                && (restrictedSkills == null || restrictedSkills.isEmpty());
     }
 
     public boolean isRestrictedByAllCharacteristics(CharacterPlayer characterPlayer) {

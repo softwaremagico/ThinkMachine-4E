@@ -28,6 +28,8 @@ import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.level.LevelSelector;
+import com.softwaremagico.tm.character.perks.Perk;
+import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.random.character.level.RandomLevel;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import org.testng.Assert;
@@ -134,7 +136,8 @@ public class RandomLevelTest {
         characterPlayer.setCalling("clergy");
 
         //If I select Novitiate, on orthodox must add the next rank
-        characterPlayer.getUpbringing().getSelectedPerksOptions().get(1).getSelections().add(new Selection("churchOrdinationNovitiate"));
+        final Perk churchOrdinationNovitiate = PerkFactory.getInstance().getElement("churchOrdinationNovitiate");
+        characterPlayer.getUpbringing().getSelectedPerksOptions().get(1).getSelections().add(new Selection(churchOrdinationNovitiate));
 
         final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
         randomizeCharacter.createCharacter();

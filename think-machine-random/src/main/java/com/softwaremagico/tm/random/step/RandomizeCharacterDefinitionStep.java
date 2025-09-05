@@ -31,12 +31,14 @@ import com.softwaremagico.tm.character.capabilities.CapabilityOption;
 import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOptions;
 import com.softwaremagico.tm.character.equipment.EquipmentOptions;
+import com.softwaremagico.tm.character.level.LevelSelector;
 import com.softwaremagico.tm.character.perks.CharacterPerkOptions;
 import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidSkillException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.log.RandomSelectorLog;
 import com.softwaremagico.tm.random.character.selectors.RandomPreference;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
@@ -89,12 +91,12 @@ public class RandomizeCharacterDefinitionStep {
                                 new RandomCharacteristicBonusOption(getCharacterPlayer(), getPreferences(),
                                         characteristicBonusOptions.get(i));
                         characterDefinitionStepSelection.getSelectedCharacteristicOptions().get(i).getSelections()
-                                .add(new Selection(randomCharacteristicBonusOption.selectElementByWeight().getId()));
+                                .add(new Selection(randomCharacteristicBonusOption.selectElementByWeight()));
                     }
                 } catch (InvalidXmlElementException e) {
                     //If no options are available. Force one characteristic and later, will be balanced.
                     characterDefinitionStepSelection.getSelectedCharacteristicOptions().get(i).getSelections()
-                            .add(new Selection(characteristicBonusOptions.get(i).getOptions().get(0).getId()));
+                            .add(new Selection(characteristicBonusOptions.get(i).getOptions().iterator().next()));
                 }
             }
         }
@@ -114,7 +116,7 @@ public class RandomizeCharacterDefinitionStep {
                     try {
                         final CapabilityOption selectedCapability = randomCapability.selectElementByWeight();
                         //Here already exists one capability by specialization.
-                        final Selection selection = new Selection(selectedCapability.getId(),
+                        final Selection selection = new Selection(selectedCapability,
                                 selectedCapability.getSelectedSpecialization() != null
                                         ? selectedCapability.getSelectedSpecialization() : null);
                         characterDefinitionStepSelection.getSelectedCapabilityOptions().get(i).getSelections()
@@ -160,7 +162,7 @@ public class RandomizeCharacterDefinitionStep {
                         } while (!skillFound && tries < TRIES);
 
                         characterDefinitionStepSelection.getSelectedSkillOptions().get(i).getSelections()
-                                .add(new Selection(selectedSkill.getId()));
+                                .add(new Selection(selectedSkill));
                     }
                 } catch (InvalidXmlElementException e) {
                     throw new InvalidXmlElementException("Error on skill options '"
@@ -172,7 +174,7 @@ public class RandomizeCharacterDefinitionStep {
 
 
     protected void assignPerks() throws InvalidRandomElementSelectedException {
-        final List<CharacterPerkOptions> perkOptions = characterDefinitionStepSelection.getNotRepeatedPerksOptions();
+        final List<CharacterPerkOptions> perkOptions = characterDefinitionStepSelection.getNotSelectedPerksOptions(true);
         if (perkOptions != null && !perkOptions.isEmpty()) {
             for (int i = 0; i < perkOptions.size(); i++) {
                 try {
@@ -181,9 +183,14 @@ public class RandomizeCharacterDefinitionStep {
                         final RandomPerk randomPerk =
                                 new RandomPerk(getCharacterPlayer(), getPreferences(),
                                         perkOptions.get(i),
-                                        characterDefinitionStepSelection.getPhase());
+                                        characterDefinitionStepSelection.getPhase(),
+                                        characterDefinitionStepSelection instanceof LevelSelector
+                                                ? (characterDefinitionStepSelection).getLevel() : null);
+                        final Selection selectedPerk = randomPerk.selectElementByWeight();
+                        RandomSelectorLog.debug(this.getClass(), "Selected perk '{}' on phase '{}' from options '{}'.",
+                                selectedPerk, characterDefinitionStepSelection.getPhase(), perkOptions.get(i).getAvailableSelections());
                         characterDefinitionStepSelection.getSelectedPerksOptions().get(i).getSelections()
-                                .add(randomPerk.selectElementByWeight());
+                                .add(selectedPerk);
                     }
                 } catch (InvalidXmlElementException e) {
                     throw new InvalidXmlElementException("Error on perks options '"
@@ -205,7 +212,7 @@ public class RandomizeCharacterDefinitionStep {
                                 new RandomMaterialAward(getCharacterPlayer(), getPreferences(),
                                         materialAwardsOptions.get(i));
                         characterDefinitionStepSelection.getSelectedMaterialAwards().get(i).getSelections()
-                                .add(new Selection(randomMaterialAward.selectElementByWeight().getId()));
+                                .add(new Selection(randomMaterialAward.selectElementByWeight()));
                     }
                 } catch (InvalidXmlElementException e) {
                     throw new InvalidXmlElementException("Error on material awards '"

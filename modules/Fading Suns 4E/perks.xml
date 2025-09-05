@@ -177,6 +177,9 @@
                 </name>
             </selectedSpecialization>
         </specializations>
+        <restrictions>
+            <level>1</level>
+        </restrictions>
     </perk>
     <perk>
         <id>allAccessPass</id>
@@ -732,12 +735,6 @@
         <source>class</source>
         <type>privilege</type>
         <restrictions mode="any_from_group">
-            <upbringings>
-                <upbringing>priest</upbringing>
-            </upbringings>
-            <callings>
-                <calling>clergy</calling>
-            </callings>
             <perksGroups>
                 <group>churchOrdination</group>
             </perksGroups>
@@ -4061,6 +4058,9 @@
                 <upbringing>priest</upbringing>
                 <upbringing>brotherBattle</upbringing>
             </upbringings>
+            <callings>
+                <calling>clergy</calling>
+            </callings>
         </restrictions>
     </perk>
     <perk>

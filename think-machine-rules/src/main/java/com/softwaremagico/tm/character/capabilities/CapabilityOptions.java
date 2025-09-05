@@ -31,13 +31,12 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineLog;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashSet;
 import java.util.stream.Collectors;
 
 public class CapabilityOptions extends OptionSelector<Capability, CapabilityOption> {
     @JsonIgnore
-    private List<CapabilityOption> finalCapabilities;
+    private LinkedHashSet<CapabilityOption> finalCapabilities;
 
     public CapabilityOptions() {
         super();
@@ -46,21 +45,21 @@ public class CapabilityOptions extends OptionSelector<Capability, CapabilityOpti
     public CapabilityOptions(CapabilityOptions optionSelector) {
         super(optionSelector);
         if (optionSelector.finalCapabilities != null) {
-            this.finalCapabilities = new ArrayList<>(optionSelector.finalCapabilities);
+            this.finalCapabilities = new LinkedHashSet<>(optionSelector.finalCapabilities);
         }
     }
 
-    public CapabilityOptions(CapabilityOptions optionSelector, List<CapabilityOption> finalCapabilities) {
+    public CapabilityOptions(CapabilityOptions optionSelector, LinkedHashSet<CapabilityOption> finalCapabilities) {
         super(optionSelector);
         this.finalCapabilities = finalCapabilities;
         setOptions(finalCapabilities);
     }
 
     @Override
-    public List<CapabilityOption> getOptions() {
+    public LinkedHashSet<CapabilityOption> getOptions() {
         if (finalCapabilities == null) {
             try {
-                finalCapabilities = new ArrayList<>();
+                finalCapabilities = new LinkedHashSet<>();
                 if (super.getOptions() == null || super.getOptions().isEmpty()) {
                     try {
                         finalCapabilities.addAll(CapabilityFactory.getInstance().getElements().stream()

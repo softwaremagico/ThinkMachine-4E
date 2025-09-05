@@ -29,27 +29,26 @@ import com.softwaremagico.tm.OptionSelector;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 public class CharacteristicBonusOptions extends OptionSelector<CharacteristicDefinition, CharacteristicBonusOption> {
     @JsonIgnore
-    private List<CharacteristicBonusOption> finalCharacteristics;
+    private LinkedHashSet<CharacteristicBonusOption> finalCharacteristics;
     @JsonIgnore
     private Map<String, CharacteristicBonusOption> characteristicBonusById;
 
     @Override
-    public List<CharacteristicBonusOption> getOptions() {
+    public LinkedHashSet<CharacteristicBonusOption> getOptions() {
         if (finalCharacteristics == null) {
             try {
                 if (super.getOptions() == null || super.getOptions().isEmpty()
-                        || (!super.getOptions().isEmpty() && super.getOptions().get(0).getId() == null)) {
-                    finalCharacteristics = new ArrayList<>();
+                        || (!super.getOptions().isEmpty() && super.getOptions().iterator().next().getId() == null)) {
+                    finalCharacteristics = new LinkedHashSet<>();
                     if (super.getOptions() != null && !super.getOptions().isEmpty()) {
                         finalCharacteristics.addAll(CharacteristicsDefinitionFactory.getInstance().getElements().stream()
-                                .map(c -> new CharacteristicBonusOption(c, super.getOptions().get(0).getBonus()))
+                                .map(c -> new CharacteristicBonusOption(c, super.getOptions().iterator().next().getBonus()))
                                 .collect(Collectors.toList()));
                     } else {
                         finalCharacteristics.addAll(CharacteristicsDefinitionFactory.getInstance().getElements().stream()
@@ -77,7 +76,7 @@ public class CharacteristicBonusOptions extends OptionSelector<CharacteristicDef
 
     public int getBonus() {
         if (super.getOptions() != null && !super.getOptions().isEmpty()) {
-            return getOptions().get(0).getBonus();
+            return getOptions().iterator().next().getBonus();
         }
         return 1;
     }
