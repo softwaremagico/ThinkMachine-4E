@@ -25,48 +25,68 @@ package com.softwaremagico.tm.character.perks;
  */
 
 import com.softwaremagico.tm.character.Selection;
-import com.softwaremagico.tm.character.skills.Specialization;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
+/**
+ * Intermediate class that converts perk definitions to real character selectable perk options.
+ * Selections contains the current possible selections for the character.
+ */
 public class CharacterPerkOptions extends PerkOptions {
-    private List<PerkOption> finalPerks;
+    private LinkedHashSet<PerkOption> finalPerks;
+    private Set<Selection> availableSelections;
 
     public CharacterPerkOptions(PerkOptions perkOptions) {
         setTotalOptions(perkOptions.getTotalOptions());
         setIncludeOpenPerks(perkOptions.isIncludeOpenPerks());
         if (perkOptions.getSourceOptions() != null) {
-            setOptions(new ArrayList<>(perkOptions.getSourceOptions()));
+            setOptions(new LinkedHashSet<>(perkOptions.getSourceOptions()));
         }
-        finalPerks = new ArrayList<>();
+        updateFinalPerks();
+    }
+
+    public CharacterPerkOptions(CharacterPerkOptions perkOptions, Set<Selection> availableSelections) {
+        this(perkOptions);
+        setAvailableSelections(availableSelections);
+    }
+
+    public CharacterPerkOptions(Collection<PerkOption> perkOptionList) {
+        setTotalOptions(1);
+        setIncludeOpenPerks(false);
+        setOptions(new LinkedHashSet<>(perkOptionList));
+        updateFinalPerks();
+    }
+
+    public CharacterPerkOptions(Collection<PerkOption> perkOptionList, Set<Selection> availableSelections) {
+        this(perkOptionList);
+        setAvailableSelections(availableSelections);
+    }
+
+    private void updateFinalPerks() {
+        finalPerks = new LinkedHashSet<>();
+        if (getFinalPerks() != null) {
+            getFinalPerks().clear();
+        }
         super.getOptions().forEach(option -> finalPerks.addAll(option.expandGroup()));
     }
 
     @Override
-    public List<PerkOption> getOptions() {
+    public LinkedHashSet<PerkOption> getOptions() {
         return finalPerks;
     }
 
     public Set<Selection> getAvailableSelections() {
-        final Set<Selection> selections = new HashSet<>();
-        for (PerkOption option : getOptions()) {
-            if (option.getSpecializations() != null) {
-                for (Specialization specialization : option.getSpecializations()) {
-                    selections.add(new Selection(option.getId(), specialization));
-                }
-            } else {
-                selections.add(new Selection(option.getId()));
-            }
+        if (availableSelections == null) {
+            availableSelections = new HashSet<>();
+            getOptions().forEach(option -> availableSelections.addAll(option.getOptionsBySpecialization()));
         }
-        return selections;
+        return availableSelections;
     }
 
-    @Override
-    public void addOptions(Collection<PerkOption> options) {
-        options.forEach(option -> finalPerks.addAll(option.expandGroup()));
+    public void setAvailableSelections(Set<Selection> availableSelections) {
+        this.availableSelections = availableSelections;
     }
 }

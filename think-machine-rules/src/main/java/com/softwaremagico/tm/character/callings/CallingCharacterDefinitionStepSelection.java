@@ -46,7 +46,7 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
     private static final int CALLING_SKILL_POINTS = 10;
 
     public CallingCharacterDefinitionStepSelection(CharacterPlayer characterPlayer, String calling) throws InvalidGeneratedCharacter {
-        super(characterPlayer, CallingFactory.getInstance().getElement(calling));
+        super(characterPlayer, CallingFactory.getInstance().getElement(calling), Phase.CALLING);
         setId(calling);
     }
 
@@ -63,11 +63,6 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
         }
     }
 
-    @Override
-    public Phase getPhase() {
-        return Phase.CALLING;
-    }
-
 
     @Override
     @JsonIgnore
@@ -76,8 +71,8 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
     }
 
     @Override
-    public List<CharacterPerkOptions> getPerksOptions() {
-        final List<CharacterPerkOptions> callingPerks = getCharacterDefinitionStep().getFinalPerksOptions();
+    public List<CharacterPerkOptions> getCharacterAvailablePerksOptions() {
+        final List<CharacterPerkOptions> callingPerks = getCharacterDefinitionStep().getCharacterAvailablePerksOptions();
         addSpeciePerks(callingPerks);
         return callingPerks;
     }
@@ -88,9 +83,10 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
      * @return
      */
     @Override
-    public List<CharacterPerkOptions> getNotRepeatedPerksOptions() {
+    public List<CharacterPerkOptions> getNotSelectedPerksOptions(boolean addStandardPerksIfEmpty) {
         final Set<CharacterPerkOptions> callingPerks = new HashSet<>();
-        super.getNotRepeatedPerksOptions().forEach(perkOptions -> callingPerks.add(new CharacterPerkOptions(perkOptions)));
+        super.getNotSelectedPerksOptions(addStandardPerksIfEmpty).forEach(perkOptions -> callingPerks.add(
+                new CharacterPerkOptions(perkOptions, perkOptions.getAvailableSelections())));
         addSpeciePerks(callingPerks);
         //List without duplicates.
         return new ArrayList<>(callingPerks);

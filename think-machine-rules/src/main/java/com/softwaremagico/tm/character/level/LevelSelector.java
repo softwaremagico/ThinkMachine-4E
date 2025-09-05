@@ -32,6 +32,7 @@ import com.softwaremagico.tm.character.CharacterSelectedElement;
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.equipment.CharacterSelectedEquipment;
 import com.softwaremagico.tm.character.perks.CharacterPerkOptions;
+import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 
@@ -53,15 +54,17 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
     private final int level;
 
     public LevelSelector(CharacterPlayer characterPlayer, int level) {
-        super(characterPlayer, LevelFactory.getInstance().getElement(characterPlayer, level));
+        super(characterPlayer, LevelFactory.getInstance().getElement(characterPlayer, level), Phase.LEVEL);
         this.level = level;
 
-        setSelectedClassPerksOptions(Arrays.asList(new CharacterSelectedElement[getClassPerksOptions().size()]));
+        setSelectedClassPerksOptions(Arrays.asList(new CharacterSelectedElement[
+                ((Level) super.getCharacterDefinitionStep()).getTotalClassPerksOptions()]));
         for (int i = 0; i < getClassPerksOptions().size(); i++) {
             selectedClassPerksOptions.set(i, new CharacterSelectedElement());
         }
 
-        setSelectedCallingPerksOptions(Arrays.asList(new CharacterSelectedElement[getCallingPerksOptions().size()]));
+        setSelectedCallingPerksOptions(Arrays.asList(new CharacterSelectedElement[
+                ((Level) super.getCharacterDefinitionStep()).getTotalCallingPerksOptions()]));
         for (int i = 0; i < getCallingPerksOptions().size(); i++) {
             selectedCallingPerksOptions.set(i, new CharacterSelectedElement());
         }
@@ -109,6 +112,7 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
         return ((Level) getCharacterDefinitionStep());
     }
 
+    @Override
     public int getLevel() {
         return level;
     }
@@ -178,39 +182,66 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
         }
     }
 
-    @Override
-    public Phase getPhase() {
-        return Phase.LEVEL;
-    }
-
     @JsonIgnore
     public List<CharacterPerkOptions> getClassPerksOptions() {
-        return ((Level) getCharacterDefinitionStep()).getUpbringingPerksOptions();
+        final List<CharacterPerkOptions> classPerksOptions = new ArrayList<>();
+        for (int i = 0; i < ((Level) getCharacterDefinitionStep()).getTotalClassPerksOptions(); i++) {
+            classPerksOptions.add(new CharacterPerkOptions(((Level) getCharacterDefinitionStep()).getClassPerksOptions()));
+        }
+        return classPerksOptions;
     }
 
     @JsonIgnore
     public List<CharacterPerkOptions> getFinalClassPerksOptions() {
-        return getCharacterDefinitionStep().getFinalPerksOptions(new ArrayList<>(getClassPerksOptions()));
+        return getCharacterDefinitionStep().getCharacterAvailablePerksOptions(new ArrayList<>(getClassPerksOptions()));
     }
 
     @JsonIgnore
     public List<CharacterPerkOptions> getNotRepeatedClassPerksOptions() {
-        return ((Level) getCharacterDefinitionStep()).getNotRepeatedUpbringingPerksOptions();
+        final List<CharacterPerkOptions> callingPerksOptions = new ArrayList<>();
+        final Set<PerkOption> perkOptions = ((Level) getCharacterDefinitionStep()).getClassPerksOptions();
+
+        final Set<Selection> originalSelections = getOriginalSelection(perkOptions);
+        final Set<Selection> availableSelections = getAvailableSelections(originalSelections, getLevel());
+
+        final CharacterPerkOptions characterPerkOptions = new CharacterPerkOptions(perkOptions, availableSelections);
+        characterPerkOptions.setTotalOptions(((Level) super.getCharacterDefinitionStep()).getTotalClassPerksOptions());
+        callingPerksOptions.add(characterPerkOptions);
+        return callingPerksOptions;
+    }
+
+    @Override
+    @JsonIgnore
+    public List<CharacterPerkOptions> getNotSelectedPerksOptions(boolean addStandardPerksIfEmpty) {
+        return new ArrayList<>();
     }
 
     @JsonIgnore
     public List<CharacterPerkOptions> getCallingPerksOptions() {
-        return ((Level) getCharacterDefinitionStep()).getCallingPerksOptions();
+        final List<CharacterPerkOptions> callingPerksOptions = new ArrayList<>();
+        for (int i = 0; i < ((Level) getCharacterDefinitionStep()).getTotalCallingPerksOptions(); i++) {
+            callingPerksOptions.add(new CharacterPerkOptions(((Level) getCharacterDefinitionStep()).getCallingPerksOptions()));
+        }
+        return callingPerksOptions;
     }
 
     @JsonIgnore
     public List<CharacterPerkOptions> getFinalCallingPerksOptions() {
-        return getCharacterDefinitionStep().getFinalPerksOptions(new ArrayList<>(getCallingPerksOptions()));
+        return getCharacterDefinitionStep().getCharacterAvailablePerksOptions(new ArrayList<>(getCallingPerksOptions()));
     }
 
     @JsonIgnore
     public List<CharacterPerkOptions> getNotRepeatedCallingPerksOptions() {
-        return ((Level) getCharacterDefinitionStep()).getNotRepeatedCallingPerksOptions();
+        final List<CharacterPerkOptions> callingPerksOptions = new ArrayList<>();
+        final Set<PerkOption> perkOptions = ((Level) getCharacterDefinitionStep()).getCallingPerksOptions();
+
+        final Set<Selection> originalSelections = getOriginalSelection(perkOptions);
+        final Set<Selection> availableSelections = getAvailableSelections(originalSelections, getLevel());
+
+        final CharacterPerkOptions characterPerkOptions = new CharacterPerkOptions(perkOptions, availableSelections);
+        characterPerkOptions.setTotalOptions(((Level) super.getCharacterDefinitionStep()).getTotalCallingPerksOptions());
+        callingPerksOptions.add(characterPerkOptions);
+        return callingPerksOptions;
     }
 
     protected void validateClassPerks() {
@@ -222,7 +253,11 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
     }
 
     @Override
+    @JsonIgnore
     public List<CharacterSelectedElement> getSelectedPerksOptions() {
-        throw new UnsupportedOperationException("Use class or calling perk options.");
+        final List<CharacterSelectedElement> selectedPerksOptions = new ArrayList<>();
+        selectedPerksOptions.addAll(getSelectedClassPerksOptions());
+        selectedPerksOptions.addAll(getSelectedCallingPerksOptions());
+        return selectedPerksOptions;
     }
 }

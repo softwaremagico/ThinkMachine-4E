@@ -41,12 +41,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UpbringingCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection {
-    private static final String NOBLE_UPBRINGING = "noble";
 
     private boolean raisedInSpace = false;
 
     public UpbringingCharacterDefinitionStepSelection(CharacterPlayer characterPlayer, String upbringing) throws InvalidGeneratedCharacter {
-        super(characterPlayer, UpbringingFactory.getInstance().getElement(upbringing));
+        super(characterPlayer, UpbringingFactory.getInstance().getElement(upbringing), Phase.UPBRINGING);
         setId(upbringing);
     }
 
@@ -69,12 +68,6 @@ public class UpbringingCharacterDefinitionStepSelection extends CharacterDefinit
             throw new InvalidUpbringingException(e.getMessage(), e);
         }
     }
-
-    @Override
-    public Phase getPhase() {
-        return Phase.UPBRINGING;
-    }
-
 
     @Override
     public List<CapabilityOptions> getNotRepeatedCapabilityOptions(Phase phase) {
@@ -105,15 +98,11 @@ public class UpbringingCharacterDefinitionStepSelection extends CharacterDefinit
         oldSkillBonusOptions.forEach(skillBonusOption -> newSkillBonusOptions.add(new SkillBonusOptions(skillBonusOption)));
         newSkillBonusOptions.forEach(skillBonusOptions -> {
             final SkillBonusOption interfaceSkill = new SkillBonusOption(SkillFactory.getInstance().getElement("interface"),
-                    skillBonusOptions.getOptions().get(0).getBonus());
-            if (!skillBonusOptions.getOptions().contains(interfaceSkill)) {
-                skillBonusOptions.getOptions().add(interfaceSkill);
-            }
+                    skillBonusOptions.getBonus());
+            skillBonusOptions.getOptions().add(interfaceSkill);
             final SkillBonusOption techRedemptionSkill = new SkillBonusOption(SkillFactory.getInstance().getElement("techRedemption"),
-                    skillBonusOptions.getOptions().get(0).getBonus());
-            if (!skillBonusOptions.getOptions().contains(techRedemptionSkill)) {
-                skillBonusOptions.getOptions().add(techRedemptionSkill);
-            }
+                    skillBonusOptions.getBonus());
+            skillBonusOptions.getOptions().add(techRedemptionSkill);
         });
         return newSkillBonusOptions;
     }

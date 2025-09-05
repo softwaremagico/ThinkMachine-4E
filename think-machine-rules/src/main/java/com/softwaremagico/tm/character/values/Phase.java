@@ -43,4 +43,20 @@ public enum Phase {
         }
         return false;
     }
+
+    public boolean checkedUntilPhase(Phase phase) {
+        if (phase != null) {
+            return index >= phase.index;
+        }
+        return false;
+    }
+
+    public Phase getPreviousPhase() {
+        for (Phase phase : values()) {
+            if (phase.index == index - 1) {
+                return phase;
+            }
+        }
+        return null;
+    }
 }

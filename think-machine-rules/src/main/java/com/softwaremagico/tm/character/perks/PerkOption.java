@@ -25,6 +25,7 @@ package com.softwaremagico.tm.character.perks;
  */
 
 import com.softwaremagico.tm.Option;
+import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineLog;
 import com.softwaremagico.tm.restrictions.Restrictions;
@@ -61,6 +62,21 @@ public class PerkOption extends Option<Perk> {
             finalPerkOptions.add(this);
         }
         return finalPerkOptions;
+    }
+
+    public List<Selection> getOptionsBySpecialization() {
+        final List<PerkOption> finalPerkOptions = this.expandGroup();
+        final List<Selection> specializedPerks = new ArrayList<>();
+        for (PerkOption perkOption : finalPerkOptions) {
+            if (perkOption.getSpecializations() != null && !perkOption.getSpecializations().isEmpty()) {
+                perkOption.getSpecializations().forEach(specialization ->
+                        specializedPerks.add(new Selection(perkOption.getElement(), specialization))
+                );
+            } else {
+                specializedPerks.add(new Selection(perkOption.getElement(), null));
+            }
+        }
+        return specializedPerks;
     }
 
     @Override

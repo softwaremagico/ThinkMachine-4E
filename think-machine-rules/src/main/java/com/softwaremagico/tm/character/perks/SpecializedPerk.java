@@ -27,8 +27,9 @@ package com.softwaremagico.tm.character.perks;
 
 import com.softwaremagico.tm.character.skills.Specialization;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * For managing character's perk selections with specializations.
@@ -63,8 +64,8 @@ public class SpecializedPerk extends Perk {
         return "";
     }
 
-    public static List<SpecializedPerk> create(List<Perk> perks) {
-        final List<SpecializedPerk> specializedPerks = new ArrayList<>();
+    public static Set<SpecializedPerk> create(Collection<Perk> perks) {
+        final Set<SpecializedPerk> specializedPerks = new HashSet<>();
         perks.forEach(perk -> specializedPerks.add(new SpecializedPerk(perk, null)));
         return specializedPerks;
     }

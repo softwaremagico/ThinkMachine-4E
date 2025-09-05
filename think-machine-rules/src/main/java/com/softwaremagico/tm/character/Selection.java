@@ -26,21 +26,38 @@ package com.softwaremagico.tm.character;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.softwaremagico.tm.Element;
+import com.softwaremagico.tm.character.perks.PerkOption;
+import com.softwaremagico.tm.character.perks.SpecializedPerk;
 import com.softwaremagico.tm.character.skills.Specialization;
 import com.softwaremagico.tm.utils.ComparableUtils;
 import com.softwaremagico.tm.utils.IComparable;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 public class Selection extends Element implements IComparable {
     private Specialization specialization;
+    private boolean repeatable = false;
 
-    public Selection(String id) {
-        super(id);
+
+    public Selection(SpecializedPerk specializedPerk) {
+        this(specializedPerk, specializedPerk.getSpecialization());
     }
 
-    public Selection(String id, Specialization specialization) {
-        this(id);
+    public Selection(Element element) {
+        this(element, null);
+    }
+
+
+    public Selection(Element element, Specialization specialization) {
+        super(element.getId());
+        setSpecialization(specialization);
+        setRestrictions(element.getRestrictions());
+    }
+
+    private Selection(String id, Specialization specialization) {
+        super(id);
         this.specialization = specialization;
     }
 
@@ -54,12 +71,20 @@ public class Selection extends Element implements IComparable {
 
     @JsonIgnore
     public Selection getMainSelection() {
-        return new Selection(getId());
+        return new Selection(getId(), null);
     }
 
     @Override
     public String getComparisonId() {
         return ComparableUtils.getComparisonId(getId(), getSpecialization());
+    }
+
+    public boolean isRepeatable() {
+        return repeatable;
+    }
+
+    public void setRepeatable(boolean repeatable) {
+        this.repeatable = repeatable;
     }
 
     @Override
@@ -81,6 +106,28 @@ public class Selection extends Element implements IComparable {
 
     @Override
     public String toString() {
-        return getId() + (getSpecialization() != null ? " (" + getSpecialization() + ")" : "");
+        return getId() + (getSpecialization() != null ? " (" + getSpecialization().getId() + ")" : "");
+    }
+
+    @Override
+    public String getNameRepresentation() {
+        if (getName() != null) {
+            return getName().getTranslatedText() + (getSpecialization() != null ? " (" + getSpecialization().getNameRepresentation() + ")" : "");
+        }
+        return "";
+    }
+
+    public static Set<Selection> convert(PerkOption perkOption) {
+        final Set<Selection> selections = new HashSet<>();
+        if (perkOption.getSpecializations() == null || perkOption.getSpecializations().isEmpty()) {
+            final Selection selection = new Selection(perkOption);
+            selection.setRepeatable(perkOption.isRepeatable());
+            selections.add(selection);
+        } else {
+            for (Specialization specialization : perkOption.getSpecializations()) {
+                selections.add(new Selection(perkOption, specialization));
+            }
+        }
+        return selections;
     }
 }

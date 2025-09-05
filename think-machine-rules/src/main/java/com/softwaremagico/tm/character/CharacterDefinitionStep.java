@@ -34,13 +34,10 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOption
 import com.softwaremagico.tm.character.equipment.EquipmentOption;
 import com.softwaremagico.tm.character.equipment.EquipmentOptions;
 import com.softwaremagico.tm.character.perks.CharacterPerkOptions;
-import com.softwaremagico.tm.character.perks.PerkFactory;
-import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.character.perks.PerkOptions;
 import com.softwaremagico.tm.character.skills.SkillBonusOption;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.log.MachineLog;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -65,9 +62,6 @@ public class CharacterDefinitionStep extends Element {
     private List<PerkOptions> perksOptions = new ArrayList<>();
     @JsonProperty("materialAwards")
     private List<EquipmentOptions> materialAwards = new ArrayList<>();
-
-    @JsonIgnore
-    private List<CharacterPerkOptions> finalPerkOptions;
 
 
     public List<CapabilityOptions> getCapabilityOptions() {
@@ -99,31 +93,15 @@ public class CharacterDefinitionStep extends Element {
     }
 
     @JsonIgnore
-    public List<CharacterPerkOptions> getFinalPerksOptions() {
-        if (finalPerkOptions == null) {
-            //No perks defined.
-            finalPerkOptions = getFinalPerksOptions(getSourcePerks());
-        }
-        return new ArrayList<>(finalPerkOptions);
+    public List<CharacterPerkOptions> getCharacterAvailablePerksOptions() {
+        return getCharacterAvailablePerksOptions(getSourcePerks());
     }
 
     @JsonIgnore
-    public List<CharacterPerkOptions> getFinalPerksOptions(List<PerkOptions> sourcePerkOptions) {
+    public List<CharacterPerkOptions> getCharacterAvailablePerksOptions(List<PerkOptions> sourcePerkOptions) {
         final List<CharacterPerkOptions> completePerkList = new ArrayList<>();
         for (PerkOptions perkOptions : sourcePerkOptions) {
-            if (perkOptions.isIncludeOpenPerks()) {
-                final CharacterPerkOptions completedPerkOption = new CharacterPerkOptions(perkOptions);
-                //Add Open perks
-                try {
-                    completedPerkOption.addOptions(PerkFactory.getInstance().getOpenElements().stream()
-                            .map(PerkOption::new).collect(Collectors.toList()));
-                } catch (InvalidXmlElementException e) {
-                    MachineLog.errorMessage(this.getClass(), e);
-                }
-                completePerkList.add(completedPerkOption);
-            } else {
-                completePerkList.add(new CharacterPerkOptions(perkOptions));
-            }
+            completePerkList.add(new CharacterPerkOptions(perkOptions));
         }
         return completePerkList;
     }
@@ -207,10 +185,11 @@ public class CharacterDefinitionStep extends Element {
 
         int totalCharacteristicsPoints = 0;
         for (CharacteristicBonusOptions characteristicOptions : getCharacteristicOptions()) {
-            if (characteristicOptions.getOptions().get(0).getElement() == null
-                    || characteristicOptions.getOptions().get(0).getElement().getType() == null
-                    || !characteristicOptions.getOptions().get(0).isExtra()) {
-                totalCharacteristicsPoints += characteristicOptions.getTotalOptions() * characteristicOptions.getOptions().get(0).getBonus();
+            final CharacteristicBonusOption option = characteristicOptions.getOptions().iterator().next();
+            if (option.getElement() == null
+                    || option.getElement().getType() == null
+                    || !option.isExtra()) {
+                totalCharacteristicsPoints += characteristicOptions.getTotalOptions() * option.getBonus();
             }
         }
         if (totalCharacteristicsPoints != getCharacteristicsTotalPoints()) {
@@ -236,7 +215,7 @@ public class CharacterDefinitionStep extends Element {
 
         int totalSkillPoints = 0;
         for (SkillBonusOptions skillOptions : getSkillOptions()) {
-            totalSkillPoints += skillOptions.getTotalOptions() * skillOptions.getOptions().get(0).getBonus();
+            totalSkillPoints += skillOptions.getTotalOptions() * skillOptions.getOptions().iterator().next().getBonus();
         }
         if (totalSkillPoints != getSkillsTotalPoints()) {
             throw new InvalidXmlElementException("Element '" + getId() + "' has invalid skill options: '" + getSkillsTotalPoints()

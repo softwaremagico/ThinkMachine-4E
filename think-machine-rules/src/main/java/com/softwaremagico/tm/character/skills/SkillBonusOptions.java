@@ -29,14 +29,13 @@ import com.softwaremagico.tm.OptionSelector;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 public class SkillBonusOptions extends OptionSelector<Skill, SkillBonusOption> {
     @JsonIgnore
-    private List<SkillBonusOption> finalSkills;
+    private LinkedHashSet<SkillBonusOption> finalSkills;
     @JsonIgnore
     private Map<String, SkillBonusOption> skillBonusById;
 
@@ -45,24 +44,24 @@ public class SkillBonusOptions extends OptionSelector<Skill, SkillBonusOption> {
     }
 
     public SkillBonusOptions(SkillBonusOptions optionSelector) {
-        this(optionSelector, new ArrayList<>(optionSelector.getSourceOptions()));
+        this(optionSelector, new LinkedHashSet<>(optionSelector.getSourceOptions()));
     }
 
-    public SkillBonusOptions(SkillBonusOptions optionSelector, List<SkillBonusOption> finalSkills) {
+    public SkillBonusOptions(SkillBonusOptions optionSelector, LinkedHashSet<SkillBonusOption> finalSkills) {
         super(optionSelector);
         this.finalSkills = finalSkills;
     }
 
     @Override
-    public List<SkillBonusOption> getOptions() {
+    public LinkedHashSet<SkillBonusOption> getOptions() {
         if (finalSkills == null) {
             try {
                 if (super.getOptions() == null || super.getOptions().isEmpty()
-                        || (!super.getOptions().isEmpty() && super.getOptions().get(0).getId() == null)) {
-                    finalSkills = new ArrayList<>();
+                        || (!super.getOptions().isEmpty() && super.getOptions().iterator().next().getId() == null)) {
+                    finalSkills = new LinkedHashSet<>();
                     if (super.getOptions() != null && !super.getOptions().isEmpty()) {
                         finalSkills.addAll(SkillFactory.getInstance().getElements().stream()
-                                .map(skill -> new SkillBonusOption(skill, super.getOptions().get(0).getBonus())).collect(Collectors.toList()));
+                                .map(skill -> new SkillBonusOption(skill, super.getOptions().iterator().next().getBonus())).collect(Collectors.toList()));
                     } else {
                         finalSkills.addAll(SkillFactory.getInstance().getElements().stream()
                                 .map(SkillBonusOption::new).collect(Collectors.toList()));
@@ -86,7 +85,7 @@ public class SkillBonusOptions extends OptionSelector<Skill, SkillBonusOption> {
 
     public int getBonus() {
         if (super.getOptions() != null && !super.getOptions().isEmpty()) {
-            return getOptions().get(0).getBonus();
+            return getOptions().iterator().next().getBonus();
         }
         return 1;
     }
