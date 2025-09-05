@@ -327,7 +327,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                         + "' are available.");
             }
             final List<Selection> availableOptions = getCharacteristicOptions().get(i).getOptions()
-                    .stream().map(co -> new Selection(co)).collect(Collectors.toList());
+                    .stream().map(Selection::new).collect(Collectors.toList());
             for (Selection selection : selectedCharacteristicOptions.get(i).getSelections()) {
                 if (!availableOptions.contains(selection)) {
                     throw new InvalidSelectedElementException("Selected characteristic '" + selection + "' does not exist.", selection);

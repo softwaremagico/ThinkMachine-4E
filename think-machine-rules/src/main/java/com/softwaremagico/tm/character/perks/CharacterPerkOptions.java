@@ -77,19 +77,4 @@ public class CharacterPerkOptions extends PerkOptions {
     public void setAvailableSelections(Set<Selection> availableSelections) {
         this.availableSelections = availableSelections;
     }
-
-    public static CharacterPerkOptions combineCharacterPerks(List<CharacterPerkOptions> characterPerkOptionsList) {
-        if (characterPerkOptionsList == null || characterPerkOptionsList.isEmpty()) {
-            return null;
-        }
-        final CharacterPerkOptions characterPerkOptions = new CharacterPerkOptions(characterPerkOptionsList.get(0));
-        for (int i = 1; i < characterPerkOptionsList.size(); i++) {
-            characterPerkOptions.getSourceOptions().addAll(characterPerkOptionsList.get(i).getSourceOptions());
-            if (characterPerkOptionsList.get(i).isIncludeOpenPerks()) {
-                characterPerkOptions.setIncludeOpenPerks(true);
-            }
-        }
-        characterPerkOptions.updateFinalPerks();
-        return characterPerkOptions;
-    }
 }
