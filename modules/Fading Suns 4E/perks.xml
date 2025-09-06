@@ -1456,14 +1456,21 @@
         </name>
         <source>class</source>
         <type>ability</type>
-        <restrictions mode="all">
+        <restrictions mode="any">
+            <species>
+                <specie>ukar</specie>
+            </species>
             <upbringings>
-                <upbringing>noble</upbringing>
+                <upbringing>merchant</upbringing>
             </upbringings>
-            <capabilities>
-                <capability>militaryWeapons</capability>
-            </capabilities>
+            <factions>
+                <faction>decados</faction>
+            </factions>
         </restrictions>
+        <random>
+            <recommendedFactions>scravers</recommendedFactions>
+            <recommendedSpecies>ukar</recommendedSpecies>
+        </random>
     </perk>
     <perk>
         <id>kraxi2</id>
@@ -1481,6 +1488,7 @@
         </restrictions>
         <random>
             <recommendedFactions>scravers</recommendedFactions>
+            <recommendedSpecies>ukar</recommendedSpecies>
         </random>
     </perk>
     <perk>
