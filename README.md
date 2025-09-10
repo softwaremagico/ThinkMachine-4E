@@ -65,7 +65,7 @@ It does not include a user interface and, therefore, cannot be used as a standal
 In the near future, new applications with user interfaces for different platforms will be released.
 These applications will be listed here:
 
-- [Think Machine: Advisor](https://github.com/softwaremagico/ThinkMachine-Advisor) is a desktop application based on Java that integrates this library to create
+- [Think Machine: Advisor](https://github.com/softwaremagico/ThinkMachine-4E-Advisor) is an Android application based on Java that integrates this library to create
   Player and Non-Player Characters (currently under development).
 
 ## Notes
