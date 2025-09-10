@@ -77,8 +77,8 @@
 										<!-- delete old folder -->
 										<delete dir="${files.basedir}/sheets" failonerror="false" includeemptydirs="true" />
 										<!-- Copy sheets -->
-										<copy file="/tmp/PdfTest/CharacterFS_EN.pdf" tofile="${files.basedir}/sheets/FadingSuns_EN.pdf" overwrite="true" />
-										<copy file="/tmp/PdfTest/CharacterFS_ES.pdf" tofile="${files.basedir}/sheets/FadingSuns_ES.pdf" overwrite="true" />
+										<copy file="/tmp/PdfTest/FadingSuns_EN.pdf" tofile="${files.basedir}/sheets/FadingSuns_EN.pdf" overwrite="true" />
+										<copy file="/tmp/PdfTest/FadingSuns_ES.pdf" tofile="${files.basedir}/sheets/FadingSuns_ES.pdf" overwrite="true" />
 <!--										<copy file="/tmp/PdfTest/CharacterFS_Small_EN.pdf" tofile="${files.basedir}/sheets/FadingSuns_Small_EN.pdf" overwrite="true" />-->
 <!--										<copy file="/tmp/PdfTest/CharacterFS_Small_ES.pdf" tofile="${files.basedir}/sheets/FadingSuns_Small_ES.pdf" overwrite="true" />-->
 									</target>
@@ -110,7 +110,7 @@
 										<argument>-density</argument>
 										<argument>600</argument>
 										<argument>${files.basedir}/sheets/FadingSuns_ES.pdf</argument>
-										<argument>${files.basedir}/sheets/FadingSuns_ES-%01d.png</argument>
+										<argument>${files.basedir}/sheets/FadingSuns_ES.png</argument>
 									</arguments>
 								</configuration>
 							</execution>
@@ -130,7 +130,7 @@
 										<argument>-density</argument>
 										<argument>600</argument>
 										<argument>${files.basedir}/sheets/FadingSuns_EN.pdf</argument>
-										<argument>${files.basedir}/sheets/FadingSuns_EN-%01d.png</argument>
+										<argument>${files.basedir}/sheets/FadingSuns_EN.png</argument>
 									</arguments>
 								</configuration>
 							</execution>

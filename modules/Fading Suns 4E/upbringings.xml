@@ -716,6 +716,9 @@
                 </options>
             </skillBonusOption>
         </skills>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </upbringing>
     <upbringing>
         <id>merchant</id>
