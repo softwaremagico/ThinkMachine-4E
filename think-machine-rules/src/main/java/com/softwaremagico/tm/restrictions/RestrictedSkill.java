@@ -24,7 +24,9 @@ package com.softwaremagico.tm.restrictions;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.softwaremagico.tm.character.skills.SkillFactory;
 
 public class RestrictedSkill {
     @JsonProperty("name")
@@ -46,6 +48,14 @@ public class RestrictedSkill {
 
     public void setValue(int value) {
         this.value = value;
+    }
+
+    @JsonIgnore
+    public String getNameRepresentation() {
+        if (getSkill() != null) {
+            return SkillFactory.getInstance().getElement(getSkill()).getNameRepresentation() + " (" + getValue() + ")";
+        }
+        return "";
     }
 
     @Override

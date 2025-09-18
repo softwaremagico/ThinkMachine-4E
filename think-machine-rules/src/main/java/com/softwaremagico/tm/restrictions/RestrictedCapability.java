@@ -24,7 +24,10 @@ package com.softwaremagico.tm.restrictions;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.softwaremagico.tm.character.capabilities.Capability;
+import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
 import com.softwaremagico.tm.utils.ComparableUtils;
 import com.softwaremagico.tm.utils.IComparable;
 
@@ -67,6 +70,16 @@ public class RestrictedCapability implements IComparable {
     @Override
     public String getComparisonId() {
         return ComparableUtils.getComparisonId(getId(), getSpecialization());
+    }
+
+    @JsonIgnore
+    public String getNameRepresentation() {
+        if (getId() != null) {
+            final Capability capability = CapabilityFactory.getInstance().getElement(getId());
+            return capability.getNameRepresentation() + (specialization != null ? " ("
+                    + capability.getSpecialization(specialization).getNameRepresentation() + ")" : "");
+        }
+        return "";
     }
 
     @Override

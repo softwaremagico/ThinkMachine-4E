@@ -24,7 +24,9 @@ package com.softwaremagico.tm.restrictions;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
 
 public class RestrictedCharacteristic {
     @JsonProperty("name")
@@ -46,6 +48,14 @@ public class RestrictedCharacteristic {
 
     public void setValue(int value) {
         this.value = value;
+    }
+
+    @JsonIgnore
+    public String getNameRepresentation() {
+        if (getCharacteristic() != null) {
+            return CharacteristicsDefinitionFactory.getInstance().getElement(getCharacteristic()).getNameRepresentation() + " (" + getValue() + ")";
+        }
+        return "";
     }
 
     @Override

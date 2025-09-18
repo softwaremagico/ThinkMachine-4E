@@ -132,6 +132,13 @@ public abstract class XmlFactory<T extends Element> {
         return getElements().stream().filter(t -> Objects.equals(group, t.getGroup())).collect(Collectors.toList());
     }
 
+    public List<T> getElementsByGroup(Collection<String> groups) throws InvalidXmlElementException {
+        if (groups == null || groups.isEmpty()) {
+            return new ArrayList<>();
+        }
+        return getElements().stream().filter(t -> groups.contains(t.getGroup())).collect(Collectors.toList());
+    }
+
     public abstract List<T> getElements() throws InvalidXmlElementException;
 
     public List<T> getOpenElements() {

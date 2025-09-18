@@ -30,12 +30,14 @@ import com.softwaremagico.tm.character.Surname;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.xml.XmlFactory;
 
+import java.util.Collection;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public final class FactionFactory extends XmlFactory<Faction> {
     private static final String XML_FILE = "factions.xml";
@@ -124,5 +126,10 @@ public final class FactionFactory extends XmlFactory<Faction> {
             surnames.addAll(getAllSurnames(faction.getId()));
         }
         return surnames;
+    }
+
+    public List<Faction> getByFactionGroups(Collection<FactionGroup> factionGroups) {
+        return getElements().stream().filter(faction -> factionGroups.contains(FactionGroup.get(faction.getGroup())))
+                .collect(Collectors.toList());
     }
 }
