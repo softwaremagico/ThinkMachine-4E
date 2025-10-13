@@ -301,8 +301,7 @@
             </properties>
             <activation>
                 <property>
-                    <name>performRelease</name>
-                    <value>true</value>
+                    <name>!deploySnapshot</name>
                 </property>
             </activation>
             <build>
