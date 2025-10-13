@@ -1,11 +1,12 @@
 name: Publish package to GitHub Packages
 
 # Only trigger, when the build workflow succeeded
-on:
-  workflow_run:
-    workflows: ["Java CI with Maven"]
-    types:
-      - completed
+#on:
+#  workflow_run:
+#    workflows: ["Java CI with Maven"]
+#    types:
+#      - completed
+on: workflow_dispatch
 
 jobs:
   publish:
