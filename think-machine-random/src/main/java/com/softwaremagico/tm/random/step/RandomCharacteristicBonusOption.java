@@ -38,6 +38,7 @@ import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedExcep
 
 import java.util.Collection;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class RandomCharacteristicBonusOption extends RandomCharacteristics {
 
@@ -81,6 +82,6 @@ public class RandomCharacteristicBonusOption extends RandomCharacteristics {
 
     @Override
     protected Collection<CharacteristicDefinition> getAllElements() throws InvalidXmlElementException {
-        return characteristicBonusOptions.getOptions().stream().map(Option::getElement).toList();
+        return characteristicBonusOptions.getOptions().stream().map(Option::getElement).collect(Collectors.toList());
     }
 }

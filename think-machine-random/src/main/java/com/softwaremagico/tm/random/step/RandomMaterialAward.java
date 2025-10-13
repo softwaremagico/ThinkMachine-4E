@@ -34,6 +34,7 @@ import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 
 import java.util.Collection;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class RandomMaterialAward extends RandomSelector<Equipment> {
 
@@ -47,6 +48,6 @@ public class RandomMaterialAward extends RandomSelector<Equipment> {
 
     @Override
     protected Collection<Equipment> getAllElements() throws InvalidXmlElementException {
-        return equipmentOptions.getOptions().stream().map(Option::getElement).toList();
+        return equipmentOptions.getOptions().stream().map(Option::getElement).collect(Collectors.toList());
     }
 }
