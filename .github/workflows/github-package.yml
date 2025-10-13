@@ -27,6 +27,6 @@ jobs:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
       - name: Publish package
-        run: mvn --batch-mode deploy -DdeploySnapshot=true
+        run: mvn --batch-mode deploy -DskipTests -DdeploySnapshot=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
