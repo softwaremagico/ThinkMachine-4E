@@ -1,17 +1,16 @@
 name: Publish package to GitHub Packages
 
 # Only trigger, when the build workflow succeeded
-#on:
-#  workflow_run:
-#    workflows: ["Java CI with Maven"]
-#    types:
-#      - completed
-on: workflow_dispatch
+on:
+  workflow_run:
+    workflows: ["Java CI with Maven"]
+    types:
+      - completed
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-#    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     permissions:
       contents: read
       packages: write
@@ -21,11 +20,6 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
-      - name: Import GPG key
-        uses: crazy-max/ghaction-import-gpg@v6
-        with:
-          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
       - name: Publish package
         run: mvn --batch-mode deploy -DskipTests -DdeploySnapshot=true
         env:
