@@ -4,7 +4,7 @@ package com.softwaremagico.tm.random.definition;
  * #%L
  * Think Machine (Core)
  * %%
- * Copyright (C) 2017 - 2018 Softwaremagico
+ * Copyright (C) 2017 - 2026 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -34,12 +34,7 @@ public enum RandomProbabilityDefinition {
     }
 
     public static RandomProbabilityDefinition get(String probabilityName) {
-        for (final RandomProbabilityDefinition probability : RandomProbabilityDefinition.values()) {
-            if (probability.name().equalsIgnoreCase(probabilityName)) {
-                return probability;
-            }
-        }
-        return null;
+        return ProbabilityMultiplier.get(probabilityName);
     }
 
     public double getProbabilityMultiplier() {

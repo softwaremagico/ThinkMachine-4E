@@ -4,7 +4,7 @@ package com.softwaremagico.tm.random.definition;
  * #%L
  * Think Machine (Core)
  * %%
- * Copyright (C) 2017 - 2018 Softwaremagico
+ * Copyright (C) 2017 - 2026 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -50,8 +50,12 @@ public class RandomElementDefinition extends XmlData {
     private Set<String> recommendedSpecies = new HashSet<>();
     private Set<String> recommendedUpbringings = new HashSet<>();
     private Set<String> recommendedCallings = new HashSet<>();
+    //Cannot be selected with this list of preferences.
     private Set<String> forbiddenPreferences = new HashSet<>();
+    //Restricted to this selected preferences.
     private Set<String> restrictedPreferences = new HashSet<>();
+    //Less probability with these preferences.
+    private Set<String> inadvisablePreferences = new HashSet<>();
     private Set<String> recommendedPreferences = new HashSet<>();
     private RandomProbabilityDefinition probability;
 
@@ -116,6 +120,10 @@ public class RandomElementDefinition extends XmlData {
         if (randomDefinition.getRestrictedPreferences() != null && !randomDefinition.getRestrictedPreferences().isEmpty()) {
             restrictedPreferences.clear();
             restrictedPreferences.addAll(randomDefinition.getRestrictedPreferences());
+        }
+        if (randomDefinition.getRestrictedPreferences() != null && !randomDefinition.getRestrictedPreferences().isEmpty()) {
+            inadvisablePreferences.clear();
+            inadvisablePreferences.addAll(randomDefinition.getRestrictedPreferences());
         }
         if (randomDefinition.getRecommendedPreferences() != null && !randomDefinition.getRecommendedPreferences().isEmpty()) {
             recommendedPreferences.clear();
@@ -219,6 +227,14 @@ public class RandomElementDefinition extends XmlData {
 
     public void setRecommendedPreferences(Set<String> recommendedPreferences) {
         this.recommendedPreferences = recommendedPreferences;
+    }
+
+    public Set<String> getInadvisablePreferences() {
+        return inadvisablePreferences;
+    }
+
+    public void setInadvisablePreferences(Set<String> inadvisablePreferences) {
+        this.inadvisablePreferences = inadvisablePreferences;
     }
 
     public void setAgoraProbabilityMultiplier(Agora agora) {

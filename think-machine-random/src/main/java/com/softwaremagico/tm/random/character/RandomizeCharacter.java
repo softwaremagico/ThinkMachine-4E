@@ -59,10 +59,10 @@ public class RandomizeCharacter {
     private final Set<RandomPreference> preferences;
     private final int desiredLevel;
 
-    private RandomSpecie randomSpecie;
-    private RandomCalling randomCalling;
-    private RandomFaction randomFaction;
-    private RandomUpbringing randomUpbringing;
+    private final RandomSpecie randomSpecie;
+    private final RandomCalling randomCalling;
+    private final RandomFaction randomFaction;
+    private final RandomUpbringing randomUpbringing;
 
     public RandomizeCharacter(CharacterPlayer characterPlayer, RandomPreference... preferences) {
         this(characterPlayer, 1, preferences);
@@ -78,8 +78,11 @@ public class RandomizeCharacter {
         } else {
             this.preferences = new HashSet<>();
         }
+        randomSpecie = new RandomSpecie(characterPlayer, this.preferences);
+        randomUpbringing = new RandomUpbringing(characterPlayer, this.preferences);
+        randomFaction = new RandomFaction(characterPlayer, this.preferences);
+        randomCalling = new RandomCalling(characterPlayer, this.preferences);
     }
-
 
     public void createCharacter() throws InvalidRandomElementSelectedException {
         try {
@@ -105,7 +108,6 @@ public class RandomizeCharacter {
     }
 
     private void selectSpecie() throws InvalidRandomElementSelectedException {
-        randomSpecie = new RandomSpecie(characterPlayer, preferences);
         randomSpecie.assign();
     }
 
@@ -118,7 +120,6 @@ public class RandomizeCharacter {
     }
 
     private void selectUpbringing() throws InvalidRandomElementSelectedException {
-        randomUpbringing = new RandomUpbringing(characterPlayer, preferences);
         randomUpbringing.assign();
     }
 
@@ -127,7 +128,6 @@ public class RandomizeCharacter {
     }
 
     private void selectFaction() throws InvalidRandomElementSelectedException {
-        randomFaction = new RandomFaction(characterPlayer, preferences);
         randomFaction.assign();
     }
 
@@ -148,7 +148,6 @@ public class RandomizeCharacter {
     }
 
     private void selectCalling() throws InvalidRandomElementSelectedException {
-        randomCalling = new RandomCalling(characterPlayer, preferences);
         randomCalling.assign();
     }
 

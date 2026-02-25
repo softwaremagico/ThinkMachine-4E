@@ -218,8 +218,8 @@
             <surnames>HanSeer, HanLoaaj, Harn, Haleigha, Haulani, Kahiau, Maylee, Pazhani, Pualani</surnames>
             <probabilityMultiplier>NORMAL</probabilityMultiplier>
             <recommendedPreferences>
-                <prefernce>PSI</prefernce>
-                <prefernce>THEURGY</prefernce>
+                <preference>PSI</preference>
+                <preference>THEURGY</preference>
             </recommendedPreferences>
         </random>
     </obun>
@@ -373,8 +373,8 @@
             <surnames>Nadakira, Wahind, Malak, Nolents, Oed Nata, Borduk, Nont, Veldiryn, Nilite, Tushan</surnames>
             <probabilityMultiplier>NORMAL</probabilityMultiplier>
             <recommendedPreferences>
-                <prefernce>PSI</prefernce>
-                <prefernce>MILITANT</prefernce>
+                <preference>PSI</preference>
+                <preference>MILITANT</preference>
             </recommendedPreferences>
         </random>
     </ukar>
@@ -526,7 +526,7 @@
             <surnames>Rolfish, Gashnakh, Ragash, Oghash, Yazgash, Rogmesh, Borgakh, Lagakh, Sharamph</surnames>
             <probabilityMultiplier>NORMAL</probabilityMultiplier>
             <recommendedPreferences>
-                <prefernce>MILITANT</prefernce>
+                <preference>MILITANT</preference>
             </recommendedPreferences>
         </random>
     </vorox>

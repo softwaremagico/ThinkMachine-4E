@@ -14,6 +14,15 @@
         <function>force</function>
         <type>characteristicDefinition</type>
         <order>0</order>
+        <random>
+            <recommendedPreferences>
+                <preference>MILITANT</preference>
+                <preference>PRIMITIVE</preference>
+            </recommendedPreferences>
+            <recommendedSpecies>
+                <specie>vorox</specie>
+            </recommendedSpecies>
+        </random>
     </characteristicDefinition>
     <characteristicDefinition>
         <id>dexterity</id>
@@ -29,6 +38,11 @@
         <function>finesse</function>
         <type>characteristicDefinition</type>
         <order>1</order>
+        <random>
+            <recommendedPreferences>
+                <preference>MILITANT</preference>
+            </recommendedPreferences>
+        </random>
     </characteristicDefinition>
     <characteristicDefinition>
         <id>endurance</id>
@@ -44,6 +58,15 @@
         <function>fortitude</function>
         <type>characteristicDefinition</type>
         <order>2</order>
+        <random>
+            <recommendedPreferences>
+                <preference>MILITANT</preference>
+                <preference>PRIMITIVE</preference>
+            </recommendedPreferences>
+            <recommendedSpecies>
+                <specie>vorox</specie>
+            </recommendedSpecies>
+        </random>
     </characteristicDefinition>
     <characteristicDefinition>
         <id>wits</id>
@@ -59,6 +82,14 @@
         <function>force</function>
         <type>characteristicDefinition</type>
         <order>3</order>
+        <random>
+            <recommendedPreferences>
+                <preference>HI_TECH</preference>
+            </recommendedPreferences>
+            <inadvisablePreferences>
+                <preference>PRIMITIVE</preference>
+            </inadvisablePreferences>
+        </random>
     </characteristicDefinition>
     <characteristicDefinition>
         <id>perception</id>
@@ -88,6 +119,12 @@
         <characteristicType>mind</characteristicType>
         <function>fortitude</function>
         <type>characteristicDefinition</type>
+        <random>
+            <recommendedPreferences>
+                <preference>PSI</preference>
+                <preference>THEURGY</preference>
+            </recommendedPreferences>
+        </random>
     </characteristicDefinition>
     <characteristicDefinition>
         <id>presence</id>
@@ -102,6 +139,12 @@
         <characteristicType>spirit</characteristicType>
         <function>force</function>
         <type>characteristicDefinition</type>
+        <random>
+            <recommendedPreferences>
+                <preference>HIGH_RANK</preference>
+                <preference>THEURGY</preference>
+            </recommendedPreferences>
+        </random>
     </characteristicDefinition>
     <characteristicDefinition>
         <id>intuition</id>
@@ -130,6 +173,11 @@
         <characteristicType>spirit</characteristicType>
         <function>fortitude</function>
         <type>characteristicDefinition</type>
+        <random>
+            <recommendedPreferences>
+                <preference>THEURGY</preference>
+            </recommendedPreferences>
+        </random>
     </characteristicDefinition>
     <characteristicDefinition>
         <id>initiative</id>
@@ -176,7 +224,12 @@
             </species>
         </restrictions>
         <random>
-            <recommendedCallings>theurgist</recommendedCallings>
+            <recommendedPreferences>
+                <preference>THEURGY</preference>
+            </recommendedPreferences>
+            <recommendedCallings>
+                <calling>theurgist</calling>
+            </recommendedCallings>
         </random>
     </characteristicDefinition>
     <characteristicDefinition>
@@ -221,7 +274,14 @@
             </species>
         </restrictions>
         <random>
-            <recommendedCallings>psychic</recommendedCallings>
+            <random>
+                <recommendedPreferences>
+                    <preference>THEURGY</preference>
+                </recommendedPreferences>
+            </random>
+            <recommendedCallings>
+                <calling>psychic</calling>
+            </recommendedCallings>
         </random>
     </characteristicDefinition>
     <characteristicDefinition>
