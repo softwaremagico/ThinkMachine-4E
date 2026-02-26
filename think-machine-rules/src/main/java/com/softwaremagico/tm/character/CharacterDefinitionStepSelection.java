@@ -40,6 +40,7 @@ import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.character.perks.PerkOptions;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
 import com.softwaremagico.tm.character.values.Phase;
+import com.softwaremagico.tm.exceptions.IncompleteSelectedElementException;
 import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
 import com.softwaremagico.tm.exceptions.InvalidSelectedElementException;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
@@ -340,7 +341,10 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         }
 
         //Check total
-        if (totalBonus != getCharacteristicTotalPoints()) {
+        if (totalBonus < getCharacteristicTotalPoints()) {
+            throw new IncompleteSelectedElementException("Total points assigned to characteristics are '" + totalBonus + "' from '"
+                    + getCharacteristicTotalPoints() + "'.");
+        } else if (totalBonus > getCharacteristicTotalPoints()) {
             throw new InvalidSelectedElementException("Total points assigned to characteristics are '" + totalBonus + "' from '"
                     + getCharacteristicTotalPoints() + "'.");
         }

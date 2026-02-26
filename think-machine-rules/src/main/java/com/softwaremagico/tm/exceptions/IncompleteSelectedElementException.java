@@ -1,8 +1,8 @@
-package com.softwaremagico.tm.export.pdf;
+package com.softwaremagico.tm.exceptions;
 
 /*-
  * #%L
- * Think Machine 4E (PDF Sheets)
+ * Think Machine 4E (Rules)
  * %%
  * Copyright (C) 2017 - 2024 Softwaremagico
  * %%
@@ -24,19 +24,29 @@ package com.softwaremagico.tm.export.pdf;
  * #L%
  */
 
-import java.io.File;
 
-public class PdfGeneration {
-    protected static final String OUTPUT_FOLDER = System.getProperty("java.io.tmpdir") + File.separator + "PdfTest" + File.separator;
+import com.softwaremagico.tm.character.Selection;
 
-    protected boolean deleteDirectory(File directoryToBeDeleted) {
-        File[] allContents = directoryToBeDeleted.listFiles();
-        if (allContents != null) {
-            for (File file : allContents) {
-                deleteDirectory(file);
-            }
-        }
-        return directoryToBeDeleted.delete();
+public class IncompleteSelectedElementException extends InvalidXmlElementException {
+    private static final long serialVersionUID = 194333793074549262L;
+    private final Selection selection;
+
+    public IncompleteSelectedElementException(String message) {
+        super(message);
+        selection = null;
     }
 
+    public IncompleteSelectedElementException(String message, Selection selection) {
+        super(message);
+        this.selection = selection;
+    }
+
+    public IncompleteSelectedElementException(String message, Exception e, Selection selection) {
+        super(message, e);
+        this.selection = selection;
+    }
+
+    public Selection getSelection() {
+        return selection;
+    }
 }
