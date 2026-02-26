@@ -39,8 +39,9 @@ import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import com.softwaremagico.tm.log.RandomGenerationLog;
 import com.softwaremagico.tm.log.RandomSelectorLog;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
-import com.softwaremagico.tm.random.character.selectors.RandomPreference;
+import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
+import com.softwaremagico.tm.random.character.selectors.RandomValueAssignation;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
 import java.util.Collection;
@@ -50,12 +51,12 @@ import java.util.Set;
 public class RandomCharacteristics extends RandomSelector<CharacteristicDefinition> implements AssignableRandomSelector {
     private final int bonus;
 
-    public RandomCharacteristics(CharacterPlayer characterPlayer, Set<RandomPreference> preferences) throws InvalidXmlElementException {
+    public RandomCharacteristics(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
         this.bonus = 0;
     }
 
-    public RandomCharacteristics(CharacterPlayer characterPlayer, Set<RandomPreference> preferences, int bonus) throws InvalidXmlElementException {
+    public RandomCharacteristics(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences, int bonus) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
         this.bonus = bonus;
     }
@@ -73,9 +74,9 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
     @Override
     protected double getUserPreferenceBonus(CharacteristicDefinition element) {
         double multiplier = super.getUserPreferenceBonus(element);
-        if (getPreferences().contains(RandomPreference.SPECIALIZED)) {
+        if (getPreferences().contains(RandomValueAssignation.SPECIALIZED)) {
             multiplier += getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName());
-        } else if (getPreferences().contains(RandomPreference.BALANCED)) {
+        } else if (getPreferences().contains(RandomValueAssignation.BALANCED)) {
             multiplier += CharacteristicDefinition.MAX_CHARACTERISTIC_VALUE
                     - getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName());
         }
@@ -119,7 +120,7 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
             return 0;
         }
 
-        if (!getPreferences().contains(RandomPreference.BALANCED) && Objects.equals(getCharacterPlayer().getPrimaryCharacteristic(), element.getId())
+        if (!getPreferences().contains(RandomValueAssignation.BALANCED) && Objects.equals(getCharacterPlayer().getPrimaryCharacteristic(), element.getId())
                 || Objects.equals(getCharacterPlayer().getSecondaryCharacteristic(), element.getId())) {
             return LITTLE_PROBABILITY;
         }

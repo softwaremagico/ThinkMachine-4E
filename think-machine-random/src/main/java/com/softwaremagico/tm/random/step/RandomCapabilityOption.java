@@ -32,7 +32,7 @@ import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.skills.Specialization;
 import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.random.character.selectors.RandomPreference;
+import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
@@ -47,7 +47,7 @@ public class RandomCapabilityOption extends RandomSelector<CapabilityOption> {
     private final CapabilityOptions capabilityOptions;
     private final Phase phase;
 
-    public RandomCapabilityOption(CharacterPlayer characterPlayer, Set<RandomPreference> preferences,
+    public RandomCapabilityOption(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences,
                                   CapabilityOptions capabilityOptions, Phase phase) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
         this.capabilityOptions = capabilityOptions;

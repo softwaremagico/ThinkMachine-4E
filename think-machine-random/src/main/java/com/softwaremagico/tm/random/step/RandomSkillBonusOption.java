@@ -31,7 +31,7 @@ import com.softwaremagico.tm.character.skills.SkillBonusOptions;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import com.softwaremagico.tm.log.RandomStepLog;
-import com.softwaremagico.tm.random.character.selectors.RandomPreference;
+import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
 import java.util.Collection;
@@ -42,7 +42,7 @@ public class RandomSkillBonusOption extends RandomSkill {
 
     private final SkillBonusOptions skillOptions;
 
-    public RandomSkillBonusOption(CharacterPlayer characterPlayer, Set<RandomPreference> preferences,
+    public RandomSkillBonusOption(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences,
                                   SkillBonusOptions skillOptions) throws InvalidXmlElementException {
         super(characterPlayer, preferences, skillOptions.getBonus());
         this.skillOptions = skillOptions;

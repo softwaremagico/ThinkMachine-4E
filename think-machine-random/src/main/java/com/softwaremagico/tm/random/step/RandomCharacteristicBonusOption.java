@@ -33,7 +33,7 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import com.softwaremagico.tm.log.RandomSelectorLog;
 import com.softwaremagico.tm.log.RandomStepLog;
-import com.softwaremagico.tm.random.character.selectors.RandomPreference;
+import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
 import java.util.Collection;
@@ -44,7 +44,7 @@ public class RandomCharacteristicBonusOption extends RandomCharacteristics {
 
     private final CharacteristicBonusOptions characteristicBonusOptions;
 
-    public RandomCharacteristicBonusOption(CharacterPlayer characterPlayer, Set<RandomPreference> preferences,
+    public RandomCharacteristicBonusOption(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences,
                                            CharacteristicBonusOptions characteristicBonusOptions) throws InvalidXmlElementException {
         super(characterPlayer, preferences, characteristicBonusOptions.getBonus());
         this.characteristicBonusOptions = characteristicBonusOptions;

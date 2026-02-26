@@ -31,7 +31,7 @@ import com.softwaremagico.tm.character.perks.Perk;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.random.character.selectors.RandomPreference;
+import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
@@ -44,7 +44,7 @@ public class RandomPerk extends RandomSelector<Selection> {
     private final Phase phase;
     private final Integer level;
 
-    public RandomPerk(CharacterPlayer characterPlayer, Set<RandomPreference> preferences,
+    public RandomPerk(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences,
                       CharacterPerkOptions perkOptions, Phase phase, Integer level) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
         this.perkOptions = perkOptions;

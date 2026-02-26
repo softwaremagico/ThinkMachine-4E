@@ -41,7 +41,7 @@ import com.softwaremagico.tm.random.character.level.RandomLevel;
 import com.softwaremagico.tm.random.character.names.RandomName;
 import com.softwaremagico.tm.random.character.names.RandomSurname;
 import com.softwaremagico.tm.random.character.planets.RandomPlanet;
-import com.softwaremagico.tm.random.character.selectors.RandomPreference;
+import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
 import com.softwaremagico.tm.random.character.species.RandomSpecie;
 import com.softwaremagico.tm.random.character.upbringings.RandomUpbringing;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
@@ -56,7 +56,7 @@ import java.util.Set;
 
 public class RandomizeCharacter {
     private final CharacterPlayer characterPlayer;
-    private final Set<RandomPreference> preferences;
+    private final Set<IRandomPreference> preferences;
     private final int desiredLevel;
 
     private final RandomSpecie randomSpecie;
@@ -64,15 +64,15 @@ public class RandomizeCharacter {
     private final RandomFaction randomFaction;
     private final RandomUpbringing randomUpbringing;
 
-    public RandomizeCharacter(CharacterPlayer characterPlayer, RandomPreference... preferences) {
+    public RandomizeCharacter(CharacterPlayer characterPlayer, IRandomPreference... preferences) {
         this(characterPlayer, 1, preferences);
     }
 
-    public RandomizeCharacter(CharacterPlayer characterPlayer, int level, RandomPreference... preferences) {
+    public RandomizeCharacter(CharacterPlayer characterPlayer, int level, IRandomPreference... preferences) {
         this.characterPlayer = characterPlayer;
         this.desiredLevel = level;
         if (preferences != null) {
-            final List<RandomPreference> customPreferences = Arrays.asList(preferences);
+            final List<IRandomPreference> customPreferences = Arrays.asList(preferences);
             customPreferences.removeIf(Objects::isNull);
             this.preferences = new HashSet<>(customPreferences);
         } else {

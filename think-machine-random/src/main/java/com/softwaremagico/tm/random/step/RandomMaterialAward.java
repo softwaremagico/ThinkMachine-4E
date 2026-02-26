@@ -29,7 +29,7 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.equipment.Equipment;
 import com.softwaremagico.tm.character.equipment.EquipmentOptions;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.random.character.selectors.RandomPreference;
+import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 
 import java.util.Collection;
@@ -40,7 +40,7 @@ public class RandomMaterialAward extends RandomSelector<Equipment> {
 
     private final EquipmentOptions equipmentOptions;
 
-    public RandomMaterialAward(CharacterPlayer characterPlayer, Set<RandomPreference> preferences,
+    public RandomMaterialAward(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences,
                                EquipmentOptions equipmentOptions) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
         this.equipmentOptions = equipmentOptions;

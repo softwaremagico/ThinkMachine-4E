@@ -31,7 +31,7 @@ import com.softwaremagico.tm.character.level.LevelSelector;
 import com.softwaremagico.tm.character.perks.CharacterPerkOptions;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.RandomSelectorLog;
-import com.softwaremagico.tm.random.character.selectors.RandomPreference;
+import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
 import java.util.List;
@@ -41,7 +41,7 @@ public class RandomizeCharacterLevelStep extends RandomizeCharacterDefinitionSte
     private final LevelSelector levelSelector;
 
     public RandomizeCharacterLevelStep(CharacterPlayer characterPlayer, CharacterDefinitionStepSelection characterDefinitionStepSelection,
-                                       Set<RandomPreference> preferences) {
+                                       Set<IRandomPreference> preferences) {
         super(characterPlayer, characterDefinitionStepSelection, preferences);
         this.levelSelector = (LevelSelector) characterDefinitionStepSelection;
     }

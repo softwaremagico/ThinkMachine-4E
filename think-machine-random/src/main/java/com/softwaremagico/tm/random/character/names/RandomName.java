@@ -32,7 +32,7 @@ import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
-import com.softwaremagico.tm.random.character.selectors.RandomPreference;
+import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
@@ -43,7 +43,7 @@ import java.util.Set;
 
 public class RandomName extends RandomSelector<Name> implements AssignableRandomSelector {
 
-    public RandomName(CharacterPlayer characterPlayer, Set<RandomPreference> preferences) throws InvalidXmlElementException {
+    public RandomName(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
     }
 

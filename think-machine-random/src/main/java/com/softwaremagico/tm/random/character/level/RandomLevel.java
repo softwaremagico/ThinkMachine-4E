@@ -31,7 +31,7 @@ import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
 import com.softwaremagico.tm.random.character.selectors.RandomInnerStepsSelector;
-import com.softwaremagico.tm.random.character.selectors.RandomPreference;
+import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.step.RandomizeCharacterLevelStep;
@@ -43,7 +43,7 @@ import java.util.Set;
 public class RandomLevel extends RandomSelector<Level> implements AssignableRandomSelector, RandomInnerStepsSelector {
     private LevelSelector levelSelector;
 
-    public RandomLevel(CharacterPlayer characterPlayer, Set<RandomPreference> preferences) throws InvalidXmlElementException {
+    public RandomLevel(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
     }
 

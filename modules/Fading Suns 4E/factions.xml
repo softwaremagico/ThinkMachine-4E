@@ -597,12 +597,21 @@
                     Rodion, Grigory, Gennadi, Evgeny, Pyotr, Vladimir, Nikitin, Dmitri, Nikoli, Alun, Zaretsky, Guillot,
                     Triquet, Gregor, Alun, Igor, Ilya, Vladyslav, Denys, Dmytro, Maksym, Bogdan, Maksym, Ladislao,
                     Nikola, Milutin, Igor, Bojan, Rados, Dejan, Branko, Dejan, Nemanja, Milan, Damir, Nenad, Boriboje,
-                    Vladan, Boris, Dorde, Aleksandar, Chad, Dane, Lazar, Sasha, Feliks, Fyodor, Emil, Gustav, Nicholas
+                    Vladan, Boris, Dorde, Aleksandar, Chad, Dane, Lazar, Sasha, Feliks, Fyodor, Emil, Gustav, Nicholas,
+                    Alexios, Demetrios, Nikolas, Darios, Cassian, Marius, Valerios, Stephanos, Theodoros, Adrianos, Lucian, Vasilios,
+                    Konstantin, Andronikos, Ilias, Gregorios, Markus, Petros, Leonidas, Octavian, Silvanos, Radu, Viktor, Severin,
+                    Dorian, Lazaros, Tiberios, Cyrillos, Romanos, Damian, Mikhail, Anatolios, Seraphim, Nicolai, Basil, Phokas,
+                    Tarasios, Julianos, Cassius, Dragan, Valentin, Gavril, Ariston, Iakovos, Orestes, Maximos, Leontios, Simeon,
+                    Tobias, Alaric
                 </male>
                 <female>Tatyana, Tanya, Lena, Natalia, Yana, Alla, Dinara, Nastasia, Lubov, Jekaterina, Tashia,
                     Annushka, Olga, Lada, Anichka, Alina, Katiusha, Catriona, Anisia, Nadia, Nydia, Nanya, Lucretia,
                     Yulia, Sigourney, Tiana, Milica, Hana, Ivana, Natasa, Anja, Sonja, Slavisa, Jovana, Borjana,
-                    Sladana, Dusica, Olga, Corinne, Nevena, Mirjana, Elizaveta, Alena, Zoya
+                    Sladana, Dusica, Olga, Corinne, Nevena, Mirjana, Elizaveta, Alena, Zoya, Adriana, Valeria, Eleni, Katerina,
+                    Sophia, Tatiana, Helena, Cassandra, Marina, Irina, Natalia, Selene, Anastasia, Livia, Seraphina, Calista,
+                    Isidora, Larissa, Mirela, Vasilisa, Daria, Octavia, Melina, Ivana, Camilla, Rhea, Evelina, Katya,
+                    Zorina, Drusilla, Alina, Ilona, Nikita, Valentina, Thalia, Lucinda, Marcella, Sabina, Ariadne, Milena,
+                    Danica, Corina, Xenia, Yelena, Roxana, Lydia, Mirella, Taisia, Celestina, Bianca
                 </female>
             </names>
             <surnames>Decados, Negin, Lensky, Korshunov, Volovodov, Larina, Petrovitch, Volkonsky, Malevik, Romanov,
@@ -613,7 +622,12 @@
                 Nikolic, Komatina, Vidic, Bardic, Aleksic, Santrac, Platisa, Vukadinovic, Veselinovic, Vuksanovic,
                 Saletovic, Midzoski, Jankovic, Momcilovic, Todorovic, Sebez, Stamenkovic, Kosaric, Letic, Perlic,
                 Protic, Perisc, Spasic, Gvozdenvic, Jankovic, Vlaisavljevic, Pavlov, Vinogradova, Volkov, Bognadov,
-                Rubinsky, Konev, Patrichev, Boltik, Romsky, Glazunov
+                Rubinsky, Konev, Patrichev, Boltik, Romsky, Glazunov, Vardalos, Drakov, Marenos, Valerius, Konstantinov,
+                Andropoulos, Vasiliev, Romanov, Petrovic, Sarantos, Lazarov, Mavros, Stoyanov, Daskalos, Phokadis,
+                Vetrano, Calogeros, Sideris, Dragovic, Malenkov, Severanos, Kyrillos, Anatoliev, Stavros, Nikodemos,
+                Cassaros, Valdari, Morozov, Ilyanov, Gavrilos, Orsinios, Kallistos, Raduan, Mirkov, Delarios,
+                Vekaris, Argyros, Zenovios, Kirov, Mavrakis, Serapion, Volkov, Leontaris, Corvinos, Thanos, Varenski,
+                Zografos, Damaskinos, Petrakis, Venedikos
             </surnames>
             <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
@@ -832,7 +846,11 @@
                     Ansbach, Klaus, Günther, Karl, Robert, Ehrenberg, Theodor, Jakob, Flegel, Sidney, Otho, Andrew,
                     Heydrich, Francesck, Sanders, Lionel, Heinrich, Ratzel, Ralph, Kahle, Rolf, Konrad, Ebense,
                     Isaak, Dickel, Gregor, Thorma, Dietrich, Erwin, Wilhelm, Hilmer, Dietrich, Christian, Rudolf,
-                    Raymond, Sebastian, Karl, Wilhelm, Wayne, Wax
+                    Raymond, Sebastian, Karl, Wilhelm, Wayne, Wax, William, Edward, Richard, Thomas,
+                    Henry, Arthur, Geoffrey, Robert, Edmund, Philip, Charles, Stephen, Nicholas, John, Alistair, Roland,
+                    Percival, Tristan, Lionel, Frederick, Gregory, Benedict, Malcolm, Duncan, Cedric, Conrad, Harold, Osric,
+                    Hugh, Godfrey, Baldwin, Reginald, Victor, Leonard, Martin, Adrian, Simon, Tobias, Oliver, Lawrence,
+                    Anthony, Christopher, Matthew, Julian, Dominic, Alexander, Sebastian, Rupert, Theodore, Gareth
                 </male>
                 <female>Elizabeth, Amelia, Emily, Isabella, Sophie, Lilym, Catherine, Anne, Mary, Victoria, Fiona,
                     Electra, Elle, Eli, Orisha, Ross, Vicky, Margaret, Samantha, Bethany, Elizabeth, Lauren, Tracy,
@@ -841,24 +859,31 @@
                     Carrie, Celine, Cleo, Delphina, Deirdre, Eartha, Edra, Eirena, Flaire, Gwenhwyfar, Harriet, Hester,
                     Ivy, Jolie, Kara Keira, Leah, Lucienne, Odella, Nidia, Queenie, Paige, Stasia, Trinity, Teagan,
                     Adele, Lisa, Hannah, Frederica, Hidegard, Annerose, Katerose, Emily, Evangelin, Jessica, Paetta,
-                    Charlotte, Sussanna, Marasi, Steris, Telsin
+                    Charlotte, Sussanna, Marasi, Steris, Telsin, Eleanor, Catherine, Margaret, Elizabeth,
+                    Anne, Isabella, Victoria, Beatrice, Charlotte, Rosalind, Helena, Matilda, Adelaide, Gwendolyn, Arabella, Vivienne,
+                    Marianne, Juliet, Cecilia, Penelope, Alexandra, Philippa, Imogen, Rowena, Elaine, Guinevere, Clarissa, Lillian,
+                    Miranda, Felicity, Joanna, Lydia, Caroline, Georgina, Henrietta, Sylvia, Evelyn, Constance, Edith, Florence,
+                    Louisa, Agnes, Daphne, Irene, Theresa, Winifred, Amelia, Bridget, Judith, Rosalyn
                 </female>
             </names>
             <surnames>Hawkwood, Dresden, Norfolk, Walsingham, Leicester, Burghley, Tudor, Derby, Ballard, Harewood,
                 Lancasters, Koln, Hapsburg, Adamse, Plantagenet, Dawes, Fenris, Gesar, Gaelgran, Nimitz, Jervis, Cook,
                 Drake, Miller, Holden, Garvey, Edelweis, Smith, Jones, Williams, Taylor, Davies, Wilson, Evans, Murphy,
                 O'Kelly, O'Sullivan, O'Brien, Byrne, O'Ryan, O'Connor, Morton, Drummer, Dawes, Garyson, Gibb, Virk,
-                Spalding, Partridge, Schafer, Kreger, Rowan, Greenhill, von Lohengramm, von Kleingelt Mintz,
-                von Reuenthal, Attemborough, Poplin, von Schönkopf, von Mariendorf, von Oberstein, Cazerne, Bittenfeld,
-                Müller, von Merkatz, Wahlen, Kircheis, von Grünewald, Bergengrün, von Streit, von Kreutzer, Fahrenheit,
-                von Bayerlein, Trunicht, Fellner, Kesler, von Selle, Lutz, Linz, Kempff, Fischer, Soulszzcuaritter,
-                Schumacher, von Mariendorf, von Landsberg, Lennenkampf, von Bülow, von Reckendorf, Blumhardt,
-                von Lichtenlade, Mittermeyer, Kisling, Steinmetz, von Rücke, Hauptmann, Grillparzer, Sithole, Falk,
-                von Braunschweig, Morton, Edwards, Lambert, Rockwell, Carlsen, Haiff, Willock, Brauhitch, von Modell,
-                von Thurneysen, Drewentz, von Mückenberger, von Silberberch, von Kohlrausch, von Stockhausen,
-                von Kümmel, Stelzer, Elsheimer, von Seeckt, Hofmeister, Lapp, Harbarschdat, von Westpfale,
-                von Littenheim, von Hasselback, Emerson, Sombart, Klusenstern Dawson, Windsor, Saucken, von Goldenbaum,
-                Thorndike, von Müsel, Wöhler, Braque, Gutensohn, von Eisenach, von Klopstock
+                Spalding, Partridge, Schafer, Kreger, Rowan, Greenhill,
+                of Blackmoor, of Ravenshire, of Ashford, of Thornwall,
+                of Winterbourne, of Highcastle, of Stonehaven, of Greywatch,
+                of Ironford, of Kingsbridge, of Northmarch, of Southmere,
+                of Westbrook, of Eastmarch, of Brightwood, of Stormhold,
+                of Falconreach, of Silverkeep, of Redmont, of Whitecliff,
+                of Dunwall, of Highmere, of Oakenshire, of Wolfden,
+                of Deepmoor, of Longford, of Kingsfall, of Windermere,
+                of Blackthorn, of Greenvale, of Fairhaven, of Redhaven,
+                of Coldharbor, of Summerfield, of Frostmere, of Ironcrest,
+                of Shadowfen, of Goldhaven, of Highrock, of Stormwatch,
+                of Riverhold, of Emberfall, of Thornfield, of Northwatch,
+                of Southwatch, of Westhold, of Eastwood, of Silverbrook,
+                of Ironvale, of Brighthelm
             </surnames>
             <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
@@ -1085,7 +1110,7 @@
                     Zacarías, Zenón, Marco, Sigmundo, Sigfrido, Manrique, Baudilio, Avelino, Calixto, Custodio, Donaldo,
                     Danilo, Alessio, Amador, Ángelo, Arcadio, Ares, Casio, Ceclilio, Cornelio, Dacio, Elio, Fabio,
                     Flavio, Lucio, Máximo, Patricio, Prisco, Romeo, Valeriano, Luis, Joao, Cornelius, Bruno, Enrique,
-                    Lassalle
+                    Lassalle, Braulio, Octavio, Valentín, Gaspar, Hernán
                 </male>
                 <female>Rosaria, Ligeia, Roberta, Octavia, Daniela, Helena, Aldagracia, Zoe, Pandora, Dara, Daza, Naira,
                     Alba, Aniseta, Arcadia, Arminda, Artemia, Aurea, Brigida, Bartola, Bella, Cándida, Ciriaca, Casilda,
@@ -1113,7 +1138,20 @@
                 Cervantes, Ciarfalio, Jovellanos, Miranda, Navia, Riego, Vega, Ayamonte, Cenete, Comares, Medina,
                 Quesada, Torres, Alba, Lara, Castro, Cifuentes, Calderón, Villegas, Medinaceli, Miranda, Osuna,
                 Valverde, Pizarro, Feijóo, Silvela, Robles, Santalla, Trénor, Balboa, Bazán, Lezo, Doria, Masciale,
-                Malerba, Machungo, Rebelo, Saint-Pierré, Cazerne, Tonio, Oliveira, Togliatti
+                Malerba, Machungo, Rebelo, Saint-Pierré, Cazerne, Tonio, Oliveira, Togliatti,
+                de la Vega, de Montoya, de Alvarado, de Vargas,
+                de Mendoza, de Castro, de Rojas, de León,
+                de Aranda, de Salazar, de Córdoba, de Toledo,
+                de Herrera, de Zamora, de Aguilar, de Figueroa,
+                de Lara, de Villanueva, de Cabrera, de Ocampo,
+                de Sotomayor, de Beltrán, de Navarro, de Ávila,
+                de Cárdenas, de Alarcón, de Bustamante, de Valcázar,
+                de Quintana, de Castellanos, de Arellano, de Maldonado,
+                de Pizarro, de Valdés, de Montemayor, de Robles,
+                de Serrano, de Quiroga, de Trujillo, de Barrera,
+                de Guzmán, de Valverde, de Olmedo, de Villarroel,
+                de Carranza, de Montalbán, de Luján, de Benavides,
+                de Téllez, de Miranda
             </surnames>
             <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
@@ -1344,15 +1382,68 @@
         </restrictions>
         <random>
             <names>
-                <male>Kiri, Naomasa, Akira, Batu, Kazuo, Kei, Shinsuke, Hideaki, Shirô, Yôko, Yutaka, Shintarou,
-                    Takashi, Hikaru, Makoto, Goru, Goro, Shinjitsu, Isamu, Kenshin, Yoshi, Heihachiro, Isoroku, Yang,
-                    Chung, Huang, Lao
+                <male>Friedrich, Konrad, Wilhelm, Matthias, Heinrich, Leopold, Dietrich, Albrecht,
+                    Ulrich, Stefan, Lukas, Johannes, Maximilian, Tobias, Gregor, Benedikt,
+                    Markus, Andreas, Nikolaus, Karl, Anton, Rupert, Florian, Christoph,
+                    Sebastian, Georg, Viktor, Rainer, Hermann, Erich, Franz, Oskar,
+                    Kurt, Lorenz, Walter, Dieter, Hans, Roland, Martin, Dominik,
+                    Felix, Reinhard, Otto, Bernhard, Gustav, Emil, Armin, Theodor,
+                    Wolfgang, Klaus, Eberhard, Hartmann, Sigmund, Gerhard, Volker, Manfred,
+                    Helmut, Jurgen, Alarich, Baldur, Eckhart, Falk, Gunter, Harald,
+                    Isenbert, Joachim, Kaspar, Lothar, Magnus, Norbert, Otfried, Philipp,
+                    Quirin, Reinhold, Siegfried, Thaddeus, Uwe, Valentin, Wendelin, Xaver,
+                    Yorik, Zacharias, Anselm, Bruno, Clemens, Detlef, Engelbert, Falko,
+                    Gero, Hektor, Isidor, Justus, Kilian, Lambert, Meinhard, Norwin,
+                    Oswald, Patrik, Roderich, Severin
                 </male>
-                <female>Yumiko, Yuki, Akira, Amaya, Midori, Keiko, Motoko, Yoko, Aya, Kiki</female>
+                <female>Katarina, Elisabeth, Magdalena, Johanna, Anna, Helena, Margarete, Sofia,
+                    Theresa, Clara, Emilia, Ingrid, Adelheid, Gertrud, Maria, Viktoria,
+                    Beatrix, Agnes, Liesel, Renate, Ilse, Sabine, Ursula, Monika,
+                    Brigitte, Franziska, Eva, Klara, Heidi, Petra, Miriam, Ruth,
+                    Johanne, Annika, Marta, Lorelei, Daniela, Simone, Verena, Frieda,
+                    Charlotte, Greta, Pauline, Anneliese, Irmgard, Hannelore, Christa, Wilhelmina,
+                    Mathilde, Eleonore, Adelina, Brunhilde, Cecilia, Dorothea, Erika, Felicitas,
+                    Gisela, Hedwig, Isolde, Juliane, Karoline, Leonore, Mechthild, Norberta,
+                    Ottilie, Philippa, Regina, Sibylla, Thekla, Ulrike, Valeria, Walburga,
+                    Xenia, Yvette, Zita, Alwine, Bertrada, Constanze, Dietlinde, Edeltraud,
+                    Frederika, Gerlinde, Hildegard, Irmelin, Josefa, Kunigunde, Luitgarde,
+                    Magdalene, Norhilde, Odilia, Perpetua, Roswitha, Sieglinde, Theresia,
+                    Ulrika, Viktoria-Luise, Waltraud, Xaveria, Ysabel, Zenobia
+                </female>
             </names>
-            <surnames>Li Halan, Tsukamoto, Harari, Yao, Meng, Ito, Shaku, Numata, Shimada, Maki, Musaka, Sonooka,
-                Chôsokabe, Kaimura, Koike, Kunii, Sato, Yeuw, Lextius, Misamoto, Han, Wei-To, Naganaka, Kung-Zhau,
-                Okemo, Teng, Hidejiri, Jong, Togo, Yamamoto, Nagata, Wen-li, Wu-Cheng, Rui, Lang, Hazuki
+            <surnames>von Falkenheim, von Eisenwald, von Hohenberg, von Sturmfels,
+                von Winterthal, von Drachenfels, von Silberwald, von Falkenrath,
+                von Hartmann, von Kronberg, von Adlerheim, von Steinbruck,
+                von Eberwald, von Lichtenthal, von Morgenstern, von Wittenberg,
+                von Falkenstein, von Dornheim, von Rothenburg, von Himmelreich,
+                von Kaltenbach, von Schwarzburg, von Hochwald, von Eisenhart,
+                von Silberthal, von Greifenwald, von Tannenberg, von Hohenwald,
+                von Waldenfels, von Rabenheim, von Lichtenfels, von Feuerbach,
+                von Falkenthal, von Sturmwald, von Adlerstein, von Weisshaupt,
+                von Hohenfels, von Drachenwald, von Sternberg, von Eichenwald,
+                von Silberberg, von Morgenfels, von Falkenwald, von Lichtwald,
+                von Eisenfels, von Hochfels, von Winterfels, von Greifenheim,
+                von Steinwald, von Hartenthal, von Falkenberg, von Eisenberg,
+                von Kronthal, von Sturmberg, von Adlerthal, von Weissberg,
+                von Hochthal, von Silberfels, von Morgenwald, von Rabenfels,
+                von Eichenfels, von Drachenberg, von Lichtenberg, von Tannenfels,
+                von Greifenfels, von Kaltenfels, von Schwarzthal, von Falkenbruck,
+                von Eisenbruck, von Hohenbruck, von Silberbruck, von Lichtbruck,
+                von Morgenbruck, von Adlerbruck, von Rabenbruck, von Sturmbruck,
+                von Winterbruck, von Falkenmark, von Eisenmark, von Hohenmark,
+                von Silbermark, von Lichtmark, von Morgenmark, von Adlermark,
+                von Rabenmark, von Sturmmark, von Wintermark, von Falkenwaldt,
+                von Eisenwaldt, von Hohenwaldt, von Silberwaldt, von Lichtwaldt,
+                von Morgenwaldt, von Adlerwaldt, von Rabenwaldt, von Sturmwaldt,
+                von Lohengramm, von Kleingelt, Mintz, von Reuenthal, Attemborough, Poplin, von Schönkopf, von Mariendorf, von Oberstein,von Merkatz, Wahlen,
+                Kircheis, von Grünewald, Bergengrün, von Streit, von Kreutzer, Fahrenheit,
+                von Bayerlein, von Selle, von Mariendorf, von Landsberg, Lennenkampf, von Bülow, von Reckendorf, Blumhardt,
+                von Lichtenlade, Mittermeyer, Kisling, Steinmetz, von Rücke, Hauptmann, Grillparzer, Sithole, Falk,
+                von Braunschweig, Morton, Edwards, Lambert, Rockwell, Carlsen, Haiff, Willock, Brauhitch, von Modell,
+                von Thurneysen, Drewentz, von Mückenberger, von Silberberch, von Kohlrausch, von Stockhausen,
+                von Kümmel, Stelzer, Elsheimer, von Seeckt, Hofmeister, Lapp, Harbarschdat, von Westpfale,
+                von Littenheim, von Hasselback, Emerson, Sombart, Klusenstern Dawson, Windsor, Saucken, von Goldenbaum,
+                Thorndike, von Müsel, Wöhler, Braque, Gutensohn, von Eisenach, von Klopstock,
             </surnames>
             <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
@@ -3008,6 +3099,9 @@
         </restrictions>
         <random>
             <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>EVIL</preference>
+            </recommendedPreferences>
         </random>
     </faction>
 
@@ -4438,18 +4532,66 @@
         <random>
             <names>
                 <male>Arne, Birger, Bjørn, Bo, Erik, Frode, Gorm, Halfdan, Harald, Knud, Kåre, Leif, Njal, Roar, Rune,
-                    Sten, Skarde, Sune, Svend, Troels, Toke, Torsten, Trygve, Ulf, Ødger, Åge
+                    Sten, Skarde, Sune, Svend, Troels, Toke, Torsten, Trygve, Ulf, Ødger, Åge,
+                    Adam, Adrian, Alan, Albert, Alex, Anders, Andrew, Anton, Aric, Arthur,
+                    Bastian, Ben, Bernard, Blake, Boris, Brandon, Bruno, Caleb, Carl, Cedric,
+                    Christian, Colin, Connor, Darius, David, Daniel, Darren, Denis, Derek, Dominic,
+                    Edgar, Elias, Eric, Ethan, Evan, Felix, Finn, Francis, Frank, Gabriel,
+                    Gareth, Gavin, George, Gregor, Hank, Harold, Hector, Hugo, Ian, Isaac,
+                    Ivan, Jack, Jacob, James, Jared, Jason, Jeremy, Joel, John, Jonas,
+                    Jonah, Jordan, Josef, Julian, Karl, Kevin, Klaus, Leo, Leon, Liam,
+                    Logan, Lucas, Marc, Marco, Marcus, Martin, Mason, Matthias, Max, Michael,
+                    Milan, Nathan, Neil, Nicholas, Nolan, Oliver, Oscar, Owen, Patrick, Paul,
+                    Peter, Philip, Quentin, Ralf, Ramon, Ray, Richard, Robert, Ronan, Ross,
+                    Ryan, Samuel, Scott, Sean, Sergei, Simon, Stefan, Sven, Theo, Thomas,
+                    Tim, Tobias, Travis, Tristan, Victor, Vincent, Walter, Wayne, William, Yuri,
+                    Zachary, Aaron, Abram, Axel, Bart, Benedict, Bruce, Cameron, Cedrik,
+                    Claus, Damian, Darian, Emil, Fabio, Fredrik, Goran, Henrik, Isak,
+                    Johan, Kristof, Lukas, Matteo, Niklas, Pavel, Roland, Stefanus
                 </male>
                 <female>
                     Astrid, Bodil, Frida, Gertrud, Gro, Estrid, Hilda, Gudrun, Gunhild, Helga, Inga, Liv, Randi, Signe,
-                    Sigrid, Revna, Sif, Tora, Tove, Thyra, Thurid, Yrsa, Ulfhild, Åse
+                    Sigrid, Revna, Sif, Tora, Tove, Thyra, Thurid, Yrsa, Ulfhild, Åse,
+                    Ada, Adele, Adriana, Agnes, Aileen, Alana, Alina, Amanda, Amber,
+                    Amelia, Ana, Andrea, Angela, Anita, Ann, Anna, April, Astrid, Audrey,
+                    Barbara, Becca, Bella, Bianca, Bridget, Camila, Carla, Carmen, Cassandra,
+                    Catherine, Celia, Clara, Claudia, Dana, Daniela, Daria, Diana, Elise,
+                    Ella, Ellen, Emilia, Emily, Emma, Erica, Erin, Eva, Evelyn, Faith,
+                    Fiona, Frances, Freya, Gabrielle, Gemma, Georgia, Greta, Hannah, Hazel,
+                    Helena, Holly, Irene, Iris, Isabel, Ivy, Jana, Jasmine, Jennifer,
+                    Jessica, Johanna, Julia, Karen, Karin, Kate, Katharina, Kelly,
+                    Laura, Leah, Lena, Lidia, Linda, Lisa, Lucy, Lydia, Mara, Maria,
+                    Marina, Martha, Martina, Megan, Melissa, Mia, Mila, Monica, Nadia,
+                    Naomi, Natalie, Nina, Nora, Olivia, Pamela, Paula, Petra, Rachel,
+                    Rebecca, Rita, Rosa, Sabrina, Samantha, Sandra, Sara, Selina,
+                    Serena, Silvia, Sofia, Sonja, Sophie, Stella, Susan, Sylvia,
+                    Tania, Teresa, Tessa, Tina, Valeria, Vanessa, Vera, Victoria,
+                    Viktoria, Wendy, Yelena, Zoe, Alicia, Beatriz, Chiara, Daniela,
+                    Elena, Florencia, Giselle, Ingrid, Katarina, Laila, Milena, Renata
                 </female>
             </names>
             <surnames>Anger, Angot, Anquetil, Auber, Aumont, Azouf, Auzoux, Aze, Brument, Burnouf, Ernouf, Estur,
                 Frigard, Gaument, Godefroy, Gonnor, Gounouf, Guillhouf, Harang, Harou, Hastain, Havard, Hérou,
                 Houlegate, Ingouf, Igouf, Yngouf, Ygouf, Youf, Néel, Onfroy, Onfroi, Osmond, Osmont, Osouf, Ozouf,
                 Quétil, Quétel, Rabec, Renouf, Thouroude, Troude, Trudeau, Torde, Tostain, Tourquétil, Tougard, Turgard,
-                Turgot, Turgis, Varanger, Varangot, Yver
+                Turgot, Turgis, Varanger, Varangot, Yver,
+                Baker, Smith, Carter, Miller, Cooper, Turner, Walker, Wright, Clark, Hill,
+                Scott, Adams, Bell, Reed, Price, Ward, Cox, Gray, Wood, Brooks,
+                Foster, Hunter, Palmer, Graham, Shaw, Russell, Ford, Mason, Porter, Stone,
+                Keller, Bauer, Weber, Fischer, Novak, Kovac, Petrov, Ivanov, Horvat,
+                Schmidt, Braun, Keller, Meier, Vogel, Richter, Klein, Schneider, Hartmann,
+                Berg, Lind, Dahl, Olsen, Larsen, Nilsson, Eriksen, Andersson, Holm,
+                Dubois, Laurent, Moreau, Lefevre, Mercier, Bernard, Fontaine, Lambert,
+                Rossi, Bianchi, Romano, Conti, Ricci, Marino, Costa, Lombardi, Russo,
+                Garcia, Lopez, Martinez, Torres, Navarro, Delgado, Moreno, Santos,
+                Pereira, Silva, Almeida, Costa, Duarte, Ferreira, Novak, Kral,
+                Peterson, Johnson, Anders, Young, King, Harper, Bishop, Payne,
+                Sullivan, O'Connor, Murphy, Kelly, Walsh, Byrne, Novak, Urban,
+                Kowalski, Nowak, Zielinski, Mazur, Popov, Volkov, Sokolov,
+                Moroz, Dragic, Ionescu, Petrescu, Dimitrov, Stoyanov, Marinov,
+                Borisov, Gruber, Hoffmann, Kruger, Stein, Brandt, Engel, Kranz,
+                Faber, Kellerin, Huber, Lindberg, Sandberg, Ekstrom, Lund,
+                Bergman, Heikkinen, Koskinen, Virtanen, Saarinen
             </surnames>
             <probabilityMultiplier>RARE</probabilityMultiplier>
         </random>

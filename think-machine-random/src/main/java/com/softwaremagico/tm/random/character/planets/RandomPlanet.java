@@ -31,7 +31,7 @@ import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
-import com.softwaremagico.tm.random.character.selectors.RandomPreference;
+import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
@@ -44,7 +44,7 @@ public class RandomPlanet extends RandomSelector<Planet> implements AssignableRa
     private static final int NEUTRAL_PLANET = 8;
     private static final int ENEMY_PLANET = 1;
 
-    public RandomPlanet(CharacterPlayer characterPlayer, Set<RandomPreference> preferences)
+    public RandomPlanet(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences)
             throws InvalidXmlElementException {
         super(characterPlayer, preferences);
     }

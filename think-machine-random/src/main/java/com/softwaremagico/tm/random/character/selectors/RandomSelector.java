@@ -64,7 +64,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
     public static final Random RANDOM = new Random();
 
     private final CharacterPlayer characterPlayer;
-    private final Set<RandomPreference> preferences;
+    private final Set<IRandomPreference> preferences;
 
     private final Set<Element> suggestedElements;
 
@@ -72,12 +72,12 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
     private TreeMap<Integer, Element> weightedElements;
     private int totalWeight;
 
-    protected RandomSelector(CharacterPlayer characterPlayer, Set<RandomPreference> preferences)
+    protected RandomSelector(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences)
             throws InvalidXmlElementException {
         this(characterPlayer, preferences, new HashSet<>());
     }
 
-    protected RandomSelector(CharacterPlayer characterPlayer, Set<RandomPreference> preferences, Set<Element> suggestedElements) {
+    protected RandomSelector(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences, Set<Element> suggestedElements) {
         this.characterPlayer = characterPlayer;
         this.preferences = preferences;
         this.suggestedElements = suggestedElements;
@@ -101,7 +101,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         return characterPlayer;
     }
 
-    protected Set<RandomPreference> getPreferences() {
+    protected Set<IRandomPreference> getPreferences() {
         if (preferences == null) {
             return new HashSet<>();
         }
@@ -112,7 +112,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         if (preferences != null) {
             final StringTokenizer collectionTokenizer = new StringTokenizer(preferencesContent, ",");
             while (collectionTokenizer.hasMoreTokens()) {
-                preferences.add(RandomPreference.valueOf(collectionTokenizer.nextToken().trim()));
+                preferences.add(IRandomPreference.valueOf(collectionTokenizer.nextToken().trim()));
             }
         }
     }
@@ -221,7 +221,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
 
         // Recommended by user preferences.
         if (preferences != null && !preferences.isEmpty()) {
-            final List<String> common = preferences.stream().map(Enum::name).collect(Collectors.toList());
+            final List<String> common = preferences.stream().map(IRandomPreference::name).collect(Collectors.toList());
             common.retainAll(element.getRandomDefinition().getRecommendedPreferences());
             RandomGenerationLog.debug(this.getClass().getName(),
                     "Random definition multiplier '{}'.", (USER_SELECTION_MULTIPLIER * common.size()));
@@ -230,11 +230,13 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
 
         // Inadvisable by user preferences.
         if (preferences != null && !preferences.isEmpty()) {
-            final List<String> common = preferences.stream().map(Enum::name).collect(Collectors.toList());
+            final List<String> common = preferences.stream().map(IRandomPreference::name).collect(Collectors.toList());
             common.retainAll(element.getRandomDefinition().getInadvisablePreferences());
             RandomGenerationLog.debug(this.getClass().getName(),
                     "Random definition divisor '{}'.", (USER_INADVISABLE_DIVISOR * common.size()));
-            multiplier /= (USER_INADVISABLE_DIVISOR * common.size());
+            if (common.size() > 0) {
+                multiplier /= (USER_INADVISABLE_DIVISOR * common.size());
+            }
         }
 
         RandomValuesLog.debug(this.getClass().getName(),
@@ -277,7 +279,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         // User preferences forbidden.
         if (preferences != null && !preferences.isEmpty() && randomDefinition.getForbiddenPreferences() != null
                 && !randomDefinition.getForbiddenPreferences().isEmpty()
-                && !Collections.disjoint(preferences.stream().map(Enum::name).collect(Collectors.toList()),
+                && !Collections.disjoint(preferences.stream().map(IRandomPreference::name).collect(Collectors.toList()),
                 randomDefinition.getForbiddenPreferences())) {
             throw new InvalidRandomElementSelectedException(
                     "Element ignored due to preferences '" + randomDefinition.getForbiddenPreferences() + "'.");
@@ -286,7 +288,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         // User must have these preferences restriction.
         if (preferences != null && !preferences.isEmpty() && randomDefinition.getRestrictedPreferences() != null
                 && !randomDefinition.getRestrictedPreferences().isEmpty()
-                && Collections.disjoint(preferences.stream().map(Enum::name).collect(Collectors.toList()),
+                && Collections.disjoint(preferences.stream().map(IRandomPreference::name).collect(Collectors.toList()),
                 randomDefinition.getRestrictedPreferences())) {
             throw new InvalidRandomElementSelectedException(
                     "Element ignored due as lacking mandatory preference '" + randomDefinition.getRestrictedPreferences() + "'.");

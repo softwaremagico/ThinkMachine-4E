@@ -25,10 +25,16 @@ package com.softwaremagico.tm.random;
  */
 
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.factions.Faction;
+import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
-import com.softwaremagico.tm.random.character.selectors.RandomPreference;
+import com.softwaremagico.tm.random.character.factions.RandomFaction;
+import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
+import com.softwaremagico.tm.random.character.selectors.RandomAlignment;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
+import com.softwaremagico.tm.random.character.selectors.RandomTech;
 import com.softwaremagico.tm.random.definition.ProbabilityMultiplier;
+import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.step.RandomCharacteristicBonusOption;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -42,9 +48,9 @@ import java.util.Set;
 @Test(groups = {"preferences"})
 public class PreferencesTests {
 
-    private Set<RandomPreference> convert(RandomPreference... preferences) {
+    private Set<IRandomPreference> convert(IRandomPreference... preferences) {
         if (preferences != null) {
-            final List<RandomPreference> customPreferences = Arrays.asList(preferences);
+            final List<IRandomPreference> customPreferences = Arrays.asList(preferences);
             customPreferences.removeIf(Objects::isNull);
             return new HashSet<>(customPreferences);
         } else {
@@ -64,7 +70,7 @@ public class PreferencesTests {
         characterPlayer.setUpbringing("noble");
 
         final RandomCharacteristicBonusOption randomCharacteristicBonusOption =
-                new RandomCharacteristicBonusOption(characterPlayer, convert(RandomPreference.PRIMITIVE),
+                new RandomCharacteristicBonusOption(characterPlayer, convert(RandomTech.PRIMITIVE),
                         characterPlayer.getUpbringing().getCharacteristicOptions().get(0));
 
         randomCharacteristicBonusOption.updateWeights();
@@ -85,7 +91,7 @@ public class PreferencesTests {
         characterPlayer.setUpbringing("noble");
 
         final RandomCharacteristicBonusOption randomCharacteristicBonusOption =
-                new RandomCharacteristicBonusOption(characterPlayer, convert(RandomPreference.PRIMITIVE),
+                new RandomCharacteristicBonusOption(characterPlayer, convert(RandomTech.PRIMITIVE),
                         characterPlayer.getUpbringing().getCharacteristicOptions().get(0));
 
         randomCharacteristicBonusOption.updateWeights();
@@ -97,5 +103,23 @@ public class PreferencesTests {
         Assert.assertEquals(randomCharacteristicBonusOption.getAssignedWeight(1).intValue(), (int) (ProbabilityMultiplier.NORMAL.getValue() + RandomSelector.USER_SELECTION_MULTIPLIER * 2) * RandomSelector.BASIC_PROBABILITY);
         //Strength is a preferred characteristic for primitive.
         Assert.assertEquals(randomCharacteristicBonusOption.getAssignedWeight(2).intValue(), (int) (ProbabilityMultiplier.NORMAL.getValue() + RandomSelector.USER_SELECTION_MULTIPLIER * 2) * RandomSelector.BASIC_PROBABILITY);
+    }
+
+    @Test
+    public void checkFactionPreferencesWeightsForEvil() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("merchant");
+        characterPlayer.setFaction("musters");
+        final RandomFaction randomFaction = new RandomFaction(characterPlayer, convert(RandomAlignment.EVIL));
+        randomFaction.updateWeights();
+        //Musters has a plus for evil preference.
+        final Faction musters = FactionFactory.getInstance().getElement("musters");
+        Assert.assertEquals(randomFaction.getElementWeight(musters),
+                (int) (musters.getRandomDefinition().getProbabilityMultiplier().getValue() + RandomSelector.USER_SELECTION_MULTIPLIER) * RandomSelector.BASIC_PROBABILITY);
+
+        final Faction reeves = FactionFactory.getInstance().getElement("reeves");
+        Assert.assertEquals(randomFaction.getElementWeight(reeves),
+                (int) (musters.getRandomDefinition().getProbabilityMultiplier().getValue()) * RandomSelector.BASIC_PROBABILITY);
     }
 }

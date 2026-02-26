@@ -39,7 +39,7 @@ import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidSkillException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.RandomSelectorLog;
-import com.softwaremagico.tm.random.character.selectors.RandomPreference;
+import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
 import java.util.List;
@@ -50,12 +50,12 @@ public class RandomizeCharacterDefinitionStep {
 
     private final CharacterPlayer characterPlayer;
     private final CharacterDefinitionStepSelection characterDefinitionStepSelection;
-    private final Set<RandomPreference> preferences;
+    private final Set<IRandomPreference> preferences;
 
 
     public RandomizeCharacterDefinitionStep(CharacterPlayer characterPlayer,
                                             CharacterDefinitionStepSelection characterDefinitionStepSelection,
-                                            Set<RandomPreference> preferences) {
+                                            Set<IRandomPreference> preferences) {
         this.characterPlayer = characterPlayer;
         this.characterDefinitionStepSelection = characterDefinitionStepSelection;
         this.preferences = preferences;
@@ -65,7 +65,7 @@ public class RandomizeCharacterDefinitionStep {
         return characterPlayer;
     }
 
-    protected Set<RandomPreference> getPreferences() {
+    protected Set<IRandomPreference> getPreferences() {
         return preferences;
     }
 

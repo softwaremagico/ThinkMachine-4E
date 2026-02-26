@@ -29,8 +29,9 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
 import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.random.character.selectors.RandomPreference;
+import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
+import com.softwaremagico.tm.random.character.selectors.RandomValueAssignation;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
 import java.util.Collection;
@@ -40,12 +41,12 @@ public class RandomSkill extends RandomSelector<Skill> {
     private final int bonus;
 
 
-    public RandomSkill(CharacterPlayer characterPlayer, Set<RandomPreference> preferences) throws InvalidXmlElementException {
+    public RandomSkill(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
         this.bonus = 0;
     }
 
-    public RandomSkill(CharacterPlayer characterPlayer, Set<RandomPreference> preferences, int bonus) throws InvalidXmlElementException {
+    public RandomSkill(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences, int bonus) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
         this.bonus = bonus;
     }
@@ -59,9 +60,9 @@ public class RandomSkill extends RandomSelector<Skill> {
     @Override
     protected double getUserPreferenceBonus(Skill element) {
         double multiplier = super.getUserPreferenceBonus(element);
-        if (getPreferences().contains(RandomPreference.SPECIALIZED)) {
+        if (getPreferences().contains(RandomValueAssignation.SPECIALIZED)) {
             multiplier += Math.pow(getCharacterPlayer().getSkillValue(element), 2);
-        } else if (getPreferences().contains(RandomPreference.BALANCED)) {
+        } else if (getPreferences().contains(RandomValueAssignation.BALANCED)) {
             multiplier += Math.pow(CharacteristicDefinition.MAX_CHARACTERISTIC_VALUE
                     - (double) getCharacterPlayer().getSkillValue(element), 2);
         }

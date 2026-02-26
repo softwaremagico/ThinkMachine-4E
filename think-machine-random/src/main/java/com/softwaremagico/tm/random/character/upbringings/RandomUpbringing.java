@@ -31,7 +31,7 @@ import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
 import com.softwaremagico.tm.random.character.selectors.RandomInnerStepsSelector;
-import com.softwaremagico.tm.random.character.selectors.RandomPreference;
+import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.step.RandomizeCharacterDefinitionStep;
@@ -41,7 +41,7 @@ import java.util.Set;
 
 public class RandomUpbringing extends RandomSelector<Upbringing> implements AssignableRandomSelector, RandomInnerStepsSelector {
 
-    public RandomUpbringing(CharacterPlayer characterPlayer, Set<RandomPreference> preferences) throws InvalidXmlElementException {
+    public RandomUpbringing(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
     }
 
