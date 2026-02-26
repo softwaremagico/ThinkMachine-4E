@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.random.character.selectors;
+package com.softwaremagico.tm.random.preferences;
 
 /*-
  * #%L
@@ -24,8 +24,8 @@ package com.softwaremagico.tm.random.character.selectors;
  * #L%
  */
 
-public enum RandomLegalStatus implements IRandomPreference {
-    LEGAL,
-    WANTED,
-    SECRETIVE;
+public enum AlignmentPreference implements IRandomPreference {
+    GOOD,
+    NEUTRAL,
+    EVIL;
 }

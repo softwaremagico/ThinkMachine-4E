@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.random.character.selectors;
+package com.softwaremagico.tm.random.preferences;
 
 /*-
  * #%L
@@ -24,7 +24,12 @@ package com.softwaremagico.tm.random.character.selectors;
  * #L%
  */
 
-public enum RandomTech implements IRandomPreference {
-    PRIMITIVE,
-    HI_TECH;
+public enum OperationalRolePreference implements IRandomPreference {
+    COMBAT,
+    SOCIAL,
+    STEALTH,
+    KNOWLEDGE,
+    FAITH,
+    TRADE,
+    TECHNICAL;
 }

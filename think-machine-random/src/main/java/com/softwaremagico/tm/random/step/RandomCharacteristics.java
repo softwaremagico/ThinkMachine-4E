@@ -39,9 +39,9 @@ import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import com.softwaremagico.tm.log.RandomGenerationLog;
 import com.softwaremagico.tm.log.RandomSelectorLog;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
-import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
-import com.softwaremagico.tm.random.character.selectors.RandomSelector;
-import com.softwaremagico.tm.random.character.selectors.RandomValueAssignation;
+import com.softwaremagico.tm.random.preferences.IRandomPreference;
+import com.softwaremagico.tm.random.preferences.RandomSelector;
+import com.softwaremagico.tm.random.preferences.RankValueAssignationPreference;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
 import java.util.Collection;
@@ -74,9 +74,9 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
     @Override
     protected double getUserPreferenceBonus(CharacteristicDefinition element) {
         double multiplier = super.getUserPreferenceBonus(element);
-        if (getPreferences().contains(RandomValueAssignation.SPECIALIZED)) {
+        if (getPreferences().contains(RankValueAssignationPreference.SPECIALIZED)) {
             multiplier += getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName());
-        } else if (getPreferences().contains(RandomValueAssignation.BALANCED)) {
+        } else if (getPreferences().contains(RankValueAssignationPreference.BALANCED)) {
             multiplier += CharacteristicDefinition.MAX_CHARACTERISTIC_VALUE
                     - getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName());
         }
@@ -120,8 +120,8 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
             return 0;
         }
 
-        if (!getPreferences().contains(RandomValueAssignation.BALANCED) && Objects.equals(getCharacterPlayer().getPrimaryCharacteristic(), element.getId())
-                || Objects.equals(getCharacterPlayer().getSecondaryCharacteristic(), element.getId())) {
+        if (!getPreferences().contains(RankValueAssignationPreference.BALANCED) && Objects.equals(getCharacterPlayer().getPrimaryCharacteristic(),
+                element.getId()) || Objects.equals(getCharacterPlayer().getSecondaryCharacteristic(), element.getId())) {
             return LITTLE_PROBABILITY;
         }
 

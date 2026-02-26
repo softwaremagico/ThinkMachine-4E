@@ -31,8 +31,8 @@ import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
 import com.softwaremagico.tm.random.character.selectors.RandomInnerStepsSelector;
-import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
-import com.softwaremagico.tm.random.character.selectors.RandomSelector;
+import com.softwaremagico.tm.random.preferences.IRandomPreference;
+import com.softwaremagico.tm.random.preferences.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.step.RandomizeCharacterDefinitionStep;
 

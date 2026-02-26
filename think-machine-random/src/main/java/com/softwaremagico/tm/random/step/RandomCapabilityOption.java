@@ -32,8 +32,8 @@ import com.softwaremagico.tm.character.capabilities.CapabilityOptions;
 import com.softwaremagico.tm.character.skills.Specialization;
 import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
-import com.softwaremagico.tm.random.character.selectors.RandomSelector;
+import com.softwaremagico.tm.random.preferences.IRandomPreference;
+import com.softwaremagico.tm.random.preferences.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
 import java.util.ArrayList;

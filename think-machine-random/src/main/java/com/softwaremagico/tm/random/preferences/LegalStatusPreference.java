@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.random.character.selectors;
+package com.softwaremagico.tm.random.preferences;
 
 /*-
  * #%L
@@ -24,13 +24,8 @@ package com.softwaremagico.tm.random.character.selectors;
  * #L%
  */
 
-public enum RandomAffiliation implements IRandomPreference {
-    NOBLE_HOUSE,
-    CHURCH,
-    GUILD,
-    IMPERIAL_SERVICE,
-    INDEPENDENT,
-    ALIEN,
-    HERETIC,
-    RENEGADE;
+public enum LegalStatusPreference implements IRandomPreference {
+    LEGAL,
+    WANTED,
+    SECRETIVE;
 }

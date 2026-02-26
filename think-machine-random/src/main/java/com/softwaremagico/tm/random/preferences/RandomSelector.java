@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.random.character.selectors;
+package com.softwaremagico.tm.random.preferences;
 
 /*-
  * #%L

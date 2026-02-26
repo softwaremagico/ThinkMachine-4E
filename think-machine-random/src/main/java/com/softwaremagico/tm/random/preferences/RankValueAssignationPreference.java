@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.random.character.selectors;
+package com.softwaremagico.tm.random.preferences;
 
 /*-
  * #%L
@@ -24,7 +24,8 @@ package com.softwaremagico.tm.random.character.selectors;
  * #L%
  */
 
-public enum RandomAlignment implements IRandomPreference {
-    GOOD,
-    EVIL;
+public enum RankValueAssignationPreference implements IRandomPreference {
+    VERY_SPECIALIZED,
+    SPECIALIZED,
+    BALANCED;
 }

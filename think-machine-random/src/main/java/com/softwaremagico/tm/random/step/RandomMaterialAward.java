@@ -29,8 +29,8 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.equipment.Equipment;
 import com.softwaremagico.tm.character.equipment.EquipmentOptions;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
-import com.softwaremagico.tm.random.character.selectors.RandomSelector;
+import com.softwaremagico.tm.random.preferences.IRandomPreference;
+import com.softwaremagico.tm.random.preferences.RandomSelector;
 
 import java.util.Collection;
 import java.util.Set;

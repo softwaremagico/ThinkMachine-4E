@@ -25,8 +25,8 @@ package com.softwaremagico.tm.random.character.names;
  */
 
 import com.softwaremagico.tm.character.Rank;
-import com.softwaremagico.tm.random.character.selectors.RandomSelector;
-import com.softwaremagico.tm.random.character.selectors.IGaussianDistribution;
+import com.softwaremagico.tm.random.preferences.RandomSelector;
+import com.softwaremagico.tm.random.preferences.IGaussianDistribution;
 
 public enum NamesProbability implements IGaussianDistribution {
 

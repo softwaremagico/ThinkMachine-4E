@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.random.character.selectors;
+package com.softwaremagico.tm.random.preferences;
 
 /*-
  * #%L
@@ -24,11 +24,7 @@ package com.softwaremagico.tm.random.character.selectors;
  * #L%
  */
 
-public enum RandomOrigin implements IRandomPreference {
-    CORE_WORLDS,
-    FRONTIER,
-    URBAN,
-    RURAL,
-    SPACER,
-    EXOTIC;
+public enum TechPreference implements IRandomPreference {
+    PRIMITIVE,
+    HI_TECH;
 }

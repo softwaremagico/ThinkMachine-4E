@@ -41,7 +41,7 @@ import com.softwaremagico.tm.random.character.level.RandomLevel;
 import com.softwaremagico.tm.random.character.names.RandomName;
 import com.softwaremagico.tm.random.character.names.RandomSurname;
 import com.softwaremagico.tm.random.character.planets.RandomPlanet;
-import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
+import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.character.species.RandomSpecie;
 import com.softwaremagico.tm.random.character.upbringings.RandomUpbringing;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;

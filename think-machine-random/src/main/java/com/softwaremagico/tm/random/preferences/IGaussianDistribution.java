@@ -1,10 +1,10 @@
-package com.softwaremagico.tm.random.character.selectors;
+package com.softwaremagico.tm.random.preferences;
 
 /*-
  * #%L
  * Think Machine 4E (Random Generator)
  * %%
- * Copyright (C) 2017 - 2026 Softwaremagico
+ * Copyright (C) 2017 - 2025 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -24,7 +24,17 @@ package com.softwaremagico.tm.random.character.selectors;
  * #L%
  */
 
-public enum RandomWealth implements IRandomPreference {
-    RICH,
-    POOR;
+
+public interface IGaussianDistribution {
+
+    int variance();
+
+    int mean();
+
+    int randomGaussian();
+
+    int maximum();
+
+    int minimum();
+
 }

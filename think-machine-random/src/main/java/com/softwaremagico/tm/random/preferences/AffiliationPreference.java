@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.random.character.selectors;
+package com.softwaremagico.tm.random.preferences;
 
 /*-
  * #%L
@@ -24,13 +24,13 @@ package com.softwaremagico.tm.random.character.selectors;
  * #L%
  */
 
-public enum RandomOperationalRole implements IRandomPreference {
-    COMBAT,
-    SOCIAL,
-    STEALTH,
-    TECH,
-    KNOWLEDGE,
-    FAITH,
-    TRADE,
-    PILOTING;
+public enum AffiliationPreference implements IRandomPreference {
+    NOBLE_HOUSE,
+    CHURCH,
+    GUILD,
+    IMPERIAL_SERVICE,
+    INDEPENDENT,
+    XENO,
+    HERETIC,
+    RENEGADE;
 }

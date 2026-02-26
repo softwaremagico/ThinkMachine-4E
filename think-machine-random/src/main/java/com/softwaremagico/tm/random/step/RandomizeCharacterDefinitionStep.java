@@ -39,7 +39,7 @@ import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidSkillException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.RandomSelectorLog;
-import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
+import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
 import java.util.List;

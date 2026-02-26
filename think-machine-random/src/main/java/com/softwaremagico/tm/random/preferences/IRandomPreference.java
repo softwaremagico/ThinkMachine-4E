@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.random.character.selectors;
+package com.softwaremagico.tm.random.preferences;
 
 /*-
  * #%L
@@ -30,39 +30,39 @@ public interface IRandomPreference {
 
     static IRandomPreference valueOf(String name) {
         try {
-            return RandomAffiliation.valueOf(name);
+            return AffiliationPreference.valueOf(name);
         } catch (IllegalArgumentException ignore) {
         }
         try {
-            return RandomAlignment.valueOf(name);
+            return AlignmentPreference.valueOf(name);
         } catch (IllegalArgumentException ignore) {
         }
         try {
-            return RandomLegalStatus.valueOf(name);
+            return LegalStatusPreference.valueOf(name);
         } catch (IllegalArgumentException ignore) {
         }
         try {
-            return RandomOccultism.valueOf(name);
+            return OccultismPreference.valueOf(name);
         } catch (IllegalArgumentException ignore) {
         }
         try {
-            return RandomOperationalRole.valueOf(name);
+            return OperationalRolePreference.valueOf(name);
         } catch (IllegalArgumentException ignore) {
         }
         try {
-            return RandomOrigin.valueOf(name);
+            return OriginPreference.valueOf(name);
         } catch (IllegalArgumentException ignore) {
         }
         try {
-            return RandomTech.valueOf(name);
+            return TechPreference.valueOf(name);
         } catch (IllegalArgumentException ignore) {
         }
         try {
-            return RandomValueAssignation.valueOf(name);
+            return RankValueAssignationPreference.valueOf(name);
         } catch (IllegalArgumentException ignore) {
         }
         try {
-            return RandomWealth.valueOf(name);
+            return WealthPreference.valueOf(name);
         } catch (IllegalArgumentException ignore) {
         }
         throw new IllegalArgumentException("Unknown enum value: " + name);

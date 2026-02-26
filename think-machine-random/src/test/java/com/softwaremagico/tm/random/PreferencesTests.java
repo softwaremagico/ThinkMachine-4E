@@ -29,10 +29,10 @@ import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.random.character.factions.RandomFaction;
-import com.softwaremagico.tm.random.character.selectors.IRandomPreference;
-import com.softwaremagico.tm.random.character.selectors.RandomAlignment;
-import com.softwaremagico.tm.random.character.selectors.RandomSelector;
-import com.softwaremagico.tm.random.character.selectors.RandomTech;
+import com.softwaremagico.tm.random.preferences.IRandomPreference;
+import com.softwaremagico.tm.random.preferences.AlignmentPreference;
+import com.softwaremagico.tm.random.preferences.RandomSelector;
+import com.softwaremagico.tm.random.preferences.TechPreference;
 import com.softwaremagico.tm.random.definition.ProbabilityMultiplier;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.step.RandomCharacteristicBonusOption;
@@ -70,7 +70,7 @@ public class PreferencesTests {
         characterPlayer.setUpbringing("noble");
 
         final RandomCharacteristicBonusOption randomCharacteristicBonusOption =
-                new RandomCharacteristicBonusOption(characterPlayer, convert(RandomTech.PRIMITIVE),
+                new RandomCharacteristicBonusOption(characterPlayer, convert(TechPreference.PRIMITIVE),
                         characterPlayer.getUpbringing().getCharacteristicOptions().get(0));
 
         randomCharacteristicBonusOption.updateWeights();
@@ -91,7 +91,7 @@ public class PreferencesTests {
         characterPlayer.setUpbringing("noble");
 
         final RandomCharacteristicBonusOption randomCharacteristicBonusOption =
-                new RandomCharacteristicBonusOption(characterPlayer, convert(RandomTech.PRIMITIVE),
+                new RandomCharacteristicBonusOption(characterPlayer, convert(TechPreference.PRIMITIVE),
                         characterPlayer.getUpbringing().getCharacteristicOptions().get(0));
 
         randomCharacteristicBonusOption.updateWeights();
@@ -111,7 +111,7 @@ public class PreferencesTests {
         characterPlayer.setSpecie("human");
         characterPlayer.setUpbringing("merchant");
         characterPlayer.setFaction("musters");
-        final RandomFaction randomFaction = new RandomFaction(characterPlayer, convert(RandomAlignment.EVIL));
+        final RandomFaction randomFaction = new RandomFaction(characterPlayer, convert(AlignmentPreference.EVIL));
         randomFaction.updateWeights();
         //Musters has a plus for evil preference.
         final Faction musters = FactionFactory.getInstance().getElement("musters");

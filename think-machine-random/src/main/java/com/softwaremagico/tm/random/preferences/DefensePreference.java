@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.random.character.selectors;
+package com.softwaremagico.tm.random.preferences;
 
 /*-
  * #%L
@@ -24,8 +24,6 @@ package com.softwaremagico.tm.random.character.selectors;
  * #L%
  */
 
-public enum RandomOccultism implements IRandomPreference {
-    NO_OCCULTIST,
-    PSI,
-    THEURGY;
+public enum DefensePreference implements IRandomPreference {
+    ARMOR, SHIELD;
 }
