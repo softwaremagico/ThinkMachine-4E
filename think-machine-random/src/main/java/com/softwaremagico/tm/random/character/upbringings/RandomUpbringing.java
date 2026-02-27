@@ -29,11 +29,12 @@ import com.softwaremagico.tm.character.upbringing.Upbringing;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.log.RandomSelectorLog;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
 import com.softwaremagico.tm.random.character.selectors.RandomInnerStepsSelector;
+import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.preferences.RandomSelector;
-import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.step.RandomizeCharacterDefinitionStep;
 
 import java.util.Collection;
@@ -49,6 +50,11 @@ public class RandomUpbringing extends RandomSelector<Upbringing> implements Assi
     public void assign() throws InvalidSpecieException, InvalidRandomElementSelectedException {
         if (getCharacterPlayer().getUpbringing() == null || getCharacterPlayer().getUpbringing().getId() == null) {
             getCharacterPlayer().setUpbringing(selectElementByWeight().getId());
+            if (getCharacterPlayer().getUpbringing() != null && getCharacterPlayer().getUpbringing().getId() != null) {
+                RandomSelectorLog.info(this.getClass(), "Upbringing selected is '{}'.", getCharacterPlayer().getUpbringing().getId());
+            } else {
+                RandomSelectorLog.warning(this.getClass(), "No upbringing selected!.");
+            }
         }
     }
 

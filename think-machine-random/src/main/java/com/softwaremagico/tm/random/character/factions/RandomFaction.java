@@ -29,6 +29,7 @@ import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.log.RandomSelectorLog;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomInnerStepsSelector;
@@ -50,6 +51,11 @@ public class RandomFaction extends RandomSelector<Faction> implements Assignable
     public void assign() throws InvalidSpecieException, InvalidRandomElementSelectedException {
         if (getCharacterPlayer().getFaction() == null || getCharacterPlayer().getFaction().getId() == null) {
             getCharacterPlayer().setFaction(selectElementByWeight().getId());
+            if (getCharacterPlayer().getFaction() != null && getCharacterPlayer().getFaction().getId() != null) {
+                RandomSelectorLog.info(this.getClass(), "Faction selected is '{}'.", getCharacterPlayer().getFaction().getId());
+            } else {
+                RandomSelectorLog.warning(this.getClass(), "No faction selected!.");
+            }
         }
 
     }

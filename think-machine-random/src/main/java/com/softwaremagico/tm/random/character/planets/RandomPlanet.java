@@ -30,10 +30,11 @@ import com.softwaremagico.tm.character.planets.Planet;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.log.RandomSelectorLog;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
+import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.preferences.RandomSelector;
-import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
 import java.util.Collection;
 import java.util.Set;
@@ -53,6 +54,11 @@ public class RandomPlanet extends RandomSelector<Planet> implements AssignableRa
     public void assign() throws InvalidSpecieException, InvalidRandomElementSelectedException {
         if (getCharacterPlayer().getInfo().getPlanet() == null) {
             getCharacterPlayer().getInfo().setPlanet(selectElementByWeight());
+            if (getCharacterPlayer().getInfo().getPlanet() != null) {
+                RandomSelectorLog.info(this.getClass(), "Planet selected is '{}'.", getCharacterPlayer().getInfo().getPlanet());
+            } else {
+                RandomSelectorLog.warning(this.getClass(), "No planet selected!.");
+            }
         }
     }
 

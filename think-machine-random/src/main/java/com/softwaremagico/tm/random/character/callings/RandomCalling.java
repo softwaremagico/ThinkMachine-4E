@@ -32,6 +32,7 @@ import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.occultism.OccultismTypeFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.log.RandomSelectorLog;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
 import com.softwaremagico.tm.random.character.selectors.RandomInnerStepsSelector;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
@@ -53,6 +54,11 @@ public class RandomCalling extends RandomSelector<Calling> implements Assignable
     public void assign() throws InvalidSpecieException, InvalidRandomElementSelectedException {
         if (getCharacterPlayer().getCalling() == null || getCharacterPlayer().getCalling().getId() == null) {
             getCharacterPlayer().setCalling(selectElementByWeight().getId());
+            if (getCharacterPlayer().getCalling() != null && getCharacterPlayer().getCalling().getId() != null) {
+                RandomSelectorLog.info(this.getClass(), "Calling selected is '{}'.", getCharacterPlayer().getCalling().getId());
+            } else {
+                RandomSelectorLog.warning(this.getClass(), "No calling selected!.");
+            }
         }
     }
 
