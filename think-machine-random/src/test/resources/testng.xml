@@ -23,6 +23,7 @@
         <classes>
             <class name="com.softwaremagico.tm.random.RandomTests"/>
             <class name="com.softwaremagico.tm.random.PreferencesTests"/>
+            <class name="com.softwaremagico.tm.random.RandomRestrictionsTests"/>
             <class name="com.softwaremagico.tm.random.character.RandomCharacterTest"/>
             <class name="com.softwaremagico.tm.random.character.RandomLevelTest"/>
         </classes>
