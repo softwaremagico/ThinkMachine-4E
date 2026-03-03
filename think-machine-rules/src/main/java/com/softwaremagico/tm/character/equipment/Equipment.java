@@ -52,6 +52,8 @@ import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.planets.Planet;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
+import com.softwaremagico.tm.character.specie.Specie;
+import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.Upbringing;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
@@ -257,6 +259,12 @@ public abstract class Equipment extends Element implements IElementWithTechnolog
             try {
                 final Planet planet = PlanetFactory.getInstance().getElement(agoraGroup.name().toLowerCase());
                 getRestrictions().setRestrictedPlanets(Collections.singleton(planet.getId()));
+            } catch (Exception ignored) {
+                //Not a planet.
+            }
+            try {
+                final Specie specie = SpecieFactory.getInstance().getElement(agoraGroup.name().toLowerCase());
+                getRestrictions().setRestrictedToSpecies(Collections.singleton(specie.getId()));
             } catch (Exception ignored) {
                 //Not a planet.
             }

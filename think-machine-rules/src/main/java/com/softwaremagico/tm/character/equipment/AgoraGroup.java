@@ -28,6 +28,7 @@ public enum AgoraGroup {
     IMPERIAL,
     KNOWN_WORLDS,
     MERCHANT,
+    NOBLE,
     PRIEST,
     ENGINEERS,
     HAZAT,
@@ -37,12 +38,20 @@ public enum AgoraGroup {
     REEVES,
     MUSTERS,
     VULDROK,
+    KURGAN,
+    AVESTITES,
+    BROTHERBATTLE,
     OROYM,
     TETIS,
     MARTE,
     BANNOCKBURN,
     LEAGUEHEIM,
-    ICON;
+    ICON,
+    RAMPART,
+    HIRONEM,
+    ASCORBITE,
+    VOROX,
+    OBUN;
 
     public static AgoraGroup getAgoraGroup(String tag) {
         for (AgoraGroup agoraGroup : values()) {

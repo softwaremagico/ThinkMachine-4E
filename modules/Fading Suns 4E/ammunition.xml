@@ -93,18 +93,6 @@
 		<cost>15</cost>
 	</ammo>
 	<ammo>
-		<id>legSheath</id>
-		<name>
-			<en>Leg Sheath</en>
-			<es>Funda de Pierna</es>
-		</name>
-		<goal>1</goal>
-		<damage>+3</damage>
-		<strength>1</strength>
-		<cost>15</cost>
-		<size>S</size>
-	</ammo>
-	<ammo>
 		<id>innactiveKossack</id>
 		<name>
 			<en>Inactive Mode</en>
