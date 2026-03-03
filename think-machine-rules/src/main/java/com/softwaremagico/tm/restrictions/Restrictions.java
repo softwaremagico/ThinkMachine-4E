@@ -36,6 +36,7 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinition
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.factions.FactionGroup;
 import com.softwaremagico.tm.character.perks.PerkFactory;
+import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
@@ -89,6 +90,9 @@ public class Restrictions extends XmlData {
 
     @JsonProperty("skills")
     private Set<RestrictedSkill> restrictedSkills = new HashSet<>();
+
+    @JsonProperty("planets")
+    private Set<String> restrictedPlanets = new HashSet<>();
 
     @JsonProperty("level")
     private Integer restrictedLevel;
@@ -204,6 +208,14 @@ public class Restrictions extends XmlData {
         this.restrictedLevel = restrictedLevel;
     }
 
+    public Set<String> getRestrictedPlanets() {
+        return restrictedPlanets;
+    }
+
+    public void setRestrictedPlanets(Set<String> restrictedPlanets) {
+        this.restrictedPlanets = restrictedPlanets;
+    }
+
     public boolean isRestricted(CharacterPlayer characterPlayer) {
         switch (mode) {
             case ANY_FROM_GROUP:
@@ -230,7 +242,8 @@ public class Restrictions extends XmlData {
                 && (restrictedToPerksGroups == null || restrictedToPerksGroups.isEmpty())
                 && (restrictedToCapabilitiesGroups == null || restrictedToCapabilitiesGroups.isEmpty())
                 && (restrictedCharacteristics == null || restrictedCharacteristics.isEmpty())
-                && (restrictedSkills == null || restrictedSkills.isEmpty());
+                && (restrictedSkills == null || restrictedSkills.isEmpty())
+                && (restrictedPlanets == null || restrictedPlanets.isEmpty());
     }
 
     public boolean isRestrictedByAllCharacteristics(CharacterPlayer characterPlayer) {
@@ -311,6 +324,11 @@ public class Restrictions extends XmlData {
         return getRestrictedLevel() != null && (characterPlayer.getLevel() != getRestrictedLevel());
     }
 
+    public boolean isRestrictedToPlanet(CharacterPlayer characterPlayer) {
+        return !getRestrictedPlanets().isEmpty() && (characterPlayer.getInfo().getPlanet() != null && getRestrictedPlanets()
+                .contains(characterPlayer.getInfo().getPlanet()));
+    }
+
 
     private boolean accomplishAnyRestriction(CharacterPlayer characterPlayer) {
         if (characterPlayer == null) {
@@ -338,6 +356,9 @@ public class Restrictions extends XmlData {
                     //Check Callings
                     || (!getRestrictedToCallings().isEmpty() && (characterPlayer.getCalling() != null && getRestrictedToCallings()
                     .contains(characterPlayer.getCalling().getId())))
+                    //Check Planet
+                    || (!getRestrictedPlanets().isEmpty() && (characterPlayer.getInfo().getPlanet() != null && getRestrictedPlanets()
+                    .contains(characterPlayer.getInfo().getPlanet())))
                     // Check Perks
                     || (!getRestrictedPerks().isEmpty() && (characterPlayer.getPerks() != null && !Collections.disjoint(
                     getRestrictedPerks(), (characterPlayer.getPerks().stream().map(Element::getId).collect(Collectors.toList())))))
@@ -389,6 +410,9 @@ public class Restrictions extends XmlData {
                     //Check Callings
                     && (getRestrictedToCallings().isEmpty() || (characterPlayer.getCalling() != null && getRestrictedToCallings()
                     .contains(characterPlayer.getCalling().getId())))
+                    //Check Planet
+                    && (getRestrictedPlanets().isEmpty() || (characterPlayer.getInfo().getPlanet() != null && getRestrictedPlanets()
+                    .contains(characterPlayer.getInfo().getPlanet())))
                     // Check Perks
                     && (getRestrictedPerks().isEmpty() || (characterPlayer.getPerks() != null && !Collections.disjoint(
                     getRestrictedPerks(), (characterPlayer.getPerks().stream().map(Element::getId).collect(Collectors.toList())))))
@@ -438,6 +462,9 @@ public class Restrictions extends XmlData {
                     //Check Callings. Only one can be present.
                     && (getRestrictedToCallings().isEmpty() || (characterPlayer.getCalling() != null && getRestrictedToCallings()
                     .contains(characterPlayer.getCalling().getId())))
+                    //Check Planet
+                    && (getRestrictedPlanets().isEmpty() || (characterPlayer.getInfo().getPlanet() != null && getRestrictedPlanets()
+                    .contains(characterPlayer.getInfo().getPlanet())))
                     // Check Perks
                     && (getRestrictedPerks().isEmpty() || (characterPlayer.getPerks() != null
                     && characterPlayer.getPerks().stream().map(Element::getId).collect(Collectors.toSet()).containsAll(getRestrictedPerks())))
@@ -469,7 +496,7 @@ public class Restrictions extends XmlData {
         try {
             return isOpen()
                     || isRaisedInSpace(characterPlayer)
-                    //Must much specie or upbringing or calling or faction.
+                    //Must match specie or upbringing or calling or faction.
                     || (((getRestrictedToSpecies().isEmpty() || (characterPlayer.getSpecie() != null && getRestrictedToSpecies()
                     .contains(characterPlayer.getSpecie().getId()))
                     // Check upbringing. Only one can be present.
@@ -485,6 +512,8 @@ public class Restrictions extends XmlData {
                     && !isRestrictedByAllCharacteristics(characterPlayer)
                     // Check skills
                     && !isRestrictedByAllSkills(characterPlayer)
+                    // Check Planet
+                    && !isRestrictedToPlanet(characterPlayer)
                     // Check Perks
                     && (getRestrictedPerks().isEmpty() || (characterPlayer.getPerks() != null
                     && characterPlayer.getPerks().stream().map(Element::getId).collect(Collectors.toSet()).containsAll(getRestrictedPerks())))
@@ -562,6 +591,11 @@ public class Restrictions extends XmlData {
                 throw new InvalidXmlElementException("Capability group '" + capabilityGroup + "' does not exists.");
             }
         }
+        for (String planet : restrictedPlanets) {
+            if (!PlanetFactory.getInstance().getElementGroups().contains(planet)) {
+                throw new InvalidXmlElementException("Planet '" + planet + "' does not exists.");
+            }
+        }
     }
 
     @Override
@@ -577,6 +611,7 @@ public class Restrictions extends XmlData {
                 + ", restrictedToCapabilitiesGroups=" + restrictedToCapabilitiesGroups
                 + ", restrictedPerks=" + restrictedPerks
                 + ", restrictedToPerksGroups=" + restrictedToPerksGroups
+                + ", restrictedPlanets=" + restrictedPlanets
                 + ", mode=" + mode
                 + '}';
     }

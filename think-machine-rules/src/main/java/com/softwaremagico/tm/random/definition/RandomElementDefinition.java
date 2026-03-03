@@ -241,7 +241,6 @@ public class RandomElementDefinition extends XmlData {
         if (agora != null) {
             switch (agora) {
                 case COMMON:
-                case KNOWN_WORLDS:
                     this.probabilityMultiplier = ProbabilityMultiplier.COMMON;
                     break;
                 case RARE:

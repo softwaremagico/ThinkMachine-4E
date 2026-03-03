@@ -65,9 +65,9 @@ public class WeaponDamage {
 
     private final int extraCost;
 
-    private transient Integer mainDamage = null;
-    private transient Integer areaDamage = null;
-    private transient String areaWithoutDamage = null;
+    private Integer mainDamage = null;
+    private Integer areaDamage = null;
+    private String areaWithoutDamage = null;
 
     protected WeaponDamage() {
         this(null, null, "", "", null, 0, "", "0", "", null, null, null, null);
@@ -94,7 +94,7 @@ public class WeaponDamage {
         if (extraCost == null) {
             this.extraCost = 0;
         } else {
-            this.extraCost = extraCost.intValue();
+            this.extraCost = extraCost;
         }
         this.size = damageSize;
     }

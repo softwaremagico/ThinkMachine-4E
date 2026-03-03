@@ -50,6 +50,8 @@ import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
+import com.softwaremagico.tm.character.planets.Planet;
+import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.character.upbringing.Upbringing;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
@@ -60,6 +62,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
@@ -96,6 +99,8 @@ public abstract class Equipment extends Element implements IElementWithTechnolog
     private int quantity = 1;
     @JsonProperty("agora")
     private Agora agora;
+    @JsonProperty("agoraGroups")
+    private Set<AgoraGroup> agoraGroups;
     @JsonProperty("features")
     private List<EquipmentFeature> features;
     @JsonProperty("quality")
@@ -222,21 +227,41 @@ public abstract class Equipment extends Element implements IElementWithTechnolog
 
     public void setAgora(Agora agora) {
         this.agora = agora;
-        try {
-            final Faction faction = FactionFactory.getInstance().getElement(agora.name().toLowerCase());
-            getRestrictions().setRestrictedToFactions(Collections.singleton(faction.getId()));
-        } catch (Exception ignored) {
-            //Not a faction.
-        }
-        try {
-            final Upbringing upbringing = UpbringingFactory.getInstance().getElement(agora.name().toLowerCase());
-            getRestrictions().setRestrictedToUpbringing(Collections.singleton(upbringing.getId()));
-        } catch (Exception ignored) {
-            //Not a faction.
-        }
         getRandomDefinition().setAgoraProbabilityMultiplier(agora);
     }
 
+    public Set<AgoraGroup> getAgoraGroups() {
+        return agoraGroups;
+    }
+
+
+    public void setAgoraGroups(Set<String> agoraGroups) {
+        setAgoraGroupsEnum(agoraGroups.stream().map(AgoraGroup::getAgoraGroup).collect(Collectors.toSet()));
+    }
+
+    public void setAgoraGroupsEnum(Set<AgoraGroup> agoraGroups) {
+        this.agoraGroups = agoraGroups;
+        for (AgoraGroup agoraGroup : agoraGroups) {
+            try {
+                final Faction faction = FactionFactory.getInstance().getElement(agoraGroup.name().toLowerCase());
+                getRestrictions().setRestrictedToFactions(Collections.singleton(faction.getId()));
+            } catch (Exception ignored) {
+                //Not a faction.
+            }
+            try {
+                final Upbringing upbringing = UpbringingFactory.getInstance().getElement(agoraGroup.name().toLowerCase());
+                getRestrictions().setRestrictedToUpbringing(Collections.singleton(upbringing.getId()));
+            } catch (Exception ignored) {
+                //Not an upbringing.
+            }
+            try {
+                final Planet planet = PlanetFactory.getInstance().getElement(agoraGroup.name().toLowerCase());
+                getRestrictions().setRestrictedPlanets(Collections.singleton(planet.getId()));
+            } catch (Exception ignored) {
+                //Not a planet.
+            }
+        }
+    }
 
     public List<EquipmentFeature> getFeatures() {
         return features;

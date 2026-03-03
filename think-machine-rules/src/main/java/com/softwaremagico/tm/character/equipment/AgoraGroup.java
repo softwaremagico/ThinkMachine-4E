@@ -4,7 +4,7 @@ package com.softwaremagico.tm.character.equipment;
  * #%L
  * Think Machine 4E (Rules)
  * %%
- * Copyright (C) 2017 - 2024 Softwaremagico
+ * Copyright (C) 2017 - 2026 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -24,8 +24,32 @@ package com.softwaremagico.tm.character.equipment;
  * #L%
  */
 
-public enum Agora {
-    COMMON,
-    RARE,
-    EXOTIC;
+public enum AgoraGroup {
+    IMPERIAL,
+    KNOWN_WORLDS,
+    MERCHANT,
+    PRIEST,
+    ENGINEERS,
+    HAZAT,
+    ALMALIK,
+    HAWKWOOD,
+    SCRAVERS,
+    REEVES,
+    MUSTERS,
+    VULDROK,
+    OROYM,
+    TETIS,
+    MARTE,
+    BANNOCKBURN,
+    LEAGUEHEIM,
+    ICON;
+
+    public static AgoraGroup getAgoraGroup(String tag) {
+        for (AgoraGroup agoraGroup : values()) {
+            if (agoraGroup.name().equalsIgnoreCase(tag)) {
+                return agoraGroup;
+            }
+        }
+        return null;
+    }
 }
