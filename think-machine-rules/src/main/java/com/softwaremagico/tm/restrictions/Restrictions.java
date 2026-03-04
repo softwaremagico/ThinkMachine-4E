@@ -4,7 +4,7 @@ package com.softwaremagico.tm.restrictions;
  * #%L
  * Think Machine 4E (Rules)
  * %%
- * Copyright (C) 2017 - 2024 Softwaremagico
+ * Copyright (C) 2017 - 2026 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -35,6 +35,7 @@ import com.softwaremagico.tm.character.capabilities.CapabilityWithSpecialization
 import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.factions.FactionGroup;
+import com.softwaremagico.tm.character.perks.Perk;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.character.skills.Skill;
@@ -228,6 +229,28 @@ public class Restrictions extends XmlData {
             default:
                 return !accomplishAnyRestriction(characterPlayer);
         }
+    }
+
+    /**
+     * Checks if a perk is open but does not check hierarchical perks (riches, cash, title)
+     *
+     * @param parent the perk to check.
+     * @return
+     */
+    public boolean isOpen(Element parent) {
+        return !this.restricted
+                && (restrictedToSpecies == null || restrictedToSpecies.isEmpty())
+                && (restrictedToUpbringing == null || restrictedToUpbringing.isEmpty())
+                && (restrictedToFactions == null || restrictedToFactions.isEmpty())
+                && (restrictedToFactionGroups == null || restrictedToFactionGroups.isEmpty())
+                && (restrictedToCallings == null || restrictedToCallings.isEmpty())
+                && (restrictedToCapabilities == null || restrictedToCapabilities.isEmpty())
+                && ((parent instanceof Perk) || restrictedPerks == null || restrictedPerks.isEmpty())
+                && (restrictedToPerksGroups == null || restrictedToPerksGroups.isEmpty())
+                && (restrictedToCapabilitiesGroups == null || restrictedToCapabilitiesGroups.isEmpty())
+                && (restrictedCharacteristics == null || restrictedCharacteristics.isEmpty())
+                && (restrictedSkills == null || restrictedSkills.isEmpty())
+                && (restrictedPlanets == null || restrictedPlanets.isEmpty());
     }
 
     public boolean isOpen() {
