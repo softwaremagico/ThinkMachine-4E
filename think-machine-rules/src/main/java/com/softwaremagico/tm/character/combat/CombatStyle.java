@@ -4,7 +4,7 @@ package com.softwaremagico.tm.character.combat;
  * #%L
  * Think Machine 4E (Rules)
  * %%
- * Copyright (C) 2017 - 2024 Softwaremagico
+ * Copyright (C) 2017 - 2026 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -37,7 +37,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class CombatStyle extends Element {
     public static final int COMBAT_STYLE_COST = 5;
-    private String group;
     @JsonProperty("stances")
     private List<CombatStance> combatStances;
     @JsonProperty("combatActions")
@@ -51,16 +50,12 @@ public class CombatStyle extends Element {
                        String moduleName, String group) {
         super(id, name, description, language, moduleName);
         combatActions = new ArrayList<>();
-        this.group = group;
+        setGroup(group);
         combatStances = new ArrayList<>();
     }
 
     public int getCost() {
         return COMBAT_STYLE_COST;
-    }
-
-    public String getGroup() {
-        return group;
     }
 
     public void addCombatStance(CombatStance stance) {
@@ -115,10 +110,6 @@ public class CombatStyle extends Element {
             }
         }
         return null;
-    }
-
-    public void setGroup(String group) {
-        this.group = group;
     }
 
     public void setCombatStances(List<CombatStance> combatStances) {

@@ -5726,7 +5726,9 @@
         </damageList>
         <size>XL</size>
         <agora>common</agora>
-        <agoraGroups>musters</agoraGroups>
+        <agoraGroups>
+            <agoraGroup>musters</agoraGroup>
+        </agoraGroups>
         <cost>850</cost>
         <others>
             <other>stock</other>
@@ -5796,7 +5798,7 @@
         </damageList>
         <size>XL</size>
         <agora>common</agora>
-        <agoraGroups>reeves</agoraGroups>
+        <agoraGroups><agoraGroup>reeves</agoraGroup></agoraGroups>
         <cost>300</cost>
         <others>
             <other>stock</other>
@@ -8250,7 +8252,7 @@
                 <rate>1</rate>
             </weaponDamage>
         </damageList>
-        <size>XXS</size>
+        <size>IGNORABLE</size>
         <cost>600</cost>
         <agora>rare</agora>
         <agoraGroups>
@@ -8289,7 +8291,7 @@
         </damageList>
         <size>S</size>
         <cost>400</cost>
-        <agora>comun</agora>
+        <agora>common</agora>
         <agoraGroups>
             <agoraGroup>kurgan</agoraGroup>
         </agoraGroups>
@@ -9431,7 +9433,7 @@
                 <rate>1</rate>
             </weaponDamage>
         </damageList>
-        <size>XXS</size>
+        <size>IGNORABLE</size>
         <cost>300</cost>
         <agora>rare</agora>
         <agoraGroups>
@@ -9529,7 +9531,7 @@
                 <characteristic>dexterity</characteristic>
                 <skill>shoot</skill>
                 <goal>1</goal>
-                <damage>4 (KO)</damage>
+                <damage>4</damage>
                 <strength>2</strength>
                 <range>10/20</range>
                 <shots>15</shots>
@@ -9586,7 +9588,7 @@
                 <characteristic>dexterity</characteristic>
                 <skill>shoot</skill>
                 <goal>1</goal>
-                <damage>6 (KO)</damage>
+                <damage>6</damage>
                 <strength>2</strength>
                 <range>8/15</range>
                 <shots>6</shots>
@@ -9643,7 +9645,7 @@
                 <characteristic>dexterity</characteristic>
                 <skill>shoot</skill>
                 <goal>1</goal>
-                <damage>5 (KO)</damage>
+                <damage>5</damage>
                 <strength>2</strength>
                 <range>10/20</range>
                 <shots>15</shots>

@@ -4,7 +4,7 @@ package com.softwaremagico.tm.pdf.complete.equipment;
  * #%L
  * Think Machine 4E (PDF Sheets)
  * %%
- * Copyright (C) 2017 - 2024 Softwaremagico
+ * Copyright (C) 2017 - 2026 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -101,7 +101,7 @@ public class FirebirdsFactory extends BaseElement {
         return getMoneyValue(characterPlayer, "assets", null);
     }
 
-    private static Paragraph getMoneyValue(CharacterPlayer characterPlayer, String tag, Float value) {
+    private static Paragraph getMoneyValue(CharacterPlayer characterPlayer, String tag, Double value) {
         final Paragraph paragraph = new Paragraph();
         paragraph.add(new Chunk(TextFactory.getInstance().getElement(tag).getName().getTranslatedText()
                 + ": ", new Font(FadingSunsTheme.getTitleFont(), FadingSunsTheme.LINE_FONT_SIZE)));

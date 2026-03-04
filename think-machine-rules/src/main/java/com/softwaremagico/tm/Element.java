@@ -20,7 +20,7 @@ import java.util.Optional;
  * #%L
  * Think Machine (Core)
  * %%
- * Copyright (C) 2017 - 2024 Softwaremagico
+ * Copyright (C) 2017 - 2026 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -219,28 +219,19 @@ public class Element extends XmlData implements Comparable<Element> {
     @Override
     public int hashCode() {
         final int prime = 31;
-        int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        int result = Objects.hashCode(id);
+        result = prime * result + Objects.hashCode(group);
         return result;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
+    public boolean equals(Object o) {
+        if (!(o instanceof Element)) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        @SuppressWarnings("unchecked") final Element other = (Element) obj;
-        if (id == null) {
-            return other.getId() == null;
-        } else {
-            return id.equals(other.getId());
-        }
+
+        final Element element = (Element) o;
+        return Objects.equals(id, element.id) && Objects.equals(group, element.group);
     }
 
     @JsonIgnore
@@ -365,6 +356,6 @@ public class Element extends XmlData implements Comparable<Element> {
     }
 
     public boolean isOpen() {
-        return getRestrictions().isOpen();
+        return getRestrictions().isOpen(this);
     }
 }
