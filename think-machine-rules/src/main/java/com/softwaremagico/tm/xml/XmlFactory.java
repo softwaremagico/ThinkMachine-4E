@@ -57,6 +57,7 @@ public abstract class XmlFactory<T extends Element> {
     //Id -> Element
     private Map<String, T> elements = null;
     private List<T> elementList = null;
+    private List<T> selectableElementList = null;
     private Set<String> elementGroups;
 
     protected XmlFactory() {
@@ -140,6 +141,13 @@ public abstract class XmlFactory<T extends Element> {
     }
 
     public abstract List<T> getElements() throws InvalidXmlElementException;
+
+    public List<T> getSelectableElements() {
+        if (selectableElementList == null) {
+            selectableElementList = getElements().stream().filter(Element::isSelectable).collect(Collectors.toList());
+        }
+        return selectableElementList;
+    }
 
     public List<T> getOpenElements() {
         return getElements().stream().filter(Element::isOpen).collect(Collectors.toList());

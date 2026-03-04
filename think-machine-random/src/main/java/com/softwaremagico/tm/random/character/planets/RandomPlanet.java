@@ -64,7 +64,7 @@ public class RandomPlanet extends RandomSelector<Planet> implements AssignableRa
 
     @Override
     protected Collection<Planet> getAllElements() throws InvalidXmlElementException {
-        return PlanetFactory.getInstance().getElements();
+        return PlanetFactory.getInstance().getSelectableElements();
     }
 
     @Override

@@ -74,7 +74,7 @@ public class RandomArmor extends RandomEquipment<Armor> {
 
     @Override
     protected Collection<Armor> getAllElements() throws InvalidXmlElementException {
-        return ArmorFactory.getInstance().getElements();
+        return ArmorFactory.getInstance().getSelectableElements();
     }
 
     @Override

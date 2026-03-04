@@ -75,7 +75,7 @@ public class RandomCalling extends RandomSelector<Calling> implements Assignable
 
     @Override
     protected Collection<Calling> getAllElements() throws InvalidXmlElementException {
-        return CallingFactory.getInstance().getElements();
+        return CallingFactory.getInstance().getSelectableElements();
     }
 
     @Override

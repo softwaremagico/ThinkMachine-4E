@@ -53,7 +53,7 @@ public class RandomSkill extends RandomSelector<Skill> {
 
     @Override
     protected Collection<Skill> getAllElements() throws InvalidXmlElementException {
-        return SkillFactory.getInstance().getElements();
+        return SkillFactory.getInstance().getSelectableElements();
     }
 
 

@@ -70,6 +70,6 @@ public class RandomSpecie extends RandomSelector<Specie> implements AssignableRa
 
     @Override
     protected Collection<Specie> getAllElements() throws InvalidXmlElementException {
-        return SpecieFactory.getInstance().getElements();
+        return SpecieFactory.getInstance().getSelectableElements();
     }
 }

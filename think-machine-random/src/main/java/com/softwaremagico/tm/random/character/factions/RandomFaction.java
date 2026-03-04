@@ -73,7 +73,7 @@ public class RandomFaction extends RandomSelector<Faction> implements Assignable
 
     @Override
     protected Collection<Faction> getAllElements() throws InvalidXmlElementException {
-        return FactionFactory.getInstance().getElements();
+        return FactionFactory.getInstance().getSelectableElements();
     }
 
     @Override

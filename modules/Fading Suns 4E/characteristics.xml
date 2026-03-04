@@ -154,7 +154,7 @@
         </name>
         <abbreviation>
             <en>Int</en>
-            <es>Intc</es>
+            <es>Int</es>
         </abbreviation>
         <characteristicType>spirit</characteristicType>
         <function>finesse</function>
@@ -186,11 +186,15 @@
             <es>Iniciativa</es>
         </name>
         <abbreviation>
-            <en>In</en>
-            <es>In</es>
+            <en>Ini</en>
+            <es>Ini</es>
         </abbreviation>
         <characteristicType>others</characteristicType>
         <type>characteristicDefinition</type>
+        <selectable>false</selectable>
+        <random>
+            <staticProbability>0</staticProbability>
+        </random>
     </characteristicDefinition>
     <characteristicDefinition>
         <id>movement</id>
@@ -204,6 +208,10 @@
         </abbreviation>
         <characteristicType>others</characteristicType>
         <type>characteristicDefinition</type>
+        <selectable>false</selectable>
+        <random>
+            <staticProbability>0</staticProbability>
+        </random>
     </characteristicDefinition>
     <characteristicDefinition>
         <id>theurgy</id>
@@ -244,6 +252,7 @@
         </abbreviation>
         <characteristicType>others</characteristicType>
         <type>characteristicDefinition</type>
+        <selectable>false</selectable>
         <restrictions>
             <species>
                 <specie>human</specie>
@@ -296,6 +305,7 @@
         </abbreviation>
         <characteristicType>others</characteristicType>
         <type>characteristicDefinition</type>
+        <selectable>false</selectable>
         <restrictions>
             <species>
                 <specie>human</specie>

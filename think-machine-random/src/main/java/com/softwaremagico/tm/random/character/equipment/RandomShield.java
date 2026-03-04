@@ -71,7 +71,7 @@ public class RandomShield extends RandomEquipment<Shield> {
 
     @Override
     protected Collection<Shield> getAllElements() throws InvalidXmlElementException {
-        return ShieldFactory.getInstance().getElements();
+        return ShieldFactory.getInstance().getSelectableElements();
     }
 
     @Override

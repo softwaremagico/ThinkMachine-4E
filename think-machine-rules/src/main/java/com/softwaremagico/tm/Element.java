@@ -74,6 +74,10 @@ public class Element extends XmlData implements Comparable<Element> {
     @JsonProperty("group")
     private String group;
 
+    //If this element is a valid option for the user.
+    @JsonProperty("selectable")
+    private boolean selectable = true;
+
     //Only fort sheet representation.
     @JsonIgnore
     private Integer order;
@@ -188,6 +192,14 @@ public class Element extends XmlData implements Comparable<Element> {
 
     public void setGroup(String group) {
         this.group = group;
+    }
+
+    public boolean isSelectable() {
+        return selectable;
+    }
+
+    public void setSelectable(boolean selectable) {
+        this.selectable = selectable;
     }
 
     @Override

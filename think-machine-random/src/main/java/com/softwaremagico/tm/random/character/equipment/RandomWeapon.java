@@ -46,6 +46,6 @@ public abstract class RandomWeapon extends RandomEquipment<Weapon> {
 
     @Override
     protected Collection<Weapon> getAllElements() throws InvalidXmlElementException {
-        return WeaponFactory.getInstance().getElements();
+        return WeaponFactory.getInstance().getSelectableElements();
     }
 }

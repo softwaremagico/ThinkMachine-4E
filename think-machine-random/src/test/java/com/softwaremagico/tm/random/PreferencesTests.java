@@ -25,17 +25,19 @@ package com.softwaremagico.tm.random;
  */
 
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.random.character.factions.RandomFaction;
-import com.softwaremagico.tm.random.preferences.IRandomPreference;
-import com.softwaremagico.tm.random.preferences.AlignmentPreference;
-import com.softwaremagico.tm.random.preferences.RandomSelector;
-import com.softwaremagico.tm.random.preferences.TechPreference;
 import com.softwaremagico.tm.random.definition.ProbabilityMultiplier;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
+import com.softwaremagico.tm.random.preferences.AlignmentPreference;
+import com.softwaremagico.tm.random.preferences.IRandomPreference;
+import com.softwaremagico.tm.random.preferences.RandomSelector;
+import com.softwaremagico.tm.random.preferences.TechPreference;
 import com.softwaremagico.tm.random.step.RandomCharacteristicBonusOption;
+import com.softwaremagico.tm.random.step.RandomCharacteristics;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -121,5 +123,19 @@ public class PreferencesTests {
         final Faction reeves = FactionFactory.getInstance().getElement("reeves");
         Assert.assertEquals(randomFaction.getElementWeight(reeves),
                 (int) (musters.getRandomDefinition().getProbabilityMultiplier().getValue()) * RandomSelector.BASIC_PROBABILITY);
+    }
+
+    @Test
+    public void checkCharacteristicsWeightsForPrimitive() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("merchant");
+        characterPlayer.setFaction("musters");
+        final RandomCharacteristics randomCharacteristics = new RandomCharacteristics(characterPlayer, convert(TechPreference.PRIMITIVE));
+        randomCharacteristics.updateWeights();
+        Assert.assertEquals(randomCharacteristics.getElementWeight(CharacteristicsDefinitionFactory.getInstance().getElement("strength")), 2500);
+        Assert.assertEquals(randomCharacteristics.getElementWeight(CharacteristicsDefinitionFactory.getInstance().getElement("dexterity")), 1000);
+        Assert.assertEquals(randomCharacteristics.getElementWeight(CharacteristicsDefinitionFactory.getInstance().getElement("endurance")), 2500);
+        Assert.assertEquals(randomCharacteristics.getElementWeight(CharacteristicsDefinitionFactory.getInstance().getElement("wits")), 200);
     }
 }

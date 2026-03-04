@@ -68,7 +68,7 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
 
     @Override
     protected Collection<CharacteristicDefinition> getAllElements() throws InvalidXmlElementException {
-        return CharacteristicsDefinitionFactory.getInstance().getElements();
+        return CharacteristicsDefinitionFactory.getInstance().getSelectableElements();
     }
 
     @Override

@@ -71,7 +71,7 @@ public class RandomUpbringing extends RandomSelector<Upbringing> implements Assi
 
     @Override
     protected Collection<Upbringing> getAllElements() throws InvalidXmlElementException {
-        return UpbringingFactory.getInstance().getElements();
+        return UpbringingFactory.getInstance().getSelectableElements();
     }
 
     @Override

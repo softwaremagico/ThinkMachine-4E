@@ -47,6 +47,7 @@
                 <include name="level"/>
                 <include name="restrictions"/>
                 <include name="cash"/>
+                <include name="options"/>
             </run>
         </groups>
         <classes>
@@ -81,6 +82,7 @@
             <class name="com.softwaremagico.tm.rules.PerksTests"/>
             <class name="com.softwaremagico.tm.rules.LevelTests"/>
             <class name="com.softwaremagico.tm.rules.CashTests"/>
+            <class name="com.softwaremagico.tm.rules.OptionsTests"/>
             <class name="com.softwaremagico.tm.rules.RestrictionTests"/>
             <class name="com.softwaremagico.tm.txt.ExportTxtTests"/>
         </classes>

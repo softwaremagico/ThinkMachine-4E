@@ -148,6 +148,9 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
 
     public int getElementWeight(Element element) throws InvalidRandomElementSelectedException {
         try {
+            if (!element.isSelectable()) {
+                throw new InvalidRandomElementSelectedException("Element '" + element + "' is not selectable.");
+            }
             //Restricted elements has 0 weight.
             if (element.getRestrictions().isRestricted(characterPlayer)) {
                 throw new InvalidRandomElementSelectedException("Element '" + element + "' is restricted to character.");

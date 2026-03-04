@@ -33,6 +33,7 @@ import org.testng.annotations.Test;
 
 import java.util.Objects;
 
+@Test(groups = "cash")
 public class CashTests {
 
     @Test

@@ -47,11 +47,11 @@ public class CharacteristicBonusOptions extends OptionSelector<CharacteristicDef
                         || (!super.getOptions().isEmpty() && super.getOptions().iterator().next().getId() == null)) {
                     finalCharacteristics = new LinkedHashSet<>();
                     if (super.getOptions() != null && !super.getOptions().isEmpty()) {
-                        finalCharacteristics.addAll(CharacteristicsDefinitionFactory.getInstance().getElements().stream()
+                        finalCharacteristics.addAll(CharacteristicsDefinitionFactory.getInstance().getSelectableElements().stream()
                                 .map(c -> new CharacteristicBonusOption(c, super.getOptions().iterator().next().getBonus()))
                                 .collect(Collectors.toList()));
                     } else {
-                        finalCharacteristics.addAll(CharacteristicsDefinitionFactory.getInstance().getElements().stream()
+                        finalCharacteristics.addAll(CharacteristicsDefinitionFactory.getInstance().getSelectableElements().stream()
                                 .map(CharacteristicBonusOption::new).collect(Collectors.toList()));
                     }
                 } else {
