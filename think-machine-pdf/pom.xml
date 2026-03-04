@@ -19,6 +19,7 @@
 	</properties>
 
 	<build>
+		<finalName>think-machine-4e-pdf</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
