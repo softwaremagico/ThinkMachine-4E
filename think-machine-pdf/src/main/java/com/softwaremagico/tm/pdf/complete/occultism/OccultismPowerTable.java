@@ -44,13 +44,14 @@ public class OccultismPowerTable extends BaseElement {
     private static final int ROLL_COLUMN_WIDTH = 30;
     private static final int TIME_COLUMN_WIDTH = 120;
     private static final int ROWS = 6;
+    private static final int TOP_SEPARATION = 6;
 
     public static PdfPTable getOccultismTable(CharacterPlayer characterPlayer) throws InvalidXmlElementException {
         final float[] widths = {1f};
         final PdfPTable table = new PdfPTable(widths);
         setTableProperties(table);
 
-        final PdfPCell separator = createWhiteSeparator();
+        final PdfPCell separator = createWhiteSeparator(TOP_SEPARATION);
         separator.setColspan(WIDTHS.length);
         table.addCell(separator);
 
@@ -79,7 +80,7 @@ public class OccultismPowerTable extends BaseElement {
         if (characterPlayer != null) {
             for (final Map.Entry<String, List<OccultismPower>> occultismPathEntry : characterPlayer.getSelectedPowers()
                     .entrySet()) {
-                if (addedPowers >= ROWS) {
+                if (addedPowers == ROWS) {
                     break;
                 }
                 for (final OccultismPower occultismPower : occultismPathEntry.getValue()) {

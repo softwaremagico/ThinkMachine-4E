@@ -48,10 +48,6 @@ public class CapabilitiesTableFactory extends BaseElement {
         final PdfPTable table = new PdfPTable(WIDTHS);
         setTableProperties(table);
 
-        final PdfPCell separator = createBigWhiteSeparator();
-        separator.setColspan(WIDTHS.length);
-        table.addCell(separator);
-
         table.addCell(getCapabilitiesValues(characterPlayer));
 
         return table;

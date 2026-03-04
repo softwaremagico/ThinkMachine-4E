@@ -39,6 +39,7 @@ import com.softwaremagico.tm.txt.TextFactory;
 public class OccultismValuesTableFactory extends BaseElement {
     private static final float TITLE_LENGTH = 3f;
     private static final float RECTANGLE_LENGTH = 1.5f;
+    private static final int SEPARATOR = 2;
 
 
     public static PdfPTable getOccultismValuesTable(CharacterPlayer characterPlayer) {
@@ -46,7 +47,7 @@ public class OccultismValuesTableFactory extends BaseElement {
         final PdfPTable table = new PdfPTable(widths);
         setTableProperties(table);
 
-        final PdfPCell separator = createWhiteSeparator();
+        final PdfPCell separator = createWhiteSeparator(SEPARATOR);
         table.addCell(separator);
 
         table.addCell(createSectionTitle(TextFactory.getInstance().getElement("occultism").getName().getTranslatedText(), widths.length));

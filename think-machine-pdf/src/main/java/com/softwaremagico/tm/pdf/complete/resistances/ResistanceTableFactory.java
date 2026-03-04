@@ -39,7 +39,7 @@ public class ResistanceTableFactory extends BaseElement {
         final PdfPTable table = new PdfPTable(WIDTHS);
         setTableProperties(table);
 
-        final PdfPCell separator = createBigWhiteSeparator();
+        final PdfPCell separator = createWhiteSeparator();
         separator.setColspan(WIDTHS.length);
         table.addCell(separator);
 

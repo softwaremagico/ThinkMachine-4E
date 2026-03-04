@@ -45,12 +45,13 @@ public class FirebirdsFactory extends BaseElement {
     private static final int COLUMN_WIDTH = 174;
     private static final int TITLE_MARGIN = 10;
     private static final DecimalFormat MONEY_FORMAT = new DecimalFormat("#.#");
+    private static final int TOP_SEPARATION = 5;
 
     public static PdfPTable getFirebirdsTable(CharacterPlayer characterPlayer) throws InvalidXmlElementException {
         final PdfPTable table = new PdfPTable(WIDTHS);
         setTableProperties(table);
 
-        final PdfPCell separator = createBigWhiteSeparator();
+        final PdfPCell separator = createWhiteSeparator(TOP_SEPARATION);
         separator.setColspan(WIDTHS.length);
         table.addCell(separator);
 
@@ -66,7 +67,11 @@ public class FirebirdsFactory extends BaseElement {
 
         table.addCell(createSectionTitle(TextFactory.getInstance().getElement("firebirds").getName().getTranslatedText(), widths.length));
 
-        final PdfPCell separator = createWhiteSeparator();
+        PdfPCell separator = createWhiteSeparator();
+        separator.setColspan(widths.length);
+        table.addCell(separator);
+
+        separator = createWhiteSeparator();
         separator.setColspan(widths.length);
         table.addCell(separator);
 

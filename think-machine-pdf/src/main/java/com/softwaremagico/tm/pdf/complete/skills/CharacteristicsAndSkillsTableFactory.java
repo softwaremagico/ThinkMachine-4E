@@ -40,6 +40,8 @@ import java.util.List;
 
 public class CharacteristicsAndSkillsTableFactory extends BaseElement {
 
+    private static final int SEPARATOR_MIN_HEIGHT = 10;
+
     public static PdfPTable getCharacteristicsAndSkillsBasicsTable(CharacterPlayer characterPlayer) {
         final float[] widths = {2f, 1f};
         final PdfPTable table = new PdfPTable(widths);
@@ -84,7 +86,7 @@ public class CharacteristicsAndSkillsTableFactory extends BaseElement {
         }
         table.addCell(BaseElement.createBigWhiteSeparator());
         table.addCell(createSectionTitle(TextFactory.getInstance().getElement("mindCharacteristics").getName().getTranslatedText(), 1));
-        table.addCell(BaseElement.createWhiteSeparator());
+        table.addCell(BaseElement.createWhiteSeparator(SEPARATOR_MIN_HEIGHT));
         try {
             table.addCell(CharacteristicsColumn.createContent(characterPlayer, CharacteristicType.MIND));
         } catch (NullPointerException npe) {
@@ -98,6 +100,7 @@ public class CharacteristicsAndSkillsTableFactory extends BaseElement {
         } catch (NullPointerException npe) {
             PdfExporterLog.errorMessage(CharacteristicsAndSkillsTableFactory.class.getName(), npe);
         }
+        table.addCell(BaseElement.createWhiteSeparator(SEPARATOR_MIN_HEIGHT));
 
         return table;
     }
