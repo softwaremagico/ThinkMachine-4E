@@ -36,15 +36,20 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import com.softwaremagico.tm.log.RandomGenerationLog;
 import com.softwaremagico.tm.random.character.callings.RandomCalling;
+import com.softwaremagico.tm.random.character.equipment.RandomArmor;
+import com.softwaremagico.tm.random.character.equipment.RandomMeleeWeapon;
+import com.softwaremagico.tm.random.character.equipment.RandomRangeWeapon;
+import com.softwaremagico.tm.random.character.equipment.RandomShield;
+import com.softwaremagico.tm.random.character.equipment.RandomWeapon;
 import com.softwaremagico.tm.random.character.factions.RandomFaction;
 import com.softwaremagico.tm.random.character.level.RandomLevel;
 import com.softwaremagico.tm.random.character.names.RandomName;
 import com.softwaremagico.tm.random.character.names.RandomSurname;
 import com.softwaremagico.tm.random.character.planets.RandomPlanet;
-import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.character.species.RandomSpecie;
 import com.softwaremagico.tm.random.character.upbringings.RandomUpbringing;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
+import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.step.RandomCharacteristics;
 import com.softwaremagico.tm.random.step.RandomSkill;
 
@@ -101,6 +106,7 @@ public class RandomizeCharacter {
             reassignCharacteristics();
             reassignSkills();
             setLevels();
+            setEquipment();
             RandomGenerationLog.info(this.getClass(), "Character created: " + characterPlayer.toString());
         } catch (InvalidXmlElementException | MaxValueExceededException e) {
             throw new InvalidXmlElementException("Error on '" + characterPlayer + "'.", e);
@@ -196,6 +202,51 @@ public class RandomizeCharacter {
                             randomSkill.selectElementByWeight().getId()));
                 }
             }
+        }
+    }
+
+    private void setEquipment() {
+        final RandomWeapon randomRangedWeapon = new RandomRangeWeapon(characterPlayer, preferences);
+        final RandomWeapon randomMeleeWeapon = new RandomMeleeWeapon(characterPlayer, preferences);
+        final RandomArmor randomArmour = new RandomArmor(characterPlayer, preferences);
+        final RandomShield randomShield = new RandomShield(characterPlayer, preferences);
+
+        try {
+            randomRangedWeapon.assign();
+        } catch (InvalidRandomElementSelectedException e) {
+            RandomGenerationLog.warning(this.getClass().getName(), "No ranged weapons available for '{}'.", characterPlayer);
+        } catch (Exception e) {
+            // Probably already has a shield.
+            RandomGenerationLog.warning(this.getClass().getName(), e.getMessage());
+        }
+
+        try {
+            randomMeleeWeapon.assign();
+        } catch (InvalidRandomElementSelectedException e) {
+            RandomGenerationLog.warning(this.getClass().getName(), "No melee weapons available for '{}'.", characterPlayer);
+        } catch (Exception e) {
+            // Probably already has a shield.
+            RandomGenerationLog.warning(this.getClass().getName(), e.getMessage());
+        }
+
+        try {
+            randomShield.assign();
+        } catch (InvalidRandomElementSelectedException e) {
+            // Probably already has a shield.
+            RandomGenerationLog.warning(this.getClass().getName(), "No shields available for '{}'.", characterPlayer);
+        } catch (Exception e) {
+            // Probably already has a shield.
+            RandomGenerationLog.warning(this.getClass().getName(), e.getMessage());
+        }
+
+        // Set armours
+        try {
+            randomArmour.assign();
+        } catch (InvalidRandomElementSelectedException e) {
+            RandomGenerationLog.warning(this.getClass().getName(), "No armours available for '{}'.", characterPlayer);
+        } catch (Exception e) {
+            // Probably already has a shield.
+            RandomGenerationLog.warning(this.getClass().getName(), e.getMessage());
         }
     }
 }

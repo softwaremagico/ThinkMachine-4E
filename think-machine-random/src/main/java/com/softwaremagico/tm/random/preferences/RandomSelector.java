@@ -53,8 +53,9 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
     public static final int EXOTIC_PROBABILITY = 1;
     public static final int RARE_PROBABILITY = 10;
     public static final int BASIC_PROBABILITY = 100;
-    public static final int LITTLE_PROBABILITY = 600;
-    public static final int GOOD_PROBABILITY = 2100;
+    public static final int FAIR_PROBABILITY = 300;
+    public static final int GOOD_PROBABILITY = 800;
+    public static final int VERY_GOOD_PROBABILITY = 2100;
 
     public static final int BASIC_MULTIPLIER = 5;
     public static final int HIGH_MULTIPLIER = 10;
@@ -161,7 +162,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             if (weight > 0) {
                 // Suggested ones by default profiles.
                 if (suggestedElements != null && suggestedElements.contains(element)) {
-                    weight *= GOOD_PROBABILITY;
+                    weight *= VERY_GOOD_PROBABILITY;
                 }
             }
             return weight;
@@ -304,7 +305,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
     protected int getWeight(Element element) throws InvalidRandomElementSelectedException {
         //Restricted element cannot be selected.
         if (element.getRestrictions().isRestricted(characterPlayer)) {
-            return 0;
+            throw new InvalidRandomElementSelectedException("Element '" + element + "' is restricted.");
         }
         // Some probabilities are defined directly.
         if (element.getRandomDefinition().getStaticProbability() != null) {

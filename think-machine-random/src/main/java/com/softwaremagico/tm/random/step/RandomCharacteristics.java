@@ -122,7 +122,7 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
 
         if (!getPreferences().contains(RankValueAssignationPreference.BALANCED) && Objects.equals(getCharacterPlayer().getPrimaryCharacteristic(),
                 element.getId()) || Objects.equals(getCharacterPlayer().getSecondaryCharacteristic(), element.getId())) {
-            return LITTLE_PROBABILITY;
+            return FAIR_PROBABILITY;
         }
 
         //No occultists without points does not add extra points.

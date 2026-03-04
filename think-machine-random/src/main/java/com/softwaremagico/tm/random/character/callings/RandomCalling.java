@@ -93,14 +93,14 @@ public class RandomCalling extends RandomSelector<Calling> implements Assignable
         //Brother Battle almos always brother Battle faction.
         if (Objects.equals(getCharacterPlayer().getFaction().getId(), BROTHER_BATTLE)) {
             if (Objects.equals(calling.getId(), BROTHER_BATTLE)) {
-                return GOOD_PROBABILITY;
+                return VERY_GOOD_PROBABILITY;
             } else {
                 return EXOTIC_PROBABILITY;
             }
         }
 
         if (FactionFactory.getInstance().getElement(getCharacterPlayer().getFaction()).getFavoredCallings().contains(calling.getId())) {
-            return GOOD_PROBABILITY;
+            return VERY_GOOD_PROBABILITY;
         }
         return super.getWeight(calling);
     }

@@ -34,7 +34,19 @@ public interface IRandomPreference {
         } catch (IllegalArgumentException ignore) {
         }
         try {
+            return AgePreference.valueOf(name);
+        } catch (IllegalArgumentException ignore) {
+        }
+        try {
             return AlignmentPreference.valueOf(name);
+        } catch (IllegalArgumentException ignore) {
+        }
+        try {
+            return AttackPreferences.valueOf(name);
+        } catch (IllegalArgumentException ignore) {
+        }
+        try {
+            return DefensePreference.valueOf(name);
         } catch (IllegalArgumentException ignore) {
         }
         try {
@@ -54,11 +66,11 @@ public interface IRandomPreference {
         } catch (IllegalArgumentException ignore) {
         }
         try {
-            return TechPreference.valueOf(name);
+            return RankValueAssignationPreference.valueOf(name);
         } catch (IllegalArgumentException ignore) {
         }
         try {
-            return RankValueAssignationPreference.valueOf(name);
+            return TechPreference.valueOf(name);
         } catch (IllegalArgumentException ignore) {
         }
         try {

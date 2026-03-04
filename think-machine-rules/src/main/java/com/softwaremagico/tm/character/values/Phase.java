@@ -25,6 +25,7 @@ package com.softwaremagico.tm.character.values;
  */
 
 public enum Phase {
+    ANY(-1),
     SPECIE(0),
     UPBRINGING(1),
     FACTION(2),

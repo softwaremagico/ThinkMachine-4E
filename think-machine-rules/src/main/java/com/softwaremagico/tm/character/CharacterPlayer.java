@@ -1130,7 +1130,7 @@ public class CharacterPlayer {
         return getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isMeleeWeapon).collect(Collectors.toList());
     }
 
-    public void setPurchasedMeleeWeapons(List<Weapon> weapons) throws UnofficialElementNotAllowedException {
+    public void setPurchasedMeleeWeapons(List<Weapon> weapons, boolean removeOld) throws UnofficialElementNotAllowedException {
         if (getSettings().isOnlyOfficialAllowed()) {
             for (Weapon weapon : weapons) {
                 if (!weapon.isOfficial()) {
@@ -1139,7 +1139,9 @@ public class CharacterPlayer {
                 }
             }
         }
-        getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isMeleeWeapon).forEach(e -> getEquipmentPurchased().remove(e));
+        if (removeOld) {
+            getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isMeleeWeapon).forEach(e -> getEquipmentPurchased().remove(e));
+        }
         getEquipmentPurchased().addAll(weapons);
     }
 
@@ -1147,7 +1149,7 @@ public class CharacterPlayer {
         return getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isRangedWeapon).collect(Collectors.toList());
     }
 
-    public void setPurchasedRangedWeapons(List<Weapon> weapons) throws UnofficialElementNotAllowedException {
+    public void setPurchasedRangedWeapons(List<Weapon> weapons, boolean removeOld) throws UnofficialElementNotAllowedException {
         if (getSettings().isOnlyOfficialAllowed()) {
             for (Weapon weapon : weapons) {
                 if (!weapon.isOfficial()) {
@@ -1156,7 +1158,9 @@ public class CharacterPlayer {
                 }
             }
         }
-        getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isRangedWeapon).forEach(e -> getEquipmentPurchased().remove(e));
+        if (removeOld) {
+            getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isRangedWeapon).forEach(e -> getEquipmentPurchased().remove(e));
+        }
         getEquipmentPurchased().addAll(weapons);
     }
 

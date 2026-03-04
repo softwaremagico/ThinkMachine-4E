@@ -29,7 +29,7 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.xml.XmlFactory;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 
@@ -49,7 +49,7 @@ public final class WeaponFactory extends XmlFactory<Weapon> {
 
     public List<Weapon> getWeapons(WeaponType type) {
         if (weaponsByType == null) {
-            weaponsByType = new HashMap<>();
+            weaponsByType = new EnumMap<>(WeaponType.class);
             getElements().forEach(weapon -> {
                 weaponsByType.computeIfAbsent(weapon.getType(), k -> new ArrayList<>());
                 weaponsByType.get(weapon.getType()).add(weapon);
@@ -60,7 +60,7 @@ public final class WeaponFactory extends XmlFactory<Weapon> {
 
     public List<Weapon> getWeaponsByClass(WeaponClass weaponClass) {
         if (weaponsByClass == null) {
-            weaponsByClass = new HashMap<>();
+            weaponsByClass = new EnumMap<>(WeaponClass.class);
             getElements().forEach(weapon -> {
                 if (weapon != null && weapon.getWeaponClass() != null) {
                     weaponsByClass.computeIfAbsent(weapon.getWeaponClass(), k -> new ArrayList<>());

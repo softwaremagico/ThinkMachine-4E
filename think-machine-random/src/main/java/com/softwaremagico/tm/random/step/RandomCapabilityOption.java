@@ -64,7 +64,7 @@ public class RandomCapabilityOption extends RandomSelector<CapabilityOption> {
         if (Objects.equals(element.getId(), PLANET_LORE)) {
             if (element.getSelectedSpecialization() != null
                     && Objects.equals(element.getSelectedSpecialization().getId(), getCharacterPlayer().getInfo().getPlanet())) {
-                return GOOD_PROBABILITY;
+                return VERY_GOOD_PROBABILITY;
             } else {
                 return RARE_PROBABILITY;
             }
@@ -73,7 +73,7 @@ public class RandomCapabilityOption extends RandomSelector<CapabilityOption> {
         if (Objects.equals(element.getId(), FACTION_LORE)) {
             if (element.getSelectedSpecialization() != null && getCharacterPlayer().getFaction() != null
                     && Objects.equals(element.getSelectedSpecialization().getId(), getCharacterPlayer().getFaction().getId())) {
-                return GOOD_PROBABILITY;
+                return VERY_GOOD_PROBABILITY;
             } else {
                 return RARE_PROBABILITY;
             }

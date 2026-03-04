@@ -89,7 +89,7 @@ public class RandomFaction extends RandomSelector<Faction> implements Assignable
         //Brother Battle almos always brother Battle faction.
         if (getCharacterPlayer().getUpbringing() != null && Objects.equals(getCharacterPlayer().getUpbringing().getId(), BROTHER_BATTLE)) {
             if (Objects.equals(faction.getId(), BROTHER_BATTLE)) {
-                return GOOD_PROBABILITY;
+                return VERY_GOOD_PROBABILITY;
             } else {
                 return EXOTIC_PROBABILITY;
             }
@@ -98,7 +98,7 @@ public class RandomFaction extends RandomSelector<Faction> implements Assignable
         // Favored callings can define the faction.
         if (getCharacterPlayer().getCalling() != null
                 && faction.getFavoredCallings().contains(getCharacterPlayer().getCalling().getId())) {
-            return GOOD_PROBABILITY;
+            return VERY_GOOD_PROBABILITY;
         }
 
         return super.getWeight(faction);
