@@ -4,7 +4,7 @@ package com.softwaremagico.tm.character.perks;
  * #%L
  * Think Machine 4E (Rules)
  * %%
- * Copyright (C) 2017 - 2024 Softwaremagico
+ * Copyright (C) 2017 - 2026 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -32,6 +32,7 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 public class PerkOptions extends OptionSelector<Perk, PerkOption> {
     @JsonIgnore
@@ -65,7 +66,7 @@ public class PerkOptions extends OptionSelector<Perk, PerkOption> {
         initFinalPerks();
     }
 
-    public LinkedHashSet<PerkOption> getFinalPerks() {
+    public Set<PerkOption> getFinalPerks() {
         return finalPerks;
     }
 

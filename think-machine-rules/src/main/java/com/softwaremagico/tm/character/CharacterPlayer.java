@@ -4,7 +4,7 @@ package com.softwaremagico.tm.character;
  * #%L
  * Think Machine 4E (Rules)
  * %%
- * Copyright (C) 2017 - 2024 Softwaremagico
+ * Copyright (C) 2017 - 2026 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -58,6 +58,7 @@ import com.softwaremagico.tm.character.occultism.OccultismPower;
 import com.softwaremagico.tm.character.occultism.OccultismType;
 import com.softwaremagico.tm.character.occultism.OccultismTypeFactory;
 import com.softwaremagico.tm.character.perks.Affliction;
+import com.softwaremagico.tm.character.perks.Perk;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.character.perks.SpecializedPerk;
@@ -922,6 +923,10 @@ public class CharacterPlayer {
         return levels.get(index - 1);
     }
 
+    public LevelSelector getLatestLevel() {
+        return levels.get(levels.size() - 1);
+    }
+
     public Stack<LevelSelector> getLevels() {
         return levels;
     }
@@ -1184,16 +1189,31 @@ public class CharacterPlayer {
                 capability.getId().startsWith("techLore") && Objects.equals(capability.getGroup(), "techLore")).count();
     }
 
-    public float getCashMoney() {
-        return 0;
+    public double getCashMoney() {
+        double cash = 0;
+        for (Perk perk : getPerks()) {
+            final double perkCash = getCashValue(perk);
+            if (perkCash > cash) {
+                cash = perkCash;
+            }
+        }
+        return cash;
     }
 
-    public float getRemainingCash() {
+    private double getCashValue(Perk perk) {
+        try {
+            return Double.parseDouble(perk.getId().replace("cash", ""));
+        } catch (Exception e) {
+            return 0d;
+        }
+    }
+
+    public double getRemainingCash() {
         return getCashMoney() - getSpentCash();
     }
 
-    public float getSpentCash() {
-        float total = 0;
+    public double getSpentCash() {
+        double total = 0;
         for (Equipment equipment : getEquipmentPurchased()) {
             if (equipment != null) {
                 total += equipment.getCost();

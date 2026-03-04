@@ -4,7 +4,7 @@ package com.softwaremagico.tm.pdf.complete.resistances;
  * #%L
  * Think Machine 4E (PDF Sheets)
  * %%
- * Copyright (C) 2017 - 2024 Softwaremagico
+ * Copyright (C) 2017 - 2026 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
