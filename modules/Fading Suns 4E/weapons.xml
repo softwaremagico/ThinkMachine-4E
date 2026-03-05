@@ -3,7 +3,7 @@
     <arbata>
         <id>arbata</id>
         <type>weapon</type>
-        <group>militaryWeapon</group>
+        <group>militaryWeapons</group>
         <name>
             <en>Arbat’a (Crystal Sword)</en>
             <es>Arbat'a (Espada de Cristal)</es>
@@ -18,8 +18,7 @@
                 with collectors.
             </en>
             <es>Esta increíble "espada de cristal" de los Ascorbitas está fabricada con una sustancia cristalina única
-                que
-                sólo se encuentra en las profundas grutas subterráneas de Severus. El cristal fluye en un estado casi
+                que sólo se encuentra en las profundas grutas subterráneas de Severus. El cristal fluye en un estado casi
                 líquido en pequeños arroyos que se "desangran" a través de cortes tallados en duras rocas cristalinas, y
                 a partir de esta forma puede modelarse. Una vez que se haya expuesto a la luz, el material se endurece a
                 una fuerza similar a la del diamante. Al propinar un golpe contra una roca dura justo antes de atacar,
@@ -88,7 +87,7 @@
     <axe>
         <id>axe</id>
         <type>weapon</type>
-        <group>militaryWeapon</group>
+        <group>militaryWeapons</group>
         <name>
             <en>Axe</en>
             <es>Hacha</es>
@@ -454,7 +453,7 @@
     <morningstar>
         <id>morningstar</id>
         <type>weapon</type>
-        <group>militaryWeapon</group>
+        <group>militaryWeapons</group>
         <name>
             <en>Morningstar</en>
             <es>Lucero del alba</es>
@@ -598,7 +597,7 @@
     <garrote>
         <id>garrote</id>
         <type>weapon</type>
-        <group>militaryWeapon</group>
+        <group>militaryWeapons</group>
         <name>
             <en>Garrote</en>
             <es>Garrote Vil</es>
@@ -636,7 +635,7 @@
     <glankesh>
         <id>glankesh</id>
         <type>weapon</type>
-        <group>militaryWeapon</group>
+        <group>militaryWeapons</group>
         <name>
             <en>Glankesh (Vorox Sword)</en>
             <es>Glankesh (Espada Vorox)</es>
@@ -807,7 +806,7 @@
         <size>L</size>
         <cost>45</cost>
         <agoraGroups>
-            <agoraGroup>kurga</agoraGroup>
+            <agoraGroup>kurgan</agoraGroup>
         </agoraGroups>
         <others>
             <other>legSheath</other>
@@ -819,7 +818,7 @@
     <kossackChainsword>
         <id>kossackChainsword</id>
         <type>weapon</type>
-        <group>militaryWeapon</group>
+        <group>militaryWeapons</group>
         <name>
             <en>Chainsword</en>
             <es>Motoespada</es>
@@ -940,7 +939,7 @@
     <mace>
         <id>mace</id>
         <type>weapon</type>
-        <group>militaryWeapon</group>
+        <group>militaryWeapons</group>
         <name>
             <en>Mace</en>
             <es>Maza</es>
@@ -975,7 +974,7 @@
     <mainGauche>
         <id>mainGauche</id>
         <type>weapon</type>
-        <group>militaryWeapon</group>
+        <group>militaryWeapons</group>
         <name>
             <en>Main Gauche</en>
             <es>Daga de Misericordia</es>
@@ -1052,7 +1051,7 @@
     <rapier>
         <id>rapier</id>
         <type>weapon</type>
-        <group>militaryWeapon</group>
+        <group>militaryWeapons</group>
         <name>
             <en>Rapier</en>
             <es>Estoque</es>
@@ -1169,7 +1168,7 @@
     <cavalryLance>
         <id>cavalryLance</id>
         <type>weapon</type>
-        <group>militaryWeapon</group>
+        <group>militaryWeapons</group>
         <name>
             <en>Cavalry lance</en>
             <es>Lanza de caballería</es>
@@ -1205,7 +1204,7 @@
     <shantorHorn>
         <id>shantorHorn</id>
         <type>weapon</type>
-        <group>militaryWeapon</group>
+        <group>militaryWeapons</group>
         <name>
             <en>Shantor Horn</en>
             <es>Cuerno Shantor</es>
@@ -1238,7 +1237,7 @@
     <sword>
         <id>sword</id>
         <type>weapon</type>
-        <group>militaryWeapon</group>
+        <group>militaryWeapons</group>
         <name>
             <en>Shantor Horn</en>
             <es>Cuerno Shantor</es>
@@ -1394,7 +1393,7 @@
     <trenchKnife>
         <id>trenchKnife</id>
         <type>weapon</type>
-        <group>militaryWeapon</group>
+        <group>militaryWeapons</group>
         <name>
             <en>Trench Knife</en>
             <es>Cuchillo de Trinchera</es>
@@ -1469,7 +1468,7 @@
     <shantorWarshoes>
         <id>shantorWarshoes</id>
         <type>weapon</type>
-        <group>militaryWeapon</group>
+        <group>militaryWeapons</group>
         <name>
             <en>Shantor warshoes</en>
             <es>Zapatos de guerra Shantor</es>
@@ -1514,7 +1513,7 @@
     <greatWeapon>
         <id>greatWeapon</id>
         <type>weapon</type>
-        <group>militaryWeapon</group>
+        <group>militaryWeapons</group>
         <name>
             <en>Great Weapon</en>
             <es>Gran Arma</es>
@@ -1557,7 +1556,7 @@
     <adeptClaymore>
         <id>adeptClaymore</id>
         <type>weapon</type>
-        <group>militaryWeapon</group>
+        <group>militaryWeapons</group>
         <name>
             <en>Adept Claymore</en>
             <es>Claymore de Adepto</es>
@@ -4542,7 +4541,7 @@
         <size>XL</size>
         <agora>common</agora>
         <agoraGroups>
-            <agoraGroup>li_halan</agoraGroup>
+            <agoraGroup>lihalan</agoraGroup>
         </agoraGroups>
         <cost>250</cost>
         <others>
@@ -5798,7 +5797,9 @@
         </damageList>
         <size>XL</size>
         <agora>common</agora>
-        <agoraGroups><agoraGroup>reeves</agoraGroup></agoraGroups>
+        <agoraGroups>
+            <agoraGroup>reeves</agoraGroup>
+        </agoraGroups>
         <cost>300</cost>
         <others>
             <other>stock</other>

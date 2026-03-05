@@ -25,31 +25,56 @@ package com.softwaremagico.tm.random.character.equipment;
  */
 
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.equipment.AgoraGroup;
 import com.softwaremagico.tm.character.equipment.Equipment;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.random.character.RandomModifier;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
+import com.softwaremagico.tm.random.preferences.OperationalRolePreference;
 import com.softwaremagico.tm.random.preferences.RandomSelector;
 
+import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public abstract class RandomEquipment<E extends Equipment> extends RandomSelector<E> implements AssignableRandomSelector {
 
-    protected static final int VERY_EXPENSIVE = 10;
-    protected static final int EXPENSIVE = 5;
-    protected static final int AFFORDABLE = 2;
-
     private final boolean disabledElements;
 
+    private final String characterFaction;
+    private final String characterPlanet;
+    private final String characterUpbringing;
+    private final String characterSpecie;
+
     protected RandomEquipment(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences) throws InvalidXmlElementException {
-        super(characterPlayer, preferences);
-        disabledElements = isDisabledElement();
+        this(characterPlayer, preferences, new HashSet<>());
     }
 
     protected RandomEquipment(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences, Set<E> suggestedElements) {
         super(characterPlayer, preferences, suggestedElements);
         disabledElements = isDisabledElement();
+        if (characterPlayer != null && characterPlayer.getFaction() != null) {
+            characterFaction = characterPlayer.getFaction().getId();
+        } else {
+            characterFaction = null;
+        }
+        if (characterPlayer != null && characterPlayer.getSpecie() != null) {
+            characterSpecie = characterPlayer.getSpecie().getId();
+        } else {
+            characterSpecie = null;
+        }
+        if (characterPlayer != null && characterPlayer.getUpbringing() != null) {
+            characterUpbringing = characterPlayer.getUpbringing().getId();
+        } else {
+            characterUpbringing = null;
+        }
+        if (characterPlayer != null && characterPlayer.getInfo() != null && characterPlayer.getInfo().getPlanet() != null) {
+            characterPlanet = characterPlayer.getInfo().getPlanet();
+        } else {
+            characterPlanet = null;
+        }
     }
 
     public abstract boolean isDisabledElement();
@@ -62,14 +87,18 @@ public abstract class RandomEquipment<E extends Equipment> extends RandomSelecto
      */
     protected int getWeightCostModifier(E equipment) throws InvalidRandomElementSelectedException {
         final double remainingCash = getCharacterPlayer().getRemainingCash();
+        if (getPreferences().contains(OperationalRolePreference.COMBAT)) {
+            //Combat people can purchase more expensive weapons.
+            return 0;
+        }
         if (equipment.getCost() > remainingCash) {
             throw new InvalidRandomElementSelectedException("Not enough money!");
         } else if (equipment.getCost() > remainingCash / getVeryExpensiveFraction()) {
-            return VERY_EXPENSIVE;
+            return RandomModifier.VERY_EXPENSIVE_DIVIDER;
         } else if (equipment.getCost() > remainingCash / getExpensiveFraction()) {
-            return EXPENSIVE;
+            return RandomModifier.EXPENSIVE_DIVIDER;
         } else if (equipment.getCost() > remainingCash / getAffordableFraction()) {
-            return AFFORDABLE;
+            return RandomModifier.AFFORDABLE_DIVIDER;
         } else {
             return 1;
         }
@@ -88,6 +117,28 @@ public abstract class RandomEquipment<E extends Equipment> extends RandomSelecto
             return (int) weight;
         }
         return 0;
+    }
+
+    protected int getAgoraModifier(E equipment) {
+        int modifier = 0;
+        if (equipment.getAgoraGroups() != null) {
+            for (AgoraGroup agoraGroup : equipment.getAgoraGroups()) {
+                try {
+                    if (Objects.equals(characterFaction, agoraGroup.name().toLowerCase())) {
+                        modifier += RandomModifier.AGORA_MODIFIER_FACTION;
+                    } else if (Objects.equals(characterSpecie, agoraGroup.name().toLowerCase())) {
+                        modifier += RandomModifier.AGORA_MODIFIER_SPECIE;
+                    } else if (Objects.equals(characterUpbringing, agoraGroup.name().toLowerCase())) {
+                        modifier += RandomModifier.AGORA_MODIFIER_UPBRINGING;
+                    } else if (Objects.equals(characterPlanet, agoraGroup.name().toLowerCase())) {
+                        modifier += RandomModifier.AGORA_MODIFIER_PLANET;
+                    }
+                } catch (Exception e) {
+                    throw new InvalidXmlElementException("Invalid xml element '" + equipment + "' with agora group '" + agoraGroup + "'. ");
+                }
+            }
+        }
+        return modifier != 0 ? modifier : 1;
     }
 
     @Override
@@ -112,8 +163,8 @@ public abstract class RandomEquipment<E extends Equipment> extends RandomSelecto
 
         final int weightCostModifier = getWeightCostModifier(equipment);
         if (weightCostModifier == 0) {
-            return basicWeight;
+            return basicWeight * getAgoraModifier(equipment);
         }
-        return basicWeight / getWeightCostModifier(equipment);
+        return (basicWeight / weightCostModifier) * getAgoraModifier(equipment);
     }
 }

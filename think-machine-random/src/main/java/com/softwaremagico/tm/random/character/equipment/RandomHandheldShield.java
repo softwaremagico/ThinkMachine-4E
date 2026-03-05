@@ -25,8 +25,8 @@ package com.softwaremagico.tm.random.character.equipment;
  */
 
 import com.softwaremagico.tm.character.CharacterPlayer;
-import com.softwaremagico.tm.character.equipment.armors.Armor;
-import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
+import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShield;
+import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShieldFactory;
 import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
@@ -39,25 +39,20 @@ import com.softwaremagico.tm.random.preferences.IRandomPreference;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
-public class RandomArmor extends RandomEquipment<Armor> {
+public class RandomHandheldShield extends RandomEquipment<HandheldShield> {
 
-    private static final String WAR_ARMOR_CAPABILITY = "warArmor";
-    private static final String COMBAT_ARMOR_CAPABILITY = "combatArmor";
+    private static final String HANDHELD_SHIELD_CAPABILITY = "handheldShield";
+    private final boolean handheldShield;
 
-    private final boolean warArmor;
-    private final boolean combatArmor;
-
-    public RandomArmor(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences) throws InvalidXmlElementException {
+    public RandomHandheldShield(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences) throws InvalidXmlElementException {
         this(characterPlayer, preferences, new HashSet<>());
     }
 
-    public RandomArmor(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences, Set<Armor> suggestedElements) {
+    public RandomHandheldShield(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences, Set<HandheldShield> suggestedElements) {
         super(characterPlayer, preferences, suggestedElements);
-        warArmor = getCharacterPlayer().hasCapability(WAR_ARMOR_CAPABILITY, null, Phase.ANY, null);
-        combatArmor = getCharacterPlayer().hasCapability(COMBAT_ARMOR_CAPABILITY, null, Phase.ANY, null);
+        handheldShield = getCharacterPlayer().hasCapability(HANDHELD_SHIELD_CAPABILITY, null, Phase.ANY, null);
     }
 
     @Override
@@ -67,43 +62,43 @@ public class RandomArmor extends RandomEquipment<Armor> {
 
     @Override
     protected double getVeryExpensiveFraction() {
-        return RandomModifier.ARMOR_VERY_EXPENSIVE_FRACTION;
+        return RandomModifier.HANDHELD_SHIELD_VERY_EXPENSIVE_FRACTION;
     }
 
     @Override
     protected double getExpensiveFraction() {
-        return RandomModifier.ARMOR_EXPENSIVE_FRACTION;
+        return RandomModifier.HANDHELD_SHIELD_EXPENSIVE_FRACTION;
     }
 
     @Override
     protected double getAffordableFraction() {
-        return RandomModifier.ARMOR_AFFORDABLE_FRACTION;
+        return RandomModifier.HANDHELD_SHIELD_AFFORDABLE_FRACTION;
     }
 
     @Override
-    protected Collection<Armor> getAllElements() throws InvalidXmlElementException {
-        return ArmorFactory.getInstance().getSelectableElements();
+    protected Collection<HandheldShield> getAllElements() throws InvalidXmlElementException {
+        return HandheldShieldFactory.getInstance().getSelectableElements();
     }
 
     @Override
-    protected int getWeight(Armor armor) throws InvalidRandomElementSelectedException {
-        //If he has fencing, select sword.
-        if (!warArmor && Objects.equals(armor.getGroup(), WAR_ARMOR_CAPABILITY)) {
-            throw new InvalidRandomElementSelectedException("Element '" + armor + "' requires '" + WAR_ARMOR_CAPABILITY + "' capability.");
+    protected int getWeight(HandheldShield handheldShield) throws InvalidRandomElementSelectedException {
+        //If he hasn't handheldShield, cannot be used.
+        if (!this.handheldShield) {
+            throw new InvalidRandomElementSelectedException("Element '" + handheldShield + "' requires '" + HANDHELD_SHIELD_CAPABILITY + "' capability.");
         }
-        if (!combatArmor && Objects.equals(armor.getGroup(), COMBAT_ARMOR_CAPABILITY)) {
-            throw new InvalidRandomElementSelectedException("Element '" + armor + "' requires '" + COMBAT_ARMOR_CAPABILITY + "' capability.");
+        if (getCharacterPlayer().getBestShield() != null) {
+            throw new InvalidRandomElementSelectedException("Element '" + handheldShield + "' cannot be combined with an e-shield.");
         }
 
-        return super.getWeight(armor);
+        return super.getWeight(handheldShield);
     }
 
     @Override
     public void assign() throws InvalidSpecieException, InvalidRandomElementSelectedException, UnofficialElementNotAllowedException {
-        if (getCharacterPlayer().getPurchasedArmor() == null) {
-            getCharacterPlayer().setPurchasedArmor(selectElementByWeight(), true);
+        if (getCharacterPlayer().getPurchasedShield() == null) {
+            getCharacterPlayer().setPurchasedHandheldShield(selectElementByWeight(), true);
         } else {
-            RandomSelectorLog.warning(this.getClass(), "Armor already assigned!.");
+            RandomSelectorLog.warning(this.getClass(), "Handheld shield already assigned!.");
         }
     }
 }

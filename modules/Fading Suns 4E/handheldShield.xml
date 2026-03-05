@@ -3,6 +3,7 @@
     <handheldShield>
         <id>bodyShieldSteel</id>
         <type>handheldShield</type>
+        <group>handheldShield</group>
         <name>
             <en>Body shield (steel)</en>
             <es>Escudo de cuerpo (acero)</es>
@@ -40,10 +41,16 @@
             <other>slamproof</other>
             <other>unwieldy</other>
         </others>
+        <random>
+            <recommendedPreferences>
+                <preference>PRIMITIVE</preference>
+            </recommendedPreferences>
+        </random>
     </handheldShield>
     <handheldShield>
         <id>riotShieldPlastic</id>
         <type>handheldShield</type>
+        <group>handheldShield</group>
         <name>
             <en>Riot Shield (plastic)</en>
             <es>Escudo antidisturbios (plástico)</es>
@@ -83,6 +90,7 @@
     <handheldShield>
         <id>battleShieldPlasteel</id>
         <type>handheldShield</type>
+        <group>handheldShield</group>
         <name>
             <en>Battle shield (plasteel)</en>
             <es>Escudo de batalla (Acerástico)</es>
@@ -124,6 +132,7 @@
     <handheldShield>
         <id>bucklerSteel</id>
         <type>handheldShield</type>
+        <group>handheldShield</group>
         <name>
             <en>Buckler (steel)</en>
             <es>Rodela (acero)</es>
@@ -155,7 +164,12 @@
         </damageList>
         <agora>common</agora>
         <size>M</size>
-        <cost></cost>
+        <cost>10</cost>
+        <random>
+            <recommendedPreferences>
+                <preference>PRIMITIVE</preference>
+            </recommendedPreferences>
+        </random>
         <others>
             <other>slamproof</other>
             <other>+4 Resistance vs missile attacks</other>
@@ -164,6 +178,7 @@
     <handheldShield>
         <id>duelingBucklerPlasteel</id>
         <type>handheldShield</type>
+        <group>handheldShield</group>
         <name>
             <en>Dueling buckler (plasteel)</en>
             <es>Rodela de duelista (acerástico)</es>

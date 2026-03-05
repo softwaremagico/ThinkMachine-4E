@@ -7,6 +7,11 @@
             <en>Combat Armor</en>
             <es>Armadura de Combate</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>handheldShield</id>
@@ -15,6 +20,12 @@
             <en>Handheld Shield</en>
             <es>Escudo de Mano</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+                <preference>PRIMITIVE</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>warArmor</id>
@@ -39,6 +50,11 @@
                 <calling>pirate</calling>
                 <calling>templar</calling>
             </callings>
+            <random>
+                <recommendedPreferences>
+                    <preference>COMBAT</preference>
+                </recommendedPreferences>
+            </random>
         </restrictions>
     </capability>
 

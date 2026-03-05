@@ -31,6 +31,7 @@ import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.RandomSelectorLog;
+import com.softwaremagico.tm.random.character.RandomModifier;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
@@ -40,10 +41,6 @@ import java.util.Collection;
 import java.util.Set;
 
 public class RandomPlanet extends RandomSelector<Planet> implements AssignableRandomSelector {
-    private static final int FACTION_PLANET = 50;
-    private static final int SPECIE_PLANET = 80;
-    private static final int NEUTRAL_PLANET = 8;
-    private static final int ENEMY_PLANET = 1;
 
     public RandomPlanet(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences)
             throws InvalidXmlElementException {
@@ -71,16 +68,16 @@ public class RandomPlanet extends RandomSelector<Planet> implements AssignableRa
     protected int getWeight(Planet planet) throws InvalidRandomElementSelectedException {
         //By faction
         if (planet.getFactions().contains(getCharacterPlayer().getFaction().getId())) {
-            return FACTION_PLANET;
+            return RandomModifier.FACTION_PLANET;
         }
         //By specie
         if (planet.getSpecies().contains(getCharacterPlayer().getSpecie().getId())) {
-            return SPECIE_PLANET;
+            return RandomModifier.SPECIE_PLANET;
         }
         for (final String factionsOfPlanet : planet.getFactions()) {
             if (factionsOfPlanet != null && getCharacterPlayer().getFaction() != null
                     && FactionFactory.getInstance().getElement(factionsOfPlanet).getRestrictions().isRestricted(getCharacterPlayer())) {
-                return ENEMY_PLANET;
+                return RandomModifier.ENEMY_PLANET;
             }
         }
         return super.getWeight(planet);

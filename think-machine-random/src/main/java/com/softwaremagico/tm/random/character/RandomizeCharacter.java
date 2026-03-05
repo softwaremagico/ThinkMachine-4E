@@ -49,6 +49,7 @@ import com.softwaremagico.tm.random.character.planets.RandomPlanet;
 import com.softwaremagico.tm.random.character.species.RandomSpecie;
 import com.softwaremagico.tm.random.character.upbringings.RandomUpbringing;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
+import com.softwaremagico.tm.random.preferences.AttackPreferences;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.step.RandomCharacteristics;
 import com.softwaremagico.tm.random.step.RandomSkill;
@@ -212,7 +213,12 @@ public class RandomizeCharacter {
         final RandomShield randomShield = new RandomShield(characterPlayer, preferences);
 
         try {
-            randomRangedWeapon.assign();
+            //If melee preferences, spent money first on melee weapons.
+            if (preferences.contains(AttackPreferences.MELEE)) {
+                randomMeleeWeapon.assign();
+            } else {
+                randomRangedWeapon.assign();
+            }
         } catch (InvalidRandomElementSelectedException e) {
             RandomGenerationLog.warning(this.getClass().getName(), "No ranged weapons available for '{}'.", characterPlayer);
         } catch (Exception e) {
@@ -221,7 +227,12 @@ public class RandomizeCharacter {
         }
 
         try {
-            randomMeleeWeapon.assign();
+            //If melee preferences, has already spent money on melee weapon.
+            if (!preferences.contains(AttackPreferences.MELEE)) {
+                randomMeleeWeapon.assign();
+            } else {
+                randomRangedWeapon.assign();
+            }
         } catch (InvalidRandomElementSelectedException e) {
             RandomGenerationLog.warning(this.getClass().getName(), "No melee weapons available for '{}'.", characterPlayer);
         } catch (Exception e) {

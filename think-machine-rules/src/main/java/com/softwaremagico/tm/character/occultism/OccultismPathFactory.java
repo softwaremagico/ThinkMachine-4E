@@ -38,6 +38,7 @@ public final class OccultismPathFactory extends XmlFactory<OccultismPath> {
 
     private final List<OccultismPath> psiPaths = new ArrayList<>();
     private final List<OccultismPath> theurgyPaths = new ArrayList<>();
+    private List<OccultismPath> occultismPaths = null;
 
     private static final class OccultismPathFactoryInit {
         public static final OccultismPathFactory INSTANCE = new OccultismPathFactory();
@@ -60,14 +61,15 @@ public final class OccultismPathFactory extends XmlFactory<OccultismPath> {
 
     @Override
     public List<OccultismPath> readXml(Class<OccultismPath> entityClass) throws InvalidXmlElementException {
-        final List<OccultismPath> occultismPaths = super.readXml(entityClass);
-        //Update power values related to some rites.
-        occultismPaths.forEach(occultismPath -> {
-            occultismPath.getOccultismPowersElements().forEach(occultismPower -> {
-                occultismPower.copyRestrictions(occultismPath);
-                occultismPower.setOfficial(occultismPath.isOfficial());
-            });
-        });
+        if (occultismPaths == null) {
+            occultismPaths = super.readXml(entityClass);
+            //Update power values related to some rites.
+            occultismPaths.forEach(occultismPath ->
+                    occultismPath.getOccultismPowersElements().forEach(occultismPower -> {
+                        occultismPower.copyRestrictions(occultismPath);
+                        occultismPower.setOfficial(occultismPath.isOfficial());
+                    }));
+        }
         return occultismPaths;
     }
 

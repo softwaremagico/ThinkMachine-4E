@@ -125,4 +125,9 @@ public class RandomEquipmentTests {
         randomShield.updateWeights();
         Assert.assertFalse(randomShield.getWeightedElements().isEmpty());
     }
+
+    @Test
+    public void checkFencingPerkHasAlwaysSword() {
+
+    }
 }

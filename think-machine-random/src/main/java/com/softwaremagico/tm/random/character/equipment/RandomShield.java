@@ -31,22 +31,26 @@ import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.UnofficialElementNotAllowedException;
 import com.softwaremagico.tm.log.RandomSelectorLog;
+import com.softwaremagico.tm.random.character.RandomModifier;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.preferences.DefensePreference;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 public class RandomShield extends RandomEquipment<Shield> {
 
+    private final Set<String> allowedShields;
 
     public RandomShield(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences) throws InvalidXmlElementException {
-        super(characterPlayer, preferences);
+        this(characterPlayer, preferences, new HashSet<>());
     }
 
     public RandomShield(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences, Set<Shield> suggestedElements) {
         super(characterPlayer, preferences, suggestedElements);
+        this.allowedShields = characterPlayer.getAllowedShields();
     }
 
     @Override
@@ -56,17 +60,17 @@ public class RandomShield extends RandomEquipment<Shield> {
 
     @Override
     protected double getVeryExpensiveFraction() {
-        return VERY_EXPENSIVE;
+        return RandomModifier.SHIELD_VERY_EXPENSIVE_FRACTION;
     }
 
     @Override
     protected double getExpensiveFraction() {
-        return EXPENSIVE;
+        return RandomModifier.SHIELD_EXPENSIVE_FRACTION;
     }
 
     @Override
     protected double getAffordableFraction() {
-        return AFFORDABLE;
+        return RandomModifier.SHIELD_AFFORDABLE_FRACTION;
     }
 
     @Override
@@ -75,9 +79,19 @@ public class RandomShield extends RandomEquipment<Shield> {
     }
 
     @Override
+    protected int getWeight(Shield shield) throws InvalidRandomElementSelectedException {
+        //If he has fencing, select sword.
+        if (!allowedShields.contains(shield.getGroup())) {
+            throw new InvalidRandomElementSelectedException("Element '" + shield + "' cannot be combined with current armor.");
+        }
+
+        return super.getWeight(shield);
+    }
+
+    @Override
     public void assign() throws InvalidSpecieException, InvalidRandomElementSelectedException, UnofficialElementNotAllowedException {
         if (getCharacterPlayer().getPurchasedShield() == null) {
-            getCharacterPlayer().setPurchasedShield(selectElementByWeight());
+            getCharacterPlayer().setPurchasedShield(selectElementByWeight(), true);
         } else {
             RandomSelectorLog.warning(this.getClass(), "Shield already assigned!.");
         }

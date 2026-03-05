@@ -111,6 +111,7 @@ public class CharacterPlayer {
     public static final int LEVEL_MAX_VALUE = 10;
     private static final int BANK_INITIAL_VALUE = 5;
     private static final int INITIAL_TECH_LEVEL = 4;
+    private static final int INITIAL_CASH = 300;
 
     // Basic description of the character.
     private CharacterInfo info;
@@ -1069,12 +1070,14 @@ public class CharacterPlayer {
         return getEquipmentPurchased(Armor.class).stream().findFirst().orElse(null);
     }
 
-    public void setPurchasedArmor(Armor armor) throws UnofficialElementNotAllowedException {
+    public void setPurchasedArmor(Armor armor, boolean removeOld) throws UnofficialElementNotAllowedException {
         if (armor != null && !armor.isOfficial() && getSettings().isOnlyOfficialAllowed()) {
             throw new UnofficialElementNotAllowedException("Armor '" + armor + "' is not official and cannot be added due "
                     + "to configuration limitations.");
         }
-        getEquipmentPurchased(Armor.class).forEach(e -> getEquipmentPurchased().remove(e));
+        if (removeOld) {
+            getEquipmentPurchased(Armor.class).forEach(e -> getEquipmentPurchased().remove(e));
+        }
         getEquipmentPurchased().add(armor);
     }
 
@@ -1104,12 +1107,18 @@ public class CharacterPlayer {
         return Collections.max(handheldShields, Comparator.comparing(HandheldShield::getCost));
     }
 
-    public void setPurchasedHandheldShield(HandheldShield handheldShield) throws UnofficialElementNotAllowedException {
+    public HandheldShield getPurchasedHandheldShield() {
+        return getEquipmentPurchased(HandheldShield.class).stream().findFirst().orElse(null);
+    }
+
+    public void setPurchasedHandheldShield(HandheldShield handheldShield, boolean removeOld) throws UnofficialElementNotAllowedException {
         if (handheldShield != null && !handheldShield.isOfficial() && getSettings().isOnlyOfficialAllowed()) {
             throw new UnofficialElementNotAllowedException("HandheldShields shield '" + handheldShield + "' is not official and cannot be added due "
                     + "to configuration limitations.");
         }
-        getEquipmentPurchased(HandheldShield.class).forEach(e -> getEquipmentPurchased().remove(e));
+        if (removeOld) {
+            getEquipmentPurchased(HandheldShield.class).forEach(e -> getEquipmentPurchased().remove(e));
+        }
         getEquipmentPurchased().add(handheldShield);
     }
 
@@ -1117,13 +1126,22 @@ public class CharacterPlayer {
         return getEquipmentPurchased(Shield.class).stream().findFirst().orElse(null);
     }
 
-    public void setPurchasedShield(Shield shield) throws UnofficialElementNotAllowedException {
+    public void setPurchasedShield(Shield shield, boolean removeOld) throws UnofficialElementNotAllowedException {
         if (shield != null && !shield.isOfficial() && getSettings().isOnlyOfficialAllowed()) {
             throw new UnofficialElementNotAllowedException("Shield '" + shield + "' is not official and cannot be added due "
                     + "to configuration limitations.");
         }
-        getEquipmentPurchased(Shield.class).forEach(e -> getEquipmentPurchased().remove(e));
+        if (removeOld) {
+            getEquipmentPurchased(Shield.class).forEach(e -> getEquipmentPurchased().remove(e));
+        }
         getEquipmentPurchased().add(shield);
+    }
+
+    public Set<String> getAllowedShields() {
+        if (getBestHandHandledShield() != null) {
+            return new HashSet<>();
+        }
+        return getBestArmor().getAllowedShields();
     }
 
     public List<Weapon> getPurchasedMeleeWeapons() {
@@ -1201,7 +1219,7 @@ public class CharacterPlayer {
                 cash = perkCash;
             }
         }
-        return cash;
+        return cash + INITIAL_CASH;
     }
 
     private double getCashValue(Perk perk) {

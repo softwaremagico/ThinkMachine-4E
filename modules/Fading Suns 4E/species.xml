@@ -589,7 +589,7 @@
             <probabilityMultiplier>NORMAL</probabilityMultiplier>
             <recommendedPreferences>
                 <preference>PSI</preference>
-                <preference>MILITANT</preference>
+                <preference>COMBAT</preference>
             </recommendedPreferences>
         </random>
     </ukar>
@@ -765,7 +765,7 @@
             </surnames>
             <probabilityMultiplier>NORMAL</probabilityMultiplier>
             <recommendedPreferences>
-                <preference>MILITANT</preference>
+                <preference>COMBAT</preference>
             </recommendedPreferences>
         </random>
     </vorox>

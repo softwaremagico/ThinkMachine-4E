@@ -26,10 +26,12 @@ package com.softwaremagico.tm.random.character.equipment;
 
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
+import com.softwaremagico.tm.character.equipment.weapons.WeaponClass;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponType;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.UnofficialElementNotAllowedException;
+import com.softwaremagico.tm.random.character.RandomModifier;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.preferences.AttackPreferences;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
@@ -37,21 +39,22 @@ import com.softwaremagico.tm.random.preferences.OperationalRolePreference;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public class RandomRangeWeapon extends RandomWeapon {
-
-    private static final double VERY_EXPENSIVE_FRACTION = 1.1;
-    private static final double EXPENSIVE_FRACTION = 1.5;
-    private static final double AFFORDABLE_FRACTION = 2;
+    private static final String TOW_GUN_FIGHTING = "twoGunFighting";
+    private final boolean pistolsPerk;
 
     public RandomRangeWeapon(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences) throws InvalidXmlElementException {
-        super(characterPlayer, preferences);
+        this(characterPlayer, preferences, new HashSet<>());
     }
 
     public RandomRangeWeapon(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences, Set<Weapon> suggestedElements) {
         super(characterPlayer, preferences, suggestedElements);
+        pistolsPerk = characterPlayer.getPerks().stream().anyMatch(p -> Objects.equals(p.getId(), TOW_GUN_FIGHTING));
     }
 
     @Override
@@ -62,23 +65,33 @@ public class RandomRangeWeapon extends RandomWeapon {
 
     @Override
     protected double getVeryExpensiveFraction() {
-        return VERY_EXPENSIVE_FRACTION;
+        return RandomModifier.RANGE_VERY_EXPENSIVE_FRACTION;
     }
 
     @Override
     protected double getExpensiveFraction() {
-        return EXPENSIVE_FRACTION;
+        return RandomModifier.RANGE_EXPENSIVE_FRACTION;
     }
 
     @Override
     protected double getAffordableFraction() {
-        return AFFORDABLE_FRACTION;
+        return RandomModifier.RANGE_AFFORDABLE_FRACTION;
     }
 
     @Override
     protected Collection<Weapon> getAllElements() throws InvalidXmlElementException {
         return super.getAllElements().stream().filter(weapon -> WeaponType.getRangedTypes().contains(weapon.getType()))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    protected int getWeight(Weapon equipment) throws InvalidRandomElementSelectedException {
+        //If he has a perk for pistols, select pistols.
+        if (pistolsPerk && equipment.getWeaponClass() != WeaponClass.PISTOL) {
+            return 0;
+        }
+
+        return super.getWeight(equipment);
     }
 
     @Override

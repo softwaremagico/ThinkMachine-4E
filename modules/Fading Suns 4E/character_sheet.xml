@@ -1022,6 +1022,13 @@
             <es>Son</es>
         </name>
     </armorSonicAbbreviation>
+    <handheldShield>
+        <id>handheldShield</id>
+        <name>
+            <en>Handheld Shield</en>
+            <es>Escudo de Mano</es>
+        </name>
+    </handheldShield>
     <shield>
         <id>shield</id>
         <name>

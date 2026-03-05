@@ -26,37 +26,36 @@ package com.softwaremagico.tm.random.character.equipment;
 
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
+import com.softwaremagico.tm.character.equipment.weapons.WeaponClass;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponType;
-import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.UnofficialElementNotAllowedException;
+import com.softwaremagico.tm.random.character.RandomModifier;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.preferences.AttackPreferences;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public class RandomMeleeWeapon extends RandomWeapon {
 
-    private static final double VERY_EXPENSIVE_FRACTION = 3;
-    private static final double EXPENSIVE_FRACTION = 6;
-    private static final double AFFORDABLE_FRACTION = 10;
 
-    private final boolean disabledMilitaryElements;
+    private static final String FENCING_GROUP = "fencing";
+    private final boolean fencingPerk;
 
     public RandomMeleeWeapon(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences) throws InvalidXmlElementException {
-        super(characterPlayer, preferences);
-        disabledMilitaryElements = hasDisabledMilitaryElements();
+        this(characterPlayer, preferences, new HashSet<>());
     }
 
     public RandomMeleeWeapon(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences, Set<Weapon> suggestedElements) {
         super(characterPlayer, preferences, suggestedElements);
-        disabledMilitaryElements = hasDisabledMilitaryElements();
+        fencingPerk = characterPlayer.getPerks().stream().anyMatch(p -> Objects.equals(p.getGroup(), FENCING_GROUP));
     }
 
     @Override
@@ -66,21 +65,17 @@ public class RandomMeleeWeapon extends RandomWeapon {
 
     @Override
     protected double getVeryExpensiveFraction() {
-        return VERY_EXPENSIVE_FRACTION;
+        return RandomModifier.MELEE_VERY_EXPENSIVE_FRACTION;
     }
 
     @Override
     protected double getExpensiveFraction() {
-        return EXPENSIVE_FRACTION;
+        return RandomModifier.MELEE_EXPENSIVE_FRACTION;
     }
 
     @Override
     protected double getAffordableFraction() {
-        return AFFORDABLE_FRACTION;
-    }
-
-    private boolean hasDisabledMilitaryElements() {
-        return !getCharacterPlayer().hasCapability("militaryWeapons", null, Phase.ANY, null);
+        return RandomModifier.MELEE_AFFORDABLE_FRACTION;
     }
 
     @Override
@@ -91,9 +86,11 @@ public class RandomMeleeWeapon extends RandomWeapon {
 
     @Override
     protected int getWeight(Weapon equipment) throws InvalidRandomElementSelectedException {
-        if (disabledMilitaryElements && Objects.equals(equipment.getGroup(), "militaryWeapon")) {
+        //If he has fencing, select sword.
+        if (fencingPerk && equipment.getWeaponClass() != WeaponClass.SWORD) {
             return 0;
         }
+
         return super.getWeight(equipment);
     }
 

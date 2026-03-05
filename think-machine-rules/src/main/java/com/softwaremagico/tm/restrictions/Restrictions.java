@@ -74,14 +74,14 @@ public class Restrictions extends XmlData {
     @JsonProperty("callings")
     private Set<String> restrictedToCallings = new HashSet<>();
 
-    @JsonProperty("capabilities")
-    private Set<RestrictedCapability> restrictedToCapabilities = new HashSet<>();
-
     @JsonProperty("perks")
     private Set<String> restrictedPerks = new HashSet<>();
 
     @JsonProperty("perksGroups")
     private Set<String> restrictedToPerksGroups = new HashSet<>();
+
+    @JsonProperty("capabilities")
+    private Set<RestrictedCapability> restrictedToCapabilities = new HashSet<>();
 
     @JsonProperty("capabilitiesGroups")
     private Set<String> restrictedToCapabilitiesGroups = new HashSet<>();

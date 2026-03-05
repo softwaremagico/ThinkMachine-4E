@@ -57,6 +57,7 @@ import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.Upbringing;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.restrictions.RestrictedCapability;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -236,7 +237,6 @@ public abstract class Equipment extends Element implements IElementWithTechnolog
         return agoraGroups;
     }
 
-
     public void setAgoraGroups(Set<String> agoraGroups) {
         setAgoraGroupsEnum(agoraGroups.stream().map(AgoraGroup::getAgoraGroup).collect(Collectors.toSet()));
     }
@@ -269,6 +269,13 @@ public abstract class Equipment extends Element implements IElementWithTechnolog
                 //Not a planet.
             }
         }
+    }
+
+    @Override
+    public void setGroup(String group) {
+        super.setGroup(group);
+        //On equipment, group points to a capability that is a restriction.
+        getRestrictions().getRestrictedToCapabilities().add(new RestrictedCapability(group));
     }
 
     public List<EquipmentFeature> getFeatures() {

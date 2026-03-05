@@ -16,7 +16,7 @@
         <order>0</order>
         <random>
             <recommendedPreferences>
-                <preference>MILITANT</preference>
+                <preference>COMBAT</preference>
                 <preference>PRIMITIVE</preference>
             </recommendedPreferences>
             <recommendedSpecies>
@@ -40,7 +40,7 @@
         <order>1</order>
         <random>
             <recommendedPreferences>
-                <preference>MILITANT</preference>
+                <preference>COMBAT</preference>
             </recommendedPreferences>
         </random>
     </characteristicDefinition>
@@ -60,7 +60,7 @@
         <order>2</order>
         <random>
             <recommendedPreferences>
-                <preference>MILITANT</preference>
+                <preference>COMBAT</preference>
                 <preference>PRIMITIVE</preference>
             </recommendedPreferences>
             <recommendedSpecies>
