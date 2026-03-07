@@ -181,7 +181,7 @@ public class Level extends CharacterDefinitionStep {
         if (getCharacterPlayer().getUpbringing() == null) {
             return new ArrayList<>();
         }
-        final List<CharacterPerkOptions> perks = getCharacterPlayer().getUpbringing().getNotSelectedPerksOptions(Phase.LEVEL, index, addPerksIfEmpty);
+        final List<CharacterPerkOptions> perks = getCharacterPlayer().getUpbringing().getNotSelectedPerksOptions(addPerksIfEmpty);
         if (getCharacterPlayer().isFavoredCalling()) {
             final Set<SpecializedPerk> favouredOptions = getFavouredPerksOptions();
             for (CharacterPerkOptions characterPerkOptions : perks) {
@@ -233,7 +233,7 @@ public class Level extends CharacterDefinitionStep {
         if (getCharacterPlayer().getCalling() == null || getTotalClassPerksOptions() == 0) {
             return new ArrayList<>();
         }
-        return getCharacterPlayer().getCalling().getNotSelectedPerksOptions(Phase.LEVEL, index, true);
+        return getCharacterPlayer().getCalling().getNotSelectedPerksOptions(true);
     }
 
     @Override

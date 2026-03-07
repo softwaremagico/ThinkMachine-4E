@@ -487,10 +487,6 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     }
 
     public List<CharacterPerkOptions> getNotSelectedPerksOptions(boolean addStandardPerksIfEmpty) {
-        return getNotSelectedPerksOptions(getPhase(), getLevel(), addStandardPerksIfEmpty);
-    }
-
-    public List<CharacterPerkOptions> getNotSelectedPerksOptions(Phase phase, int level, boolean addStandardPerksIfEmpty) {
         if (getCharacterDefinitionStep().getCharacterAvailablePerksOptions() == null) {
             return new ArrayList<>();
         }

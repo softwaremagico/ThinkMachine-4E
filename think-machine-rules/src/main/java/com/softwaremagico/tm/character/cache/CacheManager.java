@@ -40,8 +40,8 @@ public class CacheManager {
     private Set<CapabilityWithSpecialization> capabilityWithSpecializations;
     private Set<SpecializedPerk> perksWithSpecializations;
     private Set<String> allowedShields;
-    private Map<String, Integer> skillValues = new HashMap<>();
-    private Map<String, Integer> characteristicsValues = new HashMap<>();
+    private Map<String, Integer> skillValues;
+    private Map<String, Integer> characteristicsValues;
     private Boolean warArmor;
     private Boolean combatArmor;
     private Boolean militaryWeapons;
@@ -56,8 +56,8 @@ public class CacheManager {
         warArmor = null;
         combatArmor = null;
         militaryWeapons = null;
-        skillValues = null;
-        characteristicsValues = null;
+        skillValues = new HashMap<>();
+        characteristicsValues = new HashMap<>();
     }
 
     public void capabilitiesChanged() {
@@ -79,11 +79,11 @@ public class CacheManager {
     }
 
     public void skillsChanged() {
-        skillValues = null;
+        skillValues = new HashMap<>();
     }
 
     public void characteristicsChanged() {
-        characteristicsValues = null;
+        characteristicsValues = new HashMap<>();
     }
 
     public Double getCash() {
