@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character;
+package com.softwaremagico.tm.structures;
 
 /*-
  * #%L
@@ -72,6 +72,15 @@ public class SelectionList<E> extends ArrayList<E> {
     public void add(int index, E element) {
         try {
             super.add(index, element);
+        } finally {
+            notifySelectionUpdatedListener();
+        }
+    }
+
+    @Override
+    public boolean remove(Object o) {
+        try {
+            return super.remove(o);
         } finally {
             notifySelectionUpdatedListener();
         }

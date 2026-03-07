@@ -25,9 +25,9 @@ package com.softwaremagico.tm.random.character.equipment;
  */
 
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.capabilities.Capability;
 import com.softwaremagico.tm.character.equipment.armors.Armor;
 import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
-import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.UnofficialElementNotAllowedException;
@@ -44,20 +44,12 @@ import java.util.Set;
 
 public class RandomArmor extends RandomEquipment<Armor> {
 
-    private static final String WAR_ARMOR_CAPABILITY = "warArmor";
-    private static final String COMBAT_ARMOR_CAPABILITY = "combatArmor";
-
-    private final boolean warArmor;
-    private final boolean combatArmor;
-
     public RandomArmor(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences) throws InvalidXmlElementException {
         this(characterPlayer, preferences, new HashSet<>());
     }
 
     public RandomArmor(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences, Set<Armor> suggestedElements) {
         super(characterPlayer, preferences, suggestedElements);
-        warArmor = getCharacterPlayer().hasCapability(WAR_ARMOR_CAPABILITY, null, Phase.ANY, null);
-        combatArmor = getCharacterPlayer().hasCapability(COMBAT_ARMOR_CAPABILITY, null, Phase.ANY, null);
     }
 
     @Override
@@ -88,11 +80,11 @@ public class RandomArmor extends RandomEquipment<Armor> {
     @Override
     protected int getWeight(Armor armor) throws InvalidRandomElementSelectedException {
         //If he has fencing, select sword.
-        if (!warArmor && Objects.equals(armor.getGroup(), WAR_ARMOR_CAPABILITY)) {
-            throw new InvalidRandomElementSelectedException("Element '" + armor + "' requires '" + WAR_ARMOR_CAPABILITY + "' capability.");
+        if (!getCharacterPlayer().canUseWarArmor() && Objects.equals(armor.getGroup(), Capability.WAR_ARMOR_CAPABILITY)) {
+            throw new InvalidRandomElementSelectedException("Element '" + armor + "' requires '" + Capability.WAR_ARMOR_CAPABILITY + "' capability.");
         }
-        if (!combatArmor && Objects.equals(armor.getGroup(), COMBAT_ARMOR_CAPABILITY)) {
-            throw new InvalidRandomElementSelectedException("Element '" + armor + "' requires '" + COMBAT_ARMOR_CAPABILITY + "' capability.");
+        if (!getCharacterPlayer().canUseCombatArmor() && Objects.equals(armor.getGroup(), Capability.COMBAT_ARMOR_CAPABILITY)) {
+            throw new InvalidRandomElementSelectedException("Element '" + armor + "' requires '" + Capability.COMBAT_ARMOR_CAPABILITY + "' capability.");
         }
 
         return super.getWeight(armor);

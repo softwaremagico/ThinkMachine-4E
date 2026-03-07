@@ -25,9 +25,9 @@ package com.softwaremagico.tm.random.character.equipment;
  */
 
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.capabilities.Capability;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
-import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
@@ -38,28 +38,19 @@ import java.util.Set;
 
 public abstract class RandomWeapon extends RandomEquipment<Weapon> {
 
-    private static final String MILITARY_WEAPONS_CAPABILITY = "militaryWeapons";
-
-    private final boolean disabledMilitaryElements;
-
     protected RandomWeapon(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences) throws InvalidXmlElementException {
         this(characterPlayer, preferences, null);
     }
 
     protected RandomWeapon(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences, Set<Weapon> suggestedElements) {
         super(characterPlayer, preferences, suggestedElements);
-        disabledMilitaryElements = hasDisabledMilitaryElements();
-    }
-
-    private boolean hasDisabledMilitaryElements() {
-        return !getCharacterPlayer().hasCapability(MILITARY_WEAPONS_CAPABILITY, null, Phase.ANY, null);
     }
 
     @Override
     protected int getWeight(Weapon weapon) throws InvalidRandomElementSelectedException {
         //If he hasn't handheldShield, cannot be used.
-        if (disabledMilitaryElements && Objects.equals(weapon.getGroup(), MILITARY_WEAPONS_CAPABILITY)) {
-            throw new InvalidRandomElementSelectedException("Element '" + weapon + "' needs 'militaryWeapons' perk.");
+        if (!getCharacterPlayer().canUseMilitaryWeapons() && Objects.equals(weapon.getGroup(), Capability.MILITARY_WEAPONS_CAPABILITY)) {
+            throw new InvalidRandomElementSelectedException("Element '" + weapon + "' needs '" + Capability.MILITARY_WEAPONS_CAPABILITY + "' perk.");
         }
 
         return super.getWeight(weapon);

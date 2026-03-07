@@ -161,6 +161,9 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             }
 
             int weight = getWeight(element);
+            if (weight == 0) {
+                return 0;
+            }
             weight = (int) ((weight) * getUserPreferenceBonus(element));
             if (weight > 0) {
                 // Suggested ones by default profiles.

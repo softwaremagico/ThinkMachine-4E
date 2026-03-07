@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.character;
+package com.softwaremagico.tm.structures;
 
 /*-
  * #%L
@@ -24,19 +24,37 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
-import com.softwaremagico.tm.structures.SelectionList;
-
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
-public class OptionsList<E extends CharacterSelectedElement> extends SelectionList<E> {
+public class SelectionSet<E> extends HashSet<E> {
 
-    private static final long serialVersionUID = 2154478596675658061L;
+    private static final long serialVersionUID = -603427902508573343L;
 
-    public OptionsList() {
+    private final Set<ISelectionUpdatedListener> selectionUpdatedListeners;
+
+    public interface ISelectionUpdatedListener {
+        void updated();
     }
 
-    public OptionsList(Collection<E> elements) {
+    public SelectionSet() {
+        this.selectionUpdatedListeners = new HashSet<>();
+    }
+
+    public SelectionSet(Collection<E> elements) {
         super(elements);
+        this.selectionUpdatedListeners = new HashSet<>();
+    }
+
+    public void addSelectionUpdatedListeners(ISelectionUpdatedListener listener) {
+        selectionUpdatedListeners.add(listener);
+    }
+
+    public void notifySelectionUpdatedListener() {
+        for (ISelectionUpdatedListener listener : selectionUpdatedListeners) {
+            listener.updated();
+        }
     }
 
 
@@ -45,17 +63,15 @@ public class OptionsList<E extends CharacterSelectedElement> extends SelectionLi
         try {
             return super.add(element);
         } finally {
-            element.addSelectionUpdatedListeners(this::notifySelectionUpdatedListener);
             notifySelectionUpdatedListener();
         }
     }
 
     @Override
-    public void add(int index, E element) {
+    public boolean remove(Object o) {
         try {
-            super.add(index, element);
+            return super.remove(o);
         } finally {
-            element.addSelectionUpdatedListeners(this::notifySelectionUpdatedListener);
             notifySelectionUpdatedListener();
         }
     }

@@ -195,7 +195,7 @@ public class Level extends CharacterDefinitionStep {
     public Set<SpecializedPerk> getFavouredPerksOptions() {
         if (getCharacterPlayer().isFavoredCalling()) {
             //Get privilege perks.
-            final List<SpecializedPerk> selectedPerks = getCharacterPlayer().getPerks(getIndex() - 1);
+            final Set<SpecializedPerk> selectedPerks = getCharacterPlayer().getPerks(getIndex() - 1);
             final Set<SpecializedPerk> favouredPerks = SpecializedPerk.create(PerkFactory.getInstance().getClassPrivilegePerks().stream().filter(perk ->
                     !perk.getRestrictions().isRestricted(getCharacterPlayer())
             ).collect(Collectors.toSet()));
@@ -209,7 +209,7 @@ public class Level extends CharacterDefinitionStep {
     public Set<Selection> getFavouredSelections() {
         if (getCharacterPlayer().isFavoredCalling()) {
             //Get privilege perks.
-            final List<SpecializedPerk> selectedPerks = getCharacterPlayer().getPerks(getIndex() - 1);
+            final Set<SpecializedPerk> selectedPerks = getCharacterPlayer().getPerks(getIndex() - 1);
             final Set<Selection> favouredPerks = PerkFactory.getInstance().getClassPrivilegeSelections().stream().filter(perk ->
                     !perk.getRestrictions().isRestricted(getCharacterPlayer())
             ).collect(Collectors.toSet());

@@ -31,6 +31,10 @@ import java.util.List;
 
 public class Capability extends Element {
 
+    public static final String WAR_ARMOR_CAPABILITY = "warArmor";
+    public static final String COMBAT_ARMOR_CAPABILITY = "combatArmor";
+    public static final String MILITARY_WEAPONS_CAPABILITY = "militaryWeapons";
+
     public Capability() {
         super();
     }

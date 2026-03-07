@@ -37,6 +37,7 @@ import com.softwaremagico.tm.pdf.complete.FadingSunsTheme;
 import com.softwaremagico.tm.pdf.complete.elements.BaseElement;
 import com.softwaremagico.tm.txt.TextFactory;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -68,7 +69,7 @@ public class PerksTableFactory extends BaseElement {
 
         int totalElements = 0;
         if (characterPlayer != null) {
-            final List<SpecializedPerk> perks = characterPlayer.getPerks();
+            final List<SpecializedPerk> perks = new ArrayList<>(characterPlayer.getPerks());
             //Faction perks
             if (characterPlayer.getFaction() != null) {
                 final Faction faction = FactionFactory.getInstance().getElement(characterPlayer.getFaction().getId());

@@ -26,6 +26,7 @@ package com.softwaremagico.tm.character.capabilities;
 
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.skills.Specialization;
+import com.softwaremagico.tm.utils.ComparableUtils;
 import com.softwaremagico.tm.utils.IComparable;
 
 import java.util.ArrayList;
@@ -33,6 +34,7 @@ import java.util.List;
 
 public class CapabilityWithSpecialization extends Capability implements IComparable {
     private Specialization specialization;
+    private transient String comparisonId;
 
     public CapabilityWithSpecialization() {
         super();
@@ -77,6 +79,9 @@ public class CapabilityWithSpecialization extends Capability implements ICompara
 
     @Override
     public String getComparisonId() {
-        return getId() + (getSpecialization() != null ? "_" + getSpecialization() : "");
+        if (comparisonId == null) {
+            comparisonId = ComparableUtils.getComparisonId(getId(), getSpecialization() != null ? getSpecialization().getId() : null);
+        }
+        return comparisonId;
     }
 }

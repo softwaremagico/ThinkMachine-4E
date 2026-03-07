@@ -24,6 +24,8 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
+import com.softwaremagico.tm.structures.SelectionList;
+
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;

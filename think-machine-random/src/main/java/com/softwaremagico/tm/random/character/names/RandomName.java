@@ -32,9 +32,9 @@ import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
+import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.preferences.RandomSelector;
-import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -89,8 +89,7 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
     protected int getWeight(Name name) throws InvalidRandomElementSelectedException {
         // Only names of its gender.
         if (!name.getGender().equals(getCharacterPlayer().getInfo().getGender())) {
-            throw new InvalidRandomElementSelectedException("Name '" + name + "' not valid for gender '"
-                    + getCharacterPlayer().getInfo().getGender() + "'.");
+            return 0;
         }
         //Xenos have different names.
         if (getCharacterPlayer().getSpecie() != null

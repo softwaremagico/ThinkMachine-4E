@@ -24,33 +24,66 @@ package com.softwaremagico.tm.character.cache;
  * #L%
  */
 
+import com.softwaremagico.tm.character.capabilities.CapabilityWithSpecialization;
+import com.softwaremagico.tm.character.perks.SpecializedPerk;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 public class CacheManager {
 
 
     private Double cash;
-
+    private Double spentCash;
     private Integer techLevel;
+    private Set<CapabilityWithSpecialization> capabilityWithSpecializations;
+    private Set<SpecializedPerk> perksWithSpecializations;
+    private Set<String> allowedShields;
+    private Map<String, Integer> skillValues = new HashMap<>();
+    private Map<String, Integer> characteristicsValues = new HashMap<>();
+    private Boolean warArmor;
+    private Boolean combatArmor;
+    private Boolean militaryWeapons;
 
     public void reset() {
         cash = null;
+        spentCash = null;
         techLevel = null;
+        capabilityWithSpecializations = null;
+        perksWithSpecializations = null;
+        allowedShields = null;
+        warArmor = null;
+        combatArmor = null;
+        militaryWeapons = null;
+        skillValues = null;
+        characteristicsValues = null;
     }
 
     public void capabilitiesChanged() {
         cash = null;
         techLevel = null;
+        capabilityWithSpecializations = null;
+        warArmor = null;
+        combatArmor = null;
+        militaryWeapons = null;
+    }
+
+    public void equipmentPurchasedChanged() {
+        spentCash = null;
+        allowedShields = null;
     }
 
     public void perksChanged() {
-
+        perksWithSpecializations = null;
     }
 
     public void skillsChanged() {
-
+        skillValues = null;
     }
 
     public void characteristicsChanged() {
-
+        characteristicsValues = null;
     }
 
     public Double getCash() {
@@ -61,11 +94,83 @@ public class CacheManager {
         this.cash = cash;
     }
 
+    public Double getSpentCash() {
+        return spentCash;
+    }
+
+    public void setSpentCash(Double spentCash) {
+        this.spentCash = spentCash;
+    }
+
     public Integer getTechLevel() {
         return techLevel;
     }
 
     public void setTechLevel(Integer techLevel) {
         this.techLevel = techLevel;
+    }
+
+    public Set<CapabilityWithSpecialization> getCapabilityWithSpecializations() {
+        return capabilityWithSpecializations;
+    }
+
+    public void setCapabilityWithSpecializations(Set<CapabilityWithSpecialization> capabilityWithSpecializations) {
+        this.capabilityWithSpecializations = capabilityWithSpecializations;
+    }
+
+    public Set<SpecializedPerk> getPerksWithSpecializations() {
+        return perksWithSpecializations;
+    }
+
+    public void setPerksWithSpecializations(Set<SpecializedPerk> perksWithSpecializations) {
+        this.perksWithSpecializations = perksWithSpecializations;
+    }
+
+    public Set<String> getAllowedShields() {
+        return allowedShields;
+    }
+
+    public void setAllowedShields(Set<String> allowedShields) {
+        this.allowedShields = allowedShields;
+    }
+
+    public Boolean getWarArmor() {
+        return warArmor;
+    }
+
+    public void setWarArmor(Boolean warArmor) {
+        this.warArmor = warArmor;
+    }
+
+    public Boolean getCombatArmor() {
+        return combatArmor;
+    }
+
+    public void setCombatArmor(Boolean combatArmor) {
+        this.combatArmor = combatArmor;
+    }
+
+    public Boolean getMilitaryWeapons() {
+        return militaryWeapons;
+    }
+
+    public void setMilitaryWeapons(Boolean militaryWeapons) {
+        this.militaryWeapons = militaryWeapons;
+    }
+
+    public Integer getSkillValue(String skill) {
+        return skillValues.get(skill);
+    }
+
+    public void setSkillValue(String skill, int value) {
+        skillValues.put(skill, value);
+    }
+
+    public Integer getCharacteristicValue(String characteristic) {
+        return characteristicsValues.get(characteristic);
+    }
+
+    public void setCharacteristicValue(String characteristic, int value) {
+        characteristicsValues.put(characteristic, value);
     }
 }
