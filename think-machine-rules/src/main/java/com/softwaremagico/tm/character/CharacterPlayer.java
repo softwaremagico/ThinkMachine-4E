@@ -25,6 +25,7 @@ package com.softwaremagico.tm.character;
  */
 
 import com.softwaremagico.tm.Element;
+import com.softwaremagico.tm.character.cache.CacheManager;
 import com.softwaremagico.tm.character.callings.CallingCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.callings.CallingGroup;
@@ -140,8 +141,11 @@ public class CharacterPlayer {
     private final List<CharacteristicReassign> characteristicReassigns = new ArrayList<>();
     private final List<SkillsReassign> skillsReassigns = new ArrayList<>();
 
+    private final CacheManager cacheManager;
+
     public CharacterPlayer() {
         settings = new Settings();
+        cacheManager = new CacheManager();
         reset();
     }
 
@@ -154,6 +158,7 @@ public class CharacterPlayer {
         faction = null;
         calling = null;
         equipmentPurchased = new HashSet<>();
+        cacheManager.reset();
     }
 
     public SpecieCharacterDefinitionStepSelection getSpecie() {
@@ -1141,7 +1146,10 @@ public class CharacterPlayer {
         if (getBestHandHandledShield() != null) {
             return new HashSet<>();
         }
-        return getBestArmor().getAllowedShields();
+        if (getBestArmor() != null) {
+            return getBestArmor().getAllowedShields();
+        }
+        return ShieldFactory.getInstance().getElements().stream().map(Element::getId).collect(Collectors.toSet());
     }
 
     public List<Weapon> getPurchasedMeleeWeapons() {
@@ -1207,19 +1215,25 @@ public class CharacterPlayer {
     }
 
     public int getTechLevel() {
-        return INITIAL_TECH_LEVEL + (int) getCapabilitiesWithSpecialization().stream().filter(capability ->
-                capability.getId().startsWith("techLore") && Objects.equals(capability.getGroup(), "techLore")).count();
+        if (cacheManager.getTechLevel() == null) {
+            cacheManager.setTechLevel(INITIAL_TECH_LEVEL + (int) getCapabilitiesWithSpecialization().stream().filter(capability ->
+                    capability.getId().startsWith("techLore") && Objects.equals(capability.getGroup(), "techLore")).count());
+        }
+        return cacheManager.getTechLevel();
     }
 
     public double getCashMoney() {
-        double cash = 0;
-        for (Perk perk : getPerks()) {
-            final double perkCash = getCashValue(perk);
-            if (perkCash > cash) {
-                cash = perkCash;
+        if (cacheManager.getCash() == null) {
+            double cash = 0;
+            for (Perk perk : getPerks()) {
+                final double perkCash = getCashValue(perk);
+                if (perkCash > cash) {
+                    cash = perkCash;
+                }
             }
+            cacheManager.setCash(cash + INITIAL_CASH);
         }
-        return cash + INITIAL_CASH;
+        return cacheManager.getCash();
     }
 
     private double getCashValue(Perk perk) {
@@ -1532,6 +1546,10 @@ public class CharacterPlayer {
 
     public void setAffliction(Affliction affliction) {
         this.affliction = affliction;
+    }
+
+    public CacheManager getCacheManager() {
+        return cacheManager;
     }
 
     @Override

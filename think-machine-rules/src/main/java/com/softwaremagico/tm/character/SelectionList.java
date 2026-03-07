@@ -24,13 +24,14 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
-public class CharacterSelectedElement {
-    private SelectionList<Selection> selections = new SelectionList<>();
+public class SelectionList<E> extends ArrayList<E> {
+
+    private static final long serialVersionUID = 8095691182370285272L;
 
     private final Set<ISelectionUpdatedListener> selectionUpdatedListeners;
 
@@ -38,33 +39,41 @@ public class CharacterSelectedElement {
         void updated();
     }
 
-    public CharacterSelectedElement() {
+    public SelectionList() {
         this.selectionUpdatedListeners = new HashSet<>();
-        selections.addSelectionUpdatedListeners(this::notifyCapabilityUpdatedListenerListeners);
+    }
+
+    public SelectionList(Collection<E> elements) {
+        super(elements);
+        this.selectionUpdatedListeners = new HashSet<>();
     }
 
     public void addSelectionUpdatedListeners(ISelectionUpdatedListener listener) {
         selectionUpdatedListeners.add(listener);
     }
 
-    public void notifyCapabilityUpdatedListenerListeners() {
+    public void notifySelectionUpdatedListener() {
         for (ISelectionUpdatedListener listener : selectionUpdatedListeners) {
             listener.updated();
         }
     }
 
-    public List<Selection> getSelections() {
-        return selections;
-    }
 
-    public void setSelections(Collection<Selection> selections) {
-        this.selections = new SelectionList<>(selections);
+    @Override
+    public boolean add(E element) {
+        try {
+            return super.add(element);
+        } finally {
+            notifySelectionUpdatedListener();
+        }
     }
 
     @Override
-    public String toString() {
-        return "CharacterSelectedElement{"
-                + "selections=" + selections
-                + '}';
+    public void add(int index, E element) {
+        try {
+            super.add(index, element);
+        } finally {
+            notifySelectionUpdatedListener();
+        }
     }
 }

@@ -39,8 +39,8 @@ import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidSkillException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.RandomSelectorLog;
-import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
+import com.softwaremagico.tm.random.preferences.IRandomPreference;
 
 import java.util.List;
 import java.util.Set;
@@ -215,8 +215,13 @@ public class RandomizeCharacterDefinitionStep {
                                 .add(new Selection(randomMaterialAward.selectElementByWeight()));
                     }
                 } catch (InvalidXmlElementException e) {
-                    throw new InvalidXmlElementException("Error on material awards '"
-                            + materialAwardsOptions.get(i) + "'.", e);
+                    if (!materialAwardsOptions.get(i).getOptions().isEmpty()) {
+                        characterDefinitionStepSelection.getSelectedMaterialAwards().get(i).getSelections()
+                                .add(new Selection(materialAwardsOptions.get(i).getOptions().iterator().next()));
+                    } else {
+                        throw new InvalidXmlElementException("Error on material awards '"
+                                + materialAwardsOptions.get(i) + "'.", e);
+                    }
                 }
             }
         }

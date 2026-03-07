@@ -67,15 +67,15 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     private final CharacterDefinitionStep characterDefinitionStep;
 
     @JsonProperty(value = "capabilities")
-    private List<CharacterSelectedElement> selectedCapabilityOptions;
+    private OptionsList<CharacterSelectedElement> selectedCapabilityOptions;
     @JsonProperty(value = "characteristics")
-    private List<CharacterSelectedElement> selectedCharacteristicOptions;
+    private OptionsList<CharacterSelectedElement> selectedCharacteristicOptions;
     @JsonProperty(value = "skills")
-    private List<CharacterSelectedElement> selectedSkillOptions;
+    private OptionsList<CharacterSelectedElement> selectedSkillOptions;
     @JsonProperty(value = "perks")
-    private List<CharacterSelectedElement> selectedPerksOptions;
+    private OptionsList<CharacterSelectedElement> selectedPerksOptions;
     @JsonProperty(value = "materialAwards")
-    private List<CharacterSelectedEquipment> selectedMaterialAwards;
+    private OptionsList<CharacterSelectedEquipment> selectedMaterialAwards;
 
     @JsonIgnore
     private final Phase phase;
@@ -116,6 +116,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                 selectedMaterialAwards.set(i, new CharacterSelectedEquipment());
             }
         }
+        setListeners();
     }
 
     public void updateDefaultOptions() {
@@ -201,7 +202,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     }
 
     public void setSelectedCapabilityOptions(List<CharacterSelectedElement> selectedCapabilityOptions) {
-        this.selectedCapabilityOptions = selectedCapabilityOptions;
+        this.selectedCapabilityOptions = new OptionsList<>(selectedCapabilityOptions);
     }
 
     public List<CharacterSelectedElement> getSelectedCharacteristicOptions() {
@@ -209,7 +210,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     }
 
     public void setSelectedCharacteristicOptions(List<CharacterSelectedElement> selectedCharacteristicOptions) {
-        this.selectedCharacteristicOptions = selectedCharacteristicOptions;
+        this.selectedCharacteristicOptions = new OptionsList<>(selectedCharacteristicOptions);
     }
 
     public List<CharacterSelectedElement> getSelectedSkillOptions() {
@@ -217,7 +218,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     }
 
     public void setSelectedSkillOptions(List<CharacterSelectedElement> selectedSkillOptions) {
-        this.selectedSkillOptions = selectedSkillOptions;
+        this.selectedSkillOptions = new OptionsList<>(selectedSkillOptions);
     }
 
     public List<CharacterSelectedElement> getSelectedPerksOptions() {
@@ -225,7 +226,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     }
 
     public void setSelectedPerksOptions(List<CharacterSelectedElement> selectedPerksOptions) {
-        this.selectedPerksOptions = selectedPerksOptions;
+        this.selectedPerksOptions = new OptionsList<>(selectedPerksOptions);
     }
 
     public int getCharacteristicBonus(String characteristic) {
@@ -273,7 +274,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     }
 
     public void setSelectedMaterialAwards(List<CharacterSelectedEquipment> selectedMaterialAwards) {
-        this.selectedMaterialAwards = selectedMaterialAwards;
+        this.selectedMaterialAwards = new OptionsList<>(selectedMaterialAwards);
     }
 
     @Override
@@ -538,5 +539,12 @@ public abstract class CharacterDefinitionStepSelection extends Element {
 
     public int getLevel() {
         return 0;
+    }
+
+    private void setListeners() {
+        selectedCapabilityOptions.addSelectionUpdatedListeners(() -> characterPlayer.getCacheManager().capabilitiesChanged());
+        selectedPerksOptions.addSelectionUpdatedListeners(() -> characterPlayer.getCacheManager().perksChanged());
+        selectedSkillOptions.addSelectionUpdatedListeners(() -> characterPlayer.getCacheManager().skillsChanged());
+        selectedCharacteristicOptions.addSelectionUpdatedListeners(() -> characterPlayer.getCacheManager().characteristicsChanged());
     }
 }
