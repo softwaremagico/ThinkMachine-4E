@@ -27,6 +27,9 @@ package com.softwaremagico.tm.character.callings;
 import com.softwaremagico.tm.character.CharacterDefinitionStep;
 
 public class Calling extends CharacterDefinitionStep {
+
+    public static final String DERVISH = "dervish";
+
     private static final int TOTAL_CHARACTERISTICS_OPTIONS = 5;
     private static final int TOTAL_SKILL_OPTIONS = 10;
     private static final int TOTAL_PERKS_OPTIONS = 1;

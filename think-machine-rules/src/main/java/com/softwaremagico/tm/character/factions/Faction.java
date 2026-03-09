@@ -36,6 +36,11 @@ import java.util.List;
 
 @JacksonXmlRootElement(localName = "faction")
 public class Faction extends CharacterDefinitionStep {
+
+    public static final String VAGABONDS = "vagabonds";
+    public static final String SIBANZI = "vagabonds";
+    public static final String SWORD_OF_LEXTIUS = "swordsOfLextius";
+
     private static final int TOTAL_CHARACTERISTICS_OPTIONS = 5;
     private static final int TOTAL_SKILL_OPTIONS = 5;
     private static final int TOTAL_PERKS_OPTIONS = 1;

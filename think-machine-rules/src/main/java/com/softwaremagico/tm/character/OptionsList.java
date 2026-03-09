@@ -27,16 +27,20 @@ package com.softwaremagico.tm.character;
 import com.softwaremagico.tm.structures.SelectionList;
 
 import java.util.Collection;
+import java.util.Objects;
 
 public class OptionsList<E extends CharacterSelectedElement> extends SelectionList<E> {
 
     private static final long serialVersionUID = 2154478596675658061L;
 
-    public OptionsList() {
-    }
-
     public OptionsList(Collection<E> elements) {
         super(elements);
+        if (elements != null && !elements.isEmpty()) {
+            elements.stream().filter(Objects::nonNull).forEach(element -> {
+                element.addSelectionUpdatedListeners(this::notifySelectionAddedListener);
+                notifySelectionAddedListener();
+            });
+        }
     }
 
 
@@ -45,8 +49,8 @@ public class OptionsList<E extends CharacterSelectedElement> extends SelectionLi
         try {
             return super.add(element);
         } finally {
-            element.addSelectionUpdatedListeners(this::notifySelectionUpdatedListener);
-            notifySelectionUpdatedListener();
+            element.addSelectionUpdatedListeners(this::notifySelectionAddedListener);
+            notifySelectionAddedListener();
         }
     }
 
@@ -55,8 +59,47 @@ public class OptionsList<E extends CharacterSelectedElement> extends SelectionLi
         try {
             super.add(index, element);
         } finally {
-            element.addSelectionUpdatedListeners(this::notifySelectionUpdatedListener);
-            notifySelectionUpdatedListener();
+            element.addSelectionUpdatedListeners(this::notifySelectionAddedListener);
+            notifySelectionAddedListener();
+        }
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends E> c) {
+        try {
+            return super.addAll(c);
+        } finally {
+            c.stream().filter(Objects::nonNull).forEach(element ->
+                    element.addSelectionUpdatedListeners(this::notifySelectionAddedListener));
+            notifySelectionAddedListener();
+        }
+    }
+
+    @Override
+    public boolean remove(Object o) {
+        try {
+            return super.remove(o);
+        } finally {
+            notifySelectionAddedListener();
+        }
+    }
+
+    @Override
+    public boolean removeAll(Collection<?> c) {
+        try {
+            return super.removeAll(c);
+        } finally {
+            notifySelectionAddedListener();
+        }
+    }
+
+    @Override
+    public E set(int index, E element) {
+        try {
+            return super.set(index, element);
+        } finally {
+            element.addSelectionUpdatedListeners(this::notifySelectionAddedListener);
+            notifySelectionAddedListener();
         }
     }
 }

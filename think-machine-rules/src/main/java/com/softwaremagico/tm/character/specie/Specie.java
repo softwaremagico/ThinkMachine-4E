@@ -41,6 +41,8 @@ import java.util.Set;
 
 public class Specie extends CharacterDefinitionStep {
 
+    public static final  String ASCORBITE = "ascorbite";
+
     @JsonProperty("specieCharacteristics")
     private List<SpecieCharacteristic> specieCharacteristics;
 

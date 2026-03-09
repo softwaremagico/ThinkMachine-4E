@@ -29,6 +29,7 @@ import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.occultism.OccultismPathFactory;
 import com.softwaremagico.tm.character.perks.PerkFactory;
+import com.softwaremagico.tm.exceptions.UnofficialElementNotAllowedException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -105,7 +106,7 @@ public class PsychicCreationTests {
 
 
     @Test
-    public void perksGivesOccultismPowerLevels() {
+    public void perksGivesOccultismPowerLevels() throws UnofficialElementNotAllowedException {
         CharacterPlayer characterPlayer = new CharacterPlayer();
         characterPlayer.setSpecie("obun");
         characterPlayer.setUpbringing("merchant");
@@ -113,6 +114,7 @@ public class PsychicCreationTests {
         characterPlayer.setCalling("psychic");
         characterPlayer.getCalling().getSelectedPerksOptions().get(0).getSelections().add(new Selection(PerkFactory.getInstance().getElement("psychicPowers")));
         Assert.assertTrue(characterPlayer.canAddOccultismPower(OccultismPathFactory.getInstance().getElement("farHand").getOccultismPowers().get("liftingHand")));
+        characterPlayer.addOccultismPower(OccultismPathFactory.getInstance().getElement("farHand").getOccultismPowers().get("liftingHand"));
     }
 
     @Test

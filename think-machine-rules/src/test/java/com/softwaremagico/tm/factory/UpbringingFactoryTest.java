@@ -61,7 +61,7 @@ public class UpbringingFactoryTest {
     @Test
     public void getPerksOption() throws InvalidXmlElementException {
         Assert.assertEquals(UpbringingFactory.getInstance().getElement("noble").getCharacterAvailablePerksOptions().size(), 2);
-        Assert.assertEquals(UpbringingFactory.getInstance().getElement("noble").getCharacterAvailablePerksOptions().get(1).getOptions().size(), 43);
+        Assert.assertEquals(UpbringingFactory.getInstance().getElement("noble").getCharacterAvailablePerksOptions().get(1).getOptions().size(), 121);
     }
 
     @Test

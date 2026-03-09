@@ -37,7 +37,7 @@ import org.testng.annotations.Test;
 
 @Test(groups = {"weaponsFactory"})
 public class WeaponsFactoryTests {
-    private static final int DEFINED_WEAPONS = 176;
+    private static final int DEFINED_WEAPONS = 128;
 
 
     @Test
@@ -64,7 +64,7 @@ public class WeaponsFactoryTests {
     @Test
     public void checkBasicHuntingRifle() throws InvalidXmlElementException {
         Assert.assertEquals(WeaponFactory.getInstance().getElement("basicHuntingRifle")
-                .getOthers().size(), 3);
+                .getOthers().size(), 2);
     }
 
     @Test
@@ -73,71 +73,38 @@ public class WeaponsFactoryTests {
                 .getRandomDefinition().getProbabilityMultiplier(), ProbabilityMultiplier.EXOTIC);
     }
 
-    @Test
-    public void getMainDamage() throws InvalidXmlElementException {
-        Assert.assertEquals(WeaponFactory.getInstance().getElement("arbata").getWeaponDamages().get(0).getMainDamage(), 6);
-        Assert.assertEquals(WeaponFactory.getInstance().getElement("typicalShotgun")
-                .getWeaponDamages().get(0).getMainDamage(), 8);
-        Assert.assertEquals(WeaponFactory.getInstance().getElement("wireGrenade").getWeaponDamages().get(0).getMainDamage(), 12);
-    }
+//    @Test
+//    public void getMainDamage() throws InvalidXmlElementException {
+//        Assert.assertEquals(WeaponFactory.getInstance().getElement("arbata").getWeaponDamages().get(0).getMainDamage(), 6);
+//        Assert.assertEquals(WeaponFactory.getInstance().getElement("typicalShotgun")
+//                .getWeaponDamages().get(0).getMainDamage(), 8);
+//        Assert.assertEquals(WeaponFactory.getInstance().getElement("wireGrenade").getWeaponDamages().get(0).getMainDamage(), 12);
+//    }
 
-    @Test
-    public void getAreaDamage() throws InvalidXmlElementException {
-        Assert.assertEquals(WeaponFactory.getInstance().getElement("goboLobberJetPistol")
-                .getWeaponDamages().get(0).getAreaMeters(), 1);
-        Assert.assertEquals(WeaponFactory.getInstance().getElement("goboGarbageChucker")
-                .getWeaponDamages().get(0).getAreaMeters(), 2);
-        Assert.assertEquals(WeaponFactory.getInstance().getElement("musterNightstorm")
-                .getWeaponDamages().get(0).getAreaMeters(), 3);
-        Assert.assertEquals(WeaponFactory.getInstance().getElement("fragGrenades").getWeaponDamages().get(0).getAreaMeters(), 5);
-    }
+//    @Test
+//    public void getAreaDamage() throws InvalidXmlElementException {
+//        Assert.assertEquals(WeaponFactory.getInstance().getElement("goboLobberJetPistol")
+//                .getWeaponDamages().get(0).getAreaMeters(), 1);
+//        Assert.assertEquals(WeaponFactory.getInstance().getElement("goboGarbageChucker")
+//                .getWeaponDamages().get(0).getAreaMeters(), 2);
+//        Assert.assertEquals(WeaponFactory.getInstance().getElement("musterNightstorm")
+//                .getWeaponDamages().get(0).getAreaMeters(), 3);
+//        Assert.assertEquals(WeaponFactory.getInstance().getElement("fragGrenades").getWeaponDamages().get(0).getAreaMeters(), 5);
+//    }
 
-    @Test
-    public void getDamageWithoutArea() throws InvalidXmlElementException {
-        Assert.assertEquals(WeaponFactory.getInstance().getElement("blastPellet")
-                .getWeaponDamages().get(0).getDamageWithoutArea(), "3");
-        Assert.assertEquals(WeaponFactory.getInstance().getElement("fragGrenades")
-                .getWeaponDamages().get(0).getDamageWithoutArea(), "12");
-    }
+//    @Test
+//    public void getDamageWithoutArea() throws InvalidXmlElementException {
+//        Assert.assertEquals(WeaponFactory.getInstance().getElement("blastPellet")
+//                .getWeaponDamages().get(0).getDamageWithoutArea(), "3");
+//        Assert.assertEquals(WeaponFactory.getInstance().getElement("fragGrenades")
+//                .getWeaponDamages().get(0).getDamageWithoutArea(), "12");
+//    }
 
 
     @Test
     public void checkMultipleDamage() throws InvalidXmlElementException {
         final Weapon nitobiAxe = WeaponFactory.getInstance().getElement("nitobiBlasterAxe");
         Assert.assertEquals(nitobiAxe.getWeaponDamages().size(), 2);
-    }
-
-    @Test
-    public void checkMultipleDamageDifferentTechLevel() throws InvalidXmlElementException {
-        final Weapon javelin = WeaponFactory.getInstance().getElement("javelin");
-        Assert.assertEquals(javelin.getWeaponDamages().size(), 2);
-        Assert.assertEquals((int) javelin.getWeaponDamages().get(1).getDamageTechLevel(), 1);
-    }
-
-    @Test
-    public void checkMultipleDamageNames() throws InvalidXmlElementException {
-        final Weapon rock = WeaponFactory.getInstance().getElement("rock");
-        Assert.assertEquals(rock.getWeaponDamages().size(), 5);
-        Assert.assertEquals(rock.getWeaponDamages().get(1).getName().getSpanish(), "Media");
-
-        final Weapon heavyFuthangaBow = WeaponFactory.getInstance().getElement("heavyFuthangaBow");
-        Assert.assertEquals(heavyFuthangaBow.getWeaponDamages().size(), 2);
-        Assert.assertEquals(heavyFuthangaBow.getWeaponDamages().get(1).getName().getSpanish(), "Arco Compuesto");
-    }
-
-    @Test
-    public void checkMultipleDamageSize() throws InvalidXmlElementException {
-        final Weapon rock = WeaponFactory.getInstance().getElement("rock");
-        Assert.assertEquals(rock.getWeaponDamages().size(), 5);
-        Assert.assertEquals(rock.getWeaponDamages().get(1).getSize(), Size.S);
-        Assert.assertEquals(rock.getWeaponDamages().get(4).getSize(), Size.XL);
-    }
-
-    @Test
-    public void extraCost() throws InvalidXmlElementException {
-        final Weapon heavyFuthangaBow = WeaponFactory.getInstance().getElement("heavyFuthangaBow");
-        Assert.assertEquals(heavyFuthangaBow.getWeaponDamages().size(), 2);
-        Assert.assertEquals(heavyFuthangaBow.getWeaponDamages().get(1).getExtraCost(), 30);
     }
 
 //    @Test

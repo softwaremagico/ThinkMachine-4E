@@ -456,7 +456,6 @@
     <armor>
         <id>heavyClothing</id>
         <type>armor</type>
-        <group>civilianArmor</group>
         <name>
             <en>Thick Clothing</en>
             <es>Ropa Gruesa</es>
@@ -497,11 +496,14 @@
             <shield>assaultShield</shield>
             <shield>battleShield</shield>
         </shields>
+        <random>
+            <recommendedFactions>scravers</recommendedFactions>
+            <recommendedSpecies>ukar</recommendedSpecies>
+        </random>
     </armor>
     <armor>
         <id>leatherJerkin</id>
         <type>armor</type>
-        <group>civilianArmor</group>
         <name>
             <en>Leather Jerkin</en>
             <es>Jubón de Cuero</es>
@@ -675,7 +677,6 @@
     <armor>
         <id>paddedClothing</id>
         <type>armor</type>
-        <group>civilianArmor</group>
         <name>
             <en>Padded Clothing</en>
             <es>Ropa Acolchada</es>
@@ -719,7 +720,6 @@
     <armor>
         <id>polymerKnit</id>
         <type>armor</type>
-        <group>civilianArmor</group>
         <name>
             <en>Polymer Knit</en>
             <es>Tejido de Polímero</es>
@@ -1083,7 +1083,6 @@
     <armor>
         <id>spacesuit</id>
         <type>armor</type>
-        <group>spaceArmor</group>
         <name>
             <en>Spacesuit</en>
             <es>Traje Espacial</es>
@@ -1138,7 +1137,6 @@
     <armor>
         <id>antiquarianSpacesuit</id>
         <type>armor</type>
-        <group>spaceArmor</group>
         <name>
             <en>Antiquarian Spacesuit</en>
             <es>Traje Espacial Antiguo</es>
@@ -1191,7 +1189,6 @@
     <armor>
         <id>armoredSpacesuit</id>
         <type>armor</type>
-        <group>spaceArmor</group>
         <name>
             <en>Armored Spacesuit</en>
             <es>Traje Espacial Blindado</es>
@@ -1248,7 +1245,6 @@
     <armor>
         <id>marauderSpacesuit</id>
         <type>armor</type>
-        <group>spaceArmor</group>
         <name>
             <en>Marauder Spacesuit</en>
             <es>Traje Espacial de Saqueador</es>
@@ -1304,7 +1300,6 @@
     <armor>
         <id>synthsilk</id>
         <type>armor</type>
-        <group>civilianArmor</group>
         <name>
             <en>Synthsilk</en>
             <es>Seda Sintética</es>
@@ -1356,7 +1351,6 @@
     <armor>
         <id>stiffsynth</id>
         <type>armor</type>
-        <group>civilianArmor</group>
         <name>
             <en>Stiffsynth</en>
             <es>Cuero Sintético</es>
@@ -1408,7 +1402,6 @@
     <armor>
         <id>smartsynth</id>
         <type>armor</type>
-        <group>civilianArmor</group>
         <name>
             <en>Smartsynth</en>
             <es>Inteligencia Sintética</es>
@@ -1452,7 +1445,6 @@
     <armor>
         <id>synthsilkCape</id>
         <type>armor</type>
-        <group>civilianArmor</group>
         <name>
             <en>Synthsilk cape</en>
             <es>Capa de Sinteseda</es>
@@ -1491,7 +1483,6 @@
     <armor>
         <id>looseSynthsilkRobes</id>
         <type>armor</type>
-        <group>civilianArmor</group>
         <name>
             <en>Loose Synthsilk Robes</en>
             <es>Túnica de Sinteseda Holgada</es>
@@ -1530,7 +1521,6 @@
     <armor>
         <id>muSpASuit</id>
         <type>armor</type>
-        <group>civilianArmor</group>
         <name>
             <en>Multi-spectrum Synth Armor</en>
             <es>Armadura Sintética Multiespectro</es>

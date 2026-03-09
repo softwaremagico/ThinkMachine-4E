@@ -132,6 +132,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         if (perkOptions != null) {
             resetDefaultOptions(new ArrayList<>(perkOptions), selectedPerksOptions);
         }
+        characterPlayer.getCacheManager().reset();
     }
 
     protected void selectDefaultOptions() {
@@ -142,6 +143,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         if (perkOptions != null) {
             setDefaultOptions(new ArrayList<>(perkOptions), selectedPerksOptions);
         }
+        characterPlayer.getCacheManager().reset();
     }
 
     private void setDefaultOptions(List<OptionSelector<?, ?>> options, List<CharacterSelectedElement> selectedElements) {
@@ -537,10 +539,19 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         return 0;
     }
 
-    private void setListeners() {
-        selectedCapabilityOptions.addSelectionUpdatedListeners(() -> characterPlayer.getCacheManager().capabilitiesChanged());
-        selectedPerksOptions.addSelectionUpdatedListeners(() -> characterPlayer.getCacheManager().perksChanged());
-        selectedSkillOptions.addSelectionUpdatedListeners(() -> characterPlayer.getCacheManager().skillsChanged());
-        selectedCharacteristicOptions.addSelectionUpdatedListeners(() -> characterPlayer.getCacheManager().characteristicsChanged());
+    protected void setListeners() {
+        characterPlayer.getCacheManager().reset();
+        if (selectedCapabilityOptions != null) {
+            selectedCapabilityOptions.addSelectionAddedListeners(() -> characterPlayer.getCacheManager().capabilitiesChanged());
+        }
+        if (selectedPerksOptions != null) {
+            selectedPerksOptions.addSelectionAddedListeners(() -> characterPlayer.getCacheManager().perksChanged());
+        }
+        if (selectedSkillOptions != null) {
+            selectedSkillOptions.addSelectionAddedListeners(() -> characterPlayer.getCacheManager().skillsChanged());
+        }
+        if (selectedCharacteristicOptions != null) {
+            selectedCharacteristicOptions.addSelectionAddedListeners(() -> characterPlayer.getCacheManager().characteristicsChanged());
+        }
     }
 }

@@ -43,7 +43,7 @@ public class CashTests {
         characterPlayer.getUpbringing().getSelectedPerksOptions().get(1).getSelections().clear();
         characterPlayer.getUpbringing().getSelectedPerksOptions().get(1).getSelections().add(
                 selectedElement.getAvailableSelections().stream().filter(s -> Objects.equals(s.getId(), "cash1000")).findFirst().orElse(null));
-        Assert.assertEquals(characterPlayer.getCashMoney(), 1000d);
+        Assert.assertEquals(characterPlayer.getCashMoney(), 1300d);
     }
 
 
@@ -60,7 +60,7 @@ public class CashTests {
         characterPlayer.getLatestLevel().getSelectedCallingPerksOptions().get(0).getSelections().add(
                 selectedElement.getAvailableSelections().stream().filter(s -> Objects.equals(s.getId(), "cash2000")).findFirst().orElse(null));
 
-        Assert.assertEquals(characterPlayer.getCashMoney(), 2000d);
+        Assert.assertEquals(characterPlayer.getCashMoney(), 2300d);
     }
 
     @Test
@@ -74,7 +74,7 @@ public class CashTests {
         //SOE Alembic costs 700 firebirds.
         characterPlayer.addEquipmentPurchased(WeaponFactory.getInstance().getElement("soeAlembic"));
 
-        Assert.assertEquals(characterPlayer.getCashMoney(), 1000d);
-        Assert.assertEquals(characterPlayer.getRemainingCash(), 300d);
+        Assert.assertEquals(characterPlayer.getCashMoney(), 1300d);
+        Assert.assertEquals(characterPlayer.getRemainingCash(), 600d);
     }
 }

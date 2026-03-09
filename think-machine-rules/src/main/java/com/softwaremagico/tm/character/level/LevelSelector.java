@@ -29,6 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.CharacterSelectedElement;
+import com.softwaremagico.tm.character.OptionsList;
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.equipment.CharacterSelectedEquipment;
 import com.softwaremagico.tm.character.perks.CharacterPerkOptions;
@@ -46,10 +47,10 @@ import java.util.stream.Collectors;
 public class LevelSelector extends CharacterDefinitionStepSelection {
 
     @JsonProperty("classPerks")
-    private List<CharacterSelectedElement> selectedClassPerksOptions;
+    private OptionsList<CharacterSelectedElement> selectedClassPerksOptions;
 
     @JsonProperty("callingPerks")
-    private List<CharacterSelectedElement> selectedCallingPerksOptions;
+    private OptionsList<CharacterSelectedElement> selectedCallingPerksOptions;
 
     private final int level;
 
@@ -68,6 +69,8 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
         for (int i = 0; i < getCallingPerksOptions().size(); i++) {
             selectedCallingPerksOptions.set(i, new CharacterSelectedElement());
         }
+        characterPlayer.getCacheManager().reset();
+        setListeners();
     }
 
     @Override
@@ -80,7 +83,7 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
     }
 
     public void setSelectedClassPerksOptions(List<CharacterSelectedElement> selectedClassPerksOptions) {
-        this.selectedClassPerksOptions = selectedClassPerksOptions;
+        this.selectedClassPerksOptions = new OptionsList<>(selectedClassPerksOptions);
     }
 
     public List<CharacterSelectedElement> getSelectedCallingPerksOptions() {
@@ -88,7 +91,7 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
     }
 
     public void setSelectedCallingPerksOptions(List<CharacterSelectedElement> selectedCallingPerksOptions) {
-        this.selectedCallingPerksOptions = selectedCallingPerksOptions;
+        this.selectedCallingPerksOptions = new OptionsList<>(selectedCallingPerksOptions);
     }
 
     @Override
@@ -259,5 +262,16 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
         selectedPerksOptions.addAll(getSelectedClassPerksOptions());
         selectedPerksOptions.addAll(getSelectedCallingPerksOptions());
         return selectedPerksOptions;
+    }
+
+    @Override
+    protected void setListeners() {
+        super.setListeners();
+        if (selectedClassPerksOptions != null) {
+            selectedClassPerksOptions.addSelectionAddedListeners(() -> getCharacterPlayer().getCacheManager().perksChanged());
+        }
+        if (selectedCallingPerksOptions != null) {
+            selectedCallingPerksOptions.addSelectionAddedListeners(() -> getCharacterPlayer().getCacheManager().perksChanged());
+        }
     }
 }

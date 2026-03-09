@@ -38,7 +38,6 @@ import com.softwaremagico.tm.character.perks.PerkSource;
 import com.softwaremagico.tm.character.perks.PerkType;
 import com.softwaremagico.tm.character.perks.SpecializedPerk;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
-import com.softwaremagico.tm.character.values.Phase;
 
 import java.util.ArrayList;
 import java.util.Collections;

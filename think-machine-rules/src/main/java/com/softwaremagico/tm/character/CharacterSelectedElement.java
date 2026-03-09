@@ -42,7 +42,11 @@ public class CharacterSelectedElement {
 
     public CharacterSelectedElement() {
         this.selectionUpdatedListeners = new HashSet<>();
-        selections.addSelectionUpdatedListeners(this::notifyCapabilityUpdatedListenerListeners);
+        selections.addSelectionAddedListeners(this::selectionAdded);
+    }
+
+    private void selectionAdded() {
+        notifyCapabilityUpdatedListenerListeners();
     }
 
     public void addSelectionUpdatedListeners(ISelectionUpdatedListener listener) {
@@ -61,6 +65,7 @@ public class CharacterSelectedElement {
 
     public void setSelections(Collection<Selection> selections) {
         this.selections = new SelectionList<>(selections);
+        this.selections.addSelectionAddedListeners(this::selectionAdded);
     }
 
     @Override

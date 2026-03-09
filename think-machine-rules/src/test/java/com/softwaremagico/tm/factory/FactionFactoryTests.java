@@ -30,6 +30,8 @@ import com.softwaremagico.tm.character.equipment.TechCompulsionFactory;
 import com.softwaremagico.tm.character.equipment.item.Quality;
 import com.softwaremagico.tm.character.equipment.item.Status;
 import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
+import com.softwaremagico.tm.character.equipment.weapons.WeaponClass;
+import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
@@ -94,7 +96,7 @@ public class FactionFactoryTests {
         final Faction hawkwood = FactionFactory.getInstance().getElement("hawkwood");
         Assert.assertNotNull(hawkwood);
         Assert.assertEquals(hawkwood.getMaterialAwards().size(), 1);
-        Assert.assertEquals(hawkwood.getMaterialAwards().get(0).getOptions().size(), 9);
+        Assert.assertEquals(hawkwood.getMaterialAwards().get(0).getOptions().size(), 6);
         Assert.assertTrue(hawkwood.getMaterialAwards().get(0).getOptions().iterator().next().getElement() instanceof CustomizedWeapon);
         Assert.assertEquals(hawkwood.getMaterialAwards().get(0).getOptions().iterator().next().getElement().getQuality(), Quality.PREMIUM);
     }
@@ -104,7 +106,7 @@ public class FactionFactoryTests {
         final Faction brotherBattle = FactionFactory.getInstance().getElement("brotherBattle");
         Assert.assertNotNull(brotherBattle);
         Assert.assertEquals(brotherBattle.getMaterialAwards().size(), 1);
-        Assert.assertEquals(brotherBattle.getMaterialAwards().get(0).getOptions().size(), 82);
+        Assert.assertEquals(brotherBattle.getMaterialAwards().get(0).getOptions().size(), 79);
         Assert.assertTrue(brotherBattle.getMaterialAwards().get(0).getOptions().iterator().next().getElement() instanceof CustomizedWeapon);
         Assert.assertEquals(brotherBattle.getMaterialAwards().get(0).getOptions().iterator().next().getElement().getStatus(), Status.BLESSED);
     }

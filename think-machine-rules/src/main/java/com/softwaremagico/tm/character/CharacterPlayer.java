@@ -26,6 +26,7 @@ package com.softwaremagico.tm.character;
 
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.cache.CacheManager;
+import com.softwaremagico.tm.character.callings.Calling;
 import com.softwaremagico.tm.character.callings.CallingCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.callings.CallingGroup;
@@ -49,6 +50,7 @@ import com.softwaremagico.tm.character.equipment.item.Item;
 import com.softwaremagico.tm.character.equipment.shields.Shield;
 import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
+import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.factions.FactionGroup;
@@ -70,6 +72,7 @@ import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.skills.SkillsReassign;
 import com.softwaremagico.tm.character.skills.Specialization;
+import com.softwaremagico.tm.character.specie.Specie;
 import com.softwaremagico.tm.character.specie.SpecieCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.UpbringingCharacterDefinitionStepSelection;
@@ -967,6 +970,7 @@ public class CharacterPlayer {
         }
         final LevelSelector newLevel = new LevelSelector(this, getLevel() + 1);
         levels.add(newLevel);
+        cacheManager.reset();
         return newLevel;
     }
 
@@ -1418,14 +1422,14 @@ public class CharacterPlayer {
      */
     public OccultismType getOccultismType() {
         if (getFaction() != null && (FactionGroup.get(getFaction().getGroup()) == FactionGroup.CHURCH
-                || FactionGroup.get(getFaction().getGroup()) == FactionGroup.MINOR_CHURCH || Objects.equals(getFaction().getId(), "sibanzi")
-                || Objects.equals(getFaction().getId(), "vagabonds") || Objects.equals(getFaction().getId(), "swordsOfLextius"))) {
+                || FactionGroup.get(getFaction().getGroup()) == FactionGroup.MINOR_CHURCH || Objects.equals(getFaction().getId(), Faction.SIBANZI)
+                || Objects.equals(getFaction().getId(), Faction.VAGABONDS) || Objects.equals(getFaction().getId(), Faction.SWORD_OF_LEXTIUS))) {
             return OccultismTypeFactory.getTheurgy();
         }
-        if (getCalling() != null && (Objects.equals(getCalling().getId(), "dervish"))) {
+        if (getCalling() != null && (Objects.equals(getCalling().getId(), Calling.DERVISH))) {
             return OccultismTypeFactory.getPsi();
         }
-        if (getSpecie() != null && (Objects.equals(getSpecie().getId(), "ascorbite"))) {
+        if (getSpecie() != null && (Objects.equals(getSpecie().getId(), Specie.ASCORBITE))) {
             return OccultismTypeFactory.getPsi();
         }
         if (getCalling() != null && (CallingGroup.get(getCalling().getGroup()) == CallingGroup.PSI)) {

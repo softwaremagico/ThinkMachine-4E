@@ -61,14 +61,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <license.licenseName>gnugpl</license.licenseName>
         <license.licenseResolver>file://${files.basedir}/license</license.licenseResolver>
-        <maven-surefire.version>2.22.2</maven-surefire.version>
+        <maven-surefire.version>3.1.0</maven-surefire.version>
         <maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
         <maven-antrun-plugin.version>3.1.0</maven-antrun-plugin.version>
         <plugin.exec.version>1.2.1</plugin.exec.version>
         <openpdf.version>1.4.2</openpdf.version>
         <slf4j.version>1.7.36</slf4j.version>
         <logback.version>1.2.11</logback.version>
-        <org.testng.version>6.14.3</org.testng.version>
+        <org.testng.version>7.8.0</org.testng.version>
         <jackson.version>2.17.2</jackson.version>
         <license-maven-plugin.version>1.12</license-maven-plugin.version>
         <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
@@ -272,9 +272,6 @@
         <!-- GPG Signature on release -->
         <profile>
             <id>release-sign-artifacts</id>
-            <properties>
-                <maven.test.skip>true</maven.test.skip>
-            </properties>
             <activation>
                 <property>
                     <name>!deploySnapshot</name>

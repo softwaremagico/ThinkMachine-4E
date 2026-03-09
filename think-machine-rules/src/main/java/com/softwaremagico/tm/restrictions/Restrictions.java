@@ -615,7 +615,7 @@ public class Restrictions extends XmlData {
             }
         }
         for (String planet : restrictedPlanets) {
-            if (!PlanetFactory.getInstance().getElementGroups().contains(planet)) {
+            if (!PlanetFactory.getInstance().getElementsIds().contains(planet)) {
                 throw new InvalidXmlElementException("Planet '" + planet + "' does not exists.");
             }
         }

@@ -6,9 +6,9 @@ Características: Fuerza 4, Destreza 6, Constitución 6, Inteligencia 6, Percepc
 
 Habilidades: Academia (6), Arte (4), Conducir (4), Cuerpo a Cuerpo (5), Disparar (5), Encanto (7), Impresionar (6), Introspección (5), Vigor (5).
 
-Competencias: Armas Militares, Armas de Energía, Cocina, Hablar (Urthés), Leer (Urthés), Monta, Pintura, Saber Planetario (Sutek), Saber de Facción (Hawkwood), Usos de la Corte, Vehículos de Guerra.
+Competencias: Armas Militares, Armas de Energía, Arquitectura, Hablar (Urthés), Leer (Urthés), Monta, Pintura, Saber Planetario (Sutek), Saber de Facción (Hawkwood), Usos de la Corte, Vehículos de Guerra.
 
-Beneficios: Educación Alienígena (Ascorbita), Educación Alienígena (Vorox), Imperioso, Título Nobiliario (Caballero).
+Beneficios: Ambidiestro, Imperioso, Puntería, Título Nobiliario (Caballero).
 
 Bendiciones:
 	- Obstinado (Meta +1 en tiradas de Constitución, Voluntad y Fe cuando te retan.)
@@ -25,7 +25,9 @@ Vitalidad: 20
 Reanimaciones: 5/1
 
 Equipo:
-	- Glankesh (Espada Vorox) (Daño 6)
+	- Arbat'a (Espada de Cristal) (Daño 6, Duro, Vibro)
 	- Corcel de Guerra
-	- Espada Ceremonial (Tam L)
 	- Uniforme de Comandante Militar
+	- Espada Ceremonial (Tam L)
+
+Fénix: 300.0

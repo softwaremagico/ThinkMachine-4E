@@ -6,9 +6,9 @@ Características: Fuerza 3, Destreza 7, Constitución 4, Inteligencia 6, Percepc
 
 Habilidades: Academia (6), Arte (4), Conducir (4), Cuerpo a Cuerpo (6), Disfraz (4), Disparar (4), Encanto (6), Impresionar (6), Introspección (4), Observar (4), Vigor (5).
 
-Competencias: Armas Militares, Armas de Balas, Cocina, Hablar (Urthés), Leer (Urthés), Monta, Pintura, Saber Enfermedades, Saber Planetario (Sutek), Saber de Facción (Decados), Usos de la Corte.
+Competencias: Armas Militares, Armas de Balas, Arquitectura, Hablar (Urthés), Leer (Urthés), Monta, Pintura, Saber Enfermedades, Saber Planetario (Sutek), Saber de Facción (Decados), Usos de la Corte.
 
-Beneficios: Educación Alienígena (Ascorbita), Educación Alienígena (Vorox), Imperioso, Título Nobiliario (Caballero).
+Beneficios: Ambidiestro, Imperioso, Puntería, Título Nobiliario (Caballero).
 
 Bendiciones:
 	- Receloso (Percepción +2 entre rivales políticos)
@@ -25,9 +25,11 @@ Vitalidad: 19
 Reanimaciones: 5/1
 
 Equipo:
-	- SOE Alembic (Daño 7, 10/20, Ratio 1, Bláster)
+	- OSI Alembic (Daño 7, 10/20, Ratio 1, Bláster)
 	- Seda Sintética (Protección 4, Blando, Eléctrico)
 	- Escudo de Energía de Duelo (5/10 15 Cargas)
-	- Amiguito (NT 5, Tam XS)
 	- Corcel de Guerra
 	- Uniforme de Comandante Militar
+	- Amiguito (NT 5, Tam XS)
+
+Fénix: 300.0
