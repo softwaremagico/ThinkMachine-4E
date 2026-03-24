@@ -799,6 +799,12 @@
                     </perk>
                     <perk>
                         <id>psychicPowers</id>
+                        <random>
+                            <probabilityMultiplier>PREFERRED</probabilityMultiplier>
+                            <forbiddenPreferences>
+                                <preference>NO_OCCULTIST</preference>
+                            </forbiddenPreferences>
+                        </random>
                     </perk>
                     <perk>
                         <id>scentOfTheWitch</id>
@@ -3166,6 +3172,12 @@
                     </perk>
                     <perk>
                         <id>theurgicRites</id>
+                        <random>
+                            <probabilityMultiplier>PREFERRED</probabilityMultiplier>
+                            <forbiddenPreferences>
+                                <preference>NO_OCCULTIST</preference>
+                            </forbiddenPreferences>
+                        </random>
                     </perk>
                     <perk>
                         <id>twoGunFighting</id>
@@ -9925,6 +9937,12 @@
                     </perk>
                     <perk>
                         <id>psychicPowers</id>
+                        <random>
+                            <probabilityMultiplier>PREFERRED</probabilityMultiplier>
+                            <forbiddenPreferences>
+                                <preference>NO_OCCULTIST</preference>
+                            </forbiddenPreferences>
+                        </random>
                     </perk>
                     <perk>
                         <id>scentOfTheWitch</id>
@@ -10703,6 +10721,12 @@
                     </perk>
                     <perk>
                         <id>theurgicRites</id>
+                        <random>
+                            <probabilityMultiplier>PREFERRED</probabilityMultiplier>
+                            <forbiddenPreferences>
+                                <preference>NO_OCCULTIST</preference>
+                            </forbiddenPreferences>
+                        </random>
                     </perk>
                 </options>
             </perkOptions>

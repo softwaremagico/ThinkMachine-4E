@@ -37,8 +37,11 @@ import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillBonusOptions;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 import com.softwaremagico.tm.exceptions.InvalidSkillException;
+import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.exceptions.UnofficialElementNotAllowedException;
 import com.softwaremagico.tm.log.RandomSelectorLog;
+import com.softwaremagico.tm.random.character.occultism.RandomOccultismPower;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
 
@@ -77,6 +80,7 @@ public class RandomizeCharacterDefinitionStep {
         assignSkills();
         assignPerks();
         assignMaterialAwards();
+        assignOccultismPowers();
     }
 
 
@@ -224,6 +228,15 @@ public class RandomizeCharacterDefinitionStep {
                     }
                 }
             }
+        }
+    }
+
+    protected void assignOccultismPowers() throws InvalidRandomElementSelectedException {
+        final RandomOccultismPower randomOccultismPower = new RandomOccultismPower(getCharacterPlayer(), getPreferences());
+        try {
+            randomOccultismPower.assign();
+        } catch (InvalidSpecieException | InvalidRandomElementSelectedException | UnofficialElementNotAllowedException e) {
+            throw new InvalidRandomElementSelectedException("Error assigning an occultism power!", e);
         }
     }
 

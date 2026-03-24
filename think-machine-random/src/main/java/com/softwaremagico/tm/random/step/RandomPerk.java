@@ -31,11 +31,13 @@ import com.softwaremagico.tm.character.perks.Perk;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.random.preferences.IRandomPreference;
-import com.softwaremagico.tm.random.preferences.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
+import com.softwaremagico.tm.random.preferences.IRandomPreference;
+import com.softwaremagico.tm.random.preferences.OccultismPreference;
+import com.softwaremagico.tm.random.preferences.RandomSelector;
 
 import java.util.Collection;
+import java.util.Objects;
 import java.util.Set;
 
 public class RandomPerk extends RandomSelector<Selection> {
@@ -61,13 +63,22 @@ public class RandomPerk extends RandomSelector<Selection> {
     @Override
     protected int getWeight(Selection element) throws InvalidRandomElementSelectedException {
         // Already has a perk.
-        if (getCharacterPlayer().hasSelection(element, phase, null)) {
+        if (!element.isRepeatable() && getCharacterPlayer().hasSelection(element, phase, null)) {
             return 0;
         }
         //Reduce the elements with multiple specializations.
         final Perk sourcePerk = PerkFactory.getInstance().getElement(element);
         if (sourcePerk.getSpecializations() != null && !sourcePerk.getSpecializations().isEmpty()) {
             return (int) Math.ceil((double) BASIC_PROBABILITY / sourcePerk.getSpecializations().size());
+        }
+        //Ensure occultists and theurgist has the needed perks.
+        if (getPreferences().contains(OccultismPreference.PSI)
+                && Objects.equals(element.getId(), PerkFactory.PSYCHIC_POWERS_PERK)) {
+            return GOOD_PROBABILITY;
+        }
+        if (getPreferences().contains(OccultismPreference.THEURGY)
+                && Objects.equals(element.getId(), PerkFactory.THEURGY_RITES_PERK)) {
+            return GOOD_PROBABILITY;
         }
         return super.getWeight(element);
     }

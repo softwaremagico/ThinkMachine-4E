@@ -19,6 +19,7 @@
                 <include name="randomLevel"/>
                 <include name="preferences"/>
                 <include name="equipment"/>
+                <include name="randomOccultism"/>
             </run>
         </groups>
         <classes>
@@ -28,6 +29,7 @@
             <class name="com.softwaremagico.tm.random.RandomRestrictionsTests"/>
             <class name="com.softwaremagico.tm.random.character.RandomCharacterTest"/>
             <class name="com.softwaremagico.tm.random.character.RandomLevelTest"/>
+            <class name="com.softwaremagico.tm.random.character.RandomOccultistTest"/>
         </classes>
     </test>
 </suite>

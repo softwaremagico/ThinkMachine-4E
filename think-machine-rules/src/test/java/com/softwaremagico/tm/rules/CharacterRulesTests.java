@@ -407,7 +407,7 @@ public class CharacterRulesTests {
             for (int j = 0; j < characterPlayer.getCalling().getNotSelectedPerksOptions(true).get(i).getTotalOptions(); j++) {
                 characterPlayer.getCalling().getSelectedPerksOptions().get(i).getSelections().clear();
                 characterPlayer.getCalling().getSelectedPerksOptions().get(i).getSelections()
-                        .add(new Selection(PerkFactory.getInstance().getElement("psychicPowers")));
+                        .add(new Selection(PerkFactory.getInstance().getElement(PerkFactory.PSYCHIC_POWERS_PERK)));
             }
         }
 
@@ -435,7 +435,7 @@ public class CharacterRulesTests {
             for (int j = characterPlayer.getLevels().peek().getSelectedCallingPerksOptions().get(i).getSelections().size();
                  j < characterPlayer.getLevels().peek().getNotRepeatedCallingPerksOptions().get(i).getTotalOptions(); j++) {
                 characterPlayer.getLevels().peek().getSelectedPerksOptions().get(i).getSelections()
-                        .add(new Selection(PerkFactory.getInstance().getElement("psychicPowers")));
+                        .add(new Selection(PerkFactory.getInstance().getElement(PerkFactory.PSYCHIC_POWERS_PERK)));
             }
         }
 

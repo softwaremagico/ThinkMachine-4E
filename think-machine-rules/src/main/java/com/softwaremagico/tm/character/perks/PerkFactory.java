@@ -38,6 +38,8 @@ import java.util.stream.Collectors;
 
 public class PerkFactory extends XmlFactory<Perk> {
     private static final String XML_FILE = "perks.xml";
+    public static final String PSYCHIC_POWERS_PERK = "psychicPowers";
+    public static final String THEURGY_RITES_PERK = "theurgicRites";
     private Set<Perk> classPrivilegePerks = null;
     private Set<Selection> classPrivilegeSelections = null;
     private Map<PerkSource, Set<Perk>> perksBySource;

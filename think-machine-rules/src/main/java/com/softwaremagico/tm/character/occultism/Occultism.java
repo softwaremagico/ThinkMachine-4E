@@ -73,7 +73,7 @@ public class Occultism {
     }
 
     public int getTotalSelectedPaths() {
-        return getSelectedPowers().keySet().size();
+        return getSelectedPowers().size();
     }
 
     public void canAddPower(CharacterPlayer characterPlayer, OccultismPath path, OccultismPower power, String faction, String specie, Settings settings)
@@ -92,7 +92,7 @@ public class Occultism {
         } catch (InvalidXmlElementException e) {
             MachineXmlReaderLog.errorMessage(this.getClass(), e);
         }
-        //Enough capability points.
+        //Enough perks points.
         if (characterPlayer.getOccultismPointsAvailable() <= characterPlayer.getTotalSelectedPowers()) {
             throw new InvalidNumberOfPowersException("Invalid perk numbers for acquiring a new occultism power. Allowed points are '"
                     + characterPlayer.getOccultismPointsAvailable() + "' and current number of powers is '"
