@@ -75,13 +75,9 @@ public class UpbringingCharacterDefinitionStepSelection extends CharacterDefinit
         if (isRaisedInSpace()) {
             capabilityOptions.forEach(capabilityOption -> {
                 final CapabilityOption shipboardOperations = new CapabilityOption(CapabilityFactory.getInstance().getElement("shipboardOperations"));
-                if (!capabilityOption.getOptions().contains(shipboardOperations)) {
-                    capabilityOption.getOptions().add(shipboardOperations);
-                }
+                capabilityOption.getOptions().add(shipboardOperations);
                 final CapabilityOption thinkMachines = new CapabilityOption(CapabilityFactory.getInstance().getElement("thinkMachines"));
-                if (!capabilityOption.getOptions().contains(thinkMachines)) {
-                    capabilityOption.getOptions().add(thinkMachines);
-                }
+                capabilityOption.getOptions().add(thinkMachines);
             });
         }
         return capabilityOptions;
