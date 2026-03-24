@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 public class RandomOccultistTest {
 
     @Test
-    public void ensureOneOccultismPower() throws InvalidRandomElementSelectedException {
+    public void ensureOneOccultismPowerTheurgyIfPerkIsSelected() throws InvalidRandomElementSelectedException {
         final CharacterPlayer characterPlayer = new CharacterPlayer();
         characterPlayer.setSpecie("human");
         characterPlayer.getInfo().setPlanet("nowhere");
@@ -22,12 +22,31 @@ public class RandomOccultistTest {
         characterPlayer.setFaction("brotherBattle");
         characterPlayer.setCalling("brotherBattle");
 
-        characterPlayer.getCalling().getSelectedPerksOptions().get(0).getSelections().add(new Selection(PerkFactory.getInstance().getElement( PerkFactory.THEURGY_RITES_PERK)));
+        characterPlayer.getCalling().getSelectedPerksOptions().get(0).getSelections().add(new Selection(PerkFactory.getInstance().getElement(PerkFactory.THEURGY_RITES_PERK)));
 
 
         final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
         randomizeCharacter.createCharacter();
         Assert.assertTrue(characterPlayer.getCharacteristicValue(CharacteristicName.THEURGY) > 0);
+        Assert.assertFalse(characterPlayer.getAllSelectedPowers().isEmpty());
+    }
+
+    @Test
+    public void ensureOneOccultismPowerPsiIfPerkIsSelected() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.getInfo().setPlanet("nowhere");
+        characterPlayer.getInfo().setGender(Gender.FEMALE);
+        characterPlayer.setUpbringing("noble");
+        characterPlayer.setFaction("liHalan");
+        characterPlayer.setCalling("dervish");
+
+        characterPlayer.getCalling().getSelectedPerksOptions().get(0).getSelections().add(new Selection(PerkFactory.getInstance().getElement(PerkFactory.PSYCHIC_POWERS_PERK)));
+
+
+        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
+        randomizeCharacter.createCharacter();
+        Assert.assertTrue(characterPlayer.getCharacteristicValue(CharacteristicName.PSI) > 0);
         Assert.assertFalse(characterPlayer.getAllSelectedPowers().isEmpty());
     }
 }
