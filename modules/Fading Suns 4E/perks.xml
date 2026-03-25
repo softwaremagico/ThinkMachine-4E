@@ -1468,7 +1468,9 @@
             </factions>
         </restrictions>
         <random>
-            <recommendedFactions><faction>scravers</faction></recommendedFactions>
+            <recommendedFactions>
+                <faction>scravers</faction>
+            </recommendedFactions>
             <recommendedSpecies>
                 <specie>ukar</specie>
             </recommendedSpecies>
@@ -1489,7 +1491,9 @@
             </perks>
         </restrictions>
         <random>
-            <recommendedFactions><faction>scravers</faction></recommendedFactions>
+            <recommendedFactions>
+                <faction>scravers</faction>
+            </recommendedFactions>
             <recommendedSpecies>
                 <specie>ukar</specie>
             </recommendedSpecies>
@@ -5223,6 +5227,21 @@
         </name>
         <source>calling</source>
         <type>cyberdevice</type>
+        <random>
+            <recommendedPreferences>
+                <preference>HI_TECH</preference>
+                <preference>WANTED</preference>
+            </recommendedPreferences>
+            <inadvisablePreferences>
+                <preference>RURAL</preference>
+            </inadvisablePreferences>
+            <restrictedPreferences>
+                <preference>PRIMITIVE</preference>
+            </restrictedPreferences>
+            <inadvisablePreferences>
+                <preference>CHURCH</preference>
+            </inadvisablePreferences>
+        </random>
     </perk>
     <perk>
         <id>aimAssistance</id>
@@ -5239,6 +5258,21 @@
                 <calling>pirate</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>HI_TECH</preference>
+                <preference>WANTED</preference>
+            </recommendedPreferences>
+            <inadvisablePreferences>
+                <preference>RURAL</preference>
+            </inadvisablePreferences>
+            <restrictedPreferences>
+                <preference>PRIMITIVE</preference>
+            </restrictedPreferences>
+            <inadvisablePreferences>
+                <preference>CHURCH</preference>
+            </inadvisablePreferences>
+        </random>
     </perk>
     <perk>
         <id>destinator</id>
@@ -5258,6 +5292,21 @@
                 <calling>scout</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>HI_TECH</preference>
+                <preference>WANTED</preference>
+            </recommendedPreferences>
+            <inadvisablePreferences>
+                <preference>RURAL</preference>
+            </inadvisablePreferences>
+            <restrictedPreferences>
+                <preference>PRIMITIVE</preference>
+            </restrictedPreferences>
+            <inadvisablePreferences>
+                <preference>CHURCH</preference>
+            </inadvisablePreferences>
+        </random>
     </perk>
     <perk>
         <id>machineSpirit</id>
@@ -5273,6 +5322,21 @@
                 <calling>techRedeemer</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>HI_TECH</preference>
+                <preference>WANTED</preference>
+            </recommendedPreferences>
+            <inadvisablePreferences>
+                <preference>RURAL</preference>
+            </inadvisablePreferences>
+            <restrictedPreferences>
+                <preference>PRIMITIVE</preference>
+            </restrictedPreferences>
+            <inadvisablePreferences>
+                <preference>CHURCH</preference>
+            </inadvisablePreferences>
+        </random>
     </perk>
     <perk>
         <id>memoryExpander</id>
@@ -5292,5 +5356,20 @@
                 <calling>scout</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>HI_TECH</preference>
+                <preference>WANTED</preference>
+            </recommendedPreferences>
+            <inadvisablePreferences>
+                <preference>RURAL</preference>
+            </inadvisablePreferences>
+            <restrictedPreferences>
+                <preference>PRIMITIVE</preference>
+            </restrictedPreferences>
+            <inadvisablePreferences>
+                <preference>CHURCH</preference>
+            </inadvisablePreferences>
+        </random>
     </perk>
 </perks>

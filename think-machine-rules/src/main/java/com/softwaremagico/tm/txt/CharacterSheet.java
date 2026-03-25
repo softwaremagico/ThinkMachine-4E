@@ -447,7 +447,7 @@ public class CharacterSheet {
     }
 
     private void setCyberdevices(StringBuilder stringBuilder) {
-        if (getCharacterPlayer().getCyberneticsPointsSpent() > 0) {
+        if (!getCharacterPlayer().getCyberdevices().isEmpty()) {
             stringBuilder.append("\n");
             stringBuilder.append(TextFactory.getInstance().getElement("cyberdevices").getNameRepresentation()).append(":\n");
 

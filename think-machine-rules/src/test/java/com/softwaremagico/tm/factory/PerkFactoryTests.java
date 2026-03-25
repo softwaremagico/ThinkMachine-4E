@@ -57,6 +57,12 @@ public class PerkFactoryTests {
     }
 
     @Test
+    public void getPerkTypeDestinator() throws InvalidXmlElementException {
+        Assert.assertEquals(PerkFactory.getInstance().getElement("destinator").getType(),
+                PerkType.CYBERDEVICE);
+    }
+
+    @Test
     public void getPerkClass() throws InvalidXmlElementException {
         Assert.assertEquals(PerkFactory.getInstance().getElement("absolution").getSource(),
                 PerkSource.CALLING);

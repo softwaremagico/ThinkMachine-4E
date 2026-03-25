@@ -64,12 +64,6 @@
         </benefice>
         <techLevel>7</techLevel>
         <techCompulsion>bloodthirsty</techCompulsion>
-        <restrictions>
-            <callings>
-                <calling>duelist</calling>
-                <calling>pirate</calling>
-            </callings>
-        </restrictions>
     </cyberdevice>
 
     <cyberdevice>
@@ -99,15 +93,6 @@
         </benefice>
         <techLevel>6</techLevel>
         <techCompulsion>inerrant</techCompulsion>
-        <restrictions mode="any_from_group">
-            <species>
-                <specie>vorox</specie>
-            </species>
-            <callings>
-                <calling>explorer</calling>
-                <calling>scout</calling>
-            </callings>
-        </restrictions>
     </cyberdevice>
 
     <cyberdevice>
@@ -156,11 +141,6 @@
         </benefice>
         <techLevel>7</techLevel>
         <techCompulsion>inerrant</techCompulsion>
-        <restrictions>
-            <callings>
-                <calling>techRedeemer</calling>
-            </callings>
-        </restrictions>
     </cyberdevice>
 
     <cyberdevice>
@@ -191,14 +171,5 @@
         </benefice>
         <techLevel>6</techLevel>
         <techCompulsion>inerrant</techCompulsion>
-        <restrictions mode="any_from_group">
-            <species>
-                <specie>vorox</specie>
-            </species>
-            <callings>
-                <calling>scholar</calling>
-                <calling>scout</calling>
-            </callings>
-        </restrictions>
     </cyberdevice>
 </cyberdevices>

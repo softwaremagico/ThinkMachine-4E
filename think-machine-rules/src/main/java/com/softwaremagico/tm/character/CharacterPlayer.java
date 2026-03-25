@@ -39,6 +39,7 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicType;
 import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
 import com.softwaremagico.tm.character.combat.CombatActionRequirement;
 import com.softwaremagico.tm.character.cybernetics.Cyberdevice;
+import com.softwaremagico.tm.character.cybernetics.CyberdeviceFactory;
 import com.softwaremagico.tm.character.cybernetics.Cybernetics;
 import com.softwaremagico.tm.character.equipment.CharacterSelectedEquipment;
 import com.softwaremagico.tm.character.equipment.Equipment;
@@ -65,6 +66,7 @@ import com.softwaremagico.tm.character.perks.Affliction;
 import com.softwaremagico.tm.character.perks.Perk;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.perks.PerkOption;
+import com.softwaremagico.tm.character.perks.PerkType;
 import com.softwaremagico.tm.character.perks.SpecializedPerk;
 import com.softwaremagico.tm.character.resistances.Resistance;
 import com.softwaremagico.tm.character.resistances.ResistanceType;
@@ -80,7 +82,6 @@ import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidCallingException;
 import com.softwaremagico.tm.exceptions.InvalidCharacteristicException;
-import com.softwaremagico.tm.exceptions.InvalidCyberdeviceException;
 import com.softwaremagico.tm.exceptions.InvalidFactionException;
 import com.softwaremagico.tm.exceptions.InvalidLevelException;
 import com.softwaremagico.tm.exceptions.InvalidOccultismPowerException;
@@ -1527,43 +1528,10 @@ public class CharacterPlayer {
         return getOccultism().getSelectedPowers().values().stream().flatMap(Collection::stream).collect(Collectors.toList());
     }
 
-    private Cybernetics getCybernetics() {
-        return cybernetics;
-    }
-
-    public boolean hasDevice(Cyberdevice cyberdevice) {
-        return getCybernetics().hasDevice(cyberdevice);
-    }
-
     public List<Cyberdevice> getCyberdevices() {
-        return getCybernetics().getElements();
-    }
-
-    public boolean canAddCyberdevice(Cyberdevice cyberdevice) {
-        try {
-            getCybernetics().canAddDevice(this, cyberdevice, getSettings());
-            return true;
-        } catch (InvalidOccultismPowerException e) {
-            return false;
-        }
-    }
-
-    public void addCyberdevice(Cyberdevice cyberdevice) throws InvalidCyberdeviceException, UnofficialElementNotAllowedException {
-        if (cyberdevice == null) {
-            throw new InvalidCyberdeviceException("Null value not allowed");
-        }
-        if (!cyberdevice.isOfficial() && getSettings().isOnlyOfficialAllowed()) {
-            throw new UnofficialElementNotAllowedException("Cyberdevice '" + cyberdevice + "' is not official and cannot be added due "
-                    + "to configuration limitations.");
-        }
-        if (cyberdevice.getRestrictions().isRestricted(this)) {
-            throw new InvalidOccultismPowerException("Cyberdevice '" + cyberdevice + "' is restricted to this character.");
-        }
-        getCybernetics().getElements().add(cyberdevice);
-    }
-
-    public void removeCyberdevice(Cyberdevice cyberdevice) {
-        getCybernetics().getElements().remove(cyberdevice);
+        final List<SpecializedPerk> cyberdevices = getPerks().stream()
+                .filter(perk -> Objects.equals(perk.getType(), PerkType.CYBERDEVICE)).collect(Collectors.toList());
+        return CyberdeviceFactory.getInstance().getElements(cyberdevices.stream().map(Perk::getId).collect(Collectors.toList()));
     }
 
     public Affliction getAffliction() {

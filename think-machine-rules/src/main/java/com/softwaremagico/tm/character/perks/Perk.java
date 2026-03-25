@@ -70,4 +70,11 @@ public class Perk extends Element {
     public void setType(PerkType type) {
         this.type = type;
     }
+
+    public void copy(Perk element) {
+        setRepeatable(element.isRepeatable());
+        setSource(element.getSource());
+        setType(element.getType());
+        super.copy(element);
+    }
 }
