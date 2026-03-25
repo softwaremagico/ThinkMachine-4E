@@ -1509,7 +1509,7 @@
             <en>Tech Lore (TL6)</en>
             <es>Saber Tecnológico (NT 6)</es>
         </name>
-        <restrictions>
+        <restrictions mode="any_character_definition">
             <factions>
                 <faction>brotherBattle</faction>
             </factions>
@@ -1542,7 +1542,7 @@
             <en>Tech Lore (TL7)</en>
             <es>Saber Tecnológico (NT 7)</es>
         </name>
-        <restrictions>
+        <restrictions mode="any_character_definition">
             <factions>
                 <faction>brotherBattle</faction>
             </factions>
@@ -1575,7 +1575,7 @@
             <en>Tech Lore (TL8)</en>
             <es>Saber Tecnológico (NT 8)</es>
         </name>
-        <restrictions>
+        <restrictions mode="any_character_definition">
             <upbringings>
                 <upbringing>merchant</upbringing>
             </upbringings>

@@ -25,8 +25,12 @@ package com.softwaremagico.tm.restrictions;
  */
 
 public enum RestrictionMode {
+    //Must accomplish any restriction.
     ANY,
+    //Must accomplish one restriction from each group.
     ANY_FROM_GROUP,
+    //Must accomplish any restriction related to upbringing, calling, specie or faction AND any other restriction related to skills, perks, etc.
     ANY_CHARACTER_DEFINITION,
+    //Must accomplish all restrictions.
     ALL;
 }

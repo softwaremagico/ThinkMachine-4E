@@ -509,6 +509,11 @@ public class Restrictions extends XmlData {
         return false;
     }
 
+    /**
+     * Must accomplish any restriction related to upbringing, calling, specie or faction AND any other restriction related to skills, perks, etc.
+     * @param characterPlayer
+     * @return
+     */
     private boolean accomplishAnyCharacterDefinitionRestriction(CharacterPlayer characterPlayer) {
         if (characterPlayer == null) {
             return false;
@@ -520,7 +525,7 @@ public class Restrictions extends XmlData {
             return isOpen()
                     || isRaisedInSpace(characterPlayer)
                     //Must match specie or upbringing or calling or faction.
-                    || (((getRestrictedToSpecies().isEmpty() || (characterPlayer.getSpecie() != null && getRestrictedToSpecies()
+                    || ((getRestrictedToSpecies().isEmpty() || (characterPlayer.getSpecie() != null && getRestrictedToSpecies()
                     .contains(characterPlayer.getSpecie().getId()))
                     // Check upbringing. Only one can be present.
                     || (getRestrictedToUpbringing().isEmpty() || (characterPlayer.getUpbringing() != null && getRestrictedToUpbringing()
@@ -551,7 +556,7 @@ public class Restrictions extends XmlData {
                     && (getRestrictedToCapabilities().isEmpty() || (characterPlayer.getCapabilitiesWithSpecialization() != null
                     && characterPlayer.getCapabilitiesWithSpecialization().stream().map(CapabilityWithSpecialization::getComparisonId)
                     .collect(Collectors.toSet())
-                    .containsAll(getRestrictedToCapabilities().stream().map(RestrictedCapability::getComparisonId).collect(Collectors.toList()))))));
+                    .containsAll(getRestrictedToCapabilities().stream().map(RestrictedCapability::getComparisonId).collect(Collectors.toList())))));
         } catch (InvalidXmlElementException e) {
             MachineLog.errorMessage("Is restricted!", e);
         }
