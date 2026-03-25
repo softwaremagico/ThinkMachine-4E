@@ -20,16 +20,20 @@
                 <include name="preferences"/>
                 <include name="equipment"/>
                 <include name="randomOccultism"/>
+                <include name="randomCyberdevice"/>
+                <include name="randomDefintion"/>
             </run>
         </groups>
         <classes>
             <class name="com.softwaremagico.tm.random.RandomTests"/>
+            <class name="com.softwaremagico.tm.random.RandomDefinitionTests"/>
             <class name="com.softwaremagico.tm.random.PreferencesTests"/>
             <class name="com.softwaremagico.tm.random.RandomEquipmentTests"/>
             <class name="com.softwaremagico.tm.random.RandomRestrictionsTests"/>
             <class name="com.softwaremagico.tm.random.character.RandomCharacterTest"/>
             <class name="com.softwaremagico.tm.random.character.RandomLevelTest"/>
             <class name="com.softwaremagico.tm.random.character.RandomOccultistTest"/>
+            <class name="com.softwaremagico.tm.random.character.RandomCyberdeviceTest"/>
         </classes>
     </test>
 </suite>

@@ -1422,7 +1422,9 @@
         <cost>6</cost>
         <agora>rare</agora>
         <random>
-            <recommendedFactions>military</recommendedFactions>
+            <recommendedPerksGroups>
+                <group>militaryRank</group>
+            </recommendedPerksGroups>
         </random>
     </trenchKnife>
     <knuckleduster>
@@ -1550,7 +1552,9 @@
         <cost>40</cost>
         <agora>rare</agora>
         <random>
-            <recommendedFactions>vuldrok</recommendedFactions>
+            <recommendedFactions>
+                <faction>vuldrok</faction>
+            </recommendedFactions>
         </random>
     </greatWeapon>
     <adeptClaymore>
@@ -1644,7 +1648,7 @@
     <!--        <size>L</size>-->
     <!--        <cost>20</cost>-->
     <!--        <random>-->
-    <!--            <recommendedFactions>military</recommendedFactions>-->
+    <!--            <recommendedFactions><faction>military</faction></recommendedFactions>-->
     <!--        </random>-->
     <!--    </warSword>-->
     <!--    <whip>-->
@@ -1681,7 +1685,7 @@
     <!--        <cost>5</cost>-->
     <!--        <random>-->
     <!--            <probabilityMultiplier>RARE</probabilityMultiplier>-->
-    <!--            <recommendedFactions>musters</recommendedFactions>-->
+    <!--            <recommendedFactions><faction>musters</faction></recommendedFactions>-->
     <!--        </random>-->
     <!--    </whip>-->
     <wireblade>
@@ -9299,7 +9303,9 @@
         </damageTypes>
         <random>
             <probabilityMultiplier>EXOTIC</probabilityMultiplier>
-            <recommendedFactions>avestites</recommendedFactions>
+            <recommendedFactions>
+                <faction>avestites</faction>
+            </recommendedFactions>
         </random>
     </kalomiteFlamegun>
     <kendraDragon>

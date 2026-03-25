@@ -102,9 +102,9 @@ public class PreferencesTests {
         //Dexterity is recommended to faction.
         Assert.assertEquals(randomCharacteristicBonusOption.getAssignedWeight(0).intValue(), (int) ProbabilityMultiplier.NORMAL.getValue() * RandomSelector.BASIC_PROBABILITY);
         //Endurance is a preferred characteristic for primitive.
-        Assert.assertEquals(randomCharacteristicBonusOption.getAssignedWeight(1).intValue(), (int) (ProbabilityMultiplier.NORMAL.getValue() + RandomSelector.USER_SELECTION_MULTIPLIER * 2) * RandomSelector.BASIC_PROBABILITY);
+        Assert.assertEquals(randomCharacteristicBonusOption.getAssignedWeight(1).intValue(), (RandomSelector.USER_SELECTION_MULTIPLIER + RandomSelector.HIGH_MULTIPLIER) * RandomSelector.BASIC_PROBABILITY);
         //Strength is a preferred characteristic for primitive.
-        Assert.assertEquals(randomCharacteristicBonusOption.getAssignedWeight(2).intValue(), (int) (ProbabilityMultiplier.NORMAL.getValue() + RandomSelector.USER_SELECTION_MULTIPLIER * 2) * RandomSelector.BASIC_PROBABILITY);
+        Assert.assertEquals(randomCharacteristicBonusOption.getAssignedWeight(2).intValue(), (RandomSelector.USER_SELECTION_MULTIPLIER + RandomSelector.HIGH_MULTIPLIER) * RandomSelector.BASIC_PROBABILITY);
     }
 
     @Test

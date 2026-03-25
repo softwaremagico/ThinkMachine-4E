@@ -497,8 +497,12 @@
             <shield>battleShield</shield>
         </shields>
         <random>
-            <recommendedFactions>scravers</recommendedFactions>
-            <recommendedSpecies>ukar</recommendedSpecies>
+            <recommendedFactions>
+                <faction>scravers</faction>
+            </recommendedFactions>
+            <recommendedSpecies>
+                <specie>ukar</specie>
+            </recommendedSpecies>
         </random>
     </armor>
     <armor>

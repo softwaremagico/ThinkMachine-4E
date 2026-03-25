@@ -1468,8 +1468,10 @@
             </factions>
         </restrictions>
         <random>
-            <recommendedFactions>scravers</recommendedFactions>
-            <recommendedSpecies>ukar</recommendedSpecies>
+            <recommendedFactions><faction>scravers</faction></recommendedFactions>
+            <recommendedSpecies>
+                <specie>ukar</specie>
+            </recommendedSpecies>
         </random>
     </perk>
     <perk>
@@ -1487,8 +1489,10 @@
             </perks>
         </restrictions>
         <random>
-            <recommendedFactions>scravers</recommendedFactions>
-            <recommendedSpecies>ukar</recommendedSpecies>
+            <recommendedFactions><faction>scravers</faction></recommendedFactions>
+            <recommendedSpecies>
+                <specie>ukar</specie>
+            </recommendedSpecies>
         </random>
     </perk>
     <perk>

@@ -169,8 +169,12 @@
             </stance>
         </stances>
         <random>
-            <recommendedFactions>decados</recommendedFactions>
-            <recommendedSpecies>ukar</recommendedSpecies>
+            <recommendedFactions>
+                <faction>decados</faction>
+            </recommendedFactions>
+            <recommendedSpecies>
+                <specie>ukar</specie>
+            </recommendedSpecies>
         </random>
     </style>
     <style>
@@ -260,7 +264,9 @@
             </stance>
         </stances>
         <random>
-            <recommendedFactions>alMalik</recommendedFactions>
+            <recommendedFactions>
+                <faction>alMalik</faction>
+            </recommendedFactions>
         </random>
     </style>
     <style>
@@ -428,7 +434,9 @@
             </stance>
         </stances>
         <random>
-            <recommendedFactions>musters</recommendedFactions>
+            <recommendedFactions>
+                <faction>musters</faction>
+            </recommendedFactions>
         </random>
     </style>
     <style>
@@ -513,7 +521,9 @@
             </stance>
         </stances>
         <random>
-            <recommendedFactions>hazat</recommendedFactions>
+            <recommendedFactions>
+                <faction>hazat</faction>
+            </recommendedFactions>
         </random>
     </style>
     <style>
@@ -600,7 +610,9 @@
             </stance>
         </stances>
         <random>
-            <recommendedFactions>liHalan</recommendedFactions>
+            <recommendedFactions>
+                <faction>liHalan</faction>
+            </recommendedFactions>
         </random>
     </style>
     <style>
@@ -686,8 +698,12 @@
             </stance>
         </stances>
         <random>
-            <recommendedFactions>scravers</recommendedFactions>
-            <recommendedFactions>ukar</recommendedFactions>
+            <recommendedFactions>
+                <faction>scravers</faction>
+            </recommendedFactions>
+            <recommendedSpecies>
+                <specie>ukar</specie>
+            </recommendedSpecies>
         </random>
         <restrictions mode="any_character_definition">
             <upbringings>
@@ -1058,7 +1074,10 @@
             <recommendedUpbringings>
                 <id>merchant</id>
             </recommendedUpbringings>
-            <recommendedFactions>musters, scravers</recommendedFactions>
+            <recommendedFactions>
+                <faction>musters</faction>
+                <faction>scravers</faction>
+            </recommendedFactions>
         </random>
     </style>
 </combat_styles>

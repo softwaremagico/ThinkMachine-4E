@@ -57,6 +57,8 @@ public class RandomElementDefinition extends XmlData {
     //Less probability with these preferences.
     private Set<String> inadvisablePreferences = new HashSet<>();
     private Set<String> recommendedPreferences = new HashSet<>();
+    private Set<String> recommendedPerks = new HashSet<>();
+    private Set<String> recommendedPerksGroups = new HashSet<>();
     private RandomProbabilityDefinition probability;
 
     @JsonProperty("names")
@@ -131,6 +133,14 @@ public class RandomElementDefinition extends XmlData {
         }
         if (randomDefinition.getProbability() != null) {
             setProbability(randomDefinition.getProbability());
+        }
+        if (randomDefinition.getRecommendedPerks() != null && !randomDefinition.getRecommendedPerks().isEmpty()) {
+            recommendedPerks.clear();
+            recommendedPerks.addAll(randomDefinition.getRecommendedPerks());
+        }
+        if (randomDefinition.getRecommendedPerksGroups() != null && !randomDefinition.getRecommendedPerksGroups().isEmpty()) {
+            recommendedPerksGroups.clear();
+            recommendedPerksGroups.addAll(randomDefinition.getRecommendedPerksGroups());
         }
     }
 
@@ -269,11 +279,6 @@ public class RandomElementDefinition extends XmlData {
         this.recommendedFactions = recommendedFactions;
     }
 
-    public void setRecommendedSpecies(String recommendedSpeciesContent) {
-        recommendedSpecies = new HashSet<>();
-        readCommaSeparatedTokens(recommendedSpecies, recommendedSpeciesContent);
-    }
-
     public void setRecommendedSpecies(Set<String> recommendedSpecies) {
         this.recommendedSpecies = recommendedSpecies;
     }
@@ -297,6 +302,22 @@ public class RandomElementDefinition extends XmlData {
 
     public void setClassification(ElementClassification classification) {
         this.classification = classification;
+    }
+
+    public Set<String> getRecommendedPerks() {
+        return recommendedPerks;
+    }
+
+    public void setRecommendedPerks(Set<String> recommendedPerks) {
+        this.recommendedPerks = recommendedPerks;
+    }
+
+    public Set<String> getRecommendedPerksGroups() {
+        return recommendedPerksGroups;
+    }
+
+    public void setRecommendedPerksGroups(Set<String> recommendedPerksGroups) {
+        this.recommendedPerksGroups = recommendedPerksGroups;
     }
 
     @Override

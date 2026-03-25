@@ -1531,15 +1531,6 @@ public class CharacterPlayer {
         return cybernetics;
     }
 
-    public int getCyberneticsPointsAvailable() {
-        return (int) getPerks().stream().filter(perk -> Objects.equals(perk.getId(), "cyberdevice"))
-                .count();
-    }
-
-    public int getCyberneticsPointsSpent() {
-        return cybernetics.getElements().size();
-    }
-
     public boolean hasDevice(Cyberdevice cyberdevice) {
         return getCybernetics().hasDevice(cyberdevice);
     }
@@ -1557,7 +1548,7 @@ public class CharacterPlayer {
         }
     }
 
-    public void addCyberdevice(Cyberdevice cyberdevice) throws InvalidOccultismPowerException, UnofficialElementNotAllowedException {
+    public void addCyberdevice(Cyberdevice cyberdevice) throws InvalidCyberdeviceException, UnofficialElementNotAllowedException {
         if (cyberdevice == null) {
             throw new InvalidCyberdeviceException("Null value not allowed");
         }
@@ -1565,10 +1556,8 @@ public class CharacterPlayer {
             throw new UnofficialElementNotAllowedException("Cyberdevice '" + cyberdevice + "' is not official and cannot be added due "
                     + "to configuration limitations.");
         }
-        if (!cyberdevice.getRestrictions().getRestrictedToSpecies().isEmpty() && getSettings().isRestrictionsChecked()
-                && (getSpecie() == null || !cyberdevice.getRestrictions().getRestrictedToSpecies().contains(getSpecie().getId()))) {
-            throw new InvalidCyberdeviceException("Cyberdevice '" + cyberdevice + "' is limited to races '"
-                    + cyberdevice.getRestrictions().getRestrictedToSpecies() + "'.");
+        if (cyberdevice.getRestrictions().isRestricted(this)) {
+            throw new InvalidOccultismPowerException("Cyberdevice '" + cyberdevice + "' is restricted to this character.");
         }
         getCybernetics().getElements().add(cyberdevice);
     }

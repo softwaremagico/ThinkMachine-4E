@@ -220,6 +220,16 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             RandomValuesLog.debug(this.getClass().getName(),
                     "Random definition multiplier is '{}'.", element.getRandomDefinition().getProbabilityMultiplier());
             multiplier *= element.getRandomDefinition().getProbabilityMultiplier().getValue();
+            // Recommended to a perk
+        } else if (getCharacterPlayer() != null && getCharacterPlayer().getPerks() != null && !element.getRandomDefinition().getRecommendedPerks().isEmpty()
+                && getCharacterPlayer().getPerks().stream().anyMatch(p -> element.getRandomDefinition().getRecommendedPerks().contains(p.getId()))) {
+            RandomValuesLog.debug(this.getClass().getName(), "Random definition recommened by perk.");
+            multiplier *= HIGH_MULTIPLIER;
+            // Recommended to a perk group
+        } else if (getCharacterPlayer() != null && getCharacterPlayer().getPerks() != null && !element.getRandomDefinition().getRecommendedPerks().isEmpty()
+                && getCharacterPlayer().getPerks().stream().anyMatch(p -> element.getRandomDefinition().getRecommendedPerksGroups().contains(p.getGroup()))) {
+            RandomValuesLog.debug(this.getClass().getName(), "Random definition recommened by perk group.");
+            multiplier *= HIGH_MULTIPLIER;
         } else if (element.getRandomDefinition().getProbability() != null) {
             RandomGenerationLog.debug(this.getClass().getName(), "Random definition defines with bonus probability of '"
                     + element.getRandomDefinition().getProbability().getProbabilityMultiplier() + "'.");
@@ -241,7 +251,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             common.retainAll(element.getRandomDefinition().getInadvisablePreferences());
             RandomGenerationLog.debug(this.getClass().getName(),
                     "Random definition divisor '{}'.", (USER_INADVISABLE_DIVISOR * common.size()));
-            if (common.size() > 0) {
+            if (!common.isEmpty()) {
                 multiplier /= (USER_INADVISABLE_DIVISOR * common.size());
             }
         }
