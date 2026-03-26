@@ -620,6 +620,15 @@ public class CharacterPlayer {
         return perks;
     }
 
+    public boolean hasPerk(String id) {
+        for (SpecializedPerk specializedPerk : getPerks()) {
+            if (specializedPerk.getId().equals(id)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private List<SpecializedPerk> getSelectedPerks(CharacterDefinitionStepSelection step) {
         final List<SpecializedPerk> perks = new ArrayList<>();
         step.getSelectedPerksOptions().forEach(perkOption ->

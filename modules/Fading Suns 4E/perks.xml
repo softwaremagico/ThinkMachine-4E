@@ -29,6 +29,11 @@
                 <calling>bountyHunter</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>alienFriend</id>
@@ -103,6 +108,11 @@
                 </name>
             </selectedSpecialization>
         </specializations>
+        <random>
+            <recommendedPreferences>
+                <preference>SOCIAL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>alienUpbringing</id>
@@ -198,6 +208,12 @@
                 <calling>questingKnight</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+                <preference>SEARCHER</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>ally</id>
@@ -207,6 +223,11 @@
         </name>
         <source>calling</source>
         <type>privilege</type>
+        <random>
+            <recommendedPreferences>
+                <preference>SOCIAL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>ambidextrous</id>
@@ -216,6 +237,11 @@
         </name>
         <source>calling</source>
         <type>ability</type>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>analyzePersonality</id>
@@ -230,6 +256,12 @@
                 <calling>dreamtender</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SOCIAL</preference>
+                <preference>OCCULTIST</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>animalFriend</id>
@@ -284,6 +316,11 @@
                 <calling>pirate</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>armorOfPurity</id>
@@ -344,6 +381,11 @@
                 <calling>scribe</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>badgeOfMerit</id>
@@ -394,6 +436,11 @@
                 <calling>banker</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>TRADER</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>battlesense</id>
@@ -411,6 +458,11 @@
                 <calling>mercenary</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>bornOnTheBattlefield</id>
@@ -430,6 +482,11 @@
                 <calling>templar</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>beginnersLuck</id>
@@ -459,6 +516,12 @@
                 <calling>sybarite</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>WANTED</preference>
+                <preference>EVIL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>bloodHound</id>
@@ -474,6 +537,11 @@
                 <calling>bountyHunter</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SEARCHER</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>bodyguard</id>
@@ -488,6 +556,11 @@
                 <calling>templar</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>bogeyman</id>
@@ -531,6 +604,11 @@
                 <calling>scholar</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>breathMark</id>
@@ -587,6 +665,12 @@
                 <calling>confessor</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>CHURCH</preference>
+                <preference>FAITH</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>canOpener</id>
@@ -602,6 +686,11 @@
                 <calling>reclaimer</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>EVIL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>cantYouTakeAJoke</id>
@@ -639,6 +728,18 @@
         </name>
         <source>calling</source>
         <type>privilege</type>
+        <random>
+            <recommendedPreferences>
+                <preference>TRADE</preference>
+                <preference>MIDDLE_CLASS</preference>
+                <preference>UPPER_CLASS</preference>
+                <preference>WEALTHY</preference>
+                <preference>NOBLE_HOUSE</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>POOR</preference>
+            </forbiddenPreferences>
+        </random>
     </perk>
     <perk>
         <id>cash2000</id>
@@ -653,6 +754,17 @@
                 <perk>cash1000</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>TRADE</preference>
+                <preference>UPPER_CLASS</preference>
+                <preference>WEALTHY</preference>
+                <preference>NOBLE_HOUSE</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>POOR</preference>
+            </forbiddenPreferences>
+        </random>
     </perk>
     <perk>
         <id>cash3000</id>
@@ -667,6 +779,16 @@
                 <perk>cash2000</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>UPPER_CLASS</preference>
+                <preference>WEALTHY</preference>
+                <preference>NOBLE_HOUSE</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>POOR</preference>
+            </forbiddenPreferences>
+        </random>
     </perk>
     <perk>
         <id>cash4000</id>
@@ -681,6 +803,14 @@
                 <perk>cash3000</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>WEALTHY</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>POOR</preference>
+            </forbiddenPreferences>
+        </random>
     </perk>
     <perk>
         <id>cash5000</id>
@@ -754,6 +884,11 @@
             </species>
             <level>1</level>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>EXOTIC</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>cleansingWord</id>
@@ -792,6 +927,11 @@
                 <calling>techRedeemer</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>TECHNICAL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>comprehendTechLevel6</id>
@@ -806,6 +946,11 @@
                 <perk>comprehendTechLevel5</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>TECHNICAL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>comprehendTechLevel7</id>
@@ -820,6 +965,11 @@
                 <perk>comprehendTechLevel6</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>TECHNICAL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>comprehendTechLevel8</id>
@@ -834,6 +984,11 @@
                 <perk>comprehendTechLevel7</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>TECHNICAL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>concoctElixir</id>
@@ -849,6 +1004,12 @@
                 <calling>techRedeemer</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>TECHNICAL</preference>
+                <preference>KNOWLEDGE</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>condemn</id>
@@ -881,6 +1042,11 @@
                 <perk>nobleTitleBaronet</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>contact</id>
@@ -890,6 +1056,11 @@
         </name>
         <source>calling</source>
         <type>privilege</type>
+        <random>
+            <recommendedPreferences>
+                <preference>SOCIAL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>contortionist</id>
@@ -923,6 +1094,11 @@
                 <perk>nobleTitleKnight</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SOCIAL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>counterTheDark</id>
@@ -937,6 +1113,11 @@
                 <calling>occultist</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>GOOD</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>counterfeit</id>
@@ -953,6 +1134,11 @@
                 <calling>spy</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>EVIL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>covenMembership</id>
@@ -968,6 +1154,12 @@
                 <calling>dervish</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>EVIL</preference>
+                <preference>SECRETIVE</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>craftEnergyDevice</id>
@@ -985,6 +1177,11 @@
                 <perk>comprehendTechLevel7</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>TECHNICAL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>craftWondrousTech</id>
@@ -1002,6 +1199,11 @@
                 <perk>comprehendTechLevel5</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>TECHNICAL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>creditWorthy</id>
@@ -1032,6 +1234,11 @@
                 <calling>scribe</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SEARCHER</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>dabbleInTheDark</id>
@@ -1060,6 +1267,11 @@
                 <calling>duelist</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>dangerSense</id>
@@ -1097,6 +1309,12 @@
                 <calling>sybarite</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SOCIAL</preference>
+                <preference>EVIL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>deduce</id>
@@ -1113,6 +1331,11 @@
                 <calling>occultist</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SEARCHER</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>deliverance</id>
@@ -1431,6 +1654,11 @@
                 <capability>militaryWeapons</capability>
             </capabilities>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>duello2</id>
@@ -1446,6 +1674,11 @@
                 <perk>duello1</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>kraxi1</id>
@@ -1474,6 +1707,9 @@
             <recommendedSpecies>
                 <specie>ukar</specie>
             </recommendedSpecies>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
         </random>
     </perk>
     <perk>
@@ -1497,6 +1733,9 @@
             <recommendedSpecies>
                 <specie>ukar</specie>
             </recommendedSpecies>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
         </random>
     </perk>
     <perk>
@@ -1517,6 +1756,11 @@
                 <capability>militaryWeapons</capability>
             </capabilities>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>serpentis2</id>
@@ -1532,6 +1776,11 @@
                 <perk>serpentis1</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>torero1</id>
@@ -1550,6 +1799,11 @@
                 <capability>militaryWeapons</capability>
             </capabilities>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>torero2</id>
@@ -1565,6 +1819,11 @@
                 <perk>torero1</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>forthright</id>
@@ -1589,6 +1848,11 @@
                 <calling>mendicant</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>friendsInHighPlaces</id>
@@ -1604,6 +1868,11 @@
                 <calling>tycoon</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>gambler</id>
@@ -1618,6 +1887,11 @@
                 <upbringing>merchant</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>gearhead</id>
@@ -1632,6 +1906,11 @@
                 <upbringing>merchant</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>gospel</id>
@@ -1649,6 +1928,11 @@
                 <capabilityGroups>performingArtsLore</capabilityGroups>
             </capabilitiesGroups>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>ARTIST</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>gossipNetwork</id>
@@ -1663,6 +1947,11 @@
                 <capabilityGroups>customsLore</capabilityGroups>
             </capabilitiesGroups>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SOCIAL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>guts</id>
@@ -1788,6 +2077,11 @@
                 <calling>confessor</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>FAITH</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>householder</id>
@@ -1833,6 +2127,11 @@
                 <calling>dervish</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>OCCULTIST</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>imperialCharter</id>
@@ -1885,6 +2184,11 @@
         </name>
         <source>calling</source>
         <type>verve</type>
+        <random>
+            <recommendedPreferences>
+                <preference>SOCIAL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>incomeTax</id>
@@ -1899,6 +2203,11 @@
                 <calling>trader</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>TRADE</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>incubation</id>
@@ -1928,6 +2237,11 @@
                 <upbringing>yeoman</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>TRADE</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>indulgence</id>
@@ -1956,6 +2270,11 @@
                 <upbringing>merchant</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>TRADE</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>inquisitorialSeal</id>
@@ -2002,6 +2321,11 @@
                 <upbringing>brotherBattle</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>intruder</id>
@@ -2017,6 +2341,11 @@
                 <calling>thief</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>investPhylactery</id>
@@ -2038,6 +2367,11 @@
                 </characteristic>
             </characteristics>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>OCCULTIST</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>invigorate</id>
@@ -2071,6 +2405,11 @@
                 <calling>reclaimer</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SEARCHER</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>keepingSecrets</id>
@@ -2113,6 +2452,11 @@
                 <calling>chainer</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>TRADE</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>landed</id>
@@ -2129,6 +2473,11 @@
                 <upbringing>merchant</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>NOBLE_HOUSE</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>layPriest</id>
@@ -2143,6 +2492,12 @@
                 <calling>friar</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>CHURCH</preference>
+                <preference>FAITH</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>layDownTheLaw</id>
@@ -2205,6 +2560,11 @@
                 <calling>thief</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>EVIL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>linguistSpeak</id>
@@ -2264,6 +2624,11 @@
                 <calling>tycoon</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>EVIL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>lovingPrayer</id>
@@ -2278,6 +2643,11 @@
                 <calling>healer</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>GOOD</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>loyalist</id>
@@ -2292,6 +2662,12 @@
                 <calling>incognito</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+                <preference>SECRETIVE</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>loyaltyUntoDeath</id>
@@ -2335,6 +2711,11 @@
                 <calling>bountyHunter</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SEARCHER</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>mantok1</id>
@@ -2350,6 +2731,11 @@
                 <calling>brotherBattle</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>mantok2</id>
@@ -2364,6 +2750,11 @@
                 <perk>mantok1</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>marksmanship</id>
@@ -2382,6 +2773,13 @@
                 <calling>duelist</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+                <preference>RANGE</preference>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>graa1</id>
@@ -2397,6 +2795,11 @@
                 <specie>vorox</specie>
             </species>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>graa2</id>
@@ -2412,6 +2815,11 @@
                 <perk>graa1</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>ironHeel1</id>
@@ -2432,6 +2840,11 @@
                 <calling>mercenary</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>ironHeel2</id>
@@ -2447,6 +2860,11 @@
                 <perk>ironHeel1</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>joxBoxing1</id>
@@ -2457,6 +2875,11 @@
         </name>
         <source>class</source>
         <type>ability</type>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>joxBoxing2</id>
@@ -2472,6 +2895,11 @@
                 <perk>joxBoxing1</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>koto1</id>
@@ -2482,6 +2910,11 @@
         </name>
         <source>class</source>
         <type>ability</type>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>koto2</id>
@@ -2497,6 +2930,11 @@
                 <perk>koto1</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>shaidan1</id>
@@ -2512,6 +2950,11 @@
                 <upbringing>noble</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>shaidan2</id>
@@ -2527,6 +2970,11 @@
                 <perk>shaidan1</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>masterOfDeception</id>
@@ -2547,6 +2995,12 @@
                 </skill>
             </skills>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SOCIAL</preference>
+                <preference>SECRETIVE</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>mechanic</id>
@@ -2562,6 +3016,12 @@
                 <calling>techRedeemer</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>TECHNICAL</preference>
+                <preference>HI_TECH</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>mentor</id>
@@ -2623,6 +3083,11 @@
                 <calling>spy</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SECRETIVE</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>monasticOrder</id>
@@ -2668,6 +3133,11 @@
                 <calling>chorister</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>ARTIST</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>nimble</id>
@@ -2798,6 +3268,11 @@
         </name>
         <source>calling</source>
         <type>privilege</type>
+        <random>
+            <recommendedPreferences>
+                <preference>TRADE</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>patronOfTheArts</id>
@@ -2812,6 +3287,11 @@
                 <calling>enthusiast</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>ARTIST</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>peasantHero</id>
@@ -2890,6 +3370,11 @@
                 <calling>lawyer</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>EVIL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>polymath</id>
@@ -2975,6 +3460,11 @@
                 <calling>spy</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>EVIL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>recreateArtifact</id>
@@ -2994,6 +3484,11 @@
                 <capability>techLore7</capability>
             </capabilities>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>TECHNICAL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>reeveAdvocate</id>
@@ -3017,6 +3512,11 @@
         </name>
         <source>calling</source>
         <type>privilege</type>
+        <random>
+            <recommendedPreferences>
+                <preference>WANTED</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>resilient</id>
@@ -3062,6 +3562,11 @@
                 <upbringing>merchant</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <forbiddenPreferences>
+                <preference>EVIL</preference>
+            </forbiddenPreferences>
+        </random>
     </perk>
     <perk>
         <id>retinue</id>
@@ -3093,6 +3598,16 @@
                 <upbringing>merchant</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>WEALTHY</preference>
+                <preference>UPPER_CLASS</preference>
+                <preference>MIDDLE_CLASS</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>POOR</preference>
+            </forbiddenPreferences>
+        </random>
     </perk>
     <perk>
         <id>riches2</id>
@@ -3108,6 +3623,15 @@
                 <perk>riches1</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>WEALTHY</preference>
+                <preference>UPPER_CLASS</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>POOR</preference>
+            </forbiddenPreferences>
+        </random>
     </perk>
     <perk>
         <id>riches3</id>
@@ -3123,6 +3647,14 @@
                 <perk>riches2</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>WEALTHY</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>POOR</preference>
+            </forbiddenPreferences>
+        </random>
     </perk>
     <perk>
         <id>riches4</id>
@@ -3138,6 +3670,14 @@
                 <perk>riches3</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>WEALTHY</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>POOR</preference>
+            </forbiddenPreferences>
+        </random>
     </perk>
     <perk>
         <id>riches5</id>
@@ -3153,6 +3693,12 @@
                 <perk>riches4</perk>
             </perks>
         </restrictions>
+        <random>
+            <forbiddenPreferences>
+                <preference>POOR</preference>
+                <preference>MIDDLE_CLASS</preference>
+            </forbiddenPreferences>
+        </random>
     </perk>
     <perk>
         <id>righteousSermon</id>
@@ -3278,6 +3824,11 @@
                 <upbringing>yeoman</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>FAITH</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>saintLextiusBlessing</id>
@@ -3292,6 +3843,11 @@
                 <upbringing>noble</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>FAITH</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>sanctifyArmsAndArmor</id>
@@ -3313,6 +3869,11 @@
                 </characteristic>
             </characteristics>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>FAITH</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>savings</id>
@@ -3329,6 +3890,13 @@
                 <calling>trader</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>WEALTHY</preference>
+                <preference>UPPER_CLASS</preference>
+                <preference>UPPER_CLASS</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>savoirFaire</id>
@@ -3356,6 +3924,11 @@
                 <calling>dervish</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>OCCULTIST</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>schmooze</id>
@@ -3372,6 +3945,11 @@
                 <calling>trader</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SOCIAL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>secondSkin</id>
@@ -3394,6 +3972,11 @@
                 </skill>
             </skills>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>secretAgent1</id>
@@ -3408,6 +3991,12 @@
                 <calling>spy</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+                <preference>SECRETIVE</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>secretAgent2</id>
@@ -3422,6 +4011,12 @@
                 <perk>secretAgent1</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+                <preference>SECRETIVE</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>secretAgent3</id>
@@ -3436,6 +4031,12 @@
                 <perk>secretAgent2</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+                <preference>SECRETIVE</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>secretAgent4</id>
@@ -3450,6 +4051,12 @@
                 <perk>secretAgent3</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+                <preference>SECRETIVE</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>secretAgent5</id>
@@ -3464,6 +4071,12 @@
                 <perk>secretAgent4</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+                <preference>SECRETIVE</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>seenTooMuch</id>
@@ -3479,6 +4092,11 @@
                 <calling>ronin</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>EVIL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>sensitivity</id>
@@ -3488,6 +4106,11 @@
         </name>
         <source>calling</source>
         <type>ability</type>
+        <random>
+            <recommendedPreferences>
+                <preference>GOOD</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>shepherdOfTheFlock</id>
@@ -3502,6 +4125,11 @@
                 <upbringing>priest</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>GOOD</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>shieldOfTheLaw</id>
@@ -3516,6 +4144,11 @@
                 <calling>lawyer</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>GOOD</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>simmeringRage</id>
@@ -3675,6 +4308,11 @@
                 <calling>starPilot</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SPACER</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>subtleBody</id>
@@ -3707,6 +4345,11 @@
                 <calling>scholar</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>swimmingWithSharks</id>
@@ -3736,6 +4379,11 @@
                 <calling>banker</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>TRADE</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>techSavvy</id>
@@ -3750,6 +4398,12 @@
                 <upbringing>merchant</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>HI_TECH</preference>
+                <preference>TECHNICAL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>temporaryAutonomousZone</id>
@@ -3793,6 +4447,11 @@
                 <capability>courtCustoms</capability>
             </capabilities>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SOCIAL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>triumphantReturn</id>
@@ -3859,6 +4518,11 @@
                 <calling>pirate</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>underworldContacts</id>
@@ -3873,6 +4537,13 @@
                 <capability>streetwise</capability>
             </capabilities>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>EVIL</preference>
+                <preference>WANTED</preference>
+                <preference>STEALTH</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>untouchable</id>
@@ -3913,6 +4584,11 @@
                 <calling>sybarite</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SOCIAL</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>virtuoso</id>
@@ -3927,6 +4603,11 @@
                 <calling>artist</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>GOOD</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>vowOfPoverty</id>
@@ -3944,6 +4625,11 @@
                 <calling>monkMartialTradition</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>GOOD</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>webOfLies</id>
@@ -4050,6 +4736,11 @@
                 <calling>occultist</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>OCCULTIST</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
 
 
@@ -5116,6 +5807,11 @@
         <source>class</source>
         <type>privilege</type>
         <group>militaryRank</group>
+        <random>
+            <recommendedPreferences>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>militaryRank2</id>
@@ -5131,6 +5827,11 @@
                 <perk>militaryRank1</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>militaryRank3</id>
@@ -5146,6 +5847,11 @@
                 <perk>militaryRank2</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>militaryRank4</id>
@@ -5161,6 +5867,11 @@
                 <perk>militaryRank3</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
     <perk>
         <id>militaryRank5</id>
@@ -5176,6 +5887,11 @@
                 <perk>militaryRank4</perk>
             </perks>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+        </random>
     </perk>
 
 
@@ -5198,6 +5914,15 @@
                 <specie>obun</specie>
             </species>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>OCCULTIST</preference>
+                <preference>PSI</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>THEURGY</preference>
+            </forbiddenPreferences>
+        </random>
     </perk>
     <perk>
         <id>theurgicRites</id>
@@ -5217,6 +5942,15 @@
                 <specie>obun</specie>
             </species>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>OCCULTIST</preference>
+                <preference>THEURGY</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>PSI</preference>
+            </forbiddenPreferences>
+        </random>
     </perk>
     <perk>
         <id>advisor</id>
@@ -5241,6 +5975,11 @@
             <inadvisablePreferences>
                 <preference>CHURCH</preference>
             </inadvisablePreferences>
+        </random>
+        <random>
+            <recommendedPreferences>
+                <preference>HI_TECH</preference>
+            </recommendedPreferences>
         </random>
     </perk>
     <perk>

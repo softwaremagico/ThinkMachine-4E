@@ -176,6 +176,7 @@
         <random>
             <recommendedPreferences>
                 <preference>THEURGY</preference>
+                <preference>FAITH</preference>
             </recommendedPreferences>
         </random>
     </characteristicDefinition>

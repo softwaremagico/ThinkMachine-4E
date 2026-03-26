@@ -26,5 +26,6 @@ package com.softwaremagico.tm.random.preferences;
 
 public enum AttackPreferences implements IRandomPreference {
     MELEE,
-    RANGED;
+    RANGED,
+    ENERGY;
 }

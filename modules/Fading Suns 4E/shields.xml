@@ -62,6 +62,16 @@
             </feature>
         </features>
         <cost>300</cost>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>HI_TECH</preference>
+                <preference>SHIELD</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>PRIMITIVE</preference>
+            </forbiddenPreferences>
+        </random>
     </shield>
     <shield>
         <id>standardShield</id>
@@ -118,6 +128,16 @@
             </feature>
         </features>
         <cost>500</cost>
+        <random>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>HI_TECH</preference>
+                <preference>SHIELD</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>PRIMITIVE</preference>
+            </forbiddenPreferences>
+        </random>
     </shield>
     <shield>
         <id>duelingShield</id>
@@ -185,6 +205,16 @@
             <recommendedUpbringings>
                 <id>noble</id>
             </recommendedUpbringings>
+            <random>
+                <recommendedPreferences>
+                    <preference>HI_TECH</preference>
+                    <preference>SHIELD</preference>
+                    <preference>NOBLE_HOUSE</preference>
+                </recommendedPreferences>
+                <forbiddenPreferences>
+                    <preference>PRIMITIVE</preference>
+                </forbiddenPreferences>
+            </random>
         </random>
     </shield>
     <shield>
@@ -242,6 +272,15 @@
             </feature>
         </features>
         <cost>3000</cost>
+        <random>
+            <recommendedPreferences>
+                <preference>HI_TECH</preference>
+                <preference>SHIELD</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>PRIMITIVE</preference>
+            </forbiddenPreferences>
+        </random>
     </shield>
     <shield>
         <id>battleShield</id>
@@ -298,5 +337,14 @@
             </feature>
         </features>
         <cost>5000</cost>
+        <random>
+            <recommendedPreferences>
+                <preference>HI_TECH</preference>
+                <preference>SHIELD</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>PRIMITIVE</preference>
+            </forbiddenPreferences>
+        </random>
     </shield>
 </shields>

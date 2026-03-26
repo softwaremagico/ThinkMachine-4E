@@ -204,6 +204,15 @@
                 <upbringing>noble</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>WEALTHY</preference>
+                <preference>UPPER_CLASS</preference>
+                <preference>SOCIAL</preference>
+                <preference>COMBAT</preference>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
 
@@ -400,6 +409,11 @@
                 <upbringing>noble</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SOCIAL</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
 
@@ -1235,6 +1249,16 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+                <preference>PSI</preference>
+            </recommendedPreferences>
+            <inadvisablePreferences>
+                <preference>NO_OCCULTIST</preference>
+            </inadvisablePreferences>
+        </random>
     </calling>
 
 
@@ -1425,6 +1449,12 @@
                 <upbringing>noble</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+                <preference>SOCIAL</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
 
@@ -1614,6 +1644,11 @@
                 <upbringing>noble</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -1825,6 +1860,11 @@
                 <upbringing>noble</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>ARTIST</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -1961,6 +2001,12 @@
                 <upbringing>noble</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+                <preference>SECRETIVE</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -2133,6 +2179,11 @@
                 <upbringing>noble</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -2316,6 +2367,13 @@
                 <upbringing>noble</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>UPPER_CLASS</preference>
+                <preference>WEALTHY</preference>
+                <preference>NOBLE_HOUSE</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -2511,6 +2569,12 @@
                 <upbringing>noble</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+                <preference>SEARCHER</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -2712,6 +2776,11 @@
                 <upbringing>noble</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -2845,6 +2914,12 @@
                 <upbringing>yeoman</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SECRETIVE</preference>
+                <preference>STEALTH</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -3057,6 +3132,11 @@
                 <upbringing>noble</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>ARTIST</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
 
@@ -3270,6 +3350,11 @@
                 <upbringing>brotherBattle</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -3417,6 +3502,11 @@
                 <upbringing>priest</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>ARTIST</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -3599,6 +3689,12 @@
                 <upbringing>priest</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SOCIAL</preference>
+                <preference>FAITH</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -3781,6 +3877,13 @@
                 <upbringing>priest</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+                <preference>SOCIAL</preference>
+                <preference>FAITH</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -3955,6 +4058,11 @@
                 <upbringing>priest</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>OCCULTIST</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -4160,6 +4268,12 @@
                 <upbringing>priest</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>FRONTIER</preference>
+                <preference>RURAL</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -4342,6 +4456,12 @@
                 <upbringing>priest</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+                <preference>GOOD</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -4560,6 +4680,11 @@
                 <upbringing>priest</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SOCIAL</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -4786,6 +4911,11 @@
                 <upbringing>priest</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -5019,6 +5149,12 @@
                 <upbringing>priest</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SEARCHER</preference>
+                <preference>GOOD</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -5185,6 +5321,11 @@
                 <upbringing>priest</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -5494,6 +5635,11 @@
                 <upbringing>priest</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -5672,6 +5818,11 @@
                 <upbringing>priest</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>OCCULTIST</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -5849,6 +6000,11 @@
                 <upbringing>priest</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -6051,6 +6207,11 @@
                 <upbringing>priest</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -6479,6 +6640,12 @@
                 <upbringing>merchant</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+                <preference>SEARCHER</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -6650,6 +6817,12 @@
                 <upbringing>merchant</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+                <preference>EVIL</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -6856,6 +7029,11 @@
                 <upbringing>merchant</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SEARCHER</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -7087,6 +7265,11 @@
                 <upbringing>merchant</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SOCIAL</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -7448,6 +7631,11 @@
                 <upbringing>merchant</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -7663,6 +7851,11 @@
                 <upbringing>merchant</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>TECHNICAL</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -7903,6 +8096,11 @@
                 <upbringing>merchant</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SEARCHER</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -8080,6 +8278,11 @@
                 <upbringing>merchant</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>SEARCHER</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -8263,6 +8466,11 @@
                 <upbringing>merchant</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>TECHNICAL</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -8469,6 +8677,11 @@
                 <upbringing>merchant</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -8671,6 +8884,12 @@
                 <upbringing>merchant</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>TRADE</preference>
+                <preference>SOCIAL</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -8891,6 +9110,11 @@
                 <upbringing>merchant</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>TRADE</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -9169,6 +9393,11 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <recommendedPreferences>
+                <preference>ARTIST</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -9367,6 +9596,11 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <recommendedPreferences>
+                <preference>SEARCHER</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -9754,6 +9988,13 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+                <preference>EVIL</preference>
+                <preference>WANTED</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
 
@@ -10380,6 +10621,12 @@
                 <specie>ukar</specie>
             </species>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>OCCULTIST</preference>
+                <preference>PSI</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
     <calling>
@@ -10535,6 +10782,11 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
 
@@ -11049,6 +11301,12 @@
                 <specie>obun</specie>
             </species>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+                <preference>FAITH</preference>
+            </recommendedPreferences>
+        </random>
     </calling>
 
 </callings>

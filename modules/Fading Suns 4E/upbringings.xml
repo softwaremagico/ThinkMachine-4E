@@ -219,6 +219,22 @@
                 <specie>vorox</specie>
             </species>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>WEALTHY</preference>
+                <preference>UPPER_CLASS</preference>
+                <preference>NOBLE_HOUSE</preference>
+                <preference>SOCIAL</preference>
+                <preference>COMBAT</preference>
+                <preference>STEALTH</preference>
+                <preference>ARTIST</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>CHURCH</preference>
+                <preference>GUILD</preference>
+                <preference>INDEPENDENT</preference>
+            </forbiddenPreferences>
+        </random>
     </upbringing>
 
 
@@ -493,6 +509,25 @@
                 </options>
             </skillBonusOption>
         </skills>
+        <random>
+            <recommendedPreferences>
+                <preference>WEALTHY</preference>
+                <preference>UPPER_CLASS</preference>
+                <preference>CHURCH</preference>
+                <preference>SOCIAL</preference>
+                <preference>KNOWLEDGE</preference>
+                <preference>FAITH</preference>
+                <preference>GOOD</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>NOBLE_HOUSE</preference>
+                <preference>GUILD</preference>
+                <preference>INDEPENDENT</preference>
+            </forbiddenPreferences>
+            <inadvisablePreferences>
+                <preference>HI_TECH</preference>
+            </inadvisablePreferences>
+        </random>
     </upbringing>
     <upbringing>
         <id>brotherBattle</id>
@@ -718,6 +753,21 @@
         </skills>
         <random>
             <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+                <preference>CHURCH</preference>
+                <preference>THEURGY</preference>
+                <preference>FAITH</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>NOBLE_HOUSE</preference>
+                <preference>GUILD</preference>
+                <preference>INDEPENDENT</preference>
+                <preference>WEALTHY</preference>
+            </forbiddenPreferences>
+            <inadvisablePreferences>
+                <preference>EVIL</preference>
+            </inadvisablePreferences>
         </random>
     </upbringing>
     <upbringing>
@@ -953,6 +1003,18 @@
                 </options>
             </skillBonusOption>
         </skills>
+        <random>
+            <recommendedPreferences>
+                <preference>GUILD</preference>
+                <preference>KNOWLEDGE</preference>
+                <preference>TRADE</preference>
+                <preference>TECHNICAL</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>NOBLE_HOUSE</preference>
+                <preference>CHURCH</preference>
+            </forbiddenPreferences>
+        </random>
     </upbringing>
 
     <upbringing>
@@ -1134,5 +1196,18 @@
                 </options>
             </skillBonusOption>
         </skills>
+        <random>
+            <recommendedPreferences>
+                <preference>INDEPENDENT</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>NOBLE_HOUSE</preference>
+                <preference>CHURCH</preference>
+                <preference>UPPER_CLASS</preference>
+            </forbiddenPreferences>
+            <inadvisablePreferences>
+                <preference>SOCIAL</preference>
+            </inadvisablePreferences>
+        </random>
     </upbringing>
 </upbringings>

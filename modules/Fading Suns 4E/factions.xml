@@ -358,6 +358,10 @@
                 Avasarala, El Kadiri, Al-Salem
             </surnames>
             <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+                <preference>ARTIST</preference>
+            </recommendedPreferences>
         </random>
     </faction>
 
@@ -630,6 +634,11 @@
                 Zografos, Damaskinos, Petrakis, Venedikos
             </surnames>
             <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+                <preference>SOCIAL</preference>
+                <preference>EVIL</preference>
+            </recommendedPreferences>
         </random>
     </faction>
 
@@ -886,6 +895,11 @@
                 of Ironvale, of Brighthelm
             </surnames>
             <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+                <preference>SOCIAL</preference>
+                <preference>GOOD</preference>
+            </recommendedPreferences>
         </random>
     </faction>
 
@@ -1154,6 +1168,9 @@
                 de Téllez, de Miranda
             </surnames>
             <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
         </random>
     </faction>
 
@@ -1446,6 +1463,12 @@
                 Thorndike, von Müsel, Wöhler, Braque, Gutensohn, von Eisenach, von Klopstock,
             </surnames>
             <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>SECRETIVE</preference>
+                <preference>HERETIC</preference>
+                <preference>CHURCH</preference>
+                <preference>FAITH</preference>
+            </recommendedPreferences>
         </random>
     </faction>
 
@@ -1673,6 +1696,10 @@
             <recommendedUpbringings>
                 <upbringin>brotherBattle</upbringin>
             </recommendedUpbringings>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+                <preference>CHURCH</preference>
+            </recommendedPreferences>
         </random>
     </faction>
 
@@ -1872,6 +1899,10 @@
         </restrictions>
         <random>
             <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+                <preference>SEARCHER</preference>
+            </recommendedPreferences>
         </random>
     </faction>
 
@@ -2089,6 +2120,10 @@
         </restrictions>
         <random>
             <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>GOOD</preference>
+                <preference>SOCIAL</preference>
+            </recommendedPreferences>
         </random>
     </faction>
 
@@ -2316,6 +2351,10 @@
         </restrictions>
         <random>
             <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+                <preference>SEARCHER</preference>
+            </recommendedPreferences>
         </random>
     </faction>
 
@@ -2539,6 +2578,9 @@
         </restrictions>
         <random>
             <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>SOCIAL</preference>
+            </recommendedPreferences>
         </random>
     </faction>
 
@@ -2724,6 +2766,9 @@
         </restrictions>
         <random>
             <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>SEARCHER</preference>
+            </recommendedPreferences>
         </random>
     </faction>
 
@@ -2901,6 +2946,9 @@
         </restrictions>
         <random>
             <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>TECHNICAL</preference>
+            </recommendedPreferences>
         </random>
     </faction>
 
@@ -3101,6 +3149,7 @@
             <probabilityMultiplier>COMMON</probabilityMultiplier>
             <recommendedPreferences>
                 <preference>EVIL</preference>
+                <preference>COMBAT</preference>
             </recommendedPreferences>
         </random>
     </faction>
@@ -3281,6 +3330,10 @@
         </restrictions>
         <random>
             <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>SOCIAL</preference>
+                <preference>KNOWLEDGE</preference>
+            </recommendedPreferences>
         </random>
     </faction>
 
@@ -3501,6 +3554,11 @@
         </restrictions>
         <random>
             <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>TECHNICAL</preference>
+                <preference>EVIL</preference>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
         </random>
     </faction>
 
@@ -3684,6 +3742,9 @@
         </restrictions>
         <random>
             <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
         </random>
     </faction>
 
@@ -3880,6 +3941,10 @@
         </restrictions>
         <random>
             <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>SOCIAL</preference>
+                <preference>STEALTH</preference>
+            </recommendedPreferences>
         </random>
     </faction>
 
@@ -4094,6 +4159,10 @@
         </materialAwards>
         <random>
             <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+                <preference>SEARCHER</preference>
+            </recommendedPreferences>
         </random>
     </faction>
 
@@ -4295,6 +4364,12 @@
         </restrictions>
         <random>
             <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+            </recommendedPreferences>
+            <inadvisablePreferences>
+                <preference>HI_TECH</preference>
+            </inadvisablePreferences>
         </random>
     </faction>
 
@@ -4594,6 +4669,10 @@
                 Bergman, Heikkinen, Koskinen, Virtanen, Saarinen
             </surnames>
             <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+                <preference>FRONTIER</preference>
+            </recommendedPreferences>
         </random>
     </faction>
 </factions>

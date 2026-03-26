@@ -83,6 +83,12 @@
         </damageList>
         <size>L</size>
         <cost>2</cost>
+        <random>
+            <recommendedPreferences>
+                <preference>RURAL</preference>
+                <preference>PRIMITIVE</preference>
+            </recommendedPreferences>
+        </random>
     </hatchet>
     <axe>
         <id>axe</id>
@@ -111,6 +117,12 @@
         </damageList>
         <size>L</size>
         <cost>5</cost>
+        <random>
+            <recommendedPreferences>
+                <preference>MILITARY</preference>
+                <preference>PRIMITIVE</preference>
+            </recommendedPreferences>
+        </random>
     </axe>
     <!--    <bodyShield0>-->
     <!--        <id>bodyShield0</id>-->
@@ -449,6 +461,13 @@
             <other>poison5</other>
         </others>
         <cost>50</cost>
+        <random>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+                <preference>SECRETIVE</preference>
+                <preference>EXOTIC</preference>
+            </recommendedPreferences>
+        </random>
     </ukariPunchBlade>
     <morningstar>
         <id>morningstar</id>
@@ -479,6 +498,12 @@
             <other>ignoreHandheldShields</other>
         </others>
         <cost>50</cost>
+        <random>
+            <recommendedPreferences>
+                <preference>PRIMITIVE</preference>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+        </random>
     </morningstar>
     <!--    <flail>-->
     <!--        <id>flail</id>-->
@@ -593,6 +618,9 @@
         <others>
             <other>15discharges</other>
         </others>
+        <random>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
+        </random>
     </hironemStunstick>
     <garrote>
         <id>garrote</id>
@@ -631,6 +659,12 @@
         <size>XS</size>
         <agora>rare</agora>
         <cost>5</cost>
+        <random>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+                <preference>EVIL</preference>
+            </recommendedPreferences>
+        </random>
     </garrote>
     <glankesh>
         <id>glankesh</id>
@@ -722,6 +756,10 @@
         </others>
         <random>
             <probabilityMultiplier>EXOTIC</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+                <preference>EVIL</preference>
+            </recommendedPreferences>
         </random>
     </hollowKnife>
     <knife>
@@ -770,7 +808,7 @@
         <size>S</size>
         <cost>2</cost>
         <random>
-            <probabilityMultiplier>NORMAL</probabilityMultiplier>
+            <probabilityMultiplier>PREFERRED</probabilityMultiplier>
         </random>
     </knife>
     <kurganSideSword>
@@ -813,6 +851,9 @@
         </others>
         <random>
             <probabilityMultiplier>EXOTIC</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>FRONTIER</preference>
+            </recommendedPreferences>
         </random>
     </kurganSideSword>
     <kossackChainsword>
@@ -904,6 +945,13 @@
         </damageList>
         <size>L</size>
         <cost>0.5</cost>
+        <random>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>RURAL</preference>
+                <preference>PRIMITIVE</preference>
+            </recommendedPreferences>
+        </random>
     </club>
     <quarterstaff>
         <id>quarterstaff</id>
@@ -935,6 +983,12 @@
         </damageList>
         <size>XL</size>
         <cost>1</cost>
+        <random>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>RURAL</preference>
+            </recommendedPreferences>
+        </random>
     </quarterstaff>
     <mace>
         <id>mace</id>
@@ -1009,6 +1063,12 @@
         <others>
             <other>guard</other>
         </others>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>NOBLE_HOUSE</preference>
+            </recommendedPreferences>
+        </random>
     </mainGauche>
     <!--    <pick>-->
     <!--        <id>pick</id>-->
@@ -1088,6 +1148,9 @@
             <recommendedUpbringings>
                 <id>noble</id>
             </recommendedUpbringings>
+            <recommendedPreferences>
+                <preference>NOBLE_HOUSE</preference>
+            </recommendedPreferences>
         </random>
     </rapier>
     <!--    <saber>-->
@@ -1164,6 +1227,9 @@
         <others>
             <other>2handedHard</other>
         </others>
+        <random>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
+        </random>
     </spear>
     <cavalryLance>
         <id>cavalryLance</id>
@@ -1200,6 +1266,9 @@
         <others>
             <other>charge</other>
         </others>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </cavalryLance>
     <shantorHorn>
         <id>shantorHorn</id>
@@ -1233,14 +1302,20 @@
             <other>charge2</other>
             <other>guard</other>
         </others>
+<!--        TODO:()-->
+<!--        <restrictions>-->
+<!--            <species>-->
+<!--                <specie>shantor</specie>-->
+<!--            </species>-->
+<!--        </restrictions>-->
     </shantorHorn>
     <sword>
         <id>sword</id>
         <type>weapon</type>
         <group>militaryWeapons</group>
         <name>
-            <en>Shantor Horn</en>
-            <es>Cuerno Shantor</es>
+            <en>Sword</en>
+            <es>Espada</es>
         </name>
         <techLevel>5</techLevel>
         <weaponType>MELEE</weaponType>
@@ -1258,6 +1333,9 @@
         </damageTypes>
         <size>L</size>
         <cost>20</cost>
+        <random>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
+        </random>
     </sword>
     <!--    <splinterSword>-->
     <!--        <id>splinterSword</id>-->
@@ -1508,6 +1586,12 @@
         <agoraGroups>
             <agoraGroup>shantor</agoraGroup>
         </agoraGroups>
+<!--        <restrictions>-->
+<!--            TODO():-->
+<!--            <species>-->
+<!--                <specie>shantor</specie>-->
+<!--            </species>-->
+<!--        </restrictions>-->
         <random>
             <probabilityMultiplier>RARE</probabilityMultiplier>
         </random>
@@ -2677,6 +2761,9 @@
         <cost>50</cost>
         <random>
             <probabilityMultiplier>NORMAL</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+            </recommendedPreferences>
         </random>
     </typicalDerringer>
     <lankDerringer>
@@ -2779,6 +2866,11 @@
             <agoraGroup>hazat</agoraGroup>
         </agoraGroups>
         <cost>50</cost>
+        <random>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+            </recommendedPreferences>
+        </random>
     </mitchauMaverick>
     <varstenSnake-eyes>
         <id>varstenSnake-eyes</id>
@@ -2832,6 +2924,11 @@
         <others>
             <other>sturdy</other>
         </others>
+        <random>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+            </recommendedPreferences>
+        </random>
     </varstenSnake-eyes>
     <typicalLightRevolver>
         <id>typicalLightRevolver</id>
@@ -2873,7 +2970,10 @@
             <other>sturdy</other>
         </others>
         <random>
-            <probabilityMultiplier>NORMAL</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>RURAL</preference>
+            </recommendedPreferences>
         </random>
     </typicalLightRevolver>
     <fenirShortstop>
@@ -2913,7 +3013,10 @@
         <size>S</size>
         <cost>100</cost>
         <random>
-            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <probabilityMultiplier>NORMAL</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>RURAL</preference>
+            </recommendedPreferences>
         </random>
     </fenirShortstop>
     <macCaulyLearmat>
@@ -2956,6 +3059,11 @@
             <agoraGroup>tetis</agoraGroup>
         </agoraGroups>
         <cost>125</cost>
+        <random>
+            <recommendedPreferences>
+                <preference>RURAL</preference>
+            </recommendedPreferences>
+        </random>
     </macCaulyLearmat>
     <mitchauProtector>
         <id>mitchauProtector</id>
@@ -2987,6 +3095,9 @@
         <others>
             <other>sturdy</other>
         </others>
+        <random>
+            <probabilityMultiplier>NORMAL</probabilityMultiplier>
+        </random>
     </mitchauProtector>
     <typicalLightAutofeed>
         <id>typicalLightAutofeed</id>
@@ -3037,6 +3148,9 @@
         <cost>150</cost>
         <random>
             <probabilityMultiplier>NORMAL</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
         </random>
     </typicalLightAutofeed>
     <fenirMonbow>
@@ -3247,6 +3361,9 @@
             <agoraGroup>alMalik</agoraGroup>
         </agoraGroups>
         <cost>200</cost>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </sumperKrant>
     <tarasovSidearm>
         <id>tarasovSidearm</id>
@@ -3351,6 +3468,9 @@
         </others>
         <random>
             <probabilityMultiplier>NORMAL</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>RURAL</preference>
+            </recommendedPreferences>
         </random>
     </typicalMedRevolver>
     <drexelFirehunter>
@@ -3622,6 +3742,13 @@
         <others>
             <other>sturdy</other>
         </others>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <forbiddenPreferences>
+                <preference>FRONTIER</preference>
+                <preference>RURAL</preference>
+            </forbiddenPreferences>
+        </random>
     </nerewPeacetrunk>
     <typicalMediumAutofeed>
         <id>typicalMediumAutofeed</id>
@@ -4089,6 +4216,11 @@
         <others>
             <other>unstable</other>
         </others>
+        <random>
+            <recommendedPreferences>
+                <preference>FRONTIER</preference>
+            </recommendedPreferences>
+        </random>
     </vuldrokRevolver>
     <typicalHvyAutofeed>
         <id>typicalHvyAutofeed</id>
@@ -4129,7 +4261,7 @@
         <agora>common</agora>
         <cost>300</cost>
         <random>
-            <probabilityMultiplier>NORMAL</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
         </random>
     </typicalHvyAutofeed>
     <kroslerSampson>
@@ -4383,7 +4515,10 @@
             <other>leverfeed</other>
         </others>
         <random>
-            <probabilityMultiplier>NORMAL</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>RURAL</preference>
+            </recommendedPreferences>
         </random>
     </typicalBoltfeedRifle>
     <basicHuntingRifle>
@@ -4466,7 +4601,11 @@
             <other>boltfeed</other>
         </others>
         <random>
-            <probabilityMultiplier>NORMAL</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>RURAL</preference>
+                <preference>NOBLE_HOUSES</preference>
+            </recommendedPreferences>
         </random>
     </basicHuntingRifle>
     <dragonfly>
@@ -4633,6 +4772,11 @@
             <other>stock</other>
             <other>boltfeed</other>
         </others>
+        <random>
+            <recommendedPreferences>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+        </random>
     </imperialRifle>
     <imperialRifleVeteran>
         <id>imperialRifleVeteran</id>
@@ -4718,6 +4862,11 @@
             <other>sturdy</other>
             <other>boltfeed</other>
         </others>
+        <random>
+            <recommendedPreferences>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+        </random>
     </imperialRifleVeteran>
     <newtGun>
         <id>newtGun</id>
@@ -4877,6 +5026,11 @@
             <other>stock</other>
             <other>boltfeed</other>
         </others>
+        <random>
+            <recommendedPreferences>
+                <preference>FRONTIER</preference>
+            </recommendedPreferences>
+        </random>
     </vuldrokLongarm>
     <tarasovRifle>
         <id>tarasovRifle</id>
@@ -5065,6 +5219,9 @@
             <other>boltfeed</other>
             <other>sight2</other>
         </others>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </hyramGlory>
     <radirLongshot>
         <id>radirLongshot</id>
@@ -5123,6 +5280,9 @@
             <other>boltfeed</other>
             <other>sight4</other>
         </others>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </radirLongshot>
     <typicalAutoRifle>
         <id>typicalAutoRifle</id>
@@ -5188,7 +5348,10 @@
             <other>autofeed</other>
         </others>
         <random>
-            <probabilityMultiplier>NORMAL</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>MILITAR</preference>
+            </recommendedPreferences>
         </random>
     </typicalAutoRifle>
     <blueLionM3>
@@ -5323,6 +5486,11 @@
             <other>stock</other>
             <other>autofeed</other>
         </others>
+        <random>
+            <recommendedPreferences>
+                <preference>MILITAR</preference>
+            </recommendedPreferences>
+        </random>
     </hyramSplendor>
     <massariStomper>
         <id>massariStomper</id>
@@ -5389,6 +5557,11 @@
             <other>stock</other>
             <other>autofeed</other>
         </others>
+        <random>
+            <recommendedPreferences>
+                <preference>MILITAR</preference>
+            </recommendedPreferences>
+        </random>
     </massariStomper>
     <hazatModel68>
         <id>hazatModel68</id>
@@ -5458,6 +5631,9 @@
         </others>
         <random>
             <restrictedFactions>hazat</restrictedFactions>
+            <recommendedPreferences>
+                <preference>MILITAR</preference>
+            </recommendedPreferences>
         </random>
     </hazatModel68>
     <hazatModelMilitia>
@@ -5528,6 +5704,9 @@
         </others>
         <random>
             <restrictedFactions>hazat</restrictedFactions>
+            <recommendedPreferences>
+                <preference>MILITAR</preference>
+            </recommendedPreferences>
         </random>
     </hazatModelMilitia>
     <hazatModel86>
@@ -5598,6 +5777,9 @@
         </others>
         <random>
             <restrictedFactions>hazat</restrictedFactions>
+            <recommendedPreferences>
+                <preference>MILITAR</preference>
+            </recommendedPreferences>
         </random>
     </hazatModel86>
     <hazatModelGold>
@@ -5669,6 +5851,9 @@
         </others>
         <random>
             <restrictedFactions>hazat</restrictedFactions>
+            <recommendedPreferences>
+                <preference>MILITAR</preference>
+            </recommendedPreferences>
         </random>
     </hazatModelGold>
     <musterRover10>
@@ -5877,6 +6062,11 @@
             <other>sturdy</other>
             <other>autofeed</other>
         </others>
+        <random>
+            <recommendedPreferences>
+                <preference>MILITAR</preference>
+            </recommendedPreferences>
+        </random>
     </vamGelderThracker>
     <!--    <typicalCaselessRifle>-->
     <!--        <id>typicalCaselessRifle</id>-->
@@ -6348,6 +6538,10 @@
         </others>
         <random>
             <probabilityMultiplier>NORMAL</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+                <preference>SECRETIVE</preference>
+            </recommendedPreferences>
         </random>
     </typicalSMG>
     <herstalProject98>
@@ -6476,6 +6670,13 @@
             <other>stock</other>
             <other>autofeed</other>
         </others>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+                <preference>SECRETIVE</preference>
+            </recommendedPreferences>
+        </random>
     </jahnisakMuffler>
     <kmsm7>
         <id>kmsm7</id>
@@ -6820,7 +7021,10 @@
             <other>pumpfeed</other>
         </others>
         <random>
-            <probabilityMultiplier>NORMAL</probabilityMultiplier>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>RURAL</preference>
+            </recommendedPreferences>
         </random>
     </typicalShotgun>
     <sawedOffShotgun>
@@ -6890,6 +7094,9 @@
         </others>
         <random>
             <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>EVIL</preference>
+            </recommendedPreferences>
         </random>
     </sawedOffShotgun>
     <typicalTwinBarrel>
@@ -7366,6 +7573,12 @@
             <other>stock</other>
             <other>breakfeed</other>
         </others>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>FRONTIER</preference>
+            </recommendedPreferences>
+        </random>
     </vuldrokShotgun>
     <!--    <typicalFirelockPistol>-->
     <!--        <id>typicalFirelockPistol</id>-->
@@ -8220,7 +8433,9 @@
             <damageType>laser</damageType>
         </damageTypes>
         <random>
-            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
         </random>
     </martechMidgetLaser>
     <martechMidgetRing>
@@ -8270,7 +8485,9 @@
             <other>hidden</other>
         </others>
         <random>
-            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
         </random>
     </martechMidgetRing>
     <kurganLasterPistol>
@@ -8306,6 +8523,12 @@
         <others>
             <other>unstable</other>
         </others>
+        <random>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+                <preference>FRONTIER</preference>
+            </recommendedPreferences>
+        </random>
     </kurganLasterPistol>
     <martechGold>
         <id>martechGold</id>
@@ -8364,6 +8587,11 @@
         <damageTypes>
             <damageType>laser</damageType>
         </damageTypes>
+        <random>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
+        </random>
     </martechGold>
     <martechAmber>
         <id>martechAmber</id>
@@ -8422,6 +8650,11 @@
         <damageTypes>
             <damageType>laser</damageType>
         </damageTypes>
+        <random>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
+        </random>
     </martechAmber>
     <!--    <bannerCabalXaserPistol>-->
     <!--        <id>bannerCabalXaserPistol</id>-->
@@ -8598,6 +8831,11 @@
         <damageTypes>
             <damageType>laser</damageType>
         </damageTypes>
+        <random>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
+        </random>
     </martechIndigo>
     <martechSafireSniper>
         <id>martechSafireSniper</id>
@@ -8662,6 +8900,9 @@
         </agoraGroups>
         <random>
             <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
         </random>
     </martechSafireSniper>
     <!--    <bannerCabalXaserRifle>-->
@@ -8832,6 +9073,11 @@
         <damageTypes>
             <damageType>laser</damageType>
         </damageTypes>
+        <random>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
+        </random>
     </martechRed>
     <varstenBlacklight>
         <id>varstenBlacklight</id>
@@ -8880,6 +9126,11 @@
         <damageTypes>
             <damageType>laser</damageType>
         </damageTypes>
+        <random>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
+        </random>
     </varstenBlacklight>
     <soeAlembic>
         <id>soeAlembic</id>
@@ -8933,6 +9184,11 @@
         <random>
             <probabilityMultiplier>NORMAL</probabilityMultiplier>
         </random>
+        <random>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
+        </random>
     </soeAlembic>
     <lankEruptor>
         <id>lankEruptor</id>
@@ -8983,6 +9239,11 @@
         <damageTypes>
             <damageType>blaster</damageType>
         </damageTypes>
+        <random>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
+        </random>
     </lankEruptor>
     <vuldrokAncestralBlaster>
         <id>vuldrokAncestralBlaster</id>
@@ -9017,6 +9278,11 @@
         <others>
             <other>sturdy</other>
         </others>
+        <random>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
+        </random>
     </vuldrokAncestralBlaster>
     <soeCrucible>
         <id>soeCrucible</id>
@@ -9057,6 +9323,11 @@
         <damageTypes>
             <damageType>blaster</damageType>
         </damageTypes>
+        <random>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
+        </random>
     </soeCrucible>
     <nitobiBlasterAxe>
         <id>nitobiBlasterAxe</id>
@@ -9126,6 +9397,9 @@
         </others>
         <random>
             <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
         </random>
     </nitobiBlasterAxe>
     <soeVolcano>
@@ -9177,6 +9451,9 @@
         </others>
         <random>
             <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
         </random>
     </soeVolcano>
     <lankIncinerator>
@@ -9227,6 +9504,9 @@
         </others>
         <random>
             <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
         </random>
     </lankIncinerator>
 
@@ -9306,6 +9586,9 @@
             <recommendedFactions>
                 <faction>avestites</faction>
             </recommendedFactions>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
         </random>
     </kalomiteFlamegun>
     <kendraDragon>
@@ -9376,6 +9659,9 @@
         </damageTypes>
         <random>
             <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
         </random>
     </kendraDragon>
     <harpyScreamer>
@@ -9418,6 +9704,11 @@
         <damageTypes>
             <damageType>sonic</damageType>
         </damageTypes>
+        <random>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
+        </random>
     </harpyScreamer>
     <obunPitchModule>
         <id>obunPitchModule</id>
@@ -9449,6 +9740,12 @@
         <damageTypes>
             <damageType>sonic</damageType>
         </damageTypes>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
+        </random>
     </obunPitchModule>
     <!--    <zenicPacifier>-->
     <!--        <id>zenicPacifier</id>-->
@@ -9549,6 +9846,9 @@
         <cost>300</cost>
         <random>
             <probabilityMultiplier>EXOTIC</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
         </random>
     </arbogastSleeper>
     <sOETesla>
@@ -9606,6 +9906,9 @@
         <cost>600</cost>
         <random>
             <probabilityMultiplier>EXOTIC</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
         </random>
     </sOETesla>
     <wompGun>
@@ -9667,6 +9970,9 @@
         </agoraGroups>
         <random>
             <probabilityMultiplier>EXOTIC</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
         </random>
     </wompGun>
     <republicArms3000>
@@ -9722,6 +10028,9 @@
         </others>
         <random>
             <probabilityMultiplier>EXOTIC</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>ENERGY</preference>
+            </recommendedPreferences>
         </random>
     </republicArms3000>
     <!--    <varsotechModel331>-->

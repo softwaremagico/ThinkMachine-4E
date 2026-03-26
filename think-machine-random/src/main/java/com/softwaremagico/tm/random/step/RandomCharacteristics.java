@@ -30,6 +30,8 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.characteristics.CharacteristicType;
 import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
 import com.softwaremagico.tm.character.occultism.OccultismType;
+import com.softwaremagico.tm.character.occultism.OccultismTypeFactory;
+import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.specie.Specie;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
@@ -39,10 +41,10 @@ import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import com.softwaremagico.tm.log.RandomGenerationLog;
 import com.softwaremagico.tm.log.RandomSelectorLog;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
+import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.preferences.RandomSelector;
 import com.softwaremagico.tm.random.preferences.RankValueAssignationPreference;
-import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
 import java.util.Collection;
 import java.util.Objects;
@@ -128,6 +130,17 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
         //No occultists without points does not add extra points.
         if (element.getType() == CharacteristicType.OCCULTISM && !getCharacterPlayer().isOccultist()) {
             return EXOTIC_PROBABILITY;
+        }
+
+        //Ensure at least 1 point on characteristic if selected by user preference.
+        if (getCharacterPlayer().hasPerk(PerkFactory.THEURGY_RITES_PERK)
+                && Objects.equals(element.getId(), OccultismTypeFactory.THEURGY_TAG)
+                && getCharacterPlayer().getCharacteristicValue(CharacteristicName.THEURGY) == 0) {
+            return FAIR_PROBABILITY;
+        } else if (getCharacterPlayer().hasPerk(PerkFactory.PSYCHIC_POWERS_PERK)
+                && Objects.equals(element.getId(), OccultismTypeFactory.PSI_TAG)
+                && getCharacterPlayer().getCharacteristicValue(CharacteristicName.PSI) == 0) {
+            return FAIR_PROBABILITY;
         }
 
         return super.getWeight(element);

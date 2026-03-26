@@ -26,6 +26,7 @@ package com.softwaremagico.tm.random.preferences;
 
 public enum OccultismPreference implements IRandomPreference {
     NO_OCCULTIST,
+    OCCULTIST,
     PSI,
     THEURGY;
 }

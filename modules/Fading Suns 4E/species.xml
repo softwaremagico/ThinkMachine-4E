@@ -766,6 +766,7 @@
             <probabilityMultiplier>NORMAL</probabilityMultiplier>
             <recommendedPreferences>
                 <preference>COMBAT</preference>
+                <preference>PRIMITIVE</preference>
             </recommendedPreferences>
         </random>
     </vorox>

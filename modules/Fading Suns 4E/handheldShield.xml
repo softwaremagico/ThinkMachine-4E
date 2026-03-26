@@ -45,6 +45,9 @@
             <recommendedPreferences>
                 <preference>PRIMITIVE</preference>
             </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>HI_TECH</preference>
+            </forbiddenPreferences>
         </random>
     </handheldShield>
     <handheldShield>

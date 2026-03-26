@@ -10,6 +10,7 @@
         <random>
             <recommendedPreferences>
                 <preference>COMBAT</preference>
+                <preference>ARMOR</preference>
             </recommendedPreferences>
         </random>
     </capability>
@@ -24,6 +25,7 @@
             <recommendedPreferences>
                 <preference>COMBAT</preference>
                 <preference>PRIMITIVE</preference>
+                <preference>ARMOR</preference>
             </recommendedPreferences>
         </random>
     </capability>
@@ -53,6 +55,8 @@
             <random>
                 <recommendedPreferences>
                     <preference>COMBAT</preference>
+                    <preference>ARMOR</preference>
+                    <preference>MILITARY</preference>
                 </recommendedPreferences>
             </random>
         </restrictions>
@@ -90,6 +94,12 @@
                 <calling>thief</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>artifactWeapon</id>
@@ -98,6 +108,11 @@
             <en>Artifact Weapon</en>
             <es>Artefactos Cuerpo a Cuerpo</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
 
     <capability>
@@ -120,6 +135,11 @@
                 <calling>mercenary</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>demolitions</id>
@@ -150,6 +170,12 @@
                 <calling>thief</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>gunnery</id>
@@ -178,6 +204,11 @@
                 <calling>starPilot</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>musicalInstrument</id>
@@ -222,6 +253,11 @@
                 </name>
             </selectedSpecialization>
         </specializations>
+        <random>
+            <recommendedPreferences>
+                <preference>ARTIST</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
 
     <capability>
@@ -231,6 +267,15 @@
             <en>Archery</en>
             <es>Tiro con Arco</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+                <preference>RANGED</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>HI_TECH</preference>
+            </forbiddenPreferences>
+        </random>
     </capability>
     <capability>
         <id>artifactGun</id>
@@ -239,6 +284,15 @@
             <en>Artifact Gun</en>
             <es>Artefacto a Distancia</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>PRIMITIVE</preference>
+            </forbiddenPreferences>
+        </random>
     </capability>
     <capability>
         <id>energyGuns</id>
@@ -247,6 +301,17 @@
             <en>Energy Guns</en>
             <es>Armas de Energía</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+                <preference>ENERGY</preference>
+                <preference>RANGED</preference>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>PRIMITIVE</preference>
+            </forbiddenPreferences>
+        </random>
     </capability>
     <capability>
         <id>slugGuns</id>
@@ -282,6 +347,13 @@
                 <calling>templar</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+                <preference>RANGED</preference>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>thinkMachines</id>
@@ -290,6 +362,14 @@
             <en>Think Machines</en>
             <es>Máquinas Pensantes</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>HI_TECH</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>PRIMITIVE</preference>
+            </forbiddenPreferences>
+        </random>
     </capability>
     <capability>
         <id>aircraft</id>
@@ -298,6 +378,12 @@
             <en>Aircraft</en>
             <es>Vehículos Aéreos</es>
         </name>
+        <random>
+            <forbiddenPreferences>
+                <preference>PRIMITIVE</preference>
+                <preference>RURAL</preference>
+            </forbiddenPreferences>
+        </random>
     </capability>
     <capability>
         <id>beastback</id>
@@ -307,7 +393,14 @@
             <es>Monta</es>
         </name>
         <random>
-            <preferences>PRIMITIVE, HIGH_RANK</preferences>
+            <recommendedPreferences>
+                <preference>PRIMITIVE</preference>
+                <preference>RURAL</preference>
+                <preference>EXOTIC</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>CORE_WORLDS</preference>
+            </forbiddenPreferences>
         </random>
     </capability>
     <capability>
@@ -318,7 +411,14 @@
             <es>Vehículos de Animales</es>
         </name>
         <random>
-            <preferences>PRIMITIVE</preferences>
+            <recommendedPreferences>
+                <preference>PRIMITIVE</preference>
+                <preference>RURAL</preference>
+                <preference>EXOTIC</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>CORE_WORLDS</preference>
+            </forbiddenPreferences>
         </random>
     </capability>
     <capability>
@@ -353,6 +453,12 @@
                 <calling>spy</calling>
             </callings>
         </restrictions>
+        <random>
+            <forbiddenPreferences>
+                <preference>PRIMITIVE</preference>
+                <preference>RURAL</preference>
+            </forbiddenPreferences>
+        </random>
     </capability>
     <capability>
         <id>warcraft</id>
@@ -375,6 +481,14 @@
                 <calling>scout</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>RURAL</preference>
+            </forbiddenPreferences>
+        </random>
     </capability>
     <capability>
         <id>watercraft</id>
@@ -395,6 +509,11 @@
             <en>Imagery</en>
             <es>Pintura</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>ARTIST</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>magicLantern</id>
@@ -403,6 +522,11 @@
             <en>Magic Lantern</en>
             <es>Linterna Mágica</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>ARTIST</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>poetry</id>
@@ -411,6 +535,11 @@
             <en>Poetry</en>
             <es>Poesía</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>ARTIST</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>sculpting</id>
@@ -419,6 +548,11 @@
             <en>Sculpting</en>
             <es>Escultura</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>ARTIST</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>writing</id>
@@ -444,6 +578,11 @@
             <en>Blacksmithing</en>
             <es>Herrería</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>PRIMITIVE</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>carpentry</id>
@@ -484,6 +623,11 @@
             <en>Leatherworking</en>
             <es>Marroquinería</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>PRIMITIVE</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>locksmithing</id>
@@ -508,6 +652,11 @@
             <en>Pottery</en>
             <es>Cerámica</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>PRIMITIVE</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>tailoring</id>
@@ -524,6 +673,11 @@
             <en>Weaving</en>
             <es>Tejeduría</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>PRIMITIVE</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>cathedralCustoms</id>
@@ -532,6 +686,12 @@
             <en>Cathedral Customs</en>
             <es>Usos de la Catedral</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>CHURCH</preference>
+                <preference>FAITH</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>commonsCustoms</id>
@@ -548,6 +708,11 @@
             <en>Court Customs</en>
             <es>Usos de la Corte</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>SOCIAL</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>streetwise</id>
@@ -556,6 +721,15 @@
             <en>Streetwise</en>
             <es>Bajos Fondos</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>STEALTH</preference>
+                <preference>HERETIC</preference>
+                <preference>RENEGADE</preference>
+                <preference>EVIL</preference>
+                <preference>SEARCHER</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
 
     <capability>
@@ -581,6 +755,12 @@
                 </name>
             </selectedSpecialization>
         </specializations>
+        <random>
+            <recommendedPreferences>
+                <preference>PRIMITIVE</preference>
+                <preference>RURAL</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>factionLore</id>
@@ -718,6 +898,11 @@
             <en>History Lore</en>
             <es>Saber de Historia</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>jumpwebLore</id>
@@ -742,6 +927,11 @@
                 </name>
             </selectedSpecialization>
         </specializations>
+        <random>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>occultLore</id>
@@ -750,6 +940,13 @@
             <en>Occult Lore</en>
             <es>Saber Oculto</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>OCCULTIST</preference>
+                <preference>FAITH</preference>
+                <preference>KNOWLEDGE</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>planetLore</id>
@@ -1019,6 +1216,11 @@
                 </name>
             </selectedSpecialization>
         </specializations>
+        <random>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>read</id>
@@ -1058,6 +1260,13 @@
                 </restrictions>
             </selectedSpecialization>
         </specializations>
+        <random>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+                <preference>NOBLE_HOUSE</preference>
+                <preference>CHURCH</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>religionLore</id>
@@ -1115,6 +1324,12 @@
                 </random>
             </selectedSpecialization>
         </specializations>
+        <random>
+            <recommendedPreferences>
+                <preference>CHURCH</preference>
+                <preference>FAITH</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>shipboardOperations</id>
@@ -1123,6 +1338,11 @@
             <en>Shipboard Operations</en>
             <es>Operaciones a Bordo</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>SPACER</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>speak</id>
@@ -1219,6 +1439,11 @@
                 </restrictions>
             </selectedSpecialization>
         </specializations>
+        <random>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>warfareLore</id>
@@ -1241,6 +1466,11 @@
                 <calling>scout</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>xenoLore</id>
@@ -1312,6 +1542,11 @@
                 <es>Oro'ym</es>
             </name>
         </selectedSpecialization>
+        <random>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>diseaseLore</id>
@@ -1320,6 +1555,11 @@
             <en>Disease Lore</en>
             <es>Saber Enfermedades</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>poisonLore</id>
@@ -1328,6 +1568,14 @@
             <en>Poison Lore</en>
             <es>Saber Venenos</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+                <preference>STEALTH</preference>
+                <preference>SOCIAL</preference>
+                <preference>SECRETIVE</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>surgeryLore</id>
@@ -1349,6 +1597,11 @@
                 <calling>scholar</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>tortureLore</id>
@@ -1357,6 +1610,12 @@
             <en>Torture Lore</en>
             <es>Saber Tortura</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+                <preference>EVIL</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>cyberneticsLore</id>
@@ -1365,6 +1624,12 @@
             <en>Cybernetics Lore</en>
             <es>Saber Cibernética</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+                <preference>TECHNICAL</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
 
     <capability>
@@ -1374,6 +1639,11 @@
             <en>Dance</en>
             <es>Danza</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>ARTIST</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>magic</id>
@@ -1382,6 +1652,11 @@
             <en>Magic</en>
             <es>Magia</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>ARTIST</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>music</id>
@@ -1390,6 +1665,11 @@
             <en>Music</en>
             <es>Música</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>ARTIST</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>oratory</id>
@@ -1398,6 +1678,11 @@
             <en>Oratory</en>
             <es>Oratoria</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>CHURCH</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>song</id>
@@ -1406,6 +1691,11 @@
             <en>Song</en>
             <es>Canto</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>ARTIST</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>theatre</id>
@@ -1414,6 +1704,11 @@
             <en>Theatre</en>
             <es>Teatro</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>ARTIST</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
 
     <capability>
@@ -1433,6 +1728,11 @@
                 <calling>techRedeemer</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>TECHNICAL</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>artificialIntelligence</id>
@@ -1455,6 +1755,11 @@
                 <capability>thinkMachines</capability>
             </capabilities>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>TECHNICAL</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>lifeScience</id>
@@ -1479,6 +1784,11 @@
                 <calling>scholar</calling>
             </callings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
     <capability>
         <id>terraforming</id>
@@ -1492,6 +1802,11 @@
                 <upbringing>merchant</upbringing>
             </upbringings>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>TECHNICAL</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
 
     <capability>
@@ -1501,6 +1816,18 @@
             <en>Tech Lore (TL5)</en>
             <es>Saber Tecnológico (NT 5)</es>
         </name>
+        <random>
+            <recommendedPreferences>
+                <preference>HI_TECH</preference>
+                <preference>ENERGY_WEAPONS</preference>
+                <preference>SPACER</preference>
+                <preference>TECHNICAL</preference>
+                <preference>KNOWLEDGE</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>PRIMITIVE</preference>
+            </forbiddenPreferences>
+        </random>
     </capability>
     <capability>
         <id>techLore6</id>
@@ -1534,6 +1861,18 @@
                 <capability>techLore5</capability>
             </capabilities>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>HI_TECH</preference>
+                <preference>ENERGY_WEAPONS</preference>
+                <preference>SPACER</preference>
+                <preference>TECHNICAL</preference>
+                <preference>KNOWLEDGE</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>PRIMITIVE</preference>
+            </forbiddenPreferences>
+        </random>
     </capability>
     <capability>
         <id>techLore7</id>
@@ -1567,6 +1906,16 @@
                 <capability>techLore6</capability>
             </capabilities>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>HI_TECH</preference>
+                <preference>SPACER</preference>
+                <preference>TECHNICAL</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>PRIMITIVE</preference>
+            </forbiddenPreferences>
+        </random>
     </capability>
     <capability>
         <id>techLore8</id>
@@ -1588,6 +1937,14 @@
                 <capability>techLore7</capability>
             </capabilities>
         </restrictions>
+        <random>
+            <recommendedPreferences>
+                <preference>HI_TECH</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>PRIMITIVE</preference>
+            </forbiddenPreferences>
+        </random>
     </capability>
     <capability>
         <id>weirdTech</id>
@@ -1628,5 +1985,11 @@
             </callings>
         </restrictions>
         <official>false</official>
+        <random>
+            <recommendedPreferences>
+                <preference>KNOWLEDGE</preference>
+                <preference>OCCULTIST</preference>
+            </recommendedPreferences>
+        </random>
     </capability>
 </capabilities>

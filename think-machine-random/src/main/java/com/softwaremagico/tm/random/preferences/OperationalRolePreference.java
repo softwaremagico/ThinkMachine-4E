@@ -29,7 +29,10 @@ public enum OperationalRolePreference implements IRandomPreference {
     SOCIAL,
     STEALTH,
     KNOWLEDGE,
+    SEARCHER,
     FAITH,
     TRADE,
-    TECHNICAL;
+    TECHNICAL,
+    ARTIST,
+    MILITARY;
 }

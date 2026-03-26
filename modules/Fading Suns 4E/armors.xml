@@ -149,6 +149,15 @@
             <other>binoculars</other>
             <other>radiationProtection</other>
         </others>
+        <random>
+            <recommendedPreferences>
+                <preference>HI_TECH</preference>
+                <preference>ARMOR</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>PRIMITIVE</preference>
+            </forbiddenPreferences>
+        </random>
     </armor>
     <armor>
         <id>chainMailMetal</id>
@@ -192,6 +201,15 @@
         <others>
             <other>metal</other>
         </others>
+        <random>
+            <recommendedPreferences>
+                <preference>PRIMITIVE</preference>
+                <preference>ARMOR</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>HI_TECH</preference>
+            </forbiddenPreferences>
+        </random>
     </armor>
     <armor>
         <id>chainMailPlastic</id>
@@ -233,6 +251,14 @@
             <shield>assaultShield</shield>
             <shield>battleShield</shield>
         </shields>
+        <random>
+            <recommendedPreferences>
+                <preference>ARMOR</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>PRIMITIVE</preference>
+            </forbiddenPreferences>
+        </random>
     </armor>
     <armor>
         <id>chainMailPlasteel</id>
@@ -274,6 +300,15 @@
             <shield>assaultShield</shield>
             <shield>battleShield</shield>
         </shields>
+        <random>
+            <recommendedPreferences>
+                <preference>ARMOR</preference>
+                <preference>HI_TECH</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>PRIMITIVE</preference>
+            </forbiddenPreferences>
+        </random>
     </armor>
     <armor>
         <id>frictionlessGel</id>
@@ -324,6 +359,11 @@
             <shield>assaultShield</shield>
             <shield>battleShield</shield>
         </shields>
+        <random>
+            <forbiddenPreferences>
+                <preference>PRIMITIVE</preference>
+            </forbiddenPreferences>
+        </random>
     </armor>
     <armor>
         <id>halfPlateMetal</id>
@@ -368,6 +408,15 @@
         <others>
             <other>metal</other>
         </others>
+        <random>
+            <recommendedPreferences>
+                <preference>ARMOR</preference>
+                <preference>PRIMITIVE</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>HI_TECH</preference>
+            </forbiddenPreferences>
+        </random>
     </armor>
     <armor>
         <id>halfPlatePlastic</id>
@@ -410,6 +459,11 @@
         <shields>
             <shield>battleShield</shield>
         </shields>
+        <random>
+            <recommendedPreferences>
+                <preference>ARMOR</preference>
+            </recommendedPreferences>
+        </random>
     </armor>
     <armor>
         <id>halfPlatePlasteel</id>
@@ -452,6 +506,12 @@
         <shields>
             <shield>battleShield</shield>
         </shields>
+        <random>
+            <recommendedPreferences>
+                <preference>ARMOR</preference>
+                <preference>HI_TECH</preference>
+            </recommendedPreferences>
+        </random>
     </armor>
     <armor>
         <id>heavyClothing</id>
@@ -503,6 +563,9 @@
             <recommendedSpecies>
                 <specie>ukar</specie>
             </recommendedSpecies>
+            <inadvisablePreferences>
+                <preference>COMBAT</preference>
+            </inadvisablePreferences>
         </random>
     </armor>
     <armor>
@@ -520,7 +583,7 @@
             <es>Popularmente empleada como si fuera una armadura elegante, el cuero se usa a menudo cuando el uso de
                 armaduras más pesadas resultaría demasiado “burdo”. De hecho, el cuero es un material fino y flexible
                 que además es lo suficientemente pesado como para funcionar bien como armadura. La mayoría de los
-                guardias visten de cuero, a parte de cualquier otra armadura que pudieran tener.
+                guardias visten de cuero, aparte de cualquier otra armadura que pudieran tener.
             </es>
         </description>
         <techLevel>1</techLevel>
@@ -546,6 +609,11 @@
             <shield>assaultShield</shield>
             <shield>battleShield</shield>
         </shields>
+        <random>
+            <recommendedPreferences>
+                <preference>PRIMITIVE</preference>
+            </recommendedPreferences>
+        </random>
     </armor>
     <armor>
         <id>leatherJerkinStuddedMetal</id>
@@ -591,6 +659,15 @@
         <others>
             <other>metal</other>
         </others>
+        <random>
+            <recommendedPreferences>
+                <preference>ARMOR</preference>
+                <preference>PRIMITIVE</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>HI_TECH</preference>
+            </forbiddenPreferences>
+        </random>
     </armor>
     <armor>
         <id>leatherJerkinStuddedPlastic</id>
@@ -634,6 +711,11 @@
             <shield>assaultShield</shield>
             <shield>battleShield</shield>
         </shields>
+        <random>
+            <recommendedPreferences>
+                <preference>ARMOR</preference>
+            </recommendedPreferences>
+        </random>
     </armor>
     <armor>
         <id>leatherJerkinStuddedPlasteel</id>
@@ -677,6 +759,15 @@
             <shield>assaultShield</shield>
             <shield>battleShield</shield>
         </shields>
+        <random>
+            <recommendedPreferences>
+                <preference>ARMOR</preference>
+                <preference>HI_TECH</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>PRIMITIVE</preference>
+            </forbiddenPreferences>
+        </random>
     </armor>
     <armor>
         <id>paddedClothing</id>
@@ -720,6 +811,11 @@
             <shield>assaultShield</shield>
             <shield>battleShield</shield>
         </shields>
+        <random>
+            <inadvisablePreferences>
+                <preference>COMBAT</preference>
+            </inadvisablePreferences>
+        </random>
     </armor>
     <armor>
         <id>polymerKnit</id>
@@ -770,6 +866,15 @@
             <shield>assaultShield</shield>
             <shield>battleShield</shield>
         </shields>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>ARMOR</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>PRIMITIVE</preference>
+            </forbiddenPreferences>
+        </random>
     </armor>
     <armor>
         <id>plateMailSuitMetal</id>
@@ -817,6 +922,16 @@
         <others>
             <other>metal</other>
         </others>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>ARMOR</preference>
+                <preference>PRIMITIVE</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>HI_TECH</preference>
+            </forbiddenPreferences>
+        </random>
     </armor>
     <armor>
         <id>plateMailSuitPlastic</id>
@@ -865,6 +980,12 @@
         <others>
             <other>abcProtection</other>
         </others>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>ARMOR</preference>
+            </recommendedPreferences>
+        </random>
     </armor>
     <armor>
         <id>plateMailSuitPlasteel</id>
@@ -913,6 +1034,12 @@
         <others>
             <other>abcProtection</other>
         </others>
+        <random>
+            <recommendedPreferences>
+                <preference>ARMOR</preference>
+                <preference>HI_TECH</preference>
+            </recommendedPreferences>
+        </random>
     </armor>
     <armor>
         <id>psiCloak</id>
@@ -961,6 +1088,13 @@
             <other>occult</other>
             <other>neural</other>
         </others>
+        <random>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>PSI</preference>
+                <preference>NOBLE_HOUSE</preference>
+            </recommendedPreferences>
+        </random>
     </armor>
     <armor>
         <id>scaleMailMetal</id>
@@ -1003,6 +1137,16 @@
         <others>
             <other>metal</other>
         </others>
+        <random>
+            <probabilityMultiplier>PREFERRED</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>ARMOR</preference>
+                <preference>PRIMITIVE</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>HI_TECH</preference>
+            </forbiddenPreferences>
+        </random>
     </armor>
     <armor>
         <id>scaleMailPlastic</id>
@@ -1043,6 +1187,15 @@
         <shields>
             <shield>battleShield</shield>
         </shields>
+        <random>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>ARMOR</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>HI_TECH</preference>
+            </forbiddenPreferences>
+        </random>
     </armor>
     <armor>
         <id>scaleMailPlasteel</id>
@@ -1083,6 +1236,12 @@
         <shields>
             <shield>battleShield</shield>
         </shields>
+        <random>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>ARMOR</preference>
+            </recommendedPreferences>
+        </random>
     </armor>
     <armor>
         <id>spacesuit</id>
@@ -1137,6 +1296,15 @@
             <other>abcProtection</other>
             <other>radiationProtection</other>
         </others>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>SPACER</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>PRIMITIVE</preference>
+            </forbiddenPreferences>
+        </random>
     </armor>
     <armor>
         <id>antiquarianSpacesuit</id>
@@ -1189,6 +1357,15 @@
             <other>abcProtection</other>
             <other>radiationProtection</other>
         </others>
+        <random>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>SPACER</preference>
+            </recommendedPreferences>
+            <forbiddenPreferences>
+                <preference>PRIMITIVE</preference>
+            </forbiddenPreferences>
+        </random>
     </armor>
     <armor>
         <id>armoredSpacesuit</id>
@@ -1245,6 +1422,14 @@
             <other>abcProtection</other>
             <other>radiationProtection</other>
         </others>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>HI_TECH</preference>
+                <preference>SPACER</preference>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </armor>
     <armor>
         <id>marauderSpacesuit</id>
@@ -1300,6 +1485,13 @@
             <other>abcProtection</other>
             <other>radiationProtection</other>
         </others>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>SPACER</preference>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
     </armor>
     <armor>
         <id>synthsilk</id>
@@ -1351,6 +1543,12 @@
             <shield>assaultShield</shield>
             <shield>battleShield</shield>
         </shields>
+        <random>
+            <recommendedPreferences>
+                <preference>SOCIAL</preference>
+                <preference>STEALTH</preference>
+            </recommendedPreferences>
+        </random>
     </armor>
     <armor>
         <id>stiffsynth</id>
@@ -1445,6 +1643,9 @@
             <shield>assaultShield</shield>
             <shield>battleShield</shield>
         </shields>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </armor>
     <armor>
         <id>synthsilkCape</id>
