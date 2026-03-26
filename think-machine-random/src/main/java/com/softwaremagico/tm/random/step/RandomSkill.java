@@ -29,10 +29,10 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicDefinition;
 import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.preferences.RandomSelector;
 import com.softwaremagico.tm.random.preferences.RankValueAssignationPreference;
-import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
 import java.util.Collection;
 import java.util.Set;
@@ -60,7 +60,9 @@ public class RandomSkill extends RandomSelector<Skill> {
     @Override
     protected double getUserPreferenceBonus(Skill element) {
         double multiplier = super.getUserPreferenceBonus(element);
-        if (getPreferences().contains(RankValueAssignationPreference.SPECIALIZED)) {
+        if (getPreferences().contains(RankValueAssignationPreference.VERY_SPECIALIZED)) {
+            multiplier += Math.pow(getCharacterPlayer().getSkillValue(element), 3);
+        } else if (getPreferences().contains(RankValueAssignationPreference.SPECIALIZED)) {
             multiplier += Math.pow(getCharacterPlayer().getSkillValue(element), 2);
         } else if (getPreferences().contains(RankValueAssignationPreference.BALANCED)) {
             multiplier += Math.pow(CharacteristicDefinition.MAX_CHARACTERISTIC_VALUE
