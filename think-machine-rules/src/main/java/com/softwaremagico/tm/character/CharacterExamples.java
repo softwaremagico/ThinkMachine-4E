@@ -164,8 +164,13 @@ public final class CharacterExamples {
             final List<SkillBonusOption> options = new ArrayList<>(level.getSkillOptions().get(i).getOptions());
             for (int j = level.getSelectedSkillOptions().get(i).getSelections().size();
                  j < level.getSkillOptions().get(i).getTotalOptions(); j++) {
-                level.getSelectedSkillOptions().get(i).getSelections()
-                        .add(new Selection(options.get(j)));
+                if (characterPlayer.getSkillValue(options.get(j).getElement()) < CharacterPlayer.MAX_INITIAL_VALUE) {
+                    level.getSelectedSkillOptions().get(i).getSelections()
+                            .add(new Selection(options.get(j)));
+                } else {
+                    level.getSelectedSkillOptions().get(i).getSelections()
+                            .add(new Selection(options.get(options.size() - 1)));
+                }
             }
         }
         for (int i = 0; i < level.getNotSelectedPerksOptions(true).size(); i++) {
