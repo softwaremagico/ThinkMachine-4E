@@ -78,7 +78,7 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
         double multiplier = super.getUserPreferenceBonus(element);
         if (getPreferences().contains(RankValueAssignationPreference.VERY_SPECIALIZED)) {
             multiplier += (2 * getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName()));
-        } else if (getPreferences().contains(RankValueAssignationPreference.BALANCED)) {
+        } else if (getPreferences().contains(RankValueAssignationPreference.SPECIALIZED)) {
             multiplier += getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName());
         } else if (getPreferences().contains(RankValueAssignationPreference.BALANCED)) {
             multiplier += CharacteristicDefinition.MAX_CHARACTERISTIC_VALUE

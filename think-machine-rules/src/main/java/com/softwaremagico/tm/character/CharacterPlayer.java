@@ -387,6 +387,10 @@ public class CharacterPlayer {
             bonus -= getSkillReassignValueDecreased(skill);
             bonus += getSkillReassignValueIncreased(skill);
 
+            for (LevelSelector levelSelector : getLevels()) {
+                bonus += levelSelector.getSkillBonus(skill);
+            }
+
             checkMaxValueByLevel(skill, bonus);
 
             cacheManager.setSkillValue(skill, bonus);
@@ -493,6 +497,10 @@ public class CharacterPlayer {
             if (calling != null) {
                 final int callingBonus = calling.getCharacteristicBonus(characteristic);
                 bonus += callingBonus;
+            }
+
+            for (LevelSelector levelSelector : getLevels()) {
+                bonus += levelSelector.getCharacteristicBonus(characteristic);
             }
 
             bonus -= getCharacteristicReassignValueDecreased(characteristic);
@@ -675,6 +683,11 @@ public class CharacterPlayer {
             }
             if (calling != null) {
                 calling.getSelectedCapabilityOptions().forEach(capabilityOption ->
+                        capabilityOption.getSelections().forEach(selection ->
+                                capabilities.add(CapabilityWithSpecialization.from(selection))));
+            }
+            for (LevelSelector levelSelector : getLevels()) {
+                levelSelector.getSelectedCapabilityOptions().forEach(capabilityOption ->
                         capabilityOption.getSelections().forEach(selection ->
                                 capabilities.add(CapabilityWithSpecialization.from(selection))));
             }
@@ -981,6 +994,18 @@ public class CharacterPlayer {
         levels.add(newLevel);
         cacheManager.reset();
         return newLevel;
+    }
+
+    public void removeLevel(int level) {
+        if (level == 0) {
+            throw new InvalidLevelException("First level cannot be removed.");
+        }
+        try {
+            levels.remove(level - 2);
+            cacheManager.reset();
+        } catch (IndexOutOfBoundsException e) {
+            //Level not existing.
+        }
     }
 
     public int getBank() throws InvalidXmlElementException {

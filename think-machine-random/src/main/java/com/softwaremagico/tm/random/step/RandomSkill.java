@@ -38,6 +38,11 @@ import java.util.Collection;
 import java.util.Set;
 
 public class RandomSkill extends RandomSelector<Skill> {
+
+    private static final int VERY_SPECIALIZED_VALUE = 3;
+    private static final int SPECECIALIZED_VALUE = 2;
+    private static final int BALANCEDS_VALUE = 2;
+
     private final int bonus;
 
 
@@ -61,12 +66,12 @@ public class RandomSkill extends RandomSelector<Skill> {
     protected double getUserPreferenceBonus(Skill element) {
         double multiplier = super.getUserPreferenceBonus(element);
         if (getPreferences().contains(RankValueAssignationPreference.VERY_SPECIALIZED)) {
-            multiplier += Math.pow(getCharacterPlayer().getSkillValue(element), 3);
+            multiplier += Math.pow(getCharacterPlayer().getSkillValue(element), VERY_SPECIALIZED_VALUE);
         } else if (getPreferences().contains(RankValueAssignationPreference.SPECIALIZED)) {
-            multiplier += Math.pow(getCharacterPlayer().getSkillValue(element), 2);
+            multiplier += Math.pow(getCharacterPlayer().getSkillValue(element), SPECECIALIZED_VALUE);
         } else if (getPreferences().contains(RankValueAssignationPreference.BALANCED)) {
             multiplier += Math.pow(CharacteristicDefinition.MAX_CHARACTERISTIC_VALUE
-                    - (double) getCharacterPlayer().getSkillValue(element), 2);
+                    - (double) getCharacterPlayer().getSkillValue(element), BALANCEDS_VALUE);
         }
         return multiplier;
     }
