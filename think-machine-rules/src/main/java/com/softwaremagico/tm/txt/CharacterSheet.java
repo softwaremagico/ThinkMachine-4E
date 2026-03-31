@@ -443,6 +443,9 @@ public class CharacterSheet {
         if (getCharacterPlayer().getCashMoney() > 0) {
             stringBuilder.append(TextFactory.getInstance().getElement("firebirds").getNameRepresentation()).append(": ")
                     .append(getCharacterPlayer().getCashMoney());
+            if (getCharacterPlayer().getSpentCash() > 0) {
+                stringBuilder.append(" - ").append(getCharacterPlayer().getSpentCash());
+            }
         }
     }
 
