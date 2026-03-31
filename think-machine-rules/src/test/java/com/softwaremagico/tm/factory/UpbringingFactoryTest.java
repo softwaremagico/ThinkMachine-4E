@@ -31,7 +31,7 @@ import org.testng.annotations.Test;
 
 @Test(groups = {"upbringingFactory"})
 public class UpbringingFactoryTest {
-    private static final int DEFINED_UPBRINGINGS= 5;
+    private static final int DEFINED_UPBRINGINGS = 5;
 
 
     @Test
@@ -69,6 +69,7 @@ public class UpbringingFactoryTest {
         Assert.assertEquals(UpbringingFactory.getInstance().getElement("yeoman").getSkillOptions().size(), 5);
         Assert.assertEquals(UpbringingFactory.getInstance().getElement("yeoman").getCharacteristicOptions().size(), 5);
         Assert.assertEquals(UpbringingFactory.getInstance().getElement("yeoman").getCapabilityOptions().size(), 6);
-        Assert.assertEquals(UpbringingFactory.getInstance().getElement("yeoman").getCapabilityOptions().get(5).getOptions().size(), CapabilityFactoryTest.TOTAL_ELEMENTS);
+        Assert.assertEquals(UpbringingFactory.getInstance().getElement("yeoman").getCapabilityOptions().get(5).getOptions().size(),
+                CapabilityFactoryTest.TOTAL_EXPANDED_ELEMENTS);
     }
 }

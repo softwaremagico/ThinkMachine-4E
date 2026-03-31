@@ -31,8 +31,9 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.MachineLog;
 import com.softwaremagico.tm.log.MachineXmlReaderLog;
 
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
-import java.util.stream.Collectors;
+import java.util.List;
 
 public class CapabilityOptions extends OptionSelector<Capability, CapabilityOption> {
     @JsonIgnore
@@ -62,8 +63,9 @@ public class CapabilityOptions extends OptionSelector<Capability, CapabilityOpti
                 finalCapabilities = new LinkedHashSet<>();
                 if (super.getOptions() == null || super.getOptions().isEmpty()) {
                     try {
-                        finalCapabilities.addAll(CapabilityFactory.getInstance().getElements().stream()
-                                .map(CapabilityOption::new).collect(Collectors.toList()));
+                        CapabilityFactory.getInstance().getElements().stream()
+                                .map(CapabilityOption::new).forEach(co ->
+                                        finalCapabilities.addAll(expandCapabilitiesWithSpecializacion(co)));
                     } catch (InvalidXmlElementException e) {
                         MachineXmlReaderLog.errorMessage(this.getClass(), e);
                     }
@@ -72,28 +74,15 @@ public class CapabilityOptions extends OptionSelector<Capability, CapabilityOpti
                     for (CapabilityOption capabilityOption : super.getOptions()) {
                         if (capabilityOption.getGroup() != null) {
                             try {
-                                finalCapabilities.addAll(CapabilityFactory.getInstance().getElementsByGroup(capabilityOption.getGroup()).stream()
-                                        .map(CapabilityOption::new).collect(Collectors.toList()));
+                                CapabilityFactory.getInstance().getElementsByGroup(capabilityOption.getGroup()).stream()
+                                        .map(CapabilityOption::new).forEach(co ->
+                                                finalCapabilities.addAll(expandCapabilitiesWithSpecializacion(co)));
                             } catch (InvalidXmlElementException e) {
                                 MachineLog.errorMessage(this.getClass(), e);
                             }
                         } else {
                             //add specialities if needed
-                            final Capability capability = CapabilityFactory.getInstance().getElement(capabilityOption.getId());
-                            if (capability.getSpecializations() != null && !capability.getSpecializations().isEmpty()) {
-                                if (capabilityOption.getSelectedSpecialization() == null) {
-                                    //No specialization defined, can be any.
-                                    for (Specialization specialization : capability.getSpecializations()) {
-                                        finalCapabilities.add(new CapabilityOption(capability, specialization));
-                                    }
-                                } else {
-                                    //Specializations defined. Can be only these.
-                                    finalCapabilities.add(new CapabilityOption(capability,
-                                            capability.getSpecialization(capabilityOption.getSelectedSpecialization().getId())));
-                                }
-                            } else {
-                                finalCapabilities.add(capabilityOption);
-                            }
+                            finalCapabilities.addAll(expandCapabilitiesWithSpecializacion(capabilityOption));
                         }
                     }
                 }
@@ -102,6 +91,27 @@ public class CapabilityOptions extends OptionSelector<Capability, CapabilityOpti
             }
         }
         return finalCapabilities;
+    }
+
+    private List<CapabilityOption> expandCapabilitiesWithSpecializacion(CapabilityOption capabilityOption) {
+        final List<CapabilityOption> capabilityOptions = new ArrayList<>();
+        final Capability capability = CapabilityFactory.getInstance().getElement(capabilityOption.getId());
+        if (capability.getSpecializations() != null && !capability.getSpecializations().isEmpty()) {
+            if (capabilityOption.getSelectedSpecialization() == null) {
+                //No specialization defined, can be any.
+                for (Specialization specialization : capability.getSpecializations()) {
+                    capabilityOptions.add(new CapabilityOption(capability, specialization));
+                }
+            } else {
+                //Specializations defined. Can be only these.
+                capabilityOptions.add(new CapabilityOption(capability,
+                        capability.getSpecialization(capabilityOption.getSelectedSpecialization().getId())));
+            }
+        } else {
+            //No specielization, is itself.
+            capabilityOptions.add(capabilityOption);
+        }
+        return capabilityOptions;
     }
 
     @Override
