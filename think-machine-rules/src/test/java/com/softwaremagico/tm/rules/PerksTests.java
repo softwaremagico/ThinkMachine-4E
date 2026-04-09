@@ -24,13 +24,17 @@ package com.softwaremagico.tm.rules;
  * #L%
  */
 
+import com.softwaremagico.tm.character.CharacterExamples;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
+import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOption;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.exceptions.InvalidSelectedElementException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.Collections;
 
 @Test(groups = "perks")
 public class PerksTests {
@@ -109,7 +113,7 @@ public class PerksTests {
         characterPlayer.getCalling().getSelectedPerks().add(new Selection(PerkFactory.getInstance().getElement("investPhylactery")));
     }
 
-    @Test(enabled = false)
+    @Test
     public void investPhylacteryWithCharacteristic() {
         CharacterPlayer characterPlayer = new CharacterPlayer();
         characterPlayer.setSpecie("obun");
@@ -117,14 +121,39 @@ public class PerksTests {
         characterPlayer.setFaction("avestites");
         characterPlayer.setCalling("theurgist");
 
+        Assert.assertTrue(PerkFactory.getInstance().getElement("investPhylactery").getRestrictions().isRestricted(characterPlayer));
+
         // TODO(softwaremagico): missing level to set theurgy to 5.
+
+        CharacterExamples.populateCharacter(characterPlayer);
+
+        characterPlayer.addLevel();
+        CharacterExamples.populateLevel(characterPlayer);
+        characterPlayer.getLatestLevel().getCharacteristicOptions();
+        characterPlayer.getLatestLevel().getSelectedCharacteristicOptions().get(0).setSelections(Collections.singleton(new Selection(
+                new CharacteristicBonusOption("theurgy", 1))));
+        characterPlayer.getLatestLevel().getSelectedCharacteristicOptions().get(1).setSelections(Collections.singleton(new Selection(
+                new CharacteristicBonusOption("theurgy", 1))));
+
+        characterPlayer.addLevel();
+        CharacterExamples.populateLevel(characterPlayer);
+        characterPlayer.getLatestLevel().getSelectedCharacteristicOptions().get(0).setSelections(Collections.singleton(new Selection(
+                new CharacteristicBonusOption("theurgy", 1))));
+
+        characterPlayer.addLevel();
+        CharacterExamples.populateLevel(characterPlayer);
+        characterPlayer.getLatestLevel().getCharacteristicOptions();
+        characterPlayer.getLatestLevel().getSelectedCharacteristicOptions().get(0).setSelections(Collections.singleton(new Selection(
+                new CharacteristicBonusOption("theurgy", 1))));
+        characterPlayer.getLatestLevel().getSelectedCharacteristicOptions().get(1).setSelections(Collections.singleton(new Selection(
+                new CharacteristicBonusOption("theurgy", 1))));
 
         //Now we can add investPhylactery
         Assert.assertFalse(PerkFactory.getInstance().getElement("investPhylactery").getRestrictions().isRestricted(characterPlayer));
         characterPlayer.getCalling().getSelectedPerks().add(new Selection(PerkFactory.getInstance().getElement("investPhylactery")));
     }
 
-    @Test(enabled = false)
+    @Test
     public void masterOfDeceptionWithoutSkill() {
         CharacterPlayer characterPlayer = new CharacterPlayer();
         characterPlayer.setSpecie("human");
@@ -135,7 +164,7 @@ public class PerksTests {
         // conspiracist always have knavery to 5.
 
         //Now we can add masterOfDeception
-        Assert.assertTrue(PerkFactory.getInstance().getElement("masterOfDeception").getRestrictions().isRestricted(characterPlayer));
+        Assert.assertFalse(PerkFactory.getInstance().getElement("masterOfDeception").getRestrictions().isRestricted(characterPlayer));
         characterPlayer.getCalling().getSelectedPerks().add(new Selection(PerkFactory.getInstance().getElement("masterOfDeception")));
     }
 
