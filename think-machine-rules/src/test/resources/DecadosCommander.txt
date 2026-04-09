@@ -32,4 +32,4 @@ Equipo:
 	- Uniforme de Comandante Militar
 	- Amiguito (NT 5, Tam XS)
 
-Fénix: 300.0
+Fénix: 300.0 - -1700.0

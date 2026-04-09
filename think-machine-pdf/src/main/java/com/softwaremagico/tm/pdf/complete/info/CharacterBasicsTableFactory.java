@@ -80,7 +80,11 @@ public abstract class CharacterBasicsTableFactory extends BaseElement {
                     break;
                 case "upbringing":
                     if (characterPlayer.getUpbringing() != null) {
-                        table.addCell(getHandwrittingCell(UpbringingFactory.getInstance().getElement(characterPlayer.getUpbringing().getId()).getName(),
+                        String text = UpbringingFactory.getInstance().getElement(characterPlayer.getUpbringing().getId()).getName().getTranslatedText();
+                        if (characterPlayer.getUpbringing().isRaisedInSpace()) {
+                            text = text + " (*)";
+                        }
+                        table.addCell(getHandwrittingCell(text,
                                 Element.ALIGN_LEFT, fontSize - 1, maxWidth));
                     } else {
                         table.addCell(getHandwrittingCell("", Element.ALIGN_LEFT, fontSize - 1, maxWidth));

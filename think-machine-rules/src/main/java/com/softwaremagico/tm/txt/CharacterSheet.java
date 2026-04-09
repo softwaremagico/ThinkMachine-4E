@@ -96,6 +96,9 @@ public class CharacterSheet {
                 profession.append(ELEMENT_SEPARATOR);
             }
             profession.append(getCharacterPlayer().getUpbringing().getNameRepresentation());
+            if (characterPlayer.getUpbringing().isRaisedInSpace()) {
+                profession.append(" (").append(TextFactory.getInstance().getElement("raisedInSpace")).append(")");
+            }
         }
         if (getCharacterPlayer().getFaction() != null) {
             if (profession.length() > 0) {
@@ -444,7 +447,7 @@ public class CharacterSheet {
             stringBuilder.append(TextFactory.getInstance().getElement("firebirds").getNameRepresentation()).append(": ")
                     .append(getCharacterPlayer().getCashMoney());
             if (getCharacterPlayer().getSpentCash() > 0) {
-                stringBuilder.append(" - ").append(getCharacterPlayer().getSpentCash());
+                stringBuilder.append(" - ").append(getCharacterPlayer().getRemainingCash());
             }
         }
     }

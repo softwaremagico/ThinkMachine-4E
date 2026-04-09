@@ -105,6 +105,13 @@
             <es>Educación</es>
         </name>
     </upbringing>
+    <raisedInSpace>
+        <id>raisedInSpace</id>
+        <name>
+            <en>Raised in Space</en>
+            <es>Criado en el Espacio</es>
+        </name>
+    </raisedInSpace>
     <hair>
         <id>hair</id>
         <name>
