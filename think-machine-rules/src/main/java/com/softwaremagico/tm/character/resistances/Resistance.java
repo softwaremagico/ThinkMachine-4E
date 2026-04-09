@@ -37,6 +37,7 @@ import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
 import com.softwaremagico.tm.character.equipment.thinkmachines.ThinkMachineFactory;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
 import com.softwaremagico.tm.character.factions.FactionFactory;
+import com.softwaremagico.tm.character.level.LevelSelector;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
@@ -46,6 +47,7 @@ import com.softwaremagico.tm.xml.XmlFactory;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -142,45 +144,49 @@ public class Resistance {
     }
 
     public static Map<ResistanceType, Map<ResistanceCategory, List<Resistance>>> groupResistances(CharacterPlayer characterPlayer) {
-        final Map<ResistanceType, Map<ResistanceCategory, List<Resistance>>> resistancesByCategory = new HashMap<>();
+        final Map<ResistanceType, Map<ResistanceCategory, List<Resistance>>> resistancesByType = new EnumMap<>(ResistanceType.class);
         if (characterPlayer.getSpecie() != null) {
-            populateResistanceFromOptions(characterPlayer.getSpecie(), SpecieFactory.getInstance(), resistancesByCategory);
+            populateResistanceFromOptions(characterPlayer.getSpecie(), SpecieFactory.getInstance(), resistancesByType);
         }
         if (characterPlayer.getUpbringing() != null) {
-            populateResistanceFromOptions(characterPlayer.getUpbringing(), UpbringingFactory.getInstance(), resistancesByCategory);
+            populateResistanceFromOptions(characterPlayer.getUpbringing(), UpbringingFactory.getInstance(), resistancesByType);
         }
         if (characterPlayer.getFaction() != null) {
-            populateResistanceFromOptions(characterPlayer.getFaction(), FactionFactory.getInstance(), resistancesByCategory);
+            populateResistanceFromOptions(characterPlayer.getFaction(), FactionFactory.getInstance(), resistancesByType);
         }
         if (characterPlayer.getCalling() != null) {
-            populateResistanceFromOptions(characterPlayer.getCalling(), CallingFactory.getInstance(), resistancesByCategory);
+            populateResistanceFromOptions(characterPlayer.getCalling(), CallingFactory.getInstance(), resistancesByType);
         }
         if (characterPlayer.getBestArmor() != null) {
             characterPlayer.getBestArmor().getResistances().forEach(resistance -> {
-                resistancesByCategory.computeIfAbsent(resistance.getType(), k -> new HashMap<>());
-                resistancesByCategory.get(resistance.getType()).computeIfAbsent(resistance.getCategory(), k -> new ArrayList<>()).add(resistance);
+                resistancesByType.computeIfAbsent(resistance.getType(), k -> new HashMap<>());
+                resistancesByType.get(resistance.getType()).computeIfAbsent(resistance.getCategory(), k -> new ArrayList<>()).add(resistance);
             });
         }
         if (characterPlayer.getBestHandHandledShield() != null) {
             characterPlayer.getBestHandHandledShield().getResistances().forEach(resistance -> {
-                resistancesByCategory.computeIfAbsent(resistance.getType(), k -> new HashMap<>());
-                resistancesByCategory.get(resistance.getType()).computeIfAbsent(resistance.getCategory(), k -> new ArrayList<>()).add(resistance);
+                resistancesByType.computeIfAbsent(resistance.getType(), k -> new HashMap<>());
+                resistancesByType.get(resistance.getType()).computeIfAbsent(resistance.getCategory(), k -> new ArrayList<>()).add(resistance);
             });
         }
 
-        //TODO(softwaremagico): include level improvements here.
+        for (LevelSelector level : characterPlayer.getLevels()) {
+            populateResistanceFromOptions(level, null, resistancesByType);
+        }
 
-        return resistancesByCategory;
+        return resistancesByType;
     }
 
     private static void populateResistanceFromOptions(CharacterDefinitionStepSelection characterDefinitionStepSelection,
                                                       XmlFactory<?> xmlFactory,
                                                       Map<ResistanceType, Map<ResistanceCategory, List<Resistance>>> resistancesByCategory) {
-        //Basic resistances
-        xmlFactory.getElement(characterDefinitionStepSelection.getId()).getResistances().forEach(resistance -> {
-            resistancesByCategory.computeIfAbsent(resistance.getType(), k -> new HashMap<>());
-            resistancesByCategory.get(resistance.getType()).computeIfAbsent(resistance.getCategory(), k -> new ArrayList<>()).add(resistance);
-        });
+        if (xmlFactory != null) {
+            //Basic resistances
+            xmlFactory.getElement(characterDefinitionStepSelection.getId()).getResistances().forEach(resistance -> {
+                resistancesByCategory.computeIfAbsent(resistance.getType(), k -> new HashMap<>());
+                resistancesByCategory.get(resistance.getType()).computeIfAbsent(resistance.getCategory(), k -> new ArrayList<>()).add(resistance);
+            });
+        }
         //Resistances based on selections.
         getResistanceFromOptions(characterDefinitionStepSelection).forEach(resistance -> {
             resistancesByCategory.computeIfAbsent(resistance.getType(), k -> new HashMap<>());

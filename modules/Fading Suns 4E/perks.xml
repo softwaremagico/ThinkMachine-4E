@@ -330,6 +330,13 @@
         </name>
         <source>calling</source>
         <type>austerity</type>
+        <resistances>
+            <resistance>
+                <type>spirit</type>
+                <category>austerity</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <callings>
                 <calling>inquisitor</calling>
@@ -2217,6 +2224,13 @@
         </name>
         <source>calling</source>
         <type>austerity</type>
+        <resistances>
+            <resistance>
+                <type>spirit</type>
+                <category>austerity</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <callings>
                 <calling>dreamtender</calling>
@@ -3045,6 +3059,13 @@
         </name>
         <source>calling</source>
         <type>austerity</type>
+        <resistances>
+            <resistance>
+                <type>spirit</type>
+                <category>austerity</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <restrictions mode="any">
             <callings>
                 <calling>brotherBattle</calling>
@@ -3728,6 +3749,13 @@
         </name>
         <source>calling</source>
         <type>austerity</type>
+        <resistances>
+            <resistance>
+                <type>spirit</type>
+                <category>austerity</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <callings>
                 <calling>imperialCohortPriest</calling>
@@ -4238,7 +4266,7 @@
     <perk>
         <id>stoicMind</id>
         <name>
-            <en>Sotic Mind</en>
+            <en>Stoic Mind</en>
             <es>Mente Estoica</es>
         </name>
         <source>calling</source>
@@ -4262,7 +4290,7 @@
         <resistances>
             <resistance>
                 <type>spirit</type>
-                <category>other</category>
+                <category>ability</category>
                 <bonus>2</bonus>
             </resistance>
         </resistances>
@@ -4731,6 +4759,13 @@
         </name>
         <source>calling</source>
         <type>austerity</type>
+        <resistances>
+            <resistance>
+                <type>spirit</type>
+                <category>austerity</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
         <restrictions>
             <callings>
                 <calling>occultist</calling>
