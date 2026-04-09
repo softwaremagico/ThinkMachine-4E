@@ -58,7 +58,7 @@ public class RandomUpbringing extends RandomSelector<Upbringing> implements Assi
         }
 
         //Select Raised in space option.
-        getCharacterPlayer().getUpbringing().setRaisedInSpace(RandomRaiseInSpace.isRaisedInSpace(getPreferences()));
+        getCharacterPlayer().setRaisedInSpace(RandomRaiseInSpace.isRaisedInSpace(getPreferences()));
         RandomSelectorLog.info(this.getClass(), "Selection of Raised in Space is '{}'.",
                 getCharacterPlayer().getUpbringing().getRestrictions().isRaisedInSpace());
     }

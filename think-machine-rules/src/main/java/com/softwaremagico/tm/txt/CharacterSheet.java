@@ -96,7 +96,7 @@ public class CharacterSheet {
                 profession.append(ELEMENT_SEPARATOR);
             }
             profession.append(getCharacterPlayer().getUpbringing().getNameRepresentation());
-            if (characterPlayer.getUpbringing().isRaisedInSpace()) {
+            if (characterPlayer.isRaisedInSpace()) {
                 profession.append(" (").append(TextFactory.getInstance().getElement("raisedInSpace")).append(")");
             }
         }

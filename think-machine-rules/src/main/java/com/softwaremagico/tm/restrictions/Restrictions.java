@@ -154,7 +154,7 @@ public class Restrictions extends XmlData {
     }
 
     private boolean isRaisedInSpace(CharacterPlayer characterPlayer) {
-        return isRaisedInSpace() && characterPlayer.getUpbringing().isRaisedInSpace();
+        return isRaisedInSpace() && characterPlayer.isRaisedInSpace();
     }
 
     public boolean isRaisedInSpace() {

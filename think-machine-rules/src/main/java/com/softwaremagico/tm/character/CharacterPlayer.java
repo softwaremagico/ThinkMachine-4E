@@ -1614,4 +1614,18 @@ public class CharacterPlayer {
                 + ", level=" + getLevel()
                 + '}';
     }
+
+    public void setRaisedInSpace(boolean raisedInSpace) {
+        if (getUpbringing() != null) {
+            getUpbringing().setRaisedInSpace(raisedInSpace);
+            getCacheManager().reset();
+        }
+    }
+
+    public boolean isRaisedInSpace() {
+        if (getUpbringing() != null) {
+            return getUpbringing().isRaisedInSpace();
+        }
+        return false;
+    }
 }

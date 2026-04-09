@@ -256,7 +256,7 @@ public class CharacterRulesTests {
         characterPlayer.getInfo().setNames("Raised");
         characterPlayer.setSpecie("human");
         characterPlayer.setUpbringing("noble");
-        characterPlayer.getUpbringing().setRaisedInSpace(true);
+        characterPlayer.setRaisedInSpace(true);
 
         final CapabilityOption shipboardOperations = new CapabilityOption(CapabilityFactory.getInstance().getElement("shipboardOperations"));
         for (CapabilityOptions capabilityOptions : characterPlayer.getUpbringing().getNotRepeatedCapabilityOptions()) {
@@ -282,7 +282,7 @@ public class CharacterRulesTests {
         characterPlayer2.getInfo().setNames("NotRaised");
         characterPlayer2.setSpecie("human");
         characterPlayer2.setUpbringing("noble");
-        characterPlayer2.getUpbringing().setRaisedInSpace(false);
+        characterPlayer2.setRaisedInSpace(false);
 
         for (CapabilityOptions capabilityOptions : characterPlayer2.getUpbringing().getNotRepeatedCapabilityOptions()) {
             Assert.assertFalse(capabilityOptions.getOptions().contains(shipboardOperations));

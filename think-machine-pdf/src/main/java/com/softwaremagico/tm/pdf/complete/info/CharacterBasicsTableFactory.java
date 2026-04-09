@@ -81,7 +81,7 @@ public abstract class CharacterBasicsTableFactory extends BaseElement {
                 case "upbringing":
                     if (characterPlayer.getUpbringing() != null) {
                         String text = UpbringingFactory.getInstance().getElement(characterPlayer.getUpbringing().getId()).getName().getTranslatedText();
-                        if (characterPlayer.getUpbringing().isRaisedInSpace()) {
+                        if (characterPlayer.isRaisedInSpace()) {
                             text = text + " (*)";
                         }
                         table.addCell(getHandwrittingCell(text,
