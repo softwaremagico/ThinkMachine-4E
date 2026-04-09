@@ -61,4 +61,17 @@ public class ResistanceTests {
         //2 as knight + 1 as dervish recruit
         Assert.assertEquals(characterPlayer.getMindResistance(), 3);
     }
+
+    @Test
+    public void perkAddsSpiritResistance() {
+        CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("noble");
+        characterPlayer.setFaction("hazat");
+        characterPlayer.setCalling("dervish");
+        characterPlayer.getCalling().getSelectedPerksOptions().get(0).getSelections()
+                .add(new Selection(PerkFactory.getInstance().getElement("stoicSpirit")));
+        Assert.assertEquals(characterPlayer.getSpiritResistance(), 2);
+
+    }
 }
