@@ -5388,6 +5388,7 @@
     </perk>
     <perk>
         <id>marksmanship1</id>
+        <group>marksmanship</group>
         <name>
             <en>Marksmanship (Sharpshooter)</en>
             <es>Puntería (Buen Tirador)</es>
@@ -5429,6 +5430,7 @@
     </perk>
     <perk>
         <id>marksmanship2</id>
+        <group>marksmanship</group>
         <name>
             <en>Marksmanship (Gunslinger)</en>
             <es>Puntería (Pistolero)</es>

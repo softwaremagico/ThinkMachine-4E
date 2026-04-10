@@ -35,7 +35,7 @@ import org.testng.annotations.Test;
 
 @Test(groups = {"perkFactory"})
 public class PerkFactoryTests {
-    private static final int DEFINED_PERKS = 319;
+    private static final int DEFINED_PERKS = 320;
 
 
     @Test

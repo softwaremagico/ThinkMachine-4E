@@ -86,7 +86,7 @@
                         <id>loyaltyUntoDeath</id>
                     </perk>
                     <perk>
-                        <id>marksmanship</id>
+                        <group>marksmanship</group>
                     </perk>
                     <perk>
                         <group>martialArts</group>
@@ -1348,7 +1348,7 @@
                         <group>fencing</group>
                     </perk>
                     <perk>
-                        <id>marksmanship</id>
+                        <group>marksmanship</group>
                     </perk>
                     <perk>
                         <id>nimble</id>
@@ -1544,7 +1544,7 @@
                         <group>fencing</group>
                     </perk>
                     <perk>
-                        <id>marksmanship</id>
+                        <group>marksmanship</group>
                     </perk>
                     <perk>
                         <id>nimble</id>
@@ -4572,7 +4572,7 @@
                         <id>learningFromMistakes</id>
                     </perk>
                     <perk>
-                        <id>marksmanship</id>
+                        <group>marksmanship</group>
                     </perk>
                     <perk>
                         <group>martialArts</group>
@@ -6108,7 +6108,7 @@
                         <group>fencing</group>
                     </perk>
                     <perk>
-                        <id>marksmanship</id>
+                        <group>marksmanship</group>
                     </perk>
                     <perk>
                         <group>martialArts</group>
@@ -6935,7 +6935,7 @@
                         <id>hardBoiled</id>
                     </perk>
                     <perk>
-                        <id>marksmanship</id>
+                        <group>marksmanship</group>
                     </perk>
                 </options>
             </perkOptions>
@@ -7144,7 +7144,7 @@
                         <id>learningFromMistakes</id>
                     </perk>
                     <perk>
-                        <id>marksmanship</id>
+                        <group>marksmanship</group>
                     </perk>
                     <perk>
                         <group>martialArts</group>
@@ -7529,7 +7529,7 @@
                         <group>fencing</group>
                     </perk>
                     <perk>
-                        <id>marksmanship</id>
+                        <group>marksmanship</group>
                     </perk>
                     <perk>
                         <group>martialArts</group>
@@ -9905,7 +9905,7 @@
                         <group>fencing</group>
                     </perk>
                     <perk>
-                        <id>marksmanship</id>
+                        <group>marksmanship</group>
                     </perk>
                     <perk>
                         <id>twoGunFighting</id>

@@ -206,7 +206,7 @@ public class CharacterRulesTests {
         characterPlayer.setCalling("spy");
 
         Assert.assertEquals(characterPlayer.getCalling().getNotSelectedPerksOptions(true).get(0).getOptions().size(),
-                114);
+                115);
     }
 
     @Test

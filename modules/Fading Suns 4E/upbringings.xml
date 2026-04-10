@@ -922,7 +922,7 @@
                         <id>landed</id>
                     </perk>
                     <perk>
-                        <id>marksmanship</id>
+                        <group>marksmanship</group>
                     </perk>
                     <perk>
                         <group>martialArts</group>
