@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <capabilities>
     <capability>
         <id>combatArmor</id>
@@ -7,6 +7,10 @@
             <en>Combat Armor</en>
             <es>Armadura de Combate</es>
         </name>
+        <description>
+            <en>Training in the use, maintenance, and tactical handling of heavy combat armor and similar battlefield protection.</en>
+            <es>Entrenamiento en el uso, mantenimiento y manejo táctico de armaduras de combate y otras protecciones pesadas de campo de batalla.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>COMBAT</preference>
@@ -21,6 +25,10 @@
             <en>Handheld Shield</en>
             <es>Escudo de Mano</es>
         </name>
+        <description>
+            <en>Knowledge of how to wield and position handheld shields effectively for protection, timing, and battlefield control.</en>
+            <es>Conocimiento para emplear y colocar con eficacia escudos de mano con fines de protección, ritmo defensivo y control del combate.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>COMBAT</preference>
@@ -36,6 +44,10 @@
             <en>War Armor</en>
             <es>Armadura de Guerra</es>
         </name>
+        <description>
+            <en>Expertise with military-grade war armor, including its proper wearing, movement limits, upkeep, and combat use under battlefield conditions.</en>
+            <es>Pericia con armaduras de guerra de grado militar, incluido su uso correcto, sus límites de movilidad, su mantenimiento y su empleo en combate real.</es>
+        </description>
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
@@ -61,7 +73,6 @@
             </random>
         </restrictions>
     </capability>
-
     <capability>
         <id>militaryWeapons</id>
         <group>meleeWeapons</group>
@@ -69,6 +80,10 @@
             <en>Military Weapons</en>
             <es>Armas Militares</es>
         </name>
+        <description>
+            <en>Training with standard military melee weapons such as battlefield blades, polearms, and other formal weapons of war.</en>
+            <es>Entrenamiento con armas cuerpo a cuerpo militares estándar, como hojas de guerra, armas de asta y otras armas formales de campaña.</es>
+        </description>
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
@@ -108,13 +123,16 @@
             <en>Artifact Weapon</en>
             <es>Artefactos Cuerpo a Cuerpo</es>
         </name>
+        <description>
+            <en>Familiarity with rare or ancient melee weapons whose construction, balance, or operation differs from common arms.</en>
+            <es>Familiaridad con armas cuerpo a cuerpo raras o antiguas cuya construcción, equilibrio o uso difiere del armamento común.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>COMBAT</preference>
             </recommendedPreferences>
         </random>
     </capability>
-
     <capability>
         <id>artillery</id>
         <group>militaryOrdnance</group>
@@ -122,6 +140,10 @@
             <en>Artillery</en>
             <es>Artillería</es>
         </name>
+        <description>
+            <en>Knowledge required to operate, aim, and support artillery pieces and other heavy indirect-fire battlefield weapons.</en>
+            <es>Conocimientos necesarios para operar, apuntar y asistir piezas de artillería y otras armas pesadas de apoyo de fuego indirecto.</es>
+        </description>
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
@@ -148,6 +170,10 @@
             <en>Demolitions</en>
             <es>Demoliciones</es>
         </name>
+        <description>
+            <en>Expertise in setting, disarming, and understanding explosives, charges, breaching methods, and controlled destruction.</en>
+            <es>Pericia en colocar, desactivar y comprender explosivos, cargas, métodos de apertura y destrucción controlada.</es>
+        </description>
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
@@ -184,6 +210,10 @@
             <en>Gunnery</en>
             <es>Artillería Montada</es>
         </name>
+        <description>
+            <en>Training in mounted weapons, crew-served guns, and other fixed or vehicle-mounted ordnance.</en>
+            <es>Entrenamiento en armas montadas, cañones de dotación y otras piezas de artillería fijas o instaladas en vehículos.</es>
+        </description>
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
@@ -216,6 +246,10 @@
             <en>Musical Instrument</en>
             <es>Instrumento Musical</es>
         </name>
+        <description>
+            <en>Ability to perform with a chosen family of musical instruments, including technique, tuning, and practical musicianship.</en>
+            <es>Capacidad para interpretar una familia concreta de instrumentos musicales, incluyendo técnica, afinación y musicalidad práctica.</es>
+        </description>
         <specializations>
             <selectedSpecialization>
                 <id>brass</id>
@@ -259,7 +293,6 @@
             </recommendedPreferences>
         </random>
     </capability>
-
     <capability>
         <id>archery</id>
         <group>rangedWeapon</group>
@@ -267,6 +300,10 @@
             <en>Archery</en>
             <es>Tiro con Arco</es>
         </name>
+        <description>
+            <en>Training with bows and similar drawn projectile weapons, including aiming, draw control, and shot placement.</en>
+            <es>Entrenamiento con arcos y armas similares de proyectil tensado, incluyendo puntería, control de la tensión y colocación del disparo.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>COMBAT</preference>
@@ -284,6 +321,10 @@
             <en>Artifact Gun</en>
             <es>Artefacto a Distancia</es>
         </name>
+        <description>
+            <en>Familiarity with rare, ancient, or unusual ranged weapons that do not follow the patterns of ordinary firearms.</en>
+            <es>Familiaridad con armas a distancia raras, antiguas o inusuales que no siguen los patrones de las armas de fuego ordinarias.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>COMBAT</preference>
@@ -301,6 +342,10 @@
             <en>Energy Guns</en>
             <es>Armas de Energía</es>
         </name>
+        <description>
+            <en>Training in the operation and safe handling of energy weapons such as blasters, lasers, and similar advanced firearms.</en>
+            <es>Entrenamiento en el manejo y uso seguro de armas de energía como blásters, láseres y otras armas avanzadas equivalentes.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>COMBAT</preference>
@@ -320,6 +365,10 @@
             <en>Slug Guns</en>
             <es>Armas de Balas</es>
         </name>
+        <description>
+            <en>Training with conventional ballistic firearms that fire physical projectiles, including pistols, rifles, and similar slug throwers.</en>
+            <es>Entrenamiento con armas de fuego balísticas convencionales que disparan proyectiles físicos, como pistolas, rifles y otras armas de balas.</es>
+        </description>
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
@@ -362,6 +411,10 @@
             <en>Think Machines</en>
             <es>Máquinas Pensantes</es>
         </name>
+        <description>
+            <en>Knowledge of prohibited or advanced computational devices, their operation, and the dangers or implications of using them.</en>
+            <es>Conocimiento de dispositivos de computación prohibidos o avanzados, de su funcionamiento y de los riesgos o implicaciones de utilizarlos.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>HI_TECH</preference>
@@ -378,6 +431,10 @@
             <en>Aircraft</en>
             <es>Vehículos Aéreos</es>
         </name>
+        <description>
+            <en>Skill application for piloting or handling atmospheric aircraft and other vehicles designed for flight within a world’s skies.</en>
+            <es>Aplicación de habilidades para pilotar o manejar aeronaves atmosféricas y otros vehículos diseñados para volar dentro de la atmósfera de un mundo.</es>
+        </description>
         <random>
             <forbiddenPreferences>
                 <preference>PRIMITIVE</preference>
@@ -392,6 +449,10 @@
             <en>Beastback</en>
             <es>Monta</es>
         </name>
+        <description>
+            <en>Knowledge of riding trained beasts directly, including control, posture, pace, and animal handling under travel or combat stress.</en>
+            <es>Conocimiento para montar bestias adiestradas directamente, incluyendo control, postura, ritmo y manejo animal en viaje o combate.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>PRIMITIVE</preference>
@@ -410,6 +471,10 @@
             <en>Beastcraft</en>
             <es>Vehículos de Animales</es>
         </name>
+        <description>
+            <en>Training in the use of animal-drawn or beast-powered vehicles, wagons, sleds, and similar conveyances.</en>
+            <es>Entrenamiento en el uso de vehículos tirados por animales o impulsados por bestias, como carros, trineos y transportes semejantes.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>PRIMITIVE</preference>
@@ -428,6 +493,10 @@
             <en>Landcraft</en>
             <es>Vehículos Terrestres</es>
         </name>
+        <description>
+            <en>Knowledge for operating terrestrial vehicles across roads, wilderness, or rough ground.</en>
+            <es>Conocimiento para operar vehículos terrestres por caminos, naturaleza abierta o terreno difícil.</es>
+        </description>
     </capability>
     <capability>
         <id>spacecraft</id>
@@ -436,6 +505,10 @@
             <en>Spacecraft</en>
             <es>Vehículos Espaciales</es>
         </name>
+        <description>
+            <en>Training in the operation of spacecraft and other void-capable vessels used for interplanetary travel and maneuvering.</en>
+            <es>Entrenamiento en la operación de naves espaciales y otras embarcaciones aptas para el vacío usadas para viajar y maniobrar entre planetas.</es>
+        </description>
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
@@ -467,6 +540,10 @@
             <en>Warcraft</en>
             <es>Vehículos de Guerra</es>
         </name>
+        <description>
+            <en>Knowledge for handling military vehicles and dedicated combat craft under battlefield conditions.</en>
+            <es>Conocimiento para manejar vehículos militares y transportes específicamente bélicos en condiciones de combate.</es>
+        </description>
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
@@ -497,11 +574,14 @@
             <en>Watercraft</en>
             <es>Vehículos Acuáticos</es>
         </name>
+        <description>
+            <en>Training in the operation of boats, ships, and other surface or waterborne vehicles.</en>
+            <es>Entrenamiento en la operación de botes, barcos y otros vehículos de superficie o navegación acuática.</es>
+        </description>
         <random>
             <probabilityMultiplier>RARE</probabilityMultiplier>
         </random>
     </capability>
-
     <capability>
         <id>imagery</id>
         <group>artsLore</group>
@@ -509,6 +589,10 @@
             <en>Imagery</en>
             <es>Pintura</es>
         </name>
+        <description>
+            <en>Practical and technical knowledge of visual image-making, including painting and related representational arts.</en>
+            <es>Conocimiento práctico y técnico de la creación de imágenes visuales, incluida la pintura y artes representativas afines.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>ARTIST</preference>
@@ -522,6 +606,10 @@
             <en>Magic Lantern</en>
             <es>Linterna Mágica</es>
         </name>
+        <description>
+            <en>Knowledge of projected-image performance and visual storytelling through lantern, projection, and similar image devices.</en>
+            <es>Conocimiento de la proyección de imágenes y de la narración visual mediante linterna, proyección y dispositivos equivalentes.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>ARTIST</preference>
@@ -535,6 +623,10 @@
             <en>Poetry</en>
             <es>Poesía</es>
         </name>
+        <description>
+            <en>Craft knowledge for composing, interpreting, and performing poetic works with attention to form, meter, and meaning.</en>
+            <es>Conocimiento de oficio para componer, interpretar y recitar obras poéticas con atención a la forma, el ritmo y el significado.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>ARTIST</preference>
@@ -548,6 +640,10 @@
             <en>Sculpting</en>
             <es>Escultura</es>
         </name>
+        <description>
+            <en>Knowledge of shaping three-dimensional artistic works in stone, clay, metal, or other suitable media.</en>
+            <es>Conocimiento para dar forma a obras artísticas tridimensionales en piedra, arcilla, metal u otros materiales adecuados.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>ARTIST</preference>
@@ -561,8 +657,11 @@
             <en>Writing</en>
             <es>Escritura</es>
         </name>
+        <description>
+            <en>Ability to compose written works clearly and effectively, from practical texts to creative literature.</en>
+            <es>Capacidad para redactar textos con claridad y eficacia, desde escritos prácticos hasta literatura creativa.</es>
+        </description>
     </capability>
-
     <capability>
         <id>architecture</id>
         <group>craftsLore</group>
@@ -570,6 +669,10 @@
             <en>Architecture</en>
             <es>Arquitectura</es>
         </name>
+        <description>
+            <en>Knowledge of structural design, building planning, and the principles behind functional and aesthetic construction.</en>
+            <es>Conocimiento del diseño estructural, la planificación de edificios y los principios de una construcción funcional y estética.</es>
+        </description>
     </capability>
     <capability>
         <id>blacksmithing</id>
@@ -578,6 +681,10 @@
             <en>Blacksmithing</en>
             <es>Herrería</es>
         </name>
+        <description>
+            <en>Craft skill in forging, shaping, and finishing metal tools, fittings, and simple weapons or armor components.</en>
+            <es>Oficio de forjar, modelar y rematar herramientas metálicas, herrajes y componentes sencillos de armas o armaduras.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>PRIMITIVE</preference>
@@ -591,6 +698,10 @@
             <en>Carpentry</en>
             <es>Carpintería</es>
         </name>
+        <description>
+            <en>Knowledge of woodworking for construction, repair, fitting, and the making of practical wooden structures or items.</en>
+            <es>Conocimiento del trabajo de la madera para construir, reparar, ensamblar y fabricar estructuras u objetos útiles.</es>
+        </description>
     </capability>
     <capability>
         <id>cartography</id>
@@ -599,6 +710,10 @@
             <en>Cartography</en>
             <es>Cartografía</es>
         </name>
+        <description>
+            <en>Knowledge of mapmaking, survey notation, route representation, and the interpretation of geographic diagrams.</en>
+            <es>Conocimiento de la elaboración de mapas, notación topográfica, representación de rutas e interpretación de diagramas geográficos.</es>
+        </description>
     </capability>
     <capability>
         <id>cooking</id>
@@ -607,6 +722,10 @@
             <en>Cooking</en>
             <es>Cocina</es>
         </name>
+        <description>
+            <en>Practical knowledge of preparing, preserving, and presenting food safely and effectively.</en>
+            <es>Conocimiento práctico para preparar, conservar y presentar alimentos de manera segura y eficaz.</es>
+        </description>
     </capability>
     <capability>
         <id>jewelry</id>
@@ -615,6 +734,10 @@
             <en>Jewelry</en>
             <es>Joyería</es>
         </name>
+        <description>
+            <en>Craft knowledge for designing, setting, and making jewelry and other fine ornamental pieces.</en>
+            <es>Conocimiento artesanal para diseñar, engastar y fabricar joyas y otras piezas ornamentales de precisión.</es>
+        </description>
     </capability>
     <capability>
         <id>leatherworking</id>
@@ -623,6 +746,10 @@
             <en>Leatherworking</en>
             <es>Marroquinería</es>
         </name>
+        <description>
+            <en>Skill in treating, cutting, stitching, and shaping leather into clothing, gear, harness, and protective items.</en>
+            <es>Pericia en tratar, cortar, coser y dar forma al cuero para convertirlo en ropa, equipo, arreos y objetos protectores.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>PRIMITIVE</preference>
@@ -636,6 +763,10 @@
             <en>Locksmithing</en>
             <es>Cerrajería</es>
         </name>
+        <description>
+            <en>Technical understanding of locks, keys, tumblers, secure fittings, and related mechanisms.</en>
+            <es>Comprensión técnica de cerraduras, llaves, mecanismos de guardas y otros sistemas relacionados de seguridad física.</es>
+        </description>
     </capability>
     <capability>
         <id>masonry</id>
@@ -644,6 +775,10 @@
             <en>Masonry</en>
             <es>Mampostería</es>
         </name>
+        <description>
+            <en>Knowledge of building and repair in stone, brick, and mortar, including structural and practical concerns.</en>
+            <es>Conocimiento de construcción y reparación en piedra, ladrillo y mortero, incluyendo aspectos estructurales y prácticos.</es>
+        </description>
     </capability>
     <capability>
         <id>pottery</id>
@@ -652,6 +787,10 @@
             <en>Pottery</en>
             <es>Cerámica</es>
         </name>
+        <description>
+            <en>Craft knowledge for shaping, firing, glazing, and finishing ceramic vessels and objects.</en>
+            <es>Conocimiento artesanal para modelar, cocer, esmaltar y terminar recipientes y objetos cerámicos.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>PRIMITIVE</preference>
@@ -665,6 +804,10 @@
             <en>Tailoring</en>
             <es>Sastrería</es>
         </name>
+        <description>
+            <en>Skill in measuring, cutting, fitting, and sewing garments for function, status, or style.</en>
+            <es>Pericia en medir, cortar, ajustar y coser prendas con fines funcionales, de estatus o de estilo.</es>
+        </description>
     </capability>
     <capability>
         <id>weaving</id>
@@ -673,6 +816,10 @@
             <en>Weaving</en>
             <es>Tejeduría</es>
         </name>
+        <description>
+            <en>Knowledge of producing cloth and textiles through loom work, patterning, and fiber handling.</en>
+            <es>Conocimiento de la producción de tela y tejidos mediante telar, patrones y tratamiento de fibras.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>PRIMITIVE</preference>
@@ -686,6 +833,10 @@
             <en>Cathedral Customs</en>
             <es>Usos de la Catedral</es>
         </name>
+        <description>
+            <en>Understanding of Church etiquette, hierarchy, expectations, and proper conduct in religious institutions and clergy circles.</en>
+            <es>Comprensión de la etiqueta eclesiástica, la jerarquía, las expectativas y la conducta adecuada en instituciones religiosas y círculos clericales.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>CHURCH</preference>
@@ -700,6 +851,10 @@
             <en>Commons Customs</en>
             <es>Usos del Vulgo</es>
         </name>
+        <description>
+            <en>Knowledge of ordinary people’s habits, expectations, manners, and accepted social behavior among the common folk.</en>
+            <es>Conocimiento de los hábitos, expectativas, modales y conductas sociales aceptadas entre la gente del común.</es>
+        </description>
     </capability>
     <capability>
         <id>courtCustoms</id>
@@ -708,6 +863,10 @@
             <en>Court Customs</en>
             <es>Usos de la Corte</es>
         </name>
+        <description>
+            <en>Understanding of noble etiquette, political manners, status rituals, and expected conduct in courtly settings.</en>
+            <es>Comprensión de la etiqueta nobiliaria, los modales políticos, los rituales de estatus y la conducta esperada en ambientes cortesanos.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>SOCIAL</preference>
@@ -721,6 +880,10 @@
             <en>Streetwise</en>
             <es>Bajos Fondos</es>
         </name>
+        <description>
+            <en>Knowledge of criminal circles, underworld behavior, urban danger signs, and informal networks outside respectable society.</en>
+            <es>Conocimiento de los círculos criminales, las costumbres del hampa, las señales de peligro urbano y las redes informales fuera de la sociedad respetable.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>STEALTH</preference>
@@ -731,7 +894,6 @@
             </recommendedPreferences>
         </random>
     </capability>
-
     <capability>
         <id>beastLore</id>
         <group>knowledgeLore</group>
@@ -739,6 +901,10 @@
             <en>Beast Lore</en>
             <es>Saber Animal</es>
         </name>
+        <description>
+            <en>Lore concerning animals, beasts, and their behavior, habitats, handling, and noteworthy traits within a chosen region.</en>
+            <es>Saber sobre animales y bestias, su conducta, hábitats, manejo y rasgos destacados dentro de una región escogida.</es>
+        </description>
         <specializations>
             <selectedSpecialization>
                 <id>knownWorlds</id>
@@ -769,6 +935,10 @@
             <en>Faction Lore</en>
             <es>Saber de Facción</es>
         </name>
+        <description>
+            <en>Detailed knowledge of a chosen faction’s history, structure, customs, key figures, politics, and internal culture.</en>
+            <es>Conocimiento detallado de la historia, estructura, costumbres, figuras relevantes, política y cultura interna de una facción concreta.</es>
+        </description>
         <specializations>
             <selectedSpecialization>
                 <id>hawkwood</id>
@@ -898,6 +1068,10 @@
             <en>History Lore</en>
             <es>Saber de Historia</es>
         </name>
+        <description>
+            <en>Knowledge of past events, timelines, causes, and consequences relevant to the Known Worlds and their peoples.</en>
+            <es>Conocimiento de hechos pasados, cronologías, causas y consecuencias relevantes para los Mundos Conocidos y sus pueblos.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>KNOWLEDGE</preference>
@@ -911,6 +1085,10 @@
             <en>Jumpweb Lore</en>
             <es>Saber de Red de Salto</es>
         </name>
+        <description>
+            <en>Understanding of jump routes, known worlds connections, travel pathways, and the practical structure of the jumpweb.</en>
+            <es>Comprensión de rutas de salto, conexiones entre mundos conocidos, trayectos de viaje y la estructura práctica de la red de salto.</es>
+        </description>
         <specializations>
             <selectedSpecialization>
                 <id>knownWorlds</id>
@@ -940,6 +1118,10 @@
             <en>Occult Lore</en>
             <es>Saber Oculto</es>
         </name>
+        <description>
+            <en>Knowledge of hidden traditions, supernatural beliefs, forbidden practices, and esoteric phenomena.</en>
+            <es>Conocimiento de tradiciones ocultas, creencias sobrenaturales, prácticas prohibidas y fenómenos esotéricos.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>OCCULTIST</preference>
@@ -955,6 +1137,10 @@
             <en>Planet Lore</en>
             <es>Saber Planetario</es>
         </name>
+        <description>
+            <en>Knowledge of a particular planet, including geography, settlements, climate, culture, notable powers, and local conditions.</en>
+            <es>Conocimiento de un planeta concreto, incluyendo geografía, asentamientos, clima, cultura, poderes destacados y condiciones locales.</es>
+        </description>
         <specializations>
             <selectedSpecialization>
                 <id>sutek</id>
@@ -1229,6 +1415,10 @@
             <en>Read</en>
             <es>Leer</es>
         </name>
+        <description>
+            <en>Basic literacy and the ability to interpret written language, manuscripts, records, and similar texts.</en>
+            <es>Alfabetización básica y capacidad para interpretar lenguaje escrito, manuscritos, registros y textos similares.</es>
+        </description>
         <specializations>
             <selectedSpecialization>
                 <id>urthish</id>
@@ -1275,6 +1465,10 @@
             <en>Religion Lore</en>
             <es>Saber Religioso</es>
         </name>
+        <description>
+            <en>Knowledge of doctrine, saints, rituals, sects, scripture, and religious history.</en>
+            <es>Conocimiento de doctrina, santos, rituales, sectas, escrituras e historia religiosa.</es>
+        </description>
         <specializations>
             <selectedSpecialization>
                 <id>churchOfTheCelestialSun</id>
@@ -1338,6 +1532,10 @@
             <en>Shipboard Operations</en>
             <es>Operaciones a Bordo</es>
         </name>
+        <description>
+            <en>Practical understanding of shipboard routines, command procedures, maintenance tasks, and the daily functioning of a vessel.</en>
+            <es>Comprensión práctica de las rutinas de a bordo, procedimientos de mando, tareas de mantenimiento y funcionamiento diario de una nave.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>SPACER</preference>
@@ -1351,6 +1549,10 @@
             <en>Speak</en>
             <es>Hablar</es>
         </name>
+        <description>
+            <en>Fluency in a chosen spoken language or tongue, allowing normal communication and comprehension.</en>
+            <es>Fluidez en una lengua o idioma hablado concreto, que permite comunicarse y comprenderlo con normalidad.</es>
+        </description>
         <specializations>
             <selectedSpecialization>
                 <id>urthish</id>
@@ -1452,6 +1654,10 @@
             <en>Warfare Lore</en>
             <es>Saber Marcial</es>
         </name>
+        <description>
+            <en>Knowledge of military history, doctrine, logistics, strategy, tactics, and the conduct of war.</en>
+            <es>Conocimiento de historia militar, doctrina, logística, estrategia, táctica y conducción de la guerra.</es>
+        </description>
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
@@ -1479,6 +1685,10 @@
             <en>Xeno Lore</en>
             <es>Saber Alienígena</es>
         </name>
+        <description>
+            <en>Knowledge of a particular alien species, including physiology, behavior, customs, and social context.</en>
+            <es>Conocimiento de una especie alienígena concreta, incluyendo fisiología, conducta, costumbres y contexto social.</es>
+        </description>
         <selectedSpecialization>
             <id>obun</id>
             <name>
@@ -1555,6 +1765,10 @@
             <en>Disease Lore</en>
             <es>Saber Enfermedades</es>
         </name>
+        <description>
+            <en>Medical knowledge concerning illnesses, symptoms, contagion, progression, and diagnosis.</en>
+            <es>Conocimiento médico relativo a enfermedades, síntomas, contagio, evolución y diagnóstico.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>KNOWLEDGE</preference>
@@ -1568,6 +1782,10 @@
             <en>Poison Lore</en>
             <es>Saber Venenos</es>
         </name>
+        <description>
+            <en>Knowledge of toxins, venoms, harmful substances, their effects, detection, and treatment.</en>
+            <es>Conocimiento de toxinas, venenos, sustancias nocivas, sus efectos, detección y tratamiento.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>KNOWLEDGE</preference>
@@ -1584,6 +1802,10 @@
             <en>Surgery Lore</en>
             <es>Saber Cirugía</es>
         </name>
+        <description>
+            <en>Practical and theoretical medical knowledge needed for invasive treatment, surgical procedures, and anatomical intervention.</en>
+            <es>Conocimiento médico práctico y teórico necesario para tratamientos invasivos, procedimientos quirúrgicos e intervención anatómica.</es>
+        </description>
         <restrictions mode="any">
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -1610,6 +1832,10 @@
             <en>Torture Lore</en>
             <es>Saber Tortura</es>
         </name>
+        <description>
+            <en>Knowledge of coercive pain methods, restraint, endurance limits, and the grim techniques of torture.</en>
+            <es>Conocimiento de métodos coactivos basados en el dolor, inmovilización, límites de resistencia y técnicas siniestras de tortura.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>KNOWLEDGE</preference>
@@ -1624,6 +1850,10 @@
             <en>Cybernetics Lore</en>
             <es>Saber Cibernética</es>
         </name>
+        <description>
+            <en>Medical and technical knowledge of cybernetic implants, interfaces, integration, maintenance, and bodily impact.</en>
+            <es>Conocimiento médico y técnico sobre implantes cibernéticos, interfaces, integración, mantenimiento y su impacto corporal.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>KNOWLEDGE</preference>
@@ -1631,7 +1861,6 @@
             </recommendedPreferences>
         </random>
     </capability>
-
     <capability>
         <id>dance</id>
         <group>performingArtsLore</group>
@@ -1639,6 +1868,10 @@
             <en>Dance</en>
             <es>Danza</es>
         </name>
+        <description>
+            <en>Ability to perform choreographed or expressive movement with control, rhythm, and style.</en>
+            <es>Capacidad para ejecutar movimiento coreografiado o expresivo con control, ritmo y estilo.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>ARTIST</preference>
@@ -1652,6 +1885,10 @@
             <en>Magic</en>
             <es>Magia</es>
         </name>
+        <description>
+            <en>Stagecraft knowledge for illusion, sleight of hand, misdirection, and theatrical magical performance.</en>
+            <es>Conocimiento escénico para ilusionismo, prestidigitación, distracción de la atención y actuación mágica teatral.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>ARTIST</preference>
@@ -1665,6 +1902,10 @@
             <en>Music</en>
             <es>Música</es>
         </name>
+        <description>
+            <en>General practical understanding of musical performance, structure, timing, and ensemble use.</en>
+            <es>Comprensión práctica general de la interpretación musical, su estructura, el ritmo y el trabajo en conjunto.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>ARTIST</preference>
@@ -1678,6 +1919,10 @@
             <en>Oratory</en>
             <es>Oratoria</es>
         </name>
+        <description>
+            <en>Training in formal speech, rhetoric, projection, and persuasive public speaking.</en>
+            <es>Entrenamiento en discurso formal, retórica, proyección de voz y oratoria persuasiva ante público.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>CHURCH</preference>
@@ -1691,6 +1936,10 @@
             <en>Song</en>
             <es>Canto</es>
         </name>
+        <description>
+            <en>Ability to sing with control, tone, phrasing, and expressive performance.</en>
+            <es>Capacidad para cantar con control, afinación, fraseo y expresividad interpretativa.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>ARTIST</preference>
@@ -1704,13 +1953,16 @@
             <en>Theatre</en>
             <es>Teatro</es>
         </name>
+        <description>
+            <en>Knowledge of dramatic performance, stage presence, characterization, and theatrical technique.</en>
+            <es>Conocimiento de interpretación dramática, presencia escénica, caracterización y técnica teatral.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>ARTIST</preference>
             </recommendedPreferences>
         </random>
     </capability>
-
     <capability>
         <id>appliedScience</id>
         <group>scienceLore</group>
@@ -1718,6 +1970,10 @@
             <en>Applied Science</en>
             <es>Ciencias Aplicadas</es>
         </name>
+        <description>
+            <en>Practical scientific knowledge used to solve technical problems, build workable solutions, and apply theory to reality.</en>
+            <es>Conocimiento científico práctico empleado para resolver problemas técnicos, crear soluciones funcionales y aplicar la teoría a la realidad.</es>
+        </description>
         <restrictions>
             <upbringings>
                 <upbringing>merchant</upbringing>
@@ -1741,6 +1997,10 @@
             <en>Artificial Intelligence</en>
             <es>Inteligencia Artificial</es>
         </name>
+        <description>
+            <en>Knowledge of machine cognition, autonomous systems, and the theory or practice behind artificial intelligence.</en>
+            <es>Conocimiento de cognición maquinal, sistemas autónomos y de la teoría o práctica de la inteligencia artificial.</es>
+        </description>
         <restrictions mode="any_character_definition">
             <upbringings>
                 <upbringing>merchant</upbringing>
@@ -1768,6 +2028,10 @@
             <en>Life Science</en>
             <es>Ciencias de la Vida</es>
         </name>
+        <description>
+            <en>Scientific knowledge of living systems, biology, ecology, growth, and related natural processes.</en>
+            <es>Conocimiento científico de sistemas vivos, biología, ecología, crecimiento y procesos naturales relacionados.</es>
+        </description>
     </capability>
     <capability>
         <id>physicalScience</id>
@@ -1776,6 +2040,10 @@
             <en>Physical Science</en>
             <es>Ciencias Naturales</es>
         </name>
+        <description>
+            <en>Scientific knowledge of matter, energy, motion, forces, and the fundamental workings of the physical world.</en>
+            <es>Conocimiento científico de la materia, la energía, el movimiento, las fuerzas y el funcionamiento fundamental del mundo físico.</es>
+        </description>
         <restrictions>
             <upbringings>
                 <upbringing>merchant</upbringing>
@@ -1797,6 +2065,10 @@
             <en>Terraforming</en>
             <es>Terraformación</es>
         </name>
+        <description>
+            <en>Knowledge of planetary engineering, biosphere shaping, atmospheric alteration, and large-scale environmental design.</en>
+            <es>Conocimiento de ingeniería planetaria, modelado de biosferas, alteración atmosférica y diseño ambiental a gran escala.</es>
+        </description>
         <restrictions>
             <upbringings>
                 <upbringing>merchant</upbringing>
@@ -1808,7 +2080,6 @@
             </recommendedPreferences>
         </random>
     </capability>
-
     <capability>
         <id>techLore5</id>
         <group>techLore</group>
@@ -1816,6 +2087,10 @@
             <en>Tech Lore (TL5)</en>
             <es>Saber Tecnológico (NT 5)</es>
         </name>
+        <description>
+            <en>Understanding of technological principles and devices up to Tech Level 5, including operation, identification, and practical use.</en>
+            <es>Comprensión de principios y dispositivos tecnológicos hasta Nivel Tecnológico 5, incluyendo su uso, identificación y aplicación práctica.</es>
+        </description>
         <random>
             <recommendedPreferences>
                 <preference>HI_TECH</preference>
@@ -1836,6 +2111,10 @@
             <en>Tech Lore (TL6)</en>
             <es>Saber Tecnológico (NT 6)</es>
         </name>
+        <description>
+            <en>Understanding of technological principles and devices up to Tech Level 6, including operation, identification, and practical use.</en>
+            <es>Comprensión de principios y dispositivos tecnológicos hasta Nivel Tecnológico 6, incluyendo su uso, identificación y aplicación práctica.</es>
+        </description>
         <restrictions mode="any_character_definition">
             <factions>
                 <faction>brotherBattle</faction>
@@ -1881,6 +2160,10 @@
             <en>Tech Lore (TL7)</en>
             <es>Saber Tecnológico (NT 7)</es>
         </name>
+        <description>
+            <en>Understanding of technological principles and devices up to Tech Level 7, including operation, identification, and practical use.</en>
+            <es>Comprensión de principios y dispositivos tecnológicos hasta Nivel Tecnológico 7, incluyendo su uso, identificación y aplicación práctica.</es>
+        </description>
         <restrictions mode="any_character_definition">
             <factions>
                 <faction>brotherBattle</faction>
@@ -1924,6 +2207,10 @@
             <en>Tech Lore (TL8)</en>
             <es>Saber Tecnológico (NT 8)</es>
         </name>
+        <description>
+            <en>Understanding of technological principles and devices up to Tech Level 8, including operation, identification, and practical use.</en>
+            <es>Comprensión de principios y dispositivos tecnológicos hasta Nivel Tecnológico 8, incluyendo su uso, identificación y aplicación práctica.</es>
+        </description>
         <restrictions mode="any_character_definition">
             <upbringings>
                 <upbringing>merchant</upbringing>
@@ -1953,6 +2240,10 @@
             <en>Weird Tech</en>
             <es>Tecnología Extraña</es>
         </name>
+        <description>
+            <en>Knowledge of strange, obscure, or irregular technologies that fall outside normal technical expectations, often in unsettling or poorly understood ways.</en>
+            <es>Conocimiento de tecnologías extrañas, oscuras o irregulares que quedan fuera de las expectativas técnicas normales, a menudo de formas inquietantes o mal comprendidas.</es>
+        </description>
         <specializations>
             <selectedSpecialization>
                 <id>soulShard</id>
