@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <characteristics>
     <characteristicDefinition>
         <id>strength</id>
@@ -6,6 +6,10 @@
             <en>Strength</en>
             <es>Fuerza</es>
         </name>
+        <description>
+            <en>Represents raw physical power and muscular force. Strength governs feats that rely on lifting, striking hard, overpowering resistance, and applying bodily force.</en>
+            <es>Representa la potencia física bruta y la fuerza muscular. La Fuerza gobierna las proezas que dependen de levantar peso, golpear con dureza, superar resistencia y aplicar fuerza corporal.</es>
+        </description>
         <abbreviation>
             <en>Str</en>
             <es>Fue</es>
@@ -30,6 +34,10 @@
             <en>Dexterity</en>
             <es>Destreza</es>
         </name>
+        <description>
+            <en>Represents coordination, agility, manual control, and precise bodily movement. Dexterity is used when success depends on quick hands, balance, careful motion, or physical finesse.</en>
+            <es>Representa la coordinación, la agilidad, el control manual y el movimiento corporal preciso. La Destreza se usa cuando el éxito depende de manos rápidas, equilibrio, movimientos cuidados o finura física.</es>
+        </description>
         <abbreviation>
             <en>Dex</en>
             <es>Des</es>
@@ -50,6 +58,10 @@
             <en>Endurance</en>
             <es>Constitución</es>
         </name>
+        <description>
+            <en>Represents toughness, stamina, resilience, and the capacity to withstand hardship. Endurance measures how well a character resists fatigue, injury, strain, and bodily punishment.</en>
+            <es>Representa la dureza, la resistencia, el aguante y la capacidad de soportar penalidades. La Constitución mide lo bien que un personaje resiste fatiga, heridas, esfuerzo y castigo físico.</es>
+        </description>
         <abbreviation>
             <en>End</en>
             <es>Con</es>
@@ -74,6 +86,10 @@
             <en>Wits</en>
             <es>Inteligencia</es>
         </name>
+        <description>
+            <en>Represents intellect, analysis, and mental quickness. Wits determines how well you reason, remember, solve problems, and understand complex matters.</en>
+            <es>Representa el intelecto, la capacidad analítica y la rapidez mental. La Inteligencia determina lo bien que razonas, recuerdas, resuelves problemas y comprendes asuntos complejos.</es>
+        </description>
         <abbreviation>
             <en>Wits</en>
             <es>Intl</es>
@@ -97,6 +113,10 @@
             <en>Perception</en>
             <es>Percepción</es>
         </name>
+        <description>
+            <en>Represents alertness, sensory acuity, and awareness of the environment. Perception is used to notice hidden details, detect danger, and recognize changes around you.</en>
+            <es>Representa la alerta, la agudeza sensorial y la consciencia del entorno. La Percepción se usa para advertir detalles ocultos, detectar peligro y reconocer cambios a tu alrededor.</es>
+        </description>
         <abbreviation>
             <en>Per</en>
             <es>Per</es>
@@ -112,6 +132,10 @@
             <en>Will</en>
             <es>Voluntad</es>
         </name>
+        <description>
+            <en>Represents self-control, resolve, and mental discipline. Will measures how well you resist fear, confusion, deception, and other pressures that try to shake your composure or conviction.</en>
+            <es>Representa el autocontrol, la determinación y la disciplina mental. La Voluntad mide lo bien que resistes el miedo, la confusión, el engaño y otras presiones que intentan quebrar tu compostura o tu convicción.</es>
+        </description>
         <abbreviation>
             <en>Will</en>
             <es>Vol</es>
@@ -132,6 +156,10 @@
             <en>Presence</en>
             <es>Presencia</es>
         </name>
+        <description>
+            <en>Represents force of personality, charisma, and the weight of your personal bearing. Presence is used to impress others, dominate attention, and project authority or importance.</en>
+            <es>Representa la fuerza de personalidad, el carisma y el peso de tu porte personal. La Presencia se usa para impresionar a otros, dominar la atención y proyectar autoridad o importancia.</es>
+        </description>
         <abbreviation>
             <en>Pre</en>
             <es>Pre</es>
@@ -152,6 +180,10 @@
             <en>Intuition</en>
             <es>Intuición</es>
         </name>
+        <description>
+            <en>Represents instinct, empathy, and subtle spiritual sensitivity. Intuition helps you read people, sense emotional truth, follow hunches, and act on refined inner judgment.</en>
+            <es>Representa el instinto, la empatía y la sensibilidad espiritual sutil. La Intuición te ayuda a leer a las personas, percibir la verdad emocional, seguir corazonadas y actuar según un juicio interior refinado.</es>
+        </description>
         <abbreviation>
             <en>Int</en>
             <es>Int</es>
@@ -166,6 +198,10 @@
             <en>Faith</en>
             <es>Fe</es>
         </name>
+        <description>
+            <en>Represents spiritual conviction, devotion, and inner certainty. Faith reflects the strength of belief that sustains you, grounds your ideals, and supports acts tied to devotion and higher purpose.</en>
+            <es>Representa la convicción espiritual, la devoción y la certeza interior. La Fe refleja la fuerza de la creencia que te sostiene, fundamenta tus ideales y respalda actos ligados a la devoción y a un propósito superior.</es>
+        </description>
         <abbreviation>
             <en>Fth</en>
             <es>Fe</es>
@@ -186,6 +222,10 @@
             <en>Initiative</en>
             <es>Iniciativa</es>
         </name>
+        <description>
+            <en>A derived combat value that determines how quickly you act in turn order. Initiative is not normally chosen like a standard characteristic.</en>
+            <es>Un valor derivado de combate que determina la rapidez con la que actúas en el orden de turnos. La Iniciativa no se elige normalmente como una característica estándar.</es>
+        </description>
         <abbreviation>
             <en>Ini</en>
             <es>Ini</es>
@@ -203,6 +243,10 @@
             <en>Movement</en>
             <es>Movimiento</es>
         </name>
+        <description>
+            <en>A derived value representing how far and how effectively you can move. Movement reflects your speed across the battlefield or scene rather than a selectable core trait.</en>
+            <es>Un valor derivado que representa cuánto y con qué eficacia puedes desplazarte. El Movimiento refleja tu velocidad a través del campo de batalla o la escena, más que un rasgo básico seleccionable.</es>
+        </description>
         <abbreviation>
             <en>Mv</en>
             <es>Mv</es>
@@ -220,6 +264,10 @@
             <en>Theurgy</en>
             <es>Teurgia</es>
         </name>
+        <description>
+            <en>Represents awakened sacred power rooted in faith. Theurgy measures a character’s connection to miraculous rites and determines access to and potency with theurgic workings.</en>
+            <es>Representa el poder sagrado despertado y arraigado en la fe. La Teurgia mide la conexión de un personaje con los ritos milagrosos y determina su acceso y potencia con las obras teúrgicas.</es>
+        </description>
         <abbreviation>
             <en>The</en>
             <es>Teu</es>
@@ -247,6 +295,10 @@
             <en>Hubris</en>
             <es>Orgullo</es>
         </name>
+        <description>
+            <en>Represents the spiritual corruption and dangerous pride that oppose Theurgy. Hubris rises as a character is tainted by misuse, transgression, or forces opposed to humble faith.</en>
+            <es>Representa la corrupción espiritual y el orgullo peligroso que se oponen a la Teurgia. El Orgullo aumenta cuando un personaje queda mancillado por abuso, transgresión o fuerzas contrarias a la fe humilde.</es>
+        </description>
         <abbreviation>
             <en>Hubris</en>
             <es>Orgullo</es>
@@ -270,6 +322,10 @@
             <en>Psi</en>
             <es>Psi</es>
         </name>
+        <description>
+            <en>Represents awakened psychic power of the mind. Psi measures a character’s mental gift and determines access to and potency with psychic powers.</en>
+            <es>Representa el poder psíquico despertado de la mente. Psi mide el don mental de un personaje y determina su acceso y potencia con los poderes psíquicos.</es>
+        </description>
         <abbreviation>
             <en>Psi</en>
             <es>Psi</es>
@@ -300,6 +356,10 @@
             <en>Urge</en>
             <es>Ansia</es>
         </name>
+        <description>
+            <en>Represents the dangerous inner drive and dark pressure that oppose Psi. Urge reflects the unstable, often destructive force that grows alongside psychic temptation and excess.</en>
+            <es>Representa el impulso interior peligroso y la presión oscura que se oponen a Psi. El Ansia refleja la fuerza inestable, a menudo destructiva, que crece junto a la tentación y al exceso psíquico.</es>
+        </description>
         <abbreviation>
             <en>Urge</en>
             <es>Ansia</es>

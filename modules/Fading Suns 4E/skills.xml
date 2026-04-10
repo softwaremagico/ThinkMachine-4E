@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <skills>
     <skill>
         <type>skill</type>
@@ -7,6 +7,10 @@
             <en>Academia</en>
             <es>Academia</es>
         </name>
+        <description>
+            <en>Knowledge of scholarly subjects, research, and formal education. Used for recalling facts, theory, and academic disciplines.</en>
+            <es>Conocimiento de materias académicas, investigación y educación formal. Se usa para recordar hechos, teorías y disciplinas académicas.</es>
+        </description>
     </skill>
     <skill>
         <type>skill</type>
@@ -15,6 +19,10 @@
             <en>Alchemy</en>
             <es>Alquimia</es>
         </name>
+        <description>
+            <en>Understanding of chemical processes, mixtures, and transformative substances, often tied to esoteric or scientific practices.</en>
+            <es>Conocimiento de procesos químicos, mezclas y sustancias transformadoras, a menudo ligado a prácticas esotéricas o científicas.</es>
+        </description>
         <restrictions>
             <factions>
                 <faction>engineers</faction>
@@ -42,6 +50,10 @@
             <en>Animalia</en>
             <es>Trato con Animales</es>
         </name>
+        <description>
+            <en>Ability to handle, train, and understand animals and their behavior.</en>
+            <es>Capacidad para tratar, entrenar y comprender a los animales y su comportamiento.</es>
+        </description>
     </skill>
     <skill>
         <type>skill</type>
@@ -50,6 +62,10 @@
             <en>Arts</en>
             <es>Arte</es>
         </name>
+        <description>
+            <en>Skill in creative expression such as music, painting, and other artistic forms.</en>
+            <es>Habilidad en la expresión creativa como la música, la pintura y otras formas artísticas.</es>
+        </description>
     </skill>
     <skill>
         <type>skill</type>
@@ -58,6 +74,10 @@
             <en>Charm</en>
             <es>Encanto</es>
         </name>
+        <description>
+            <en>Ability to persuade and influence others through friendliness and charisma.</en>
+            <es>Capacidad para persuadir e influir en otros mediante simpatía y carisma.</es>
+        </description>
     </skill>
     <skill>
         <type>skill</type>
@@ -66,6 +86,10 @@
             <en>Crafts</en>
             <es>Oficios</es>
         </name>
+        <description>
+            <en>Practical skill in making, repairing, and building objects.</en>
+            <es>Habilidad práctica para fabricar, reparar y construir objetos.</es>
+        </description>
     </skill>
     <skill>
         <type>skill</type>
@@ -74,6 +98,10 @@
             <en>Disguise</en>
             <es>Disfraz</es>
         </name>
+        <description>
+            <en>Ability to alter appearance and impersonate others convincingly.</en>
+            <es>Capacidad para cambiar la apariencia e imitar a otros de forma convincente.</es>
+        </description>
     </skill>
     <skill>
         <type>skill</type>
@@ -82,6 +110,10 @@
             <en>Drive</en>
             <es>Conducir</es>
         </name>
+        <description>
+            <en>Skill in operating ground vehicles and controlling movement in difficult conditions.</en>
+            <es>Habilidad para conducir vehículos terrestres y controlar el movimiento en condiciones difíciles.</es>
+        </description>
     </skill>
     <skill>
         <type>skill</type>
@@ -90,6 +122,10 @@
             <en>Empathy</en>
             <es>Empatía</es>
         </name>
+        <description>
+            <en>Ability to understand emotions and intentions of others.</en>
+            <es>Capacidad para comprender las emociones e intenciones de los demás.</es>
+        </description>
     </skill>
     <skill>
         <type>skill</type>
@@ -98,6 +134,10 @@
             <en>Fight</en>
             <es>Pelear</es>
         </name>
+        <description>
+            <en>General skill for unarmed combat and physical confrontation.</en>
+            <es>Habilidad general para el combate sin armas y el enfrentamiento físico.</es>
+        </description>
     </skill>
     <skill>
         <type>skill</type>
@@ -106,6 +146,10 @@
             <en>Focus</en>
             <es>Introspección</es>
         </name>
+        <description>
+            <en>Mental discipline, concentration, and inner control.</en>
+            <es>Disciplina mental, concentración y control interior.</es>
+        </description>
     </skill>
     <skill>
         <type>skill</type>
@@ -114,6 +158,10 @@
             <en>Impress</en>
             <es>Impresionar</es>
         </name>
+        <description>
+            <en>Ability to command attention and make a strong social impact.</en>
+            <es>Capacidad para atraer atención y causar una fuerte impresión social.</es>
+        </description>
     </skill>
     <skill>
         <type>skill</type>
@@ -122,6 +170,10 @@
             <en>Interface</en>
             <es>Interfaz</es>
         </name>
+        <description>
+            <en>Skill in interacting with advanced technology and systems.</en>
+            <es>Habilidad para interactuar con tecnología avanzada y sistemas.</es>
+        </description>
         <restrictions>
             <raisedInSpace>true</raisedInSpace>
             <factions>
@@ -151,6 +203,10 @@
             <en>Intrusion</en>
             <es>Intrusión</es>
         </name>
+        <description>
+            <en>Ability to bypass security, hack systems, or infiltrate protected areas.</en>
+            <es>Capacidad para sortear seguridad, piratear sistemas o infiltrarse en áreas protegidas.</es>
+        </description>
     </skill>
     <skill>
         <type>skill</type>
@@ -159,6 +215,10 @@
             <en>Knavery</en>
             <es>Charalatanería</es>
         </name>
+        <description>
+            <en>Skill in deceit, trickery, and underhanded dealings.</en>
+            <es>Habilidad en el engaño, la manipulación y las actividades poco honestas.</es>
+        </description>
     </skill>
     <skill>
         <type>skill</type>
@@ -167,6 +227,10 @@
             <en>Melee</en>
             <es>Cuerpo a Cuerpo</es>
         </name>
+        <description>
+            <en>Skill in close combat using weapons.</en>
+            <es>Habilidad en combate cercano con armas.</es>
+        </description>
     </skill>
     <skill>
         <type>skill</type>
@@ -175,6 +239,10 @@
             <en>Observe</en>
             <es>Observar</es>
         </name>
+        <description>
+            <en>Ability to notice details and detect hidden information.</en>
+            <es>Capacidad para notar detalles y detectar información oculta.</es>
+        </description>
     </skill>
     <skill>
         <type>skill</type>
@@ -183,6 +251,10 @@
             <en>Perform</en>
             <es>Representar</es>
         </name>
+        <description>
+            <en>Skill in acting, entertaining, and performing for an audience.</en>
+            <es>Habilidad para actuar, entretener y representar ante un público.</es>
+        </description>
     </skill>
     <skill>
         <type>skill</type>
@@ -191,6 +263,10 @@
             <en>Pilot</en>
             <es>Pilotar</es>
         </name>
+        <description>
+            <en>Ability to operate spacecraft and navigate space travel.</en>
+            <es>Capacidad para pilotar naves espaciales y navegar por el espacio.</es>
+        </description>
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
@@ -214,6 +290,10 @@
             <en>Remedy</en>
             <es>Curar</es>
         </name>
+        <description>
+            <en>Knowledge of healing, medicine, and treating injuries.</en>
+            <es>Conocimiento de curación, medicina y tratamiento de heridas.</es>
+        </description>
     </skill>
     <skill>
         <type>skill</type>
@@ -222,6 +302,10 @@
             <en>Shoot</en>
             <es>Disparar</es>
         </name>
+        <description>
+            <en>Skill in using ranged weapons accurately.</en>
+            <es>Habilidad para usar armas a distancia con precisión.</es>
+        </description>
     </skill>
     <skill>
         <type>skill</type>
@@ -230,6 +314,10 @@
             <en>Sleight of Hand</en>
             <es>Prestidigitación</es>
         </name>
+        <description>
+            <en>Manual dexterity for tricks, theft, and subtle manipulation.</en>
+            <es>Destreza manual para trucos, robos y manipulación sutil.</es>
+        </description>
     </skill>
     <skill>
         <type>skill</type>
@@ -238,6 +326,10 @@
             <en>Sneak</en>
             <es>Sigilo</es>
         </name>
+        <description>
+            <en>Ability to move quietly and remain undetected.</en>
+            <es>Capacidad para moverse en silencio y pasar desapercibido.</es>
+        </description>
     </skill>
     <skill>
         <type>skill</type>
@@ -246,6 +338,10 @@
             <en>Survival</en>
             <es>Supervivencia</es>
         </name>
+        <description>
+            <en>Skill in enduring harsh environments and living off the land.</en>
+            <es>Habilidad para sobrevivir en entornos hostiles y vivir de la naturaleza.</es>
+        </description>
     </skill>
     <skill>
         <type>skill</type>
@@ -254,6 +350,10 @@
             <en>Tech Redemption</en>
             <es>Tecnorredención</es>
         </name>
+        <description>
+            <en>Understanding of restoring and sanctifying technology according to doctrine.</en>
+            <es>Conocimiento para restaurar y santificar tecnología según la doctrina.</es>
+        </description>
     </skill>
     <skill>
         <type>skill</type>
@@ -262,7 +362,9 @@
             <en>Vigor</en>
             <es>Vigor</es>
         </name>
+        <description>
+            <en>Physical fitness, stamina, and resistance to fatigue.</en>
+            <es>Condición física, resistencia y aguante frente a la fatiga.</es>
+        </description>
     </skill>
-
-
 </skills>

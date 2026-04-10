@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <planets>
     <planet>
         <id>sutek</id>
@@ -6,6 +6,10 @@
             <en>Sutek</en>
             <es>Sutek</es>
         </name>
+        <description>
+            <en>A major Hazat world, known as one of the martial strongholds of the house and a symbol of its proud military tradition.</en>
+            <es>Un importante mundo Hazat, conocido como uno de los bastiones marciales de la casa y como símbolo de su orgullosa tradición militar.</es>
+        </description>
         <factions>hazat</factions>
     </planet>
     <planet>
@@ -14,6 +18,10 @@
             <en>Aragon</en>
             <es>Aragón</es>
         </name>
+        <description>
+            <en>A Hazat planet tied to the house’s old martial culture and noble heritage within the Known Worlds.</en>
+            <es>Un planeta Hazat ligado a la antigua cultura marcial de la casa y a su herencia nobiliaria dentro de los Mundos Conocidos.</es>
+        </description>
         <factions>hazat</factions>
     </planet>
     <planet>
@@ -22,6 +30,10 @@
             <en>Vera Cruz</en>
             <es>Veracruz</es>
         </name>
+        <description>
+            <en>A Hazat-held world whose name and culture reflect the house’s deep historical and religious legacy.</en>
+            <es>Un mundo bajo dominio Hazat cuyo nombre y cultura reflejan el profundo legado histórico y religioso de la casa.</es>
+        </description>
         <factions>hazat</factions>
     </planet>
     <planet>
@@ -30,6 +42,10 @@
             <en>Hira</en>
             <es>Hira</es>
         </name>
+        <description>
+            <en>A Hazat world associated with the house’s domains and its wider feudal and military sphere of influence.</en>
+            <es>Un mundo Hazat asociado a los dominios de la casa y a su más amplia esfera de influencia feudal y militar.</es>
+        </description>
         <factions>hazat</factions>
     </planet>
     <planet>
@@ -38,6 +54,10 @@
             <en>Delphi</en>
             <es>Delphi</es>
         </name>
+        <description>
+            <en>A Hawkwood world noted for its place within one of the most respected noble houses of the Known Worlds.</en>
+            <es>Un mundo Hawkwood destacado por su lugar dentro de una de las casas nobles más respetadas de los Mundos Conocidos.</es>
+        </description>
         <factions>hawkwood</factions>
     </planet>
     <planet>
@@ -46,6 +66,12 @@
             <en>Gwynneth</en>
             <es>Gwynneth</es>
         </name>
+        <description>
+            <en>One of the best-known Hawkwood worlds, often associated with courtly honor, frontier pressure, and conflict with outside threats.</en>
+            <es>Uno de los mundos Hawkwood más conocidos, asociado con frecuencia al honor cortesano, la presión de la frontera y el conflicto con amenazas
+                exteriores.
+            </es>
+        </description>
         <factions>hawkwood</factions>
     </planet>
     <planet>
@@ -54,6 +80,10 @@
             <en>Leminkainen</en>
             <es>Leminkainen</es>
         </name>
+        <description>
+            <en>A Hawkwood planet remembered in the books as a world of culture and dramatic artistic tradition.</en>
+            <es>Un planeta Hawkwood recordado en los libros como un mundo de cultura y de fuerte tradición artística y dramática.</es>
+        </description>
         <factions>hawkwood</factions>
     </planet>
     <planet>
@@ -62,6 +92,10 @@
             <en>Ravenna</en>
             <es>Ravena</es>
         </name>
+        <description>
+            <en>A Hawkwood world within the house’s core sphere, tied to its aristocratic rule and interstellar ambitions.</en>
+            <es>Un mundo Hawkwood dentro de la esfera central de la casa, vinculado a su gobierno aristocrático y a sus ambiciones interestelares.</es>
+        </description>
         <factions>hawkwood</factions>
     </planet>
     <planet>
@@ -70,6 +104,10 @@
             <en>Cadavus</en>
             <es>Cadavus</es>
         </name>
+        <description>
+            <en>A Decados world marked by the house’s reputation for secrecy, manipulation, and dangerous political games.</en>
+            <es>Un mundo Decados marcado por la reputación de la casa por el secreto, la manipulación y los peligrosos juegos políticos.</es>
+        </description>
         <factions>decados</factions>
     </planet>
     <planet>
@@ -78,6 +116,11 @@
             <en>Cadiz</en>
             <es>Cádiz</es>
         </name>
+        <description>
+            <en>A Decados planet that appears in the books as a place tied to faith, survival, and the darker edge of noble influence.</en>
+            <es>Un planeta Decados que aparece en los libros como un lugar ligado a la fe, la supervivencia y el lado más oscuro de la influencia nobiliaria.
+            </es>
+        </description>
         <factions>decados</factions>
     </planet>
     <planet>
@@ -86,6 +129,10 @@
             <en>Malignatus</en>
             <es>Malignatius</es>
         </name>
+        <description>
+            <en>A Decados world whose very name evokes corruption, menace, and the sinister prestige of House Decados.</en>
+            <es>Un mundo Decados cuyo propio nombre evoca corrupción, amenaza y el prestigio siniestro de la Casa Decados.</es>
+        </description>
         <factions>decados</factions>
     </planet>
     <planet>
@@ -94,6 +141,10 @@
             <en>Pandemonium</en>
             <es>Pandemonium</es>
         </name>
+        <description>
+            <en>A notorious Decados planet, infamous in Fading Suns lore for danger, decadence, and infernal associations.</en>
+            <es>Un planeta Decados notorio, infame en el trasfondo de Fading Suns por su peligro, decadencia y asociaciones infernales.</es>
+        </description>
         <factions>decados</factions>
     </planet>
     <planet>
@@ -102,6 +153,10 @@
             <en>Severus</en>
             <es>Severus</es>
         </name>
+        <description>
+            <en>A Decados domain world associated with rigid power, fear, and the darker methods of noble control.</en>
+            <es>Un mundo de dominio Decados asociado al poder rígido, al miedo y a los métodos más oscuros del control nobiliario.</es>
+        </description>
         <factions>decados</factions>
     </planet>
     <planet>
@@ -110,6 +165,10 @@
             <en>Icon</en>
             <es>Icono</es>
         </name>
+        <description>
+            <en>A Li Halan world shaped by piety, noble duty, and the house’s strong religious and moral identity.</en>
+            <es>Un mundo Li Halan moldeado por la piedad, el deber nobiliario y la fuerte identidad religiosa y moral de la casa.</es>
+        </description>
         <factions>liHalan</factions>
     </planet>
     <planet>
@@ -118,6 +177,10 @@
             <en>Kish</en>
             <es>Kish</es>
         </name>
+        <description>
+            <en>A Li Halan planet within the house’s devout sphere, reflecting its discipline, tradition, and faith-centered rule.</en>
+            <es>Un planeta Li Halan dentro de la esfera devota de la casa, reflejo de su disciplina, tradición y gobierno centrado en la fe.</es>
+        </description>
         <factions>liHalan</factions>
     </planet>
     <planet>
@@ -126,6 +189,10 @@
             <en>Midian</en>
             <es>Midian</es>
         </name>
+        <description>
+            <en>A Li Halan world associated with the house’s ordered domains and its sacred sense of noble obligation.</en>
+            <es>Un mundo Li Halan asociado a los dominios ordenados de la casa y a su sentido sagrado de la obligación nobiliaria.</es>
+        </description>
         <factions>liHalan</factions>
     </planet>
     <planet>
@@ -134,6 +201,10 @@
             <en>Rampart</en>
             <es>Baluarte</es>
         </name>
+        <description>
+            <en>A Li Halan world mentioned in the books as a place with police authority, noble order, and artistic education.</en>
+            <es>Un mundo Li Halan mencionado en los libros como un lugar con autoridad policial, orden nobiliario y formación artística.</es>
+        </description>
         <factions>liHalan</factions>
     </planet>
     <planet>
@@ -142,6 +213,10 @@
             <en>Aylon</en>
             <es>Aylon</es>
         </name>
+        <description>
+            <en>An al-Malik world linked to wealth, trade, sophistication, and the expansive commercial culture of the house.</en>
+            <es>Un mundo al-Malik ligado a la riqueza, el comercio, la sofisticación y la expansiva cultura mercantil de la casa.</es>
+        </description>
         <factions>alMalik</factions>
     </planet>
     <planet>
@@ -150,6 +225,10 @@
             <en>Istakhr</en>
             <es>Istakhir</es>
         </name>
+        <description>
+            <en>A celebrated al-Malik world whose markets are famous in the books and whose culture reflects elegance, trade, and opportunity.</en>
+            <es>Un célebre mundo al-Malik cuyos mercados son famosos en los libros y cuya cultura refleja elegancia, comercio y oportunidad.</es>
+        </description>
         <factions>alMalik</factions>
     </planet>
     <planet>
@@ -158,6 +237,11 @@
             <en>Criticorum</en>
             <es>Criticorum</es>
         </name>
+        <description>
+            <en>An al-Malik world tied to intrigue, wealth, and high society, and mentioned in the books in connection with scandal and revelation.</en>
+            <es>Un mundo al-Malik ligado a la intriga, la riqueza y la alta sociedad, y mencionado en los libros en relación con el escándalo y la revelación.
+            </es>
+        </description>
         <factions>alMalik</factions>
     </planet>
     <planet>
@@ -166,6 +250,10 @@
             <en>Shaprut</en>
             <es>Shaprut</es>
         </name>
+        <description>
+            <en>An al-Malik planet associated with the house’s mercantile strength, cosmopolitan culture, and noble ambition.</en>
+            <es>Un planeta al-Malik asociado a la fuerza mercantil de la casa, a su cultura cosmopolita y a su ambición nobiliaria.</es>
+        </description>
         <factions>alMalik</factions>
     </planet>
     <planet>
@@ -174,6 +262,10 @@
             <en>Artemis</en>
             <es>Artemisa</es>
         </name>
+        <description>
+            <en>A world connected to Sanctuary Aeon, known for its spiritual importance and association with healing and charity.</en>
+            <es>Un mundo vinculado al Santuario de Aeón, conocido por su importancia espiritual y por su asociación con la curación y la caridad.</es>
+        </description>
         <factions>sanctuaryAeon</factions>
     </planet>
     <planet>
@@ -182,6 +274,12 @@
             <en>De Moley</en>
             <es>De Moley</es>
         </name>
+        <description>
+            <en>The home world of Brother Battle, a planet defined by martial faith, discipline, and the warrior-monastic traditions of the order.</en>
+            <es>El mundo natal de los Hermanos de Batalla, un planeta definido por la fe marcial, la disciplina y las tradiciones guerrero-monásticas de la
+                orden.
+            </es>
+        </description>
         <factions>
             <faction>brotherBattle</faction>
         </factions>
@@ -192,6 +290,10 @@
             <en>Holy Terra</en>
             <es>Tierra Santa</es>
         </name>
+        <description>
+            <en>Holy Terra is sacred Urth, the spiritual cradle of humanity and one of the holiest pilgrimage destinations in the Known Worlds.</en>
+            <es>Tierra Santa es la Urth sagrada, cuna espiritual de la humanidad y uno de los destinos de peregrinación más santos de los Mundos Conocidos.</es>
+        </description>
     </planet>
     <planet>
         <id>pentateuch</id>
@@ -199,6 +301,10 @@
             <en>Pentateuch</en>
             <es>Pentateuco</es>
         </name>
+        <description>
+            <en>A planet associated with the Eskatonic Order, known for mystical inquiry, hidden wisdom, and esoteric spiritual pursuit.</en>
+            <es>Un planeta asociado a la Orden Eskatónica, conocido por la indagación mística, la sabiduría oculta y la búsqueda espiritual esotérica.</es>
+        </description>
         <factions>eskatonic</factions>
     </planet>
     <planet>
@@ -207,6 +313,10 @@
             <en>Pyre</en>
             <es>Pira</es>
         </name>
+        <description>
+            <en>The heartland world of the Avestites, feared and revered as a place of zeal, orthodoxy, and fiery religious judgment.</en>
+            <es>El mundo central de los avestitas, temido y reverenciado como un lugar de celo, ortodoxia y juicio religioso ardiente.</es>
+        </description>
         <factions>avestites</factions>
     </planet>
     <planet>
@@ -215,6 +325,10 @@
             <en>Bannockburn</en>
             <es>Bannockburn</es>
         </name>
+        <description>
+            <en>A world associated with the Muster, tied to military labor, hard service, and the guild’s harsh reputation.</en>
+            <es>Un mundo asociado a la Asamblea, ligado al trabajo militar, al servicio duro y a la dura reputación del gremio.</es>
+        </description>
         <factions>musters</factions>
     </planet>
     <planet>
@@ -223,7 +337,15 @@
             <en>Leagueheim</en>
             <es>Ligaheim</es>
         </name>
-        <factions></factions>
+        <description>
+            <en>A League world associated with guild life, commerce, and interstellar service, and mentioned in the books as the home of a loyal Charioteer
+                captain.
+            </en>
+            <es>Un mundo de la Liga asociado a la vida gremial, al comercio y al servicio interestelar, y mencionado en los libros como el hogar de un capitán
+                Auriga leal.
+            </es>
+        </description>
+        <factions/>
     </planet>
     <planet>
         <id>madoc</id>
@@ -231,7 +353,15 @@
             <en>Madoc</en>
             <es>Madoc</es>
         </name>
-        <factions></factions>
+        <description>
+            <en>A known world of the jumpweb whose exact importance varies by campaign, but which belongs to the broader political and commercial fabric of the
+                empire.
+            </en>
+            <es>Un mundo conocido de la red de salto cuya importancia exacta puede variar según la campaña, pero que forma parte del tejido político y comercial
+                más amplio del imperio.
+            </es>
+        </description>
+        <factions/>
     </planet>
     <planet>
         <id>byzantiumSecundus</id>
@@ -239,7 +369,15 @@
             <en>Byzantium Secundus</en>
             <es>Byzantium Secundus</es>
         </name>
-        <factions></factions>
+        <description>
+            <en>The imperial capital of the Known Worlds and seat of the Phoenix Throne. The phoenix coin is minted here from prismium, as noted in the Spanish
+                character book.
+            </en>
+            <es>La capital imperial de los Mundos Conocidos y sede del Trono del Fénix. La moneda fénix se acuña aquí con prismio, como se indica en el Libro de
+                Personajes en español.
+            </es>
+        </description>
+        <factions/>
     </planet>
     <planet>
         <id>nowhere</id>
@@ -247,7 +385,11 @@
             <en>Nowhere</en>
             <es>Ningunlugar</es>
         </name>
-        <factions></factions>
+        <description>
+            <en>A remote and ominous world whose name suggests exile, isolation, and the forgotten margins of the Known Worlds.</en>
+            <es>Un mundo remoto y ominoso cuyo nombre sugiere exilio, aislamiento y los márgenes olvidados de los Mundos Conocidos.</es>
+        </description>
+        <factions/>
     </planet>
     <planet>
         <id>stigmata</id>
@@ -255,6 +397,12 @@
             <en>Stigmata</en>
             <es>Estigma</es>
         </name>
+        <description>
+            <en>A religiously significant world with ties to multiple factions, known for pilgrimage, devotion, and competing spiritual claims.</en>
+            <es>Un mundo de gran importancia religiosa con vínculos con varias facciones, conocido por la peregrinación, la devoción y las reclamaciones
+                espirituales en conflicto.
+            </es>
+        </description>
         <factions>musters,orthodox,eskatonic</factions>
     </planet>
     <planet>
@@ -263,6 +411,10 @@
             <en>Tethys</en>
             <es>Tetis</es>
         </name>
+        <description>
+            <en>A major guild world famous in the books for its shipyards and starship industry, and associated with the Reeves and Scravers.</en>
+            <es>Un gran mundo gremial famoso en los libros por sus astilleros y su industria de naves estelares, y asociado a Magistrados y Carroñeros.</es>
+        </description>
         <factions>reeves,scravers</factions>
     </planet>
     <planet>
@@ -271,6 +423,10 @@
             <en>Grail</en>
             <es>Grial</es>
         </name>
+        <description>
+            <en>A Sanctuary Aeon world associated with healing, mercy, and the charitable mission of the sect.</en>
+            <es>Un mundo del Santuario de Aeón asociado a la curación, la misericordia y la misión caritativa de la secta.</es>
+        </description>
         <factions>sanctuaryAeon</factions>
     </planet>
     <planet>
@@ -279,6 +435,10 @@
             <en>Kordeth</en>
             <es>Kordeth</es>
         </name>
+        <description>
+            <en>A world associated with the Ur-Ukar, tied to their people and to the alien dimensions of life beyond standard human society.</en>
+            <es>Un mundo asociado a los ur-ukar, ligado a su pueblo y a las dimensiones alienígenas de la vida más allá de la sociedad humana estándar.</es>
+        </description>
         <species>ukar</species>
     </planet>
     <planet>
@@ -287,6 +447,14 @@
             <en>Ungavorox</en>
             <es>Ungavorox</es>
         </name>
+        <description>
+            <en>A world linked to the vorox and politically tied to Li Halan, representing both noble influence and the presence of this powerful alien
+                species.
+            </en>
+            <es>Un mundo vinculado a los vorox y políticamente ligado a Li Halan, que representa tanto la influencia nobiliaria como la presencia de esta
+                poderosa especie alienígena.
+            </es>
+        </description>
         <factions>liHalan</factions>
         <species>vorox</species>
     </planet>
@@ -296,6 +464,13 @@
             <en>Velsimil</en>
             <es>Velisamil</es>
         </name>
+        <description>
+            <en>A Hawkwood world associated with the Ur-Obun, reflecting both noble authority and the cultural presence of this contemplative alien species.
+            </en>
+            <es>Un mundo Hawkwood asociado a los ur-obun, que refleja tanto la autoridad nobiliaria como la presencia cultural de esta especie alienígena
+                contemplativa.
+            </es>
+        </description>
         <factions>hawkwood</factions>
         <species>obun</species>
     </planet>

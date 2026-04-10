@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <callings>
     <calling>
         <id>commander</id>
@@ -6,6 +6,21 @@
             <en>Commander</en>
             <es>Comandante</es>
         </name>
+        <description>
+            <en>Commanders are the war leaders of their houses. They know where everyone should be on a battlefield at any given time, and they are masters of
+                strategy and tactics. However, they are also masters of style — Commanders lead parades, drill for their lords, and recruit peasants to their
+                infantry forces with the promise of glory. While not all Commanders are martial geniuses, most cut a dashing figure on the field. Those who can
+                grasp the art of combat, both on a micro and macro level, will never be without a home or a job. Though the Pax Alexius has soothed some
+                tensions between the houses, there are plenty of opportunities in the coming campaigns to help pacify the barbarian and lost worlds.
+            </en>
+            <es>Los comandantes son los líderes militares de sus casas. Saben el lugar que le corresponde a cada individuo en el campo de batalla y son expertos
+                en tácticas y estrategia. Pero también son maestros de estilo. Los comandantes dirigen desfiles, hacen ejercicios para sus señores y reclutan
+                campesinos para sus tropas de infantería prometiéndoles la gloria. No todos son genios de la guerra, pero la mayoría destacan por su elegante
+                silueta en el campo de batalla. A quienes consiguen entender el arte del combate, tanto a nivel particular como a nivel general, nunca les va a
+                faltar trabajo ni techo. Aunque la Pax Alexius ha calmado algunas tensiones entre las casas, las próximas campañas ofrecen oportunidades de
+                sobra para ayudar a pacificar a los bárbaros de los Mundos Perdidos.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -214,14 +229,24 @@
             </recommendedPreferences>
         </random>
     </calling>
-
-
     <calling>
         <id>conspiracist</id>
         <name>
             <en>Conspiracist</en>
             <es>Conspirador</es>
         </name>
+        <description>
+            <en>Conspiracists are the spiders in the shadows, always weaving a web with which to ensnare others. This life of intrigue is always exciting but
+                always dangerous. If too many spiders spin webs close to each other, they risk becoming food. The life of a conspiracist is a delicate dance of
+                letters carried in the night, words whispered in the right ear, and always knowing where you stand with those around you. Conspiracists are
+                constantly at the top of their game, because otherwise, they’re the pawns others use to better themselves.
+            </en>
+            <es>Los conspiradores son arañas en las sombras, siempre tejiendo una tela para atrapar a los demás. Su vida de intrigas es apasionante pero también
+                peligrosa. Si demasiadas arañas tejen sus telas unas al lado de las otras, se arriesgan a convertirse en comida. La vida de un conspirador con
+                siste en un delicado baile de cartas nocturnas, susurros en la oreja adecuada y saber siempre de qué lado está la gente que te rodea. Además,
+                resulta esencial no dar nunca un paso en falso para evitar convertirse en un peón que los demás utilicen para prosperar.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -415,14 +440,28 @@
             </recommendedPreferences>
         </random>
     </calling>
-
-
     <calling>
         <id>courtier</id>
         <name>
             <en>Courtier</en>
             <es>Cortesano</es>
         </name>
+        <description>
+            <en>The Courtier is the public face of the nobility, the one the Church or the League thinks of when they imagine a member of a great family. Chic,
+                clever, and always well-attired, the Courtier is the noble the family sends when they need to impress. One might think of a Courtier as lazy or
+                a peacock, but the truth is, it takes them years to hone the art of polite diplomacy. They’re raised to be the loveliest, the most charming, the
+                wittiest, and the most observant. While they do not host parties like the Sybarite, they share many characteristics and they can be seen at many
+                of the same parties. A Courtier who is seen is a Courtier who has power. They are their house’s diplomats, marriage prospects, and occasional
+                rulers, and they are not to be underestimated.
+            </en>
+            <es>Un cortesano es la cara visible de la nobleza, la figura en la que piensa la Iglesia o la Liga cuando se imaginan a un miembro de una gran
+                familia. Si hace falta impresionar a alguien, la familia envía a esta figura sofisticada, inteligente y siempre bien vestida. Podría resultar
+                tentador pensar en los cortesanos como individuos perezosos o fanfarrones; pero, en realidad, se tarda años en perfeccionar el arte de la
+                diplomacia. La educación de los cortesanos los convierte en los más agradables, encantadores, ingeniosos y observadores. Si bien no organizan
+                fiestas como los sibaritas, comparten con ellos muchas características y suelen asistir a los mismos eventos. Un cortesano visible es un
+                cortesano con poder. Son los embajadores de sus casas, candidatos al matrimonio y gobernantes ocasionales, y conviene no subestimarlos.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -599,14 +638,48 @@
             </upbringings>
         </restrictions>
     </calling>
-
-
     <calling>
         <id>dervish</id>
         <name>
             <en>Dervish</en>
             <es>Derviche</es>
         </name>
+        <description>
+            <en>During the Second Republic, the combining of psychic powers with military training and small-unit tactics became a secret weapon long before
+                most people were even aware of the reality of psychic powers. Even after psi was widely confirmed, no one in power wanted the capabilities of
+                their Dervishes — their psychic soldiers — to be well known. This secrecy served them well after the Fall of the Second Republic and the rise of
+                the Church. In the public’s mind, the Dervishes became a legendary boogie man from the past, but they were protected by their noble, guild, and,
+                yes, even Church factions. As such, they fared better than the more public-facing psychics studied by Phavian Institute. lation of a
+                sufficiently large size is bound to have a few people with a knack for one of the psychic paths. To unlock the true power of their abilities,
+                however, most psychics need guidance and training. Thus, they form covens: groups of psychics working in underground societies for the benefit
+                and protection of their members. Countless covens are hiding throughout the Known Worlds. Most are small and purely local, consisting of a
+                handful of members working together to survive. As a coven gets bigger, its power and influences grow, although in secret. These larger covens
+                often end up involved as hidden hands in local politics and power brokering. Very few covens, no matter their size, can effectively contend with
+                the Universal Church and its condemnation of psi. Those who forget this end up as martyrs to the Inquisition’s flames. A rare few covens can
+                trace their origins back to the Second Republic, and they still act on an interstellar level. The Favyana, although now a shadow of the
+                once-powerful institute, still seeks to promote acceptance of the psychically gifted and coexistence with all sentient life. They hope to prove
+                their worth by using their powers to aid the non-gifted. Even if an individual member cannot come out of the shadows and claim accolades, if
+                enough members of the populace begin to doubt the Church’s creed against psi.
+            </en>
+            <es>Durante la Segunda República, la combinación de los poderes psíquicos con el entrenamiento militar y las tácticas de unidades reducidas se
+                convirtió en un arma se creta mucho antes de que la mayoría de personas fueran conscientes de la existencia de poderes psíquicos. Inclu so
+                después de confirmar el psi, nadie en posiciones de poder quería que las capacidades de sus derviches, sol dados psíquicos, fuese de
+                conocimiento público. Este secretismo fue muy útil después de la caída de la Segunda República y el resurgir de la Iglesia. En el imaginario
+                popular, los derviches se convirtieron en un mal legen dario del pasado. Sin embargo, estaban siendo protegidos por los nobles, los gremios e
+                incluso las facciones eclesiásticas, por lo que les fue mejor que a los psíquicos más conocidos del Instituto Faviano. para seguir sendas
+                psíquicas. No obstante, para desbloquear el verdadero poder de sus habilidades, la mayoría necesita orientación y entrenamiento. De ahí que
+                formen aquelarres: grupos de psíquicos que operan en sociedades clandestinas para beneficiar y proteger a sus miembros. En los Mundos Conocidos
+                existen innumerables aquelarres ocultos. La mayoría son pequeños y locales, formados por un puñado de miembros que colaboran para sobrevivir,
+                pero algunos crecen en poder e influencia, aunque siempre en secreto. Estos aquelarres suelen acabar manipulando la política local entre las
+                sombras y convirtiéndose en organizaciones influyentes. Aun así, muy pocos aquelarres, sin importar su tamaño, son capaces de enfrentarse a la
+                Iglesia Universal y su condena del psi. Quienes se olvidan de esto acaban sufriendo el martirio en las llamas de la Inquisición. Unos pocos
+                aquelarres pueden rastrear sus orígenes has ta la Segunda República y siguen operando a nivel interestelar. Los miembros de la Favyana, aunque
+                han quedado reducidos a una sombra de lo que fue el instituto, siguen in tentando promover la aceptación de las personas con dones psíquicos y
+                la convivencia con el resto de seres racionales. Para demostrar su valía, utilizan sus poderes para ayudar a los no dotados. Pese a que ningún
+                miembro puede abandonar las sombras y recibir reconocimiento, si consiguen que suficientes personas duden de la cruzada de la Iglesia contra el
+                psi, la próxima generación de psíquicos quizás pueda vi vir abiertamente sin tener que esconder su naturaleza.
+            </es>
+        </description>
         <group>psi</group>
         <capabilities>
             <capabilitiesOption>
@@ -1260,14 +1333,27 @@
             </inadvisablePreferences>
         </random>
     </calling>
-
-
     <calling>
         <id>duelist</id>
         <name>
             <en>Duelist</en>
             <es>Duelista</es>
         </name>
+        <description>
+            <en>Sleek, dangerous, and performative, the Duelist is a personally puissant combatant who fights for the honor of their house. Duelists train
+                daily, and some have done so since they were old enough to pick up a weapon. They can be hot-headed or calm and collected, but all of them are
+                finely-honed combat machines. Some look at them askance, considering them no better than thugs with a noble title. Others consider them a
+                valuable part of any house’s retinue. Duelists often have seconds, typically either apprentices they are training or friends they trust. They’re
+                not as self-sufficient as they’d like others to think, but they’re forces of nature when given a weapon — preferably their specialty.
+            </en>
+            <es>Estos poderosos combatientes que luchan por el honor de su casa son elegantes, peligrosos y efectistas. Un duelista entrena a diario y algunos
+                de ellos lo llevan haciendo desde que tenían edad para sujetar un arma. Los hay impulsivos y serenos, pero todos son máquinas de matar
+                perfectamente calibradas. Algunos consideran a los duelistas poco más que matones con un título nobiliario. Otros, sin embargo, los ven como
+                miembros valiosos de sus casas. Los duelistas suelen tener ayudantes, por lo general aprendices a los que están entrenando o amigos en los que
+                confían. Aunque no son tan autosuficientes como quieren hacer creer, se trata de individuos poderosos cuando tienen un arma entre las manos
+                (preferiblemente aquella en la que se han especializado).
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -1456,14 +1542,20 @@
             </recommendedPreferences>
         </random>
     </calling>
-
-
     <calling>
         <id>pistolDuelist</id>
         <name>
             <en>Pistol Duelist</en>
             <es>Duelista con Pistolas</es>
         </name>
+        <description>
+            <en>As the Duelist, but focused on gunplay instead of blades. Swap Shoot 3 for Melee, and Melee 2 for Shoot. Equipment: premium dueling pistol (+1
+                goal; 1 shot capacity).
+            </en>
+            <es>Como el duelista, pero centrado en el duelo con armas de fuego en lugar de hojas. Sustituye Cuerpo a Cuerpo 3 por Disparar, y Disparar 2 por
+                Cuerpo a Cuerpo. Equipo: pistola de duelista excelente (meta +1; capacidad de 1 disparo).
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -1650,13 +1742,26 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>enthusiast</id>
         <name>
             <en>Enthusiast</en>
             <es>Entusiasta</es>
         </name>
+        <description>
+            <en>The idle rich are not often so idle. Enthusiasts are nobles who choose to use their status to better their own minds, as well as those of the
+                people around them. These nobles are the most likely ones to go to university, study under guilds, or learn the deep theological disagreements
+                of the Universal Church because it’s fun. An Enthusiast may have a life-long obsession, or they might pick up a new special interest every week.
+                They love sharing their knowledge, experimenting with it, and generally making use of it to the best of their ability, whether by creating new
+                armor for the house’s military or by painting a picture of their paramour.
+            </en>
+            <es>A pesar de tener fama de ociosos, los ricos no lo son tanto como parece. Los entusiastas son nobles que han elegido utilizar su estatus para
+                perfeccionar sus propias mentes, así como las de las personas que los rodean. Son los más propensos a ir a la universidad, estudiar en gremios o
+                aprender los profundos desacuerdos teológicos de la Iglesia Universal porque les parece divertido. Un entusiasta podría tener una obsesión que
+                le dure toda la vida o cambiar de interés cada semana. A estos nobles les en canta compartir su conocimiento, experimentar con él y en general
+                usarlo tan bien como puedan, ya sea fabricando una nueva armadura para el ejército de su casa o pintando un cuadro de su amante.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -1866,13 +1971,30 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>incognito</id>
         <name>
             <en>Incognito</en>
             <es>Incógnito</es>
         </name>
+        <description>
+            <en>Few willingly choose this calling; most Incognitos are forced to take up this life due to political circumstances and family stains. The
+                Incognito can be in hiding, a rogue prince on the run, or the last scion of a doomed branch of the family. They do not want to be recognized —
+                doing so might mean death or imprisonment. Every Incognito is on the run from something, and while that may vary, the consequences are enough to
+                keep them on the run. Sometimes Incognitos run with each other or hide on their homeworlds as members of the free folk or merchant classes. Some
+                just escape into the guilds or the Universal Church, trusting their fellows to protect them if (or when) their secret comes to light. Like the
+                Spy calling, the Incognito assumes a “cover identity” calling under which they hide. (See the Cover Identity sidebar.)
+            </en>
+            <es>Muy pocas personas eligen esta vocación por voluntad pro pia; la mayoría de incógnitos se ven obligados a seguir este tipo de vida debido a
+                circunstancias políticas o a una man cha en la reputación de su familia. El incógnito podría estar escondiéndose, ser un príncipe solitario a la
+                fuga o el último vástago de una rama condenada de la familia. Son personas que no quieren ser reconocidas por temor a la muerte o el
+                encarcelamiento. Todos los incógnitos huyen de algo, y, aunque ese algo varía, las consecuencias son lo suficiente mente serias como para no
+                mirar atrás. A veces, los incógnitos huyen juntos o se esconden en sus planetas natales como miembros de los pueblos libres o de las clases
+                mercantes. Otros marchan a trabajar para los gremios o para la Iglesia Universal, confi ando en que los demás miembros los prote jan cuando su
+                secreto saga a la luz (si es que lo hace). Como el espía, el incógnito asume la vocación de la identidad falsa tras la que se esconde (consulta
+                el recuadro Identidad falsa).
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>2</total>
@@ -2008,13 +2130,46 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>knightlyOrder</id>
         <name>
             <en>Knightly Order</en>
             <es>Order de Caballería</es>
         </name>
+        <description>
+            <en>Members of a knightly order are sworn to the betterment of their order above all things. Rules, codes, and uses might vary, but induction into a
+                sacred or knightly order means a prominent organization acknowledges that you are a worthwhile member of your house and that your service is too
+                valuable to lose. Some knightly orders are little more than social clubs, a place for the older members of the order to gripe about the younger
+                generation, or more often, a useful central meeting place for members of other houses to bond over their shared duties. Others drill hard, live
+                an almost ascetic lifestyle, give alms, and are chivalrous to a fault. Some sell their services; others do not. The details all depend on the
+                order. One thing is the same though — knight recognizes knight. Being a member of a knightly order means someone always has your back.
+                Well-known orders include: Order of the Shroud — This secretive order was reputed to serve a psychic coven; its members wear hoods or shrouds to
+                hide their appearance and to assist in anonymously helping the needy. Order of the Mantis — This ambitious order was originally formed by the
+                Decados to compete with the Questing Knights. Order of Vladimir — This discreet anti-Republican order works to keep the sovereignty of the noble
+                houses. Some nobles give themselves over to defending the Church through various orders dedicated to its protection (where they often fight
+                alongside priest Templars.) These include: The Adamantine Order — This small order is most ly made up of knights, but includes some priests, who
+                serve the Eskatonics, usually by protecting specific priests. Order of Saint Yara — This noble order is dedicated to protecting Amalthean
+                priests on their frequent pilgrimages to dangerous locations. Swords of Lextius – This humble order serves the Urth Orthodox, often as penance
+                or at the behest of families who seek favor by sending a younger son into service.
+            </en>
+            <es>Los miembros de las órdenes de caballería han jurado ser vir a su orden por encima de todas las cosas. Las reglas, los códigos y los usos
+                varían, pero el ingreso en una orden sagrada o caballeresca significa que una organización im portante te reconoce como miembro útil de tu casa
+                y considera tu servicio demasiado valioso como para prescindir de él. Algunas órdenes de caballería son poco más que clubs sociales, espacios
+                donde los miembros viejos de la orden se quejan de las nuevas generaciones o, más a menudo, lugares de reunión para que miembros de diferentes
+                casas establezcan vínculos gracias a sus labores comunes. En otras, sin embargo, los miembros entrenan duro, viven una vida casi ascética,
+                ejercen la caridad y son caballerescos hasta decir basta. Algunas alquilan sus servicios y otras no. Los detalles dependen de la orden, pero
+                todos los caballeros reconocen 5959 INTRODUCCIÓN REGLAS PERSONAJES ATRIBUTOS TECNOLOGÍA OCULTO a otro caballero. Ser miembro de una orden de
+                caballería significa que siempre hay alguien que te cubre las espaldas. Estas son algunas de las órdenes más conocidas: Orden del Sudario: Esta
+                hermética orden tenía fama de servir a un aquelarre psíquico; sus miembros visten con capuchas o mortajas para ocultar su apariencia y ayudar a
+                los necesitados desde el anonimato. Orden de la Mantis: Esta ambiciosa orden fue fundada por los Decados para competir con los caballeros
+                expedicionarios. Orden de Vladimir: Esta discreta orden antirrepublicana trabaja para mantener la soberanía de las casas nobles. Algunos nobles
+                defienden a la Iglesia mediante diversas órdenes dedicadas a su protección (y suelen luchar junto a los sacerdotes templarios). Estas son
+                algunas de ellas: Orden Adamantina: Una pequeña orden formada casi en su totalidad por caballeros (aunque incluye algunos sacerdotes), que sirve
+                a los eskatónicos protegiendo a algunos sacerdotes concretos. Orden de Santa Yara: Esta orden noble se dedica a proteger a los sacerdotes
+                amalteos durante sus frecuentes peregrinajes a lugares peligrosos. Espadas de Lextius: Esta humilde orden sirve a los ortodoxos de Urth, por lo
+                general como penitencia o a instancia de familias que envían a uno de sus hijos menores para conseguir favores.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -2185,13 +2340,27 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>lord</id>
         <name>
             <en>Lord</en>
             <es>Lord</es>
         </name>
+        <description>
+            <en>Someone has to do the actual work of ruling a fief, and Lords are the ones to do it. Either raised to know the gravity of their duty or
+                appointed regent while the titled lord goes off adventuring for a bit, Lords study law, rulership, and other necessary fields. Everything a Lord
+                does is scrutinized, though different houses may hold their Lords to different standards. A Lord’s marriage is equally as important as their
+                army, and they have the well-be ing of their people to consider. Some crack under the strain, going mad or becoming callous and cruel. Others
+                are fair and just. Many have a balance of the two — the equilibrium of being a Lord resides somewhere between fear and love. 5858
+            </en>
+            <es>Alguien tiene que trabajar para gobernar un feudo, y son los lores quienes se encargan de ello. Algunos son conscientes desde pequeños de la
+                solemnidad de su deber, mientras que otros son nombrados regentes mientras el lord titular se marcha de aventuras, pero todos ellos estudian
+                leyes, política y el resto de materias necesarias. Todo lo que hace un lord se analiza al milímetro, aunque cada casa tiene estándares
+                diferentes. Su matrimonio es tan importante como su ejército, y un lord siempre debe considerar el bienestar de su pueblo. Algunos ceden a la
+                presión, enloquecen o se vuelven insensibles y crueles. Otros son imparciales y justos. Muchos tienen un poco de ambas cosas; ser un lord es un
+                delicado ejercicio de equilibrio entre el miedo y el amor.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -2375,13 +2544,28 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>questingKnight</id>
         <name>
             <en>Questing Knight</en>
             <es>Caballero Expedicionario</es>
         </name>
+        <description>
+            <en>A Questing Knight is a member of the Company of the Phoenix, Alexius’s personal conquistador brigade. They swear fealty to the Emperor over
+                their own houses. They’re also famous for exploring unknown space, bringing back information and treasures the Known Worlds have never seen.
+                While members of the houses often resent nobles who decide to become Questing Knights, the choice can provide an easy path to glory for a second
+                or third child who has no chance of being landed. Questing Knights are fiercely devoted to each other and their Cohorts — merchants and priests
+                who aid them in their duties and travels. (See the priest calling Impe rial Cohort.)
+            </en>
+            <es>Medalla al Mérito Medalla al Valor Delegar Esgrima Pase de Acceso Ilimitado Privilegio Imperial Puntería Resurgir de las Cenizas Duelista Estos
+                poderosos combatientes que luchan por el honor de su casa son elegantes, peligrosos y efectistas. Un duelista entrena a diario y algunos de
+                ellos lo llevan haciendo desde que tenían edad para sujetar un arma. Los hay impulsivos y serenos, pero todos son máquinas de matar
+                perfectamente calibradas. Algunos consideran a los duelistas poco más que matones con un título nobiliario. Otros, sin embargo, los ven como
+                miembros valiosos de sus casas. Los duelistas suelen tener ayudantes, por lo general aprendices a los que están entrenando o amigos en los que
+                confían. Aunque no son tan autosuﬁcientes como quieren hacer creer, se trata de individuos poderosos cuando tienen un arma entre las manos
+                (preferiblemente aquella en la que se han especializado).
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -2576,13 +2760,32 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>ronin</id>
         <name>
             <en>Ronin</en>
             <es>Ronin</es>
         </name>
+        <description>
+            <en>Noble houses are not eternal. Families die off or are wiped out, ruling scepters are lost, and children go off to serve in the guilds or the
+                Church. Sometimes, members of powerful houses are exiled for no reason other than someone stepping on the wrong person’s toes at a dance. Ronin
+                seek opportunity or solace outside of their house while still keeping their house in mind. A Decados who gives their life to the Church and
+                foreswears all other allegiances counts as a member of the Church, not a Ronin. However, a Masseri who seeks their fortune in the military of
+                House Hawkwood to bring glory to their house might well be a Ronin. The Emperor Wars set off a massive wave of Ronin from many worlds, all with
+                their own agendas and talents. They meld into the fabric of noble and clerical life, but their goals are their own, and they are not happily or
+                easily thwarted. Not all Ronin stay Ronin — some are eventually accepted back into their house, while others join orders like the Questing
+                Knights.
+            </en>
+            <es>Las casas nobles no son eternas. Los linajes acaban extinguiéndose o son aniquilados; los títulos se pierden, y los hijos marchan a servir a los
+                gremios o a la Iglesia. A veces, los miembros de casas poderosas acaban exi liados por minucias tales como haber pisado a quien no debían
+                durante un baile. Los ronin buscan oportunidades y motivaciones fuera de su casa, pero sin olvidarse de ella. Un Decados que decida dedicar su
+                vida a la Iglesia y renuncie a cualquier otra lealtad se convierte en un miembro de la Iglesia, no en un ronin. Sin embargo, un Masseri que
+                entre en el ejército de la casa Hawkwood para traer gloria a su casa sí podría serlo. Las Guerras Imperatorias provo caron una oleada de ronin
+                de gran cantidad de Ronin Decados 6060 planetas, todos con sus propios planes y talentos. Los ronin se introducen en la vida noble y
+                eclesiástica, pero sus planes son personales, y no aceptan con facilidad que nadie los desbarate. No todos los ronin se quedan como ronin;
+                algunos vuelven a ser aceptados por su casa y otros se unen a órde nes como la de los caballeros expedicionarios.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -2782,13 +2985,29 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>spy</id>
         <name>
             <en>Spy</en>
             <es>Espía</es>
         </name>
+        <description>
+            <en>The most dangerous enemy is one you can’t see, and Spies are all but invisible. They may play at being a Courtier or a Questing Knight, but what
+                they’re really looking for is a way to get you at your most vulnerable. Not all Spies kill, but many have some training in the art of employing
+                poisons and antidotes. A Spy is unable to be held by doors or locks: After five seconds with a hairpin, guarded secrets are all theirs. You
+                might have thought you said something innocuous, but the Spy will figure out how to use it later. Like the Incognito calling, the Spy assumes
+                a “cover identity” calling under which they hide. See the Cover Identity sidebar. Noble Spies have a true allegiance to their house’s agency:
+                al-Malik Mutasih, Decados Jakovians, Hawkwood Rooks, Hazat Archons, the Imperial Eye, or the Li Halan Hidden Martyrs.
+            </en>
+            <es>El enemigo más peligroso es aquel que no puedes ver y los espías son prácticamente invisibles. Podrían hacerse pasar por un cortesano o un
+                caballero expedicionario, pero lo que realmente están buscando es una forma de llegar hasta ti cuando te encuentres más vulnerable. No todos los
+                espías matan, pero muchos han estudiado venenos y antídotos. Frenarlos con puertas o cerrojos es imposible; después de cinco segundos con una
+                horquilla, todos los secretos que hayas guardado serán suyos. Quizás pienses que has dicho algo inofensivo, pero encontrarán la forma de usarlo
+                más adelante. Como el incógnito, el espía asume la vocación de la identidad falsa tras la que se esconde (consulta el recuadro Identidad falsa).
+                Los espías nobles sirven a la agencia de su casa; son los mutasih de los al-Malik, los jakovianos de los Decados, los grajos de los Hawkwood,
+                los arcontes de los Hazat, el Ojo Imperial o los mártires ocultos de los Li Halan.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -2921,13 +3140,26 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>sybarite</id>
         <name>
             <en>Sybarite</en>
             <es>Sibarita</es>
         </name>
+        <description>
+            <en>Some parties are nice, well-catered affairs with good music, but nothing to write home about. The Sybarite’s parties are an order of magnitude
+                above these gatherings – grand spectacles of light, sound, and culinary delights. Even a small Sybarite party is sure to leave people talking
+                for days afterwards. A little party never killed nobody — except the people the Sybarite wanted dead — and those who adhere to this calling know
+                well the power of word of mouth. Sybarites have a bad reputation for being crass, tasteless, and even disgusting, but for most Sybarites, this
+                is only part of their carefully-crafted image. Their favorite tactic is “shock and awe,” and the ballroom is their chosen battlefield.
+            </en>
+            <es>Algunas fiestas no están mal; son eventos con buena música, pero nada memorable. Las fiestas de un sibarita, sin embargo, están a años luz de
+                las demás; son espectáculos de luz, sonido y delicias gastronómicas. Incluso una fiesta modesta dará que hablar a la gente durante días. Un poco
+                de diversión no hace daño... excepto a las personas que el sibarita quiere ver muertas, y todos los que siguen esta vocación saben el poder de
+                los rumores. Los sibaritas tienen la reputación de ser groseros, vulgares e incluso de tener mal gusto, pero para la mayoría de ellos solo se
+                trata de una imagen cuidadosamente confeccionada. Su táctica preferida es la guerra relámpago y su campo de batalla el salón de baile.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -3138,14 +3370,35 @@
             </recommendedPreferences>
         </random>
     </calling>
-
-
     <calling>
         <id>brotherBattle</id>
         <name>
             <en>Brother Battle</en>
             <es>Hermano de Batalla</es>
         </name>
+        <description>
+            <en>This calling is exclusive to those priests who chose Brother Battle for their faction at 1st level. You must choose this calling at 1st level to
+                join Brother Battle. Their single-minded dedication means there is a limited number of callings a priest can follow in addition to this one:
+                Healer (combat medic), Imperial Cohort, Occultist (usually posted to the Stigmata Garrison), and Theurgist. Even then, at every other level
+                after you’ve chosen a different calling, you must come back to your Brother Battle calling. Otherwise, a Brother Battle character can only
+                choose another calling if they are, for whatever reason, intending to leave the order and pursue another path for themselves. Such a choice
+                would be highly unusual. With few exceptions, Brothers Battle do not choose to leave the order of their own accord. Aside from death, expulsion
+                due to misconduct or heresy are the only means of doing so. Such an expulsion would be a noteworthy event in the history of the order.
+                Consequently, any character choosing another calling than those listed above must have done something exceptionally grave. Even then, the order
+                sometimes prefers to discipline its wayward members harshly rather than expelling them, as expulsion both undermines morale within the order and
+                sullies the reputation of the Brothers.
+            </en>
+            <es>Esta vocación solo está disponible para los sacerdotes que hayan elegido la facción Hermanos de Batalla a nivel 1. Para unirte a los Hermanos de
+                Batalla, debes elegir esta vocación a nivel 1. Debido a su dedicación exclusiva, existen pocas vocaciones que un sacerdote pueda tener además de
+                esta: adjunto imperial, sanador (médico de combate), ocultista (por lo general destinado a la guarnición de Stigmata) y teúrgo. Además, después
+                de un nivel con una vocación diferente, tendrás que volver a la vocación hermano de batalla. La única forma de elegir una vocación diferente es
+                abandonar la orden y continuar el camino por tu cuenta, aunque esto no es nada habitual. Por lo general, salvo contadas excepciones, los
+                hermanos de batalla no abandonan la orden voluntariamente. Aparte de la muerte, la única forma de hacerlo es ser expulsado por mal
+                comportamiento o herejía, un evento tan poco común que destacaría en la historia de la orden. Por consiguiente, cualquier personaje que elija
+                una vocación diferente a las permitidas ha hecho algo excepcionalmente grave. Aun así, la orden a veces prefiere disciplinar severamente a sus
+                miembros descarriados antes que expulsarlos, ya que una expulsión mina la moral de los demás miembros de la orden y mancha su reputación.
+            </es>
+        </description>
         <group>theurgy</group>
         <capabilities>
             <capabilitiesOption>
@@ -3356,13 +3609,30 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>chorister</id>
         <name>
             <en>Chorister</en>
             <es>Corista</es>
         </name>
+        <description>
+            <en>This calling covers a number of different vocations — leaders of church choirs, hymnists, even folksingers — and thus, it is open to priests of
+                any sect who seek to serve the Pancreator through the art of song. Many sects have ancient traditions of song that they continue to cultivate
+                even in the present day. For example, the Avestites have long used chanters to reinforce the faith of their members and inspire others through
+                the simple, almost-hypnotic rhythms of their chants. Similar stories could be told of all the major sects of the Church, as well as many minor
+                ones, meaning that this calling is far from rare. Of course, any priest who is especially dedicated to singing may well become one of the
+                Chorali, who are the greatest practitioners of ecclesiastical music in the Universal Church. Choos ing this calling does not mean that you are a
+                member of the Chorali, unless you first seek them out for training in their methods, but many Chorali are choristers.
+            </en>
+            <es>Esta vocación, que incluye varias vocaciones diferentes (líder de coro, escritor de himnos o incluso cantante popular), está abierta a
+                sacerdotes de cualquier secta que quieran servir al Pancreator por medio del arte de la canción. Muchas sectas siguen cultivando antiguas
+                tradiciones 6666 cantadas a día de hoy. Por ejemplo, los avestitas usan cantores para reforzar la fe de sus miembros e inspirar a los de más
+                gracias al ritmo sencillo y casi hipnótico de sus cantos. Todas las sectas mayores de la Iglesia (y algunas menores) tienen historias parecidas,
+                lo que hace que esta vocación sea bastante común. Cualquier sacerdote especialmente entregado al canto podría acabar convirtiéndose en uno de
+                los corales, los mejores intérpretes de música eclesiástica de la Iglesia Universal. Esta vocación no implica ser miembro de los corales, a
+                menos que primero los busques para aprender sus métodos, pero muchos corales sí son coristas.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -3508,13 +3778,32 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>clergy</id>
         <name>
             <en>Clergy</en>
             <es>Clero</es>
         </name>
+        <description>
+            <en>Clergy are administrative priests, which is to say, priests whose primary occupation is the daily bureaucratic work necessary to ensure that the
+                Church continues to function. To some, this would no doubt seem to be drudgery of the highest order, as well as a distraction from the higher
+                callings of the Church, such as preaching and tending to the spiritual needs of the faithful. Priests who take up this calling, however, would
+                argue that what they are doing is every bit as important as the work of a parish priest or wandering mendicant. Without the copying of texts,
+                the keeping of records, the distribution of alms, and so forth, the Church would be unable to support good works done elsewhere. Clergy
+                correctly see themselves as the bedrock of the Church, the priests who maintain the hidden machinery of ecclesiastical governance on which
+                everything else depends. This is not the glamorous work of a charismatic preacher or a beloved healer, but it is vital nonetheless. (It is also,
+                however, a common cover for Spies because of the access to records it provides.)
+            </en>
+            <es>El clero está formado por los sacerdotes administrativos, es decir, aquellos que se ocupan de la burocracia diaria que la Iglesia necesita para
+                funcionar. Para algunos, es el trabajo más monótono imaginable y una distracción que impide centrarse en vocaciones más elevadas, como predicar
+                o atender las necesidades espirituales de los creyentes. Sin embargo, los sacerdotes que eligen este camino argumentan que su labor es tan
+                importante como la de un párroco o mendicante. Si la Iglesia no contase con la copia de manuscritos, la anotación de registros y la distribución
+                de las limosnas, entre otras muchas cosas, sería incapaz de hacer el bien en otros campos. Los sacerdotes del clero se ven a sí mismos como los
+                cimientos de la Iglesia, quienes mantienen en movimiento la maquinaria oculta del gobierno eclesiástico de la que depende todo lo demás. Aunque
+                no sea el glamuroso trabajo de un carismático predicador o un sanador muy querido, sigue siendo vital (y también una identidad muy común entre
+                espías, puesto que facilita el acceso a todo tipo de información).
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -3696,13 +3985,31 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>confessor</id>
         <name>
             <en>Confessor</en>
             <es>Confesor</es>
         </name>
+        <description>
+            <en>Although all priests are capable of hearing the confessions of the faithful and offering them absolution for their sins, this calling represents
+                a very specific type of priest, namely one who has entered the service of a single noble, merchant, or higher-ranking member of the clergy to be
+                their spiritual advisor. As its name 6666 suggests, the priest who takes up this calling hears the confessions of the person to whom they are
+                attached; this is the key to the calling, as the Church considers the ritual confession of sins to be a vital means by which the Pancreator’s
+                grace is conveyed to the faithful, thereby enabling them to better reflect His light. This calling is more than that, though, for a Confessor is
+                there to form the conscience and guide the actions of their patron. In so doing, the Confessor has a profound influence over that person and
+                ensures that the Church’s influence can be felt on a personal level. Since most Confessors attach themselves to people of power and importance
+                in the Known Worlds, the impact of their advice can be great indeed.
+            </en>
+            <es>Aunque todos los sacerdotes pueden escuchar las confesiones de los fieles y ofrecerles la absolución de sus pecados, esta vocación representa un
+                tipo concreto de sacerdote que sirve como consejero espiritual a un noble, mercader o algún miembro de alto rango de la Iglesia. Como su nombre
+                indica, el confesor escucha las confesiones de la persona a la que está vinculado; esa es la cla ve de la vocación, ya que la Iglesia considera
+                que la confesión ritual de los pecados es un medio vital por el que los creyentes reciben la gracia del Pancreator y reflejan mejor su luz. Pero
+                ser confesor es más que eso: los confesores son la conciencia de su patrón y guían sus acciones, por lo que ejercen una gran influencia sobre la
+                persona y al mismo tiempo se aseguran de transmitir la influencia de la Iglesia a nivel personal. Como la mayoría de confesores se vinculan a
+                personas poderosas e importantes en los Mundos Conocidos, sus consejos pueden acabar teniendo mucho peso.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -3885,13 +4192,34 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>dreamtender</id>
         <name>
             <en>Dreamtender</en>
             <es>Oniromante</es>
         </name>
+        <description>
+            <en>Though psychology, psychiatry, and other sciences of the mind are generally studied most assiduously in the Merchant League, the Church also has
+                a tradition of tending to the ailments of the mind. This tradition goes all the way back to the Prophet himself. The Omega Gospels recount in
+                several places the Prophet’s ministering to those troubled by dreams and nightmares; he viewed them as another means by which the Pancreator
+                spoke to his creatures and encouraged his disciples to pay heed to the wanderings of their sleeping minds, for therein lay hidden wisdom.
+                Following his example (and that of Saint Amalthea, who also paid close attention to the revelatory power of dreams), the Church trained and
+                authorized certain priests to act as “healers of the mind,” spiritual therapists known as “dreamtenders.” Some outsiders, particularly among
+                those wedded to Republican-era scientific theories, scoff at the calling of the Dreamtender, but their skills are well-documented. Many a noble
+                and hierarch keeps a Dreamtender on staff, in order to interpret their subconscious thoughts and so better lead them down the path that the
+                Pancreator is drawing them.
+            </en>
+            <es>A pesar de que los miembros de la Liga Mercantil son quienes estudian de forma más asidua la psicología, la psiquiatría y otras ciencias de la
+                mente, la Iglesia también tiene una larga tradición de tratamiento de dolencias mentales que se remonta hasta los tiempos del Profeta. En varios
+                pasajes de los Evangelios Omega se puede leer que Zebulón cuidaba de personas atormentadas por sus sueños y pesadillas. El Profeta veía estas
+                manifestaciones oníricas como otra forma que usaba el Pancreator para comunicarse con sus criaturas, y animó a sus Discípulos a prestar atención
+                a las divagaciones de las mentes dormidas, porque en ellas yacía sabiduría escondida. Siguiendo su ejemplo (y el de santa Amaltea, que también
+                se fijó en el poder revelador de los sueños), la Iglesia entrenó y autorizó a ciertos sacerdotes a trabajar como «sana dores de la men te»:
+                terapeutas espirituales conocidos como oniromantes. Algunas personas ajenas a la Iglesia, como los seguidores de las teorías científicas de la
+                era republicana, se burlan de esta vocación, aunque sus habilidades están más que docu mentadas. Muchos nobles y jerarcas emplean a oniromantes
+                para que interpreten su subconsciente y los guíen por el camino que el Pancreator está trazando para ellos.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -4064,13 +4392,35 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>friar</id>
         <name>
             <en>Friar</en>
             <es>Fraile</es>
         </name>
+        <description>
+            <en>This calling describes priests who serve a specific community, whether it includes peasants (the most common assignment for friars), the
+                inhabitants of a space station, or even something more exotic, like a traveling circus. Throughout the Known Worlds, there are untold thousands
+                of communities of be lievers, and each one needs a priest dedicated to its spiritual well-being. The Church takes this need very seriously, for
+                without the presence of a friar in a community, the faithful could easily be led astray from the reflective path. Friars are often overworked
+                and under-supported by their superiors, which can lead to frustration, anger, and exhaustion if not tended to. Other friars do not take their
+                duties as seriously as the Church and, left to their own devices, find ways to lead decidedly unholy lives, especially in communities far from
+                centers of ecclesiastical control. This calling is frequently not a prestigious one, and priests who hope to advance within the hierarchy
+                sometimes shy away from it. On the other hand, friars who excel in their vocation can be noticed and rewarded for their selfless toiling on
+                behalf of the souls of the faithful. Some of the Church’s greatest saints were once humble friars, and their examples continue to inspire.
+            </en>
+            <es>Esta vocación describe a sacerdotes que sirven a una comunidad concreta. Sus miembros podrían ser campesinos (lo más habitual), habitantes de
+                una estación espacial o incluso algo más exótico, como un circo itinerante. En los Mundos Conocidos hay miles de comunidades de cre yentes, y
+                cada una necesita un sacerdote dedicado a su bienestar espiritual. La Iglesia se toma esta necesidad muy en serio; sin la presencia del fraile,
+                una comunidad po dría alejarse fácilmente del camino de la luz reflejada. Los frailes suelen estar desbordados de trabajo y por lo general no
+                reciben mucha ayuda de sus superiores. Esta situación a la larga puede derivar en cansancio y sentimientos de frustración y enfado. Otros
+                frailes no se toman sus responsabilidades tan en serio como lo hace la Iglesia. Abandonados a su suerte, encuentran formas de llevar vidas muy
+                poco ejemplares, especialmente en comunidades alejadas 6868 del control eclesiástico. La vocación de fraile no suele tener gran prestigio y a
+                veces ahuyenta a los sacerdotes que quieren progresar en la jerarquía. Sin embargo, los frailes más brillantes podrían llamar la atención y
+                obtener una recompensa por su abnegado trabajo para salvar las almas de los fieles. Algunos de los santos más importantes de la Iglesia fueron
+                humildes frailes y, a día de hoy, su ejemplo sigue resultando inspirador.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -4275,13 +4625,31 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>healer</id>
         <name>
             <en>Healer</en>
             <es>Sanador</es>
         </name>
+        <description>
+            <en>Many priests take up the arts of the doctor, the surgeon, and the potioner; this calling covers them all. The teachings of the Prophet are
+                sometimes mistakenly dismissed as being purely spiritual and without any concern for the sufferings of the material world and the people who
+                dwell within it. A close reading of the Omega Gospels and the pronouncements of the Church down through the centuries, however, would quickly
+                disavow one from such a belief. Zebulon and his Disciples were often moved by the ailments of ordinary people and worked to alleviate them when
+                possible. The Church maintains hospitals and houses of healing across the Known Worlds, staffed not only by Amaltheans but also by priests of
+                many sects, all of whom take seriously the Prophet’s injunction not to neglect the health of the body while tending to the health of the soul.
+                Priests who take up this calling thus play an important role in the Church, contributing to the high regard so many common folk hold for it.
+            </en>
+            <es>Muchos sacerdotes son sanadores, una vocación que engloba a médicos, cirujanos y apotecarios. Algunas personas consideran equivocadamente que
+                las enseñanzas del Profeta son puramente espirituales, sin ningún tipo de consideración por el sufrimiento del mundo material ni la gente que
+                habita en él. Sin embargo, una lectura detallada de los Evangelios Omega y las declaraciones de la Iglesia a lo largo de los siglos desmiente
+                rápidamente semejantes ideas. Zebulón y sus discípulos se sintieron a menudo conmovidos por las dolencias de la gente corriente y buscaron la
+                forma de aliviarlas siempre que fuera posible. La Iglesia tiene hospitales y casas de curación en todos los rincones de los Mundos Conocidos, y
+                el personal no solo está compuesto por amalteos, sino también por sacerdotes de diversas sectas. Todos se toman muy en serio el mandato del
+                Profeta de no descuidar la salud del cuerpo mientras se atiende la salud del alma. Los sacerdotes que eligen esta vocación juegan un papel
+                importante en la Iglesia y contribuyen a darle la imagen tan positiva que muchas personas del pueblo llano tienen de ella.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -4463,13 +4831,34 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>imperialCohortPriest</id>
         <name>
             <en>Imperial Cohort</en>
             <es>Adjunto Imperial</es>
         </name>
+        <description>
+            <en>Some priests hear the call to more worldly duties, inflamed by the values and vision set forth by Emperor Alexius over the course of his reign.
+                These few pursue the role of Imperial Cohort to the Company of the Phoenix — the Questing Knights. A priest who takes up this calling provides
+                spiritual succor and advice to a Questing Knight, acting in a fashion not dissimilar to the Confessor calling. An Imperial Cohort accompanies
+                the knight to whom they are attached and travels wherever the knight goes, often into dark places far from the bosom of the Universal Church. A
+                Cohort thus gains the unprecedented opportunity to preach to new converts, providing a sterling example of what the Prophet’s faith has to
+                offer. Of course, doing so may cost the priest the opportunity to advance within the hierarchy of the Church. Many hierarchs distrust Imperial
+                Cohorts, seeing them more as agents of the Emperor than children of the Church. This suspicion — and, in some cases, outright animosity — is one
+                of the reasons that this calling remains controversial within the Church. Priests who take it up should be pre pared to encounter resistance
+                among more traditional members of the faith.
+            </en>
+            <es>Algunos sacerdotes reciben la llamada de un deber más mundano, enardecidos por los valores y la visión del emperador Alexius durante su reinado.
+                Se trata de los adjuntos imperiales de los caballeros expedicionarios, miembros de la Compañía del Fénix. Un sacerdote con esta vocación ofrece
+                ayuda y consejo espiritual a su caballero expedicionario, de forma no muy diferente a un confesor. El adjunto imperial acompaña al caballero al
+                que se ha vinculado y viaja con él allá donde vaya, en muchos casos a lugares oscuros muy lejos del seno de la Iglesia Universal. En estos
+                lugares perdidos los adjuntos tienen la oportunidad de predicar a nuevos conversos, ofreciendo un excelente ejemplo de lo que la fe del Profeta
+                puede ofrecer. Por supuesto, esto podría costarles la oportunidad de progresar en la jerarquía eclesiástica. Muchos jerarcas desconfían de los
+                adjuntos imperiales y los ven más como agentes del emperador que como hijos de la Iglesia. Esta sospecha (y, en algunos casos, clara hostilidad)
+                es una de las razones por las que esta vocación sigue siendo controvertida en la Iglesia. Los sacerdotes que la sigan deberían estar preparados
+                para toparse con la resistencia de los miembros más tradicionales de la fe.
+            </es>
+        </description>
         <group>imperialCohort</group>
         <capabilities>
             <capabilitiesOption>
@@ -4686,13 +5075,38 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>inquisitor</id>
         <name>
             <en>Inquisitor</en>
             <es>Inquisidor</es>
         </name>
+        <description>
+            <en>A Church investigator is trained not just to root out signs of sin and heresy but also to find more tangible clues involving crimes that concern
+                the Church. (It’s like an ecclesiastical version of the merchant Detective calling.) Not all who follow this calling are actual members of the
+                official Inquisition (since you need the Inquisitorial Seal perk for that), but most are. The calling of Inquisitor carries with it a decidedly
+                sinister connotation in many circles and with good reason. Inquisitors are feared for the dire punishments they can mete out to sinners and
+                heretics, as well as the wide authority they wield. In their zeal to root out the impious, Inquisitors sometimes scoop up the innocent and care
+                little for the consequences, so long as they achieve their ultimate goals. That said, not all Inquisitors behave in such a fashion. In fact, a
+                great many Inquisitors see their calling as a charitable one intended to protect and defend the faithful from all manner of dangers, both
+                spiritual and temporal. They exercise their duties with restraint and compassion and avoid excessive zeal, lest they become the very monsters
+                they hope to defeat. Not all Inquisitors are successful in this regard, but it’s worth remembering that this calling attracts more than
+                unthinking and intolerant fanatics. Indeed, not a small number of Inquisitors are humble parish priests who investigate local crimes more out of
+                curiosity than zeal.
+            </en>
+            <es>Los investigadores de la Iglesia se han entrenado, no solo para erradicar indicios de pecado y herejía, sino también para encontrar pistas más
+                tangibles de crímenes relacionados con la Iglesia (son una versión eclesiástica de la vocación detective de los mercaderes). No todos los que
+                siguen esta vocación son miembros oficiales de la Inquisición (para serlo hace falta el beneficio Sello Inquisitorial), pero sí la mayoría. En
+                muchos sectores la vocación de inquisidor tiene una connotación claramente siniestra, y con razón. Estos sacerdotes son temidos por los severos
+                castigos que imparten a los pecadores y herejes y por su gran autoridad. En su afán por erradicar a los impíos, a veces hacen pagar a justos por
+                pecadores, y no se preocupan demasiado por las consecuencias siempre que consigan sus objetivos. Pero no todos los inquisidores son así. De
+                hecho, muchos de ellos ven su vocación como un acto de caridad para proteger y defender a los fieles de todo tipo de peligros, tanto
+                espirituales como temporales. Estos inquisidores ejercen su deber de forma razonable y compasiva, y evitan el exceso de celo para no convertirse
+                en los monstruos que pretenden derrotar. No todos lo consiguen, pero cabe recordar que esta vocación no solo atrae a fanáticos intolerantes y
+                descerebrados. Una cantidad considerable de inquisidores son humildes parroquianos que investigan crímenes locales más por curiosidad que por
+                celo.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -4917,13 +5331,30 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>mendicant</id>
         <name>
             <en>mendicant</en>
             <es>Mendicante</es>
         </name>
+        <description>
+            <en>A Mendicant is a traveling priest without a formal congregation of their own. This calling applies to all priests who lack a community to which
+                they are assigned, not merely those who belong to a Hesychast sect. The Universal Church of the Celestial Sun is vast and well-organized. This
+                mandate enables it not only to fulfill its mission throughout the Known Worlds but also to exert its power and influence. However, not every
+                priest fits well within the Church’s structure; they chafe under its rules and regulations, often causing disruptions by trying to fit
+                themselves into it. The calling of a Mendicant is therefore a recognized outlet for these clerical misfits. Such men and women, provided they
+                neither preach heresy nor act contrary to the good of the Church, are allowed to become itinerant preachers and teachers among the stars. In
+                this, they follow in the footsteps of many saints who are revered for their travels on behalf of the Faith.
+            </en>
+            <es>Un mendicante es un sacerdote viajero sin una secta formal propia. A esta vocación pertenecen todos los sacerdotes que no tienen una comunidad
+                asignada, no solo los miembros de la secta de los hesicastos. El vasto tamaño y la buena organización de la Iglesia Universal del Sol Celestial
+                permiten a esta, no solo cumplir su misión en los Mundos Conocidos, sino también ejercer su poder e influencia. Pero no todos los sacerdotes
+                encajan en la estructura de la Iglesia. Algunos no responden bien a sus reglas y suelen dar problemas cuando intentan encontrar una forma de
+                ajustarse a ellas. La vocación de mendicante es una salida para estos inadaptados clericales. La Iglesia les permite convertirse en predicadores
+                itinerantes y profesores, siempre que no extiendan ninguna herejía ni actúen de forma contraria a las enseñanzas de la Iglesia. De esta forma,
+                siguen los pasos de muchos santos venerados por sus viajes en nombre de la fe.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -5156,7 +5587,6 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>monkMartialTradition</id>
         <group>monk</group>
@@ -5164,6 +5594,27 @@
             <en>Monk (Martial Tradition)</en>
             <es>Monje (Tradición Marcial)</es>
         </name>
+        <description>
+            <en>This calling covers priests who practice one of a wide variety of ascetic techniques, whether they’re contemplative, esoteric, or martial. This
+                calling is not exclusive to a Hesychast sect, though naturally, many members of that sect have taken it up. Unlike the Mendicant calling, the
+                Monk calling is usually not a solitary one. Monks congregate in groups, typically called monasteries, abbeys, or priories, where they live in
+                community with others who have adopted the same calling. The monasteries of the Known Worlds are quite diverse and include many different types
+                of Monks. Some of them have little or no contact with the outside world, while others are actively engaged with it. Some serve the Pancreator by
+                means of academic or scholarly work, while others engage in extreme forms of penance and discipline. What unites them all, despite their
+                variety, is the intensity of their devotion to the faith and the lengths to which they will go in pursuit of its spiritual gifts. Priests who
+                take up this calling should consider the nature of the monastery from which they came and how its members pursue their vocation.
+            </en>
+            <es>Esta vocación engloba a los sacerdotes que practican una amplia variedad de técnicas ascéticas, ya sean contemplativas, esotéricas o marciales.
+                Muchos monjes, aunque no to dos, son miembros de la secta de los hesicastos. A diferencia de la vocación de mendicante, la vocación de monje no
+                suele ser solitaria. Los monjes se reúnen en grupos, por lo general llamados monasterios, abadías o prioratos, donde viven en comunidad con
+                otros individuos que han elegido la misma vocación. Los monasterios de los Mundos Conocidos son bastante diversos e incluyen diferentes tipos de
+                monjes. Algu nos mantienen poco o ningún contacto con el mundo exterior, mientras que otros están perfectamente integrados en la sociedad.
+                Ciertos monjes sirven al Pancreator por medio de su trabajo académico o intelectual; otros recurren a formas extremas de penitencia y
+                disciplina. Lo que los une a todos, pese a su variedad, es la intensidad de su devoción por la fe y los esfuerzos que están dispuestos a hacer
+                para obtener sus dones espirituales. Los sacerdotes que elijan esta vocación deberían decidir el tipo de monasterio del que vienen y las
+                actividades de sus miembros. Esta entrada del XML representa la variante de Tradición Marcial del monje.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>2</total>
@@ -5327,7 +5778,6 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>monkAsceticTradition</id>
         <group>monk</group>
@@ -5335,6 +5785,27 @@
             <en>Monk (Ascetic Tradition)</en>
             <es>Monje (Tradición Ascética)</es>
         </name>
+        <description>
+            <en>This calling covers priests who practice one of a wide variety of ascetic techniques, whether they’re contemplative, esoteric, or martial. This
+                calling is not exclusive to a Hesychast sect, though naturally, many members of that sect have taken it up. Unlike the Mendicant calling, the
+                Monk calling is usually not a solitary one. Monks congregate in groups, typically called monasteries, abbeys, or priories, where they live in
+                community with others who have adopted the same calling. The monasteries of the Known Worlds are quite diverse and include many different types
+                of Monks. Some of them have little or no contact with the outside world, while others are actively engaged with it. Some serve the Pancreator by
+                means of academic or scholarly work, while others engage in extreme forms of penance and discipline. What unites them all, despite their
+                variety, is the intensity of their devotion to the faith and the lengths to which they will go in pursuit of its spiritual gifts. Priests who
+                take up this calling should consider the nature of the monastery from which they came and how its members pursue their vocation.
+            </en>
+            <es>Esta vocación engloba a los sacerdotes que practican una amplia variedad de técnicas ascéticas, ya sean contemplativas, esotéricas o marciales.
+                Muchos monjes, aunque no to dos, son miembros de la secta de los hesicastos. A diferencia de la vocación de mendicante, la vocación de monje no
+                suele ser solitaria. Los monjes se reúnen en grupos, por lo general llamados monasterios, abadías o prioratos, donde viven en comunidad con
+                otros individuos que han elegido la misma vocación. Los monasterios de los Mundos Conocidos son bastante diversos e incluyen diferentes tipos de
+                monjes. Algu nos mantienen poco o ningún contacto con el mundo exterior, mientras que otros están perfectamente integrados en la sociedad.
+                Ciertos monjes sirven al Pancreator por medio de su trabajo académico o intelectual; otros recurren a formas extremas de penitencia y
+                disciplina. Lo que los une a todos, pese a su variedad, es la intensidad de su devoción por la fe y los esfuerzos que están dispuestos a hacer
+                para obtener sus dones espirituales. Los sacerdotes que elijan esta vocación deberían decidir el tipo de monasterio del que vienen y las
+                actividades de sus miembros. Esta entrada del XML representa la variante de Tradición Marcial del monje.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>2</total>
@@ -5475,7 +5946,6 @@
             </upbringings>
         </restrictions>
     </calling>
-
     <calling>
         <id>monkScholarlyTradition</id>
         <group>monk</group>
@@ -5483,6 +5953,27 @@
             <en>Monk (Scholarly Tradition)</en>
             <es>Monje (Tradición Académica)</es>
         </name>
+        <description>
+            <en>This calling covers priests who practice one of a wide variety of ascetic techniques, whether they’re contemplative, esoteric, or martial. This
+                calling is not exclusive to a Hesychast sect, though naturally, many members of that sect have taken it up. Unlike the Mendicant calling, the
+                Monk calling is usually not a solitary one. Monks congregate in groups, typically called monasteries, abbeys, or priories, where they live in
+                community with others who have adopted the same calling. The monasteries of the Known Worlds are quite diverse and include many different types
+                of Monks. Some of them have little or no contact with the outside world, while others are actively engaged with it. Some serve the Pancreator by
+                means of academic or scholarly work, while others engage in extreme forms of penance and discipline. What unites them all, despite their
+                variety, is the intensity of their devotion to the faith and the lengths to which they will go in pursuit of its spiritual gifts. Priests who
+                take up this calling should consider the nature of the monastery from which they came and how its members pursue their vocation.
+            </en>
+            <es>Esta vocación engloba a los sacerdotes que practican una amplia variedad de técnicas ascéticas, ya sean contemplativas, esotéricas o marciales.
+                Muchos monjes, aunque no to dos, son miembros de la secta de los hesicastos. A diferencia de la vocación de mendicante, la vocación de monje no
+                suele ser solitaria. Los monjes se reúnen en grupos, por lo general llamados monasterios, abadías o prioratos, donde viven en comunidad con
+                otros individuos que han elegido la misma vocación. Los monasterios de los Mundos Conocidos son bastante diversos e incluyen diferentes tipos de
+                monjes. Algu nos mantienen poco o ningún contacto con el mundo exterior, mientras que otros están perfectamente integrados en la sociedad.
+                Ciertos monjes sirven al Pancreator por medio de su trabajo académico o intelectual; otros recurren a formas extremas de penitencia y
+                disciplina. Lo que los une a todos, pese a su variedad, es la intensidad de su devoción por la fe y los esfuerzos que están dispuestos a hacer
+                para obtener sus dones espirituales. Los sacerdotes que elijan esta vocación deberían decidir el tipo de monasterio del que vienen y las
+                actividades de sus miembros. Esta entrada del XML representa la variante de Tradición Marcial del monje.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>2</total>
@@ -5641,13 +6132,32 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>occultist</id>
         <name>
             <en>Occultist</en>
             <es>Oculstista</es>
         </name>
+        <description>
+            <en>Despite the ominous sounding name, an Occultist is simply a priest who studies the practice of theurgy, Ur technologies, fringe sciences, and in
+                some cases, the dark between the stars. The Church has a rich tradition of plumbing the depths of reality, seeking out the hidden wisdom of the
+                Pancreator wherever it may be found. Furthermore, the Prophet taught that the wisdom of those ancient faiths he called “pre-reflective” (that
+                is, from before his vision of the Holy Flame) were real and worthy of study. At the same time, some of those faiths (allegedly) contained errors
+                and falsehoods, along with dangerous teachings that could harm one’s very soul. An Occultist is a priest trained by the Church to seek the
+                knowledge hidden in ancient lore without falling prey to their inherent dangers. That is the theory, at least, and history has shown that many
+                priests, no matter how well they’re trained, are not adequately prepared to face the Dark head on. Nevertheless, the quest goes on, and the
+                Church honors the Occultist’s calling, even as it warns against the calling’s many pitfalls.
+            </en>
+            <es>A pesar de tener un nombre inquietante, los ocultistas no son más que sacerdotes que estudian la teúrgia, las tecnologías ur, las ciencias
+                marginales y, en algunos casos, las Tinieblas entre las estrellas. En la Iglesia existe una larga tradición de búsqueda de la sabiduría oculta
+                del Pancreator en las profundidades de la realidad. El Profeta enseñó que la sabiduría de las antiguas religiones, a las que llamó
+                «prerreflejas» (es decir, anteriores a su visión de la Llama Sagrada), era real y digna de estudio. Sin embargo, algunas de ellas
+                (supuestamente) contenían errores, falsedades y enseñanzas peligrosas que podían dañar el alma. Un ocultista es un sacerdote formado por la
+                Iglesia para buscar el conocimiento oculto en la sabiduría antigua sin caer en sus peligros inherentes. Al menos esa es la teoría. La historia
+                ha demostrado que muchos sacerdotes, a pesar de su buena formación, resultaron no estar preparados para enfrentarse a las Tinieblas. Aun así, la
+                misión perdura, y la Iglesia respeta la vocación de ocultista, aunque también advierte sobre sus numerosos peligros.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -5824,13 +6334,37 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>scribe</id>
         <name>
             <en>Scribe</en>
             <es>Escriba</es>
         </name>
+        <description>
+            <en>A scribe is a clerk or personal communication assistance to a noble, merchant, or higher-ranking priest. In an age when electronic forms of
+                communication and data storage — not to mention literacy — are not widespread, this is a vital calling. The Church long ago established special
+                curricula for training Scribes; it now lends them to those who can afford their services. There is, naturally, a dual purpose to this practice.
+                First, it ensures that records are kept in a fashion that is relatively standardized and easily understood. Second, it also ensures that the
+                Church has access to those records and, when necessary, it can bend them to produce results more favorable to its own perspectives. Priests who
+                take up this calling see it as an opportunity to serve and an invitation to move about in the corridors of power in the Known Worlds. Many
+                nobles and merchants employ scribes to record everything they do for their biographies, making them somewhat like Confessors (or Wordwright
+                guilders) but with more worldly goals. The life of a scribe gives priests access to a kind and quality of life that might otherwise be
+                unavailable to them. That’s a very attractive proposition to many, which is why the Church’s scribal schools never lack for students. (Like the
+                Clergy calling, this is a common cover calling for Spies.)
+            </en>
+            <es>Un escriba es un empleado o asistente personal de comunicaciones de un noble, un mercader o un miembro de la Iglesia de mayor rango. En una
+                época en la que las formas electrónicas de comunicación y almacenamiento de datos (por no decir la alfabetización) no están generalizadas, esta
+                vocación es fundamental. Hace mucho tiempo la Iglesia estableció planes de estudio especiales para formar escribas, y hoy los presta a quienes
+                pueden permitirse sus servicios. Obviamente, esta práctica tiene una doble finalidad. Por una parte, mantener registros de forma relativamente
+                unificada y fácilmente comprensible. Por la otra, se asegura el acceso a esos registros y, cuando sea necesario, puede manipularlos para
+                conseguir resultados que la favorezcan. Los sacerdotes que eligen esta vocación la ven como una oportunidad de servir y una invitación para
+                codearse con los poderosos de los Mundos Conocidos. Muchos nobles y mercaderes emplean escribas para que registren todo lo que hacen y compilen
+                su biografía. En ese sentido, se asemejan a los confesores (o al gremio de los escritores), pero con objetivos más mundanos. La vocación de
+                escriba permite a los sacerdotes acceder a un nivel y un tipo de vida que de otra forma quizás les estaría vetado. Esta oportunidad, muy
+                atractiva para muchos, hace que nunca falten alumnos en las escuelas religiosas de escribas (también es una vocación habitual entre los espías,
+                como ocurría con el clero).
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -6006,13 +6540,38 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>templar</id>
         <name>
             <en>Templar</en>
             <es>Templario</es>
         </name>
+        <description>
+            <en>A Templar is a priest who fights to defend the Church and the faithful. This calling is distinct from that of Brother Battle (see above).
+                Templars are priests belonging to one of the other sects who have undertaken the study of combat skills to better protect the interests of the
+                Church. All of them channel their faith in the Pancreator toward martial pursuits, inspired by the examples of martial saints like Lextius and
+                Mantius, who showed that there is no contradiction between the Prophet’s teachings and the way of the Templar. 7474 Depending on whether they
+                operate alone or as part of a group, priests who take up this calling may or may not have specifically assigned duties. Those who do not usually
+                attach themselves to the entourage of a noble, merchant, or higher-ranking priest, lending their aptitude with gun and blade to their cause.
+                Known Church orders include: The Adamantine Order — Mostly made up of knights, as well as some priests, this order serves the Eskatonics,
+                usually by protecting specific priests. Order of Saint Yara — This order is dedicated to protecting Amalthean priests on their frequent
+                pilgrimages to dangerous locations. Swords of Lextius – These templars often serve the Urth Orthodox priesthood as penance, although some
+                families seek favor by sending their younger sons into service. (Members of these orders might fight alongside nobles of the Knightly Order
+                calling.)
+            </en>
+            <es>Un templario es un sacerdote que lucha por defender a la Iglesia y a sus fieles. Esta vocación es diferente de la del hermano de batalla
+                (descrita anteriormente). Los templarios son miembros de una de las otras sectas que han desarrollado habilidades de combate para poder proteger
+                mejor los intereses de la Iglesia. Todos ellos canalizan su fe en el Pancreator por medio de actividades marciales, inspirados por los ejemplos
+                de santos de batalla como Lextius y Mantius, que demostraron que las enseñanzas del Profeta y el camino templario no se contradicen. Depen
+                diendo de si actúan en solitario o como parte de un grupo, los templarios podrían tener o no deberes asignados. Los que no se vinculan al
+                séquito de un noble, mercader o sacerdote de más rango, usan sus habilidades con la pistola o la espada para apoyar a su causa. Estas son
+                algunas de las órdenes más conocidas: Orden Adamantina: Una pequeña orden formada casi en su totalidad por caballeros (aunque incluye algunos
+                sacerdotes), que sirve a los eskatónicos protegiendo a algunos sacerdotes concretos. Orden de Santa Yara: Esta orden noble se dedica a proteger
+                a los sacerdotes amalteos durante sus frecuentes peregrinajes a lugares peligrosos. Espadas de Lextius Estos templarios suelen servir a los
+                ortodoxos de Urth, por lo general como penitencia o a instancia de familias que envían a uno de sus hijos menores para conseguir algún favor
+                (Los miembros de estas órdenes podrían luchar junto a nobles con la vocación orden de caballería).
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -6213,13 +6772,31 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>banker</id>
         <name>
             <en>Banker</en>
             <es>Banquero</es>
         </name>
+        <description>
+            <en>In the Known Worlds, Bankers aren’t just money-lenders and accountants — they’re practically priests in a very exclusive sect with power over
+                the magical forces of wealth and prosperity. Bankers milk this myth for all it’s worth. They know that money comes and goes, but leverage
+                remains. Leverage — debt — is power, the unseen chain that binds the mighty to the humble Banker. Bankers don’t necessarily own the money they
+                handle; they’re managing the inflows and outflows for their factions, keeping the records of who owes whom. Everybody courts the Banker to turn
+                on the loan spigot but fears the day when debts come due. While most Bankers remain in their home offices, some are tasked with the dangerous
+                job of collecting on debts. These knee-breakers might let you off with a warning… once. Don’t make them come back a second time. (While the
+                Reeves Guild is best known for its banking empire, most Reeves are Lawyers first; hence, that calling gets the guild’s favored status.)
+            </en>
+            <es>En los Mundos Conocidos, los banqueros no son solo prestamistas y contables; son prácticamente sacerdotes de una secta exclusiva que controla
+                las fuerzas mágicas de la riqueza y la prosperidad. Y se aprovechan todo lo posible de este mito. Quienes eligen esta vocación saben que el
+                dinero va y viene, pero la deuda permanece. Con esta ven taja consiguen poder, una cadena invisible que los une a los poderosos. Los banqueros
+                no tienen por qué tener el dinero que manejan; se dedican a manipular el flujo de riqueza de sus facciones y anotar quién debe a quién. Todo el
+                mundo los corteja para que abran el grifo del dinero, pero temen el día en el que venza el plazo para devolverlo. Aunque la mayoría de banqueros
+                trabajan en despachos desde casa, a algunos se les encarga la peligrosa tarea de cobrar deudas. La primera vez podrían limitarse a dar un
+                aviso..., pero lo mejor es que no vuelvan por segunda vez. (Aunque el gremio de los Magistrados es famoso por su imperio bancario, la mayoría de
+                ellos son ante todo abogados, de ahí que sea la vocación favorecida del gremio).
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -6430,13 +7007,29 @@
             </upbringings>
         </restrictions>
     </calling>
-
     <calling>
         <id>bountyHunter</id>
         <name>
             <en>Bounty Hunter</en>
             <es>Cazarrecompensas</es>
         </name>
+        <description>
+            <en>Bounty Hunters are professional people hunters (i.e., thugs for hire) who chase down criminals, runaways, political rivals — anybody that
+                somebody will hire them to catch. Law enforcement is stretched very thin within most fiefs and on many planets, and it’s nigh non-existent
+                between worlds. It’s just too costly to maintain an intra-planetary — let alone an interstellar — police force. That’s when you need Bounty
+                Hunters. When a criminal es capes from the jurisdiction where they committed a crime, the ruling authority — the noble lord, the parish deacon,
+                the guild master — places a bounty on their head. In most cases, the goal is to return the criminal for trial. For extreme crimes, they might be
+                tried in absentia, and the bounty is “dead or alive.”
+            </en>
+            <es>Los cazarrecompensas son cazadores de personas profesionales (es decir, matones a sueldo) que persiguen a criminales, fugitivos, rivales
+                políticos o cualquier persona a la que les paguen por encontrar. En la mayoría de feudos y en muchos planetas las fuerzas del orden están
+                desbordadas, y en el espacio son prácticamente inexistentes. Es demasiado caro mantener una policía interplanetaria y más aún una interestelar:
+                aquí es donde entran en juego los cazarrecompensas. Cuando un criminal escapa de la jurisdicción donde cometió el crimen, las autoridades (el
+                lord noble, el diácono de la parroquia, la líder del gremio...) ofrecen una recompensa por él. La mayoría de las veces el objetivo es que el
+                criminal vuelva para llevarlo a juicio; pero, en casos extremos, podrían juzgarlo in absentia y ofrecer una recompensa por capturarlo «vivo o
+                muerto».
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -6647,13 +7240,34 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>chainer</id>
         <name>
             <en>Chainer</en>
             <es>Cadenero</es>
         </name>
+        <description>
+            <en>A Chainer is a fancy term for a slaver. It’s a sad reality in the Known Worlds. While most Chainers are members of the Muster guild, they don’t
+                carry that guild’s favored status. (Mercs do.) Few people respect what Chainers do, although many of their clients — noble lords and merchants —
+                couldn’t maintain their wealth without slave labor to work in fields or shanghaied sailors to man their military space fleets. They’re not all
+                strictly slavers; some are prison wardens and guards on contract to houses or even guilds. Chainers aren’t out to win popularity contests;
+                they’re in it for the money, although some of them do get their kicks inflicting misery on others. In the Known Worlds, the slave trade doesn’t
+                single out ethnicities; it takes what it can. The pickings are getting slimmer in the Pax Alexius, although the opening into barbarian space
+                promises new “resources.” Saint Maya, the Prophet’s Disciple, famously broke her chains, and slaves pray to her. Ironically, Chainers often host
+                lavish shrines to her, hoping she’ll look the other way.
+            </en>
+
+            <es>Por desgracia, en los Mundos Conocidos existe la esclavitud. Cadenero es un eufemismo para referirse a un esclavista. Aunque la mayoría de
+                cadeneros sean miembros de la Asamblea, la vocación favorecida del gremio son los mercenarios. Poca gente respeta lo que hacen, pese a que
+                muchos de sus clientes (nobles y mercaderes) serían inca paces de mantener su riqueza sin esclavos que trabajasen los campos o marineros
+                forzados en sus flotas militares espaciales. No todos los cadeneros son esclavistas; algunos son carceleros y guardias contratados por casas
+                nobles o incluso gremios. Ninguno de ellos hace su trabajo para ganar un concurso de popularidad, sino por el dinero, aunque algunos disfrutan
+                haciendo sufrir a los demás. En los Mundos Conocidos el tráfico de esclavos no hace distinción por etnias. Desde la Pax Alexius, cada vez es más
+                difícil conseguir «recursos», aunque los territorios bárbaros ofrecen nuevas oportunidades. Los esclavos rezan a santa Maya, la discípula del
+                Profeta, famosa por haber roto sus cadenas, e irónicamente los cadeneros también le dedican lujosos santuarios, esperando que así haga la vista
+                gorda.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -6824,13 +7438,27 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>detective</id>
         <name>
             <en>Detective</en>
             <es>Detective</es>
         </name>
+        <description>
+            <en>You’re an investigator, gumshoe, or spy-for-hire. A Detective is a master at tracking down clues and putting them together to solve mysteries;
+                some prefer to uncover illicit affairs (an all-too-common job for most professional Detectives). They learn to read a room for trace evidence,
+                as well as people’s unspoken motives. Detectives aren’t always noir night-stalkers; some are patriots for a cause, such as alien rights, or even
+                adjuncts to the Inquisition, rooting out sins. While sleuths in the popular imagination usually have bizarre character quirks, most Detectives
+                are actually nondescript and rarely noticed.
+            </en>
+            <es>Eres un investigador, un detective privado o un espía a sueldo. Los detectives son expertos en seguir pistas y atar cabos para resolver
+                misterios. Aprenden a analizar los espacios, descubrir pruebas y leer los motivos secretos de las personas. Algunos de ellos prefieren descubrir
+                asuntos ilícitos (uno de los trabajos más habituales de la mayoría de detectives profesionales). No todos los detectives son merodeadores
+                nocturnos de cine negro; algunos son patriotas de una causa o incluso auxiliares de la Inquisición, a la que ayudan para erradicar el pecado.
+                Aunque la imaginación popular los pinte como individuos extravagantes, la mayoría de detectives son personas normales y corrientes que pasan
+                desapercibidas.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -7035,13 +7663,24 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>imperialCohortMerchant</id>
         <name>
             <en>Imperial Cohort</en>
             <es>Adjunto Imperial</es>
         </name>
+        <description>
+            <en>Just as Emperor Alexius offered this calling for priests, he extended his call for duty to guildmembers. The Imperial Cohort offers aid and
+                assistance and acts as staunch helpmates to his Questing Knights. In return for offering their skills and fealty, they reap the rewards of first
+                claim on the merchant routes into newly explored territories. While this may earn a guilder new enemies, it also brings new opportunities to
+                one’s guild.
+            </en>
+            <es>El emperador Alexius extendió esta vocación no solo a los sacerdotes, sino también a los miembros de los gremios. Los adjuntos imperiales son
+                los compañeros in separables de los caballeros expedicionarios, a los que asisten y apoyan. A cambio de ofrecer su lealtad y sus talentos, son
+                los primeros en beneficiarse de las rutas mercantes en territorios recién explorados. Esto a veces implica nuevos enemigos para su gremio, pero
+                también nuevas oportunidades.
+            </es>
+        </description>
         <group>imperialCohort</group>
         <capabilities>
             <capabilitiesOption>
@@ -7271,13 +7910,30 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>lawyer</id>
         <name>
             <en>Lawyer</en>
             <es>Abogado</es>
         </name>
+        <description>
+            <en>Not even the upheavals of the Diaspora, the egalitarianism of the Second Republic, or the feudalism of the New Dark Ages could wipe out the
+                lawyers. The profession of the law is the handmaiden to civilization. Without it, Lawyers say, humankind would descend into the kind of
+                barbarism practiced by the Vuldrok (who actually have a somewhat egalitarian system of laws, but never mind that). Lawyers are the bulwark of
+                Reason against brutal violence, the defenders of the just, the champions for the wronged — and they charge hefty amounts of firebirds for their
+                service. While most Lawyers work a local practice, some roam at large, adjudicating the law for fief lords, parishes, guilds, and even freemen
+                societies who can afford them. While a few might play legal Robin Hood now and then, performing pro bono for good causes, most Lawyers are
+                ardent defenders of the feudal status quo.
+            </en>
+            <es>Ni las turbulencias de la Diáspora, ni el igualitarismo de la Segunda República, ni el feudalismo de la Nueva Edad Oscura fueron capaces de
+                acabar con los abogados. Su profesión es inseparable del mundo civilizado. Sin ella, los abogados afirman que la humanidad se habría sumido en
+                una barbarie como la de los vuldrok (que, en realidad, tienen un sistema de leyes bastante igualitario). Los abogados son el baluarte de la
+                Razón contra la violencia, los defensores de los justos, los campeones de los damnificados... y cobran una nada desdeñable suma de fénix por sus
+                servicios. Aunque la mayoría de ellos trabajan en bufetes locales, algunos viajan a lo largo y a lo ancho, ejerciendo para señores feudales,
+                parroquias, gremios e incluso asociaciones independientes que puedan permitírselo. Casi todos los abogados son fervientes defensores del sistema
+                feudal, a pesar de que haya unos pocos que jueguen a ser Robin Hood de vez en cuando, defendiendo buenas causas en casos pro bono.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -7449,13 +8105,30 @@
             </upbringings>
         </restrictions>
     </calling>
-
     <calling>
         <id>mercenary</id>
         <name>
             <en>Mercenary</en>
             <es>Mercenario</es>
         </name>
+        <description>
+            <en>If not the oldest profession in the universe, the Mercenary soldier-for-hire is certainly among the most ancient. Kingdoms rise and fall with
+                and against Mercenaries. It’s not always possible for rulers to maintain large standing armies; many often have to resort to contract war labor.
+                Mercs are usually hired to work under the command of their employer’s designated general, but sometimes, they also take on the work of
+                high-level strategic command. Mercs have a code of honor among themselves, even those they might currently be fighting (and with whom they might
+                be fighting alongside in the next hot spot for hire). While it’s a dangerous, dirty, and often maiming job, Mercs are relatively safe in the
+                knowledge that, should their employer’s side lose, they can simply walk away to the next job. While a Merc could be a loner, they’re most often
+                part of a tight-knit band — or the last survivor of one.
+            </en>
+            <es>Si la profesión de mercenario no es la más antigua del universo, poco le falta. Los reinos se crean y se destruyen gracias a ellos. Dadas las
+                dificultades de mantener un ejército, muchos gobernantes se ven obligados a contratar a soldados para sus guerras, normalmente a las órdenes de
+                uno de sus generales, pero a veces también con un cargo de liderazgo estratégico. Los mercenarios siguen un código de honor entre ellos incluso
+                cuando se enfrentan entre sí (al fin y al cabo, en la siguiente misión podrían estar trabajando juntos). Aunque su trabajo es peligroso, sucio y
+                muchas veces corren el riesgo de acabar mutilados, lo bueno de los mercenarios es que, si la facción de su empleador pierde, siempre pueden
+                pasar al siguiente trabajo. Algunos mercenarios trabajan en solitario, pero la mayoría forman parte de un grupo muy unido... o son los últimos
+                supervivientes de uno.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -7637,13 +8310,30 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>reclaimer</id>
         <name>
             <en>Reclaimer</en>
             <es>Recuperador</es>
         </name>
+        <description>
+            <en>Archaeologist, salvager, looter – these are all sobriquets of the Reclaimer. For the contemporary Known Worlder, the bulk of history lies behind
+                them; the fading suns await ahead. There will be no more great marvels or wonders wrought by humankind. Those lie now in the past, waiting for
+                Reclaimers to find and extract. In many ways, technological society would cease to exist if not for bold Reclaimers, who dig into the ruins,
+                hidden fastnesses, asteroid bases, and abandoned moon cities left behind by human — and alien — forebears. Whether it’s Second Republic military
+                tech, Diasporan domestic utilities, or even Anunnaki relics, the Reclaimer will let nothing stop them from scouring every world for its last
+                hidden secrets. (While this is officially the calling most acknowledged by Scravers, their true favored calling is actually as Thieves.)
+            </en>
+            <es>Los recuperadores reciben todo tipo de sobrenombres: arqueólogos, recolectores, expoliadores... Para los habitantes contemporáneos de los Mundos
+                Conocidos, el grueso de la historia ha quedado atrás y lo que les espera es el oscurecimiento de los soles. La humanidad no producirá más
+                maravillas ni milagros. Todo ha quedado en el pasado, a la espera de que los recuperadores lo encuentren y lo extraigan. En cierto modo, la
+                sociedad tecnológica dejaría de existir si no hubiese recuperadores audaces excavando las ruinas, fortalezas ocultas, bases de asteroides y
+                ciudades lunares abandonadas por sus antepasados humanos (y alienígenas). Nadie puede interponerse entre un recuperador y su afán por registrar
+                todos y cada uno de los planetas en busca de sus secretos ocultos, ya sea tecnología militar de la Segunda República, servicios domésticos de la
+                Diáspora o incluso reliquias anunnaki. Esta vocación es la más admitida oficialmente por los Carroñeros, aunque en realidad favorecen la
+                vocación de ladrón.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -7857,13 +8547,27 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>scout</id>
         <name>
             <en>Scout</en>
             <es>Explorador</es>
         </name>
+        <description>
+            <en>Scouts are wilderness guides, rangers, military recon experts, and explorers of the untrod frontiers. They’re more comfortable roughing it in
+                the wind and rain than in a cozy city apartment or a palace lounge. For some, the incentive is an affinity with nature; for others, it’s just as
+                much a hatred of the madding crowd as a love of tracking and hunting wild creatures. To others it’s a job: getting behind enemy lines and
+                mapping the lay of the land. They might have to put up with the coddled nobles, irate priests, and impatient merchants who pay them to guide
+                their expeditions and caravans, but to a Scout, nothing beats roughing it in the wilds.
+            </en>
+            <es>Los exploradores son guías de la naturaleza, guardabosques, expertos en reconocimiento militar y aventureros en territorios inexplorados. Son
+                personas que se encuentran más a gusto a la intemperie que en un cómodo apartamento urbano o en el salón de un palacio. Para algunos, el
+                incentivo es su afinidad con la naturaleza; para otros, es el odio que sienten por las multitudes y su afición por 8383 INTRODUCCIÓN REGLAS
+                PERSONAJES ATRIBUTOS TECNOLOGÍA OCULTO rastrear y cazar criaturas salvajes. A veces su trabajo con siste en infiltrarse en territorio enemigo
+                para reconocer el terreno. Aunque tengan que aguantar a nobles mimados, sacerdotes encolerizados o mercaderes impacientes que les pagan para
+                guiar sus expediciones y caravanas, no hay nada mejor que sobrevivir en medio de la naturaleza.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -8102,13 +8806,29 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>starPilot</id>
         <name>
             <en>Star Pilot</en>
             <es>Piloto Estelar</es>
         </name>
+        <description>
+            <en>Star Pilots are professionals who fly the spaceships that ply the space between planets, moon, space stations, and the mysterious jumpgates.
+                Many pilots spend their careers entirely within a single system, ferrying people and goods back and forth or standing on duty in the system’s
+                defense fleet. Some have even seen space combat, whether as a military helmsman or a victim of piracy. A rare few travel between systems through
+                the jumpgates, witnessing the myriad worlds of the Empire. Star Pilots don’t usually own their own ships; most of them are contract pilots for
+                one patron or another. They are trusted as disciplined professionals but watched by the Church in case they become curious about the Sathra
+                Effect. That state of rapture is the boon and bane of Star Pilots – the high some of them secretly chase but can never keep.
+            </en>
+            <es>Los pilotos estelares son profesionales que pilotan las naves que cubren la distancia entre planetas, lunas, estaciones espaciales y los
+                misteriosos portales de salto. Muchos pilotos pasan toda su carrera en el mismo sistema solar, como parte de su flota de defensa o transportando
+                pasajeros y mercancías de un lado a otro. Algunos incluso han participado en combates espaciales como pilotos militares o víctimas de la
+                piratería. Excepcionalmente, unos pocos viajan entre sistemas solares por los portales de salto y son testigos de la infinidad de mundos que
+                componen el Imperio. Los pilotos estelares no suelen poseer su propia nave; la mayoría de ellos trabajan para terceros. A pesar de ser
+                profesionales de confianza, la Iglesia los vigila por si les entrara la curiosidad sobre el efecto Satra. Este estado de éxtasis es la bendición
+                y la bestia negra de los pilotos estelares, una subida de adrenalina que persiguen en secreto pero que nunca dura.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -8284,13 +9004,27 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>techRedeemer</id>
         <name>
             <en>Tech Redeemer</en>
             <es>Tecnorredentor</es>
         </name>
+        <description>
+            <en>High priests of technology, Tech Redeemers are the magicians who repair and maintain — or “redeem” — the fallen tech from earlier eras.
+                Sometimes they even invent new technologies. Tech Redeemers can be anyone whose job it is to keep the machines running. They might be simple
+                wrenchjacks working the space port, jury-rigging starship engineers, or brilliant-but-uncanny scientists delving into realms of knowledge
+                unknown to other sentients. Others stand in awe of their accomplishments — or in fear, afraid their hubris will bring down ruin on everyone
+                around them. The Inquisition likes to make examples out of tech-heads who push the boundaries too frequently.
+            </en>
+            <es>Los tecnorredentores, sumos sacerdotes de la tecnología, son los magos que reparan y mantienen (o «redimen») tecnología abandonada de épocas
+                anteriores. A veces incluso inventan nueva tecnología. Un tecnorredentor es cualquiera que se dedique a mantener las máquinas en funcionamiento.
+                Podría tratarse de un simple mecánico que trabaja en el espaciopuerto ensamblando motores de naves estelares, o una científica brillante aunque
+                excéntrica, que se dedica a ahondar en campos de conocimiento desconocidos para otros seres racionales. Sus logros maravillan, aunque a veces
+                también asustan, pues algunas personas temen que su Hubris provoque la ruina de todos los que los rodean. A la Inquisición le gusta escarmentar
+                a los tecnólogos que cruzan los límites demasiado a menudo.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -8472,13 +9206,28 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>thief</id>
         <name>
             <en>Thief</en>
             <es>Ladrón</es>
         </name>
+        <description>
+            <en>Cutpurses, cat-burglars, second-story operators, heist masterminds, and even Robin-Hood-style rogues — thieves of all stripes are criminals to
+                some (those whose goods they steal) and a romantic ideal for others. Thieves make a living taking what others have, which puts them on the wrong
+                side of the law. The fact that they often work for patrons who represent that law — such as nobles seeking a rival’s treasure — doesn’t always
+                get them off the hook. Many factions have Thieves in their ranks, but they’re supposed to keep their activities on the down-low. The Scravers
+                Guild has a reputation for harboring Thieves, but they always manage to officially deny it (while still giving favored status to the Thieves in
+                their midst).
+            </en>
+            <es>Los carteristas, rateros, palquistas, autores intelectuales de atracos e incluso quienes roban a los ricos para dárselo a los pobres, a lo Robin
+                Hood, son delincuentes para algunos (los que sufren los robos) y un ideal romántico para otros. Estos individuos se ganan la vida quitándoles a
+                los demás lo que tienen y por tanto se encuentran al margen de la ley. El hecho de que suelan trabajar para representantes de la ley (como
+                nobles que buscan el tesoro de un rival) no significa que siempre se salgan con la suya. Muchas facciones tienen ladrones, pero se espera de
+                ellos que no llamen la atención. Los Carroñeros, con fama de incluir ladrones en sus filas, siempre se las apañan para negarlo oficialmente (a
+                pesar de que sea la vocación favorecida del gremio).
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -8683,13 +9432,25 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>trader</id>
         <name>
             <en>Trader</en>
             <es>Comerciante</es>
         </name>
+        <description>
+            <en>As classic merchants, Traders buy and sell goods and/or services. A Trader might have a steady stall at the local agora or might be a
+                star-spanning “merchant prince” who has cornered the market on a particular item. Either way, they’ve got to be good at haggling and shrewd when
+                examining goods. A Trader who’s an easy mark for cheap knockoffs or counterfeits isn’t long for this business. With Hargard now in the Empire’s
+                reach, whole new markets are opening up in barbarian space for those Traders bold — or foolhardy? — enough to ply them.
+            </en>
+            <es>Los comerciantes, como la figura clásica del mercader, compran y venden productos o servicios. Algunos tienen su puesto fijo en el ágora local,
+                otros son «príncipes mercantes» de las estrellas que han monopolizado el mercado de algún artículo concreto, pero todos tienen que tener talento
+                regateando y ser astutos a la hora de examinar mercancías. El negocio de un comerciante que no distinga falsificaciones o réplicas baratas no
+                durará mucho tiempo. Ahora que Hargard está al alcance del Imperio, nuevos mercados en territorio bárbaro se abren a los comerciantes lo
+                suficientemente audaces (¿o imprudentes?) como para explotarlos.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -8891,13 +9652,31 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>tycoon</id>
         <name>
             <en>Tycoon</en>
             <es>Magnate</es>
         </name>
+        <description>
+            <en>The Tycoon is the ultimate high-class con-artist who believes their own con. They’re suffused with a will-to-power and the supreme confidence
+                that their confidence alone is all they need to succeed. Despite the name for this calling, the Tycoon doesn’t necessarily have a lot of money.
+                Tycoons who don’t have many firebirds to rub together see their condition as mere ly a temporary setback, a learning experience. Soon enough,
+                they’ll convince someone to invest in their vision or superior methods of wealth-attainment and be back in the high life. Tycoons need patrons
+                (“marks”) to fund their schemes, but crazily enough, their chutzpah often wins through and brings them and their investors big rewards. That’s
+                never enough, however, to satisfy their craving to keep winning. Even those Tycoons who devote themselves to raising money for charities find
+                that it’s the pursuit rather than the cause that’s more important to them. There’ll be a new cause next week, but the race to win never ends.
+            </en>
+            <es>El magnate es un estafador de alta categoría que se cree su propio engaño. Todos los magnates comparten un gran deseo de poder y confían en que
+                su confianza es lo único que necesitan para tener éxito. A pesar del nombre de la vocación, no todos tienen mucho dinero. Los que solo tienen
+                unos pocos fénix en los bolsillos consideran su condición un revés temporal, una oportunidad para aprender. Pronto convencerán a alguien para
+                que invierta en sus ideas o métodos para generar riqueza y nadarán en dinero. Los magnates necesitan patrocinadores («blancos») que inviertan en
+                sus planes; pero, curiosamente, su desfachatez suele tener éxito y traerles grandes recompensas a ellos y a sus inversores. Aun así, nada les
+                parece suficiente ni aplaca su ansia por seguir ganando. Incluso los magnates que se dedican a recaudar dinero para organizaciones benéficas
+                consideran más importante la estrategia que la causa a la que ayudan. Ya habrá otra causa la semana que viene, pero la competición nunca
+                descansa.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -9116,13 +9895,22 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>amateur</id>
         <name>
             <en>Amateur</en>
             <es>Amateur</es>
         </name>
+        <description>
+            <en>Some people don’t fit into a particular category. You may have spent your life bouncing from job-to-job, or maybe circumstances beyond your
+                control made it impossible for you to settle down. You are a jack-of-all-trades but master of none. This calling can also be used by players who
+                don’t feel that their character concept aligns well with any of the listed callings.
+            </en>
+            <es>Algunas personas no encajan en ninguna categoría en particular. Puede que te hayas pasado toda tu vida cambiando de un trabajo a otro, o que
+                circunstancias que escapan a tu control hayan impedido que eches raíces en algún lugar. Eres un aprendiz de todo y maestro de nada. La vocación
+                de amateur sirve para aquellos jugadores que sientan que su concepto de personaje no encaja bien con ninguna de las demás vocaciones.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>2</total>
@@ -9208,14 +9996,27 @@
             </materialAwardOption>
         </materialAwards>
     </calling>
-
-
     <calling>
         <id>artist</id>
         <name>
             <en>Artist</en>
             <es>Artista</es>
         </name>
+        <description>
+            <en>Artists come in many forms. You might be a sculptor, painter, photographer, woodcarver, or even a mosaicist — creating beautiful patterns and
+                designs with pieces of ceramic and glass. Artists can be found in all parts of society in the Known Worlds. You might be a lone painter who
+                sells your work in a crowded marketplace. You might be a sculptor whose patron is a noble house, and your life’s work is the sculpting of heroic
+                statues of the family line or carving sepulchers for the future dead; or you might be a mosaicist creating glorious scenes on temple ceilings.
+                Your ego, drive for gainful employment, need for inspiration, or even your curiosity may lead you out to new worlds and into adventure.
+            </en>
+            <es>Hay artistas de muchos tipos. Algunos son escultores, otros pintores, fotógrafos, talladores de madera o incluso mosaiquistas, que crean
+                hermosos diseños con teselas de cerámica y vidrio. Los artistas se encuentran en todos los ámbitos sociales de los Mundos Conocidos. Podrías ser
+                una pintora solitaria que vende sus cuadros en mercados llenos de gente, o una escultora con un mecenas noble que se pasa la vida creando
+                esculturas heroicas de los miembros de la familia o tallando sepulcros para futuros muertos. También podrías ser un mosaiquista que recrea
+                gloriosas escenas en los techos de los templos. Tu ego, tu búsqueda de trabajo, tu necesidad de inspiración o incluso tu curiosidad podría
+                llevarte a viajar a otros planetas y empezar una aventura.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>2</total>
@@ -9399,13 +10200,25 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>explorer</id>
         <name>
             <en>Explorer</en>
             <es>Trotamundos</es>
         </name>
+        <description>
+            <en>You believe you were born to see the universe. Explorers like you can be found anywhere within —and sometimes outside of — the Known Worlds,
+                exploring planets and tinkering with ancient technology. You are always seeking new adventures and a new discovery. People choose to become
+                explorers for many reasons. Some are explorers for hire — charting new worlds or seeking ancient relics to sell to the highest bidder. Some set
+                out to the stars for the sense of adventure. Others seek hidden knowledge. Which kind are you?
+            </en>
+            <es>Consideras que naciste para visitar el universo, y siempre estás buscando nuevas aventuras y descubrimientos. Los trotamundos como tú estáis en
+                todas partes, dentro (y a veces fuera) de los Mundos Conocidos, explorando planetas y trasteando con tecnología antigua. La gente se convierte
+                en trotamundos por diversos motivos. Algunas personas trabajan por encargo descubriendo nuevos planetas o buscando antiguas reliquias para
+                venderlas al mejor postor. Otras parten hacia las estrellas para correr aventuras o buscar conocimiento oculto. ¿Y tú? ¿Qué tipo de trotamundos
+                eres?
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -9505,7 +10318,6 @@
                     <perk>
                         <id>oriented</id>
                     </perk>
-
                 </options>
             </perkOptions>
         </perks>
@@ -9602,13 +10414,56 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>mercurian</id>
         <name>
             <en>Mercurian</en>
             <es>Mercúreo</es>
         </name>
+        <description>
+            <en>The Mercurians are both a secret society and a calling. Where some people may complain about the universe and their place in it, Mercurians
+                prefer to handle the matter in a different way. They create chaos, generally in opposition to the current order, but also as a way to make
+                people aware of the absurdity of life. Anyone can pull off a prank. Only Mercurians pull off the subtle or grand hoaxes that leave people
+                talking about them for years to come. If an independent operative manages this epic feat, the Mercurians immediately hunt her down… and try to
+                recruit her. Most Mercurians lead a double life. In their day-to-day existences, they are nobles, priests, and guild members in good standing;
+                when they are alone, or in the company of others of their ilk, they are a serious threat to order and respect. Some claim that hull rats were
+                originally introduced as a result of the Mercurians, and almost everyone in the know is certain that the occasional unaltered brute on a ship is
+                a direct result of their efforts. More than one ship has suffered a long, arduous space journey with the constant odor of brute musk. But not
+                every action taken by the Mercurians is a grand or sweeping gesture. Many of their maneuvers are subtle enough not to be noticed at all. True
+                Mercurians do not troll others in desperate hope of getting a reaction. Instead their actions have specific goals — highlighting the vanities of
+                a priest, the greed of a Reeve, or the abuses of a noble. A classic Mercurian prank is to dress up as a noble’s work crew, dig up a major road,
+                and leave it that way — a sign that the noble is too engrossed in building monuments to his own vanity to bother serving his serfs. Most
+                Mercurians are not paid for what they do. Rewards come in the form of secretive smiles and fond Mercurian memories. Many of the Mercurians only
+                ARTIST PERKS Cat Burglar’s Eye Contortionist Main Attraction Musical Savant Perfect Pitch Royalties Virtuoso Explorer You believe you were born
+                to see the universe. Explorers like you can be found anywhere within —and sometimes outside of — the Known Worlds, exploring planets and
+                tinkering with ancient technology. You are always seeking new adventures and a new discovery. People choose to become explorers for many
+                reasons. Some are explorers for hire — charting new worlds or seeking ancient relics to sell to the highest bidder. Some set out to the stars
+                for the sense of adventure. Others seek hidden knowledge. Which kind are you?
+            </en>
+            <es>Los mercúreos son una sociedad secreta y una vocación al mismo tiempo. A diferencia de quienes se quejan del universo y del lugar que ocupan en
+                él, los mercúreos prefieren generar caos. Es su forma de luchar contra el orden establecido, pero también de hacer ver a los demás lo absurda
+                que es la vida. Cualquier persona puede hacer una broma, pero solo los mercúreos consiguen engaños tan sutiles o grandiosos que dan de qué
+                hablar durante años. Y si un agente independiente realizase una hazaña tan épica, inmediatamente lo perseguirían... para intentar reclutarlo.
+                La mayoría de mercúreos viven una doble vida. En su día a día son respetados nobles, sacerdotes y miembros de gremios, pero cuando están solos o
+                acompañados por otros como ellos, se convierten en una amenaza al orden y al de coro. Hay quienes afirman que las ratas de casco fueron
+                introducidas originalmente por los mercúreos y casi todos los que saben de su existencia están seguros de que el ocasional bruto que se
+                encuentran en las naves es un producto de sus esfuerzos. Más de una nave ha sufrido un largo y arduo viaje con el constante olor de almizcle de
+                bruto. Pero no todo lo que este grupo hace es un acto grandioso o de gran envergadura. Muchas de sus maniobras son lo suficientemente sutiles
+                como para que nadie se dé cuenta. Los verdaderos mercúreos no se burlan de los demás en un desesperado intento por conseguir que reaccionen; lo
+                hacen con objetivos concretos: poner en evidencia la arrogancia de un sacerdote, la avaricia de un magistrado, los abusos de un noble, etc. Una
+                de las bromas más clásicas de los mercúreos consiste en disfrazarse de trabajadores para un noble, hacer un socavón en uno de las carreteras
+                principales y dejarlo así, para que parezca que el noble está demasiado ocupado construyendo monumentos a su ego como para acordarse de sus
+                siervos. La mayoría de los mercúreos no ganan dinero con lo que hacen. Su recompensa son las sonrisas disimuladas y los buenos recuerdos. Muchos
+                de ellos solo se encuentran con otros miembros de su sociedad secreta cuando los ayu dan a escapar de la cárcel. Por lo general, pasan años
+                antes de que se den cuenta de lo que han conseguido y lo que planean para el futuro. Erudito Buscas el conocimiento por encima de todas las
+                cosas. Podrías ser un recluso que pasa sus días y noches investigando y solo abandona su estudio para buscar comida o suministros; una profesora
+                de universidad que comparte su investigación con los demás; o quizás un monje enclaustrado que pasa todo su tiempo buscando la iluminación.
+                Algunos eruditos abandonan la biblioteca para dedicarse a la investigación de campo y conseguir conocimientos prácticos. El universo es inmenso,
+                y la mayoría de sus ra rezas todavía no aparecen en libros ni archivos de datos (o quizás sí, pero son incomprensibles o muy difíciles de
+                encontrar en esta época oscurantista). El deber de un erudito es ampliar el conocimiento disponible para todos los seres racionales... evitando
+                caer en la herejía, por supuesto.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>3</total>
@@ -9810,13 +10665,42 @@
             </materialAwardOption>
         </materialAwards>
     </calling>
-
     <calling>
         <id>pirate</id>
         <name>
             <en>Pirate</en>
             <es>Pirata</es>
         </name>
+        <description>
+            <en>You ply the space lanes seeking easy targets to plunder. You don’t discriminate, targeting unarmed ships and unprotected ground bases equally.
+                Pirates like you come from all walks of life, but you all share the desire for easy plunder. Some cultures, such as the Vuldrok, are notorious
+                raiders and pirates. Your M.O. is to haunt jumpgates or the outer fringes of a solar system, rarely daring to venture into populated areas,
+                preferring far off colonies and moons that aren’t heavily inhabited. The pickings might be scarce, but you’re less likely to run into patrol
+                ships
+                and can more easily flee when the tide of battle turns against you. There isn’t a Pirate out there who doesn’t have a good escape plan. Most
+                Pirates
+                have a signature move or something that makes them stand out, allowing them to be known by reputation. One Pirate might be known for never
+                leaving
+                anyone alive, while another might pride themselves on never killing anyone on the ships they board. Not all Pirates are independent; some choose
+                to
+                operate as privateers in service to a particular faction. Taking this calling does not give you a starship. It simply means you have experience
+                operating aboard a pirate ship.
+            </en>
+            <es>Recorres las rutas espaciales buscando presas fáciles a las que saquear y no discriminas: atacas tanto naves desarmadas como bases terrestres
+                desprotegidas. Los piratas como tú tenéis diferentes pasados, pero compartís la misma ansia por conseguir botín fácil. Algunas culturas, como la
+                de
+                los vuldrok, son famosas por sus saqueadores y piratas. Tu forma de trabajar consiste en merodear junto a los portales de salto o los bordes
+                exteriores de los sistemas solares. Rara vez te aventuras en zonas muy concurridas y prefieres colonias lejanas y lunas poco pobladas. Aunque es
+                más
+                probable que el botín sea escaso, tienes menos probabilidades de encontrarte con alguna nave de patrulla y es más fácil escapar si las cosas se
+                ponen feas. Ningún pirata que se precie trabaja sin un plan de huida. La mayoría tienen su propia forma de hacer las cosas, o algo por lo que
+                destacan y que les ha valido cierta reputación. Un pirata podría ser famoso por no dejar a nadie con vida, mientras que otro quizá se
+                enorgullezca
+                de no matar a nadie a bordo de las naves que asalta. No todos los piratas son independientes; algunos prefieren trabajar como corsarios al
+                servicio
+                de alguna facción. La vocación de pirata no significa que tengas una nave estelar, solo que cuentas con experiencia dirigiendo una nave pirata.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -9996,14 +10880,32 @@
             </recommendedPreferences>
         </random>
     </calling>
-
-
     <calling>
         <id>psychic</id>
         <name>
             <en>Psychic</en>
             <es>Psíquico</es>
         </name>
+        <description>
+            <en>You have strange powers of the mind. Psychics usually cling to no particular faith or order and, unlike theurgists, they’re rarely a part of the
+                Church. The Inquisition hunts and seeks to eradicate psychics wherever they can find them. As such, psychics tend to be loners, making their way
+                through the Known Worlds while trying to remain hidden from those who would destroy them. They often adopt false identities to hide their true
+                “profession.” Similar to a Spy or an Incognito noble, a Psychic can practice a false calling. Unlike those two callings, however, they cannot
+                choose the perks and benefits of their false calling; it’s a cover story only, some thing to disguise the scent of suspicion. Some use their
+                powers for good, seeking to give comfort to the wounded and ill. Others use their powers for their own benefit, manipulating minds and wreaking
+                havoc wherever they go. Some psychics hide in plain sight, using their powers for the benefit of the Merchant League or a noble house. It is
+                even rumored that the Inquisition has its own psychics that they use to hunt down heretics.
+            </en>
+            <es>Tienes extraños poderes mentales. Los psíquicos no suelen aferrarse a ninguna fe ni orden en particular y, a diferencia de los teúrgos, rara vez
+                forman parte de la Iglesia. Como la Inquisición los busca para erradicarlos, suelen ser individuos solitarios que viajan por los Mundos
+                Conocidos intentando esconderse de quienes pretenden destruirlos. En muchos casos, adoptan una identidad falsa para ocultar su verdadera
+                «profesión», pero, a diferencia de los espías e incógnitos nobles, no pueden elegir beneficios de su identidad falsa; solo es una historia, un
+                disfraz para evitar las sospechas. Algunos utilizan sus poderes para hacer el bien y ayudar a los heridos y enfermos. Otros prefieren usarlos en
+                beneficio propio, manipulando las mentes y sembrando el caos a su paso. Existen psíquicos ocultos a la vista de todos que usan sus poderes para
+                beneficiar a la Liga Mercantil o a alguna casa noble. Se rumorea incluso que la Inquisición tiene a sus propios psíquicos y los utiliza para
+                cazar a herejes.
+            </es>
+        </description>
         <group>psi</group>
         <capabilities>
             <capabilitiesOption>
@@ -10628,13 +11530,28 @@
             </recommendedPreferences>
         </random>
     </calling>
-
     <calling>
         <id>scholar</id>
         <name>
             <en>Scholar</en>
             <es>Erudito</es>
         </name>
+        <description>
+            <en>You seek the pursuit of knowledge above all things. You might be a recluse who spends your days and nights devoted to research, never leaving
+                your study except for food and supplies; or you might be a professor at a university, conducting your own research while sharing it with others;
+                or perhaps you’re a cloistered monk who spends every waking moment seeking enlightenment. Some Scholars leave the library to do field research,
+                gaining the kind of knowledge that only comes from experience. It’s a big universe out there, and most of its strangeness isn’t written down in
+                books or data archives (or if it is, it’s damn obscure and hard to find in this benighted age). It’s every Scholar’s duty to expand on the store
+                of wisdom available to all sentients… so long as they don’t step into heresy, of course.
+            </en>
+            <es>Buscas el conocimiento por encima de todas las cosas. Podrías ser un recluso que pasa sus días y noches investigando y solo abandona su estudio
+                para buscar comida o suministros; una profesora de universidad que comparte su investigación con los demás; o quizás un monje enclaustrado que
+                pasa todo su tiempo buscando la iluminación. Algunos eruditos abandonan la biblioteca para dedicarse a la investigación de campo y conseguir
+                conocimientos prácticos. El universo es inmenso, y la mayoría de sus ra rezas todavía no aparecen en libros ni archivos de datos (o quizás sí,
+                pero son incomprensibles o muy difíciles de encontrar en esta época oscurantista). El deber de un erudito es ampliar el conocimiento disponible
+                para todos los seres racionales... evitando caer en la herejía, por supuesto.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>2</total>
@@ -10788,14 +11705,28 @@
             </recommendedPreferences>
         </random>
     </calling>
-
-
     <calling>
         <id>theurgist</id>
         <name>
             <en>Theurgist</en>
             <es>Teúrgo</es>
         </name>
+        <description>
+            <en>You practice the religious magic called theurgy. Theurgists believe the Pancreator grants their gifts to them. Not all who walk this path are of
+                the Church, but they all have faith. They also believe their special powers are gained through the power of prayer. Of course, theurgists who
+                use their powers without the sanctioning of the Church are considered to be here tics and are hunted by the Inquisition. Heretics can often be
+                found on backwater worlds, gathering a congregation of their own. They must always be wary, for if (and when) the Church gets word of them, it
+                will not be long until Church forces arrives to conscript or eradicate them. For this reason, most
+            </en>
+            <es>Practicas la magia religiosa, llamada teúrgia. Los teúrgos creen que el Pancreator les ofrece dones. No todos los que han elegido este camino
+                pertenecen a la Iglesia, pero todos tienen fe y creen que consiguen sus poderes especiales por medio del poder de la oración. Los teúrgos que
+                usan sus poderes sin la autorización de la Iglesia son considerados herejes y están perseguidos por la Inquisición. Es fácil encontrar herejes
+                en planetas remotos, rodeados por su propia secta, pero siempre deben andarse con cuidado, porque, si la Iglesia se entera de su existencia (o
+                cuando lo haga), no tardará en mandar tropas para reclutarlos o erradicarlos. Por esta razón, la mayoría de herejes se man tiene siempre en
+                movimiento, difundiendo su mensaje allá donde los lleven las estrellas. Sus habilidades pueden resultar bastante útiles y suelen ser bienvenidos
+                a bordo de naves mercantes o naves de contrabandistas y otros indeseables.
+            </es>
+        </description>
         <group>theurgy</group>
         <capabilities>
             <capabilitiesOption>
@@ -11308,5 +12239,4 @@
             </recommendedPreferences>
         </random>
     </calling>
-
 </callings>
