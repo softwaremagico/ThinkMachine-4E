@@ -30,7 +30,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = {"upbringingFactory"})
-public class UpbringingFactoryTest {
+public class UpbringingFactoryTest extends FactoryTest {
     private static final int DEFINED_UPBRINGINGS = 5;
 
 

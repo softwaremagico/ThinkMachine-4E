@@ -32,7 +32,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = {"combatStyleFactory"})
-public class CombatStylesFactoryTests {
+public class CombatStylesFactoryTests extends FactoryTest {
     private static final int DEFINED_STYLES = 12;
     private static final int DEFINED_ACTIONS = DEFINED_STYLES * 3;
 

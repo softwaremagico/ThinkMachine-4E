@@ -56,7 +56,7 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import org.testng.annotations.Test;
 
 @Test(groups = {"factoryValidation"})
-public class ValidateFactoryTests {
+public class ValidateFactoryTests extends FactoryTest {
 
 
     @Test

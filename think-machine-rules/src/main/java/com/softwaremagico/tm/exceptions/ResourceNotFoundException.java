@@ -1,10 +1,10 @@
-package com.softwaremagico.tm.factory;
+package com.softwaremagico.tm.exceptions;
 
 /*-
  * #%L
- * Think Machine 4E (Rules)
+ * Think Machine (Core)
  * %%
- * Copyright (C) 2017 - 2026 Softwaremagico
+ * Copyright (C) 2017 Softwaremagico
  * %%
  * This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero
  * <softwaremagico@gmail.com> Valencia (Spain).
@@ -24,20 +24,14 @@ package com.softwaremagico.tm.factory;
  * #L%
  */
 
+public class ResourceNotFoundException extends InvalidXmlElementException {
+    private static final long serialVersionUID = -5589250421601416696L;
 
-import com.softwaremagico.tm.character.combat.CombatStyleFactory;
-import com.softwaremagico.tm.character.cybernetics.CyberdeviceFactory;
-import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import org.testng.Assert;
-import org.testng.annotations.Test;
+    public ResourceNotFoundException(String message) {
+        super(message);
+    }
 
-@Test(groups = {"cyberdevicesFactory"})
-public class CyberdevicesFactoryTests extends FactoryTest {
-    private static final int DEFINED_CYBERDEVICES = 5;
-
-
-    @Test
-    public void readCyberdevicesStyles() throws InvalidXmlElementException {
-        Assert.assertEquals(CyberdeviceFactory.getInstance().getElements().size(), DEFINED_CYBERDEVICES);
+    public ResourceNotFoundException(String message, Exception e) {
+        super(message, e);
     }
 }

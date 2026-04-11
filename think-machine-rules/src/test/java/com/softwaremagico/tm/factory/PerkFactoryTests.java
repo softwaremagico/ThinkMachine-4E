@@ -34,7 +34,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = {"perkFactory"})
-public class PerkFactoryTests {
+public class PerkFactoryTests extends FactoryTest {
     private static final int DEFINED_PERKS = 320;
 
 

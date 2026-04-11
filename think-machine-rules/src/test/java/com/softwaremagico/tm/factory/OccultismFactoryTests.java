@@ -34,7 +34,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = {"occultismFactory"})
-public class OccultismFactoryTests {
+public class OccultismFactoryTests extends FactoryTest {
     private static final int DEFINED_PSI_PATHS = 6;
     private static final int DEFINED_THEURGY_PATHS = 6;
     private static final int DEFINED_THEURGY_COMPONENTS = 3;

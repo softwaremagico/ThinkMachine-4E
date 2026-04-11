@@ -1440,13 +1440,16 @@
                     <en>Urthtech</en>
                     <es>Urtec</es>
                 </name>
-                <restrictions>
+                <restrictions mode="any">
                     <capabilities>
                         <capability>
                             <id>read</id>
                             <selectedSpecialization>urthish</selectedSpecialization>
                         </capability>
                     </capabilities>
+                    <factions>
+                        <faction>shelit</faction>
+                    </factions>
                 </restrictions>
             </selectedSpecialization>
         </specializations>
@@ -1750,6 +1753,13 @@
             <name>
                 <en>Oro'ym</en>
                 <es>Oro'ym</es>
+            </name>
+        </selectedSpecialization>
+        <selectedSpecialization>
+            <id>symbiot</id>
+            <name>
+                <en>Symbiot</en>
+                <es>Simbiontes</es>
             </name>
         </selectedSpecialization>
         <random>

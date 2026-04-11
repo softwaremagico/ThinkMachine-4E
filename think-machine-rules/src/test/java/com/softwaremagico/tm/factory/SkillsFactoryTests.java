@@ -30,7 +30,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = {"skillFactory"})
-public class SkillsFactoryTests {
+public class SkillsFactoryTests extends FactoryTest {
     private static final int TOTAL_SKILLS = 26;
 
     @Test

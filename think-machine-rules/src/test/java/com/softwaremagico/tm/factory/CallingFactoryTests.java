@@ -30,13 +30,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = {"callingFactory"})
-public class CallingFactoryTests {
-    private static final int DEFINED_CALLINGS = 52;
+public class CallingFactoryTests extends FactoryTest {
+    private static final int DEFINED_FACTIONS_FS_4E_CALLINGS = 52;
+    private static final int DEFINED_FACTION_BOOK_CALLINGS = 0;
 
     @Test
     public void checkTotalElements() throws InvalidXmlElementException {
         Assert.assertEquals(CallingFactory.getInstance().getElements().size(),
-                DEFINED_CALLINGS);
+                DEFINED_FACTIONS_FS_4E_CALLINGS + DEFINED_FACTION_BOOK_CALLINGS);
     }
 
     @Test

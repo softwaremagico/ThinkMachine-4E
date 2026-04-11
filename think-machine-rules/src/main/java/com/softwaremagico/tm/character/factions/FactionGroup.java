@@ -29,6 +29,8 @@ public enum FactionGroup {
 
     NOBLE,
 
+    MINOR_NOBLE_HOUSE,
+
     CHURCH,
 
     MINOR_CHURCH,

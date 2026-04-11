@@ -31,8 +31,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = {"planetsFactory"})
-public class PlanetsFactoryTests {
-    private static final String LANGUAGE = "en";
+public class PlanetsFactoryTests extends FactoryTest {
 
     private static final int DEFINED_PLANETS = 37;;
 
