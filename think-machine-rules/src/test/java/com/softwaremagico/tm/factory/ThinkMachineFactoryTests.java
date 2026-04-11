@@ -30,7 +30,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = {"thinkMachineFactory"})
-public class ThinkMachineFactoryTests {
+public class ThinkMachineFactoryTests extends FactoryTest {
     private static final int DEFINED_ITEMS = 2;
 
     @Test

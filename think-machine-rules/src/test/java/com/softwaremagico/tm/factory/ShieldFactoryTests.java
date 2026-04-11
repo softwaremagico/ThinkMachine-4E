@@ -32,7 +32,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = {"shieldFactory"})
-public class ShieldFactoryTests {
+public class ShieldFactoryTests extends FactoryTest {
     private static final int DEFINED_SHIELDS = 5;
 
     @Test

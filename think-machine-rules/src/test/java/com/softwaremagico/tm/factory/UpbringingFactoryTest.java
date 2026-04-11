@@ -30,7 +30,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = {"upbringingFactory"})
-public class UpbringingFactoryTest {
+public class UpbringingFactoryTest extends FactoryTest {
     private static final int DEFINED_UPBRINGINGS = 5;
 
 
@@ -61,7 +61,7 @@ public class UpbringingFactoryTest {
     @Test
     public void getPerksOption() throws InvalidXmlElementException {
         Assert.assertEquals(UpbringingFactory.getInstance().getElement("noble").getCharacterAvailablePerksOptions().size(), 2);
-        Assert.assertEquals(UpbringingFactory.getInstance().getElement("noble").getCharacterAvailablePerksOptions().get(1).getOptions().size(), 121);
+        Assert.assertEquals(UpbringingFactory.getInstance().getElement("noble").getCharacterAvailablePerksOptions().get(1).getOptions().size(), 122);
     }
 
     @Test

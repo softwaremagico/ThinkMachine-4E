@@ -33,7 +33,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = {"armorFactory"})
-public class ArmorFactoryTests {
+public class ArmorFactoryTests extends FactoryTest {
     private static final int DEFINED_ARMOURS = 33;
 
 

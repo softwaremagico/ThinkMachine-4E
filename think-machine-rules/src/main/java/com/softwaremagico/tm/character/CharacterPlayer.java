@@ -114,7 +114,7 @@ import java.util.stream.Collectors;
 
 public class CharacterPlayer {
     public static final int MAX_INITIAL_VALUE = 8;
-    public static final int MAX_INTERMEDIAL_VALUE = 9;
+    public static final int MAX_INTERMEDIATE_VALUE = 9;
     public static final int LEVEL_MAX_VALUE = 10;
     private static final int BANK_INITIAL_VALUE = 5;
     private static final int INITIAL_TECH_LEVEL = 4;
@@ -232,8 +232,9 @@ public class CharacterPlayer {
     }
 
     public void checkMaxValueByLevel(String element, int value) throws MaxValueExceededException {
-        if ((getLevel() < 2 && value > MAX_INITIAL_VALUE)
-                || (getLevel() < LEVEL_MAX_VALUE && value > MAX_INTERMEDIAL_VALUE)) {
+        if ((getLevel() == 1 && value > MAX_INITIAL_VALUE)
+                || (getLevel() == 2 && value > MAX_INTERMEDIATE_VALUE)
+                || (getLevel() > 2 && value > LEVEL_MAX_VALUE)) {
             String composition;
             try {
                 composition = getCharacteristicComposition(element);
@@ -241,7 +242,8 @@ public class CharacterPlayer {
                 composition = getSkillComposition(element);
             }
             throw new MaxValueExceededException("Element '" + element + "' has exceeded its maximum value '" + value + "' at level '" + getLevel() + "'. "
-                    + "Obtained by " + composition, element, value, (getLevel() < 2 ? MAX_INITIAL_VALUE : MAX_INTERMEDIAL_VALUE));
+                    + "Obtained by " + composition, element, value, (getLevel() == 1 ? MAX_INITIAL_VALUE
+                    : (getLevel() == 2 ? MAX_INTERMEDIATE_VALUE : LEVEL_MAX_VALUE)));
         }
     }
 

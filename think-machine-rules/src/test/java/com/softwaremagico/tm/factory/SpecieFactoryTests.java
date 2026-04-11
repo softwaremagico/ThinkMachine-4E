@@ -35,7 +35,7 @@ import org.testng.annotations.Test;
 import java.util.Objects;
 
 @Test(groups = {"raceFactory"})
-public class SpecieFactoryTests {
+public class SpecieFactoryTests extends FactoryTest {
     private static final int DEFINED_SPECIES = 4;
 
 

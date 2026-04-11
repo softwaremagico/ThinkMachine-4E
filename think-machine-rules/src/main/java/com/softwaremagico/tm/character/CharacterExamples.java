@@ -35,6 +35,7 @@ import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
 import com.softwaremagico.tm.character.level.LevelSelector;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.character.skills.SkillBonusOption;
+import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -129,15 +130,15 @@ public final class CharacterExamples {
     }
 
     public static void populateUpbringing(CharacterPlayer characterPlayer) {
-        populateCharacterStep(characterPlayer.getUpbringing());
+        populateCharacterStep(characterPlayer, characterPlayer.getUpbringing());
     }
 
     public static void populateFaction(CharacterPlayer characterPlayer) {
-        populateCharacterStep(characterPlayer.getFaction());
+        populateCharacterStep(characterPlayer, characterPlayer.getFaction());
     }
 
     public static void populateCalling(CharacterPlayer characterPlayer) {
-        populateCharacterStep(characterPlayer.getCalling());
+        populateCharacterStep(characterPlayer, characterPlayer.getCalling());
     }
 
 
@@ -148,8 +149,28 @@ public final class CharacterExamples {
             final List<CharacteristicBonusOption> options = new ArrayList<>(level.getCharacteristicOptions().get(i).getOptions());
             for (int j = level.getSelectedCharacteristicOptions().get(i).getSelections().size();
                  j < level.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                level.getSelectedCharacteristicOptions().get(i).getSelections()
-                        .add(new Selection(options.get(j)));
+                //Check maximum is not achieved.
+                int index = j;
+                boolean added = false;
+                while (!added) {
+                    try {
+                        if (index == options.size() - 1
+                                || (characterPlayer.getLevel() == 2
+                                && characterPlayer.getCharacteristicValue(options.get(index).getElement().getCharacteristicName())
+                                + options.get(index).getBonus() <= CharacterPlayer.MAX_INTERMEDIATE_VALUE)
+                                || (characterPlayer.getLevel() > 2
+                                && characterPlayer.getCharacteristicValue(options.get(index).getElement().getCharacteristicName())
+                                + options.get(index).getBonus() <= CharacterPlayer.LEVEL_MAX_VALUE)) {
+                            level.getSelectedCharacteristicOptions().get(i).getSelections()
+                                    .add(new Selection(options.get(index)));
+                            added = true;
+                        } else {
+                            index++;
+                        }
+                    } catch (MaxValueExceededException e) {
+                        index++;
+                    }
+                }
             }
         }
         for (int i = 0; i < level.getNotRepeatedCapabilityOptions().size(); i++) {
@@ -164,12 +185,25 @@ public final class CharacterExamples {
             final List<SkillBonusOption> options = new ArrayList<>(level.getSkillOptions().get(i).getOptions());
             for (int j = level.getSelectedSkillOptions().get(i).getSelections().size();
                  j < level.getSkillOptions().get(i).getTotalOptions(); j++) {
-                if (characterPlayer.getSkillValue(options.get(j).getElement()) < CharacterPlayer.MAX_INITIAL_VALUE) {
-                    level.getSelectedSkillOptions().get(i).getSelections()
-                            .add(new Selection(options.get(j)));
-                } else {
-                    level.getSelectedSkillOptions().get(i).getSelections()
-                            .add(new Selection(options.get(options.size() - 1)));
+                //Check maximum is not achieved.
+                int index = j;
+                boolean added = false;
+                while (!added) {
+                    try {
+                        if (index == options.size() - 1
+                                || (characterPlayer.getLevel() == 2 && characterPlayer.getSkillValue(options.get(index).getElement())
+                                + options.get(index).getBonus() <= CharacterPlayer.MAX_INTERMEDIATE_VALUE)
+                                || (characterPlayer.getLevel() > 2 && characterPlayer.getSkillValue(options.get(index).getElement())
+                                + options.get(index).getBonus() <= CharacterPlayer.LEVEL_MAX_VALUE)) {
+                            level.getSelectedSkillOptions().get(i).getSelections()
+                                    .add(new Selection(options.get(index)));
+                            added = true;
+                        } else {
+                            index++;
+                        }
+                    } catch (MaxValueExceededException e) {
+                        index++;
+                    }
                 }
             }
         }
@@ -192,13 +226,25 @@ public final class CharacterExamples {
         }
     }
 
-    public static void populateCharacterStep(CharacterDefinitionStepSelection step) {
+    public static void populateCharacterStep(CharacterPlayer characterPlayer, CharacterDefinitionStepSelection step) {
         for (int i = 0; i < step.getCharacteristicOptions().size(); i++) {
             final List<CharacteristicBonusOption> options = new ArrayList<>(step.getCharacteristicOptions().get(i).getOptions());
             for (int j = step.getSelectedCharacteristicOptions().get(i).getSelections().size();
                  j < step.getCharacteristicOptions().get(i).getTotalOptions(); j++) {
-                step.getSelectedCharacteristicOptions().get(i).getSelections()
-                        .add(new Selection(options.get(j)));
+                //Check maximum is not achieved.
+                int index = j;
+                boolean added = false;
+                while (!added) {
+                    if (index == options.size() - 1 || characterPlayer.getLevel() > 2
+                            || characterPlayer.getCharacteristicValue(options.get(index).getElement().getCharacteristicName())
+                            + options.get(index).getBonus() <= CharacterPlayer.MAX_INITIAL_VALUE) {
+                        step.getSelectedCharacteristicOptions().get(i).getSelections()
+                                .add(new Selection(options.get(index)));
+                        added = true;
+                    } else {
+                        index++;
+                    }
+                }
             }
         }
         for (int i = 0; i < step.getNotRepeatedCapabilityOptions().size(); i++) {
@@ -214,8 +260,20 @@ public final class CharacterExamples {
             final List<SkillBonusOption> options = new ArrayList<>(step.getSkillOptions().get(i).getOptions());
             for (int j = step.getSelectedSkillOptions().get(i).getSelections().size();
                  j < step.getSkillOptions().get(i).getTotalOptions(); j++) {
-                step.getSelectedSkillOptions().get(i).getSelections()
-                        .add(new Selection(options.get(j)));
+                //Check maximum is not achieved.
+                int index = j;
+                boolean added = false;
+                while (!added) {
+                    if (index == options.size() - 1 || characterPlayer.getLevel() > 2
+                            || characterPlayer.getSkillValue(options.get(index).getElement())
+                            + options.get(index).getBonus() <= CharacterPlayer.MAX_INITIAL_VALUE) {
+                        step.getSelectedSkillOptions().get(i).getSelections()
+                                .add(new Selection(options.get(index)));
+                        added = true;
+                    } else {
+                        index++;
+                    }
+                }
             }
         }
         for (int i = 0; i < step.getNotSelectedPerksOptions(true).size(); i++) {

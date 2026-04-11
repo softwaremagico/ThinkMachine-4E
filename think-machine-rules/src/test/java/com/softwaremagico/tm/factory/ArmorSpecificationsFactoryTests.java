@@ -31,7 +31,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = {"armorFactory"})
-public class ArmorSpecificationsFactoryTests {
+public class ArmorSpecificationsFactoryTests extends FactoryTest {
     private static final int DEFINED_SPECIFICATIONS = 12;
 
 

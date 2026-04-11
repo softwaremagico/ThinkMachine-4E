@@ -30,17 +30,17 @@ import com.softwaremagico.tm.character.equipment.TechCompulsionFactory;
 import com.softwaremagico.tm.character.equipment.item.Quality;
 import com.softwaremagico.tm.character.equipment.item.Status;
 import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
-import com.softwaremagico.tm.character.equipment.weapons.WeaponClass;
-import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.file.modules.ModuleManager;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = {"factionsFactory"})
 public class FactionFactoryTests {
-    private static final int DEFINED_FACTIONS = 20;
+    private static final int DEFINED_FACTIONS_FS_4E = 20;
+    private static final int DEFINED_FACTIONS_FACTION_BOOK = 37;
     private static final int DEFINED_MALE_NAMES = 103;
     private static final int DEFINED_FEMALE_NAMES = 100;
     private static final int DEFINED_SURNAMES = 125;
@@ -49,30 +49,48 @@ public class FactionFactoryTests {
     @Test
     public void checkTotalElements() throws InvalidXmlElementException {
         Assert.assertEquals(FactionFactory.getInstance().getElements().size(),
-                DEFINED_FACTIONS);
+                DEFINED_FACTIONS_FS_4E + DEFINED_FACTIONS_FACTION_BOOK);
     }
 
-    @Test
+    @Test(dependsOnMethods = "checkTotalElements")
+    public void checkTotalElementsOnlyOnFactionBook() throws InvalidXmlElementException {
+        ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
+        ModuleManager.disableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+        FactionFactory.getInstance().reset();
+        Assert.assertEquals(FactionFactory.getInstance().getElements().size(),
+                DEFINED_FACTIONS_FACTION_BOOK);
+    }
+
+    @Test(dependsOnMethods = "checkTotalElementsOnlyOnFactionBook")
+    public void checkTotalElementsOnlyOnFS4E() throws InvalidXmlElementException {
+        ModuleManager.disableModule(ModuleManager.FACTION_BOOK_MODULE);
+        ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+        FactionFactory.getInstance().reset();
+        Assert.assertEquals(FactionFactory.getInstance().getElements().size(),
+                DEFINED_FACTIONS_FS_4E);
+    }
+
+    @Test(dependsOnMethods = "checkTotalElementsOnlyOnFS4E")
     public void checkBlessing() throws InvalidXmlElementException {
         final Faction alMalik = FactionFactory.getInstance().getElement("alMalik");
         Assert.assertNotNull(alMalik.getBlessing());
         Assert.assertEquals(alMalik.getBlessing().getId(), "extrovert");
     }
 
-    @Test
+    @Test(dependsOnMethods = "checkTotalElementsOnlyOnFS4E")
     public void checkCurse() throws InvalidXmlElementException {
         final Faction alMalik = FactionFactory.getInstance().getElement("alMalik");
         Assert.assertNotNull(alMalik.getCurse());
         Assert.assertEquals(alMalik.getCurse().getId(), "impetuous");
     }
 
-    @Test
+    @Test(dependsOnMethods = "checkTotalElementsOnlyOnFS4E")
     public void checkFavoredCallings() throws InvalidXmlElementException {
         final Faction alMalik = FactionFactory.getInstance().getElement("alMalik");
         Assert.assertTrue(alMalik.getFavoredCallings().contains("enthusiast"));
     }
 
-    @Test
+    @Test(dependsOnMethods = "checkTotalElementsOnlyOnFS4E")
     public void checkRestriction() throws InvalidXmlElementException {
         final Faction brotherBattle = FactionFactory.getInstance().getElement("brotherBattle");
         Assert.assertNotNull(brotherBattle);
@@ -80,7 +98,7 @@ public class FactionFactoryTests {
     }
 
 
-    @Test
+    @Test(dependsOnMethods = "checkTotalElementsOnlyOnFS4E")
     public void readNames() throws InvalidXmlElementException {
         final Faction hazat = FactionFactory.getInstance().getElement("hazat");
         Assert.assertNotNull(hazat);
@@ -91,7 +109,7 @@ public class FactionFactoryTests {
     }
 
 
-    @Test
+    @Test(dependsOnMethods = "checkTotalElementsOnlyOnFS4E")
     public void readCustomizedWeapon() throws InvalidXmlElementException {
         final Faction hawkwood = FactionFactory.getInstance().getElement("hawkwood");
         Assert.assertNotNull(hawkwood);
@@ -101,7 +119,7 @@ public class FactionFactoryTests {
         Assert.assertEquals(hawkwood.getMaterialAwards().get(0).getOptions().iterator().next().getElement().getQuality(), Quality.PREMIUM);
     }
 
-    @Test
+    @Test(dependsOnMethods = "checkTotalElementsOnlyOnFS4E")
     public void readBlessedWeapon() throws InvalidXmlElementException {
         final Faction brotherBattle = FactionFactory.getInstance().getElement("brotherBattle");
         Assert.assertNotNull(brotherBattle);
@@ -111,7 +129,7 @@ public class FactionFactoryTests {
         Assert.assertEquals(brotherBattle.getMaterialAwards().get(0).getOptions().iterator().next().getElement().getStatus(), Status.BLESSED);
     }
 
-    @Test
+    @Test(dependsOnMethods = "checkTotalElementsOnlyOnFS4E")
     public void anySpecialization() throws InvalidXmlElementException {
         final Faction charioteers = FactionFactory.getInstance().getElement("charioteers");
         Assert.assertNotNull(charioteers);
@@ -120,7 +138,7 @@ public class FactionFactoryTests {
         Assert.assertEquals(charioteers.getCapabilityOptions().get(1).getOptions().size(), 7);
     }
 
-    @Test
+    @Test(dependsOnMethods = "checkTotalElementsOnlyOnFS4E")
     public void itemTechConvulsion() throws InvalidXmlElementException {
         final Faction engineers = FactionFactory.getInstance().getElement("engineers");
         Assert.assertNotNull(engineers);
@@ -128,14 +146,14 @@ public class FactionFactoryTests {
         Assert.assertNotNull(TechCompulsionFactory.getInstance().getElement("industrious"));
     }
 
-    @Test
+    @Test(dependsOnMethods = "checkTotalElementsOnlyOnFS4E")
     public void getFenixQuantity() throws InvalidXmlElementException {
         final Faction vagabonds = FactionFactory.getInstance().getElement("vagabonds");
         Assert.assertNotNull(vagabonds);
         Assert.assertEquals(vagabonds.getMaterialAwards().get(0).getOptions().iterator().next().getQuantity(), 100);
     }
 
-    @Test
+    @Test(dependsOnMethods = "checkTotalElementsOnlyOnFS4E")
     public void getWeaponQuality() throws InvalidXmlElementException {
         final Faction vuldrok = FactionFactory.getInstance().getElement("vuldrok");
         Assert.assertNotNull(vuldrok);

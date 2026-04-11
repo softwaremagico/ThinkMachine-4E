@@ -42,6 +42,7 @@ import com.softwaremagico.tm.character.equipment.weapons.CustomizedWeapon;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponClass;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponType;
+import com.softwaremagico.tm.log.MachineLog;
 import com.softwaremagico.tm.restrictions.Restrictions;
 
 import java.util.HashSet;
@@ -130,7 +131,12 @@ public class EquipmentOption extends Option<Equipment> {
     @Override
     public Restrictions getRestrictions() {
         if (getId() != null) {
-            return getElement(getId()).getRestrictions();
+            try {
+                return getElement(getId()).getRestrictions();
+            } catch (NullPointerException e) {
+                MachineLog.severe(this.getClass(), "Invalid element '{}'", getId());
+                throw e;
+            }
         }
         return super.getRestrictions();
     }

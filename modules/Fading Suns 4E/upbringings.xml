@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <upbringings>
     <upbringing>
         <id>noble</id>
@@ -6,6 +6,11 @@
             <en>Noble</en>
             <es>Noble</es>
         </name>
+        <description>
+            <en>Raised among the elite of society, nobles are educated in etiquette, politics, and leadership, enjoying privilege and responsibility.</en>
+            <es>Criado entre la élite de la sociedad, el noble es educado en etiqueta, política y liderazgo, disfrutando de privilegios y responsabilidades.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -236,8 +241,6 @@
             </forbiddenPreferences>
         </random>
     </upbringing>
-
-
     <upbringing>
         <id>priest</id>
         <group>priest</group>
@@ -245,6 +248,10 @@
             <en>Priest</en>
             <es>Sacerdote</es>
         </name>
+        <description>
+            <en>Raised within the Church, priests are trained in doctrine, ritual, and spiritual leadership, devoted to faith and service.</en>
+            <es>Criado dentro de la Iglesia, el sacerdote es formado en doctrina, ritual y liderazgo espiritual, dedicado a la fe y al servicio.</es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -536,6 +543,10 @@
             <en>Brother Battle Monastery</en>
             <es>Monasterio de Hermanos de Batalla</es>
         </name>
+        <description>
+            <en>Raised in a Brother Battle monastery, combining strict religious devotion with intense martial discipline.</en>
+            <es>Criado en un monasterio de los Hermanos de Batalla, combinando estricta devoción religiosa con intensa disciplina marcial.</es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -776,6 +787,10 @@
             <en>Merchant</en>
             <es>Mercader</es>
         </name>
+        <description>
+            <en>Raised in a mercantile environment, merchants learn trade, negotiation, and practical survival in a competitive economy.</en>
+            <es>Criado en un entorno mercantil, el mercader aprende comercio, negociación y supervivencia práctica en una economía competitiva.</es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>
@@ -922,7 +937,7 @@
                         <id>landed</id>
                     </perk>
                     <perk>
-                        <id>marksmanship</id>
+                        <group>marksmanship</group>
                     </perk>
                     <perk>
                         <group>martialArts</group>
@@ -1016,13 +1031,18 @@
             </forbiddenPreferences>
         </random>
     </upbringing>
-
     <upbringing>
         <id>yeoman</id>
         <name>
             <en>Yeoman</en>
             <es>Independiente</es>
         </name>
+        <description>
+            <en>Raised as a common independent citizen, yeomen rely on self-sufficiency, adaptability, and practical skills to survive.</en>
+            <es>Criado como un ciudadano independiente, el independiente confía en la autosuficiencia, la adaptabilidad y habilidades prácticas para
+                sobrevivir.
+            </es>
+        </description>
         <capabilities>
             <capabilitiesOption>
                 <total>1</total>

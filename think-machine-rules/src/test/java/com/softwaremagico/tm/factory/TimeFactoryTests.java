@@ -32,7 +32,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = {"timeFactory"})
-public class TimeFactoryTests {
+public class TimeFactoryTests extends FactoryTest {
     private static final int DEFINED_TIMES = 10;
 
 

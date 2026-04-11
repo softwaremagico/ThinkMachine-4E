@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <factions>
     <faction>
         <id>alMalik</id>
@@ -6,6 +6,12 @@
             <en>al-Malik</en>
             <es>al-Malik</es>
         </name>
+        <description>
+            <en>House al-Malik is a noble house renowned for wealth, trade, diplomacy, and refined culture, dominating commerce across the Known Worlds.</en>
+            <es>La Casa al-Malik es una casa noble reconocida por su riqueza, comercio, diplomacia y cultura refinada, dominando el comercio en los Mundos
+                Conocidos.
+            </es>
+        </description>
         <group>noble</group>
         <capabilities>
             <capabilitiesOption>
@@ -364,14 +370,18 @@
             </recommendedPreferences>
         </random>
     </faction>
-
-
     <faction>
         <id>decados</id>
         <name>
             <en>Decados</en>
             <es>Decados</es>
         </name>
+        <description>
+            <en>House Decados is infamous for intrigue, manipulation, and political scheming, thriving through secrecy and calculated ambition.</en>
+            <es>La Casa Decados es infame por la intriga, la manipulación y las conspiraciones políticas, prosperando mediante el secreto y la ambición
+                calculada.
+            </es>
+        </description>
         <group>noble</group>
         <capabilities>
             <capabilitiesOption>
@@ -595,7 +605,6 @@
             </upbringings>
         </restrictions>
         <random>
-            <!--Recommended poisons-->
             <names>
                 <male>Anatoly, Zach, Mordecai, Misha, Vaughn, Lev, Oleg, Yunek, Luka, Aidan, Gregory, Vasily, Aleksei,
                     Rodion, Grigory, Gennadi, Evgeny, Pyotr, Vladimir, Nikitin, Dmitri, Nikoli, Alun, Zaretsky, Guillot,
@@ -641,14 +650,18 @@
             </recommendedPreferences>
         </random>
     </faction>
-
-
     <faction>
         <id>hawkwood</id>
         <name>
             <en>Hawkwood</en>
             <es>Hawkwood</es>
         </name>
+        <description>
+            <en>House Hawkwood is a noble house known for honor, leadership, and imperial ambition, often seen as rightful rulers of the Known Worlds.</en>
+            <es>La Casa Hawkwood es una casa noble conocida por el honor, el liderazgo y la ambición imperial, a menudo considerada la legítima gobernante de
+                los Mundos Conocidos.
+            </es>
+        </description>
         <group>noble</group>
         <capabilities>
             <capabilitiesOption>
@@ -902,13 +915,16 @@
             </recommendedPreferences>
         </random>
     </faction>
-
     <faction>
         <id>hazat</id>
         <name>
             <en>Hazat</en>
             <es>Hazat</es>
         </name>
+        <description>
+            <en>House Hazat is a proud martial house rooted in honor, conquest, and military tradition, with a strong warrior ethos.</en>
+            <es>La Casa Hazat es una orgullosa casa marcial basada en el honor, la conquista y la tradición militar, con un fuerte ethos guerrero.</es>
+        </description>
         <group>noble</group>
         <capabilities>
             <capabilitiesOption>
@@ -1173,13 +1189,16 @@
             </recommendedPreferences>
         </random>
     </faction>
-
     <faction>
         <id>liHalan</id>
         <name>
             <en>Li Halan</en>
             <es>Li Halan</es>
         </name>
+        <description>
+            <en>House Li Halan is a devout and disciplined noble house devoted to faith, duty, and moral order.</en>
+            <es>La Casa Li Halan es una casa noble devota y disciplinada, dedicada a la fe, el deber y el orden moral.</es>
+        </description>
         <group>noble</group>
         <capabilities>
             <capabilitiesOption>
@@ -1471,14 +1490,16 @@
             </recommendedPreferences>
         </random>
     </faction>
-
-
     <faction>
         <id>brotherBattle</id>
         <name>
             <en>Brother Battle</en>
             <es>Hermanos de Batalla</es>
         </name>
+        <description>
+            <en>The Brother Battle is a religious military order combining faith and combat discipline to defend the Church.</en>
+            <es>Los Hermanos de Batalla son una orden militar religiosa que combina fe y disciplina de combate para defender la Iglesia.</es>
+        </description>
         <group>church</group>
         <capabilities>
             <capabilitiesOption>
@@ -1702,13 +1723,16 @@
             </recommendedPreferences>
         </random>
     </faction>
-
     <faction>
         <id>eskatonic</id>
         <name>
             <en>Eskatonic Order</en>
             <es>Orden Eskatónica</es>
         </name>
+        <description>
+            <en>The Eskatonic Order seeks enlightenment through mysticism, prophecy, and hidden truths of the universe.</en>
+            <es>La Orden Eskatónica busca la iluminación a través del misticismo, la profecía y las verdades ocultas del universo.</es>
+        </description>
         <group>church</group>
         <capabilities>
             <capabilitiesOption>
@@ -1905,14 +1929,16 @@
             </recommendedPreferences>
         </random>
     </faction>
-
-
     <faction>
         <id>sanctuaryAeon</id>
         <name>
             <en>Sanctuary Aeon</en>
             <es>Santuario de Aeón</es>
         </name>
+        <description>
+            <en>Sanctuary Aeon is a charitable religious faction devoted to healing, mercy, and humanitarian aid.</en>
+            <es>El Santuario de Aeón es una facción religiosa caritativa dedicada a la curación, la misericordia y la ayuda humanitaria.</es>
+        </description>
         <group>church</group>
         <capabilities>
             <capabilitiesOption>
@@ -2126,14 +2152,16 @@
             </recommendedPreferences>
         </random>
     </faction>
-
-
     <faction>
         <id>avestites</id>
         <name>
             <en>Temple Avesti</en>
             <es>Templo Avesti</es>
         </name>
+        <description>
+            <en>The Avestite sect is a strict religious faction focused on purification, orthodoxy, and rooting out corruption.</en>
+            <es>La secta avestita es una facción religiosa estricta centrada en la purificación, la ortodoxia y la erradicación de la corrupción.</es>
+        </description>
         <group>church</group>
         <capabilities>
             <capabilitiesOption>
@@ -2357,13 +2385,16 @@
             </recommendedPreferences>
         </random>
     </faction>
-
     <faction>
         <id>orthodox</id>
         <name>
             <en>Urth Orthodox</en>
             <es>Ortodoxos de Urth</es>
         </name>
+        <description>
+            <en>A faction within the Known Worlds with its own culture, goals, and influence.</en>
+            <es>Una facción dentro de los Mundos Conocidos con su propia cultura, objetivos e influencia.</es>
+        </description>
         <group>church</group>
         <capabilities>
             <capabilitiesOption>
@@ -2583,14 +2614,16 @@
             </recommendedPreferences>
         </random>
     </faction>
-
-
     <faction>
         <id>charioteers</id>
         <name>
             <en>Charioteers</en>
             <es>Aurigas</es>
         </name>
+        <description>
+            <en>A faction within the Known Worlds with its own culture, goals, and influence.</en>
+            <es>Una facción dentro de los Mundos Conocidos con su propia cultura, objetivos e influencia.</es>
+        </description>
         <group>merchant</group>
         <capabilities>
             <capabilitiesOption>
@@ -2771,13 +2804,16 @@
             </recommendedPreferences>
         </random>
     </faction>
-
     <faction>
         <id>engineers</id>
         <name>
             <en>Engineers</en>
             <es>Ingenieros</es>
         </name>
+        <description>
+            <en>The Engineers Guild oversees technology, machinery, and technical knowledge throughout the Known Worlds.</en>
+            <es>El Gremio de Ingenieros supervisa la tecnología, la maquinaria y el conocimiento técnico en los Mundos Conocidos.</es>
+        </description>
         <group>merchant</group>
         <capabilities>
             <capabilitiesOption>
@@ -2951,14 +2987,16 @@
             </recommendedPreferences>
         </random>
     </faction>
-
-
     <faction>
         <id>musters</id>
         <name>
             <en>The Muster</en>
             <es>La Asamblea</es>
         </name>
+        <description>
+            <en>The Muster is a guild providing trained soldiers and mercenaries, known for discipline and harsh service.</en>
+            <es>La Asamblea es un gremio que proporciona soldados y mercenarios entrenados, conocido por su disciplina y duro servicio.</es>
+        </description>
         <group>merchant</group>
         <capabilities>
             <capabilitiesOption>
@@ -3153,14 +3191,16 @@
             </recommendedPreferences>
         </random>
     </faction>
-
-
     <faction>
         <id>reeves</id>
         <name>
             <en>The Reeves</en>
             <es>Los Magistrados</es>
         </name>
+        <description>
+            <en>The Reeves Guild administers law, contracts, and financial systems across the Known Worlds.</en>
+            <es>El Gremio de Magistrados administra la ley, los contratos y los sistemas financieros en los Mundos Conocidos.</es>
+        </description>
         <group>merchant</group>
         <capabilities>
             <capabilitiesOption>
@@ -3336,14 +3376,16 @@
             </recommendedPreferences>
         </random>
     </faction>
-
-
     <faction>
         <id>scravers</id>
         <name>
             <en>Scravers</en>
             <es>Carroñeros</es>
         </name>
+        <description>
+            <en>The Scravers Guild deals in salvage, black market trade, and morally questionable commerce.</en>
+            <es>El Gremio de Carroñeros se dedica al salvamento, el mercado negro y el comercio moralmente cuestionable.</es>
+        </description>
         <group>merchant</group>
         <capabilities>
             <capabilitiesOption>
@@ -3561,13 +3603,16 @@
             </recommendedPreferences>
         </random>
     </faction>
-
     <faction>
         <id>theDispossessed</id>
         <name>
             <en>The Dispossessed</en>
             <es>Los Desposeídos</es>
         </name>
+        <description>
+            <en>A faction within the Known Worlds with its own culture, goals, and influence.</en>
+            <es>Una facción dentro de los Mundos Conocidos con su propia cultura, objetivos e influencia.</es>
+        </description>
         <group>yeoman</group>
         <capabilities>
             <capabilitiesOption>
@@ -3747,13 +3792,16 @@
             </recommendedPreferences>
         </random>
     </faction>
-
     <faction>
         <id>far</id>
         <name>
             <en>F.A.R. (Frontier for Alien Rights)</en>
             <es>ODA (Organización por los Derechos de los Alienígenas)</es>
         </name>
+        <description>
+            <en>A faction within the Known Worlds with its own culture, goals, and influence.</en>
+            <es>Una facción dentro de los Mundos Conocidos con su propia cultura, objetivos e influencia.</es>
+        </description>
         <group>yeoman</group>
         <capabilities>
             <capabilitiesOption>
@@ -3947,14 +3995,16 @@
             </recommendedPreferences>
         </random>
     </faction>
-
-
     <faction>
         <id>societyOfStPaulus</id>
         <name>
             <en>Society of St. Paulus</en>
             <es>Sociedad de San Pablo</es>
         </name>
+        <description>
+            <en>A faction within the Known Worlds with its own culture, goals, and influence.</en>
+            <es>Una facción dentro de los Mundos Conocidos con su propia cultura, objetivos e influencia.</es>
+        </description>
         <group>yeoman</group>
         <capabilities>
             <capabilitiesOption>
@@ -4165,14 +4215,16 @@
             </recommendedPreferences>
         </random>
     </faction>
-
-
     <faction>
         <id>vagabonds</id>
         <name>
             <en>Vagabonds</en>
             <es>Vagabundos</es>
         </name>
+        <description>
+            <en>A faction within the Known Worlds with its own culture, goals, and influence.</en>
+            <es>Una facción dentro de los Mundos Conocidos con su propia cultura, objetivos e influencia.</es>
+        </description>
         <group>yeoman</group>
         <capabilities>
             <capabilitiesOption>
@@ -4372,14 +4424,16 @@
             </inadvisablePreferences>
         </random>
     </faction>
-
-
     <faction>
         <id>vuldrok</id>
         <name>
             <en>Vuldrok Barbarians</en>
             <es>Bárbaros Vuldrok</es>
         </name>
+        <description>
+            <en>A faction within the Known Worlds with its own culture, goals, and influence.</en>
+            <es>Una facción dentro de los Mundos Conocidos con su propia cultura, objetivos e influencia.</es>
+        </description>
         <group>yeoman</group>
         <capabilities>
             <capabilitiesOption>

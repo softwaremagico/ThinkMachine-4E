@@ -31,7 +31,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = {"afflictionFactory"})
-public class AfflictionFactoryTests {
+public class AfflictionFactoryTests extends FactoryTest {
     private static final int DEFINED_AFFLICTIONS = 15;
 
 

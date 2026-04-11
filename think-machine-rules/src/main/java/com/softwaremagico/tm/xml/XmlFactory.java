@@ -30,6 +30,7 @@ import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.ObjectMapperFactory;
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.exceptions.ResourceNotFoundException;
 import com.softwaremagico.tm.file.PathManager;
 import com.softwaremagico.tm.file.modules.ModuleManager;
 import com.softwaremagico.tm.log.MachineLog;
@@ -69,6 +70,14 @@ public abstract class XmlFactory<T extends Element> {
 
     public static ObjectMapper getObjectMapper() {
         return ObjectMapperFactory.getXmlObjectMapper();
+    }
+
+    public void reset() {
+        elements = null;
+        elementList = null;
+        elementIdList = null;
+        selectableElementList = null;
+        elementGroups = null;
     }
 
     public T getElement(Selection selection) throws InvalidXmlElementException {
@@ -164,13 +173,42 @@ public abstract class XmlFactory<T extends Element> {
     public List<T> readXml(Class<T> entityClass) throws InvalidXmlElementException {
         try {
             if (elementList == null) {
-                elementList = readXml(entityClass, ModuleManager.DEFAULT_MODULE);
+                elementList = new ArrayList<>();
+                for (String module : ModuleManager.getEnabledModules()) {
+                    try {
+                        combineElements(elementList, readXml(entityClass, module));
+                    } catch (ResourceNotFoundException e) {
+                        MachineLog.warning(this.getClass(), "Element '{}' not found on module '{}'.",
+                                entityClass.getSimpleName(), module);
+                    }
+                }
             }
+            this.elements = new HashMap<>();
+            elementList.forEach(element -> this.elements.put(element.getId(), element));
             return new ArrayList<>(elementList);
         } catch (IOException e) {
             MachineLog.errorMessage(this.getClass(), e);
             throw new InvalidXmlElementException("Error reading xml for '" + entityClass + "'", e);
         }
+    }
+
+    private void combineElements(List<T> currentElements, List<T> newElements) {
+        final List<T> elementsToAdd = new ArrayList<>();
+        for (T newElement : newElements) {
+            //Check if it is a new specialization of an existing element.
+            boolean added = false;
+            for (T currentElement : currentElements) {
+                if (currentElement.getId().equals(newElement.getId()) && !newElement.getSpecializations().isEmpty()) {
+                    currentElement.getSpecializations().addAll(newElement.getSpecializations());
+                    added = true;
+                }
+            }
+            if (!added) {
+                //Add it if is a new element.
+                elementsToAdd.add(newElement);
+            }
+        }
+        currentElements.addAll(elementsToAdd);
     }
 
     public List<T> readXml(Class<T> entityClass, String moduleName) throws IOException {
@@ -182,8 +220,6 @@ public abstract class XmlFactory<T extends Element> {
         final List<T> fileElements = getObjectMapper().readerForListOf(entityClass).readValue(xmlContent);
         final AtomicInteger order = new AtomicInteger();
         fileElements.forEach(element -> element.setOrder(order.getAndIncrement()));
-        this.elements = new HashMap<>();
-        fileElements.forEach(element -> this.elements.put(element.getId(), element));
         return fileElements;
     }
 
@@ -212,7 +248,7 @@ public abstract class XmlFactory<T extends Element> {
             MachineLog.debug(XmlFactory.class.getName(), "Found xml factory '" + filePath + "' at '" + resource + "'.");
             final StringBuilder resultStringBuilder = new StringBuilder();
             if (resource == null) {
-                throw new InvalidXmlElementException("Resource not found on '" + filePath + "'.");
+                throw new ResourceNotFoundException("Resource not found on '" + filePath + "'.");
             }
             try (BufferedReader read = new BufferedReader(new InputStreamReader(resource.openStream(), StandardCharsets.UTF_8))) {
                 String line;

@@ -27,13 +27,13 @@ package com.softwaremagico.tm.factory;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Selection;
 import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
-import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.file.modules.ModuleManager;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = {"capabilityFactory"})
-public class CapabilityFactoryTest {
+public class CapabilityFactoryTest extends FactoryTest {
     public static final int TOTAL_ELEMENTS = 75;
     public static final int TOTAL_EXPANDED_ELEMENTS = 149;
 
@@ -41,6 +41,18 @@ public class CapabilityFactoryTest {
     public void checkTotalElements() throws InvalidXmlElementException {
         Assert.assertEquals(CapabilityFactory.getInstance().getElements().size(),
                 TOTAL_ELEMENTS);
+    }
+
+    @Test
+    public void relegionLoreIncludesTerthaAsSpecialization() {
+        ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
+        CapabilityFactory.getInstance().reset();
+        try {
+            Assert.assertNotNull(CapabilityFactory.getInstance().getElement("religionLore").getSpecialization("tertha"));
+        } finally {
+            ModuleManager.disableModule(ModuleManager.FACTION_BOOK_MODULE);
+            CapabilityFactory.getInstance().reset();
+        }
     }
 
     @Test

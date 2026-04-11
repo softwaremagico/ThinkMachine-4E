@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<equipments>
+    <equipment>
+        <id>masterworkAxe</id>
+        <type>item</type>
+        <name>
+            <en>Masterwork Axe</en>
+            <es>Hacha calidad maestra</es>
+        </name>
+        <description>
+            <en>+1 goal.</en>
+            <es>+1 meta.</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>masterworkSpear</id>
+        <type>item</type>
+        <name>
+            <en>Masterwork Axe</en>
+            <es>Lanza calidad maestra</es>
+        </name>
+        <description>
+            <en>+1 goal.</en>
+            <es>+1 meta.</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>masterworkSword</id>
+        <type>item</type>
+        <name>
+            <en>Masterwork Sword</en>
+            <es>Espada calidad maestra</es>
+        </name>
+        <description>
+            <en>+1 goal.</en>
+            <es>+1 meta.</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>masterworkKnife</id>
+        <type>item</type>
+        <name>
+            <en>Masterwork Knife</en>
+            <es>Cuchillo calidad maestra</es>
+        </name>
+        <description>
+            <en>+1 goal.</en>
+            <es>+1 meta.</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>paradiseLandGrant</id>
+        <type>item</type>
+        <name>
+            <en>Paradise Land Grant</en>
+            <es>Concesión de tierras en Paraíso</es>
+        </name>
+        <description>
+            <en>You have a plot of land on Paradise, should it be recovered.</en>
+            <es>Posees un terreno en Paradise, en caso de que sea recuperado.</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>crystalCoronet</id>
+        <type>item</type>
+        <name>
+            <en>Crystal Coronet</en>
+            <es>Corona de Cristal</es>
+        </name>
+        <description>
+            <en>Crystals for focusing psychic powers (+1 goal), set prettily in a noble coronet.</en>
+            <es>Cristales para enfocar poderes psíquicos (+1 meta), engastados con elegancia en una noble corona.</es>
+        </description>
+        <restrictions>
+            <factions>
+                <faction>juandaastas</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>keddahTravelPavilion</id>
+        <type>item</type>
+        <name>
+            <en>Pocket pavilion</en>
+            <es>Pabellón de bolsillo</es>
+        </name>
+        <description>
+            <en>Palm-sized device; pops up into a four-person yurt when set on the ground and activated.</en>
+            <es>Dispositivo del tamaño de la palma de la mano; al colocarlo en el suelo y activarlo, se despliega en una yurta para cuatro personas.</es>
+        </description>
+        <techLevel>5</techLevel>
+        <size>M</size>
+        <restrictions>
+            <factions>
+                <faction>keddah</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>bloodstone</id>
+        <type>item</type>
+        <name>
+            <en>Bloodstone</en>
+            <es>Bloodstone</es>
+        </name>
+        <description>
+            <en>Blood-monitoring device from the Stigmata Garrison; turns red when exposed to symbiot-tainted blood.
+            </en>
+            <es>Dispositivo de monitorización sanguínea de la Guarnición de los Estigmas; se vuelve rojo al exponerse a sangre contaminada con simbiontes.</es>
+        </description>
+        <techLevel>6</techLevel>
+        <size>M</size>
+        <restrictions>
+            <factions>
+                <faction>masseri</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>ramakrishnaHandOfHamut</id>
+        <type>item</type>
+        <name>
+            <en>Hand of Hamut</en>
+            <es>Bloodstone</es>
+        </name>
+        <description>
+            <en>Finger-ring device; one-use — single activation — standard energy shield; can be recharged after use over a 6-hour period
+            </en>
+            <es>Dispositivo de anillo para el dedo; de un solo uso — activación única — escudo de energía estándar; se puede recargar después de su uso durante
+                un período de 6 horas.
+            </es>
+        </description>
+        <techLevel>7</techLevel>
+        <size>XS</size>
+        <restrictions>
+            <factions>
+                <faction>ramakrishna</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>cybersympathySurgery</id>
+        <type>item</type>
+        <name>
+            <en>Cybersympathy surgery</en>
+            <es>Cirugía de cibersimpatía</es>
+        </name>
+        <description>
+            <en>+1 Techgnosis; your nervous system has been surgically modified to better handle cyber-implants.
+            </en>
+            <es>+1 Tecgnosis; tu sistema nervioso ha sido modificado quirúrgicamente para manejar mejor los implantes cibernéticos.</es>
+        </description>
+        <restrictions>
+            <factions>
+                <faction>shelit</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+</equipments>
