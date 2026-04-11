@@ -41,7 +41,7 @@ import java.util.Set;
 
 public class Specie extends CharacterDefinitionStep {
 
-    public static final  String ASCORBITE = "ascorbite";
+    public static final String ASCORBITE = "ascorbite";
 
     @JsonProperty("specieCharacteristics")
     private List<SpecieCharacteristic> specieCharacteristics;
@@ -52,6 +52,12 @@ public class Specie extends CharacterDefinitionStep {
 
     @JsonProperty("primaryCharacteristics")
     private List<String> primaryCharacteristics;
+
+    @JsonProperty("bodyResistance")
+    private int bodyResistance = 0;
+
+    @JsonProperty("vitalityBonus")
+    private int vitalityBonus = 0;
 
     private int cost;
 
@@ -172,5 +178,21 @@ public class Specie extends CharacterDefinitionStep {
         if (specieCharacteristics != null) {
             specieCharacteristics.forEach(SpecieCharacteristic::validate);
         }
+    }
+
+    public int getBodyResistance() {
+        return bodyResistance;
+    }
+
+    public void setBodyResistance(int bodyResistance) {
+        this.bodyResistance = bodyResistance;
+    }
+
+    public int getVitalityBonus() {
+        return vitalityBonus;
+    }
+
+    public void setVitalityBonus(int vitalityBonus) {
+        this.vitalityBonus = vitalityBonus;
     }
 }

@@ -234,7 +234,9 @@ public class CharacterPlayer {
     public void checkMaxValueByLevel(String element, int value) throws MaxValueExceededException {
         if ((getLevel() == 1 && value > MAX_INITIAL_VALUE)
                 || (getLevel() == 2 && value > MAX_INTERMEDIATE_VALUE)
-                || (getLevel() > 2 && value > LEVEL_MAX_VALUE)) {
+                || (getLevel() > 2 && getLevel() < 10
+                && value > Math.min(LEVEL_MAX_VALUE, SpecieFactory.getInstance().getElement(getSpecie()).getSpecieCharacteristic(element).getMaximumValue()))
+                || getLevel() > 10 && value > SpecieFactory.getInstance().getElement(getSpecie()).getSpecieCharacteristic(element).getMaximumValue()) {
             String composition;
             try {
                 composition = getCharacteristicComposition(element);
@@ -243,7 +245,8 @@ public class CharacterPlayer {
             }
             throw new MaxValueExceededException("Element '" + element + "' has exceeded its maximum value '" + value + "' at level '" + getLevel() + "'. "
                     + "Obtained by " + composition, element, value, (getLevel() == 1 ? MAX_INITIAL_VALUE
-                    : (getLevel() == 2 ? MAX_INTERMEDIATE_VALUE : LEVEL_MAX_VALUE)));
+                    : (getLevel() == 2 ? MAX_INTERMEDIATE_VALUE : Math.min(LEVEL_MAX_VALUE, SpecieFactory.getInstance().getElement(getSpecie())
+                    .getSpecieCharacteristic(element).getMaximumValue()))));
         }
     }
 
@@ -660,7 +663,8 @@ public class CharacterPlayer {
         final AtomicInteger vitality = new AtomicInteger(getCharacteristicValue(CharacteristicName.ENDURANCE)
                 + getCharacteristicValue(CharacteristicName.WILL)
                 + getCharacteristicValue(CharacteristicName.FAITH)
-                + (specie != null ? SpecieFactory.getInstance().getElement(specie).getSize() : 0));
+                + (specie != null ? SpecieFactory.getInstance().getElement(specie).getSize() : 0)
+                + (specie != null ? SpecieFactory.getInstance().getElement(specie).getVitalityBonus() : 0));
         getLevels().forEach(level -> vitality.addAndGet(level.getExtraVitality()));
         return vitality.get();
     }
@@ -956,7 +960,8 @@ public class CharacterPlayer {
     }
 
     public int getBodyResistance() {
-        return Resistance.getBonus(ResistanceType.BODY, this);
+        return Resistance.getBonus(ResistanceType.BODY, this)
+                + SpecieFactory.getInstance().getElement(getSpecie().getId()).getBodyResistance();
     }
 
     public int getMindResistance() {

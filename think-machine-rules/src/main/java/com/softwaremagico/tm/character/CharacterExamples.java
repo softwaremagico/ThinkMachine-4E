@@ -35,6 +35,7 @@ import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
 import com.softwaremagico.tm.character.level.LevelSelector;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.character.skills.SkillBonusOption;
+import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 
 import java.util.ArrayList;
@@ -158,9 +159,16 @@ public final class CharacterExamples {
                                 || (characterPlayer.getLevel() == 2
                                 && characterPlayer.getCharacteristicValue(options.get(index).getElement().getCharacteristicName())
                                 + options.get(index).getBonus() <= CharacterPlayer.MAX_INTERMEDIATE_VALUE)
-                                || (characterPlayer.getLevel() > 2
+                                || (characterPlayer.getLevel() > 2 && characterPlayer.getLevel() < 10
                                 && characterPlayer.getCharacteristicValue(options.get(index).getElement().getCharacteristicName())
-                                + options.get(index).getBonus() <= CharacterPlayer.LEVEL_MAX_VALUE)) {
+                                + options.get(index).getBonus() <=
+                                Math.min(CharacterPlayer.LEVEL_MAX_VALUE, SpecieFactory.getInstance().getElement(characterPlayer.getSpecie())
+                                        .getSpecieCharacteristic(options.get(index).getId()).getMaximumValue()))
+                                || (characterPlayer.getLevel() > 10
+                                && characterPlayer.getCharacteristicValue(options.get(index).getElement().getCharacteristicName())
+                                + options.get(index).getBonus() <=
+                                SpecieFactory.getInstance().getElement(characterPlayer.getSpecie())
+                                        .getSpecieCharacteristic(options.get(index).getId()).getMaximumValue())) {
                             level.getSelectedCharacteristicOptions().get(i).getSelections()
                                     .add(new Selection(options.get(index)));
                             added = true;

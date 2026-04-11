@@ -1,0 +1,1633 @@
+<?xml version='1.0' encoding='utf-8'?>
+<species>
+    <ascorbite>
+        <id>ascorbite</id>
+        <name>
+            <en>Ascorbite</en>
+            <es>Ascorbita</es>
+        </name>
+        <description>
+            <en>Ascorbites are secretive, chitinous aliens from Severus whose collective Songs, rigid early indoctrination, and bodily metamorphoses make them
+                deeply unlike humans. They live in tightly bonded collectives that share information through subvocal communication, remain intensely loyal to
+                patrons and nestmates, and are often perceived as unnerving or inscrutable by outsiders. Their species history in the Known Worlds is shaped by
+                Decados manipulation, Avestite fanatic use, and the tension between collective belonging and personal alienation.
+            </en>
+            <es>Las ascorbitas son alienígenas quitinosas y reservadas de Severus cuya Canción colectiva, adoctrinamiento juvenil rígido y metamorfosis corporal
+                las vuelven profundamente distintas de los humanos. Viven en colectivos muy cohesionados que comparten información mediante comunicación
+                subvocal, permanecen intensamente leales a patronos y compañeras de nido, y suelen ser vistas como inquietantes o inescrutables por los
+                extraños. La historia de la especie en los Mundos Conocidos está marcada por la manipulación Decados, el uso fanático por parte de los avestitas
+                y la tensión entre pertenencia colectiva y alienación individual.
+            </es>
+        </description>
+        <cost>6</cost>
+        <specieCharacteristics>
+            <characteristic>
+                <id>strength</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>dexterity</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>endurance</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>wits</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>perception</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>will</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>presence</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>intuition</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>faith</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>psi</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>urge</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>theurgy</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>hubris</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+        </specieCharacteristics>
+        <movement>
+            <value>5</value>
+        </movement>
+        <size>5</size>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>speak</id>
+                        <selectedSpecialization>ascorbite</selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <perks>
+            <perk>
+                <id>enameledChitin</id>
+            </perk>
+        </perks>
+        <bodyResistance>3</bodyResistance>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <names>
+                <male>
+                </male>
+                <female>
+                </female>
+            </names>
+            <surnames>
+            </surnames>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <names>
+                <male>Zrix, Skarn, Vexil, Krizz, Drax, Zorx, Vesk, Krix, Zask, Drizz,
+                    Skarx, Vroth, Zek, Krass, Vrax, Zirk, Skel, Drez, Vexar, Kzorn,
+                    Zrask, Skrix, Varnx, Daxil, Kriz, Zexor, Vroks, Skarnix, Zrith, Drek,
+                    Krax, Zraven, Vexok, Skor, Drazk, Krivex, Zornik, Vask, Zrex, Drask,
+                    Skrixen, Vorn, Zrak, Krez, Vexin, Dorsh, Zrik, Skarnok, Vrex, Kzarek,
+                    Zeskar, Drivok, Skarnel, Vraxx, Zrion, Kresk, Daxor, Vexir, Skrez, Zornax,
+                    Krixor, Vasken, Drazor, Zrexil, Skorik, Varnok, Krask, Zrixen, Drok, Vexas,
+                    Zraskil, Skarnex, Vrox, Drezor, Krizok, Zexin, Varnex, Skrax, Zravenok, Daxen,
+                    Kresil, Zrikor, Vexarn, Skorax, Drezik, Zraskor, Krixen, Vornex, Zexar, Skarnixor,
+                    Draxil, Kraskor, Zriven, Vexor, Skarnelix, Zorak, Vaskor, Drezok, Krixar, Zrasken,
+                    Skoril, Varnor, Zexil, Draxor, Kriven, Zraskin, Skarnokil, Vexel, Zorik, Draskor,
+                    Kresor, Zravenil, Vexarnok, Skrixor, Drezil, Zexorn, Varnix, Krixel, Zraskoril
+                </male>
+                <female>Zyra, Skira, Vexa, Krissa, Draxa, Zora, Veskra, Krixa, Zassa, Drissa,
+                    Skara, Vroxa, Zeka, Krassa, Vraxa, Zira, Skela, Dreza, Vexara, Kzora,
+                    Zrassa, Skrixa, Varna, Daxira, Kriza, Zexara, Vroksa, Skarnia, Zritha, Dreka,
+                    Kraxa, Zrava, Vexoka, Skora, Drazka, Krivara, Zorna, Vaska, Zrexa, Draska,
+                    Skrixael, Vorna, Zraka, Kreza, Vexina, Dorsa, Zrika, Skarnoka, Vrexa, Kzara,
+                    Zeska, Drivara, Skarnela, Vraxxa, Zriona, Kresa, Daxara, Vexira, Skreza, Zornaa,
+                    Krixara, Vaskena, Drazara, Zrexila, Skoria, Varnael, Kraska, Zrixael, Droka, Vexasa,
+                    Zrassila, Skarnexa, Vroxael, Drezara, Krizoka, Zexina, Varnaexa, Skraxa, Zravaxa, Daxena,
+                    Kresila, Zrikael, Vexarna, Skoraxa, Drezika, Zrassora, Krixena, Vornaexa, Zexarael, Skarnixa,
+                    Draxila, Krassora, Zrivena, Vexora, Skarnelixa, Zoraka, Vaskora, Drezoka, Krixarael, Zrassena,
+                    Skorila, Varnora, Zexila, Draxora, Krivena, Zrassina, Skarnokila, Vexela, Zorika, Draskora,
+                    Kresora, Zravenila, Vexarnoka, Skrixora, Drezila, Zexorna, Varnixa, Krixela, Zrassorila
+                </female>
+            </names>
+            <surnames>Zrask, Skarn, Vex, Kriz, Drax, Zorn, Vask, Krix, Zex, Drask,
+                Skrix, Varn, Zrak, Kresk, Drez, Vexor, Krask, Zriven, Skor, Varnex,
+                Zexor, Draven, Krixor, Zraskor, Skarnex, Vexarn, Draxor, Zorak, Vaskor, Kriven,
+                Zrass, Skarnok, Vexok, Drezor, Krixen, Zexin, Varnok, Skrax, Zraven, Daxor,
+                Kresor, Zrikor, Vexarnok, Skorax, Drezik, Zrasken, Krixar, Vornex, Zexar, Skarnix,
+                Draxil, Kraskor, Zrivenok, Vexoril, Skarnel, Zorik, Vasken, Drezok, Krixel, Zraskil,
+                Skoril, Varnor, Zexil, Draxoril, Krivenok, Zraskin, Skarnokil, Vexel, Zoril, Draskor,
+                Kresil, Zravenil, Vexarnil, Skrixor, Drezil, Zexorn, Varnil, Krixoril, Zraskoril, Skarnor,
+                Vexorok, Draxok, Zorok, Vaskok, Krizok, Zraskok, Skarnokor, Vexarnokor, Drezokor, Zexokor,
+                Varnokor, Krixokor, Zravenokor, Skarnelok, Vexelok, Draxelok, Zorel, Vaskel, Krizel, Zraskel,
+                Skarnel, Vexarnel, Drezel, Zexel, Varnel, Krixel, Zravenel, Skarnorel, Vexorel, Draxorel
+            </surnames>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+                <preference>PRIMITIVE</preference>
+            </recommendedPreferences>
+        </random>
+    </ascorbite>
+    <etyri>
+        <id>etyri</id>
+        <name>
+            <en>Etyri</en>
+            <es>Etyri</es>
+        </name>
+        <description>
+            <en>The etyri are winged avian humanoids from Grail whose culture values omens, prophecy, ritual grooming, and the afterlife beyond the sky. Long
+                associated with Zebulon’s lore and with graceful speech, courtliness, and flight, they are one of the few alien species more likely to inspire
+                wonder than disgust among humans. Their society contains many breeds and lineages, from hawk-like noble Huar’raughq to artistically gifted
+                Chirikiti, and offworld etyri often serve human houses, the Church, or the Merchant League while preserving an intensely future-oriented
+                worldview.
+            </en>
+            <es>Los etyri son humanoides aviares alados de Grail cuya cultura valora los presagios, la profecía, el acicalamiento ritual y la vida de
+                ultracielo. Asociados desde antiguo al lore de Zebulón y al habla refinada, la cortesía y el vuelo, son una de las pocas especies alienígenas
+                que despiertan más asombro que repulsión entre los humanos. Su sociedad contiene muchas razas y linajes, desde los nobles Huar’raughq con
+                aspecto de rapaz hasta los Chirikiti dotados para las artes, y los etyri que viven fuera de su mundo suelen servir a casas humanas, a la Iglesia
+                o a la Liga Mercantil sin perder su visión profundamente orientada al futuro.
+            </es>
+        </description>
+        <cost>8</cost>
+        <specieCharacteristics>
+            <characteristic>
+                <id>strength</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>9</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>dexterity</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>endurance</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>wits</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>perception</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>12</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>will</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>presence</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>intuition</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>faith</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>psi</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>urge</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>theurgy</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>hubris</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+        </specieCharacteristics>
+        <primaryCharacteristics>
+            <characteristic>perception</characteristic>
+        </primaryCharacteristics>
+        <vitalityBonus>-1</vitalityBonus>
+        <movement>
+            <value>5</value>
+        </movement>
+        <size>6</size>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>speak</id>
+                        <selectedSpecialization>etyrian</selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <perks>
+            <perk>
+                <id>smellDanger</id>
+            </perk>
+            <perk>
+                <id>animalFriend</id>
+            </perk>
+            <perk>
+                <id>chameleon</id>
+            </perk>
+            <perk>
+                <id>destinator</id>
+            </perk>
+            <perk>
+                <id>guts</id>
+            </perk>
+            <perk>
+                <id>memoryExpander</id>
+            </perk>
+            <perk>
+                <group>militaryRank</group>
+            </perk>
+            <perk>
+                <id>oriented</id>
+            </perk>
+            <perk>
+                <id>spotter</id>
+            </perk>
+            <perk>
+                <id>wildDomain</id>
+            </perk>
+            <perk>
+                <id>flyingAce</id>
+            </perk>
+        </perks>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <names>
+                <male>Aelion, Vaelorin, Sereth, Thalien, Orien, Kaelith, Merion, Saelvar, Orenath, Vaelis,
+                    Thariel, Lorien, Maelion, Serathil, Vaelorn, Elionis, Orimar, Saelion, Thalior, Kaelor,
+                    Merathis, Orelian, Vaelithor, Serionel, Tharion, Aeloris, Maelorin, Saelith, Orenil, Vaelior,
+                    Serathor, Thalioren, Kaelion, Merionel, Orathiel, Saelorin, Vaelaran, Tharielon, Lorathis, Maelior,
+                    Seralith, Orenathor, Vaelionis, Thaleren, Kaeloran, Merielon, Orathion, Saeloran, Vaelithan, Tharionel,
+                    Aethorin, Vaeluun, Serethon, Thalienor, Oriael, Kaeluun, Merethil, Saeluun, Orenion, Vaelathen,
+                    Tharionel, Loruun, Maelathor, Serioneth, Vaeliorun, Elathion, Orieneth, Saelathor, Thaliorun, Kaelathen,
+                    Meruun, Orelith, Vaeluunor, Serethil, Tharuun, Aelathor, Maeluun, Saeliorun, Orenuun, Vaeliorun,
+                    Serathuun, Thalethor, Kaeluunor, Merathuun, Orathuun, Saeluunor, Vaelathuun, Tharathuun, Lorathuun, Maelathuun,
+                    Sereluun, Orenathuun, Vaelionuun, Thalioruun, Kaelioruun, Merionuun, Orienuun, Saelionuun, Vaelionor, Tharionuun,
+                    Aelionuun, Vaeluuneth, Seruuneth, Thalethuun, Orienethuun, Kaeluuneth, Meruuneth, Saeluuneth, Orenuuneth, Vaeluunor,
+                    Tharuuneth, Loruuneth, Maeluuneth, Serionuun, Orenionuun, Vaelioneth, Thalioneth, Kaelioneth, Merioneth, Orieneth,
+                    Saelioneth, Vaelionor, Tharionor, Aelionor, Vaelioren, Serioren, Thalioren, Orienor, Kaelioren, Merioren,
+                    Saelioren, Vaelioruneth, Thariorun, Loriorun, Maeliorun
+                </male>
+                <female>Aelira, Vaelene, Seralia, Thalira, Oriena, Kaelira, Meriel, Saelene, Orenya, Vaelira,
+                    Tharielia, Lorenael, Maelira, Serelith, Vaelora, Eliraen, Orimera, Saelira, Thaloria, Kaelena,
+                    Meralith, Orelia, Vaelithia, Seriona, Thariena, Aeloria, Maeloriel, Saelithia, Orenelia, Vaeliora,
+                    Serathia, Thaloriel, Kaeloria, Merionael, Orathielia, Saeloriel, Vaelara, Tharielene, Lorathia, Maeliora,
+                    Seralene, Orenathia, Vaelionia, Thalerae, Kaeloriel, Merielia, Orathenia, Saelorae, Vaelithene, Thariona,
+                    Aethira, Vaeluunia, Serethia, Thalienia, Oriaela, Kaeluunia, Merethia, Saeluunia, Orenia, Vaelathia,
+                    Tharionia, Loruunia, Maelathia, Serionia, Vaelioria, Elathia, Orienia, Saelathia, Thalioria, Kaelathia,
+                    Meruunia, Orelithia, Vaeluunia, Serethia, Tharuunia, Aelathia, Maeluunia, Saelioria, Orenuunia, Vaelioria,
+                    Serathia, Thalethia, Kaeluunia, Merathia, Orathia, Saeluunia, Vaelathia, Tharathia, Lorathia, Maelathia,
+                    Serelithia, Orenathia, Vaelionia, Thalioria, Kaelioria, Merionia, Orienia, Saelionia, Vaelionara, Tharionia,
+                    Aelionia, Vaeluunethia, Seruunethia, Thalethia, Orienethia, Kaeluunethia, Meruunethia, Saeluunethia, Orenuunethia, Vaeluunoria,
+                    Tharuunethia, Loruunethia, Maeluunethia, Serionia, Orenionia, Vaelionethia, Thalionethia, Kaelionethia, Merionethia, Orienethia,
+                    Saelionethia, Vaelionara, Tharionara, Aelionara, Vaeliorena, Seriorena, Thaliorena, Orienara, Kaeliorena, Meriorena,
+                    Saeliorena, Vaeliorunethia, Tharioruna, Lorioruna, Maelioruna
+                </female>
+            </names>
+            <surnames>
+                Vaelion, Serath, Thalion, Kaelith, Orenath, Merion, Saelior, Aelith, Lorath, Maelion,
+                Vaeluun, Seruun, Thaluun, Kaeluun, Orenuun, Meruun, Saeluun, Aeluun, Loruun, Maeluun,
+                Vaelior, Serior, Thalior, Kaelior, Orenior, Merior, Saelior, Aelior, Lorior, Maelior,
+                Vaelath, Serath, Thalath, Kaelath, Orenath, Merath, Saelath, Aelath, Lorath, Maelath,
+                Vaelioneth, Serioneth, Thalioneth, Kaelioneth, Orenioneth, Merioneth, Saelioneth, Aelioneth, Lorioneth, Maelioneth,
+                Vaeluuneth, Seruuneth, Thaluuneth, Kaeluuneth, Orenuuneth, Meruuneth, Saeluuneth, Aeluuneth, Loruuneth, Maeluuneth,
+                Vaelioren, Serioren, Thalioren, Kaelioren, Orenioren, Merioren, Saelioren, Aelioren, Lorioren, Maelioren,
+                Vaeliorun, Seriorun, Thaliorun, Kaeliorun, Oreniorun, Meriorun, Saeliorun, Aeliorun, Loriorun, Maeliorun,
+                Vaelithor, Serithor, Thalithor, Kaelithor, Orenithor, Merithor, Saelithor, Aelithor, Lorithor, Maelithor,
+                Vaeloran, Seroran, Thaloran, Kaeloran, Orenoran, Meroran, Saeloran, Aeloran, Lororan, Maeloran,
+                Vaelaris, Seraris, Thalaris, Kaelaris, Orenaris, Meraris, Saelaris, Aelaris, Loraris, Maelaris,
+                Vaelionis, Serionis, Thalionis, Kaelionis, Orenionis, Merionis, Saelionis, Aelionis, Lorionis, Maelionis,
+                Vaelorien, Serorien, Thalorien, Kaelorien, Orenorien, Merorien, Saelorien, Aelorien, Lororien, Maelorien,
+                Vaelioris, Serioris, Thalioris, Kaelioris, Orenioris, Merioris, Saelioris, Aelioris, Lorioris, Maelioris,
+                Vaelionor, Serionor, Thalionor, Kaelionor, Orenionor, Merionor, Saelionor, Aelionor, Lorionor, Maelionor
+            </surnames>
+        </random>
+    </etyri>
+    <gannok>
+        <id>gannok</id>
+        <name>
+            <en>Gannok</en>
+            <es>Gannok</es>
+        </name>
+        <description>
+            <en>The gannok are simian technophiles whose sudden mastery of language and machinery shocked human xenologists during the Second Republic. Small,
+                flexible, intensely adaptive, and often underestimated, they became valued engineers, scribes, pilots, and tech-specialists across the jumpweb.
+                Their species combines practical brilliance with bodily oddities such as prehensile tails, omnivorous resilience, and a powerful regenerative
+                metabolism that leaves them perpetually hungry and socially stigmatized by their pungent smell.
+            </en>
+            <es>Los gannok son tecnófilos simiescos cuyo repentino dominio del lenguaje y de la maquinaria sorprendió a los xenólogos humanos durante la Segunda
+                República. Pequeños, flexibles, sumamente adaptables y a menudo subestimados, se convirtieron en ingenieros, escribas, pilotos y especialistas
+                técnicos valiosos en toda la red de salto. Su especie combina brillantez práctica con rarezas corporales como colas prensiles, resistencia
+                omnívora y un potente metabolismo regenerativo que los deja perpetuamente hambrientos y socialmente estigmatizados por su olor penetrante.
+            </es>
+        </description>
+        <cost>6</cost>
+        <specieCharacteristics>
+            <characteristic>
+                <id>strength</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>dexterity</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>endurance</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>wits</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>perception</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>will</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>presence</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>intuition</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>faith</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>psi</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>urge</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>theurgy</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>hubris</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+        </specieCharacteristics>
+        <movement>
+            <value>4</value>
+        </movement>
+        <size>4</size>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>speak</id>
+                        <selectedSpecialization>tokTok</selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>techLore5</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <perks>
+            <perk>
+                <id>comprehendTechLevel5</id>
+            </perk>
+            <perk>
+                <id>comprehendTechLevel6</id>
+            </perk>
+            <perk>
+                <id>comprehendTechLevel7</id>
+            </perk>
+            <perk>
+                <id>comprehendTechLevel8</id>
+            </perk>
+            <perk>
+                <id>craftEnergyDevice</id>
+            </perk>
+            <perk>
+                <id>craftWondrousTech</id>
+            </perk>
+            <perk>
+                <id>machineSpirit</id>
+            </perk>
+            <perk>
+                <id>mechanic</id>
+            </perk>
+        </perks>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <names>
+                <male>Gorak, Thurgan, Korg, Bratak, Drogun, Kharok, Vorg, Grunak, Torvak, Durgan,
+                    Krag, Morgun, Tark, Zorak, Brugan, Kordak, Thrak, Gurnok, Vargan, Drakor,
+                    Kharug, Morgak, Torug, Grakar, Durnok, Vrok, Kargan, Throg, Brakor, Gurnak,
+                    Zorg, Dargun, Krug, Tharak, Borgun, Vrokar, Gharok, Kurnak, Dragan, Torgak,
+                    Morgar, Kharan, Bragok, Drogak, Varnok, Gurnag, Thokar, Kragan, Drok, Kharog,
+                    Turgan, Morgunok, Kargok, Bragan, Thurgok, Vrokun, Gharun, Kragor, Dargok, Zorgun,
+                    Khorak, Murgan, Targok, Brakorun, Drogor, Vargok, Gurnokar, Thrakun, Krugor, Durnag,
+                    Zorun, Kargor, Thurgar, Morgok, Bragor, Vrokag, Gharag, Kurnog, Drakok, Torgun,
+                    Morgunor, Kharokun, Bragokar, Drogunor, Varnag, Gurnor, Thokun, Kraganor, Drokun, Zorgar,
+                    Khorun, Murgok, Targun, Brakor, Drogar, Vargun, Gurnakok, Thrakor, Krugun, Durnokar,
+                    Zorag, Kargun, Thurgokar, Morgarok, Bragokun, Vrokor, Gharokar, Kurnag, Drakorun, Torgar,
+                    Morgunag, Kharun, Bragorun, Drogok, Varnokar, Gurnagok, Thokor, Kraganok, Drokor, Zorgok,
+                    Khorag, Murgar, Targor, Brakorag, Drogunag, Vargor, Gurnokun, Thrakag, Krugokar, Durnor
+                </male>
+                <female>Gora, Thura, Korga, Braka, Droga, Khara, Vorga, Gruna, Torka, Durga,
+                    Kraga, Morga, Tarka, Zora, Bruga, Korda, Thara, Gurna, Varga, Draka,
+                    Kharu, Morga, Toru, Graka, Durna, Vroka, Karga, Throa, Braka, Gurna,
+                    Zorga, Darga, Kruga, Thara, Borga, Vroka, Ghara, Kurna, Draga, Torga,
+                    Morga, Khara, Braga, Droka, Varna, Gurna, Thoka, Kraga, Droa, Khara,
+                    Turga, Morgaa, Karga, Braga, Thurga, Vroka, Ghara, Kraga, Darga, Zorga,
+                    Khora, Murga, Targa, Brakaa, Droga, Varga, Gurnaa, Thraa, Kruga, Durna,
+                    Zoraa, Karga, Thuraa, Morga, Braga, Vroa, Ghara, Kurna, Draka, Torga,
+                    Morgaa, Kharaa, Bragaa, Drogaa, Varnaa, Gurnaa, Thoraa, Kragaa, Droaa, Zorgaa,
+                    Khuraa, Murgaa, Targaa, Brakaa, Drogaa, Vargaa, Gurnaa, Thraag, Krugaa, Durnaa,
+                    Zoraa, Kargaa, Thuraa, Morgaa, Bragaa, Vrogaa, Gharaa, Kurnaa, Drakaa, Torgaa,
+                    Morgaa, Kharraa, Bragraa, Drogaa, Varraa, Gurnaa, Thoraa, Kragaa, Drogaa, Zorgaa,
+                    Khoraa, Murraa, Targaa, Brakraa, Drograa, Varraa, Gurnaa, Thraa, Krugraa, Durnaa,
+                    Zoraa, Kargraa, Thuraa, Morgraa, Bragraa, Vrograa, Gharraa, Kurnraa, Drakraa, Torgraa
+                </female>
+            </names>
+            <surnames>
+                Gorak, Thurgan, Kharok, Vorg, Grunak, Torvak, Durgan, Krag, Morgun, Tark,
+                Zorak, Brugan, Kordak, Thrak, Gurnok, Vargan, Drakor, Kharug, Morgak, Torug,
+                Grakar, Durnok, Vrok, Kargan, Throg, Brakor, Gurnak, Zorg, Dargun, Krug,
+                Tharak, Borgun, Vrokar, Gharok, Kurnak, Dragan, Torgak, Morgar, Kharan, Bragok,
+                Drogak, Varnok, Gurnag, Thokar, Kragan, Drok, Kharog, Turgan, Morgunok, Kargok,
+                Bragan, Thurgok, Vrokun, Gharun, Kragor, Dargok, Zorgun, Khorak, Murgan, Targok,
+                Brakorun, Drogor, Vargok, Gurnokar, Thrakun, Krugor, Durnag, Zorun, Kargor, Thurgar,
+                Morgok, Bragor, Vrokag, Gharag, Kurnog, Drakok, Torgun, Morgunor, Kharokun, Bragokar,
+                Drogunor, Varnag, Gurnor, Thokun, Kraganor, Drokun, Zorgar, Khorun, Murgok, Targun,
+                Brakor, Drogar, Vargun, Gurnakok, Thrakor, Krugun, Durnokar, Zorag, Kargun, Thurgokar,
+                Morgarok, Bragokun, Vrokor, Gharokar, Kurnag, Drakorun, Torgar, Morgunag, Kharun, Bragorun,
+                Drogok, Varnokar, Gurnagok, Thokor, Kraganok, Drokor, Zorgok, Khorag, Murgar, Targor
+            </surnames>
+        </random>
+    </gannok>
+    <hironemSibanzi>
+        <id>hironemSibanzi</id>
+        <name>
+            <en>Hironem (Sibanzi)</en>
+            <es>Hironem (Sibanzi)</es>
+        </name>
+        <description>
+            <en>The hironem are caste-bound reptilian aliens whose society revolves around the God-King, divine secrets, and the perception of s’su, the
+                emotional and spiritual residue left by sentient beings and places. Those who leave Cadiz or Iver become outcasts by definition, yet many of
+                them embrace that exile to explore the wider jumpweb, join the Muster, or pursue mysticism among the Eskatonics. They are poised, courteous,
+                curious, and deeply shaped by a worldview in which status, ritual, and unseen resonance all matter.
+            </en>
+            <es>Los hironem son alienígenas reptilianos sometidos a castas cuya sociedad gira en torno al Rey-Dios, secretos sagrados y la percepción del s’su,
+                el residuo emocional y espiritual que dejan los seres y lugares conscientes. Quienes abandonan Cadiz o Iver se convierten por definición en
+                parias, pero muchos abrazan ese exilio para explorar la red de salto, unirse a la Asamblea o seguir vías místicas entre los eskatónicos. Son
+                seres comedidos, corteses, curiosos y profundamente moldeados por una cosmovisión en la que importan el rango, el ritual y las resonancias
+                invisibles.
+            </es>
+        </description>
+        <cost>4</cost>
+        <specieCharacteristics>
+            <characteristic>
+                <id>strength</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>dexterity</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>endurance</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>wits</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>perception</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>will</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>presence</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>intuition</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>faith</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>psi</id>
+                <value>0</value>
+                <maximumInitialValue>0</maximumInitialValue>
+                <maximumValue>0</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>urge</id>
+                <value>0</value>
+                <maximumInitialValue>0</maximumInitialValue>
+                <maximumValue>0</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>theurgy</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>hubris</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+        </specieCharacteristics>
+        <movement>
+            <value>5</value>
+        </movement>
+        <size>5</size>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>speak</id>
+                        <selectedSpecialization>salsu</selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <perks>
+            <perk>
+                <id>backdoorKey</id>
+            </perk>
+            <perk>
+                <id>counterfeit</id>
+            </perk>
+            <perk>
+                <id>criminalArchiveAccess</id>
+            </perk>
+            <perk>
+                <id>linguistSpeak</id>
+            </perk>
+            <perk>
+                <id>perfectRecall</id>
+            </perk>
+            <perk>
+                <id>superficialKnowledge</id>
+            </perk>
+        </perks>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <names>
+                <male>Ssaeth, Zhyris, Xelith, Thraez, Ssorin, Veyss, Zhaelor, Xyren, Threx, Ssarith,
+                    Zyrix, Xelzor, Thraxis, Ssavel, Veyrith, Zhaex, Xyssor, Thraen, Ssarik, Zhyran,
+                    Xelithor, Thraelor, Ssorinex, Veyssor, Zhaelin, Xyrris, Thraxisor, Ssavelin, Zhyrith, Xelraen,
+                    Thraexor, Ssorinith, Veyssin, Zhaerith, Xyssorin, Thraelis, Ssarikor, Zhyriss, Xelithen, Thraezor,
+                    Ssavelor, Veyriss, Zhaexor, Xyrenith, Thraxisen, Ssorinel, Zhyrinor, Xelzorin, Thraelin, Ssariketh,
+                    Veyssor, Zhaelorin, Xyrrith, Thraezin, Ssavelith, Zhyranor, Xelithor, Thraxiseth, Ssorinor, Veyrithor,
+                    Zhaelinor, Xyssorel, Thraenor, Ssarikor, Zhyrissor, Xelraenor, Thraexin, Ssorineth, Veyssor, Zhaerithor,
+                    Xyssorinor, Thraelor, Ssarikethor, Zhyrineth, Xelzoror, Thraelinor, Ssavelor, Veyrissor, Zhaexin, Xyrenor,
+                    Thraxisor, Ssorinor, Zhyrissin, Xelithor, Thraezor, Ssavelin, Veyrithor, Zhaelin, Xyssorin, Thraelin,
+                    Ssarikor, Zhyranor, Xelzorin, Thraexor, Ssorineth, Veyssin, Zhaerith, Xyrenith, Thraxisen, Ssavelor,
+                    Zhyrinor, Xelithen, Thraezin, Ssariketh, Veyssor, Zhaelorin, Xyrrith, Thraelinor, Ssorinor, Zhyrissor,
+                    Xelraenor, Thraexin, Ssorinethor, Veyrissor, Zhaexor, Xyssorinor, Thraelor, Ssarikethor
+                </male>
+                <female>Thraexa, Ssorina, Veyssia, Zhaerita, Xyssora, Thraela, Ssarika, Zhyrissa, Xelitha, Thraeza,
+                    Ssavela, Veyrissa, Zhaexa, Xyrenia, Thraxia, Ssorina, Zhyrina, Xelzoria, Thraela, Ssarika,
+                    Veyssa, Zhaelia, Xyrria, Thraeza, Ssavelia, Zhyrana, Xelitha, Thraxia, Ssorina, Veyrira,
+                    Zhaelia, Xyssora, Thraena, Ssarika, Zhyrissa, Xelraea, Thraexa, Ssorina, Veyssa, Zhaerita,
+                    Xyssora, Thraela, Ssarika, Zhyrina, Xelzora, Thraela, Ssavelia, Veyrissa, Zhaexa, Xyrenia,
+                    Thraxia, Ssorina, Zhyrissa, Xelitha, Thraeza, Ssavelia, Veyrira, Zhaelia, Xyssora, Thraela,
+                    Ssarika, Zhyrana, Xelzoria, Thraexa, Ssorina, Veyssia, Zhaerita, Xyrenia, Thraxia, Ssavelia,
+                    Zhyrina, Xelitha, Thraeza, Ssarika, Veyssa, Zhaelia, Xyrria, Thraela, Ssorina, Zhyrissa,
+                    Xelraea, Thraexa, Ssorina, Veyrissa, Zhaexa, Xyssora, Thraela, Ssarika
+                </female>
+            </names>
+            <surnames>Ssaeth, Zhyriss, Xelith, Thraez, Ssorin, Veyss, Zhaelor, Xyren, Threx, Ssarith,
+                Zyrix, Xelzor, Thraxis, Ssavel, Veyrith, Zhaex, Xyssor, Thraen, Ssarik, Zhyran,
+                Xelithor, Thraelor, Ssorinex, Veyssor, Zhaelin, Xyrris, Thraxisor, Ssavelin, Zhyrith, Xelraen,
+                Thraexor, Ssorinith, Veyssin, Zhaerith, Xyssorin, Thraelis, Ssarikor, Zhyriss, Xelithen, Thraezor,
+                Ssavelor, Veyriss, Zhaexor, Xyrenith, Thraxisen, Ssorinel, Zhyrinor, Xelzorin, Thraelin, Ssariketh,
+                Veyssor, Zhaelorin, Xyrrith, Thraezin, Ssavelith, Zhyranor, Xelithor, Thraxiseth, Ssorinor, Veyrithor,
+                Zhaelinor, Xyssorel, Thraenor, Ssarikor, Zhyrissor, Xelraenor, Thraexin, Ssorineth, Veyssor, Zhaerithor,
+                Xyssorinor, Thraelor, Ssarikethor, Zhyrineth, Xelzoror, Thraelinor, Ssavelor, Veyrissor, Zhaexin, Xyrenor,
+                Thraxisor, Ssorinor, Zhyrissin, Xelithor, Thraezor, Ssavelin, Veyrithor, Zhaelin, Xyssorin, Thraelin,
+                Ssarikor, Zhyranor, Xelzorin, Thraexor, Ssorineth, Veyssin, Zhaerith, Xyrenith, Thraxisen, Ssavelor,
+                Zhyrinor, Xelithen, Thraezin, Ssariketh, Veyssor, Zhaelorin, Xyrrith, Thraelinor, Ssorinor, Zhyrissor,
+                Xelraenor, Thraexin, Ssorinethor, Veyrissor, Zhaexor, Xyssorinor, Thraelor, Ssarikethor
+            </surnames>
+        </random>
+    </hironemSibanzi>
+    <hironemKibazi>
+        <id>hironemKigazi</id>
+        <name>
+            <en>Hironem (Kigazi)</en>
+            <es>Hironem (Kigazi)</es>
+        </name>
+        <description>
+            <en>The hironem are caste-bound reptilian aliens whose society revolves around the God-King, divine secrets, and the perception of s’su, the
+                emotional and spiritual residue left by sentient beings and places. Those who leave Cadiz or Iver become outcasts by definition, yet many of
+                them embrace that exile to explore the wider jumpweb, join the Muster, or pursue mysticism among the Eskatonics. They are poised, courteous,
+                curious, and deeply shaped by a worldview in which status, ritual, and unseen resonance all matter.
+            </en>
+            <es>Los hironem son alienígenas reptilianos sometidos a castas cuya sociedad gira en torno al Rey-Dios, secretos sagrados y la percepción del s’su,
+                el residuo emocional y espiritual que dejan los seres y lugares conscientes. Quienes abandonan Cadiz o Iver se convierten por definición en
+                parias, pero muchos abrazan ese exilio para explorar la red de salto, unirse a la Asamblea o seguir vías místicas entre los eskatónicos. Son
+                seres comedidos, corteses, curiosos y profundamente moldeados por una cosmovisión en la que importan el rango, el ritual y las resonancias
+                invisibles.
+            </es>
+        </description>
+        <cost>4</cost>
+        <specieCharacteristics>
+            <characteristic>
+                <id>strength</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>dexterity</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>endurance</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>wits</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>perception</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>will</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>presence</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>intuition</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>faith</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>psi</id>
+                <value>0</value>
+                <maximumInitialValue>0</maximumInitialValue>
+                <maximumValue>0</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>urge</id>
+                <value>0</value>
+                <maximumInitialValue>0</maximumInitialValue>
+                <maximumValue>0</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>theurgy</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>hubris</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+        </specieCharacteristics>
+        <movement>
+            <value>5</value>
+        </movement>
+        <size>5</size>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>speak</id>
+                        <selectedSpecialization>salsu</selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <perks>
+            <perk>
+                <id>aimAssistance</id>
+            </perk>
+            <perk>
+                <id>aimWhereItHurts</id>
+            </perk>
+            <perk>
+                <id>armedToTheTeeth</id>
+            </perk>
+            <perk>
+                <id>danceOfDestruction</id>
+            </perk>
+            <perk>
+                <group>fencing</group>
+            </perk>
+            <perk>
+                <group>marksmanship</group>
+            </perk>
+            <perk>
+                <id>nimble</id>
+            </perk>
+            <perk>
+                <id>twoGunFighting</id>
+            </perk>
+        </perks>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <names>
+                <male>Ssaeth, Zhyris, Xelith, Thraez, Ssorin, Veyss, Zhaelor, Xyren, Threx, Ssarith,
+                    Zyrix, Xelzor, Thraxis, Ssavel, Veyrith, Zhaex, Xyssor, Thraen, Ssarik, Zhyran,
+                    Xelithor, Thraelor, Ssorinex, Veyssor, Zhaelin, Xyrris, Thraxisor, Ssavelin, Zhyrith, Xelraen,
+                    Thraexor, Ssorinith, Veyssin, Zhaerith, Xyssorin, Thraelis, Ssarikor, Zhyriss, Xelithen, Thraezor,
+                    Ssavelor, Veyriss, Zhaexor, Xyrenith, Thraxisen, Ssorinel, Zhyrinor, Xelzorin, Thraelin, Ssariketh,
+                    Veyssor, Zhaelorin, Xyrrith, Thraezin, Ssavelith, Zhyranor, Xelithor, Thraxiseth, Ssorinor, Veyrithor,
+                    Zhaelinor, Xyssorel, Thraenor, Ssarikor, Zhyrissor, Xelraenor, Thraexin, Ssorineth, Veyssor, Zhaerithor,
+                    Xyssorinor, Thraelor, Ssarikethor, Zhyrineth, Xelzoror, Thraelinor, Ssavelor, Veyrissor, Zhaexin, Xyrenor,
+                    Thraxisor, Ssorinor, Zhyrissin, Xelithor, Thraezor, Ssavelin, Veyrithor, Zhaelin, Xyssorin, Thraelin,
+                    Ssarikor, Zhyranor, Xelzorin, Thraexor, Ssorineth, Veyssin, Zhaerith, Xyrenith, Thraxisen, Ssavelor,
+                    Zhyrinor, Xelithen, Thraezin, Ssariketh, Veyssor, Zhaelorin, Xyrrith, Thraelinor, Ssorinor, Zhyrissor,
+                    Xelraenor, Thraexin, Ssorinethor, Veyrissor, Zhaexor, Xyssorinor, Thraelor, Ssarikethor
+                </male>
+                <female>Thraexa, Ssorina, Veyssia, Zhaerita, Xyssora, Thraela, Ssarika, Zhyrissa, Xelitha, Thraeza,
+                    Ssavela, Veyrissa, Zhaexa, Xyrenia, Thraxia, Ssorina, Zhyrina, Xelzoria, Thraela, Ssarika,
+                    Veyssa, Zhaelia, Xyrria, Thraeza, Ssavelia, Zhyrana, Xelitha, Thraxia, Ssorina, Veyrira,
+                    Zhaelia, Xyssora, Thraena, Ssarika, Zhyrissa, Xelraea, Thraexa, Ssorina, Veyssa, Zhaerita,
+                    Xyssora, Thraela, Ssarika, Zhyrina, Xelzora, Thraela, Ssavelia, Veyrissa, Zhaexa, Xyrenia,
+                    Thraxia, Ssorina, Zhyrissa, Xelitha, Thraeza, Ssavelia, Veyrira, Zhaelia, Xyssora, Thraela,
+                    Ssarika, Zhyrana, Xelzoria, Thraexa, Ssorina, Veyssia, Zhaerita, Xyrenia, Thraxia, Ssavelia,
+                    Zhyrina, Xelitha, Thraeza, Ssarika, Veyssa, Zhaelia, Xyrria, Thraela, Ssorina, Zhyrissa,
+                    Xelraea, Thraexa, Ssorina, Veyrissa, Zhaexa, Xyssora, Thraela, Ssarika
+                </female>
+            </names>
+            <surnames>Ssaeth, Zhyriss, Xelith, Thraez, Ssorin, Veyss, Zhaelor, Xyren, Threx, Ssarith,
+                Zyrix, Xelzor, Thraxis, Ssavel, Veyrith, Zhaex, Xyssor, Thraen, Ssarik, Zhyran,
+                Xelithor, Thraelor, Ssorinex, Veyssor, Zhaelin, Xyrris, Thraxisor, Ssavelin, Zhyrith, Xelraen,
+                Thraexor, Ssorinith, Veyssin, Zhaerith, Xyssorin, Thraelis, Ssarikor, Zhyriss, Xelithen, Thraezor,
+                Ssavelor, Veyriss, Zhaexor, Xyrenith, Thraxisen, Ssorinel, Zhyrinor, Xelzorin, Thraelin, Ssariketh,
+                Veyssor, Zhaelorin, Xyrrith, Thraezin, Ssavelith, Zhyranor, Xelithor, Thraxiseth, Ssorinor, Veyrithor,
+                Zhaelinor, Xyssorel, Thraenor, Ssarikor, Zhyrissor, Xelraenor, Thraexin, Ssorineth, Veyssor, Zhaerithor,
+                Xyssorinor, Thraelor, Ssarikethor, Zhyrineth, Xelzoror, Thraelinor, Ssavelor, Veyrissor, Zhaexin, Xyrenor,
+                Thraxisor, Ssorinor, Zhyrissin, Xelithor, Thraezor, Ssavelin, Veyrithor, Zhaelin, Xyssorin, Thraelin,
+                Ssarikor, Zhyranor, Xelzorin, Thraexor, Ssorineth, Veyssin, Zhaerith, Xyrenith, Thraxisen, Ssavelor,
+                Zhyrinor, Xelithen, Thraezin, Ssariketh, Veyssor, Zhaelorin, Xyrrith, Thraelinor, Ssorinor, Zhyrissor,
+                Xelraenor, Thraexin, Ssorinethor, Veyrissor, Zhaexor, Xyssorinor, Thraelor, Ssarikethor
+            </surnames>
+        </random>
+    </hironemKibazi>
+    <hironemKimmu>
+        <id>hironemKimmu</id>
+        <name>
+            <en>Hironem (Kimmu)</en>
+            <es>Hironem (Kimmu)</es>
+        </name>
+        <description>
+            <en>The hironem are caste-bound reptilian aliens whose society revolves around the God-King, divine secrets, and the perception of s’su, the
+                emotional and spiritual residue left by sentient beings and places. Those who leave Cadiz or Iver become outcasts by definition, yet many of
+                them embrace that exile to explore the wider jumpweb, join the Muster, or pursue mysticism among the Eskatonics. They are poised, courteous,
+                curious, and deeply shaped by a worldview in which status, ritual, and unseen resonance all matter.
+            </en>
+            <es>Los hironem son alienígenas reptilianos sometidos a castas cuya sociedad gira en torno al Rey-Dios, secretos sagrados y la percepción del s’su,
+                el residuo emocional y espiritual que dejan los seres y lugares conscientes. Quienes abandonan Cadiz o Iver se convierten por definición en
+                parias, pero muchos abrazan ese exilio para explorar la red de salto, unirse a la Asamblea o seguir vías místicas entre los eskatónicos. Son
+                seres comedidos, corteses, curiosos y profundamente moldeados por una cosmovisión en la que importan el rango, el ritual y las resonancias
+                invisibles.
+            </es>
+        </description>
+        <cost>4</cost>
+        <specieCharacteristics>
+            <characteristic>
+                <id>strength</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>dexterity</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>endurance</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>wits</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>perception</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>will</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>presence</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>intuition</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>faith</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>psi</id>
+                <value>0</value>
+                <maximumInitialValue>0</maximumInitialValue>
+                <maximumValue>0</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>urge</id>
+                <value>0</value>
+                <maximumInitialValue>0</maximumInitialValue>
+                <maximumValue>0</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>theurgy</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>hubris</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+        </specieCharacteristics>
+        <movement>
+            <value>5</value>
+        </movement>
+        <size>5</size>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>speak</id>
+                        <selectedSpecialization>salsu</selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <perks>
+            <perk>
+                <id>catBurglarsEye</id>
+            </perk>
+            <perk>
+                <id>contortionist</id>
+            </perk>
+            <perk>
+                <id>mainAttraction</id>
+            </perk>
+            <perk>
+                <id>musicalSavant</id>
+            </perk>
+            <perk>
+                <id>perfectPitch</id>
+            </perk>
+            <perk>
+                <id>royalties</id>
+            </perk>
+            <perk>
+                <id>virtuoso</id>
+            </perk>
+        </perks>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <names>
+                <male>Ssaeth, Zhyris, Xelith, Thraez, Ssorin, Veyss, Zhaelor, Xyren, Threx, Ssarith,
+                    Zyrix, Xelzor, Thraxis, Ssavel, Veyrith, Zhaex, Xyssor, Thraen, Ssarik, Zhyran,
+                    Xelithor, Thraelor, Ssorinex, Veyssor, Zhaelin, Xyrris, Thraxisor, Ssavelin, Zhyrith, Xelraen,
+                    Thraexor, Ssorinith, Veyssin, Zhaerith, Xyssorin, Thraelis, Ssarikor, Zhyriss, Xelithen, Thraezor,
+                    Ssavelor, Veyriss, Zhaexor, Xyrenith, Thraxisen, Ssorinel, Zhyrinor, Xelzorin, Thraelin, Ssariketh,
+                    Veyssor, Zhaelorin, Xyrrith, Thraezin, Ssavelith, Zhyranor, Xelithor, Thraxiseth, Ssorinor, Veyrithor,
+                    Zhaelinor, Xyssorel, Thraenor, Ssarikor, Zhyrissor, Xelraenor, Thraexin, Ssorineth, Veyssor, Zhaerithor,
+                    Xyssorinor, Thraelor, Ssarikethor, Zhyrineth, Xelzoror, Thraelinor, Ssavelor, Veyrissor, Zhaexin, Xyrenor,
+                    Thraxisor, Ssorinor, Zhyrissin, Xelithor, Thraezor, Ssavelin, Veyrithor, Zhaelin, Xyssorin, Thraelin,
+                    Ssarikor, Zhyranor, Xelzorin, Thraexor, Ssorineth, Veyssin, Zhaerith, Xyrenith, Thraxisen, Ssavelor,
+                    Zhyrinor, Xelithen, Thraezin, Ssariketh, Veyssor, Zhaelorin, Xyrrith, Thraelinor, Ssorinor, Zhyrissor,
+                    Xelraenor, Thraexin, Ssorinethor, Veyrissor, Zhaexor, Xyssorinor, Thraelor, Ssarikethor
+                </male>
+                <female>Thraexa, Ssorina, Veyssia, Zhaerita, Xyssora, Thraela, Ssarika, Zhyrissa, Xelitha, Thraeza,
+                    Ssavela, Veyrissa, Zhaexa, Xyrenia, Thraxia, Ssorina, Zhyrina, Xelzoria, Thraela, Ssarika,
+                    Veyssa, Zhaelia, Xyrria, Thraeza, Ssavelia, Zhyrana, Xelitha, Thraxia, Ssorina, Veyrira,
+                    Zhaelia, Xyssora, Thraena, Ssarika, Zhyrissa, Xelraea, Thraexa, Ssorina, Veyssa, Zhaerita,
+                    Xyssora, Thraela, Ssarika, Zhyrina, Xelzora, Thraela, Ssavelia, Veyrissa, Zhaexa, Xyrenia,
+                    Thraxia, Ssorina, Zhyrissa, Xelitha, Thraeza, Ssavelia, Veyrira, Zhaelia, Xyssora, Thraela,
+                    Ssarika, Zhyrana, Xelzoria, Thraexa, Ssorina, Veyssia, Zhaerita, Xyrenia, Thraxia, Ssavelia,
+                    Zhyrina, Xelitha, Thraeza, Ssarika, Veyssa, Zhaelia, Xyrria, Thraela, Ssorina, Zhyrissa,
+                    Xelraea, Thraexa, Ssorina, Veyrissa, Zhaexa, Xyssora, Thraela, Ssarika
+                </female>
+            </names>
+            <surnames>Ssaeth, Zhyriss, Xelith, Thraez, Ssorin, Veyss, Zhaelor, Xyren, Threx, Ssarith,
+                Zyrix, Xelzor, Thraxis, Ssavel, Veyrith, Zhaex, Xyssor, Thraen, Ssarik, Zhyran,
+                Xelithor, Thraelor, Ssorinex, Veyssor, Zhaelin, Xyrris, Thraxisor, Ssavelin, Zhyrith, Xelraen,
+                Thraexor, Ssorinith, Veyssin, Zhaerith, Xyssorin, Thraelis, Ssarikor, Zhyriss, Xelithen, Thraezor,
+                Ssavelor, Veyriss, Zhaexor, Xyrenith, Thraxisen, Ssorinel, Zhyrinor, Xelzorin, Thraelin, Ssariketh,
+                Veyssor, Zhaelorin, Xyrrith, Thraezin, Ssavelith, Zhyranor, Xelithor, Thraxiseth, Ssorinor, Veyrithor,
+                Zhaelinor, Xyssorel, Thraenor, Ssarikor, Zhyrissor, Xelraenor, Thraexin, Ssorineth, Veyssor, Zhaerithor,
+                Xyssorinor, Thraelor, Ssarikethor, Zhyrineth, Xelzoror, Thraelinor, Ssavelor, Veyrissor, Zhaexin, Xyrenor,
+                Thraxisor, Ssorinor, Zhyrissin, Xelithor, Thraezor, Ssavelin, Veyrithor, Zhaelin, Xyssorin, Thraelin,
+                Ssarikor, Zhyranor, Xelzorin, Thraexor, Ssorineth, Veyssin, Zhaerith, Xyrenith, Thraxisen, Ssavelor,
+                Zhyrinor, Xelithen, Thraezin, Ssariketh, Veyssor, Zhaelorin, Xyrrith, Thraelinor, Ssorinor, Zhyrissor,
+                Xelraenor, Thraexin, Ssorinethor, Veyrissor, Zhaexor, Xyssorinor, Thraelor, Ssarikethor
+            </surnames>
+        </random>
+    </hironemKimmu>
+    <ishkin>
+        <id>ishkin</id>
+        <name>
+            <en>Ishkin</en>
+            <es>Ishkin</es>
+        </name>
+        <description>
+            <en>The ishkin are stealthy marsupial weasels from Wolf’s Lament, famous for sly intelligence, curiosity, and fur that functions like living
+                fiber-optic camouflage. Once hidden from humans, they now live both in the wilderness and on the fringes of Vuldrok settlements, where they are
+                admired, distrusted, exploited, or hunted for their pelts. Ishkin culture celebrates cunning and survival, and their people excel at stealth,
+                opportunism, improvisation, and movement between the civilized and the wild.
+            </en>
+            <es>Los ishkin son comadrejas marsupiales sigilosas de Wolf’s Lament, famosas por su inteligencia astuta, curiosidad y un pelaje que funciona como
+                camuflaje vivo de fibra óptica. Antaño ocultos a los humanos, ahora viven tanto en la naturaleza salvaje como en los márgenes de los
+                asentamientos vuldrok, donde son admirados, desconfiados, explotados o cazados por sus pieles. La cultura ishkin celebra la astucia y la
+                supervivencia, y su gente destaca en el sigilo, el oportunismo, la improvisación y el movimiento entre lo civilizado y lo salvaje.
+            </es>
+        </description>
+        <cost>6</cost>
+        <specieCharacteristics>
+            <characteristic>
+                <id>strength</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>dexterity</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>endurance</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>wits</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>perception</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>12</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>will</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>presence</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>intuition</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>faith</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>psi</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>urge</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>theurgy</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>hubris</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+        </specieCharacteristics>
+        <primaryCharacteristics>
+            <characteristic>perception</characteristic>
+        </primaryCharacteristics>
+        <movement>
+            <value>4</value>
+        </movement>
+        <size>4</size>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>speak</id>
+                        <selectedSpecialization>kitlosh</selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <names>
+                <male>Sesh, Viri, Keshin, Zarik, Lir, Vesh, Kiren, Sazik, Tiril, Veskan,
+                    Rish, Kiri, Ziven, Lask, Sirek, Varn, Keshar, Zirin, Lirak, Seshik,
+                    Virin, Kirel, Zash, Liren, Sivar, Kesh, Zarik, Liss, Tiren, Vesir,
+                    Rin, Keshil, Zivenar, Laskin, Sirel, Varek, Kirin, Zashir, Lirin, Seshar,
+                    Virinel, Kirek, Zavin, Laskar, Sirek, Veshin, Kiran, Ziril, Lissar, Seshin,
+                    Virek, Keshir, Ziven, Lir, Sivarik, Keshan, Zarik, Lissen, Tiril, Veskar,
+                    Rishen, Kiri, Zivenor, Lask, Sirel, Varnis, Keshik, Zirin, Lirak, Seshor,
+                    Virin, Kirel, Zashik, Liren, Sivar, Kesh, Zarik, Lissik, Tiren, Vesir,
+                    Rinik, Keshil, Zivenar, Laskin, Sirel, Varek, Kirin, Zashir, Lirin, Seshar,
+                    Virinel, Kirek, Zavin, Laskar, Sirek, Veshin, Kiran, Ziril, Lissar, Seshin,
+                    Virel, Keshir, Ziven, Lir, Sivarik, Keshan, Zarik, Lissen, Tiril, Veskar,
+                    Rishen, Kiri, Zivenor, Lask, Sirel, Varnis, Keshik, Zirin, Lirak, Seshor,
+                    Virin, Kirel, Zashik, Liren, Sivar, Kesh, Zarik, Lissik, Tiren, Vesir,
+                    Rinik, Keshil, Zivenar, Laskin, Sirel, Varek, Kirin, Zashir, Lirin, Seshar
+                </male>
+                <female>Sira, Viri, Kesha, Zira, Lira, Vesha, Kiri, Sazi, Tira, Vesa,
+                    Risha, Kira, Ziva, Laska, Sire, Vara, Kesha, Ziri, Lira, Sesha,
+                    Viria, Kire, Zasha, Lirae, Siva, Kesha, Zira, Lissa, Tirae, Vesira,
+                    Rina, Kesha, Zivara, Laskia, Sirel, Vare, Kiri, Zashia, Lira, Sesha,
+                    Viriel, Kire, Zavia, Laska, Sire, Vesha, Kira, Ziria, Lissa, Sesha,
+                    Vira, Keshia, Ziva, Lira, Sivara, Kesha, Zira, Lissae, Tira, Vesara,
+                    Rishae, Kira, Zivora, Laska, Sirel, Varis, Kesha, Zira, Lira, Sesha,
+                    Vira, Kire, Zasha, Lirae, Siva, Kesha, Zira, Lissa, Tirae, Vesira,
+                    Rinae, Kesha, Zivara, Laskia, Sire, Vare, Kiri, Zashia, Lira, Sesha,
+                    Viriel, Kire, Zavia, Laska, Sire, Vesha, Kira, Ziria, Lissa, Sesha,
+                    Vira, Keshia, Ziva, Lira, Sivara, Kesha, Zira, Lissae, Tira, Vesara,
+                    Rishae, Kira, Zivora, Laska, Sirel, Varis, Kesha, Zira, Lira, Sesha,
+                    Vira, Kire, Zasha, Lirae, Siva, Kesha, Zira, Lissa, Tirae, Vesira,
+                    Rinae, Kesha, Zivara, Laskia, Sire, Vare, Kiri, Zashia, Lira, Sesha
+                </female>
+            </names>
+            <surnames>Silkstep, Nightwhisk, Glimmerfur, Shadeleaf, Quickshadow, Mossrun, Flickerhide,
+                Softclaw, Duskrun, Brightwhisk, Ashglide, Silenttail, Whisperfur, Shardstep,
+                Nightgleam, Swiftshade, Glowmoss, Thinshadow, Quickgleam, Mistfur,
+                Flickertail, Darkwhisk, Softshadow, Glintfur, Shadefur, Quickleaf, Mosswhisk,
+                Duskgait, Brighttail, Ashwhisk, Silentstep, Whisperhide, Shardtail,
+                Nightfur, Swiftwhisk, Glowtail, Thinfur, Quickshade, Mistwhisk,
+                Flickerstep, Darktail, Softfur, Glinttail, Shadewhisk, Quickfur,
+                Mossstep, Duskwhisk, Brightfur, Ashstep, Silentfur, Whisperstep,
+                Shardfur, Nighttail, Swiftfur, Glowwhisk, Thinwhisk, Quicktail,
+                Miststep, Flickerfur, Darkstep, Softtail, Glintstep, Shadegait,
+                Quickgait, Mossfur, Dusktail, Brightgait, Ashgait, Silentgait,
+                Whispergait, Shardgait, Nightgait, Swiftgait, Glowgait, Thingait,
+                Quickrun, Mistrun, Flickerrun, Darkrun, Softrun, Glintrun,
+                Shaderun, Mossrunner, Duskrunner, Brightrunner, Ashrunner, Silentrunner,
+                Whisperrunner, Shardrunner, Nightrunner, Swiftrunner, Glowrunner,
+                Thinrunner, Quickrunner, Mistrunner, Flickerrunner, Darkrunner,
+                Softrunner, Glintrunner, Shaderunner, Mossgait, Duskgait, Brightgait,
+                Ashgait, Silentgait, Whispergait, Shardgait, Nightgait, Swiftgait,
+                Glowgait, Thingait, Quickgait, Mistgait, Flickergait, Darkgait,
+                Softgait, Glintgait, Shadegait
+            </surnames>
+        </random>
+    </ishkin>
+    <oroym>
+        <id>oroym</id>
+        <name>
+            <en>Oro'ym</en>
+            <es>Oro'ym</es>
+        </name>
+        <description>
+            <en>The oro'ym are ancient amphibious humanoids from Madoc whose confederated nations preserve genealogies stretching back hundreds of generations,
+                a non-hierarchical animist worldview, and a long memory of both undersea civilization and interstellar contact. Proud, traditional, and
+                intensely loyal once friendship is earned, they move between ocean depths, sacred lore, and offworld scavenging with equal seriousness. Their
+                bodies are built for water, regeneration, and balance, but they depend on moisture and warmth in ways most land dwellers do not understand.
+            </en>
+            <es>Los oro'ym son antiguos humanoides anfibios de Madoc cuyas naciones confederadas preservan genealogías que se remontan cientos de generaciones,
+                una cosmovisión animista no jerárquica y una larga memoria tanto de civilización submarina como de contacto interestelar. Orgullosos,
+                tradicionales e intensamente leales una vez ganada su amistad, se mueven entre las profundidades oceánicas, el lore sagrado y el salvamento
+                fuera del mundo con igual seriedad. Sus cuerpos están hechos para el agua, la regeneración y el equilibrio, pero dependen de la humedad y del
+                calor de formas que la mayoría de los habitantes terrestres no comprenden.
+            </es>
+        </description>
+        <cost>8</cost>
+        <specieCharacteristics>
+            <characteristic>
+                <id>strength</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>11</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>dexterity</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>endurance</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>11</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>wits</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>perception</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>will</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>presence</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>intuition</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>faith</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>psi</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>urge</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>theurgy</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>hubris</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+        </specieCharacteristics>
+        <movement>
+            <value>5</value>
+        </movement>
+        <size>5</size>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>speak</id>
+                        <selectedSpecialization>atym</selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>read</id>
+                        <selectedSpecialization>atym</selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <perks>
+            <perk>
+                <id>oreoymAmphibious</id>
+            </perk>
+            <perk>
+                <id>ectothermicAdaption</id>
+            </perk>
+            <perk>
+                <id>godLore</id>
+            </perk>
+        </perks>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
+    </oroym>
+    <shantor>
+        <id>shantor</id>
+        <name>
+            <en>Shantor</en>
+            <es>Shantor</es>
+        </name>
+        <description>
+            <en>The shantor are huge horselike quadrupeds from Shaprut whose history with humanity runs from divine awe to enslavement, revolt, reform, and a
+                still unfinished struggle for freedom. Long exploited as labor and cavalry, they nonetheless possess remarkable bodily coordination, high-range
+                hearing, and a culture of runners, family bands, and sun reverence. Modern shantor offworlders carry the memory of oppression with them, and
+                many seek either service with dignity or lives dedicated to healing and liberation.
+            </en>
+            <es>Los shantor son enormes cuadrúpedos con aspecto equino de Shaprut cuya historia con la humanidad va de la veneración divina a la esclavitud, la
+                revuelta, la reforma y una lucha por la libertad aún inconclusa. Explotados durante mucho tiempo como mano de obra y caballería, poseen sin
+                embargo una coordinación corporal notable, oído de frecuencias altas y una cultura de corredores, grupos familiares y reverencia solar. Los
+                shantor modernos que viven fuera de su mundo cargan con la memoria de la opresión, y muchos buscan o bien un servicio con dignidad o bien vidas
+                dedicadas a la curación y la liberación.
+            </es>
+        </description>
+        <cost>9</cost>
+        <specieCharacteristics>
+            <characteristic>
+                <id>strength</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>14</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>dexterity</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>endurance</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>14</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>wits</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>perception</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>will</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>presence</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>intuition</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>faith</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>psi</id>
+                <value>0</value>
+                <maximumInitialValue>0</maximumInitialValue>
+                <maximumValue>0</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>urge</id>
+                <value>0</value>
+                <maximumInitialValue>0</maximumInitialValue>
+                <maximumValue>0</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>theurgy</id>
+                <value>0</value>
+                <maximumInitialValue>0</maximumInitialValue>
+                <maximumValue>0</maximumValue>
+            </characteristic>
+            <characteristic>
+                <id>hubris</id>
+                <value>0</value>
+                <maximumInitialValue>0</maximumInitialValue>
+                <maximumValue>0</maximumValue>
+            </characteristic>
+        </specieCharacteristics>
+        <primaryCharacteristics>
+            <characteristic>strength</characteristic>
+            <characteristic>endurance</characteristic>
+        </primaryCharacteristics>
+        <movement>
+            <value>28</value>
+        </movement>
+        <size>7</size>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>speak</id>
+                        <selectedSpecialization>windspeech</selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <perks>
+            <perk>
+                <id>animalFriend</id>
+            </perk>
+            <perk>
+                <id>chameleon</id>
+            </perk>
+            <perk>
+                <id>destinator</id>
+            </perk>
+            <perk>
+                <id>guts</id>
+            </perk>
+            <perk>
+                <id>memoryExpander</id>
+            </perk>
+            <perk>
+                <group>militaryRank</group>
+            </perk>
+            <perk>
+                <id>oriented</id>
+            </perk>
+            <perk>
+                <id>spotter</id>
+            </perk>
+            <perk>
+                <id>wildDomain</id>
+            </perk>
+        </perks>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <names>
+                <male>Gorun, Thamor, Brugan, Morath, Dorun, Gharum, Thoran, Borak, Munor, Garun,
+                    Thragor, Borun, Morun, Doran, Gathor, Thunor, Brathor, Gorath, Munak, Garath,
+                    Thoran, Borath, Morag, Dorath, Gharon, Thamor, Brugan, Gorun, Munor, Garun,
+                    Thragan, Borun, Morun, Doran, Gathor, Thunor, Brathor, Gorath, Munak, Garath,
+                    Thoran, Borath, Morag, Dorath, Gharon, Thamor, Brugan, Gorun, Munor, Garun,
+                    Gorath, Thamor, Brugan, Morath, Dorun, Gharum, Thoran, Borak, Munor, Garun,
+                    Thragor, Borun, Morun, Doran, Gathor, Thunor, Brathor, Gorath, Munak, Garath,
+                    Thoran, Borath, Morag, Dorath, Gharon, Thamor, Brugan, Gorun, Munor, Garun,
+                    Thragan, Borun, Morun, Doran, Gathor, Thunor, Brathor, Gorath, Munak, Garath,
+                    Thoran, Borath, Morag, Dorath, Gharon, Thamor, Brugan, Gorun, Munor, Garun,
+                    Gorath, Thamor, Brugan, Morath, Dorun, Gharum, Thoran, Borak, Munor, Garun,
+                    Thragor, Borun, Morun, Doran, Gathor, Thunor, Brathor, Gorath, Munak, Garath
+                </male>
+                <female>Gora, Thama, Bruga, Mora, Dora, Ghara, Thora, Bora, Muna, Gara,
+                    Thraga, Bora, Mora, Dora, Gatha, Thuna, Bratha, Gora, Muna, Gara,
+                    Thora, Bora, Moraga, Doratha, Gharana, Thama, Bruga, Gora, Muna, Gara,
+                    Thraga, Bora, Mora, Dora, Gatha, Thuna, Bratha, Gora, Muna, Gara,
+                    Thora, Bora, Moraga, Doratha, Gharana, Thama, Bruga, Gora, Muna, Gara,
+                    Gora, Thama, Bruga, Mora, Dora, Ghara, Thora, Bora, Muna, Gara,
+                    Thraga, Bora, Mora, Dora, Gatha, Thuna, Bratha, Gora, Muna, Gara,
+                    Thora, Bora, Moraga, Doratha, Gharana, Thama, Bruga, Gora, Muna, Gara,
+                    Thraga, Bora, Mora, Dora, Gatha, Thuna, Bratha, Gora, Muna, Gara,
+                    Thora, Bora, Moraga, Doratha, Gharana, Thama, Bruga, Gora, Muna, Gara,
+                    Gora, Thama, Bruga, Mora, Dora, Ghara, Thora, Bora, Muna, Gara,
+                    Thraga, Bora, Mora, Dora, Gatha, Thuna, Bratha, Gora, Muna, Gara
+                </female>
+            </names>
+            <surnames>Stonehorn, Deepgraze, Longstep, Broadback, Earthtread, Slowriver, Highplain, Duskherd,
+                Gravelhorn, Redgraze, Ironhide, Longhorn, Deepfield, Widehoof, Dustwalker, Grasswarden,
+                Stonegraze, Deepstep, Broadhoof, Longfield, Earthgraze, Slowhoof, Highgraze, Duskstep,
+                Gravelback, Redhorn, Ironhorn, Longgraze, Deephoof, Widefield, Dustgraze, Grasswalker,
+                Stonewalker, Deepback, Broadgraze, Longhoof, Earthwalker, Slowgraze, Highhoof, Duskhoof,
+                Gravelstep, Redback, Irongraze, Longstep, Deepgraze, Widegraze, Dusthoof, Grassstep,
+                Stonehoof, Deepwalker, Broadfield, Longgraze, Earthhoof, Slowstep, Highfield, Duskfield,
+                Gravelgraze, Redstep, Irongraze, Longback, Deepback, Widehoof, Dustfield, Grassgraze,
+                Stoneback, Deepfield, Broadstep, Longhoof, Earthstep, Slowfield, Highstep, Duskstep,
+                Gravelhoof, Redhoof, Ironstep, Longfield, Deepgraze, Wideback, Duststep, Grassfield,
+                Stonegraze, Deepstep, Broadhoof, Longfield, Earthgraze, Slowhoof, Highgraze, Duskstep,
+                Gravelback, Redhorn, Ironhorn, Longgraze, Deephoof, Widefield, Dustgraze, Grasswalker,
+                Stonewalker, Deepback, Broadgraze, Longhoof, Earthwalker, Slowgraze, Highhoof, Duskhoof
+            </surnames>
+        </random>
+    </shantor>
+</species>

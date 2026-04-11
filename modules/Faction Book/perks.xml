@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='utf-8'?>
+<perks>
+    <perk>
+        <id>enameledChitin</id>
+        <name>
+            <en>Enameled Chitin</en>
+            <es>Absolución</es>
+        </name>
+        <description>
+            <en>Your gain +2 Body Resistance for your natural armor. However, without a source of common materials and victorious Tech Redemption or Crafts
+                repair maneuvers (Resistance 2), your wounds take twice as long to heal.
+            </en>
+            <es>Obtienes +2 de Resistencia Corporal por tu armadura natural. Sin embargo, sin una fuente de materiales comunes y sin una Tecnorredención
+                victoriosa o maniobras de reparación de Artesanía (Resistencia 2), tus heridas tardan el doble en sanar.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>ascorbite</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>flyingAce</id>
+        <name>
+            <en>Flying Ace</en>
+            <es>As del Aire</es>
+        </name>
+        <description>
+            <en>Most Etyri can fly, but you have spent your life mastering winds and wing. Your rolls related to flying with your
+                wings are considered favorable.
+            </en>
+            <es>La mayoría de los Etyri pueden volar, pero tú has dedicado tu vida a dominar los vientos y las alas. Tus tiradas relacionadas con volar con tus
+                alas se consideran favorables.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>etyri</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>ectothermicAdaption</id>
+        <name>
+            <en>Ectothermic Adaption</en>
+            <es>Adaptación ectotérmica</es>
+        </name>
+        <description>
+            <en>You have mastered your body, turning your cold-blooded nature into an advantage instead of a drawback. You may control your body temperature
+                through meditation and breathing exercises. If you can spend a few minutes in such a state, then for the rest of that act, you ignore penalties
+                normally associated with cold weather and gain +2 Body Resistance to environmental cold or heat.
+            </en>
+            <es>Has dominado tu cuerpo, convirtiendo tu naturaleza de sangre fría en una ventaja en lugar de una desventaja. Puedes controlar tu temperatura
+                corporal
+                mediante la meditación y ejercicios de respiración. Si logras permanecer unos minutos en ese estado, durante el resto de ese acto ignorarás las
+                penalizaciones
+                normalmente asociadas al frío y obtendrás +2 de Resistencia Corporal al frío o al calor ambiental.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>oroym</specie>
+                <specie>hironem</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>oreoymAmphibious</id>
+        <name>
+            <en>Amphibious</en>
+            <es>Anfibio</es>
+        </name>
+        <description>
+            <en>You are perfectly at home in water or on land, losing none of your species’ grace. You have capability in water and on land. In addition, you
+                are well experienced in leaving water for a long time and can go a full week with stored water before needing immersion in water to survive.
+                This modifies your Requires Moisture birthright: Once Fatigued, you don’t become Stunned or Hindered until one day has passed. After that, you
+                suffer 1 Vitality wound every three hours.
+            </en>
+            <es>Te desenvuelves con total naturalidad tanto en el agua como en tierra, sin perder la gracia propia de tu especie. Tienes aptitudes tanto en el
+                agua como en tierra. Además,
+                tienes amplia experiencia en permanecer fuera del agua durante largos periodos y puedes sobrevivir una semana entera con agua almacenada antes
+                de necesitar sumergirte para sobrevivir.
+                Esto modifica tu derecho innato a la humedad: una vez fatigado, no quedas aturdido ni con dificultades hasta que haya transcurrido un día.
+                Después de eso,
+                sufres 1 punto de daño a la vitalidad cada tres horas.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>oroym</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>godLore</id>
+        <name>
+            <en>God Lore</en>
+            <es>Saber de Dios</es>
+        </name>
+        <description>
+            <en>You have a special affinity with the ancient artifacts of the Anunnaki. Certain priestly oro’ym can learn ancient Anunnaki “passwords,” phrases
+                handed down in their native at’ym language from long ago. Amazingly, these words seem to activate some Ur tech. While some words can be imitated
+                by human speech or computersynthesizers, it seems that they are only efficacious when spoken by a living oro’ym. The effect of these words is
+                not always known by the oro’ym speaker. It is up to the GM to devise their specific effects in a drama. For example, some phrases can waken
+                Gargoyles but provide no command over them. Other phrases can locate or activate soul shards and philosophers stones. These phrases are wild
+                cards; they should offer sudden, unpredictable surprises.
+            </en>
+            <es>Tienes una afinidad especial con los antiguos artefactos de los Anunnaki. Ciertos oro'ym sacerdotes pueden aprender antiguas "contraseñas"
+                Anunnaki, frases transmitidas en su lengua nativa at'ym desde hace mucho tiempo. Sorprendentemente, estas palabras parecen activar cierta
+                tecnología Ur. Si bien algunas palabras pueden ser imitadas por el habla humana o sintetizadores informáticos, parece que solo son eficaces
+                cuando las pronuncia un oro'ym vivo. El efecto de estas palabras no siempre es conocido por el oro'ym que las pronuncia. Corresponde al director
+                de juego idear sus efectos específicos en un drama. Por ejemplo, algunas frases pueden despertar a las gárgolas, pero no otorgan ningún control
+                sobre ellas. Otras frases pueden localizar o activar fragmentos de alma y piedras filosofales. Estas frases son comodines; deberían ofrecer
+                sorpresas repentinas e impredecibles.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>oroym</specie>
+            </species>
+        </restrictions>
+    </perk>
+</perks>

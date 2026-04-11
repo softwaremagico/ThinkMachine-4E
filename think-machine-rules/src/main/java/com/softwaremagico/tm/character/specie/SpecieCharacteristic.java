@@ -39,11 +39,11 @@ public class SpecieCharacteristic extends Element {
     @JsonAlias("id")
     private CharacteristicName characteristic;
     @JsonProperty("value")
-    private int initialValue;
+    private int initialValue = 3;
     @JsonProperty("maximumValue")
-    private int maximumValue;
+    private int maximumValue = 10;
     @JsonProperty("maximumInitialValue")
-    private int maximumInitialValue;
+    private int maximumInitialValue = 8;
 
     public SpecieCharacteristic() {
         super();

@@ -287,4 +287,116 @@
             </selectedSpecialization>
         </specializations>
     </capability>
+    <capability>
+        <id>speak</id>
+        <group>knowledgeLore</group>
+        <name>
+            <en>Speak</en>
+            <es>Hablar</es>
+        </name>
+        <description>
+            <en>Fluency in a chosen spoken language or tongue, allowing normal communication and comprehension.</en>
+            <es>Fluidez en una lengua o idioma hablado concreto, que permite comunicarse y comprenderlo con normalidad.</es>
+        </description>
+        <specializations>
+            <selectedSpecialization>
+                <id>ascorbite</id>
+                <name>
+                    <en>Ascorbite</en>
+                    <es>Ascrobita</es>
+                </name>
+            </selectedSpecialization>
+            <selectedSpecialization>
+                <id>tokTok</id>
+                <name>
+                    <en>Tok Tok</en>
+                    <es>Tok Tok</es>
+                </name>
+            </selectedSpecialization>
+            <selectedSpecialization>
+                <id>etyrian</id>
+                <name>
+                    <en>Etyrian</en>
+                    <es>Etyri</es>
+                </name>
+            </selectedSpecialization>
+            <selectedSpecialization>
+                <id>salsu</id>
+                <name>
+                    <en>Salsu</en>
+                    <es>Salsu</es>
+                </name>
+            </selectedSpecialization>
+            <selectedSpecialization>
+                <id>kitlosh</id>
+                <name>
+                    <en>Kitlosh</en>
+                    <es>Kitlosh</es>
+                </name>
+            </selectedSpecialization>
+            <selectedSpecialization>
+                <id>atym</id>
+                <name>
+                    <en>At'ym</en>
+                    <es>At'ym</es>
+                </name>
+            </selectedSpecialization>
+            <selectedSpecialization>
+                <id>windspeech</id>
+                <name>
+                    <en>Windspeechm</en>
+                    <es>Discurso del viento</es>
+                </name>
+            </selectedSpecialization>
+        </specializations>
+    </capability>
+    <capability>
+        <id>read</id>
+        <group>knowledgeLore</group>
+        <name>
+            <en>Read</en>
+            <es>Leer</es>
+        </name>
+        <description>
+            <en>Basic literacy and the ability to interpret written language, manuscripts, records, and similar texts.</en>
+            <es>Alfabetización básica y capacidad para interpretar lenguaje escrito, manuscritos, registros y textos similares.</es>
+        </description>
+        <specializations>
+            <selectedSpecialization>
+                <id>ascorbite</id>
+                <name>
+                    <en>Ascorbite</en>
+                    <es>Ascrobita</es>
+                </name>
+            </selectedSpecialization>
+            <selectedSpecialization>
+                <id>tokTok</id>
+                <name>
+                    <en>Tok Tok</en>
+                    <es>Tok Tok</es>
+                </name>
+            </selectedSpecialization>
+            <selectedSpecialization>
+                <id>etyrian</id>
+                <name>
+                    <en>Etyrian</en>
+                    <es>Etyri</es>
+                </name>
+            </selectedSpecialization>
+            <selectedSpecialization>
+                <id>kitlosh</id>
+                <name>
+                    <en>Kitlosh</en>
+                    <es>Kitlosh</es>
+                </name>
+            </selectedSpecialization>
+            <selectedSpecialization>
+                <id>atym</id>
+                <name>
+                    <en>At'ym</en>
+                    <es>At'ym</es>
+                </name>
+            </selectedSpecialization>
+        </specializations>
+    </capability>
 </capabilities>
