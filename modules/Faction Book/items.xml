@@ -156,4 +156,99 @@
             </factions>
         </restrictions>
     </equipment>
+    <equipment>
+        <id>eridolianShard</id>
+        <type>item</type>
+        <name>
+            <en>Eridolian Shard</en>
+            <es>Fragmento Eridoliano</es>
+        </name>
+        <description>
+            <en>TL7 device that provides +2 Spirit Resistance, one use per scene; it’s a shattered piece of the house founder’s energy lance; these are passed down through generations and often set into necklaces or bracelets.</en>
+            <es>Dispositivo TL7 que proporciona +2 de Resistencia Espiritual, un uso por escena; es un fragmento roto de la lanza de energía del fundador de la casa; se pasan de generación en generación y a menudo se incrustan en collares o brazaletes.</es>
+        </description>
+        <techLevel>7</techLevel>
+        <size>XS</size>
+        <restrictions>
+            <factions>
+                <faction>thana</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>torensonDataSlate</id>
+        <type>item</type>
+        <name>
+            <en>Torenson Data Slate</en>
+            <es>Pizarra de Datos Torenson</es>
+        </name>
+        <description>
+            <en>TL6 device that provides +1 goal on Academia rolls; can store up to 100 books worth of data.</en>
+            <es>Dispositivo TL6 que proporciona +1 meta en tiradas de Academia; puede almacenar hasta 100 libros de datos.</es>
+        </description>
+        <techLevel>6</techLevel>
+        <size>S</size>
+        <restrictions>
+            <factions>
+                <faction>torenson</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>trusnikronCommandBaton</id>
+        <type>item</type>
+        <name>
+            <en>Trusnikron Command Baton</en>
+            <es>Batón de Comando Trusnikron</es>
+        </name>
+        <description>
+            <en>TL5 device that provides +1 goal on Command rolls; can be used to issue orders to subordinates.</en>
+            <es>Dispositivo TL5 que proporciona +1 meta en tiradas de Comando; puede usarse para dar órdenes a subordinados.</es>
+        </description>
+        <techLevel>5</techLevel>
+        <size>S</size>
+        <restrictions>
+            <factions>
+                <faction>trusnikron</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>vanGelderCreditChip</id>
+        <type>item</type>
+        <name>
+            <en>Van Gelder Credit Chip</en>
+            <es>Chip de Crédito Van Gelder</es>
+        </name>
+        <description>
+            <en>TL5 device that provides +1 goal on Interface rolls; can store up to 100,000 credits.</en>
+            <es>Dispositivo TL5 que proporciona +1 meta en tiradas de Interfaz; puede almacenar hasta 100,000 créditos.</es>
+        </description>
+        <techLevel>5</techLevel>
+        <size>XS</size>
+        <restrictions>
+            <factions>
+                <faction>vanGelder</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>xanthippeMusePendant</id>
+        <type>item</type>
+        <name>
+            <en>Xanthippe Muse Pendant</en>
+            <es>Pendiente Musa Xanthippe</es>
+        </name>
+        <description>
+            <en>TL4 device that provides +1 goal on Arts rolls; can be used to inspire others.</en>
+            <es>Dispositivo TL4 que proporciona +1 meta en tiradas de Artes; puede usarse para inspirar a otros.</es>
+        </description>
+        <techLevel>4</techLevel>
+        <size>XS</size>
+        <restrictions>
+            <factions>
+                <faction>xanthippe</faction>
+            </factions>
+        </restrictions>
+    </equipment>
 </equipments>

@@ -4,7 +4,7 @@
         <id>enameledChitin</id>
         <name>
             <en>Enameled Chitin</en>
-            <es>Absolución</es>
+            <es>Quitina Esmaltada</es>
         </name>
         <description>
             <en>Your gain +2 Body Resistance for your natural armor. However, without a source of common materials and victorious Tech Redemption or Crafts
@@ -268,6 +268,72 @@
                 <maximumValue>12</maximumValue>
             </element>
         </characteristicValues>
+        <restrictions>
+            <species>
+                <specie>inhuman</specie>
+                <specie>animalized</specie>
+                <specie>mutant</specie>
+                <specie>tweaked</specie>
+                <specie>grimson</specie>
+                <specie>clone</specie>
+            </species>
+        </restrictions>
+    </perk>
+
+    <perk>
+        <id>enhancedPhysique</id>
+        <name>
+            <en>Enhanced Physique</en>
+            <es>Físico Mejorado</es>
+        </name>
+        <description>
+            <en>Your body has been made bigger, stronger, faster, and tougher. You gain +1 Size (which also adds 1 to your Vitality and 2 meters to your movement speed). Your Body characteristics can be raised to a maximum of 12, even before you reach 10th level. Also, you can spend 3 VP to push yourself when using one of those characteristics (either to bolster a skill roll or to lift something, etc.): Your roll becomes fortunate. You can only do this a number of times per act equal to your class level. This power is common among Grimsons. It is obvious to onlookers. Not only are you taller, you’re wider and your muscles bulge. You might need specially tailored clothing (+10% cost).</en>
+            <es>Tu cuerpo ha sido hecho más grande, más fuerte, más rápido y más duro. Ganas +1 Tamaño (lo que también añade 1 a tu Vitalidad y 2 metros a tu velocidad de movimiento). Tus características de Cuerpo pueden elevarse a un máximo de 12, incluso antes de alcanzar el nivel 10. Además, puedes gastar 3 VP para impulsarte cuando uses una de esas características (ya sea para reforzar una tirada de habilidad o para levantar algo, etc.): Tu tirada se vuelve afortunada. Solo puedes hacer esto un número de veces por acto igual a tu nivel de clase. Este poder es común entre los Grimsons. Es obvio para los espectadores. No solo eres más alto, eres más ancho y tus músculos se hinchan. Podrías necesitar ropa especialmente confeccionada (+10% de costo).</es>
+        </description>
+        <type>power</type>
+        <characteristicValues>
+            <element>
+                <id>strength</id>
+                <value>3</value>
+                <maximumInitialValue>12</maximumInitialValue>
+                <maximumValue>12</maximumValue>
+            </element>
+            <element>
+                <id>dexterity</id>
+                <value>3</value>
+                <maximumInitialValue>12</maximumInitialValue>
+                <maximumValue>12</maximumValue>
+            </element>
+            <element>
+                <id>endurance</id>
+                <value>3</value>
+                <maximumInitialValue>12</maximumInitialValue>
+                <maximumValue>12</maximumValue>
+            </element>
+        </characteristicValues>
+        <restrictions>
+            <species>
+                <specie>inhuman</specie>
+                <specie>animalized</specie>
+                <specie>mutant</specie>
+                <specie>tweaked</specie>
+                <specie>grimson</specie>
+                <specie>clone</specie>
+            </species>
+        </restrictions>
+    </perk>
+
+    <perk>
+        <id>enhancedSenses</id>
+        <name>
+            <en>Enhanced Senses</en>
+            <es>Sentidos Mejorados</es>
+        </name>
+        <description>
+            <en>One or more of your five senses is heightened. You can push (through strange genetics) hearing, sight, or any other sense beyond normal human bounds. One Changed might be able to see in the dark, while another could have the hearing spectrum of a canine. Each time you take this perk, declare which sense it applies to. Depending on the sense that’s heightened, you do not suffer the effects of states that would impose penalties or poor conditions upon you, such as Visually Impaired or Hearing Impaired. Additionally, a state like Blinded or Deafened might be downgraded to merely Visually Impaired or Hearing Impaired. Along with this benefit, you have an inevitable tell. An animalized character with dog-like olfactory perks, for example, might have a dog-like nose. The GM should weigh the usefulness of the perk and balance the downside. In social encounters or combat, these Changed suffer penalties at least equal to anything their ability affords, and their influence attempts are unfavorable among strangers. Once someone gets to know them, however, their rolls with that person are normal. (At the GM’s discretion, some incognito enhanced senses have no penalties.)</en>
+            <es>Uno o más de tus cinco sentidos está agudizado. Puedes empujar (a través de extrañas genéticas) el oído, la vista o cualquier otro sentido más allá de los límites humanos normales. Un Cambiado podría ser capaz de ver en la oscuridad, mientras que otro podría tener el espectro auditivo de un canino. Cada vez que tomas este rasgo, declara a qué sentido se aplica. Dependiendo del sentido agudizado, no sufres los efectos de estados que imponen penalizaciones o condiciones pobres, como Visualmente Discapacitado o Auditivamente Discapacitado. Además, un estado como Cegado o Ensordecido podría degradarse a meramente Visualmente Discapacitado o Auditivamente Discapacitado. Junto con este beneficio, tienes un inevitable indicio. Un personaje animalizado con rasgos olfativos caninos, por ejemplo, podría tener una nariz canina. El DJ debería sopesar la utilidad del rasgo y equilibrar la desventaja. En encuentros sociales o combate, estos Cambiados sufren penalizaciones al menos iguales a cualquier cosa que su habilidad proporcione, y sus intentos de influencia son desfavorables entre extraños. Una vez que alguien los conoce, sin embargo, sus tiradas con esa persona son normales. (A discreción del DJ, algunos sentidos mejorados encubiertos no tienen penalizaciones.)</es>
+        </description>
+        <type>power</type>
         <restrictions>
             <species>
                 <specie>inhuman</specie>

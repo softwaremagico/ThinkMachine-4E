@@ -264,6 +264,13 @@
                     <es>Kurgan</es>
                 </name>
             </selectedSpecialization>
+            <selectedSpecialization>
+                <id>eldrid</id>
+                <name>
+                    <en>Eldrid</en>
+                    <es>Eldrid</es>
+                </name>
+            </selectedSpecialization>
         </specializations>
     </capability>
     <capability>
