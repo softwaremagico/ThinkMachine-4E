@@ -74,6 +74,7 @@ import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.skills.SkillsReassign;
 import com.softwaremagico.tm.character.skills.Specialization;
+import com.softwaremagico.tm.character.specie.ElementValues;
 import com.softwaremagico.tm.character.specie.Specie;
 import com.softwaremagico.tm.character.specie.SpecieCharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
@@ -113,9 +114,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class CharacterPlayer {
-    public static final int MAX_INITIAL_VALUE = 8;
-    public static final int MAX_INTERMEDIATE_VALUE = 9;
-    public static final int LEVEL_MAX_VALUE = 10;
     private static final int BANK_INITIAL_VALUE = 5;
     private static final int INITIAL_TECH_LEVEL = 4;
     private static final int INITIAL_CASH = 300;
@@ -232,11 +230,11 @@ public class CharacterPlayer {
     }
 
     public void checkMaxValueByLevel(String element, int value) throws MaxValueExceededException {
-        if ((getLevel() == 1 && value > MAX_INITIAL_VALUE)
-                || (getLevel() == 2 && value > MAX_INTERMEDIATE_VALUE)
-                || (getLevel() > 2 && getLevel() < 10
-                && value > Math.min(LEVEL_MAX_VALUE, SpecieFactory.getInstance().getElement(getSpecie()).getSpecieCharacteristic(element).getMaximumValue()))
-                || getLevel() > 10 && value > SpecieFactory.getInstance().getElement(getSpecie()).getSpecieCharacteristic(element).getMaximumValue()) {
+        if ((getLevel() == ElementValues.INITIAL_LEVEL && value > getMaximumInitialValue(element))
+                || (getLevel() == ElementValues.INTERMEDIATE_LEVEL && value > getMaximumIntermediateValue(element))
+                || (getLevel() > ElementValues.INTERMEDIATE_LEVEL && getLevel() < ElementValues.ADVANCED_LEVEL
+                && value > Math.min(ElementValues.LEVEL_MAX_VALUE, getMaximumValue(element)))
+                || getLevel() > ElementValues.ADVANCED_LEVEL && value > getMaximumValue(element)) {
             String composition;
             try {
                 composition = getCharacteristicComposition(element);
@@ -244,9 +242,9 @@ public class CharacterPlayer {
                 composition = getSkillComposition(element);
             }
             throw new MaxValueExceededException("Element '" + element + "' has exceeded its maximum value '" + value + "' at level '" + getLevel() + "'. "
-                    + "Obtained by " + composition, element, value, (getLevel() == 1 ? MAX_INITIAL_VALUE
-                    : (getLevel() == 2 ? MAX_INTERMEDIATE_VALUE : Math.min(LEVEL_MAX_VALUE, SpecieFactory.getInstance().getElement(getSpecie())
-                    .getSpecieCharacteristic(element).getMaximumValue()))));
+                    + "Obtained by " + composition, element, value, (getLevel() == ElementValues.INITIAL_LEVEL ? getMaximumInitialValue(element)
+                    : (getLevel() == ElementValues.INTERMEDIATE_LEVEL ? getMaximumIntermediateValue(element)
+                    : Math.min(ElementValues.LEVEL_MAX_VALUE, getMaximumValue(element)))));
         }
     }
 
@@ -473,6 +471,47 @@ public class CharacterPlayer {
         this.secondaryCharacteristic = secondaryCharacteristic;
     }
 
+    private int getCharacteristicInitialValue(String characteristic) {
+        return SpecieFactory.getInstance().getElement(getSpecie()).getSpecieCharacteristic(characteristic).getInitialValue();
+    }
+
+    private int getCharacteristicMaximumValue(String characteristic) {
+        return SpecieFactory.getInstance().getElement(getSpecie()).getSpecieCharacteristic(characteristic).getMaximumValue();
+    }
+
+    private int getCharacteristicMaximumInitialValue(String characteristic) {
+        return SpecieFactory.getInstance().getElement(getSpecie()).getSpecieCharacteristic(characteristic).getMaximumInitialValue();
+    }
+
+    private int getInitialValue(String element) {
+        try {
+            return getCharacteristicInitialValue(element);
+        } catch (InvalidXmlElementException e) {
+            //Not a characteristic
+            return ElementValues.INITIAL_VALUE;
+        }
+    }
+
+    public int getMaximumValue(String element) {
+        try {
+            return SpecieFactory.getInstance().getElement(getSpecie()).getSpecieCharacteristic(element).getMaximumValue();
+        } catch (InvalidXmlElementException | NullPointerException e) {
+            return ElementValues.LEVEL_MAX_VALUE;
+        }
+    }
+
+    private int getMaximumIntermediateValue(String element) {
+        return ElementValues.MAX_INTERMEDIATE_VALUE;
+    }
+
+    private int getMaximumInitialValue(String element) {
+        try {
+            return SpecieFactory.getInstance().getElement(getSpecie()).getSpecieCharacteristic(element).getMaximumInitialValue();
+        } catch (InvalidXmlElementException | NullPointerException e) {
+            return ElementValues.MAX_INITIAL_VALUE;
+        }
+    }
+
     public int getCharacteristicValue(String characteristic) throws MaxValueExceededException {
         if (cacheManager.getCharacteristicValue(characteristic) == null) {
             final CharacteristicName characteristicName = CharacteristicName.get(characteristic);
@@ -485,7 +524,7 @@ public class CharacterPlayer {
             } else if (getSecondaryCharacteristic() != null && Objects.equals(getSecondaryCharacteristic(), characteristic)) {
                 bonus = CharacteristicDefinition.SECONDARY_CHARACTERISTIC_VALUE;
             } else if (specie != null) {
-                bonus = SpecieFactory.getInstance().getElement(getSpecie()).getSpecieCharacteristic(characteristic).getInitialValue();
+                bonus = getInitialValue(characteristic);
             } else if (characteristicName.getCharacteristicType().equals(CharacteristicType.BODY)
                     || characteristicName.getCharacteristicType().equals(CharacteristicType.MIND)
                     || characteristicName.getCharacteristicType().equals(CharacteristicType.SPIRIT)) {
@@ -513,11 +552,11 @@ public class CharacterPlayer {
 
             checkMaxValueByLevel(characteristic, bonus);
 
-            if (specie != null && bonus > SpecieFactory.getInstance().getElement(specie.getId()).getSpecieCharacteristic(characteristic).getMaximumValue()) {
+            if (specie != null && bonus > getMaximumValue(characteristic)) {
                 throw new MaxValueExceededException("Characteristic '" + characteristic + "' has exceeded the maximum value of '"
-                        + SpecieFactory.getInstance().getElement(specie.getId()).getSpecieCharacteristic(characteristic).getMaximumValue() + "' with '"
+                        + getMaximumValue(characteristic) + "' with '"
                         + bonus + "'. " + getCharacteristicComposition(characteristic), characteristic, bonus,
-                        SpecieFactory.getInstance().getElement(specie.getId()).getSpecieCharacteristic(characteristic).getMaximumValue());
+                        getMaximumValue(characteristic));
             }
             cacheManager.setCharacteristicValue(characteristic, bonus);
         }
@@ -536,7 +575,7 @@ public class CharacterPlayer {
         } else if (getSecondaryCharacteristic() != null && Objects.equals(getSecondaryCharacteristic(), characteristic)) {
             stringBuilder.append("Secondary characteristic: ").append(CharacteristicDefinition.SECONDARY_CHARACTERISTIC_VALUE);
         } else if (specie != null) {
-            final int bonus = SpecieFactory.getInstance().getElement(getSpecie()).getSpecieCharacteristic(characteristic).getInitialValue();
+            final int bonus = getInitialValue(characteristic);
             if (bonus > 0) {
                 stringBuilder.append("Specie bonus: ").append(bonus);
             }
@@ -1418,6 +1457,9 @@ public class CharacterPlayer {
     }
 
     public int getOccultismLevel(OccultismType occultismType) {
+        if (occultismType == null) {
+            return 0;
+        }
         return getCharacteristicValue(occultismType.getId());
     }
 

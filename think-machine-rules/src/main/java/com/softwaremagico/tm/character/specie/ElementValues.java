@@ -33,19 +33,32 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinition
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 
-@JacksonXmlRootElement(localName = "characteristic")
-public class SpecieCharacteristic extends Element {
+@JacksonXmlRootElement(localName = "element")
+public class ElementValues extends Element {
+
+    public static final int INITIAL_LEVEL = 1;
+    public static final int INTERMEDIATE_LEVEL = 2;
+    public static final int ADVANCED_LEVEL = 10;
+
+
+    public static final int INITIAL_VALUE = 3;
+    public static final int MAX_INITIAL_VALUE = 8;
+    public static final int MAX_INTERMEDIATE_VALUE = 9;
+    public static final int LEVEL_MAX_VALUE = 10;
+
 
     @JsonAlias("id")
     private CharacteristicName characteristic;
     @JsonProperty("value")
-    private int initialValue = 3;
+    private int initialValue = INITIAL_VALUE;
+    @JsonProperty("maximumIntermediateValue")
+    private int maximumIntermediateValue = MAX_INTERMEDIATE_VALUE;
     @JsonProperty("maximumValue")
-    private int maximumValue = 10;
+    private int maximumValue = LEVEL_MAX_VALUE;
     @JsonProperty("maximumInitialValue")
-    private int maximumInitialValue = 8;
+    private int maximumInitialValue = MAX_INITIAL_VALUE;
 
-    public SpecieCharacteristic() {
+    public ElementValues() {
         super();
     }
 

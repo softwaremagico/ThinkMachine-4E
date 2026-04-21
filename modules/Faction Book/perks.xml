@@ -121,4 +121,162 @@
             </species>
         </restrictions>
     </perk>
+    <perk>
+        <id>alternativeRespiration</id>
+        <name>
+            <en>Alternative Respiration</en>
+            <es>Respiración Alternativa</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>You can breathe in toxic environments by converting noxious substances into usable respiration. You can also breathe underwater, and most
+                poisonous or inhospitable gases and atmospheres do not affect you. You still cannot breathe in the vacuum of open space, because there is
+                nothing there to convert.
+            </en>
+            <es>Puedes respirar en entornos tóxicos convirtiendo sustancias nocivas en respiración utilizable. También puedes respirar bajo el agua, y la
+                mayoría de gases y atmósferas venenosas o inhóspitas no te afectan. Aun así, no puedes respirar en el vacío del espacio abierto, porque allí no
+                hay nada que convertir.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>inhuman</specie>
+                <specie>animalized</specie>
+                <specie>mutant</specie>
+                <specie>tweaked</specie>
+                <specie>grimson</specie>
+                <specie>clone</specie>
+            </species>
+        </restrictions>
+    </perk>
+
+    <perk>
+        <id>chameleon</id>
+        <name>
+            <en>Chameleon</en>
+            <es>Camaleón</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>Your skin mimics the environment around it, whether natural or artificial. Your rolls are favorable for Sneak blend in, camouflage, skulk, and
+                similar hiding actions. You cannot consciously control the effect, so your appearance may become unsettling in subtle social situations, and the
+                GM may rule such rolls unfavorable there.
+            </en>
+            <es>Tu piel imita el entorno que la rodea, ya sea natural o artificial. Tus tiradas son favorables para mezclarse con el entorno, camuflarse,
+                acechar y acciones similares de ocultación con Sneak. No controlas el efecto de forma consciente, así que tu aspecto puede resultar inquietante
+                en situaciones sociales sutiles, y el DJ puede considerar desfavorables esas tiradas allí.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>inhuman</specie>
+                <specie>animalized</specie>
+                <specie>mutant</specie>
+                <specie>tweaked</specie>
+                <specie>grimson</specie>
+                <specie>clone</specie>
+            </species>
+        </restrictions>
+    </perk>
+
+    <perk>
+        <id>claws</id>
+        <name>
+            <en>Claws</en>
+            <es>Garras</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>You have claws or talons on your hands, feet, or another limb. They function as natural weapons in close combat and grant +2 base damage for
+                Fight-skill strike attacks when used. You cannot use them while wielding a weapon, and in some situations they may also make coercion rolls
+                favorable. They are an obvious inhuman trait unless carefully disguised.
+            </en>
+            <es>Tienes garras o talones en las manos, pies u otra extremidad. Funcionan como armas naturales en combate cercano y conceden +2 al daño base en
+                ataques de golpe con Pelea cuando las usas. No puedes emplearlas mientras blandes un arma, y en algunas situaciones también pueden hacer
+                favorables las tiradas de coerción. Son un rasgo claramente inhumano salvo que se disimulen con cuidado.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>animalized</specie>
+            </species>
+        </restrictions>
+    </perk>
+
+    <perk>
+        <id>elongatedFingers</id>
+        <name>
+            <en>Elongated Fingers</en>
+            <es>Dedos Elongados</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>Your long fingers give you extraordinary manual dexterity. Rolls for delicate hand-based manipulations or ministrations are favorable, such as
+                typing under pressure, opening safes, intricate repairs, or picking pockets.
+            </en>
+            <es>Tus dedos alargados te dan una destreza manual extraordinaria. Las tiradas para manipulaciones o tareas delicadas hechas con las manos son
+                favorables, como teclear bajo presión, abrir cajas fuertes, realizar reparaciones minuciosas o robar bolsillos.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>inhuman</specie>
+                <specie>animalized</specie>
+                <specie>mutant</specie>
+                <specie>tweaked</specie>
+                <specie>grimson</specie>
+                <specie>clone</specie>
+            </species>
+        </restrictions>
+    </perk>
+
+    <perk>
+        <id>enhancedIntellect</id>
+        <name>
+            <en>Enhanced Intellect</en>
+            <es>Intelecto Mejorado</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>Your mind has been engineered to think faster and better than normal. Before 10th level, your Mind characteristics may rise as high as 12
+                instead of the normal limit. In addition, you may spend 3 VP to make a Mind-based roll fortunate. Your altered mentality can unsettle others,
+                and persuasion or social rolls based on Spirit may suffer in situations where your detached brilliance becomes apparent.
+            </en>
+            <es>Tu mente ha sido diseñada para pensar más rápido y mejor de lo normal. Antes de nivel 10, tus características de Mind pueden subir hasta 12 en
+                lugar del límite habitual. Además, puedes gastar 3 VP para convertir en afortunada una tirada basada en Mind. Tu mentalidad alterada puede
+                inquietar a los demás, y las tiradas sociales o de persuasión basadas en cualquier caracteristica de Espiritu pueden resentirse cuando esa
+                brillantez distante se hace evidente.
+            </es>
+        </description>
+        <characteristicValues>
+            <element>
+                <id>wits</id>
+                <value>3</value>
+                <maximumInitialValue>12</maximumInitialValue>
+                <maximumValue>12</maximumValue>
+            </element>
+            <element>
+                <id>perception</id>
+                <value>3</value>
+                <maximumInitialValue>12</maximumInitialValue>
+                <maximumValue>12</maximumValue>
+            </element>
+            <element>
+                <id>will</id>
+                <value>3</value>
+                <maximumInitialValue>12</maximumInitialValue>
+                <maximumValue>12</maximumValue>
+            </element>
+        </characteristicValues>
+        <restrictions>
+            <species>
+                <specie>inhuman</specie>
+                <specie>animalized</specie>
+                <specie>mutant</specie>
+                <specie>tweaked</specie>
+                <specie>grimson</specie>
+                <specie>clone</specie>
+            </species>
+        </restrictions>
+    </perk>
 </perks>
