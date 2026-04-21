@@ -20,86 +20,86 @@
             </es>
         </description>
         <cost>6</cost>
-        <specieCharacteristics>
-            <characteristic>
+        <characteristicValues>
+            <element>
                 <id>strength</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>dexterity</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>endurance</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>wits</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>perception</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>will</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>presence</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>intuition</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>faith</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>psi</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>urge</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>theurgy</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>hubris</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-        </specieCharacteristics>
+            </element>
+        </characteristicValues>
         <movement>
             <value>5</value>
         </movement>
@@ -199,88 +199,88 @@
             </es>
         </description>
         <cost>8</cost>
-        <specieCharacteristics>
-            <characteristic>
+        <characteristicValues>
+            <element>
                 <id>strength</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>9</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>dexterity</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>endurance</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>wits</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>perception</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>12</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>will</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>presence</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>intuition</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>faith</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>psi</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>urge</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>theurgy</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>hubris</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-        </specieCharacteristics>
+            </element>
+        </characteristicValues>
         <primaryCharacteristics>
-            <characteristic>perception</characteristic>
+            <element>perception</element>
         </primaryCharacteristics>
         <vitalityBonus>-1</vitalityBonus>
         <movement>
@@ -405,86 +405,86 @@
             </es>
         </description>
         <cost>6</cost>
-        <specieCharacteristics>
-            <characteristic>
+        <characteristicValues>
+            <element>
                 <id>strength</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>dexterity</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>endurance</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>wits</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>perception</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>will</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>presence</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>intuition</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>faith</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>psi</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>urge</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>theurgy</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>hubris</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-        </specieCharacteristics>
+            </element>
+        </characteristicValues>
         <movement>
             <value>4</value>
         </movement>
@@ -603,86 +603,86 @@
             </es>
         </description>
         <cost>4</cost>
-        <specieCharacteristics>
-            <characteristic>
+        <characteristicValues>
+            <element>
                 <id>strength</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>dexterity</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>endurance</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>wits</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>perception</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>will</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>presence</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>intuition</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>faith</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>psi</id>
                 <value>0</value>
                 <maximumInitialValue>0</maximumInitialValue>
                 <maximumValue>0</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>urge</id>
                 <value>0</value>
                 <maximumInitialValue>0</maximumInitialValue>
                 <maximumValue>0</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>theurgy</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>hubris</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-        </specieCharacteristics>
+            </element>
+        </characteristicValues>
         <movement>
             <value>5</value>
         </movement>
@@ -780,86 +780,86 @@
             </es>
         </description>
         <cost>4</cost>
-        <specieCharacteristics>
-            <characteristic>
+        <characteristicValues>
+            <element>
                 <id>strength</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>dexterity</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>endurance</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>wits</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>perception</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>will</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>presence</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>intuition</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>faith</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>psi</id>
                 <value>0</value>
                 <maximumInitialValue>0</maximumInitialValue>
                 <maximumValue>0</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>urge</id>
                 <value>0</value>
                 <maximumInitialValue>0</maximumInitialValue>
                 <maximumValue>0</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>theurgy</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>hubris</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-        </specieCharacteristics>
+            </element>
+        </characteristicValues>
         <movement>
             <value>5</value>
         </movement>
@@ -963,86 +963,86 @@
             </es>
         </description>
         <cost>4</cost>
-        <specieCharacteristics>
-            <characteristic>
+        <characteristicValues>
+            <element>
                 <id>strength</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>dexterity</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>endurance</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>wits</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>perception</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>will</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>presence</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>intuition</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>faith</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>psi</id>
                 <value>0</value>
                 <maximumInitialValue>0</maximumInitialValue>
                 <maximumValue>0</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>urge</id>
                 <value>0</value>
                 <maximumInitialValue>0</maximumInitialValue>
                 <maximumValue>0</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>theurgy</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>hubris</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-        </specieCharacteristics>
+            </element>
+        </characteristicValues>
         <movement>
             <value>5</value>
         </movement>
@@ -1142,88 +1142,88 @@
             </es>
         </description>
         <cost>6</cost>
-        <specieCharacteristics>
-            <characteristic>
+        <characteristicValues>
+            <element>
                 <id>strength</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>dexterity</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>endurance</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>wits</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>perception</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>12</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>will</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>presence</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>intuition</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>faith</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>psi</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>urge</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>theurgy</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>hubris</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-        </specieCharacteristics>
+            </element>
+        </characteristicValues>
         <primaryCharacteristics>
-            <characteristic>perception</characteristic>
+            <element>perception</element>
         </primaryCharacteristics>
         <movement>
             <value>4</value>
@@ -1317,86 +1317,86 @@
             </es>
         </description>
         <cost>8</cost>
-        <specieCharacteristics>
-            <characteristic>
+        <characteristicValues>
+            <element>
                 <id>strength</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>11</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>dexterity</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>endurance</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>11</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>wits</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>perception</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>will</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>presence</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>intuition</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>faith</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>psi</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>urge</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>theurgy</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>hubris</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-        </specieCharacteristics>
+            </element>
+        </characteristicValues>
         <movement>
             <value>5</value>
         </movement>
@@ -1456,89 +1456,89 @@
             </es>
         </description>
         <cost>9</cost>
-        <specieCharacteristics>
-            <characteristic>
+        <characteristicValues>
+            <element>
                 <id>strength</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>14</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>dexterity</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>endurance</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>14</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>wits</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>perception</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>will</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>presence</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>intuition</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>faith</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>psi</id>
                 <value>0</value>
                 <maximumInitialValue>0</maximumInitialValue>
                 <maximumValue>0</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>urge</id>
                 <value>0</value>
                 <maximumInitialValue>0</maximumInitialValue>
                 <maximumValue>0</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>theurgy</id>
                 <value>0</value>
                 <maximumInitialValue>0</maximumInitialValue>
                 <maximumValue>0</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>hubris</id>
                 <value>0</value>
                 <maximumInitialValue>0</maximumInitialValue>
                 <maximumValue>0</maximumValue>
-            </characteristic>
-        </specieCharacteristics>
+            </element>
+        </characteristicValues>
         <primaryCharacteristics>
-            <characteristic>strength</characteristic>
-            <characteristic>endurance</characteristic>
+            <element>strength</element>
+            <element>endurance</element>
         </primaryCharacteristics>
         <movement>
             <value>28</value>
@@ -1630,4 +1630,108 @@
             </surnames>
         </random>
     </shantor>
+    <inhuman>
+        <id>inhuman</id>
+        <name>
+            <en>Inhuman</en>
+            <es>Inhumano</es>
+        </name>
+        <description>
+            <en>The Inhuman are so visibly altered that they cannot pass as human at all. They often survive in isolated enclaves, desperate slums, or hidden labor markets where their mutations can be exploited. Their existence most clearly reveals the line at which prejudice becomes dehumanization.</en>
+            <es>Los Inhumanos están tan visiblemente alterados que no pueden pasar por humanos en absoluto. A menudo sobreviven en enclaves aislados, suburbios desesperados o mercados laborales ocultos donde sus mutaciones pueden ser explotadas. Su existencia revela con especial claridad el punto en que el prejuicio se convierte en deshumanización.</es>
+        </description>
+        <cost>0</cost>
+        <characteristicValues>
+            <element>
+                <id>strength</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>dexterity</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>endurance</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>wits</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>perception</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>will</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>presence</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>intuition</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>faith</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>psi</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>urge</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>theurgy</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>hubris</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+        </characteristicValues>
+        <movement>
+            <value>5</value>
+        </movement>
+        <size>5</size>
+        <perks>
+            <perk>
+                <id>changedPerk</id>
+            </perk>
+        </perks>
+        <random>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
+        </random>
+    </inhuman>
 </species>
