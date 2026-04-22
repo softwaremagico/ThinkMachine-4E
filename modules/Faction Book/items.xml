@@ -56,8 +56,8 @@
             <es>Concesión de tierras en Paraíso</es>
         </name>
         <description>
-            <en>You have a plot of land on Paradise, should it be recovered.</en>
-            <es>Posees un terreno en Paradise, en caso de que sea recuperado.</es>
+            <en>You have a plot of land on Paradise, should it be recovered, plus a masterwork knife (+1 goal).</en>
+            <es>Posees un terreno en Paradise, en caso de que sea recuperado, más un cuchillo de calidad maestra (+1 meta).</es>
         </description>
     </equipment>
     <equipment>
@@ -179,15 +179,13 @@
         <id>torensonDataSlate</id>
         <type>item</type>
         <name>
-            <en>Torenson Data Slate</en>
-            <es>Pizarra de Datos Torenson</es>
+            <en>Noble Roster</en>
+            <es>Lista de Nobles</es>
         </name>
         <description>
-            <en>TL6 device that provides +1 goal on Academia rolls; can store up to 100 books worth of data.</en>
-            <es>Dispositivo TL6 que proporciona +1 meta en tiradas de Academia; puede almacenar hasta 100 libros de datos.</es>
+            <en>You have a roster of all current nobles, both landholding and otherwise, that was either printed in book form or preserved as a portable data archive. (It can be traded in annually for an updated version.)</en>
+            <es>Tienes una lista de todos los nobles actuales, tanto terratenientes como otros, que se imprimió en forma de libro o se conservó como archivo de datos portátil. (Se puede intercambiar anualmente por una versión actualizada.)</es>
         </description>
-        <techLevel>6</techLevel>
-        <size>S</size>
         <restrictions>
             <factions>
                 <faction>torenson</faction>
@@ -217,12 +215,12 @@
         <id>vanGelderCreditChip</id>
         <type>item</type>
         <name>
-            <en>Van Gelder Credit Chip</en>
-            <es>Chip de Crédito Van Gelder</es>
+            <en>Sunset Serpent Blade Poison</en>
+            <es>Veneno de Hoja Serpiente del Atardecer</es>
         </name>
         <description>
-            <en>TL5 device that provides +1 goal on Interface rolls; can store up to 100,000 credits.</en>
-            <es>Dispositivo TL5 que proporciona +1 meta en tiradas de Interfaz; puede almacenar hasta 100,000 créditos.</es>
+            <en>so called due to its ability to temporarily blind opponents for 1 scene; must inflict at least 1 dmg with coated blade; one vial is good for five uses</en>
+            <es>llamado así por su capacidad para cegar temporalmente a los oponentes durante 1 escena; debe infligir al menos 1 dmg con la hoja recubierta; un vial es bueno para cinco usos</es>
         </description>
         <techLevel>5</techLevel>
         <size>XS</size>
@@ -233,21 +231,520 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>xanthippeMusePendant</id>
+        <id>xanthippeMeasureGuidebook</id>
         <type>item</type>
         <name>
-            <en>Xanthippe Muse Pendant</en>
-            <es>Pendiente Musa Xanthippe</es>
+            <en>The Measure Guidebook</en>
+            <es>Guía de La Medida</es>
         </name>
         <description>
-            <en>TL4 device that provides +1 goal on Arts rolls; can be used to inspire others.</en>
-            <es>Dispositivo TL4 que proporciona +1 meta en tiradas de Artes; puede usarse para inspirar a otros.</es>
+            <en>You have a book or data copy of The Measure guidebook. (Once per act, you can consult it as a primary action for one reroll on a failed non-combat roll.)</en>
+            <es>Tienes un libro o copia de datos de la guía de La Medida. (Una vez por acto, puedes consultarlo como acción principal para un reroll en una tirada fallida no de combate.)</es>
         </description>
-        <techLevel>4</techLevel>
-        <size>XS</size>
         <restrictions>
             <factions>
                 <faction>xanthippe</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>elixirFormula</id>
+        <type>item</type>
+        <name>
+            <en>Secret Formula</en>
+            <es>Fórmula Secreta</es>
+        </name>
+        <description>
+            <en>Secret formula (coded formula for producing standard-quality Elixir™ regenerative serum at Hard Resistance rather than the usual Tough; see the Concoct Elixir perk)</en>
+            <es>Fórmula secreta (fórmula codificada para producir suero regenerativo Elixir™ de calidad estándar a Resistencia Difícil en lugar de la habitual Dura; ver el perk Concoct Elixir)</es>
+        </description>
+        <techLevel>3</techLevel>
+        <size>S</size>
+        <restrictions>
+            <factions>
+                <faction>apothecaries</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>rareBrew</id>
+        <type>item</type>
+        <name>
+            <en>Rare Aged Brew</en>
+            <es>Bebida Rara Envejecida</es>
+        </name>
+        <description>
+            <en>A bottle of exceptional quality alcohol aged for decades; perfect for social occasions or sale to collectors.</en>
+            <es>Una botella de alcohol de calidad excepcional envejecido durante décadas; perfecto para ocasiones sociales o venta a coleccionistas.</es>
+        </description>
+        <techLevel>1</techLevel>
+        <size>S</size>
+        <restrictions>
+            <factions>
+                <faction>brewers</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>bureaucratSealStamp</id>
+        <type>item</type>
+        <name>
+            <en>Official Bureaucrat's Seal Stamp</en>
+            <es>Sello de Oficina de Burócrata</es>
+        </name>
+        <description>
+            <en>An ornate seal stamp for official documentation; provides +1 goal on Academia or Interface rolls involving paperwork.</en>
+            <es>Un sello de oficina ornamentado para documentación oficial; proporciona +1 meta en tiradas de Academia o Interfaz relacionadas con papeleo.</es>
+        </description>
+        <techLevel>2</techLevel>
+        <size>S</size>
+        <restrictions>
+            <factions>
+                <faction>bureaucrats</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>carnivalerTravelsCloak</id>
+        <type>item</type>
+        <name>
+            <en>Colorful Carnival Cloak</en>
+            <es>Capa Carnaval Colorida</es>
+        </name>
+        <description>
+            <en>A vibrant, multi-colored traveling cloak perfect for carnival performers; makes the wearer memorable and provides +1 goal on Perform rolls.</en>
+            <es>Una capa de viaje vibrante y multicolor perfecta para actores de carnaval; hace al portador memorable y proporciona +1 meta en tiradas de Actuación.</es>
+        </description>
+        <techLevel>1</techLevel>
+        <size>M</size>
+        <restrictions>
+            <factions>
+                <faction>carnivalers</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>courtesanElegantMask</id>
+        <type>item</type>
+        <name>
+            <en>Elegant Courtesan's Mask</en>
+            <es>Máscara Elegante de Cortesana</es>
+        </name>
+        <description>
+            <en>A refined mask studded with jewels for formal occasions; provides +1 goal on Charm rolls during social functions.</en>
+            <es>Una máscara refinada adornada con joyas para ocasiones formales; proporciona +1 meta en tiradas de Encanto durante funciones sociales.</es>
+        </description>
+        <techLevel>2</techLevel>
+        <size>XS</size>
+        <restrictions>
+            <factions>
+                <faction>courtesans</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>gourmandRareSeasoning</id>
+        <type>item</type>
+        <name>
+            <en>Exotic Rare Seasoning Collection</en>
+            <es>Colección de Especias Raras Exóticas</es>
+        </name>
+        <description>
+            <en>A collection of rare spices and seasonings from across the Known Worlds; provides +1 goal on Crafts rolls when preparing meals.</en>
+            <es>Una colección de especias y condimentos raros de todos los Mundos Conocidos; proporciona +1 meta en tiradas de Artesanía cuando preparas comidas.</es>
+        </description>
+        <techLevel>1</techLevel>
+        <size>M</size>
+        <restrictions>
+            <factions>
+                <faction>gourmands</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>masqueIdentityKit</id>
+        <type>item</type>
+        <name>
+            <en>Master Disguise Identity Kit</en>
+            <es>Kit de Identidad de Maestro del Disfraz</es>
+        </name>
+        <description>
+            <en>A collection of materials for creating convincing false identities; provides +2 goal on Disguise rolls when creating alternate personas.</en>
+            <es>Una colección de materiales para crear identidades falsas convincentes; proporciona +2 meta en tiradas de Disfraz cuando creas personas alternativas.</es>
+        </description>
+        <techLevel>3</techLevel>
+        <size>M</size>
+        <restrictions>
+            <factions>
+                <faction>masque</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>oubliettePoisonKit</id>
+        <type>item</type>
+        <name>
+            <en>Oubliette Poison Kit</en>
+            <es>Kit de Veneno Mazmorra</es>
+        </name>
+        <description>
+            <en>A specialized kit containing rare poisons and antidotes; provides +1 goal on Combat or Stealth-related actions during covert operations.</en>
+            <es>Un kit especializado que contiene venenos raros y antídotos; proporciona +1 meta en acciones de Combate o Sigilo durante operaciones encubiertas.</es>
+        </description>
+        <techLevel>5</techLevel>
+        <size>S</size>
+        <restrictions>
+            <factions>
+                <faction>oubliette</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>performerCostume</id>
+        <type>item</type>
+        <name>
+            <en>Master Performer's Costume</en>
+            <es>Traje de Maestro Actuador</es>
+        </name>
+        <description>
+            <en>An exquisite stage costume of exceptional quality; provides +1 goal on Performance rolls and makes the wearer stand out on any stage.</en>
+            <es>Un traje de escena exquisito de calidad excepcional; proporciona +1 meta en tiradas de Actuación y hace que el portador se destaque en cualquier escenario.</es>
+        </description>
+        <techLevel>2</techLevel>
+        <size>M</size>
+        <restrictions>
+            <factions>
+                <faction>performers</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>tutorAncientText</id>
+        <type>item</type>
+        <name>
+            <en>Ancient Rare Manuscript</en>
+            <es>Manuscrito Antiguo Raro</es>
+        </name>
+        <description>
+            <en>A carefully preserved ancient text of significant historical and educational value; provides +1 goal on Academia rolls and can be used for teaching.</en>
+            <es>Un texto antiguo cuidadosamente preservado de significativo valor histórico y educativo; proporciona +1 meta en tiradas de Academia y puede usarse para enseñar.</es>
+        </description>
+        <techLevel>1</techLevel>
+        <size>S</size>
+        <restrictions>
+            <factions>
+                <faction>tutors</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>wranglerBeastRein</id>
+        <type>item</type>
+        <name>
+            <en>Reinforced Beast Control Rein</en>
+            <es>Rienda de Control de Bestia Reforzada</es>
+        </name>
+        <description>
+            <en>A specially crafted rein designed for controlling exotic beasts; provides +1 goal on Animalia rolls when taming or controlling wild creatures.</en>
+            <es>Una rienda especialmente elaborada diseñada para controlar bestias exóticas; proporciona +1 meta en tiradas de Animalía cuando domas o controlas criaturas salvajes.</es>
+        </description>
+        <techLevel>3</techLevel>
+        <size>M</size>
+        <restrictions>
+            <factions>
+                <faction>wranglers</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>promoterMaterials</id>
+        <type>item</type>
+        <name>
+            <en>Promotional Materials</en>
+            <es>Materiales Promocionales</es>
+        </name>
+        <description>
+            <en>A collection of banners, flyers, and other promotional items to help advertise events or products.</en>
+            <es>Una colección de pancartas, folletos y otros materiales promocionales para ayudar a anunciar eventos o productos.</es>
+        </description>
+        <techLevel>1</techLevel>
+        <size>M</size>
+        <restrictions>
+            <factions>
+                <faction>promoters</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>trusnikronTrainedPet</id>
+        <type>item</type>
+        <name>
+            <en>Trained Small Pet</en>
+            <es>Mascota Pequeña Entrenada</es>
+        </name>
+        <description>
+            <en>A trained small pet (such as a dog-, monkey-, or bird-like creature) that can fetch items and warn against intruders.</en>
+            <es>Una mascota pequeña entrenada (como un perro, mono o criatura similar a un pájaro) que puede buscar items y advertir contra intrusos.</es>
+        </description>
+        <techLevel>1</techLevel>
+        <size>S</size>
+        <restrictions>
+            <factions>
+                <faction>trusnikron</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>prospectorTools</id>
+        <type>item</type>
+        <name>
+            <en>Prospector's Tools</en>
+            <es>Herramientas de Prospector</es>
+        </name>
+        <description>
+            <en>A set of specialized tools for mining and prospecting, including picks, hammers, and assay kits.</en>
+            <es>Un conjunto de herramientas especializadas para la minería y prospección, incluyendo picos, martillos y kits de ensayo.</es>
+        </description>
+        <techLevel>2</techLevel>
+        <size>M</size>
+        <restrictions>
+            <factions>
+                <faction>prospectors</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>purgersRelic</id>
+        <type>item</type>
+        <name>
+            <en>Purger's Relic</en>
+            <es>Reliquia de Purgador</es>
+        </name>
+        <description>
+            <en>A sacred relic used in purification rituals, providing +1 goal on Faith rolls related to exorcism or purification.</en>
+            <es>Una reliquia sagrada usada en rituales de purificación, proporcionando +1 meta en tiradas de Fe relacionadas con exorcismo o purificación.</es>
+        </description>
+        <techLevel>1</techLevel>
+        <size>S</size>
+        <restrictions>
+            <factions>
+                <faction>purgers</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>slayerTrophy</id>
+        <type>item</type>
+        <name>
+            <en>Slayer's Trophy</en>
+            <es>Trofeo de Asesino</es>
+        </name>
+        <description>
+            <en>A trophy from a defeated foe, such as a tooth or claw, that serves as a reminder of past victories and provides +1 goal on Intimidate rolls.</en>
+            <es>Un trofeo de un enemigo derrotado, como un diente o garra, que sirve como recordatorio de victorias pasadas y proporciona +1 meta en tiradas de Intimidar.</es>
+        </description>
+        <techLevel>1</techLevel>
+        <size>S</size>
+        <restrictions>
+            <factions>
+                <faction>slayers</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>stewardLedger</id>
+        <type>item</type>
+        <name>
+            <en>Steward's Ledger</en>
+            <es>Libro Mayor de Administrador</es>
+        </name>
+        <description>
+            <en>A detailed ledger for managing finances and resources, providing +1 goal on Interface rolls related to accounting or administration.</en>
+            <es>Un libro mayor detallado para gestionar finanzas y recursos, proporcionando +1 meta en tiradas de Interfaz relacionadas con contabilidad o administración.</es>
+        </description>
+        <techLevel>1</techLevel>
+        <size>M</size>
+        <restrictions>
+            <factions>
+                <faction>stewards</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>townCrierBell</id>
+        <type>item</type>
+        <name>
+            <en>Town Crier's Bell</en>
+            <es>Campana de Pregonero</es>
+        </name>
+        <description>
+            <en>A loud bell used to announce news and gather crowds, providing +1 goal on Impress rolls when making public announcements.</en>
+            <es>Una campana ruidosa usada para anunciar noticias y reunir multitudes, proporcionando +1 meta en tiradas de Impresionar cuando se hacen anuncios públicos.</es>
+        </description>
+        <techLevel>1</techLevel>
+        <size>S</size>
+        <restrictions>
+            <factions>
+                <faction>townCriers</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>weaponsmithHammer</id>
+        <type>item</type>
+        <name>
+            <en>Weaponsmith's Hammer</en>
+            <es>Martillo de Forjador de Armas</es>
+        </name>
+        <description>
+            <en>A specialized hammer for forging weapons, providing +1 goal on Crafts rolls when creating or repairing weapons.</en>
+            <es>Un martillo especializado para forjar armas, proporcionando +1 meta en tiradas de Artesanía cuando se crean o reparan armas.</es>
+        </description>
+        <techLevel>2</techLevel>
+        <size>S</size>
+        <restrictions>
+            <factions>
+                <faction>weaponsmiths</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>wordwrightQuill</id>
+        <type>item</type>
+        <name>
+            <en>Wordwright's Quill</en>
+            <es>Pluma de Escritor de Palabras</es>
+        </name>
+        <description>
+            <en>A magical quill that enhances writing, providing +1 goal on Arts rolls related to writing or calligraphy.</en>
+            <es>Una pluma mágica que mejora la escritura, proporcionando +1 meta en tiradas de Artes relacionadas con escritura o caligrafía.</es>
+        </description>
+        <techLevel>3</techLevel>
+        <size>XS</size>
+        <restrictions>
+            <factions>
+                <faction>wordwrights</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>choraliHymnalBook</id>
+        <type>item</type>
+        <name>
+            <en>Hymnal Book</en>
+            <es>Libro de Himnos</es>
+        </name>
+        <description>
+            <en>You have a hymnal book containing the most common songs of praise to the Pancreator (+1 goal to Perform-skill awe maneuver rolls when reading from the book).</en>
+            <es>Tienes un libro de himnos que contiene las canciones más comunes de alabanza al Pancreator (+1 meta en tiradas de maniobra de asombro de habilidad de Actuación cuando se lee del libro).</es>
+        </description>
+        <restrictions>
+            <factions>
+                <faction>chorali</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>hesychastRelic</id>
+        <type>item</type>
+        <name>
+            <en>Blessed Relic</en>
+            <es>Reliquia Bendita</es>
+        </name>
+        <description>
+            <en>You have blessed rosary beads or a minor relic of a saint; this grants you +1 goal to Focus-skill rolls.</en>
+            <es>Tienes cuentas de rosario benditas o una reliquia menor de un santo; esto te concede +1 meta en tiradas de habilidad de Enfoque.</es>
+        </description>
+        <restrictions>
+            <factions>
+                <faction>hesychasts</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>incarnateNotes</id>
+        <type>item</type>
+        <name>
+            <en>Secret Code Notes</en>
+            <es>Notas de Código Secreto</es>
+        </name>
+        <description>
+            <en>You have a collection of notes in a secret code that supposedly lists the names and locations of Incarnate-friendly individuals across the Known Worlds.</en>
+            <es>Tienes una colección de notas en un código secreto que supuestamente lista los nombres y ubicaciones de individuos amigables con los Incarnates en los Mundos Conocidos.</es>
+        </description>
+        <restrictions>
+            <factions>
+                <faction>incarnates</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>preceptorLibrary</id>
+        <type>item</type>
+        <name>
+            <en>Portable Library</en>
+            <es>Biblioteca Portátil</es>
+        </name>
+        <description>
+            <en>Library (TL7 handheld simple think machine; designed to interface with and download the information contained in practically any repository of data)</en>
+            <es>Biblioteca (máquina pensante simple portátil TL7; diseñada para interconectar y descargar la información contenida en prácticamente cualquier repositorio de datos)</es>
+        </description>
+        <techLevel>7</techLevel>
+        <size>S</size>
+        <restrictions>
+            <factions>
+                <faction>preceptors</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>voavenlohjunGleanings</id>
+        <type>item</type>
+        <name>
+            <en>The Gleanings of Ven Lohji</en>
+            <es>Las Recolecciones de Ven Lohji</es>
+        </name>
+        <description>
+            <en>You own a physical or data copy of The Gleanings of Ven Lohji. (After spending 30 minutes consulting the book, your next Focus-skill rally roll is favorable, so long as it occurs within the next 24 hours.)</en>
+            <es>Posees una copia física o de datos de Las Recolecciones de Ven Lohji. (Después de pasar 30 minutos consultando el libro, tu próxima tirada de rally de habilidad de Enfoque es favorable, siempre que ocurra dentro de las próximas 24 horas.)</es>
+        </description>
+        <restrictions>
+            <factions>
+                <faction>voavenlohjun</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>zuranityLibroEsperanza</id>
+        <type>item</type>
+        <name>
+            <en>Libro Esperanza</en>
+            <es>Libro Esperanza</es>
+        </name>
+        <description>
+            <en>Your copy of Manuel Porfirio Zuran’s Libro Esperanza contains a coded guide to locations in the Known Worlds where the Children can find hospitality.</en>
+            <es>Tu copia del Libro Esperanza de Manuel Porfirio Zuran contiene una guía codificada a ubicaciones en los Mundos Conocidos donde los Hijos pueden encontrar hospitalidad.</es>
+        </description>
+        <restrictions>
+            <factions>
+                <faction>childrenOfZuran</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>gjartiPendant</id>
+        <type>item</type>
+        <name>
+            <en>Knotted Wood Pendant</en>
+            <es>Pendiente de Madera Anudada</es>
+        </name>
+        <description>
+            <en>You have a pendant of knotted wood identifying your priestly rank (+1 Survival when lost in the wilderness).</en>
+            <es>Tienes un pendiente de madera anudada que identifica tu rango sacerdotal (+1 Supervivencia cuando estás perdido en el desierto).</es>
+        </description>
+        <restrictions>
+            <factions>
+                <faction>gjarti</faction>
             </factions>
         </restrictions>
     </equipment>
