@@ -30,9 +30,19 @@ import com.softwaremagico.tm.character.combat.CombatStyle;
 import com.softwaremagico.tm.character.combat.CombatStyleFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import com.softwaremagico.tm.file.modules.ModuleManager;
+import org.testng.annotations.BeforeClass;
 
 @Test(groups = {"combatStyleFactory"})
 public class CombatStylesFactoryTests extends FactoryTest {
+    @Override
+    @BeforeClass
+    public void enableBasicModule() {
+        ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
+        ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+        ModuleManager.resetModules();
+    }
+
     private static final int DEFINED_STYLES = 12;
     private static final int DEFINED_ACTIONS = DEFINED_STYLES * 3;
 

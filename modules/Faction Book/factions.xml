@@ -763,7 +763,7 @@
                 <total>1</total>
                 <options>
                     <item>
-                        <id>keddahTravelPavilion</id>
+                        <id>pocketPavilion</id>
                         <type>item</type>
                     </item>
                 </options>
@@ -1165,7 +1165,7 @@
                 <total>1</total>
                 <options>
                     <item>
-                        <id>ramakrishnaHandOfHamut</id>
+                        <id>handOfHamut</id>
                         <type>item</type>
                     </item>
                 </options>
@@ -1729,7 +1729,7 @@
                 <total>1</total>
                 <options>
                     <item>
-                        <id>torensonDataSlate</id>
+                        <id>nobleRoster</id>
                         <type>item</type>
                     </item>
                 </options>
@@ -1907,7 +1907,7 @@
                 <total>1</total>
                 <options>
                     <item>
-                        <id>trusnikronTrainedPet</id>
+                        <id>trainedSmallPet</id>
                         <type>item</type>
                     </item>
                 </options>
@@ -2107,7 +2107,7 @@
                 <total>1</total>
                 <options>
                     <item>
-                        <id>vanGelderCreditChip</id>
+                        <id>sunsetSerpentBladePoison</id>
                         <type>item</type>
                     </item>
                 </options>
@@ -2449,7 +2449,7 @@
                 <total>1</total>
                 <options>
                     <item>
-                        <id>elixirFormula</id>
+                        <id>secretFormula</id>
                         <type>item</type>
                     </item>
                 </options>
@@ -2620,7 +2620,7 @@
                 <total>1</total>
                 <options>
                     <item>
-                        <id>rareBrew</id>
+                        <id>rareAgedBrew</id>
                         <type>item</type>
                     </item>
                 </options>
@@ -2794,7 +2794,7 @@
                 <total>1</total>
                 <options>
                     <item>
-                        <id>bureaucratSealStamp</id>
+                        <id>officialBureaucratSealStamp</id>
                         <type>item</type>
                     </item>
                 </options>
@@ -2967,7 +2967,7 @@
                 <total>1</total>
                 <options>
                     <item>
-                        <id>carnivalerTravelsCloak</id>
+                        <id>colorfulCarnivalCloak</id>
                         <type>item</type>
                     </item>
                 </options>
@@ -3144,7 +3144,7 @@
                 <total>1</total>
                 <options>
                     <item>
-                        <id>courtesanElegantMask</id>
+                        <id>elegantCourtesanMask</id>
                         <type>item</type>
                     </item>
                 </options>
@@ -3305,7 +3305,7 @@
                 <total>1</total>
                 <options>
                     <item>
-                        <id>gourmandRareSeasoning</id>
+                        <id>exoticRareSeasoningCollection</id>
                         <type>item</type>
                     </item>
                 </options>
@@ -3491,7 +3491,7 @@
                 <total>1</total>
                 <options>
                     <item>
-                        <id>masqueIdentityKit</id>
+                        <id>masterDisguiseIdentityKit</id>
                         <type>item</type>
                     </item>
                 </options>
@@ -3994,7 +3994,7 @@
                 <total>1</total>
                 <options>
                     <item>
-                        <id>tutorAncientText</id>
+                        <id>ancientRareManuscript</id>
                         <type>item</type>
                     </item>
                 </options>
@@ -4164,7 +4164,1683 @@
                 <total>1</total>
                 <options>
                     <item>
-                        <id>wranglerBeastRein</id>
+                        <id>reinforcedBeastControlRein</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+    </faction>
+    <faction>
+        <id>promoters</id>
+        <name>
+            <en>Promoters (Shills)</en>
+            <es>Promotores (Shills)</es>
+        </name>
+        <description>
+            <en>Promoters shape public opinion for clients across the Known Worlds, from products and causes to individual reputations. They specialize in spin, messaging, and persuasion at scale.</en>
+            <es>Los Promotores moldean la opinión pública para clientes de los Mundos Conocidos, desde productos y causas hasta reputaciones individuales. Se especializan en narrativa, propaganda y persuasión masiva.</es>
+        </description>
+        <group>minor_guild</group>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>cathedralCustoms</id>
+                    </capability>
+                    <capability>
+                        <id>courtCustoms</id>
+                    </capability>
+                    <capability>
+                        <id>streetwise</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>factionLore</id>
+                        <selectedSpecialization>
+                            <id>promoters</id>
+                        </selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <group>knowledgeLore</group>
+                    </capability>
+                    <capability>
+                        <id>thinkMachines</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>faith</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>will</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>intuition</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>perception</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>presence</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <group>guildCommission</group>
+                    </perk>
+                </options>
+                <openPerks>false</openPerks>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>academia</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>interface</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>knavery</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>fight</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>perform</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <blessing>
+            <id>bornHuckster</id>
+            <name>
+                <en>Born Huckster</en>
+                <es>Vendedor Nato</es>
+            </name>
+            <description>
+                <en>+2 Presence when promoting something.</en>
+                <es>Presencia +2 cuando promocionas algo.</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>sleazy</id>
+            <name>
+                <en>Sleazy</en>
+                <es>Sórdido</es>
+            </name>
+            <description>
+                <en>-2 Presence when getting someone to trust you.</en>
+                <es>Presencia -2 cuando intentas que alguien confíe en ti.</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>tycoon</calling>
+        </favoredCallings>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>acclaimer</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+    </faction>
+    <faction>
+        <id>prospectors</id>
+        <name>
+            <en>Prospectors</en>
+            <es>Prospectores</es>
+        </name>
+        <description>
+            <en>Prospectors spend their lives mining asteroids and refining ore in deep space. Isolated from mainstream society, they guard their techniques and ship-family traditions jealously.</en>
+            <es>Los Prospectores pasan la vida explotando asteroides y refinando mineral en el espacio profundo. Aislados de la sociedad, guardan con celo sus técnicas y tradiciones de familias de nave.</es>
+        </description>
+        <group>minor_guild</group>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>factionLore</id>
+                        <selectedSpecialization>
+                            <id>prospectors</id>
+                        </selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <group>techLore</group>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <group>techLore</group>
+                    </capability>
+                    <capability>
+                        <id>appliedScience</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>endurance</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>perception</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>strength</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <group>guildCommission</group>
+                    </perk>
+                </options>
+                <openPerks>false</openPerks>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>crafts</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>fight</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>pilot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>survival</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>vigor</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>techRedemption</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <blessing>
+            <id>greaseMonkey</id>
+            <name>
+                <en>Grease Monkey</en>
+                <es>Manitas Mecánico</es>
+            </name>
+            <description>
+                <en>+2 Wits when using tech.</en>
+                <es>Astucia +2 al usar tecnología.</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>otherworldly</id>
+            <name>
+                <en>Otherworldly</en>
+                <es>Extraño</es>
+            </name>
+            <description>
+                <en>-2 Presence around non-spacefarers.</en>
+                <es>Presencia -2 alrededor de quienes no viajan por el espacio.</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>reclaimer</calling>
+        </favoredCallings>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>plasmaMattock</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+    </faction>
+    <faction>
+        <id>purgers</id>
+        <name>
+            <en>Purgers</en>
+            <es>Purgadores</es>
+        </name>
+        <description>
+            <en>Purgers handle waste, hazardous disposal, and sanitation where others fear to tread. Their low social status hides immense practical influence and lucrative secrets.</en>
+            <es>Los Purgadores gestionan residuos, materiales peligrosos y saneamiento donde otros no quieren entrar. Su bajo estatus social oculta una enorme influencia práctica y secretos lucrativos.</es>
+        </description>
+        <group>minor_guild</group>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>factionLore</id>
+                        <selectedSpecialization>
+                            <id>purgers</id>
+                        </selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>beastLore</id>
+                    </capability>
+                    <capability>
+                        <id>streetwise</id>
+                    </capability>
+                    <capability>
+                        <id>diseaseLore</id>
+                    </capability>
+                    <capability>
+                        <id>poisonLore</id>
+                    </capability>
+                    <capability>
+                        <id>appliedScience</id>
+                    </capability>
+                    <capability>
+                        <id>lifeScience</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <group>techLore</group>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>endurance</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>strength</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>perception</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>will</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <group>guildCommission</group>
+                    </perk>
+                </options>
+                <openPerks>false</openPerks>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>alchemy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>animalia</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>fight</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>intrusion</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>vigor</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>techRedemption</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <blessing>
+            <id>hardy</id>
+            <name>
+                <en>Hardy</en>
+                <es>Resistente</es>
+            </name>
+            <description>
+                <en>+2 Endurance against toxins, noxious odors, and harsh chemicals.</en>
+                <es>Constitución +2 contra toxinas, olores nocivos y químicos agresivos.</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>quasimodo</id>
+            <name>
+                <en>Quasimodo</en>
+                <es>Quasimodo</es>
+            </name>
+            <description>
+                <en>-2 Presence when seducing others.</en>
+                <es>Presencia -2 cuando intentas seducir a otros.</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>reclaimer</calling>
+        </favoredCallings>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>portableIncinerator</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+    </faction>
+    <faction>
+        <id>slayers</id>
+        <name>
+            <en>Slayers</en>
+            <es>Asesinos</es>
+        </name>
+        <description>
+            <en>The Slayers are a clandestine guild of elite assassins, hired by powerful patrons for deniable elimination. They thrive on secrecy, discipline, and technical superiority.</en>
+            <es>Los Asesinos son un gremio clandestino de asesinos de élite, contratados por patronos poderosos para eliminaciones negables. Prosperan en el secreto, la disciplina y la superioridad técnica.</es>
+        </description>
+        <group>minor_guild</group>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>factionLore</id>
+                        <selectedSpecialization>
+                            <id>slayers</id>
+                        </selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <group>knowledgeLore</group>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>militaryWeapons</id>
+                    </capability>
+                    <capability>
+                        <id>energyGuns</id>
+                    </capability>
+                    <capability>
+                        <id>slugGuns</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>perception</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>strength</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <group>guildCommission</group>
+                    </perk>
+                </options>
+                <openPerks>false</openPerks>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>disguise</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>intrusion</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>knavery</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>fight</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>observe</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>sneak</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <blessing>
+            <id>obstinate</id>
+            <name>
+                <en>Obstinate</en>
+                <es>Obstinado</es>
+            </name>
+            <description>
+                <en>+2 Mind Resistance against attempts to divulge secrets.</en>
+                <es>Resistencia Mental +2 contra intentos de hacerte revelar secretos.</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>paranoid</id>
+            <name>
+                <en>Paranoid</en>
+                <es>Paranoico</es>
+            </name>
+            <description>
+                <en>-2 Presence when scrutinized.</en>
+                <es>Presencia -2 cuando eres escrutado.</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>spy</calling>
+        </favoredCallings>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>shimmercloak</id>
+                        <type>item</type>
+                    </item>
+                    <item>
+                        <id>stonefoot</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+    </faction>
+    <faction>
+        <id>townCriers</id>
+        <name>
+            <en>Town Criers</en>
+            <es>Pregoneros</es>
+        </name>
+        <description>
+            <en>The Town Criers gather and spread news, rumor, and paid messaging across fiefs and planets. Their information networks are valuable, dangerous, and politically contested.</en>
+            <es>Los Pregoneros recopilan y difunden noticias, rumores y mensajes pagados entre feudos y planetas. Sus redes de información son valiosas, peligrosas y objeto de disputa política.</es>
+        </description>
+        <group>minor_guild</group>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>cathedralCustoms</id>
+                    </capability>
+                    <capability>
+                        <id>courtCustoms</id>
+                    </capability>
+                    <capability>
+                        <id>streetwise</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>factionLore</id>
+                        <selectedSpecialization>
+                            <id>townCriers</id>
+                        </selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <group>knowledgeLore</group>
+                    </capability>
+                    <capability>
+                        <id>landcraft</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>intuition</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>perception</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>presence</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>wits</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <group>guildCommission</group>
+                    </perk>
+                </options>
+                <openPerks>false</openPerks>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>academia</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>knavery</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>drive</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>intrusion</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>fight</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>observe</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>sleightOfHand</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>sneak</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <blessing>
+            <id>bornHuckster</id>
+            <name>
+                <en>Born Huckster</en>
+                <es>Vendedor Nato</es>
+            </name>
+            <description>
+                <en>+2 Presence when promoting something.</en>
+                <es>Presencia +2 cuando promocionas algo.</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>sleazy</id>
+            <name>
+                <en>Sleazy</en>
+                <es>Sórdido</es>
+            </name>
+            <description>
+                <en>-2 Presence when getting someone to trust you.</en>
+                <es>Presencia -2 cuando intentas que alguien confíe en ti.</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>amateur</calling>
+        </favoredCallings>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>mojoRecorder</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+    </faction>
+    <faction>
+        <id>weaponsmiths</id>
+        <name>
+            <en>Weaponsmiths</en>
+            <es>Armeros</es>
+        </name>
+        <description>
+            <en>Weaponsmiths are master crafters of elegant, lethal arms. After wartime mass production, they have returned to prized handcraft and technical refinement.</en>
+            <es>Los Armeros son maestros artesanos de armas elegantes y letales. Tras la producción masiva en la guerra, han vuelto a la artesanía de prestigio y al refinamiento técnico.</es>
+        </description>
+        <group>minor_guild</group>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>factionLore</id>
+                        <selectedSpecialization>
+                            <id>weaponsmiths</id>
+                        </selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>militaryWeapons</id>
+                    </capability>
+                    <capability>
+                        <id>energyGuns</id>
+                    </capability>
+                    <capability>
+                        <id>slugGuns</id>
+                    </capability>
+                    <capability>
+                        <group>scienceLore</group>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <group>techLore</group>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>strength</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>intuition</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>wits</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <group>guildCommission</group>
+                    </perk>
+                </options>
+                <openPerks>false</openPerks>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>alchemy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>crafts</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>vigor</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>techRedemption</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <blessing>
+            <id>curious</id>
+            <name>
+                <en>Curious</en>
+                <es>Curioso</es>
+            </name>
+            <description>
+                <en>+2 Intuition when encountering something new.</en>
+                <es>Intuición +2 cuando te encuentras con algo nuevo.</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>competitive</id>
+            <name>
+                <en>Competitive</en>
+                <es>Competitivo</es>
+            </name>
+            <description>
+                <en>-2 Presence around business rivals.</en>
+                <es>Presencia -2 cerca de rivales comerciales.</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>techRedeemer</calling>
+        </favoredCallings>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>masterworkWeapon</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+    </faction>
+    <faction>
+        <id>wordwrights</id>
+        <name>
+            <en>Wordwrights</en>
+            <es>Forjapalabras</es>
+        </name>
+        <description>
+            <en>Wordwrights produce scandalous and influential literature for elites and patrons, balancing cultural impact with strict discretion to survive political and religious scrutiny.</en>
+            <es>Los Forjapalabras producen literatura escandalosa e influyente para élites y patronos, equilibrando impacto cultural con estricta discreción para sobrevivir al escrutinio político y religioso.</es>
+        </description>
+        <group>minor_guild</group>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>factionLore</id>
+                        <selectedSpecialization>
+                            <id>wordwrights</id>
+                        </selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>2</total>
+                <options>
+                    <capability>
+                        <group>knowledgeLore</group>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>intuition</id>
+                        <bonus>3</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>will</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>faith</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>wits</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <group>guildCommission</group>
+                    </perk>
+                </options>
+                <openPerks>false</openPerks>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>academia</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>arts</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>knavery</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>focus</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>interface</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>observe</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <blessing>
+            <id>shrewd</id>
+            <name>
+                <en>Shrewd</en>
+                <es>Astuto</es>
+            </name>
+            <description>
+                <en>+2 Mind Resistance against fast-talk attempts.</en>
+                <es>Resistencia Mental +2 contra intentos de charla rápida.</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>introverted</id>
+            <name>
+                <en>Introverted</en>
+                <es>Introvertido</es>
+            </name>
+            <description>
+                <en>-2 Presence at social gatherings.</en>
+                <es>Presencia -2 en reuniones sociales.</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>artist</calling>
+        </favoredCallings>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>mojoPaper</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+    </faction>
+    <faction>
+        <id>preceptors</id>
+        <name>
+            <en>Preceptors</en>
+            <es>Preceptores</es>
+        </name>
+        <description>
+            <en>Preceptors are a sect devoted to preserving and teaching knowledge from before the New Dark Ages. They advocate broad education despite political and doctrinal suspicion.</en>
+            <es>Los Preceptores son una secta dedicada a preservar y enseñar conocimiento de antes de la Nueva Edad Oscura. Defienden la educación amplia pese a la sospecha política y doctrinal.</es>
+        </description>
+        <group>minor_sect</group>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>factionLore</id>
+                        <selectedSpecialization>
+                            <id>preceptors</id>
+                        </selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <group>knowledgeLore</group>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <group>techLore</group>
+                    </capability>
+                    <capability>
+                        <id>thinkMachines</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>faith</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>intuition</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>presence</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>wits</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <id>churchOrdinationNovitiate</id>
+                    </perk>
+                </options>
+                <openPerks>false</openPerks>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>academia</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>arts</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>crafts</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>techRedemption</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>focus</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>interface</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <blessing>
+            <id>mentor</id>
+            <name>
+                <en>Mentor</en>
+                <es>Mentor</es>
+            </name>
+            <description>
+                <en>+2 Presence when teaching.</en>
+                <es>Presencia +2 cuando enseñas.</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>disrespectful</id>
+            <name>
+                <en>Disrespectful</en>
+                <es>Irrespetuoso</es>
+            </name>
+            <description>
+                <en>-2 Charm around authority figures.</en>
+                <es>Encanto -2 cerca de figuras de autoridad.</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>scholar</calling>
+        </favoredCallings>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>portableLibrary</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+    </faction>
+    <faction>
+        <id>voavenlohjun</id>
+        <name>
+            <en>Voavenlohjun</en>
+            <es>Voavenlohjun</es>
+        </name>
+        <description>
+            <en>The Voavenlohjun are followers of Ven Lohji, emphasizing discipline, theological reflection, and harmony with the Pancreator. Most members are obun, though the sect is open to all species.</en>
+            <es>Los Voavenlohjun son seguidores de Ven Lohji, con énfasis en la disciplina, la reflexión teológica y la armonía con el Pancreator. La mayoría son obun, aunque la secta está abierta a todas las especies.</es>
+        </description>
+        <group>minor_sect</group>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>beastLore</id>
+                    </capability>
+                    <capability>
+                        <id>lifeScience</id>
+                    </capability>
+                    <capability>
+                        <group>knowledgeLore</group>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>factionLore</id>
+                        <selectedSpecialization>
+                            <id>voavenlohjun</id>
+                        </selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <group>knowledgeLore</group>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>perception</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>faith</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>intuition</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>wits</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <id>churchOrdinationNovitiate</id>
+                    </perk>
+                </options>
+                <openPerks>false</openPerks>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>academia</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>survival</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>arts</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>perform</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>remedy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>empathy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>focus</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <blessing>
+            <id>metaphysical</id>
+            <name>
+                <en>Metaphysical</en>
+                <es>Metafísico</es>
+            </name>
+            <description>
+                <en>+2 Intuition when unraveling enigmas.</en>
+                <es>Intuición +2 al desentrañar enigmas.</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>condescending</id>
+            <name>
+                <en>Condescending</en>
+                <es>Condescendiente</es>
+            </name>
+            <description>
+                <en>-2 Presence among the unenlightened.</en>
+                <es>Presencia -2 entre los no iluminados.</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>dreamtender</calling>
+        </favoredCallings>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>gleaningsOfVenLohji</id>
                         <type>item</type>
                     </item>
                 </options>
@@ -4338,7 +6014,7 @@
                 <total>1</total>
                 <options>
                     <item>
-                        <id>choraliHymnalBook</id>
+                        <id>hymnalBook</id>
                         <type>item</type>
                     </item>
                 </options>
@@ -4519,7 +6195,7 @@
                 <total>1</total>
                 <options>
                     <item>
-                        <id>hesychastRelic</id>
+                        <id>blessedRelic</id>
                         <type>item</type>
                     </item>
                 </options>
@@ -4704,7 +6380,7 @@
                 <total>1</total>
                 <options>
                     <item>
-                        <id>incarnateNotes</id>
+                        <id>secretCodeNotes</id>
                         <type>item</type>
                     </item>
                 </options>
@@ -4909,7 +6585,7 @@
                 <total>1</total>
                 <options>
                     <item>
-                        <id>zuranityLibroEsperanza</id>
+                        <id>libroEsperanza</id>
                         <type>item</type>
                     </item>
                 </options>
@@ -5092,7 +6768,7 @@
                 <total>1</total>
                 <options>
                     <item>
-                        <id>gjartiPendant</id>
+                        <id>knottedWoodPendant</id>
                         <type>item</type>
                     </item>
                 </options>

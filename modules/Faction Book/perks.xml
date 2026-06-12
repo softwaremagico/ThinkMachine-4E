@@ -61,7 +61,9 @@
         <restrictions>
             <species>
                 <specie>oroym</specie>
-                <specie>hironem</specie>
+                <specie>hironemSibanzi</specie>
+                <specie>hironemKigazi</specie>
+                <specie>hironemKimmu</specie>
             </species>
         </restrictions>
     </perk>
@@ -146,6 +148,7 @@
                 <specie>tweaked</specie>
                 <specie>grimson</specie>
                 <specie>clone</specie>
+                <specie>metonym</specie>
             </species>
         </restrictions>
     </perk>
@@ -175,6 +178,7 @@
                 <specie>tweaked</specie>
                 <specie>grimson</specie>
                 <specie>clone</specie>
+                <specie>metonym</specie>
             </species>
         </restrictions>
     </perk>
@@ -226,6 +230,7 @@
                 <specie>tweaked</specie>
                 <specie>grimson</specie>
                 <specie>clone</specie>
+                <specie>metonym</specie>
             </species>
         </restrictions>
     </perk>
@@ -276,6 +281,7 @@
                 <specie>tweaked</specie>
                 <specie>grimson</specie>
                 <specie>clone</specie>
+                <specie>metonym</specie>
             </species>
         </restrictions>
     </perk>
@@ -319,6 +325,7 @@
                 <specie>tweaked</specie>
                 <specie>grimson</specie>
                 <specie>clone</specie>
+                <specie>metonym</specie>
             </species>
         </restrictions>
     </perk>
@@ -342,7 +349,223 @@
                 <specie>tweaked</specie>
                 <specie>grimson</specie>
                 <specie>clone</specie>
+                <specie>metonym</specie>
             </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>ozymandiasTeflonMesh</id>
+        <group>cyberdevice</group>
+        <name>
+            <en>Ozymandias Teflon Mesh</en>
+            <es>Malla de Teflón Ozymandias</es>
+        </name>
+        <description>
+            <en>Subcutaneous layers of highly resistant alloys across your torso, back, and upper legs increase your resistance to electricity, radiation, and acid, and let you tolerate a wider range of temperatures.</en>
+            <es>Capas subcutáneas de aleaciones muy resistentes a lo largo de tu torso, espalda y muslos aumentan tu resistencia a la electricidad, la radiación y el ácido, y te permiten tolerar un rango más amplio de temperaturas.</es>
+        </description>
+        <source>calling</source>
+        <type>cyberdevice</type>
+        <restrictions>
+            <callings>
+                <calling>cyborg</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>ozymandiasTorsoMesh</id>
+        <group>cyberdevice</group>
+        <name>
+            <en>Ozymandias Torso Mesh</en>
+            <es>Malla de Torso Ozymandias</es>
+        </name>
+        <description>
+            <en>Your skin hides a second layer of metallic mesh underneath it. Externally your appearance doesn't change, but internally you gain extra protection against crude forms of weapon damage.</en>
+            <es>Tu piel oculta debajo una segunda capa de malla metálica. Externamente tu aspecto no cambia, pero internamente ganas protección adicional contra formas rudimentarias de daño por arma.</es>
+        </description>
+        <source>calling</source>
+        <type>cyberdevice</type>
+        <restrictions>
+            <callings>
+                <calling>cyborg</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>circeLitheWire</id>
+        <group>cyberdevice</group>
+        <name>
+            <en>Circe Lithe Wire</en>
+            <es>Alambre Ágil Circe</es>
+        </name>
+        <description>
+            <en>Synthetic muscle grafts boost the reaction time of your arm and leg muscles, giving you swift reactions to danger and increasing your ability to deflect and dodge.</en>
+            <es>Injertos de músculo sintético mejoran el tiempo de reacción de los músculos de tus brazos y piernas, dándote reacciones veloces ante el peligro y aumentando tu capacidad de desviar y esquivar.</es>
+        </description>
+        <source>calling</source>
+        <type>cyberdevice</type>
+        <restrictions>
+            <callings>
+                <calling>cyborg</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>circeSpryStim</id>
+        <group>cyberdevice</group>
+        <name>
+            <en>Circe Spry-Stim</en>
+            <es>Spry-Stim Circe</es>
+        </name>
+        <description>
+            <en>Synthetic muscle and nerve implants provide hair-trigger reflexes when danger is near.</en>
+            <es>Implantes de músculo y nervio sintéticos proporcionan reflejos a flor de piel cuando el peligro está cerca.</es>
+        </description>
+        <source>calling</source>
+        <type>cyberdevice</type>
+        <restrictions>
+            <callings>
+                <calling>cyborg</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>jorgensonSubcutaneousCavity</id>
+        <group>cyberdevice</group>
+        <name>
+            <en>Jorgenson's Subcutaneous Cavity</en>
+            <es>Cavidad Subcutánea de Jorgenson</es>
+        </name>
+        <description>
+            <en>You've replaced some of your internal organs with smaller synthetic substitutes, freeing up a chamber where your left lung used to be.</en>
+            <es>Has reemplazado algunos de tus órganos internos por sustitutos sintéticos más pequeños, liberando una cámara donde antes estaba tu pulmón izquierdo.</es>
+        </description>
+        <source>calling</source>
+        <type>cyberdevice</type>
+        <restrictions>
+            <callings>
+                <calling>cyborg</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>ozymandiasDeepLung</id>
+        <group>cyberdevice</group>
+        <name>
+            <en>Ozymandias Deep Lung</en>
+            <es>Pulmón Profundo Ozymandias</es>
+        </name>
+        <description>
+            <en>You can store an internal supply of oxygen, allowing you to breathe for an extended time, even while floating in a vacuum or submerged in liquid.</en>
+            <es>Puedes almacenar una reserva interna de oxígeno que te permite respirar durante un tiempo prolongado, incluso flotando en el vacío o sumergido en líquido.</es>
+        </description>
+        <source>calling</source>
+        <type>cyberdevice</type>
+        <restrictions>
+            <callings>
+                <calling>cyborg</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>prometheanLumbarLifts</id>
+        <group>cyberdevice</group>
+        <name>
+            <en>Promethean Lumbar Lifts</en>
+            <es>Refuerzos Lumbares Prometeicos</es>
+        </name>
+        <description>
+            <en>Reinforced metallic implants in your arms, lower back, and legs increase the amount of weight you can lift. As an added benefit, you are strong enough to bend metal or crush organic creatures in a steel-vise bear hug.</en>
+            <es>Implantes metálicos reforzados en tus brazos, zona lumbar y piernas aumentan la cantidad de peso que puedes levantar. Como ventaja añadida, eres lo bastante fuerte como para doblar metal o aplastar criaturas orgánicas con un abrazo de oso como un torno de acero.</es>
+        </description>
+        <source>calling</source>
+        <type>cyberdevice</type>
+        <restrictions>
+            <callings>
+                <calling>cyborg</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>tarstonEtyriEye</id>
+        <group>cyberdevice</group>
+        <name>
+            <en>Tarston Etyri Eye</en>
+            <es>Ojo Etyri Tarston</es>
+        </name>
+        <description>
+            <en>You've replaced one of your eyes with a simulacrum that lets you focus on a specific distant or fast-moving target and coordinates with implants in both hands to align your aim. You're a crack shot with a ranged weapon in either or both hands.</en>
+            <es>Has reemplazado uno de tus ojos por un simulacro que te permite enfocar un objetivo lejano o que se mueve rápido y se coordina con implantes en ambas manos para alinear tu puntería. Eres un tirador excelente con un arma a distancia en una o ambas manos.</es>
+        </description>
+        <source>calling</source>
+        <type>cyberdevice</type>
+        <restrictions>
+            <callings>
+                <calling>cyborg</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>smithShivSleeve</id>
+        <group>cyberdevice</group>
+        <name>
+            <en>Smith &amp; Smith Shiv Sleeve</en>
+            <es>Funda de Pincho Smith &amp; Smith</es>
+        </name>
+        <description>
+            <en>A surgeon has replaced muscle tissue inside one of your fingers, arms, or toes with thinner synthetic substitutes, providing room to implant a concealed melee weapon — usually a dagger or sword. You're very precise with that weapon.</en>
+            <es>Un cirujano ha reemplazado tejido muscular dentro de uno de tus dedos, brazos o dedos del pie por sustitutos sintéticos más finos, dejando espacio para implantar un arma cuerpo a cuerpo oculta, normalmente una daga o espada. Eres muy preciso con esa arma.</es>
+        </description>
+        <source>calling</source>
+        <type>cyberdevice</type>
+        <restrictions>
+            <callings>
+                <calling>cyborg</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>smithShadowEye</id>
+        <group>cyberdevice</group>
+        <name>
+            <en>Smith &amp; Smith Shadow Eye</en>
+            <es>Ojo Sombra Smith &amp; Smith</es>
+        </name>
+        <description>
+            <en>Surgeons have replaced one of your eyes with an artificial simulacrum; you can still see with it. When activated, it also lets you see with infrared and ultraviolet night vision.</en>
+            <es>Los cirujanos han reemplazado uno de tus ojos por un simulacro artificial; aún puedes ver con él. Al activarlo, también te permite ver con visión nocturna infrarroja y ultravioleta.</es>
+        </description>
+        <source>calling</source>
+        <type>cyberdevice</type>
+        <restrictions>
+            <callings>
+                <calling>cyborg</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>pandoranDataInterface</id>
+        <group>cyberdevice</group>
+        <name>
+            <en>Pandoran Data Interface</en>
+            <es>Interfaz de Datos Pandorana</es>
+        </name>
+        <description>
+            <en>You've got a think machine implanted near the base of your brain.</en>
+            <es>Tienes una máquina pensante implantada cerca de la base de tu cerebro.</es>
+        </description>
+        <source>calling</source>
+        <type>cyberdevice</type>
+        <restrictions mode="all">
+            <callings>
+                <calling>cyborg</calling>
+            </callings>
+            <skills>
+                <skill>
+                    <name>interface</name>
+                    <value>1</value>
+                </skill>
+            </skills>
         </restrictions>
     </perk>
 </perks>

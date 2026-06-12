@@ -25,12 +25,20 @@ package com.softwaremagico.tm.factory;
  */
 
 import com.softwaremagico.tm.file.modules.ModuleManager;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 public abstract class FactoryTest {
 
     @BeforeClass
     public void enableBasicModule() {
+        ModuleManager.disableModule(ModuleManager.FACTION_BOOK_MODULE);
+        ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+        ModuleManager.resetModules();
+    }
+
+    @AfterClass(alwaysRun = true)
+    public void restoreBasicModule() {
         ModuleManager.disableModule(ModuleManager.FACTION_BOOK_MODULE);
         ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
         ModuleManager.resetModules();

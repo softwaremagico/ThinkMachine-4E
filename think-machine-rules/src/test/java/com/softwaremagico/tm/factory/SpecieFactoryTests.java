@@ -33,10 +33,20 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.Objects;
+import com.softwaremagico.tm.file.modules.ModuleManager;
+import org.testng.annotations.BeforeClass;
 
 @Test(groups = {"raceFactory"})
 public class SpecieFactoryTests extends FactoryTest {
-    private static final int DEFINED_SPECIES = 4;
+    @Override
+    @BeforeClass
+    public void enableBasicModule() {
+        ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
+        ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+        ModuleManager.resetModules();
+    }
+
+    private static final int DEFINED_SPECIES = 20;
 
 
     @Test

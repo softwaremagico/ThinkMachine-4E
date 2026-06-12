@@ -6,7 +6,7 @@ Características: Fuerza 4, Destreza 6, Constitución 6, Inteligencia 6, Percepc
 
 Habilidades: Academia (6), Arte (4), Conducir (4), Cuerpo a Cuerpo (5), Disparar (5), Encanto (7), Impresionar (6), Introspección (5), Vigor (5).
 
-Competencias: Armas Militares, Armas de Energía, Arquitectura, Hablar (Urthés), Leer (Urthés), Monta, Pintura, Saber Planetario (Sutek), Saber de Facción (Hawkwood), Usos de la Corte, Vehículos de Guerra.
+Competencias: Armas Militares, Armas de Energía, Hablar (Urthés), Leer (Urthés), Monta, Pintura, Saber Planetario (Sutek), Saber de Facción (Hawkwood), Usos de la Corte, Vehículos de Guerra.
 
 Beneficios: Ambidiestro, Contacto (¿Quién?), Imperioso, Título Nobiliario (Caballero).
 

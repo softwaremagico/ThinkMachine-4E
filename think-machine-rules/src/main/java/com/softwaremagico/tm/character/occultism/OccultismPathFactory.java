@@ -50,6 +50,15 @@ public final class OccultismPathFactory extends XmlFactory<OccultismPath> {
         return OccultismPathFactoryInit.INSTANCE;
     }
 
+    @Override
+    public void reset() {
+        super.reset();
+        this.occultismPaths = null;
+        this.psiPaths.clear();
+        this.psiPowers.clear();
+        this.theurgyPaths.clear();
+        this.theurgyPowers.clear();
+    }
 
     @Override
     public String getXmlFile() {
@@ -58,93 +67,93 @@ public final class OccultismPathFactory extends XmlFactory<OccultismPath> {
 
     @Override
     public List<OccultismPath> getElements() throws InvalidXmlElementException {
-        return readXml(OccultismPath.class);
+        return this.readXml(OccultismPath.class);
     }
 
     @Override
     public List<OccultismPath> readXml(Class<OccultismPath> entityClass) throws InvalidXmlElementException {
-        if (occultismPaths == null) {
-            occultismPaths = super.readXml(entityClass);
-            //Update power values related to some rites.
-            occultismPaths.forEach(occultismPath ->
-                    occultismPath.getOccultismPowersElements().forEach(occultismPower -> {
+        if (this.occultismPaths == null) {
+            this.occultismPaths = super.readXml(entityClass);
+            // Update power values related to some rites.
+            this.occultismPaths
+                    .forEach(occultismPath -> occultismPath.getOccultismPowersElements().forEach(occultismPower -> {
                         occultismPower.copyRestrictions(occultismPath);
                         occultismPower.setOfficial(occultismPath.isOfficial());
                     }));
         }
-        return occultismPaths;
+        return this.occultismPaths;
     }
 
     public OccultismPath getOccultismPath(OccultismPower power) {
         try {
-            for (final OccultismPath occultismPath : getElements()) {
+            for (final OccultismPath occultismPath : this.getElements()) {
                 if (occultismPath.getOccultismPowers().containsKey(power.getId())) {
                     return occultismPath;
                 }
             }
-        } catch (InvalidXmlElementException e) {
+        } catch (final InvalidXmlElementException e) {
             MachineXmlReaderLog.errorMessage(this.getClass().getName(), e);
         }
         return null;
     }
 
     public List<OccultismPath> getPsiPaths() {
-        if (psiPaths.isEmpty()) {
+        if (this.psiPaths.isEmpty()) {
             try {
-                for (final OccultismPath path : getElements()) {
+                for (final OccultismPath path : this.getElements()) {
                     if (OccultismTypeFactory.getPsi() != null
                             && Objects.equals(path.getOccultismType(), OccultismTypeFactory.getPsi().getId())) {
-                        psiPaths.add(path);
+                        this.psiPaths.add(path);
                     }
 
                 }
-            } catch (InvalidXmlElementException e) {
+            } catch (final InvalidXmlElementException e) {
                 MachineXmlReaderLog.errorMessage(this.getClass().getName(), e);
             }
         }
-        return Collections.unmodifiableList(psiPaths);
+        return Collections.unmodifiableList(this.psiPaths);
     }
 
     public List<OccultismPower> getPsiPowers() {
-        if (psiPowers.isEmpty()) {
+        if (this.psiPowers.isEmpty()) {
             try {
-                for (final OccultismPath path : getPsiPaths()) {
-                    psiPowers.addAll(path.getOccultismPowersElements());
+                for (final OccultismPath path : this.getPsiPaths()) {
+                    this.psiPowers.addAll(path.getOccultismPowersElements());
                 }
-            } catch (InvalidXmlElementException e) {
+            } catch (final InvalidXmlElementException e) {
                 MachineXmlReaderLog.errorMessage(this.getClass().getName(), e);
             }
         }
-        return Collections.unmodifiableList(psiPowers);
+        return Collections.unmodifiableList(this.psiPowers);
     }
 
     public List<OccultismPath> getTheurgyPaths() {
-        if (theurgyPaths.isEmpty()) {
+        if (this.theurgyPaths.isEmpty()) {
             try {
-                for (final OccultismPath path : getElements()) {
+                for (final OccultismPath path : this.getElements()) {
                     if (OccultismTypeFactory.getTheurgy() != null
                             && Objects.equals(path.getOccultismType(), OccultismTypeFactory.getTheurgy().getId())) {
-                        theurgyPaths.add(path);
+                        this.theurgyPaths.add(path);
                     }
 
                 }
-            } catch (InvalidXmlElementException e) {
+            } catch (final InvalidXmlElementException e) {
                 MachineXmlReaderLog.errorMessage(this.getClass().getName(), e);
             }
         }
-        return Collections.unmodifiableList(theurgyPaths);
+        return Collections.unmodifiableList(this.theurgyPaths);
     }
 
     public List<OccultismPower> getTheurgyPowers() {
-        if (theurgyPowers.isEmpty()) {
+        if (this.theurgyPowers.isEmpty()) {
             try {
-                for (final OccultismPath path : getTheurgyPaths()) {
-                    theurgyPowers.addAll(path.getOccultismPowersElements());
+                for (final OccultismPath path : this.getTheurgyPaths()) {
+                    this.theurgyPowers.addAll(path.getOccultismPowersElements());
                 }
-            } catch (InvalidXmlElementException e) {
+            } catch (final InvalidXmlElementException e) {
                 MachineXmlReaderLog.errorMessage(this.getClass().getName(), e);
             }
         }
-        return Collections.unmodifiableList(theurgyPowers);
+        return Collections.unmodifiableList(this.theurgyPowers);
     }
 }

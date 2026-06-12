@@ -30,11 +30,20 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicName;
 import com.softwaremagico.tm.character.occultism.OccultismPathFactory;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.exceptions.UnofficialElementNotAllowedException;
+import com.softwaremagico.tm.file.modules.ModuleManager;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 
 @Test(groups = "psychicCreation")
 public class PsychicCreationTests {
+
+    @BeforeClass
+    public void enableBasicModule() {
+        ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
+        ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+        ModuleManager.resetModules();
+    }
 
     @Test
     public void psychicPowersNeedsPsychicCalling() {

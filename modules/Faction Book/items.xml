@@ -13,18 +13,6 @@
         </description>
     </equipment>
     <equipment>
-        <id>masterworkSpear</id>
-        <type>item</type>
-        <name>
-            <en>Masterwork Axe</en>
-            <es>Lanza calidad maestra</es>
-        </name>
-        <description>
-            <en>+1 goal.</en>
-            <es>+1 meta.</es>
-        </description>
-    </equipment>
-    <equipment>
         <id>masterworkSword</id>
         <type>item</type>
         <name>
@@ -40,20 +28,8 @@
         <id>masterworkSpear</id>
         <type>item</type>
         <name>
-            <en>Masterwork Axe</en>
+            <en>Masterwork Spear</en>
             <es>Lanza calidad maestra</es>
-        </name>
-        <description>
-            <en>+1 goal.</en>
-            <es>+1 meta.</es>
-        </description>
-    </equipment>
-    <equipment>
-        <id>masterworkSword</id>
-        <type>item</type>
-        <name>
-            <en>Masterwork Sword</en>
-            <es>Espada calidad maestra</es>
         </name>
         <description>
             <en>+1 goal.</en>
@@ -102,10 +78,10 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>keddahTravelPavilion</id>
+        <id>pocketPavilion</id>
         <type>item</type>
         <name>
-            <en>Pocket pavilion</en>
+            <en>Pocket Pavilion</en>
             <es>Pabellón de bolsillo</es>
         </name>
         <description>
@@ -141,11 +117,11 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>ramakrishnaHandOfHamut</id>
+        <id>handOfHamut</id>
         <type>item</type>
         <name>
             <en>Hand of Hamut</en>
-            <es>Bloodstone</es>
+            <es>Mano de Hamut</es>
         </name>
         <description>
             <en>Finger-ring device; one-use — single activation — standard energy shield; can be recharged after use over a 6-hour period
@@ -166,7 +142,7 @@
         <id>cybersympathySurgery</id>
         <type>item</type>
         <name>
-            <en>Cybersympathy surgery</en>
+            <en>Cybersympathy Surgery</en>
             <es>Cirugía de cibersimpatía</es>
         </name>
         <description>
@@ -200,7 +176,7 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>torensonDataSlate</id>
+        <id>nobleRoster</id>
         <type>item</type>
         <name>
             <en>Noble Roster</en>
@@ -236,15 +212,15 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>vanGelderCreditChip</id>
+        <id>sunsetSerpentBladePoison</id>
         <type>item</type>
         <name>
             <en>Sunset Serpent Blade Poison</en>
             <es>Veneno de Hoja Serpiente del Atardecer</es>
         </name>
         <description>
-            <en>so called due to its ability to temporarily blind opponents for 1 scene; must inflict at least 1 dmg with coated blade; one vial is good for five uses</en>
-            <es>llamado así por su capacidad para cegar temporalmente a los oponentes durante 1 escena; debe infligir al menos 1 dmg con la hoja recubierta; un vial es bueno para cinco usos</es>
+            <en>So called due to its ability to temporarily blind opponents for 1 scene; must inflict at least 1 dmg with coated blade; one vial is good for five uses</en>
+            <es>Llamado así por su capacidad para cegar temporalmente a los oponentes durante 1 escena; debe infligir al menos 1 dmg con la hoja recubierta; un vial es bueno para cinco usos</es>
         </description>
         <techLevel>5</techLevel>
         <size>XS</size>
@@ -259,7 +235,7 @@
         <type>item</type>
         <name>
             <en>Xanthippe Muse Pendant</en>
-            <es>Pendiente Musa Xanthippe</es>
+            <es>Colgante de la Musa Xanthippe</es>
         </name>
         <description>
             <en>TL4 device that provides +1 goal on Arts rolls; can be used to inspire others.</en>
@@ -274,7 +250,7 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>elixirFormula</id>
+        <id>secretFormula</id>
         <type>item</type>
         <name>
             <en>Secret Formula</en>
@@ -293,7 +269,7 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>rareBrew</id>
+        <id>rareAgedBrew</id>
         <type>item</type>
         <name>
             <en>Rare Aged Brew</en>
@@ -312,7 +288,7 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>bureaucratSealStamp</id>
+        <id>officialBureaucratSealStamp</id>
         <type>item</type>
         <name>
             <en>Official Bureaucrat's Seal Stamp</en>
@@ -331,7 +307,7 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>carnivalerTravelsCloak</id>
+        <id>colorfulCarnivalCloak</id>
         <type>item</type>
         <name>
             <en>Colorful Carnival Cloak</en>
@@ -350,7 +326,7 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>courtesanElegantMask</id>
+        <id>elegantCourtesanMask</id>
         <type>item</type>
         <name>
             <en>Elegant Courtesan's Mask</en>
@@ -369,7 +345,7 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>gourmandRareSeasoning</id>
+        <id>exoticRareSeasoningCollection</id>
         <type>item</type>
         <name>
             <en>Exotic Rare Seasoning Collection</en>
@@ -388,7 +364,7 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>masqueIdentityKit</id>
+        <id>masterDisguiseIdentityKit</id>
         <type>item</type>
         <name>
             <en>Master Disguise Identity Kit</en>
@@ -426,7 +402,7 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>performerCostume</id>
+        <id>masterPerformerCostume</id>
         <type>item</type>
         <name>
             <en>Master Performer's Costume</en>
@@ -445,7 +421,7 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>tutorAncientText</id>
+        <id>ancientRareManuscript</id>
         <type>item</type>
         <name>
             <en>Ancient Rare Manuscript</en>
@@ -464,7 +440,7 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>wranglerBeastRein</id>
+        <id>reinforcedBeastControlRein</id>
         <type>item</type>
         <name>
             <en>Reinforced Beast Control Rein</en>
@@ -483,18 +459,18 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>promoterMaterials</id>
+        <id>acclaimer</id>
         <type>item</type>
         <name>
-            <en>Promotional Materials</en>
-            <es>Materiales Promocionales</es>
+            <en>Acclaimer</en>
+            <es>Aclamador</es>
         </name>
         <description>
-            <en>A collection of banners, flyers, and other promotional items to help advertise events or products.</en>
-            <es>Una colección de pancartas, folletos y otros materiales promocionales para ayudar a anunciar eventos o productos.</es>
+            <en>TL5 curio, handheld or headset; a voice amplifier that also lets the user alter their voice and play a variety of preprogrammed sounds.</en>
+            <es>Curio TL5, de mano o tipo auricular; amplificador de voz que también permite alterar la voz del usuario y reproducir una variedad de sonidos preprogramados.</es>
         </description>
-        <techLevel>1</techLevel>
-        <size>M</size>
+        <techLevel>5</techLevel>
+        <size>S</size>
         <restrictions>
             <factions>
                 <faction>promoters</faction>
@@ -502,7 +478,7 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>trusnikronTrainedPet</id>
+        <id>trainedSmallPet</id>
         <type>item</type>
         <name>
             <en>Trained Small Pet</en>
@@ -521,17 +497,17 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>prospectorTools</id>
+        <id>plasmaMattock</id>
         <type>item</type>
         <name>
-            <en>Prospector's Tools</en>
-            <es>Herramientas de Prospector</es>
+            <en>Plasma Mattock</en>
+            <es>Mattock de Plasma</es>
         </name>
         <description>
-            <en>A set of specialized tools for mining and prospecting, including picks, hammers, and assay kits.</en>
-            <es>Un conjunto de herramientas especializadas para la minería y prospección, incluyendo picos, martillos y kits de ensayo.</es>
+            <en>TL6 device: a blunt, medium-sized metal spatula that superheats when deployed, allowing it to ignore material Resistance while carving minerals and metals.</en>
+            <es>Dispositivo TL6: una espátula metálica roma de tamaño mediano que se sobrecalienta al desplegarse, permitiéndole ignorar la Resistencia de materiales al tallar minerales y metales.</es>
         </description>
-        <techLevel>2</techLevel>
+        <techLevel>6</techLevel>
         <size>M</size>
         <restrictions>
             <factions>
@@ -540,17 +516,17 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>purgersRelic</id>
+        <id>portableIncinerator</id>
         <type>item</type>
         <name>
-            <en>Purger's Relic</en>
-            <es>Reliquia de Purgador</es>
+            <en>Portable Incinerator</en>
+            <es>Incinerador Portátil</es>
         </name>
         <description>
-            <en>A sacred relic used in purification rituals, providing +1 goal on Faith rolls related to exorcism or purification.</en>
-            <es>Una reliquia sagrada usada en rituales de purificación, proporcionando +1 meta en tiradas de Fe relacionadas con exorcismo o purificación.</es>
+            <en>TL5 curio; this miniature furnace allows the user to quickly reduce anything one cubic inch or smaller into vapor.</en>
+            <es>Curio TL5; este horno en miniatura permite al usuario reducir rápidamente a vapor cualquier cosa de una pulgada cúbica o menor.</es>
         </description>
-        <techLevel>1</techLevel>
+        <techLevel>5</techLevel>
         <size>S</size>
         <restrictions>
             <factions>
@@ -559,18 +535,37 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>slayerTrophy</id>
+        <id>shimmercloak</id>
         <type>item</type>
         <name>
-            <en>Slayer's Trophy</en>
-            <es>Trofeo de Asesino</es>
+            <en>Shimmercloak</en>
+            <es>Capa Centelleante</es>
         </name>
         <description>
-            <en>A trophy from a defeated foe, such as a tooth or claw, that serves as a reminder of past victories and provides +1 goal on Intimidate rolls.</en>
-            <es>Un trofeo de un enemigo derrotado, como un diente o garra, que sirve como recordatorio de victorias pasadas y proporciona +1 meta en tiradas de Intimidar.</es>
+            <en>TL6 device: +2 goal to Sneak hide maneuvers.</en>
+            <es>Dispositivo TL6: +2 a la meta en maniobras de ocultarse con Sigilo.</es>
         </description>
-        <techLevel>1</techLevel>
+        <techLevel>6</techLevel>
         <size>S</size>
+        <restrictions>
+            <factions>
+                <faction>slayers</faction>
+            </factions>
+        </restrictions>
+    </equipment>
+    <equipment>
+        <id>stonefoot</id>
+        <type>item</type>
+        <name>
+            <en>Stonefoot</en>
+            <es>Pie de Piedra</es>
+        </name>
+        <description>
+            <en>Blade poison (10 one-use doses); on a successful attack, it inflicts the Hindered state.</en>
+            <es>Veneno para hoja (10 dosis de un solo uso); con un ataque exitoso, inflige el estado Entorpecido.</es>
+        </description>
+        <techLevel>5</techLevel>
+        <size>XS</size>
         <restrictions>
             <factions>
                 <faction>slayers</faction>
@@ -597,17 +592,17 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>townCrierBell</id>
+        <id>mojoRecorder</id>
         <type>item</type>
         <name>
-            <en>Town Crier's Bell</en>
-            <es>Campana de Pregonero</es>
+            <en>Mojo Recorder</en>
+            <es>Grabadora Mojo</es>
         </name>
         <description>
-            <en>A loud bell used to announce news and gather crowds, providing +1 goal on Impress rolls when making public announcements.</en>
-            <es>Una campana ruidosa usada para anunciar noticias y reunir multitudes, proporcionando +1 meta en tiradas de Impresionar cuando se hacen anuncios públicos.</es>
+            <en>TL5 simple think machine: records audio and transcribes speech to text, uploading to any planetary Town Crier datanet cache (or storing it until connection).</en>
+            <es>Máquina pensante simple TL5: graba audio y transcribe voz a texto, subiéndolo a cualquier caché de datanet de Pregoneros del planeta (o guardándolo hasta tener conexión).</es>
         </description>
-        <techLevel>1</techLevel>
+        <techLevel>5</techLevel>
         <size>S</size>
         <restrictions>
             <factions>
@@ -616,17 +611,17 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>weaponsmithHammer</id>
+        <id>masterworkWeapon</id>
         <type>item</type>
         <name>
-            <en>Weaponsmith's Hammer</en>
-            <es>Martillo de Forjador de Armas</es>
+            <en>Masterwork Weapon</en>
+            <es>Arma de Calidad Maestra</es>
         </name>
         <description>
-            <en>A specialized hammer for forging weapons, providing +1 goal on Crafts rolls when creating or repairing weapons.</en>
-            <es>Un martillo especializado para forjar armas, proporcionando +1 meta en tiradas de Artesanía cuando se crean o reparan armas.</es>
+            <en>A masterwork weapon (+1 goal), crafted by you.</en>
+            <es>Un arma de calidad maestra (+1 meta), fabricada por ti.</es>
         </description>
-        <techLevel>2</techLevel>
+        <techLevel>3</techLevel>
         <size>S</size>
         <restrictions>
             <factions>
@@ -635,17 +630,17 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>wordwrightQuill</id>
+        <id>mojoPaper</id>
         <type>item</type>
         <name>
-            <en>Wordwright's Quill</en>
-            <es>Pluma de Escritor de Palabras</es>
+            <en>Mojo Paper</en>
+            <es>Papel Mojo</es>
         </name>
         <description>
-            <en>A magical quill that enhances writing, providing +1 goal on Arts rolls related to writing or calligraphy.</en>
-            <es>Una pluma mágica que mejora la escritura, proporcionando +1 meta en tiradas de Artes relacionadas con escritura o caligrafía.</es>
+            <en>TL5 simple think machine: a single sheet of synthpaper that can be written on repeatedly, saving all pages and uploading them to most datanets.</en>
+            <es>Máquina pensante simple TL5: una hoja de sintopapel que puede escribirse repetidamente, guardando todas sus páginas y subiéndolas a la mayoría de datanets.</es>
         </description>
-        <techLevel>3</techLevel>
+        <techLevel>5</techLevel>
         <size>XS</size>
         <restrictions>
             <factions>
@@ -654,7 +649,7 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>choraliHymnalBook</id>
+        <id>hymnalBook</id>
         <type>item</type>
         <name>
             <en>Hymnal Book</en>
@@ -671,7 +666,7 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>hesychastRelic</id>
+        <id>blessedRelic</id>
         <type>item</type>
         <name>
             <en>Blessed Relic</en>
@@ -688,7 +683,7 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>incarnateNotes</id>
+        <id>secretCodeNotes</id>
         <type>item</type>
         <name>
             <en>Secret Code Notes</en>
@@ -705,15 +700,15 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>preceptorLibrary</id>
+        <id>portableLibrary</id>
         <type>item</type>
         <name>
             <en>Portable Library</en>
             <es>Biblioteca Portátil</es>
         </name>
         <description>
-            <en>Library (TL7 handheld simple think machine; designed to interface with and download the information contained in practically any repository of data)</en>
-            <es>Biblioteca (máquina pensante simple portátil TL7; diseñada para interconectar y descargar la información contenida en prácticamente cualquier repositorio de datos)</es>
+            <en>TL7 handheld simple think machine; designed to interface with and download the information contained in practically any repository of data.</en>
+            <es>Máquina pensante simple portátil TL7; diseñada para interconectar y descargar la información contenida en prácticamente cualquier repositorio de datos.</es>
         </description>
         <techLevel>7</techLevel>
         <size>S</size>
@@ -724,7 +719,7 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>voavenlohjunGleanings</id>
+        <id>gleaningsOfVenLohji</id>
         <type>item</type>
         <name>
             <en>The Gleanings of Ven Lohji</en>
@@ -741,10 +736,10 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>zuranityLibroEsperanza</id>
+        <id>libroEsperanza</id>
         <type>item</type>
         <name>
-            <en>Libro Esperanza</en>
+            <en>Book of Hope</en>
             <es>Libro Esperanza</es>
         </name>
         <description>
@@ -758,15 +753,15 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>gjartiPendant</id>
+        <id>knottedWoodPendant</id>
         <type>item</type>
         <name>
             <en>Knotted Wood Pendant</en>
-            <es>Pendiente de Madera Anudada</es>
+            <es>Colgante de Madera Anudada</es>
         </name>
         <description>
             <en>You have a pendant of knotted wood identifying your priestly rank (+1 Survival when lost in the wilderness).</en>
-            <es>Tienes un pendiente de madera anudada que identifica tu rango sacerdotal (+1 Supervivencia cuando estás perdido en el desierto).</es>
+            <es>Tienes un colgante de madera anudada que identifica tu rango sacerdotal (+1 Supervivencia cuando estás perdido en el desierto).</es>
         </description>
         <restrictions>
             <factions>

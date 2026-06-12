@@ -29,19 +29,40 @@ import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.perks.PerkSource;
 import com.softwaremagico.tm.character.perks.PerkType;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.file.modules.ModuleManager;
 import com.softwaremagico.tm.restrictions.RestrictionMode;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 
 @Test(groups = {"perkFactory"})
 public class PerkFactoryTests extends FactoryTest {
+    @Override
+    @BeforeClass
+    public void enableBasicModule() {
+        ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
+        ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+        ModuleManager.resetModules();
+    }
+
     private static final int DEFINED_PERKS = 320;
+    private static final int DEFINED_FACTION_BOOK_PERKS = 23;
 
 
     @Test
     public void readPerks() throws InvalidXmlElementException {
         Assert.assertEquals(PerkFactory.getInstance().getElements().size(),
-                DEFINED_PERKS);
+                DEFINED_PERKS + DEFINED_FACTION_BOOK_PERKS);
+    }
+
+    @Test(dependsOnMethods = "readPerks")
+    public void readPerksOnAllModules() throws InvalidXmlElementException {
+        ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
+        ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+        ModuleManager.resetModules();
+
+        Assert.assertEquals(PerkFactory.getInstance().getElements().size(),
+                DEFINED_PERKS + DEFINED_FACTION_BOOK_PERKS);
     }
 
     @Test

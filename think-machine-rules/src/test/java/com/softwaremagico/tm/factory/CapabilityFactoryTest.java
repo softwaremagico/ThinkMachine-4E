@@ -30,64 +30,73 @@ import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.file.modules.ModuleManager;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 @Test(groups = {"capabilityFactory"})
 public class CapabilityFactoryTest extends FactoryTest {
-    public static final int TOTAL_ELEMENTS = 75;
-    public static final int TOTAL_EXPANDED_ELEMENTS = 149;
+	@Override
+	@BeforeClass
+	public void enableBasicModule() {
+		ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
+		ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+		ModuleManager.resetModules();
+	}
 
-    @Test
-    public void checkTotalElements() throws InvalidXmlElementException {
-        Assert.assertEquals(CapabilityFactory.getInstance().getElements().size(),
-                TOTAL_ELEMENTS);
-    }
+	public static final int TOTAL_ELEMENTS = 75;
+	public static final int TOTAL_EXPANDED_ELEMENTS = 199;
 
-    @Test
-    public void relegionLoreIncludesTerthaAsSpecialization() {
-        ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
-        CapabilityFactory.getInstance().reset();
-        try {
-            Assert.assertNotNull(CapabilityFactory.getInstance().getElement("religionLore").getSpecialization("tertha"));
-        } finally {
-            ModuleManager.disableModule(ModuleManager.FACTION_BOOK_MODULE);
-            CapabilityFactory.getInstance().reset();
-        }
-    }
+	@Test
+	public void checkTotalElements() throws InvalidXmlElementException {
+		Assert.assertEquals(CapabilityFactory.getInstance().getElements().size(), TOTAL_ELEMENTS);
+	}
 
-    @Test
-    public void checkSpecializations() throws InvalidXmlElementException {
-        Assert.assertEquals(CapabilityFactory.getInstance().getElement("beastLore").getSpecializations().size(),
-                2);
-        Assert.assertFalse(CapabilityFactory.getInstance().getElement("speak").getSpecializations().isEmpty());
-    }
+	@Test
+	public void relegionLoreIncludesTerthaAsSpecialization() {
+		ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
+		CapabilityFactory.getInstance().reset();
+		try {
+			Assert.assertNotNull(
+					CapabilityFactory.getInstance().getElement("religionLore").getSpecialization("tertha"));
+		} finally {
+			ModuleManager.disableModule(ModuleManager.FACTION_BOOK_MODULE);
+			CapabilityFactory.getInstance().reset();
+		}
+	}
 
-    @Test
-    public void checkSpecializationRestriction() throws InvalidXmlElementException {
-        Assert.assertTrue(CapabilityFactory.getInstance().getElement("read").getSpecialization("urthtech")
-                .getRestrictions().isRequiredCapability("read", "urthish"));
-    }
+	@Test
+	public void checkSpecializations() throws InvalidXmlElementException {
+		Assert.assertEquals(CapabilityFactory.getInstance().getElement("beastLore").getSpecializations().size(), 2);
+		Assert.assertFalse(CapabilityFactory.getInstance().getElement("speak").getSpecializations().isEmpty());
+	}
 
+	@Test
+	public void checkSpecializationRestriction() throws InvalidXmlElementException {
+		Assert.assertTrue(CapabilityFactory.getInstance().getElement("read").getSpecialization("urthtech")
+				.getRestrictions().isRequiredCapability("read", "urthish"));
+	}
 
-    @Test
-    public void anyCharacterDefinitionRestrictionAllowed() {
-        CharacterPlayer characterPlayer = new CharacterPlayer();
-        characterPlayer.setSpecie("human");
-        characterPlayer.setUpbringing("merchant");
-        characterPlayer.setFaction("musters");
-        characterPlayer.setCalling("techRedeemer");
-        characterPlayer.getCalling().getSelectedCapabilityOptions().get(1).getSelections()
-                .add(new Selection(CapabilityFactory.getInstance().getElement("thinkMachines")));
-        Assert.assertFalse(CapabilityFactory.getInstance().getElement("artificialIntelligence").getRestrictions().isRestricted(characterPlayer));
-    }
+	@Test
+	public void anyCharacterDefinitionRestrictionAllowed() {
+		final CharacterPlayer characterPlayer = new CharacterPlayer();
+		characterPlayer.setSpecie("human");
+		characterPlayer.setUpbringing("merchant");
+		characterPlayer.setFaction("musters");
+		characterPlayer.setCalling("techRedeemer");
+		characterPlayer.getCalling().getSelectedCapabilityOptions().get(1).getSelections()
+				.add(new Selection(CapabilityFactory.getInstance().getElement("thinkMachines")));
+		Assert.assertFalse(CapabilityFactory.getInstance().getElement("artificialIntelligence").getRestrictions()
+				.isRestricted(characterPlayer));
+	}
 
-    @Test
-    public void anyCharacterDefinitionRestrictionRestricted() {
-        CharacterPlayer characterPlayer = new CharacterPlayer();
-        characterPlayer.setSpecie("human");
-        characterPlayer.setUpbringing("noble");
-        characterPlayer.setFaction("hawkwood");
-        characterPlayer.setCalling("spy");
-        Assert.assertTrue(CapabilityFactory.getInstance().getElement("artificialIntelligence").getRestrictions().isRestricted(characterPlayer));
-    }
+	@Test
+	public void anyCharacterDefinitionRestrictionRestricted() {
+		final CharacterPlayer characterPlayer = new CharacterPlayer();
+		characterPlayer.setSpecie("human");
+		characterPlayer.setUpbringing("noble");
+		characterPlayer.setFaction("hawkwood");
+		characterPlayer.setCalling("spy");
+		Assert.assertTrue(CapabilityFactory.getInstance().getElement("artificialIntelligence").getRestrictions()
+				.isRestricted(characterPlayer));
+	}
 }

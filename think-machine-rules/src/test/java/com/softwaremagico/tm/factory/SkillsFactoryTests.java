@@ -28,9 +28,19 @@ import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import com.softwaremagico.tm.file.modules.ModuleManager;
+import org.testng.annotations.BeforeClass;
 
 @Test(groups = {"skillFactory"})
 public class SkillsFactoryTests extends FactoryTest {
+    @Override
+    @BeforeClass
+    public void enableBasicModule() {
+        ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
+        ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+        ModuleManager.resetModules();
+    }
+
     private static final int TOTAL_SKILLS = 26;
 
     @Test
