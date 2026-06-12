@@ -1535,6 +1535,39 @@
         </perks>
         <random>
             <probabilityMultiplier>RARE</probabilityMultiplier>
+            <names>
+                <male>Oryn, Thaelor, Nymar, Vaelom, Koru, Shaelor, Tarym, Nerev, Oshal, Maroyn,
+                    Lethar, Vorym, Aroth, Sylaen, Thorym, Kaelor, Neyor, Ulym, Saro, Morvyn,
+                    Oryth, Vaesh, Talyor, Nymeth, Korym, Shaevor, Taren, Neroth, Oravel, Moryn,
+                    Lorym, Veshael, Arynor, Sylor, Tharen, Kaevyn, Neym, Ulor, Sarvyn, Morath,
+                    Orym, Thaevor, Neral, Vaelor, Korath, Shaoryn, Tathym, Nymor, Orel, Marath,
+                    Lethym, Voralen, Aroym, Sythor, Thalor, Kaesh, Neyth, Urym, Saroth, Moralen,
+                    Oshaen, Thaorym, Nyral, Vaethor, Koralen, Shaemor, Taryth, Neravyn, Oryndor, Moryth,
+                    Loraev, Voryth, Aralen, Sylaor, Thoryn, Kaelorin, Neymor, Ulaeth, Saralen, Moroym,
+                    Oryven, Thaeryn, Nymorin, Vaeloth, Koraen, Shaeloth, Tarenor, Neralym, Orathen, Marovyn
+                </male>
+                <female>Orya, Thaela, Nymira, Vaelora, Koraya, Shaela, Taryna, Neris, Oshala, Maroya,
+                    Lethira, Vorya, Arosha, Sylaena, Thorya, Kaelira, Neya, Ulyra, Saria, Moraya,
+                    Oryna, Vaesha, Talyra, Nymetha, Korya, Shaevira, Tarena, Nerotha, Oravela, Morya,
+                    Lorya, Veshaela, Aryna, Sylora, Tharena, Kaevira, Neyra, Ulora, Sarvya, Moratha,
+                    Oryma, Thaevira, Nerala, Vaelira, Koratha, Shaorya, Tathyra, Nymora, Orela, Maratha,
+                    Lethyra, Voralena, Aroya, Sytha, Thalira, Kaesha, Neytha, Urya, Sarotha, Moralena,
+                    Oshaena, Thaorya, Nyrala, Vaethira, Koralena, Shaemira, Tarytha, Neralya, Oryndra, Morytha,
+                    Loraeva, Vorytha, Aralena, Sylaora, Thoryna, Kaelorina, Neymora, Ulaetha, Saralena, Moroya,
+                    Oryvena, Thaerya, Nymorina, Vaelotha, Koraena, Shaelotha, Tarenora, Neralyma, Orathena, Marovya
+                </female>
+            </names>
+            <surnames>Talorym, Nerevath, Oshalen, Maroveth, Vaeloryn, Koralyth, Shaelorim, Tidememory, Deepcurrent,
+                Reefwhisper, Wavekeeper, Saltborne, Foamreader, Tidecaller, Shellwarden, Currentborn, Depthsinger,
+                Orymath, Thaelorin, Nymareth, Vorymal, Aroven, Sythalen, Kaelorym, Neyrath, Ulymnar, Saroveth,
+                Moralyth, Oshaelor, Tharym, Nerovath, Oralym, Marathen, Lethorym, Vaeshor, Koralym, Shaemath,
+                Tarenvyr, Nymorath, Orelvyn, Morathen, Loraevyn, Voralyth, Arathym, Syloren, Thaloryn, Kaevorath,
+                Neymoren, Ulaevath, Sarathym, Morovyr, Oryndath, Thaerym, Nyraleth, Vaelorath, Koraelyn, Shaelvyr,
+                Tarenoth, Neralym, Orathvyn, Marovyr, Lethalor, Voryneth, Arolym, Sythavyr, Thorymath, Kaelorvyn,
+                Neythalen, Urymath, Sarovyn, Moralen, Oshaevyr, Thaorath, Nymorveth, Vaethalen, Koralvyr,
+                Shaemorath, Tidalore, Deepgene, Warmreef, Seabloom, Brinesong, Kelpward, Coralwake, Mooncurrent,
+                Dawnshoal, Nighttide, Stormreef, Clearwater, Driftmemory, Sunshoal, Foamline, Riverreef, Shellcurrent
+            </surnames>
         </random>
     </oroym>
     <shantor>

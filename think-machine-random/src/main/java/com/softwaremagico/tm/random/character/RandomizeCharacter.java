@@ -36,7 +36,11 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import com.softwaremagico.tm.log.RandomGenerationLog;
 import com.softwaremagico.tm.random.character.callings.RandomCalling;
-import com.softwaremagico.tm.random.character.equipment.*;
+import com.softwaremagico.tm.random.character.equipment.RandomArmor;
+import com.softwaremagico.tm.random.character.equipment.RandomMeleeWeapon;
+import com.softwaremagico.tm.random.character.equipment.RandomRangeWeapon;
+import com.softwaremagico.tm.random.character.equipment.RandomShield;
+import com.softwaremagico.tm.random.character.equipment.RandomWeapon;
 import com.softwaremagico.tm.random.character.factions.RandomFaction;
 import com.softwaremagico.tm.random.character.level.RandomLevel;
 import com.softwaremagico.tm.random.character.names.RandomName;
@@ -50,7 +54,11 @@ import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.step.RandomCharacteristics;
 import com.softwaremagico.tm.random.step.RandomSkill;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
 public class RandomizeCharacter {
     private final CharacterPlayer characterPlayer;

@@ -115,7 +115,23 @@ public class Specie extends CharacterDefinitionStep {
     }
 
     public boolean isXeno() {
-        return !getId().equals("human");
+        return !usesHumanNames();
+    }
+
+    public boolean usesHumanNames() {
+        switch (getId()) {
+            case "human":
+            case "inhuman":
+            case "grimson":
+            case "metonym":
+            case "clone":
+            case "tweaked":
+            case "mutant":
+            case "animalized":
+                return true;
+            default:
+                return false;
+        }
     }
 
     public void setPlanets(String planetsContent) {

@@ -40,8 +40,10 @@ import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.preferences.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -73,7 +75,23 @@ public class RandomSurname extends RandomSelector<Surname> implements Assignable
         if (getCharacterPlayer().getInfo().getSurname() != null) {
             return;
         }
-        getCharacterPlayer().getInfo().setSurname(selectAnyElement());
+        final String specieId = getCharacterPlayer().getSpecie() != null ? getCharacterPlayer().getSpecie().getId() : null;
+        final boolean usesHumanNames = specieId == null || SpecieFactory.getInstance().getElement(specieId).usesHumanNames();
+        final List<Surname> fallbackSurnames = new ArrayList<>();
+        for (Surname surname : getAllElements()) {
+            if (usesHumanNames && surname.getSpecie() == null) {
+                fallbackSurnames.add(surname);
+            }
+            if (!usesHumanNames && Objects.equals(surname.getSpecie(), specieId)) {
+                fallbackSurnames.add(surname);
+            }
+        }
+
+        if (!fallbackSurnames.isEmpty()) {
+            getCharacterPlayer().getInfo().setSurname(fallbackSurnames.get(RANDOM.nextInt(fallbackSurnames.size())));
+        } else {
+            getCharacterPlayer().getInfo().setSurname(selectAnyElement());
+        }
     }
 
     @Override
@@ -88,16 +106,22 @@ public class RandomSurname extends RandomSelector<Surname> implements Assignable
     protected int getWeight(Surname surname) throws InvalidRandomElementSelectedException {
         //Xenos have different names.
         if (getCharacterPlayer().getSpecie() != null
-                && SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId()).isXeno()) {
+                && !SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId()).usesHumanNames()) {
             if (Objects.equals(surname.getSpecie(), getCharacterPlayer().getSpecie().getId())) {
                 return super.getWeight(surname);
             } else {
                 throw new InvalidRandomElementSelectedException("Surname '" + surname + "' is restricted to specie.");
             }
         }
+        if (getCharacterPlayer().getSpecie() != null
+                && SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId()).usesHumanNames()
+                && surname.getSpecie() != null
+                && !"human".equals(surname.getSpecie())) {
+            throw new InvalidRandomElementSelectedException("Surname '" + surname + "' is restricted to xeno species.");
+        }
         // Human nobility has faction as surname
         if (getCharacterPlayer().getSpecie() != null
-                && !SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie()).isXeno()
+                && SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie()).usesHumanNames()
                 && getCharacterPlayer().getFaction() != null
                 && FactionGroup.NOBLE.toString().equalsIgnoreCase(getCharacterPlayer().getFaction().getGroup())) {
             if (Objects.equals(surname.getSurname(), getCharacterPlayer().getFaction().getNameRepresentation())) {
