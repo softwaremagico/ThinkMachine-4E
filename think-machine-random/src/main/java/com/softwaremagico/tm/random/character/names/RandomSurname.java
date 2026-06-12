@@ -69,6 +69,14 @@ public class RandomSurname extends RandomSelector<Surname> implements Assignable
     }
 
     @Override
+    public void assignAny() throws InvalidSpecieException, InvalidRandomElementSelectedException {
+        if (getCharacterPlayer().getInfo().getSurname() != null) {
+            return;
+        }
+        getCharacterPlayer().getInfo().setSurname(selectAnyElement());
+    }
+
+    @Override
     protected Collection<Surname> getAllElements() {
         final Set<Surname> surnames = new HashSet<>();
         surnames.addAll(FactionFactory.getInstance().getAllSurnames());

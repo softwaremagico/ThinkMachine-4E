@@ -35,6 +35,7 @@ import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
 import java.util.Collection;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -362,6 +363,22 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         RandomSelectorLog.debug(this.getClass().getName(), "Selected element '" + selectedElement + "' from weighted elements '"
                 + getWeightedElements() + "'.");
         return selectedElement;
+    }
+
+    /**
+     * Select a random element without applying weighted filtering. This is intended
+     * for controlled fallbacks when contextual weighting produces no candidates.
+     */
+    public Element selectAnyElement() throws InvalidRandomElementSelectedException {
+        try {
+            final List<Element> availableElements = new ArrayList<>(getAllElements());
+            if (availableElements.isEmpty()) {
+                throw new InvalidRandomElementSelectedException("No elements to select");
+            }
+            return availableElements.get(RANDOM.nextInt(availableElements.size()));
+        } catch (InvalidXmlElementException e) {
+            throw new InvalidRandomElementSelectedException("No elements to select", e);
+        }
     }
 
     public void removeElementWeight(Element element) {

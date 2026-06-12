@@ -77,6 +77,14 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
     }
 
     @Override
+    public void assignAny() throws InvalidSpecieException, InvalidRandomElementSelectedException {
+        if (getCharacterPlayer().getInfo().getNames() != null && !getCharacterPlayer().getInfo().getNames().isEmpty()) {
+            return;
+        }
+        getCharacterPlayer().getInfo().addName(selectAnyElement());
+    }
+
+    @Override
     protected Collection<Name> getAllElements() throws InvalidXmlElementException {
         final Set<Name> names = new HashSet<>();
         names.addAll(FactionFactory.getInstance().getAllNames());
