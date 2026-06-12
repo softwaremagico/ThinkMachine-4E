@@ -37,6 +37,30 @@
         </description>
     </equipment>
     <equipment>
+        <id>masterworkSpear</id>
+        <type>item</type>
+        <name>
+            <en>Masterwork Axe</en>
+            <es>Lanza calidad maestra</es>
+        </name>
+        <description>
+            <en>+1 goal.</en>
+            <es>+1 meta.</es>
+        </description>
+    </equipment>
+    <equipment>
+        <id>masterworkSword</id>
+        <type>item</type>
+        <name>
+            <en>Masterwork Sword</en>
+            <es>Espada calidad maestra</es>
+        </name>
+        <description>
+            <en>+1 goal.</en>
+            <es>+1 meta.</es>
+        </description>
+    </equipment>
+    <equipment>
         <id>masterworkKnife</id>
         <type>item</type>
         <name>
@@ -231,16 +255,18 @@
         </restrictions>
     </equipment>
     <equipment>
-        <id>xanthippeMeasureGuidebook</id>
+        <id>xanthippeMusePendant</id>
         <type>item</type>
         <name>
-            <en>The Measure Guidebook</en>
-            <es>Guía de La Medida</es>
+            <en>Xanthippe Muse Pendant</en>
+            <es>Pendiente Musa Xanthippe</es>
         </name>
         <description>
-            <en>You have a book or data copy of The Measure guidebook. (Once per act, you can consult it as a primary action for one reroll on a failed non-combat roll.)</en>
-            <es>Tienes un libro o copia de datos de la guía de La Medida. (Una vez por acto, puedes consultarlo como acción principal para un reroll en una tirada fallida no de combate.)</es>
+            <en>TL4 device that provides +1 goal on Arts rolls; can be used to inspire others.</en>
+            <es>Dispositivo TL4 que proporciona +1 meta en tiradas de Artes; puede usarse para inspirar a otros.</es>
         </description>
+        <techLevel>4</techLevel>
+        <size>XS</size>
         <restrictions>
             <factions>
                 <faction>xanthippe</faction>
@@ -414,7 +440,7 @@
         <size>M</size>
         <restrictions>
             <factions>
-                <faction>performers</faction>
+                <faction>masque</faction>
             </factions>
         </restrictions>
     </equipment>
@@ -433,7 +459,7 @@
         <size>S</size>
         <restrictions>
             <factions>
-                <faction>tutors</faction>
+                <faction>pedagogues</faction>
             </factions>
         </restrictions>
     </equipment>
@@ -747,5 +773,19 @@
                 <faction>gjarti</faction>
             </factions>
         </restrictions>
+    </equipment>
+    <equipment>
+        <id>cyberneticRepairKit</id>
+        <type>item</type>
+        <name>
+            <en>Cybernetic Repair Kit</en>
+            <es>Kit de Reparación Cibernética</es>
+        </name>
+        <description>
+            <en>A set of specialized tools and components for maintaining, repairing, and tuning cybernetic device implants (used with the Tech Redemption skill).</en>
+            <es>Un conjunto de herramientas y componentes especializados para mantener, reparar y ajustar implantes de dispositivos cibernéticos (se usa con la habilidad Redención Tecnológica).</es>
+        </description>
+        <techLevel>6</techLevel>
+        <size>S</size>
     </equipment>
 </equipments>

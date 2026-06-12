@@ -46,7 +46,7 @@
                     <capability>
                         <id>speak</id>
                         <selectedSpecialization>
-                            <id>vuldrok</id>
+                            <id>vuldrish</id>
                         </selectedSpecialization>
                     </capability>
                 </options>
@@ -234,11 +234,8 @@
                 </options>
             </capabilitiesOption>
             <capabilitiesOption>
-                <total>1</total>
+                <total>2</total>
                 <options>
-                    <capability>
-                        <group>knowledgeLore</group>
-                    </capability>
                     <capability>
                         <group>knowledgeLore</group>
                     </capability>
@@ -596,14 +593,11 @@
                     <capability>
                         <id>speak</id>
                         <selectedSpecialization>
-                            <id>etyri</id>
+                            <id>etyrian</id>
                         </selectedSpecialization>
                     </capability>
                     <capability>
                         <id>xenoLore</id>
-                        <selectedSpecialization>
-                            <id>etyri</id>
-                        </selectedSpecialization>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -822,13 +816,19 @@
                         <group>meleeWeapons</group>
                     </capability>
                     <capability>
-                        <group>armor</group>
+                        <group>rangedWeapon</group>
+                    </capability>
+                    <capability>
+                        <group>militaryOrdnance</group>
+                    </capability>
+                    <capability>
+                        <group>transport</group>
+                    </capability>
+                    <capability>
+                        <id>thinkMachines</id>
                     </capability>
                     <capability>
                         <id>xenoLore</id>
-                        <selectedSpecialization>
-                            <id>symbiot</id>
-                        </selectedSpecialization>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -1021,7 +1021,7 @@
                     <capability>
                         <id>speak</id>
                         <selectedSpecialization>
-                            <id>vuldrok</id>
+                            <id>vuldrish</id>
                         </selectedSpecialization>
                     </capability>
                 </options>
@@ -1194,7 +1194,7 @@
                         </selectedSpecialization>
                     </capability>
                     <capability>
-                        <id>techLore</id>
+                        <group>techLore</group>
                     </capability>
                     <capability>
                         <id>thinkMachines</id>
@@ -1392,10 +1392,15 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <id>commonsCustoms</id>
-                    </capability>
-                    <capability>
                         <id>cathedralCustoms</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>commonsCustoms</id>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -1567,11 +1572,22 @@
             <es>Torenson</es>
         </name>
         <description>
-            <en>A house of scholars and explorers, House Torenson was once a major house that ruled the planet of Torenson Prime. They were known for their libraries, universities, and patronage of the arts and sciences. However, they backed the wrong side in the Emperor Wars and were stripped of their homeworld. Now they are a minor house with holdings on various worlds, focusing on education and exploration.</en>
-            <es>Una casa de eruditos y exploradores, la Casa Torenson fue una vez una gran casa que gobernaba el planeta Torenson Prime. Eran conocidos por sus bibliotecas, universidades y patrocinio de las artes y las ciencias. Sin embargo, apoyaron al lado equivocado en las Guerras del Emperador y fueron despojados de su mundo natal. Ahora son una casa menor con posesiones en varios mundos, enfocándose en la educación y la exploración.</es>
+            <en>Once a house of warriors powerful enough to rival the Hawkwoods, Torenson was soundly defeated during the first Emperor War and nearly wiped out. The survivors learned better: today the house is known not for strength but for sophistication. Its scions are trained in wit, mediation, and etiquette, and they are sought out as arbiters in noble disputes, as well as matchmakers, seneschals, and diplomats. Torenson owns very few fiefs in its own name, but its blood is so old and its skills so honed that it does not need to.</en>
+            <es>Antaño una casa de guerreros lo bastante poderosa como para rivalizar con los Hawkwood, Torenson fue derrotada por completo durante la primera Guerra del Emperador y casi exterminada. Los supervivientes aprendieron la lección: hoy la casa no es conocida por su fuerza, sino por su sofisticación. Sus vástagos se forman en ingenio, mediación y etiqueta, y son buscados como árbitros en disputas nobiliarias, además de casamenteros, senescales y diplomáticos. Torenson posee muy pocos feudos a su nombre, pero su sangre es tan antigua y sus habilidades tan refinadas que no lo necesita.</es>
         </description>
         <group>minor_noble_house</group>
         <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>cathedralCustoms</id>
+                    </capability>
+                    <capability>
+                        <id>commonsCustoms</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
             <capabilitiesOption>
                 <total>1</total>
                 <options>
@@ -1591,25 +1607,14 @@
                     </capability>
                 </options>
             </capabilitiesOption>
-            <capabilitiesOption>
-                <total>1</total>
-                <options>
-                    <capability>
-                        <id>speak</id>
-                        <selectedSpecialization>
-                            <id>any</id>
-                        </selectedSpecialization>
-                    </capability>
-                </options>
-            </capabilitiesOption>
         </capabilities>
         <characteristics>
             <characteristicBonusOptions>
                 <total>1</total>
                 <options>
                     <characteristic>
-                        <id>dexterity</id>
-                        <bonus>1</bonus>
+                        <id>intuition</id>
+                        <bonus>2</bonus>
                     </characteristic>
                 </options>
             </characteristicBonusOptions>
@@ -1618,356 +1623,7 @@
                 <options>
                     <characteristic>
                         <id>perception</id>
-                        <bonus>1</bonus>
-                    </characteristic>
-                </options>
-            </characteristicBonusOptions>
-            <characteristicBonusOptions>
-                <total>1</total>
-                <options>
-                    <characteristic>
-                        <id>wits</id>
                         <bonus>2</bonus>
-                    </characteristic>
-                </options>
-            </characteristicBonusOptions>
-        </characteristics>
-        <perks>
-            <perkOptions>
-                <total>1</total>
-                <options>
-                    <perk>
-                        <group>nobleTitle</group>
-                    </perk>
-                </options>
-                <openPerks>false</openPerks>
-            </perkOptions>
-        </perks>
-        <skills>
-            <skillBonusOption>
-                <total>2</total>
-                <options>
-                    <skill>
-                        <id>academia</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>charm</id>
-                        <bonus>1</bonus>
-                    </skill>
-                    <skill>
-                        <id>impress</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>drive</id>
-                        <bonus>1</bonus>
-                    </skill>
-                    <skill>
-                        <id>pilot</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>empathy</id>
-                        <bonus>1</bonus>
-                    </skill>
-                    <skill>
-                        <id>focus</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>interface</id>
-                        <bonus>1</bonus>
-                    </skill>
-                    <skill>
-                        <id>techRedemption</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-        </skills>
-        <blessing>
-            <id>inquisitive</id>
-            <name>
-                <en>Inquisitive</en>
-                <es>Curioso</es>
-            </name>
-            <description>
-                <en>+2 Perception when investigating.</en>
-                <es>Percepción +2 al investigar.</es>
-            </description>
-        </blessing>
-        <curse>
-            <id>absentminded</id>
-            <name>
-                <en>Absentminded</en>
-                <es>Despistado</es>
-            </name>
-            <description>
-                <en>-2 Wits when distracted.</en>
-                <es>Astucia -2 cuando distraído.</es>
-            </description>
-        </curse>
-        <favoredCallings>
-            <calling>explorer</calling>
-        </favoredCallings>
-        <materialAwards>
-            <materialAwardOption>
-                <total>1</total>
-                <options>
-                    <item>
-                        <id>torensonDataSlate</id>
-                        <type>item</type>
-                    </item>
-                </options>
-            </materialAwardOption>
-        </materialAwards>
-    </faction>
-    <faction>
-        <id>trusnikron</id>
-        <name>
-            <en>Trusnikron</en>
-            <es>Trusnikron</es>
-        </name>
-        <description>
-            <en>A house of military tradition, House Trusnikron was once a major house that ruled the planet of Trusnikron Prime. They were known for their disciplined armies and strategic minds. However, they backed the wrong side in the Emperor Wars and were stripped of their homeworld. Now they are a minor house with holdings on various worlds, focusing on military service and strategy.</en>
-            <es>Una casa de tradición militar, la Casa Trusnikron fue una vez una gran casa que gobernaba el planeta Trusnikron Prime. Eran conocidos por sus ejércitos disciplinados y mentes estratégicas. Sin embargo, apoyaron al lado equivocado en las Guerras del Emperador y fueron despojados de su mundo natal. Ahora son una casa menor con posesiones en varios mundos, enfocándose en el servicio militar y la estrategia.</es>
-        </description>
-        <group>minor_noble_house</group>
-        <capabilities>
-            <capabilitiesOption>
-                <total>1</total>
-                <options>
-                    <capability>
-                        <id>factionLore</id>
-                        <selectedSpecialization>
-                            <id>trusnikron</id>
-                        </selectedSpecialization>
-                    </capability>
-                </options>
-            </capabilitiesOption>
-            <capabilitiesOption>
-                <total>1</total>
-                <options>
-                    <capability>
-                        <id>militaryWeapons</id>
-                    </capability>
-                </options>
-            </capabilitiesOption>
-            <capabilitiesOption>
-                <total>1</total>
-                <options>
-                    <capability>
-                        <id>speak</id>
-                        <selectedSpecialization>
-                            <id>any</id>
-                        </selectedSpecialization>
-                    </capability>
-                </options>
-            </capabilitiesOption>
-        </capabilities>
-        <characteristics>
-            <characteristicBonusOptions>
-                <total>1</total>
-                <options>
-                    <characteristic>
-                        <id>dexterity</id>
-                        <bonus>1</bonus>
-                    </characteristic>
-                </options>
-            </characteristicBonusOptions>
-            <characteristicBonusOptions>
-                <total>1</total>
-                <options>
-                    <characteristic>
-                        <id>endurance</id>
-                        <bonus>1</bonus>
-                    </characteristic>
-                </options>
-            </characteristicBonusOptions>
-            <characteristicBonusOptions>
-                <total>1</total>
-                <options>
-                    <characteristic>
-                        <id>wits</id>
-                        <bonus>2</bonus>
-                    </characteristic>
-                </options>
-            </characteristicBonusOptions>
-        </characteristics>
-        <perks>
-            <perkOptions>
-                <total>1</total>
-                <options>
-                    <perk>
-                        <group>nobleTitle</group>
-                    </perk>
-                </options>
-                <openPerks>false</openPerks>
-            </perkOptions>
-        </perks>
-        <skills>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>academia</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>2</total>
-                <options>
-                    <skill>
-                        <id>fight</id>
-                        <bonus>1</bonus>
-                    </skill>
-                    <skill>
-                        <id>melee</id>
-                        <bonus>1</bonus>
-                    </skill>
-                    <skill>
-                        <id>shoot</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>focus</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>impress</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>vigor</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-        </skills>
-        <blessing>
-            <id>disciplined</id>
-            <name>
-                <en>Disciplined</en>
-                <es>Disciplinado</es>
-            </name>
-            <description>
-                <en>+2 Will when following orders.</en>
-                <es>Voluntad +2 al seguir órdenes.</es>
-            </description>
-        </blessing>
-        <curse>
-            <id>rigid</id>
-            <name>
-                <en>Rigid</en>
-                <es>Rígido</es>
-            </name>
-            <description>
-                <en>-2 Wits when adapting to new situations.</en>
-                <es>Astucia -2 al adaptarse a situaciones nuevas.</es>
-            </description>
-        </curse>
-        <favoredCallings>
-            <calling>knightlyOrder</calling>
-        </favoredCallings>
-        <materialAwards>
-            <materialAwardOption>
-                <total>1</total>
-                <options>
-                    <item>
-                        <id>trusnikronCommandBaton</id>
-                        <type>item</type>
-                    </item>
-                </options>
-            </materialAwardOption>
-        </materialAwards>
-    </faction>
-    <faction>
-        <id>vanGelder</id>
-        <name>
-            <en>Van Gelder</en>
-            <es>Van Gelder</es>
-        </name>
-        <description>
-            <en>A house of merchants and bankers, House Van Gelder was once a major house that ruled the planet of Van Gelder Prime. They were known for their financial acumen and trade networks. However, they backed the wrong side in the Emperor Wars and were stripped of their homeworld. Now they are a minor house with holdings on various worlds, focusing on commerce and finance.</en>
-            <es>Una casa de comerciantes y banqueros, la Casa Van Gelder fue una vez una gran casa que gobernaba el planeta Van Gelder Prime. Eran conocidos por su sagacidad financiera y redes comerciales. Sin embargo, apoyaron al lado equivocado en las Guerras del Emperador y fueron despojados de su mundo natal. Ahora son una casa menor con posesiones en varios mundos, enfocándose en el comercio y las finanzas.</es>
-        </description>
-        <group>minor_noble_house</group>
-        <capabilities>
-            <capabilitiesOption>
-                <total>1</total>
-                <options>
-                    <capability>
-                        <id>factionLore</id>
-                        <selectedSpecialization>
-                            <id>vanGelder</id>
-                        </selectedSpecialization>
-                    </capability>
-                </options>
-            </capabilitiesOption>
-            <capabilitiesOption>
-                <total>1</total>
-                <options>
-                    <capability>
-                        <group>knowledgeLore</group>
-                    </capability>
-                </options>
-            </capabilitiesOption>
-            <capabilitiesOption>
-                <total>1</total>
-                <options>
-                    <capability>
-                        <id>speak</id>
-                        <selectedSpecialization>
-                            <id>any</id>
-                        </selectedSpecialization>
-                    </capability>
-                </options>
-            </capabilitiesOption>
-        </capabilities>
-        <characteristics>
-            <characteristicBonusOptions>
-                <total>1</total>
-                <options>
-                    <characteristic>
-                        <id>dexterity</id>
-                        <bonus>1</bonus>
                     </characteristic>
                 </options>
             </characteristicBonusOptions>
@@ -1980,15 +1636,6 @@
                     </characteristic>
                 </options>
             </characteristicBonusOptions>
-            <characteristicBonusOptions>
-                <total>1</total>
-                <options>
-                    <characteristic>
-                        <id>wits</id>
-                        <bonus>2</bonus>
-                    </characteristic>
-                </options>
-            </characteristicBonusOptions>
         </characteristics>
         <perks>
             <perkOptions>
@@ -2013,189 +1660,6 @@
             </skillBonusOption>
             <skillBonusOption>
                 <total>1</total>
-                <options>
-                    <skill>
-                        <id>charm</id>
-                        <bonus>1</bonus>
-                    </skill>
-                    <skill>
-                        <id>impress</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>drive</id>
-                        <bonus>1</bonus>
-                    </skill>
-                    <skill>
-                        <id>pilot</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>empathy</id>
-                        <bonus>1</bonus>
-                    </skill>
-                    <skill>
-                        <id>focus</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>interface</id>
-                        <bonus>1</bonus>
-                    </skill>
-                    <skill>
-                        <id>techRedemption</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-        </skills>
-        <blessing>
-            <id>ambitious</id>
-            <name>
-                <en>Ambitious</en>
-                <es>Ambicioso</es>
-            </name>
-            <description>
-                <en>+2 Presence when negotiating deals.</en>
-                <es>Presencia +2 al negociar tratos.</es>
-            </description>
-        </blessing>
-        <curse>
-            <id>greedy</id>
-            <name>
-                <en>Greedy</en>
-                <es>Codicioso</es>
-            </name>
-            <description>
-                <en>-2 Will when resisting temptation.</en>
-                <es>Voluntad -2 al resistir la tentación.</es>
-            </description>
-        </curse>
-        <favoredCallings>
-            <calling>merchant</calling>
-        </favoredCallings>
-        <materialAwards>
-            <materialAwardOption>
-                <total>1</total>
-                <options>
-                    <item>
-                        <id>vanGelderCreditChip</id>
-                        <type>item</type>
-                    </item>
-                </options>
-            </materialAwardOption>
-        </materialAwards>
-    </faction>
-    <faction>
-        <id>xanthippe</id>
-        <name>
-            <en>Xanthippe</en>
-            <es>Xanthippe</es>
-        </name>
-        <description>
-            <en>A house of artists and patrons, House Xanthippe was once a major house that ruled the planet of Xanthippe Prime. They were known for their patronage of the arts and their beautiful works. However, they backed the wrong side in the Emperor Wars and were stripped of their homeworld. Now they are a minor house with holdings on various worlds, focusing on art and culture.</en>
-            <es>Una casa de artistas y mecenas, la Casa Xanthippe fue una vez una gran casa que gobernaba el planeta Xanthippe Prime. Eran conocidos por su patrocinio de las artes y sus obras hermosas. Sin embargo, apoyaron al lado equivocado en las Guerras del Emperador y fueron despojados de su mundo natal. Ahora son una casa menor con posesiones en varios mundos, enfocándose en el arte y la cultura.</es>
-        </description>
-        <group>minor_noble_house</group>
-        <capabilities>
-            <capabilitiesOption>
-                <total>1</total>
-                <options>
-                    <capability>
-                        <id>factionLore</id>
-                        <selectedSpecialization>
-                            <id>xanthippe</id>
-                        </selectedSpecialization>
-                    </capability>
-                </options>
-            </capabilitiesOption>
-            <capabilitiesOption>
-                <total>1</total>
-                <options>
-                    <capability>
-                        <group>knowledgeLore</group>
-                    </capability>
-                </options>
-            </capabilitiesOption>
-            <capabilitiesOption>
-                <total>1</total>
-                <options>
-                    <capability>
-                        <id>speak</id>
-                        <selectedSpecialization>
-                            <id>any</id>
-                        </selectedSpecialization>
-                    </capability>
-                </options>
-            </capabilitiesOption>
-        </capabilities>
-        <characteristics>
-            <characteristicBonusOptions>
-                <total>1</total>
-                <options>
-                    <characteristic>
-                        <id>dexterity</id>
-                        <bonus>1</bonus>
-                    </characteristic>
-                </options>
-            </characteristicBonusOptions>
-            <characteristicBonusOptions>
-                <total>1</total>
-                <options>
-                    <characteristic>
-                        <id>intuition</id>
-                        <bonus>1</bonus>
-                    </characteristic>
-                </options>
-            </characteristicBonusOptions>
-            <characteristicBonusOptions>
-                <total>1</total>
-                <options>
-                    <characteristic>
-                        <id>presence</id>
-                        <bonus>2</bonus>
-                    </characteristic>
-                </options>
-            </characteristicBonusOptions>
-        </characteristics>
-        <perks>
-            <perkOptions>
-                <total>1</total>
-                <options>
-                    <perk>
-                        <group>nobleTitle</group>
-                    </perk>
-                </options>
-                <openPerks>false</openPerks>
-            </perkOptions>
-        </perks>
-        <skills>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>academia</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>2</total>
                 <options>
                     <skill>
                         <id>arts</id>
@@ -2208,10 +1672,6 @@
                 <options>
                     <skill>
                         <id>charm</id>
-                        <bonus>1</bonus>
-                    </skill>
-                    <skill>
-                        <id>impress</id>
                         <bonus>1</bonus>
                     </skill>
                 </options>
@@ -2240,29 +1700,590 @@
             </skillBonusOption>
         </skills>
         <blessing>
-            <id>inspiring</id>
+            <id>matchmaker</id>
             <name>
-                <en>Inspiring</en>
-                <es>Inspirador</es>
+                <en>Matchmaker</en>
+                <es>Casamentero</es>
             </name>
             <description>
-                <en>+2 Presence when performing or creating art.</en>
-                <es>Presencia +2 al actuar o crear arte.</es>
+                <en>+2 Wits when arranging deals, contracts, or marriages.</en>
+                <es>Astucia +2 al concertar tratos, contratos o matrimonios.</es>
             </description>
         </blessing>
         <curse>
-            <id>jealous</id>
+            <id>traditionalist</id>
             <name>
-                <en>Jealous</en>
-                <es>Celoso</es>
+                <en>Traditionalist</en>
+                <es>Tradicionalista</es>
             </name>
             <description>
-                <en>-2 Presence when dealing with other artists.</en>
-                <es>Presencia -2 al tratar con otros artistas.</es>
+                <en>-2 Wits in unfamiliar environments.</en>
+                <es>Astucia -2 en entornos desconocidos.</es>
             </description>
         </curse>
         <favoredCallings>
-            <calling>artist</calling>
+            <calling>courtier</calling>
+        </favoredCallings>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>torensonDataSlate</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+    </faction>
+    <faction>
+        <id>trusnikron</id>
+        <name>
+            <en>Trusnikron</en>
+            <es>Trusnikron</es>
+        </name>
+        <description>
+            <en>Little more than a herding and breeding house, Trusnikron is a rare case of a noble house that earned its title through animal husbandry. Their home is Ravenna, with fiefs on Cadavus and Shaprut, and all their estates are devoted to raising steeds — from horses to griffins to urrocs, they raise the best. They serve the Hazat and Hawkwood with distinction in both air force and cavalry. Brusque but easy to befriend, the house has few enemies and enjoys great social fluidity between guilds, Church, and nobility.</en>
+            <es>Poco más que una casa de pastoreo y cría, Trusnikron es un raro caso de casa noble que ganó su título mediante la cría de animales. Su hogar es Ravenna, con feudos en Cadavus y Shaprut, y todas sus propiedades se dedican a criar monturas: desde caballos hasta grifos y urrocs, crían los mejores. Sirven a los Hazat y a los Hawkwood con distinción tanto en su fuerza aérea como en la caballería. Bruscos pero de fácil amistad, la casa tiene pocos enemigos y disfruta de gran fluidez social entre gremios, Iglesia y nobleza.</es>
+        </description>
+        <group>minor_noble_house</group>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>beastLore</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>factionLore</id>
+                        <selectedSpecialization>
+                            <id>trusnikron</id>
+                        </selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>beastback</id>
+                    </capability>
+                    <capability>
+                        <id>beastcraft</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>strength</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>endurance</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>perception</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <group>nobleTitle</group>
+                    </perk>
+                </options>
+                <openPerks>false</openPerks>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>2</total>
+                <options>
+                    <skill>
+                        <id>animalia</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>drive</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>survival</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>vigor</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>fight</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <blessing>
+            <id>breeder</id>
+            <name>
+                <en>Breeder</en>
+                <es>Criador</es>
+            </name>
+            <description>
+                <en>+2 Presence when dealing with animals.</en>
+                <es>Presencia +2 al tratar con animales.</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>uncouth</id>
+            <name>
+                <en>Uncouth</en>
+                <es>Tosco</es>
+            </name>
+            <description>
+                <en>-2 Presence when dealing with other nobles.</en>
+                <es>Presencia -2 al tratar con otros nobles.</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>amateur</calling>
+        </favoredCallings>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>trusnikronTrainedPet</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+    </faction>
+    <faction>
+        <id>vanGelder</id>
+        <name>
+            <en>Van Gelder</en>
+            <es>Van Gelder</es>
+        </name>
+        <description>
+            <en>Once a Royal House, Van Gelder is now barely more than wealthy free folk in service to the Decados. They get along well with the Charioteers and the Reeves and have plenty of money, but after their near destruction by House Alecto they are content to remain in the shadow of a more dangerous power. Their reputation for dull, stodgy manners is one of their greatest assets: a full eighth of the Jakovian Agency consists of Van Gelder scions, who make excellent spies, assassins, eavesdroppers, and — as before the Emperor Wars — master poisoners.</en>
+            <es>Antaño una Casa Real, Van Gelder no es ahora más que gente libre adinerada al servicio de los Decados. Se llevan bien con los Carroñeros... perdón, con los Charioteers y los Reeves, y tienen mucho dinero, pero tras su casi destrucción por la Casa Alecto se contentan con permanecer a la sombra de un poder más peligroso. Su fama de modales aburridos y rancios es una de sus mayores bazas: una octava parte de la Agencia Jakoviana está formada por vástagos Van Gelder, que son excelentes espías, asesinos, fisgones y —como antes de las Guerras del Emperador— maestros envenenadores.</es>
+        </description>
+        <group>minor_noble_house</group>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>factionLore</id>
+                        <selectedSpecialization>
+                            <id>vanGelder</id>
+                        </selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>poisonLore</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>energyGuns</id>
+                    </capability>
+                    <capability>
+                        <id>slugGuns</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>perception</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>presence</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>wits</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>will</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <group>nobleTitle</group>
+                    </perk>
+                </options>
+                <openPerks>false</openPerks>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>disguise</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>fight</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>intrusion</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>sneak</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>sleightOfHand</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>knavery</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <blessing>
+            <id>careful</id>
+            <name>
+                <en>Careful</en>
+                <es>Cuidadoso</es>
+            </name>
+            <description>
+                <en>+2 Perception in social situations.</en>
+                <es>Percepción +2 en situaciones sociales.</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>shadowy</id>
+            <name>
+                <en>Shadowy</en>
+                <es>Sombrío</es>
+            </name>
+            <description>
+                <en>-2 Presence when not spying.</en>
+                <es>Presencia -2 cuando no estás espiando.</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>spy</calling>
+        </favoredCallings>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>vanGelderCreditChip</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+    </faction>
+    <faction>
+        <id>xanthippe</id>
+        <name>
+            <en>Xanthippe</en>
+            <es>Xanthippe</es>
+        </name>
+        <description>
+            <en>The most matriarchal house in the Known Worlds, Xanthippe holds its fiefs mostly on moons and space stations — its most prized being Luna, moon of Holy Terra. They grow hydroponic grapes for the unique wines they are famous for, but they also sell their formidable military services to the highest bidder, all while striving to appear completely neutral. Deeply dedicated to balance, the house codifies all its laws in a document called The Measure.</en>
+            <es>La casa más matriarcal de los Mundos Conocidos, Xanthippe tiene sus feudos sobre todo en lunas y estaciones espaciales, siendo la más preciada Luna, el satélite de Tierra Santa. Cultivan uvas hidropónicas para los vinos únicos por los que son famosos, pero también venden sus formidables servicios militares al mejor postor, esforzándose siempre por parecer completamente neutrales. Profundamente dedicada al equilibrio, la casa codifica todas sus leyes en un documento llamado La Medida.</es>
+        </description>
+        <group>minor_noble_house</group>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>commonsCustoms</id>
+                    </capability>
+                    <capability>
+                        <id>lifeScience</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>factionLore</id>
+                        <selectedSpecialization>
+                            <id>xanthippe</id>
+                        </selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>militaryWeapons</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>strength</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>endurance</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>perception</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>presence</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <group>nobleTitle</group>
+                    </perk>
+                </options>
+                <openPerks>false</openPerks>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>alchemy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>fight</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>survival</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>vigor</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <blessing>
+            <id>hardened</id>
+            <name>
+                <en>Hardened</en>
+                <es>Curtido</es>
+            </name>
+            <description>
+                <en>+2 goal on Faith-based rolls during tense or difficult situations.</en>
+                <es>Meta +2 en tiradas basadas en Fe durante situaciones tensas o difíciles.</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>indifferent</id>
+            <name>
+                <en>Indifferent</en>
+                <es>Indiferente</es>
+            </name>
+            <description>
+                <en>-2 Presence when making a hard decision.</en>
+                <es>Presencia -2 al tomar una decisión difícil.</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>commander</calling>
         </favoredCallings>
         <materialAwards>
             <materialAwardOption>
@@ -2303,7 +2324,7 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <group>medicalLore</group>
+                        <id>diseaseLore</id>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -2311,38 +2332,7 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <id>speak</id>
-                        <selectedSpecialization>
-                            <group>any</group>
-                        </selectedSpecialization>
-                    </capability>
-                </options>
-            </capabilitiesOption>
-            <capabilitiesOption>
-                <total>1</total>
-                <options>
-                    <capability>
-                        <id>alchemy</id>
-                        <selectedSpecialization>
-                            <id>herbalism</id>
-                        </selectedSpecialization>
-                    </capability>
-                    <capability>
-                        <id>remedy</id>
-                        <selectedSpecialization>
-                            <id>poisons</id>
-                        </selectedSpecialization>
-                    </capability>
-                </options>
-            </capabilitiesOption>
-            <capabilitiesOption>
-                <total>1</total>
-                <options>
-                    <capability>
-                        <id>science</id>
-                        <selectedSpecialization>
-                            <id>life</id>
-                        </selectedSpecialization>
+                        <id>poisonLore</id>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -2357,40 +2347,31 @@
                     </characteristic>
                 </options>
             </characteristicBonusOptions>
-            <skillBonusOption>
+            <characteristicBonusOptions>
                 <total>1</total>
                 <options>
-                    <skill>
-                        <id>empathy</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>focus</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>impress</id>
+                    <characteristic>
+                        <id>intuition</id>
                         <bonus>2</bonus>
-                    </skill>
+                    </characteristic>
                 </options>
-            </skillBonusOption>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>wits</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
         </characteristics>
         <perks>
             <perkOptions>
                 <total>1</total>
                 <options>
                     <perk>
-                        <group>healer</group>
+                        <group>guildCommission</group>
                     </perk>
                 </options>
                 <openPerks>false</openPerks>
@@ -2401,8 +2382,17 @@
                 <total>1</total>
                 <options>
                     <skill>
+                        <id>academia</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
                         <id>alchemy</id>
-                        <bonus>2</bonus>
+                        <bonus>1</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
@@ -2413,26 +2403,17 @@
                         <id>crafts</id>
                         <bonus>1</bonus>
                     </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
                     <skill>
-                        <id>charm</id>
-                        <bonus>1</bonus>
-                    </skill>
-                    <skill>
-                        <id>impress</id>
+                        <id>techRedemption</id>
                         <bonus>1</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
             <skillBonusOption>
-                <total>1</total>
+                <total>2</total>
                 <options>
                     <skill>
-                        <id>knavery</id>
+                        <id>remedy</id>
                         <bonus>1</bonus>
                     </skill>
                 </options>
@@ -2482,8 +2463,8 @@
             <es>Cerveceros</es>
         </name>
         <description>
-            <en>The Brewers Guild specializes in the production and distribution of alcoholic beverages. While alcohol is not legal everywhere, where it is permitted, Brewers have near monopoly status. Their products range from simple spirits distilled by serfs to rare and aged varieties produced exclusively by master brewers. Members are known for their craftsmanship and their ability to create drinks suited to any palate.</en>
-            <es>El Gremio de Cerveceros se especializa en la producción y distribución de bebidas alcohólicas. Aunque el alcohol no es legal en todas partes, donde está permitido, los Cerveceros tienen estado de casi monopolio. Sus productos van desde espíritus simples destilados por siervos hasta variedades raras y envejecidas producidas exclusivamente por maestros cerveceros. Los miembros son conocidos por su artesanía y su capacidad para crear bebidas adecuadas para cualquier paladar.</es>
+            <en>The Brewers Guild makes drinks far healthier (and more fun) than most water, and on many worlds it is one of the most respected guilds. In some fiefs their monopoly is so powerful that no serf can distill spirits without paying the guild. Anything worth drinking probably comes from a Brewer, and individual Brewers often hold monopolies on specific brews. Those who travel the worlds seeking lost concoctions earn everyone's respect — until they drink too much.</en>
+            <es>El Gremio de Cerveceros elabora bebidas mucho más sanas (y divertidas) que la mayoría del agua, y en muchos mundos es uno de los gremios más respetados. En algunos feudos su monopolio es tan fuerte que ningún siervo puede destilar licores sin pagar al gremio. Cualquier cosa que valga la pena beber probablemente proviene de un Cervecero, y muchos Cerveceros tienen monopolios sobre brebajes concretos. Quienes viajan por los mundos buscando recetas perdidas se ganan el respeto de todos... hasta que beben demasiado.</es>
         </description>
         <group>minor_guild</group>
         <capabilities>
@@ -2510,10 +2491,7 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <id>speak</id>
-                        <selectedSpecialization>
-                            <group>any</group>
-                        </selectedSpecialization>
+                        <id>lifeScience</id>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -2572,15 +2550,10 @@
                 <options>
                     <skill>
                         <id>alchemy</id>
-                        <bonus>2</bonus>
+                        <bonus>1</bonus>
                     </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
                     <skill>
-                        <id>crafts</id>
+                        <id>techRedemption</id>
                         <bonus>1</bonus>
                     </skill>
                 </options>
@@ -2599,39 +2572,48 @@
                 </options>
             </skillBonusOption>
             <skillBonusOption>
+                <total>2</total>
+                <options>
+                    <skill>
+                        <id>crafts</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
                 <total>1</total>
                 <options>
                     <skill>
-                        <id>knavery</id>
+                        <id>fight</id>
                         <bonus>1</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
         </skills>
         <blessing>
-            <id>masterCraftsman</id>
+            <id>wellLiked</id>
             <name>
-                <en>Master Craftsman</en>
-                <es>Maestro Artesano</es>
+                <en>Well-Liked</en>
+                <es>Apreciado</es>
             </name>
             <description>
-                <en>+2 Crafts when producing quality alcohol.</en>
-                <es>Artesanía +2 cuando produces alcohol de calidad.</es>
+                <en>+2 Presence with customers.</en>
+                <es>Presencia +2 con los clientes.</es>
             </description>
         </blessing>
         <curse>
-            <id>tempted</id>
+            <id>haughty</id>
             <name>
-                <en>Tempted</en>
-                <es>Tentado</es>
+                <en>Haughty</en>
+                <es>Altanero</es>
             </name>
             <description>
-                <en>-2 Will when resisting alcohol.</en>
-                <es>Voluntad -2 cuando resistes el alcohol.</es>
+                <en>-2 Presence around serfs.</en>
+                <es>Presencia -2 cerca de siervos.</es>
             </description>
         </curse>
         <favoredCallings>
-            <calling>merchant</calling>
+            <calling>artist</calling>
         </favoredCallings>
         <materialAwards>
             <materialAwardOption>
@@ -2652,22 +2634,11 @@
             <es>Burócratas</es>
         </name>
         <description>
-            <en>The Bureaucrats Guild specializes in administrative services, record-keeping, and information management. Their expertise is sought by nobility and corporate entities alike. They possess extensive knowledge of laws, regulations, and procedures. Members are meticulous, organized, and skilled at navigating complex political and administrative landscapes.</en>
-            <es>El Gremio de Burócratas se especializa en servicios administrativos, gestión de registros y manejo de información. Su experiencia es buscada tanto por la nobleza como por entidades corporativas. Poseen amplio conocimiento de leyes, regulaciones y procedimientos. Los miembros son meticulosos, organizados y hábiles navegando paisajes políticos y administrativos complejos.</es>
+            <en>Amazingly well connected, efficient, and discreet, the Bureaucrats are the guild to call if there is a paper to be pushed or filed. Nobody likes them, but everyone needs them, and some even fear them, since it is the Bureaucrats who determine how much each person pays in taxes. They keep their mouths shut — or rather, they know how to make it seem like they can be trusted — even as they run one of the most efficient gossip networks in the Known Worlds. Their reputation for honesty makes them trusted with legitimate government seals and signatures.</en>
+            <es>Asombrosamente bien conectados, eficientes y discretos, los Burócratas son el gremio al que acudir si hay un papel que tramitar o archivar. Nadie los aprecia, pero todos los necesitan, y algunos incluso los temen, pues son los Burócratas quienes determinan cuánto paga cada persona en impuestos. Saben mantener la boca cerrada —o más bien saben aparentar que se puede confiar en ellos— mientras gestionan una de las redes de rumores más eficientes de los Mundos Conocidos. Su reputación de honestidad hace que se les confíen sellos y firmas gubernamentales legítimos.</es>
         </description>
         <group>minor_guild</group>
         <capabilities>
-            <capabilitiesOption>
-                <total>1</total>
-                <options>
-                    <capability>
-                        <id>factionLore</id>
-                        <selectedSpecialization>
-                            <id>bureaucrats</id>
-                        </selectedSpecialization>
-                    </capability>
-                </options>
-            </capabilitiesOption>
             <capabilitiesOption>
                 <total>1</total>
                 <options>
@@ -2680,10 +2651,24 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <id>speak</id>
+                        <id>read</id>
                         <selectedSpecialization>
-                            <group>any</group>
+                            <id>latin</id>
                         </selectedSpecialization>
+                    </capability>
+                    <capability>
+                        <id>read</id>
+                        <selectedSpecialization>
+                            <id>urthish</id>
+                        </selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>thinkMachines</id>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -2755,7 +2740,7 @@
                         <bonus>1</bonus>
                     </skill>
                     <skill>
-                        <id>impress</id>
+                        <id>knavery</id>
                         <bonus>1</bonus>
                     </skill>
                 </options>
@@ -2763,10 +2748,6 @@
             <skillBonusOption>
                 <total>1</total>
                 <options>
-                    <skill>
-                        <id>empathy</id>
-                        <bonus>1</bonus>
-                    </skill>
                     <skill>
                         <id>focus</id>
                         <bonus>1</bonus>
@@ -2784,29 +2765,29 @@
             </skillBonusOption>
         </skills>
         <blessing>
-            <id>methodical</id>
+            <id>jaded</id>
             <name>
-                <en>Methodical</en>
-                <es>Metódico</es>
+                <en>Jaded</en>
+                <es>Hastiado</es>
             </name>
             <description>
-                <en>+2 Wits when organizing or managing information.</en>
-                <es>Astucia +2 cuando organizas o gestionas información.</es>
+                <en>+1 goal on Will- and Faith-based rolls in stressful situations.</en>
+                <es>Meta +1 en tiradas basadas en Voluntad y Fe en situaciones estresantes.</es>
             </description>
         </blessing>
         <curse>
-            <id>inflexible</id>
+            <id>scary</id>
             <name>
-                <en>Inflexible</en>
-                <es>Inflexible</es>
+                <en>Scary</en>
+                <es>Temible</es>
             </name>
             <description>
-                <en>-2 Presence when rules must be broken.</en>
-                <es>Presencia -2 cuando hay que quebrantar las reglas.</es>
+                <en>+2 Impress — everyone fears the tax man.</en>
+                <es>Impresionar +2: todos temen al recaudador de impuestos.</es>
             </description>
         </curse>
         <favoredCallings>
-            <calling>courtier</calling>
+            <calling>spy</calling>
         </favoredCallings>
         <materialAwards>
             <materialAwardOption>
@@ -2827,8 +2808,8 @@
             <es>Carnavaleros</es>
         </name>
         <description>
-            <en>The Carnivalers Guild is a loose association of entertainers, acrobats, musicians, and performers who travel across the Known Worlds. They bring joy, laughter, and spectacle to remote worlds. Members are known for their creativity, adaptability, and ability to captivate audiences. Many Carnivalers use their entertainment skills as cover for espionage or information gathering.</en>
-            <es>El Gremio de Carnavaleros es una asociación informal de artistas, acróbatas, músicos y actores que viajan a través de los Mundos Conocidos. Traen alegría, risas y espectáculo a mundos remotos. Los miembros son conocidos por su creatividad, adaptabilidad y capacidad para cautivar audiencias. Muchos Carnavaleros usan sus habilidades de entretenimiento como cobertura para espionaje o recopilación de información.</es>
+            <en>Carnies, clowns, tumblers, gladiators, and more, the Carnivaler troupes (also called "the Carnies" or "the Menagerie") travel the Known Worlds with their outlandish vehicles and even more outlandish members. A relatively recent addition to the League that reached full guild status shortly before the Emperor Wars, they began with musicians but opened their ranks to entertainers of all sorts. Performers and pranksters, entertainers and executioners, they amuse and unnerve the Known Worlds in equal measure.</en>
+            <es>Feriantes, payasos, acróbatas, gladiadores y más: las compañías de Carnavaleros (también llamadas «los Carnies» o «la Colección») recorren los Mundos Conocidos con sus extravagantes vehículos y miembros aún más extravagantes. Una incorporación relativamente reciente a la Liga que alcanzó el estatus pleno de gremio poco antes de las Guerras del Emperador, comenzaron con músicos pero abrieron sus filas a artistas de todo tipo. Animadores y bromistas, artistas y verdugos, divierten e inquietan a los Mundos Conocidos por igual.</es>
         </description>
         <group>minor_guild</group>
         <capabilities>
@@ -2849,16 +2830,11 @@
                     <capability>
                         <group>knowledgeLore</group>
                     </capability>
-                </options>
-            </capabilitiesOption>
-            <capabilitiesOption>
-                <total>1</total>
-                <options>
                     <capability>
-                        <id>speak</id>
-                        <selectedSpecialization>
-                            <group>any</group>
-                        </selectedSpecialization>
+                        <id>cathedralCustoms</id>
+                    </capability>
+                    <capability>
+                        <id>courtCustoms</id>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -2908,11 +2884,28 @@
                 <total>1</total>
                 <options>
                     <skill>
+                        <id>animalia</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>sleightOfHand</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
                         <id>arts</id>
                         <bonus>1</bonus>
                     </skill>
                     <skill>
-                        <id>perform</id>
+                        <id>crafts</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>vigor</id>
                         <bonus>1</bonus>
                     </skill>
                 </options>
@@ -2928,55 +2921,46 @@
                         <id>impress</id>
                         <bonus>1</bonus>
                     </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>disguise</id>
-                        <bonus>1</bonus>
-                    </skill>
-                    <skill>
-                        <id>sneak</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
                     <skill>
                         <id>knavery</id>
                         <bonus>1</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
+            <skillBonusOption>
+                <total>2</total>
+                <options>
+                    <skill>
+                        <id>perform</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
         </skills>
         <blessing>
-            <id>charismatic</id>
+            <id>bold</id>
             <name>
-                <en>Charismatic</en>
-                <es>Carismático</es>
+                <en>Bold</en>
+                <es>Audaz</es>
             </name>
             <description>
-                <en>+2 Presence when performing or entertaining.</en>
-                <es>Presencia +2 cuando seduces o encantas a otros.</es>
+                <en>Initiative edge.</en>
+                <es>Ventaja en la iniciativa.</es>
             </description>
         </blessing>
         <curse>
-            <id>unreliable</id>
+            <id>shifty</id>
             <name>
-                <en>Unreliable</en>
-                <es>Poco confiable</es>
+                <en>Shifty</en>
+                <es>Escurridizo</es>
             </name>
             <description>
-                <en>-2 Presence when expected to be serious.</en>
-                <es>Presencia -2 cuando se espera que seas serio.</es>
+                <en>-2 Presence when asking for something.</en>
+                <es>Presencia -2 al pedir algo.</es>
             </description>
         </curse>
         <favoredCallings>
-            <calling>artist</calling>
+            <calling>amateur</calling>
         </favoredCallings>
         <materialAwards>
             <materialAwardOption>
@@ -2997,11 +2981,25 @@
             <es>Cortesanas</es>
         </name>
         <description>
-            <en>The Courtesans Guild is an exclusive association of sophisticated companions and social experts. Members are trained in etiquette, conversation, dancing, and the social graces. They provide companionship, counsel, and entertainment to nobility and the wealthy. Beyond their social role, many Courtesans are skilled information brokers and political manipulators.</en>
-            <es>El Gremio de Cortesanas es una asociación exclusiva de compañeras sofisticadas y expertos sociales. Los miembros son entrenados en etiqueta, conversación, baile y buenos modales. Proporcionan compañía, consejo y entretenimiento a la nobleza y los ricos. Más allá de su papel social, muchas Cortesanas son corredoras de información hábiles y manipuladoras políticas.</es>
+            <en>Courtesans don't just deal in the pleasures of the flesh, though they excel at that. They know the art of making their employers look good by working as professional hangers-on in an entourage, acting as advisors and symbols of social status, deftly steering conversations and gathering information while keeping the attention of important people. They are paid as much for their silence as for their conversation, and they maintain gossip networks on many worlds. The Church frowns on the guild, so it acts openly only on Leagueheim.</en>
+            <es>Las Cortesanas no solo comercian con los placeres de la carne, aunque destacan en ello. Conocen el arte de hacer quedar bien a sus empleadores actuando como acompañantes profesionales en un séquito, ejerciendo de consejeras y símbolos de estatus social, dirigiendo con destreza las conversaciones y recabando información mientras mantienen la atención de la gente importante. Se les paga tanto por su silencio como por su conversación, y mantienen redes de rumores en muchos mundos. La Iglesia desaprueba al gremio, así que solo actúa abiertamente en Leagueheim.</es>
         </description>
         <group>minor_guild</group>
         <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>cathedralCustoms</id>
+                    </capability>
+                    <capability>
+                        <id>courtCustoms</id>
+                    </capability>
+                    <capability>
+                        <id>streetwise</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
             <capabilitiesOption>
                 <total>1</total>
                 <options>
@@ -3018,17 +3016,6 @@
                 <options>
                     <capability>
                         <group>knowledgeLore</group>
-                    </capability>
-                </options>
-            </capabilitiesOption>
-            <capabilitiesOption>
-                <total>1</total>
-                <options>
-                    <capability>
-                        <id>speak</id>
-                        <selectedSpecialization>
-                            <group>any</group>
-                        </selectedSpecialization>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -3079,23 +3066,10 @@
         </perks>
         <skills>
             <skillBonusOption>
-                <total>1</total>
+                <total>2</total>
                 <options>
                     <skill>
                         <id>charm</id>
-                        <bonus>2</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>impress</id>
-                        <bonus>1</bonus>
-                    </skill>
-                    <skill>
-                        <id>perform</id>
                         <bonus>1</bonus>
                     </skill>
                 </options>
@@ -3107,8 +3081,17 @@
                         <id>empathy</id>
                         <bonus>1</bonus>
                     </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
                     <skill>
-                        <id>knavery</id>
+                        <id>fight</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>shoot</id>
                         <bonus>1</bonus>
                     </skill>
                 </options>
@@ -3117,32 +3100,40 @@
                 <total>1</total>
                 <options>
                     <skill>
-                        <id>arts</id>
+                        <id>knavery</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>remedy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>vigor</id>
                         <bonus>1</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
         </skills>
         <blessing>
-            <id>enchanting</id>
+            <id>popular</id>
             <name>
-                <en>Enchanting</en>
-                <es>Cautivador</es>
+                <en>Popular</en>
+                <es>Popular</es>
             </name>
             <description>
-                <en>+2 Charm when seducing or charming others.</en>
-                <es>Encanto +2 cuando seduces o encantas a otros.</es>
+                <en>+2 Presence around customers.</en>
+                <es>Presencia +2 cerca de los clientes.</es>
             </description>
         </blessing>
         <curse>
-            <id>dependent</id>
+            <id>vain</id>
             <name>
-                <en>Dependent</en>
-                <es>Dependiente</es>
+                <en>Vain</en>
+                <es>Vanidoso</es>
             </name>
             <description>
-                <en>-2 Will when separated from patrons.</en>
-                <es>Voluntad -2 cuando estás separado de tus patrones.</es>
+                <en>-2 Perception when flattered.</en>
+                <es>Percepción -2 cuando te adulan.</es>
             </description>
         </curse>
         <favoredCallings>
@@ -3167,11 +3158,25 @@
             <es>Gastrónomas</es>
         </name>
         <description>
-            <en>The Gourmands Guild is a society of connoisseurs dedicated to the appreciation and preparation of fine food and drink. Members are chefs, food critics, and culinary artists who work to elevate gastronomy across the Known Worlds. They are found in the finest establishments, royal courts, and private collections. Their expertise is highly sought after by those who can afford it.</en>
-            <es>El Gremio de Gastrónomas es una sociedad de conocedores dedicada a la apreciación y preparación de comida y bebida fina. Los miembros son chefs, críticos de comida y artistas culinarios que trabajan para elevar la gastronomía en todos los Mundos Conocidos. Se encuentran en los establecimientos más finos, cortes reales y colecciones privadas. Su experiencia es muy buscada por quienes pueden pagarlo.</es>
+            <en>Gourmands are not mere cooks or chefs — anyone calling them that is likely to receive a chilling glare and a cold dinner. They ensure that everything coming close to the palate of their employers is of the very finest quality and free of poison. They oversee the kitchens and dining rooms of nobles, the wealthy, and even Church leaders. The most skilled can detect the rarest poisons by taste, and more than one noble owes them a life debt. The greatest Gourmands travel the Known Worlds seeking new recipes and ingredients.</en>
+            <es>Los Gastrónomas no son simples cocineros o chefs: quien los llame así recibirá una mirada gélida y una cena fría. Se aseguran de que todo lo que se acerca al paladar de sus empleadores sea de la más fina calidad y esté libre de veneno. Supervisan las cocinas y comedores de nobles, ricos e incluso líderes de la Iglesia. Los más hábiles detectan los venenos más raros por el gusto, y más de un noble les debe la vida. Los mejores Gastrónomas recorren los Mundos Conocidos en busca de nuevas recetas e ingredientes.</es>
         </description>
         <group>minor_guild</group>
         <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>cathedralCustoms</id>
+                    </capability>
+                    <capability>
+                        <id>courtCustoms</id>
+                    </capability>
+                    <capability>
+                        <id>lifeScience</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
             <capabilitiesOption>
                 <total>1</total>
                 <options>
@@ -3191,19 +3196,17 @@
                     </capability>
                 </options>
             </capabilitiesOption>
-            <capabilitiesOption>
-                <total>1</total>
-                <options>
-                    <capability>
-                        <id>speak</id>
-                        <selectedSpecialization>
-                            <group>any</group>
-                        </selectedSpecialization>
-                    </capability>
-                </options>
-            </capabilitiesOption>
         </capabilities>
         <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>intuition</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
             <characteristicBonusOptions>
                 <total>1</total>
                 <options>
@@ -3218,15 +3221,6 @@
                 <options>
                     <characteristic>
                         <id>presence</id>
-                        <bonus>1</bonus>
-                    </characteristic>
-                </options>
-            </characteristicBonusOptions>
-            <characteristicBonusOptions>
-                <total>1</total>
-                <options>
-                    <characteristic>
-                        <id>intuition</id>
                         <bonus>1</bonus>
                     </characteristic>
                 </options>
@@ -3248,11 +3242,16 @@
                 <total>1</total>
                 <options>
                     <skill>
-                        <id>crafts</id>
+                        <id>academia</id>
                         <bonus>1</bonus>
                     </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
                     <skill>
-                        <id>remedy</id>
+                        <id>alchemy</id>
                         <bonus>1</bonus>
                     </skill>
                 </options>
@@ -3264,59 +3263,42 @@
                         <id>charm</id>
                         <bonus>1</bonus>
                     </skill>
-                    <skill>
-                        <id>impress</id>
-                        <bonus>1</bonus>
-                    </skill>
                 </options>
             </skillBonusOption>
             <skillBonusOption>
-                <total>1</total>
+                <total>2</total>
                 <options>
                     <skill>
-                        <id>academia</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>empathy</id>
-                        <bonus>1</bonus>
-                    </skill>
-                    <skill>
-                        <id>arts</id>
+                        <id>crafts</id>
                         <bonus>1</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
         </skills>
         <blessing>
-            <id>criticalPalate</id>
+            <id>keenTaste</id>
             <name>
-                <en>Critical Palate</en>
-                <es>Paladar Crítico</es>
+                <en>Keen Taste</en>
+                <es>Paladar Fino</es>
             </name>
             <description>
-                <en>+2 Perception when evaluating food or drink.</en>
-                <es>Percepción +2 cuando evalúas comida o bebida.</es>
+                <en>+2 Perception with taste only.</en>
+                <es>Percepción +2 solo con el gusto.</es>
             </description>
         </blessing>
         <curse>
-            <id>pretentious</id>
+            <id>fastidious</id>
             <name>
-                <en>Pretentious</en>
-                <es>Pretencioso</es>
+                <en>Fastidious</en>
+                <es>Quisquilloso</es>
             </name>
             <description>
-                <en>-2 Charm when dealing with common folk.</en>
-                <es>Encanto -2 cuando tratas con gente común.</es>
+                <en>-2 Presence in chaotic situations.</en>
+                <es>Presencia -2 en situaciones caóticas.</es>
             </description>
         </curse>
         <favoredCallings>
-            <calling>courtier</calling>
+            <calling>artist</calling>
         </favoredCallings>
         <materialAwards>
             <materialAwardOption>
@@ -3337,11 +3319,22 @@
             <es>Mascarada</es>
         </name>
         <description>
-            <en>The Masque Guild is a secret society of actors, illusionists, and masters of deception. Members specialize in disguise, forgery, and creating elaborate false identities. They are renowned for their ability to vanish into crowds and their skill at psychological manipulation. Many work as independent contractors for nobility and merchant houses.</en>
-            <es>El Gremio de la Mascarada es una sociedad secreta de actores, ilusionistas y maestros del engaño. Los miembros se especializan en disfraz, falsificación y crear identidades falsas elaboradas. Son reconocidos por su capacidad de desaparecer entre multitudes y su habilidad en manipulación psicológica. Muchos trabajan como contratistas independientes para casas de nobleza y mercaderes.</es>
+            <en>The Masque remains the most prestigious of the entertainment guilds, though not always the best paid. A remnant of Second Republic entertainment conglomerates, it is often credited as the primary reason for the post-Emperor-Wars renaissance of live entertainment. While traditionally an actor's guild, the Masque also represents musicians and authors, especially playwrights and realitywrights. Its customers include Royal Houses, the Church, and even Emperor Alexius — its dean is called the Minister of Propaganda — and classic performances and innovative magic lantern shows are its stock in trade.</en>
+            <es>La Mascarada sigue siendo el más prestigioso de los gremios del espectáculo, aunque no siempre el mejor pagado. Vestigio de los conglomerados de entretenimiento de la Segunda República, suele señalarse como la razón principal del renacimiento del espectáculo en vivo tras las Guerras del Emperador. Aunque tradicionalmente es un gremio de actores, la Mascarada también representa a músicos y autores, en especial dramaturgos y realidadwrights. Entre sus clientes están las Casas Reales, la Iglesia e incluso el Emperador Alexius —a su decano lo llaman Ministro de Propaganda—, y su especialidad son las actuaciones clásicas y las innovadoras funciones de linterna mágica.</es>
         </description>
         <group>minor_guild</group>
         <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>cathedralCustoms</id>
+                    </capability>
+                    <capability>
+                        <id>courtCustoms</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
             <capabilitiesOption>
                 <total>1</total>
                 <options>
@@ -3361,24 +3354,13 @@
                     </capability>
                 </options>
             </capabilitiesOption>
-            <capabilitiesOption>
-                <total>1</total>
-                <options>
-                    <capability>
-                        <id>speak</id>
-                        <selectedSpecialization>
-                            <group>any</group>
-                        </selectedSpecialization>
-                    </capability>
-                </options>
-            </capabilitiesOption>
         </capabilities>
         <characteristics>
             <characteristicBonusOptions>
                 <total>1</total>
                 <options>
                     <characteristic>
-                        <id>intuition</id>
+                        <id>dexterity</id>
                         <bonus>2</bonus>
                     </characteristic>
                 </options>
@@ -3387,7 +3369,7 @@
                 <total>1</total>
                 <options>
                     <characteristic>
-                        <id>presence</id>
+                        <id>intuition</id>
                         <bonus>1</bonus>
                     </characteristic>
                 </options>
@@ -3396,8 +3378,8 @@
                 <total>1</total>
                 <options>
                     <characteristic>
-                        <id>wits</id>
-                        <bonus>1</bonus>
+                        <id>presence</id>
+                        <bonus>2</bonus>
                     </characteristic>
                 </options>
             </characteristicBonusOptions>
@@ -3418,33 +3400,19 @@
                 <total>1</total>
                 <options>
                     <skill>
+                        <id>animalia</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
                         <id>arts</id>
                         <bonus>1</bonus>
                     </skill>
                     <skill>
-                        <id>perform</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>disguise</id>
-                        <bonus>2</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>knavery</id>
+                        <id>crafts</id>
                         <bonus>1</bonus>
                     </skill>
                     <skill>
-                        <id>sneak</id>
+                        <id>sleightOfHand</id>
                         <bonus>1</bonus>
                     </skill>
                 </options>
@@ -3456,33 +3424,67 @@
                         <id>charm</id>
                         <bonus>1</bonus>
                     </skill>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>knavery</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>fight</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>vigor</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>2</total>
+                <options>
+                    <skill>
+                        <id>perform</id>
+                        <bonus>1</bonus>
+                    </skill>
                 </options>
             </skillBonusOption>
         </skills>
         <blessing>
-            <id>masterOfDisguise</id>
+            <id>shrewd</id>
             <name>
-                <en>Master of Disguise</en>
-                <es>Maestro del Disfraz</es>
+                <en>Shrewd</en>
+                <es>Astuto</es>
             </name>
             <description>
-                <en>+2 Disguise when creating false identities.</en>
-                <es>Disfraz +2 cuando creas identidades falsas.</es>
+                <en>+2 Mind Resistance against fast-talk attempts.</en>
+                <es>Resistencia Mental +2 contra intentos de embaucar.</es>
             </description>
         </blessing>
         <curse>
-            <id>truthless</id>
+            <id>possessive</id>
             <name>
-                <en>Truthless</en>
-                <es>Sin Verdad</es>
+                <en>Possessive</en>
+                <es>Posesivo</es>
             </name>
             <description>
-                <en>-2 Presence when your true nature is revealed.</en>
-                <es>Presencia -2 cuando tu verdadera naturaleza es revelada.</es>
+                <en>-2 Presence when cut out of the action.</en>
+                <es>Presencia -2 cuando te dejan fuera de la acción.</es>
             </description>
         </curse>
         <favoredCallings>
-            <calling>rogue</calling>
+            <calling>artist</calling>
         </favoredCallings>
         <materialAwards>
             <materialAwardOption>
@@ -3503,8 +3505,8 @@
             <es>Mazmorra</es>
         </name>
         <description>
-            <en>The Oubliette is a shadow network of spies, assassins, and information brokers. Operating in darkness, they gather intelligence and eliminate threats for their employers. Members are trained in combat, infiltration, and psychological manipulation. The network is extensive and well-connected, with agents throughout the Known Worlds. Few know its true extent or leadership structure.</en>
-            <es>La Mazmorra es una red de sombra de espías, asesinos y corredores de información. Operando en la oscuridad, recopilan inteligencia y eliminan amenazas para sus empleadores. Los miembros son entrenados en combate, infiltración y manipulación psicológica. La red es extensa y bien conectada, con agentes en todos los Mundos Conocidos. Pocos conocen su verdadero alcance o estructura de liderazgo.</es>
+            <en>In the larger cities, where civilization is more than just a word, the Oubliette tends to the needs of the mind-crazed. Many of its mind-physicks are trying to rediscover the lost art of healing fragmented minds; a few already understand the workings of that most complex organ. A sanehouse run by the Oubliette is one-part healing facility and four-parts experimental lab for the study of insanity and its root causes, and many of its methods are on par with those of the Inquisition. Peering into human madness leaves many of its members on the brink of madness themselves.</en>
+            <es>En las grandes ciudades, donde la civilización es más que una palabra, la Mazmorra atiende las necesidades de los dementes. Muchos de sus físicos de la mente intentan redescubrir el arte perdido de sanar mentes fragmentadas; unos pocos ya comprenden el funcionamiento de ese órgano tan complejo. Una casa de cordura regida por la Mazmorra es en una parte un centro de curación y en cuatro partes un laboratorio experimental para el estudio de la locura y sus causas, y muchos de sus métodos están a la altura de los de la Inquisición. Asomarse a la locura humana deja a muchos de sus miembros al borde de la locura.</es>
         </description>
         <group>minor_guild</group>
         <capabilities>
@@ -3531,209 +3533,39 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <id>speak</id>
-                        <selectedSpecialization>
-                            <group>any</group>
-                        </selectedSpecialization>
+                        <group>knowledgeLore</group>
+                    </capability>
+                    <capability>
+                        <id>tortureLore</id>
                     </capability>
                 </options>
             </capabilitiesOption>
         </capabilities>
         <characteristics>
-            <characteristicBonusOptions>
-                <total>1</total>
-                <options>
-                    <characteristic>
-                        <id>dexterity</id>
-                        <bonus>1</bonus>
-                    </characteristic>
-                </options>
-            </characteristicBonusOptions>
-            <characteristicBonusOptions>
-                <total>1</total>
-                <options>
-                    <characteristic>
-                        <id>will</id>
-                        <bonus>2</bonus>
-                    </characteristic>
-                </options>
-            </characteristicBonusOptions>
             <characteristicBonusOptions>
                 <total>1</total>
                 <options>
                     <characteristic>
                         <id>intuition</id>
-                        <bonus>1</bonus>
+                        <bonus>2</bonus>
                     </characteristic>
                 </options>
             </characteristicBonusOptions>
-        </characteristics>
-        <perks>
-            <perkOptions>
-                <total>1</total>
-                <options>
-                    <perk>
-                        <group>guildCommission</group>
-                    </perk>
-                </options>
-                <openPerks>false</openPerks>
-            </perkOptions>
-        </perks>
-        <skills>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>fight</id>
-                        <bonus>1</bonus>
-                    </skill>
-                    <skill>
-                        <id>melee</id>
-                        <bonus>1</bonus>
-                    </skill>
-                    <skill>
-                        <id>shoot</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>sneak</id>
-                        <bonus>2</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>knavery</id>
-                        <bonus>1</bonus>
-                    </skill>
-                    <skill>
-                        <id>disguise</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>focus</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-        </skills>
-        <blessing>
-            <id>shadow</id>
-            <name>
-                <en>Shadow</en>
-                <es>Sombra</es>
-            </name>
-            <description>
-                <en>+2 Sneak when operating in darkness.</en>
-                <es>Sigilo +2 cuando operan en la oscuridad.</es>
-            </description>
-        </blessing>
-        <curse>
-            <id>marked</id>
-            <name>
-                <en>Marked</en>
-                <es>Marcado</es>
-            </name>
-            <description>
-                <en>-2 Presence when recognized by enemies.</en>
-                <es>Presencia -2 cuando eres reconocido por enemigos.</es>
-            </description>
-        </curse>
-        <favoredCallings>
-            <calling>rogue</calling>
-        </favoredCallings>
-        <materialAwards>
-            <materialAwardOption>
-                <total>1</total>
-                <options>
-                    <item>
-                        <id>oubliettePoisonKit</id>
-                        <type>item</type>
-                    </item>
-                </options>
-            </materialAwardOption>
-        </materialAwards>
-    </faction>
-    <faction>
-        <id>performers</id>
-        <name>
-            <en>Performers</en>
-            <es>Actores</es>
-        </name>
-        <description>
-            <en>The Performers Guild encompasses actors, dancers, musicians, and entertainers who work in established theaters and performance halls. Unlike the Carnivalers, Performers are more refined and often work within urban centers. They specialize in classic performances, theatrical productions, and artistic interpretation. Many achieve great fame and wealth through their talents.</en>
-            <es>El Gremio de Actores abarca actores, bailarines, músicos y artistas que trabajan en teatros establecidos y salas de espectáculos. A diferencia de los Carnavaleros, los Actores son más refinados y a menudo trabajan dentro de centros urbanos. Se especializan en actuaciones clásicas, producciones teatrales e interpretación artística. Muchos logran gran fama y riqueza a través de sus talentos.</es>
-        </description>
-        <group>minor_guild</group>
-        <capabilities>
-            <capabilitiesOption>
-                <total>1</total>
-                <options>
-                    <capability>
-                        <id>factionLore</id>
-                        <selectedSpecialization>
-                            <id>performers</id>
-                        </selectedSpecialization>
-                    </capability>
-                </options>
-            </capabilitiesOption>
-            <capabilitiesOption>
-                <total>1</total>
-                <options>
-                    <capability>
-                        <group>knowledgeLore</group>
-                    </capability>
-                </options>
-            </capabilitiesOption>
-            <capabilitiesOption>
-                <total>1</total>
-                <options>
-                    <capability>
-                        <id>speak</id>
-                        <selectedSpecialization>
-                            <group>any</group>
-                        </selectedSpecialization>
-                    </capability>
-                </options>
-            </capabilitiesOption>
-        </capabilities>
-        <characteristics>
             <characteristicBonusOptions>
                 <total>1</total>
                 <options>
                     <characteristic>
                         <id>presence</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>wits</id>
                         <bonus>2</bonus>
-                    </characteristic>
-                </options>
-            </characteristicBonusOptions>
-            <characteristicBonusOptions>
-                <total>1</total>
-                <options>
-                    <characteristic>
-                        <id>dexterity</id>
-                        <bonus>1</bonus>
-                    </characteristic>
-                </options>
-            </characteristicBonusOptions>
-            <characteristicBonusOptions>
-                <total>1</total>
-                <options>
-                    <characteristic>
-                        <id>intuition</id>
-                        <bonus>1</bonus>
                     </characteristic>
                 </options>
             </characteristicBonusOptions>
@@ -3751,19 +3583,10 @@
         </perks>
         <skills>
             <skillBonusOption>
-                <total>2</total>
-                <options>
-                    <skill>
-                        <id>perform</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
-            <skillBonusOption>
                 <total>1</total>
                 <options>
                     <skill>
-                        <id>arts</id>
+                        <id>academia</id>
                         <bonus>1</bonus>
                     </skill>
                 </options>
@@ -3779,6 +3602,10 @@
                         <id>impress</id>
                         <bonus>1</bonus>
                     </skill>
+                    <skill>
+                        <id>knavery</id>
+                        <bonus>1</bonus>
+                    </skill>
                 </options>
             </skillBonusOption>
             <skillBonusOption>
@@ -3790,38 +3617,56 @@
                     </skill>
                 </options>
             </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>observe</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>remedy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
         </skills>
         <blessing>
-            <id>spotlight</id>
+            <id>analyst</id>
             <name>
-                <en>Spotlight</en>
-                <es>Protagonista</es>
+                <en>Analyst</en>
+                <es>Analista</es>
             </name>
             <description>
-                <en>+2 Presence when performing on stage.</en>
-                <es>Presencia +2 cuando actúas en el escenario.</es>
+                <en>+2 Intuition when interviewing someone.</en>
+                <es>Intuición +2 al entrevistar a alguien.</es>
             </description>
         </blessing>
         <curse>
-            <id>stageFright</id>
+            <id>righteous</id>
             <name>
-                <en>Stage Fright</en>
-                <es>Miedo al Escenario</es>
+                <en>Righteous</en>
+                <es>Moralista</es>
             </name>
             <description>
-                <en>-2 Focus when performing for important audiences.</en>
-                <es>Concentración -2 cuando actúas para audiencias importantes.</es>
+                <en>-2 Presence when judgment questioned.</en>
+                <es>Presencia -2 cuando se cuestiona tu criterio.</es>
             </description>
         </curse>
         <favoredCallings>
-            <calling>artist</calling>
+            <calling>dreamtender</calling>
         </favoredCallings>
         <materialAwards>
             <materialAwardOption>
                 <total>1</total>
                 <options>
                     <item>
-                        <id>performerCostume</id>
+                        <id>oubliettePoisonKit</id>
                         <type>item</type>
                     </item>
                 </options>
@@ -3829,14 +3674,14 @@
         </materialAwards>
     </faction>
     <faction>
-        <id>tutors</id>
+        <id>stewards</id>
         <name>
-            <en>Tutors</en>
-            <es>Tutores</es>
+            <en>Stewards</en>
+            <es>Mayordomos</es>
         </name>
         <description>
-            <en>The Tutors Guild is a network of scholars, educators, and specialists who provide private instruction and mentorship. Members specialize in a wide range of subjects, from languages and sciences to combat training and diplomatic etiquette. They are employed by noble houses, merchant families, and wealthy individuals to educate the next generation. Competition for positions is fierce among members.</en>
-            <es>El Gremio de Tutores es una red de eruditos, educadores y especialistas que proporcionan instrucción privada y mentoría. Los miembros se especializan en una amplia gama de temas, desde idiomas y ciencias hasta entrenamiento de combate y etiqueta diplomática. Son empleados por casas nobles, familias mercantiles e individuos ricos para educar a la próxima generación. La competencia por posiciones es feroz entre los miembros.</es>
+            <en>Stewards teach manners and elegance to anyone who will hire them, insisting that they know the very hottest trends — even if they make them up themselves. Most of their earliest clients were merchants, so becoming a guild was the only way to ensure their lucrative tutoring positions would not be usurped, and as part of the League they insist that other guilds avoid teaching etiquette to their members. Stewards are their own advertising, always showing dignity and style, though careful never to upstage their clients.</en>
+            <es>Los Mayordomos enseñan modales y elegancia a quien quiera contratarlos, insistiendo en que conocen las últimas tendencias... aunque se las inventen ellos mismos. La mayoría de sus primeros clientes eran mercaderes, así que convertirse en gremio fue la única forma de asegurar que sus lucrativos puestos de tutoría no fueran usurpados, y como parte de la Liga exigen que otros gremios no enseñen etiqueta a sus miembros. Los Mayordomos son su propia publicidad, mostrando siempre dignidad y estilo, aunque con cuidado de no eclipsar nunca a sus clientes.</es>
         </description>
         <group>minor_guild</group>
         <capabilities>
@@ -3846,7 +3691,7 @@
                     <capability>
                         <id>factionLore</id>
                         <selectedSpecialization>
-                            <id>tutors</id>
+                            <id>stewards</id>
                         </selectedSpecialization>
                     </capability>
                 </options>
@@ -3863,10 +3708,176 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <id>speak</id>
+                        <id>beastcraft</id>
+                    </capability>
+                    <capability>
+                        <id>landcraft</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>strength</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>endurance</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>perception</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <group>guildCommission</group>
+                    </perk>
+                </options>
+                <openPerks>false</openPerks>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>academia</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>2</total>
+                <options>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>drive</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>empathy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>observe</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <blessing>
+            <id>gracious</id>
+            <name>
+                <en>Gracious</en>
+                <es>Cortés</es>
+            </name>
+            <description>
+                <en>+2 Presence with guests.</en>
+                <es>Presencia +2 con los invitados.</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>insecure</id>
+            <name>
+                <en>Insecure</en>
+                <es>Inseguro</es>
+            </name>
+            <description>
+                <en>-2 Mind Resistance around social betters.</en>
+                <es>Resistencia Mental -2 ante superiores sociales.</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>scholar</calling>
+        </favoredCallings>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>stewardLedger</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+    </faction>
+    <faction>
+        <id>pedagogues</id>
+        <name>
+            <en>Pedagogues</en>
+            <es>Pedagogos</es>
+        </name>
+        <description>
+            <en>The Pedagogues make up not one but innumerable guilds of teachers, each with their own specialties, organized by their students rather than by subject — from the Governess Guild that rears noble children to the Nannies Guild that raises rich merchants' offspring. The Tutors are the largest and most watched pedagogue guild, roaming the Known Worlds to train the children of nobles and rich merchants. Used to being considered experts on all topics, Pedagogues teach anyone who can pay, and their air of certainty alone wins many a debate.</en>
+            <es>Los Pedagogos forman no uno sino innumerables gremios de maestros, cada uno con sus especialidades, organizados por sus alumnos más que por materia: desde el Gremio de Institutrices que cría a los niños nobles hasta el Gremio de Niñeras que educa a la prole de los ricos mercaderes. Los Tutores son el gremio pedagógico más grande y vigilado, recorriendo los Mundos Conocidos para instruir a los hijos de nobles y mercaderes adinerados. Acostumbrados a ser considerados expertos en todo, los Pedagogos enseñan a cualquiera que pueda pagar, y su sola aura de certeza les gana más de un debate.</es>
+        </description>
+        <group>minor_guild</group>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>cathedralCustoms</id>
+                    </capability>
+                    <capability>
+                        <id>courtCustoms</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>factionLore</id>
                         <selectedSpecialization>
-                            <group>any</group>
+                            <id>pedagogues</id>
                         </selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <group>knowledgeLore</group>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -3913,7 +3924,7 @@
         </perks>
         <skills>
             <skillBonusOption>
-                <total>3</total>
+                <total>2</total>
                 <options>
                     <skill>
                         <id>academia</id>
@@ -3928,8 +3939,17 @@
                         <id>charm</id>
                         <bonus>1</bonus>
                     </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
                     <skill>
                         <id>empathy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>interface</id>
                         <bonus>1</bonus>
                     </skill>
                 </options>
@@ -3943,40 +3963,31 @@
                     </skill>
                 </options>
             </skillBonusOption>
-            <skillBonusOption>
-                <total>1</total>
-                <options>
-                    <skill>
-                        <id>impress</id>
-                        <bonus>1</bonus>
-                    </skill>
-                </options>
-            </skillBonusOption>
         </skills>
         <blessing>
-            <id>mentor</id>
+            <id>authoritative</id>
             <name>
-                <en>Mentor</en>
-                <es>Mentor</es>
+                <en>Authoritative</en>
+                <es>Autoritario</es>
             </name>
             <description>
-                <en>+2 Academia when teaching others.</en>
-                <es>Academia +2 cuando enseñas a otros.</es>
+                <en>+2 Presence when placed in command of others.</en>
+                <es>Presencia +2 cuando se te pone al mando de otros.</es>
             </description>
         </blessing>
         <curse>
-            <id>pedantic</id>
+            <id>disrespectful</id>
             <name>
-                <en>Pedantic</en>
-                <es>Pedante</es>
+                <en>Disrespectful</en>
+                <es>Irrespetuoso</es>
             </name>
             <description>
-                <en>-2 Charm when conversing with non-scholars.</en>
-                <es>Encanto -2 cuando conversas con no eruditos.</es>
+                <en>-2 Presence around authority figures.</en>
+                <es>Presencia -2 cerca de figuras de autoridad.</es>
             </description>
         </curse>
         <favoredCallings>
-            <calling>courtier</calling>
+            <calling>scholar</calling>
         </favoredCallings>
         <materialAwards>
             <materialAwardOption>
@@ -3997,8 +4008,8 @@
             <es>Domadores</es>
         </name>
         <description>
-            <en>The Wranglers Guild specializes in the capture, training, and care of exotic beasts from across the Known Worlds. Members are wilderness experts who track and subdue dangerous creatures. Their skills are valuable to nobles seeking hunting companions, to merchants transporting goods, and to military forces. Many Wranglers maintain private collections or work as independent contractors.</en>
-            <es>El Gremio de Domadores se especializa en la captura, entrenamiento y cuidado de bestias exóticas de todos los Mundos Conocidos. Los miembros son expertos de la naturaleza que rastrean y someten criaturas peligrosas. Sus habilidades son valiosas para nobles que buscan compañeros de caza, para mercaderes que transportan bienes y para fuerzas militares. Muchos Domadores mantienen colecciones privadas o trabajan como contratistas independientes.</es>
+            <en>Wranglers are as close to old-fashioned Urth cowboys as the Known Worlds get. They watch over the herds of riding beasts and food stocks of nobles and merchants, driving brutes across the plains or nurturing the delicate sea creatures some nobles find preferable as pets or food. They train these animals and are adept at minor medical surgeries. Rugged and taciturn, Wranglers work hard and play hard, whether they're dealing with brutes or with people.</en>
+            <es>Los Domadores son lo más parecido a los antiguos vaqueros de Urth que existe en los Mundos Conocidos. Vigilan los rebaños de bestias de monta y las reservas alimentarias de nobles y mercaderes, arreando brutos por las llanuras o cuidando las delicadas criaturas marinas que algunos nobles prefieren como mascotas o alimento. Adiestran a estos animales y son hábiles en pequeñas cirugías. Rudos y taciturnos, los Domadores trabajan duro y se divierten duro, ya sea tratando con brutos o con personas.</es>
         </description>
         <group>minor_guild</group>
         <capabilities>
@@ -4017,7 +4028,7 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <group>knowledgeLore</group>
+                        <id>beastLore</id>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -4025,15 +4036,28 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <id>speak</id>
-                        <selectedSpecialization>
-                            <group>any</group>
-                        </selectedSpecialization>
+                        <id>beastback</id>
+                    </capability>
+                    <capability>
+                        <id>beastcraft</id>
                     </capability>
                 </options>
             </capabilitiesOption>
         </capabilities>
         <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>strength</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
             <characteristicBonusOptions>
                 <total>1</total>
                 <options>
@@ -4047,17 +4071,8 @@
                 <total>1</total>
                 <options>
                     <characteristic>
-                        <id>intuition</id>
-                        <bonus>1</bonus>
-                    </characteristic>
-                </options>
-            </characteristicBonusOptions>
-            <characteristicBonusOptions>
-                <total>1</total>
-                <options>
-                    <characteristic>
-                        <id>strength</id>
-                        <bonus>1</bonus>
+                        <id>presence</id>
+                        <bonus>2</bonus>
                     </characteristic>
                 </options>
             </characteristicBonusOptions>
@@ -4075,11 +4090,37 @@
         </perks>
         <skills>
             <skillBonusOption>
-                <total>1</total>
+                <total>2</total>
                 <options>
                     <skill>
                         <id>animalia</id>
-                        <bonus>2</bonus>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>drive</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>fight</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>remedy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>vigor</id>
+                        <bonus>1</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
@@ -4088,6 +4129,520 @@
                 <options>
                     <skill>
                         <id>survival</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <blessing>
+            <id>beastmaster</id>
+            <name>
+                <en>Beastmaster</en>
+                <es>Amo de Bestias</es>
+            </name>
+            <description>
+                <en>+2 Presence for non-combat interaction with animals.</en>
+                <es>Presencia +2 en interacciones no combativas con animales.</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>uncouth</id>
+            <name>
+                <en>Uncouth</en>
+                <es>Tosco</es>
+            </name>
+            <description>
+                <en>-2 Presence at society functions.</en>
+                <es>Presencia -2 en eventos de sociedad.</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>scout</calling>
+        </favoredCallings>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>wranglerBeastRein</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+    </faction>
+    <faction>
+        <id>chorali</id>
+        <name>
+            <en>Chorali</en>
+            <es>Corali</es>
+        </name>
+        <description>
+            <en>The Chorali follow a holy avocation to venerate the Pancreator through song. Many members of this order were originally part of another sect or order but found their true calling among this elect choir. Chorali who originally came from different sects may not necessarily get along, owing to their particular beliefs, but they still cooperate in their shared mission within the order and the Church. Most Chorali are musically talented but little more. Truly gifted Chorali are reputed to be able to work miracles with their voices alone. The hymns of such miraculous Chorali reflect the power and grace of the Pancreator, much like the theurgy of other orders. The unique nature of these hymns is of great interest to many within the Church, particularly the Eskatonics, who wish to learn more about this blessing of the Pancreator.</en>
+            <es>Los Corali siguen una vocación sagrada para venerar al Pancreator a través de la canción. Muchos miembros de esta orden formaban parte originalmente de otra secta u orden, pero encontraron su verdadera vocación entre este coro electo. Los Corali que originalmente provenían de diferentes sectas pueden no llevarse necesariamente bien, debido a sus creencias particulares, pero aún cooperan en su misión compartida dentro de la orden y la Iglesia. La mayoría de los Corali son talentosos musicalmente, pero poco más. Los Corali verdaderamente dotados se dice que pueden obrar milagros con sus voces solas. Los himnos de tales Corali milagrosos reflejan el poder y la gracia del Pancreator, como la teúrgia de otras órdenes. La naturaleza única de estos himnos es de gran interés para muchos dentro de la Iglesia, particularmente los Eskatónicos, quienes desean aprender más sobre esta bendición del Pancreator.</es>
+        </description>
+        <group>minor_sect</group>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>factionLore</id>
+                        <selectedSpecialization>
+                            <id>chorali</id>
+                        </selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <group>knowledgeLore</group>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>speak</id>
+                        <selectedSpecialization>
+                            <id>latin</id>
+                        </selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>faith</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>intuition</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>presence</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <id>churchOrdinationNovitiate</id>
+                    </perk>
+                </options>
+                <openPerks>false</openPerks>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>arts</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>remedy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>empathy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>focus</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>perform</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <blessing>
+            <id>beloved</id>
+            <name>
+                <en>Beloved</en>
+                <es>Amado</es>
+            </name>
+            <description>
+                <en>+2 Charm among the faithful.</en>
+                <es>Encanto +2 entre los fieles.</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>innocent</id>
+            <name>
+                <en>Innocent</en>
+                <es>Inocente</es>
+            </name>
+            <description>
+                <en>-2 Mind Resistance against persuasion influence from the faithful.</en>
+                <es>Resistencia Mental -2 contra influencias de persuasión de los fieles.</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>chorister</calling>
+        </favoredCallings>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>choraliHymnalBook</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+    </faction>
+    <faction>
+        <id>hesychasts</id>
+        <name>
+            <en>Hesychasts</en>
+            <es>Hesicastas</es>
+        </name>
+        <description>
+            <en>Some believers chose to forgo the hierarchy of the Church entirely, retreating to the wilderness to commune with the Pancreator. These monks, known as hesychasts, do not answer to any authority, and as such, they do not enjoy the many social benefits of other clergy. In exchange, though, they have relative freedom to seek out the Holy Flame as they wish — so long as they do not fall into heresy. As relative outsiders to the politics of the Church, mendicants have little influence on theological or doctrinal issues. Occasionally, a hesychast will come from the wilderness, wielding some insight that causes a stir or even a revival within the Church. However, this rarely happens, and (as noted above) it can lead to worries about heresy. On the other hand, the history of the Church is filled with monks whose mystical experiences earned them recognition as saints. Such saints are the subject of many folk tales and passion plays, making them popular figures in the imaginations of the common people of the Known Worlds.</en>
+            <es>Algunos creyentes optaron por renunciar por completo a la jerarquía de la Iglesia, retirándose al desierto para comulgar con el Pancreator. Estos monjes, conocidos como hesicastas, no responden a ninguna autoridad, y como tales, no disfrutan de los muchos beneficios sociales de otros clérigos. A cambio, sin embargo, tienen relativa libertad para buscar la Llama Sagrada como deseen, siempre y cuando no caigan en herejía. Como extraños relativos a la política de la Iglesia, los mendicantes tienen poca influencia en cuestiones teológicas o doctrinales. Ocasionalmente, un hesicasta saldrá del desierto, blandiendo alguna intuición que cause revuelo o incluso un renacimiento dentro de la Iglesia. Sin embargo, esto rara vez sucede, y (como se señaló arriba) puede llevar a preocupaciones sobre herejía. Por otro lado, la historia de la Iglesia está llena de monjes cuyas experiencias místicas les valieron el reconocimiento como santos. Tales santos son el tema de muchas historias folclóricas y obras de pasión, convirtiéndolos en figuras populares en las imaginaciones de la gente común de los Mundos Conocidos.</es>
+        </description>
+        <group>minor_sect</group>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>factionLore</id>
+                        <selectedSpecialization>
+                            <id>hesychasts</id>
+                        </selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>2</total>
+                <options>
+                    <capability>
+                        <group>knowledgeLore</group>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>strength</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>endurance</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>faith</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>perception</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>wits</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <id>churchOrdinationNovitiate</id>
+                    </perk>
+                </options>
+                <openPerks>false</openPerks>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>crafts</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>empathy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>observe</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>focus</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>remedy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>survival</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>vigor</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <blessing>
+            <id>pious</id>
+            <name>
+                <en>Pious</en>
+                <es>Piadoso</es>
+            </name>
+            <description>
+                <en>+2 Impress among the sinful.</en>
+                <es>Impresionar +2 entre los pecadores.</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>uncouth</id>
+            <name>
+                <en>Uncouth</en>
+                <es>Grosero</es>
+            </name>
+            <description>
+                <en>-2 Charm at society functions.</en>
+                <es>Encanto -2 en funciones sociales.</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>mendicant</calling>
+        </favoredCallings>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>hesychastRelic</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+    </faction>
+    <faction>
+        <id>incarnates</id>
+        <name>
+            <en>Incarnates</en>
+            <es>Encarnados</es>
+        </name>
+        <description>
+            <en>The Incarnates are a heretical sect that believes the Pancreator has incarnated in the flesh multiple times throughout history. They believe that the Church has suppressed this knowledge to maintain its power. Incarnates are passionate believers who seek to spread their message, often at great personal risk. They are known for their scholarly pursuits and their willingness to engage in combat to defend their faith.</en>
+            <es>Los Encarnados son una secta herética que cree que el Pancreator se ha encarnado en carne múltiples veces a lo largo de la historia. Creen que la Iglesia ha suprimido este conocimiento para mantener su poder. Los Encarnados son creyentes apasionados que buscan difundir su mensaje, a menudo con gran riesgo personal. Son conocidos por sus búsquedas académicas y su disposición a participar en combate para defender su fe.</es>
+        </description>
+        <group>minor_sect</group>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>factionLore</id>
+                        <selectedSpecialization>
+                            <id>incarnates</id>
+                        </selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>2</total>
+                <options>
+                    <capability>
+                        <group>knowledgeLore</group>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>endurance</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>faith</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>wits</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>intuition</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>presence</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <id>wiseOne</id>
+                    </perk>
+                </options>
+                <openPerks>false</openPerks>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>academia</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>empathy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>focus</id>
                         <bonus>1</bonus>
                     </skill>
                 </options>
@@ -4113,43 +4668,431 @@
                 <total>1</total>
                 <options>
                     <skill>
-                        <id>vigor</id>
+                        <id>remedy</id>
                         <bonus>1</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
         </skills>
         <blessing>
-            <id>beastWhisperer</id>
+            <id>stubborn</id>
             <name>
-                <en>Beast Whisperer</en>
-                <es>Susurrador de Bestias</es>
+                <en>Stubborn</en>
+                <es>Tozudo</es>
             </name>
             <description>
-                <en>+2 Animalia when taming or communicating with beasts.</en>
-                <es>Animalía +2 cuando domas o te comunicas con bestias.</es>
+                <en>+1 goal on Endurance-, Will-, and Faith-based rolls when persecuted.</en>
+                <es>+1 meta en tiradas basadas en Resistencia, Voluntad y Fe cuando eres perseguido.</es>
             </description>
         </blessing>
         <curse>
-            <id>feral</id>
+            <id>bitter</id>
             <name>
-                <en>Feral</en>
-                <es>Salvaje</es>
+                <en>Bitter</en>
+                <es>Amargado</es>
             </name>
             <description>
-                <en>-2 Charm when in civilized settings.</en>
-                <es>Encanto -2 cuando estás en ambientes civilizados.</es>
+                <en>-2 Charm when dealing with the Orthodoxy.</en>
+                <es>Encanto -2 cuando tratas con la Ortodoxia.</es>
             </description>
         </curse>
         <favoredCallings>
-            <calling>hunter</calling>
+            <calling>friar</calling>
         </favoredCallings>
         <materialAwards>
             <materialAwardOption>
                 <total>1</total>
                 <options>
                     <item>
-                        <id>wranglerBeastRein</id>
+                        <id>incarnateNotes</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+    </faction>
+    <faction>
+        <id>childrenOfZuran</id>
+        <name>
+            <en>Children of Zuran</en>
+            <es>Hijos de Zuran</es>
+        </name>
+        <description>
+            <en>The Children of Zuran are a sect that believes in the power of visions and prophecies. They seek to commune with the Pancreator through ecstatic experiences and mystical revelations. Children of Zuran are often found in isolated communities, where they pursue their spiritual quests. While they are respected for their spiritual insights, they can be seen as eccentric and unreliable by those who do not share their beliefs.</en>
+            <es>Los Hijos de Zuran son una secta que cree en el poder de las visiones y profecías. Buscan comulgar con el Pancreator a través de experiencias extáticas y revelaciones místicas. Los Hijos de Zuran a menudo se encuentran en comunidades aisladas, donde persiguen sus búsquedas espirituales. Aunque son respetados por sus intuiciones espirituales, pueden ser vistos como excéntricos e impredecibles por aquellos que no comparten sus creencias.</es>
+        </description>
+        <group>minor_sect</group>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>commonsCustoms</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>jumpwebLore</id>
+                    </capability>
+                    <capability>
+                        <group>transport</group>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>religionLore</id>
+                        <selectedSpecialization>
+                            <id>zuranity</id>
+                        </selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>dexterity</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>endurance</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>faith</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>will</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>intuition</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>presence</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <id>wiseOne</id>
+                    </perk>
+                </options>
+                <openPerks>false</openPerks>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>academia</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>empathy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>focus</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>fight</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>remedy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <blessing>
+            <id>bold</id>
+            <name>
+                <en>Bold</en>
+                <es>Audaz</es>
+            </name>
+            <description>
+                <en>+2 Intuition while acting when others hesitate.</en>
+                <es>Intuición +2 al actuar cuando otros dudan.</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>prideful</id>
+            <name>
+                <en>Prideful</en>
+                <es>Orgulloso</es>
+            </name>
+            <description>
+                <en>-2 Presence when insulted.</en>
+                <es>Presencia -2 cuando eres insultado.</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>trader</calling>
+        </favoredCallings>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>zuranityLibroEsperanza</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+    </faction>
+    <faction>
+        <id>gjarti</id>
+        <name>
+            <en>Gjarti</en>
+            <es>Gjarti</es>
+        </name>
+        <description>
+            <en>An earthy religion that venerates the Universal Mother, Gjarti is practiced by peasants on several worlds and among the barbarian Vuldrok. Some of its faithful are renowned — and feared — for their command of unique forms of theurgy. A Gjartin character might be an experienced explorer, a canny shaman, or a noble who is a secret devotee.</en>
+            <es>Una religión terrenal que venera a la Madre Universal, el Gjarti es practicado por campesinos en varios mundos y entre los bárbaros Vuldrok. Algunos de sus fieles son reconocidos —y temidos— por su dominio de formas únicas de teúrgia. Un personaje Gjartin podría ser un explorador experimentado, un astuto chamán o un noble que es un devoto secreto.</es>
+        </description>
+        <group>minor_sect</group>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>beastLore</id>
+                    </capability>
+                    <capability>
+                        <id>lifeScience</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>religionLore</id>
+                        <selectedSpecialization>
+                            <id>gjartin</id>
+                        </selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <group>knowledgeLore</group>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>endurance</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>intuition</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>faith</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <id>wiseOne</id>
+                    </perk>
+                </options>
+                <openPerks>false</openPerks>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>academia</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>empathy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>focus</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>fight</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>remedy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <blessing>
+            <id>earthLore</id>
+            <name>
+                <en>Earth Lore</en>
+                <es>Saber de la Tierra</es>
+            </name>
+            <description>
+                <en>+2 Intuition when dealing with animals and plants.</en>
+                <es>Intuición +2 cuando tratas con animales y plantas.</es>
+            </description>
+        </blessing>
+        <curse>
+            <id>persecuted</id>
+            <name>
+                <en>Persecuted</en>
+                <es>Perseguido</es>
+            </name>
+            <description>
+                <en>-2 Presence when confronted by the Orthodoxy.</en>
+                <es>Presencia -2 cuando te enfrentas a la Ortodoxia.</es>
+            </description>
+        </curse>
+        <favoredCallings>
+            <calling>theurgist</calling>
+        </favoredCallings>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>gjartiPendant</id>
                         <type>item</type>
                     </item>
                 </options>
