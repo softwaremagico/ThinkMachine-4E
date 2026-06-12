@@ -133,6 +133,7 @@
             </materialAwardOption>
         </materialAwards>
         <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
             <recommendedPreferences>
                 <preference>TECHNICAL</preference>
             </recommendedPreferences>

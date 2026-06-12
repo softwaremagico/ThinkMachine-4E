@@ -272,6 +272,9 @@
                 </name>
             </selectedSpecialization>
         </specializations>
+        <random>
+            <probabilityMultiplier>NORMAL</probabilityMultiplier>
+        </random>
     </capability>
     <capability>
         <id>religionLore</id>
@@ -293,6 +296,9 @@
                 </name>
             </selectedSpecialization>
         </specializations>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </capability>
     <capability>
         <id>speak</id>
@@ -356,6 +362,9 @@
                 </name>
             </selectedSpecialization>
         </specializations>
+        <random>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
+        </random>
     </capability>
     <capability>
         <id>read</id>
@@ -405,5 +414,8 @@
                 </name>
             </selectedSpecialization>
         </specializations>
+        <random>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
+        </random>
     </capability>
 </capabilities>

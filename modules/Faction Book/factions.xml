@@ -203,6 +203,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>juandaastas</id>
@@ -368,6 +371,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>justinian</id>
@@ -558,6 +564,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>keddah</id>
@@ -769,6 +778,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>masseri</id>
@@ -976,6 +988,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>ramakrishna</id>
@@ -1171,6 +1186,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>shelit</id>
@@ -1375,6 +1393,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>thana</id>
@@ -1564,6 +1585,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>torenson</id>
@@ -1735,6 +1759,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>trusnikron</id>
@@ -1825,11 +1852,11 @@
         </perks>
         <skills>
             <skillBonusOption>
-                <total>2</total>
+                <total>1</total>
                 <options>
                     <skill>
                         <id>animalia</id>
-                        <bonus>1</bonus>
+                        <bonus>2</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
@@ -1913,6 +1940,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>vanGelder</id>
@@ -2113,6 +2143,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>xanthippe</id>
@@ -2296,6 +2329,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>apothecaries</id>
@@ -2410,11 +2446,11 @@
                 </options>
             </skillBonusOption>
             <skillBonusOption>
-                <total>2</total>
+                <total>1</total>
                 <options>
                     <skill>
                         <id>remedy</id>
-                        <bonus>1</bonus>
+                        <bonus>2</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
@@ -2455,6 +2491,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>brewers</id>
@@ -2572,11 +2611,11 @@
                 </options>
             </skillBonusOption>
             <skillBonusOption>
-                <total>2</total>
+                <total>1</total>
                 <options>
                     <skill>
                         <id>crafts</id>
-                        <bonus>1</bonus>
+                        <bonus>2</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
@@ -2626,6 +2665,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>bureaucrats</id>
@@ -2724,11 +2766,11 @@
         </perks>
         <skills>
             <skillBonusOption>
-                <total>2</total>
+                <total>1</total>
                 <options>
                     <skill>
                         <id>academia</id>
-                        <bonus>1</bonus>
+                        <bonus>2</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
@@ -2800,6 +2842,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>carnivalers</id>
@@ -2928,11 +2973,11 @@
                 </options>
             </skillBonusOption>
             <skillBonusOption>
-                <total>2</total>
+                <total>1</total>
                 <options>
                     <skill>
                         <id>perform</id>
-                        <bonus>1</bonus>
+                        <bonus>2</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
@@ -2973,6 +3018,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>courtesans</id>
@@ -3066,11 +3114,11 @@
         </perks>
         <skills>
             <skillBonusOption>
-                <total>2</total>
+                <total>1</total>
                 <options>
                     <skill>
                         <id>charm</id>
-                        <bonus>1</bonus>
+                        <bonus>2</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
@@ -3150,6 +3198,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>gourmands</id>
@@ -3266,11 +3317,11 @@
                 </options>
             </skillBonusOption>
             <skillBonusOption>
-                <total>2</total>
+                <total>1</total>
                 <options>
                     <skill>
                         <id>crafts</id>
-                        <bonus>1</bonus>
+                        <bonus>2</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
@@ -3311,6 +3362,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>masque</id>
@@ -3452,11 +3506,11 @@
                 </options>
             </skillBonusOption>
             <skillBonusOption>
-                <total>2</total>
+                <total>1</total>
                 <options>
                     <skill>
                         <id>perform</id>
-                        <bonus>1</bonus>
+                        <bonus>2</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
@@ -3497,6 +3551,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>oubliette</id>
@@ -3672,6 +3729,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>stewards</id>
@@ -3771,11 +3831,11 @@
                 </options>
             </skillBonusOption>
             <skillBonusOption>
-                <total>2</total>
+                <total>1</total>
                 <options>
                     <skill>
                         <id>charm</id>
-                        <bonus>1</bonus>
+                        <bonus>2</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
@@ -3838,6 +3898,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>pedagogues</id>
@@ -3924,11 +3987,11 @@
         </perks>
         <skills>
             <skillBonusOption>
-                <total>2</total>
+                <total>1</total>
                 <options>
                     <skill>
                         <id>academia</id>
-                        <bonus>1</bonus>
+                        <bonus>2</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
@@ -4000,6 +4063,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>wranglers</id>
@@ -4090,11 +4156,11 @@
         </perks>
         <skills>
             <skillBonusOption>
-                <total>2</total>
+                <total>1</total>
                 <options>
                     <skill>
                         <id>animalia</id>
-                        <bonus>1</bonus>
+                        <bonus>2</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
@@ -4170,6 +4236,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>promoters</id>
@@ -4363,6 +4432,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>prospectors</id>
@@ -4538,6 +4610,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>purgers</id>
@@ -4738,6 +4813,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>slayers</id>
@@ -4924,6 +5002,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>townCriers</id>
@@ -5126,6 +5207,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>weaponsmiths</id>
@@ -5302,6 +5386,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>wordwrights</id>
@@ -5469,6 +5556,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>preceptors</id>
@@ -5656,6 +5746,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>voavenlohjun</id>
@@ -5846,6 +5939,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>chorali</id>
@@ -6020,6 +6116,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>hesychasts</id>
@@ -6201,6 +6300,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>incarnates</id>
@@ -6386,6 +6488,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>childrenOfZuran</id>
@@ -6591,6 +6696,9 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
     <faction>
         <id>gjarti</id>
@@ -6774,5 +6882,8 @@
                 </options>
             </materialAwardOption>
         </materialAwards>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </faction>
 </factions>
