@@ -7,8 +7,24 @@
             <es>Cyborg</es>
         </name>
         <description>
-            <en>Cyborgs bear cybernetic device implants. You may have gained your implants as a requirement for your employment, to replace a missing limb or organ, or because you are a cyberfetishist obsessed with altering and improving your body. Cyborgs can be found throughout the Known Worlds in a wide variety of occupations — soldiers, guards, spies, couriers, hackers, and even entertainers — although they are often distrusted by Inquisitors and treated as pariahs by the common folk. Cybernetic implants tend to impact the personality due to techgnostic overload, and many cyborgs are more focused on technology than on people. This calling is rarely practiced for more than one or two levels, just long enough to gain access to one or more cybernetic device perks.</en>
-            <es>Los cyborgs portan implantes de dispositivos cibernéticos. Puedes haber obtenido tus implantes como requisito de tu empleo, para reemplazar un miembro u órgano perdido, o porque eres un cyberfetichista obsesionado con alterar y mejorar tu cuerpo. Los cyborgs se encuentran por todos los Mundos Conocidos en una gran variedad de ocupaciones —soldados, guardias, espías, mensajeros, hackers e incluso artistas—, aunque a menudo desconfían de ellos los Inquisidores y son tratados como parias por la gente común. Los implantes cibernéticos tienden a afectar la personalidad debido a la sobrecarga tecnognóstica, y muchos cyborgs se centran más en la tecnología que en las personas. Esta vocación rara vez se practica más de uno o dos niveles, lo justo para acceder a uno o más perks de dispositivos cibernéticos.</es>
+            <en>Cyborgs bear cybernetic device implants. You may have gained your implants as a requirement for your
+                employment, to replace a missing limb or organ, or because you are a cyberfetishist obsessed with
+                altering and improving your body. Cyborgs can be found throughout the Known Worlds in a wide variety of
+                occupations - soldiers, guards, spies, couriers, hackers, and even entertainers - although they are
+                often distrusted by Inquisitors and treated as pariahs by the common folk. Cybernetic implants tend to
+                impact the personality due to techgnostic overload, and many cyborgs are more focused on technology than
+                on people. This calling is rarely practiced for more than one or two levels, just long enough to gain
+                access to one or more cybernetic device perks.
+            </en>
+            <es>Los cyborgs portan implantes de dispositivos ciberneticos. Puedes haber obtenido tus implantes como
+                requisito de tu empleo, para reemplazar un miembro u organo perdido, o porque eres un cyberfetichista
+                obsesionado con alterar y mejorar tu cuerpo. Los cyborgs se encuentran por todos los Mundos Conocidos en
+                una gran variedad de ocupaciones -soldados, guardias, espias, mensajeros, hackers e incluso artistas-,
+                aunque a menudo desconfian de ellos los Inquisidores y son tratados como parias por la gente comun. Los
+                implantes ciberneticos tienden a afectar la personalidad debido a la sobrecarga tecnognostica, y muchos
+                cyborgs se centran mas en la tecnologia que en las personas. Esta vocacion rara vez se practica mas de
+                uno o dos niveles, lo justo para acceder a uno o mas perks de dispositivos ciberneticos.
+            </es>
         </description>
         <capabilities>
             <capabilitiesOption>
@@ -140,4 +156,3 @@
         </random>
     </calling>
 </callings>
-

@@ -7,10 +7,12 @@
             <es>Quitina Esmaltada</es>
         </name>
         <description>
-            <en>Your gain +2 Body Resistance for your natural armor. However, without a source of common materials and victorious Tech Redemption or Crafts
+            <en>Your gain +2 Body Resistance for your natural armor. However, without a source of common materials and
+                victorious Tech Redemption or Crafts
                 repair maneuvers (Resistance 2), your wounds take twice as long to heal.
             </en>
-            <es>Obtienes +2 de Resistencia Corporal por tu armadura natural. Sin embargo, sin una fuente de materiales comunes y sin una Tecnorredención
+            <es>Obtienes +2 de Resistencia Corporal por tu armadura natural. Sin embargo, sin una fuente de materiales
+                comunes y sin una Tecnorredención
                 victoriosa o maniobras de reparación de Artesanía (Resistencia 2), tus heridas tardan el doble en sanar.
             </es>
         </description>
@@ -27,10 +29,12 @@
             <es>As del Aire</es>
         </name>
         <description>
-            <en>Most Etyri can fly, but you have spent your life mastering winds and wing. Your rolls related to flying with your
+            <en>Most Etyri can fly, but you have spent your life mastering winds and wing. Your rolls related to flying
+                with your
                 wings are considered favorable.
             </en>
-            <es>La mayoría de los Etyri pueden volar, pero tú has dedicado tu vida a dominar los vientos y las alas. Tus tiradas relacionadas con volar con tus
+            <es>La mayoría de los Etyri pueden volar, pero tú has dedicado tu vida a dominar los vientos y las alas. Tus
+                tiradas relacionadas con volar con tus
                 alas se consideran favorables.
             </es>
         </description>
@@ -47,13 +51,17 @@
             <es>Adaptación ectotérmica</es>
         </name>
         <description>
-            <en>You have mastered your body, turning your cold-blooded nature into an advantage instead of a drawback. You may control your body temperature
-                through meditation and breathing exercises. If you can spend a few minutes in such a state, then for the rest of that act, you ignore penalties
+            <en>You have mastered your body, turning your cold-blooded nature into an advantage instead of a drawback.
+                You may control your body temperature
+                through meditation and breathing exercises. If you can spend a few minutes in such a state, then for the
+                rest of that act, you ignore penalties
                 normally associated with cold weather and gain +2 Body Resistance to environmental cold or heat.
             </en>
-            <es>Has dominado tu cuerpo, convirtiendo tu naturaleza de sangre fría en una ventaja en lugar de una desventaja. Puedes controlar tu temperatura
+            <es>Has dominado tu cuerpo, convirtiendo tu naturaleza de sangre fría en una ventaja en lugar de una
+                desventaja. Puedes controlar tu temperatura
                 corporal
-                mediante la meditación y ejercicios de respiración. Si logras permanecer unos minutos en ese estado, durante el resto de ese acto ignorarás las
+                mediante la meditación y ejercicios de respiración. Si logras permanecer unos minutos en ese estado,
+                durante el resto de ese acto ignorarás las
                 penalizaciones
                 normalmente asociadas al frío y obtendrás +2 de Resistencia Corporal al frío o al calor ambiental.
             </es>
@@ -74,16 +82,22 @@
             <es>Anfibio</es>
         </name>
         <description>
-            <en>You are perfectly at home in water or on land, losing none of your species’ grace. You have capability in water and on land. In addition, you
-                are well experienced in leaving water for a long time and can go a full week with stored water before needing immersion in water to survive.
-                This modifies your Requires Moisture birthright: Once Fatigued, you don’t become Stunned or Hindered until one day has passed. After that, you
+            <en>You are perfectly at home in water or on land, losing none of your species’ grace. You have capability
+                in water and on land. In addition, you
+                are well experienced in leaving water for a long time and can go a full week with stored water before
+                needing immersion in water to survive.
+                This modifies your Requires Moisture birthright: Once Fatigued, you don’t become Stunned or Hindered
+                until one day has passed. After that, you
                 suffer 1 Vitality wound every three hours.
             </en>
-            <es>Te desenvuelves con total naturalidad tanto en el agua como en tierra, sin perder la gracia propia de tu especie. Tienes aptitudes tanto en el
+            <es>Te desenvuelves con total naturalidad tanto en el agua como en tierra, sin perder la gracia propia de tu
+                especie. Tienes aptitudes tanto en el
                 agua como en tierra. Además,
-                tienes amplia experiencia en permanecer fuera del agua durante largos periodos y puedes sobrevivir una semana entera con agua almacenada antes
+                tienes amplia experiencia en permanecer fuera del agua durante largos periodos y puedes sobrevivir una
+                semana entera con agua almacenada antes
                 de necesitar sumergirte para sobrevivir.
-                Esto modifica tu derecho innato a la humedad: una vez fatigado, no quedas aturdido ni con dificultades hasta que haya transcurrido un día.
+                Esto modifica tu derecho innato a la humedad: una vez fatigado, no quedas aturdido ni con dificultades
+                hasta que haya transcurrido un día.
                 Después de eso,
                 sufres 1 punto de daño a la vitalidad cada tres horas.
             </es>
@@ -101,19 +115,30 @@
             <es>Saber de Dios</es>
         </name>
         <description>
-            <en>You have a special affinity with the ancient artifacts of the Anunnaki. Certain priestly oro’ym can learn ancient Anunnaki “passwords,” phrases
-                handed down in their native at’ym language from long ago. Amazingly, these words seem to activate some Ur tech. While some words can be imitated
-                by human speech or computersynthesizers, it seems that they are only efficacious when spoken by a living oro’ym. The effect of these words is
-                not always known by the oro’ym speaker. It is up to the GM to devise their specific effects in a drama. For example, some phrases can waken
-                Gargoyles but provide no command over them. Other phrases can locate or activate soul shards and philosophers stones. These phrases are wild
+            <en>You have a special affinity with the ancient artifacts of the Anunnaki. Certain priestly oro’ym can
+                learn ancient Anunnaki “passwords,” phrases
+                handed down in their native at’ym language from long ago. Amazingly, these words seem to activate some
+                Ur tech. While some words can be imitated
+                by human speech or computersynthesizers, it seems that they are only efficacious when spoken by a living
+                oro’ym. The effect of these words is
+                not always known by the oro’ym speaker. It is up to the GM to devise their specific effects in a drama.
+                For example, some phrases can waken
+                Gargoyles but provide no command over them. Other phrases can locate or activate soul shards and
+                philosophers stones. These phrases are wild
                 cards; they should offer sudden, unpredictable surprises.
             </en>
-            <es>Tienes una afinidad especial con los antiguos artefactos de los Anunnaki. Ciertos oro'ym sacerdotes pueden aprender antiguas "contraseñas"
-                Anunnaki, frases transmitidas en su lengua nativa at'ym desde hace mucho tiempo. Sorprendentemente, estas palabras parecen activar cierta
-                tecnología Ur. Si bien algunas palabras pueden ser imitadas por el habla humana o sintetizadores informáticos, parece que solo son eficaces
-                cuando las pronuncia un oro'ym vivo. El efecto de estas palabras no siempre es conocido por el oro'ym que las pronuncia. Corresponde al director
-                de juego idear sus efectos específicos en un drama. Por ejemplo, algunas frases pueden despertar a las gárgolas, pero no otorgan ningún control
-                sobre ellas. Otras frases pueden localizar o activar fragmentos de alma y piedras filosofales. Estas frases son comodines; deberían ofrecer
+            <es>Tienes una afinidad especial con los antiguos artefactos de los Anunnaki. Ciertos oro'ym sacerdotes
+                pueden aprender antiguas "contraseñas"
+                Anunnaki, frases transmitidas en su lengua nativa at'ym desde hace mucho tiempo. Sorprendentemente,
+                estas palabras parecen activar cierta
+                tecnología Ur. Si bien algunas palabras pueden ser imitadas por el habla humana o sintetizadores
+                informáticos, parece que solo son eficaces
+                cuando las pronuncia un oro'ym vivo. El efecto de estas palabras no siempre es conocido por el oro'ym
+                que las pronuncia. Corresponde al director
+                de juego idear sus efectos específicos en un drama. Por ejemplo, algunas frases pueden despertar a las
+                gárgolas, pero no otorgan ningún control
+                sobre ellas. Otras frases pueden localizar o activar fragmentos de alma y piedras filosofales. Estas
+                frases son comodines; deberían ofrecer
                 sorpresas repentinas e impredecibles.
             </es>
         </description>
@@ -125,19 +150,26 @@
     </perk>
     <perk>
         <id>alternativeRespiration</id>
+        <group>changed</group>
         <name>
             <en>Alternative Respiration</en>
             <es>Respiración Alternativa</es>
         </name>
         <type>power</type>
         <description>
-            <en>You can breathe in toxic environments by converting noxious substances into usable respiration. You can also breathe underwater, and most
-                poisonous or inhospitable gases and atmospheres do not affect you. You still cannot breathe in the vacuum of open space, because there is
-                nothing there to convert.
+            <en>You can breathe in toxic environments. Benefice: You can convert noxious substances, such as methane or
+                other gases, into whatever you need
+                to keep living, as if it were air. You can also breath underwater, and nearly any toxic or inhospitable
+                gas or environ that affects normal
+                people does not affect you. You cannot breathe in outer space, though, since there is nothing to convert
+                for your needs.
             </en>
-            <es>Puedes respirar en entornos tóxicos convirtiendo sustancias nocivas en respiración utilizable. También puedes respirar bajo el agua, y la
-                mayoría de gases y atmósferas venenosas o inhóspitas no te afectan. Aun así, no puedes respirar en el vacío del espacio abierto, porque allí no
-                hay nada que convertir.
+            <es>Puedes respirar en entornos tóxicos. Benefice: Puedes convertir sustancias nocivas, como metano u otros
+                gases, en lo que necesites para
+                seguir vivo, como si fuera aire. También puedes respirar bajo el agua, y casi cualquier gas o entorno
+                tóxico o inhóspito que afecte a la gente
+                normal no te afecta. No puedes respirar en el espacio exterior, ya que no hay nada que convertir para
+                cubrir tus necesidades.
             </es>
         </description>
         <restrictions>
@@ -155,19 +187,31 @@
 
     <perk>
         <id>chameleon</id>
+        <group>changed</group>
         <name>
             <en>Chameleon</en>
             <es>Camaleón</es>
         </name>
         <type>power</type>
         <description>
-            <en>Your skin mimics the environment around it, whether natural or artificial. Your rolls are favorable for Sneak blend in, camouflage, skulk, and
-                similar hiding actions. You cannot consciously control the effect, so your appearance may become unsettling in subtle social situations, and the
-                GM may rule such rolls unfavorable there.
+            <en>Your skin mimics the environment around it, whether it is natural or manmade. Benefice: Your rolls are
+                favorable for Sneak blend in,
+                camouflage, and skulk maneuvers, as well as for any hiding-related action. You cannot control this
+                ability; thus, your skin constantly pulls
+                visual cues from the world for camouflage. While this feature is quite handy for a stealth mission, it
+                is unsettling in subtle negotiations
+                when one party keeps reflecting the fine china or a waiter's white gloves. The GM might decide that you
+                suffer unfavorable rolls in these
+                sorts of situations.
             </en>
-            <es>Tu piel imita el entorno que la rodea, ya sea natural o artificial. Tus tiradas son favorables para mezclarse con el entorno, camuflarse,
-                acechar y acciones similares de ocultación con Sneak. No controlas el efecto de forma consciente, así que tu aspecto puede resultar inquietante
-                en situaciones sociales sutiles, y el DJ puede considerar desfavorables esas tiradas allí.
+            <es>Tu piel imita el entorno que te rodea, ya sea natural o artificial. Benefice: Tus tiradas son favorables
+                para maniobras de Sneak como
+                mezclarte, camuflarte y acechar, así como para cualquier acción relacionada con ocultarte. No puedes
+                controlar esta capacidad; por eso, tu piel
+                toma constantemente pistas visuales del entorno para camuflarse. Aunque esta característica es muy útil
+                en una misión de sigilo, puede resultar
+                inquietante en negociaciones sutiles cuando reflejas, por ejemplo, la vajilla fina o los guantes blancos
+                de un camarero. El DJ puede decidir que sufras tiradas desfavorables en ese tipo de situaciones.
             </es>
         </description>
         <restrictions>
@@ -185,19 +229,31 @@
 
     <perk>
         <id>claws</id>
+        <group>changed</group>
         <name>
             <en>Claws</en>
             <es>Garras</es>
         </name>
         <type>power</type>
         <description>
-            <en>You have claws or talons on your hands, feet, or another limb. They function as natural weapons in close combat and grant +2 base damage for
-                Fight-skill strike attacks when used. You cannot use them while wielding a weapon, and in some situations they may also make coercion rolls
-                favorable. They are an obvious inhuman trait unless carefully disguised.
+            <en>You have claws or talons on your hands and/or feet (or some other Changed limb). Benefice: These claws
+                or talons provide natural defense in
+                hand-to-hand (or hand-to-tentacle) combat. When using them, you gain +2 base damage for Fight-skill
+                strike attacks. Your claws cannot be
+                used when you wield a weapon. At the GM's discretion, you may also gain a favorable roll in situations
+                where your claws might aid coercion.
+                Claws are obviously an inhuman trait, though some neo-primitive fashion statements run toward fake
+                claws, and a few mutants might pass as such.
             </en>
-            <es>Tienes garras o talones en las manos, pies u otra extremidad. Funcionan como armas naturales en combate cercano y conceden +2 al daño base en
-                ataques de golpe con Pelea cuando las usas. No puedes emplearlas mientras blandes un arma, y en algunas situaciones también pueden hacer
-                favorables las tiradas de coerción. Son un rasgo claramente inhumano salvo que se disimulen con cuidado.
+            <es>Tienes garras o talones en las manos y/o los pies (o en otra extremidad Changed). Benefice: Estas garras
+                o talones proporcionan defensa
+                natural en combate cuerpo a cuerpo (o mano a tentáculo). Al usarlas, ganas +2 al daño base en ataques de
+                golpe con la habilidad Fight. No
+                puedes usar tus garras mientras empuñas un arma. A discreción del DJ, también puedes obtener una tirada
+                favorable en situaciones donde tus
+                garras ayuden a la coerción. Las garras son un rasgo claramente inhumano, aunque algunas modas
+                neoprimitivas usan garras falsas y unos pocos
+                mutantes podrían pasar por ello.
             </es>
         </description>
         <restrictions>
@@ -209,17 +265,24 @@
 
     <perk>
         <id>elongatedFingers</id>
+        <group>changed</group>
         <name>
             <en>Elongated Fingers</en>
             <es>Dedos Elongados</es>
         </name>
         <type>power</type>
         <description>
-            <en>Your long fingers give you extraordinary manual dexterity. Rolls for delicate hand-based manipulations or ministrations are favorable, such as
-                typing under pressure, opening safes, intricate repairs, or picking pockets.
+            <en>Your long fingers give you extraordinary manual dexterity. Benefice: Your rolls for any hand-based
+                manipulations or ministrations are
+                favorable. These might include hacking a computer via a keyboard with the clock ticking down, opening a
+                safe, or picking the pocket of a
+                well-heeled merchant.
             </en>
-            <es>Tus dedos alargados te dan una destreza manual extraordinaria. Las tiradas para manipulaciones o tareas delicadas hechas con las manos son
-                favorables, como teclear bajo presión, abrir cajas fuertes, realizar reparaciones minuciosas o robar bolsillos.
+            <es>Tus dedos largos te dan una destreza manual extraordinaria. Benefice: Tus tiradas para cualquier
+                manipulación o tarea realizada con las manos
+                son favorables. Esto puede incluir hackear un ordenador con un teclado contrarreloj, abrir una caja
+                fuerte o robar el bolsillo de un comerciante
+                adinerado.
             </es>
         </description>
         <restrictions>
@@ -237,20 +300,40 @@
 
     <perk>
         <id>enhancedIntellect</id>
+        <group>changed</group>
         <name>
             <en>Enhanced Intellect</en>
             <es>Intelecto Mejorado</es>
         </name>
         <type>power</type>
         <description>
-            <en>Your mind has been engineered to think faster and better than normal. Before 10th level, your Mind characteristics may rise as high as 12
-                instead of the normal limit. In addition, you may spend 3 VP to make a Mind-based roll fortunate. Your altered mentality can unsettle others,
-                and persuasion or social rolls based on Spirit may suffer in situations where your detached brilliance becomes apparent.
+            <en>Your mind has been made smarter and faster. Benefice: Your Mind characteristics can be raised to a
+                maximum of 12, even before you reach 10th
+                level. Also, you can spend 3 VP to push yourself when using one of those characteristics (such as when
+                bolstering a skill roll): Your roll
+                becomes fortunate. You can only do this a number of times per act equal to your class level. This power
+                is rare. During the early New Dark
+                Ages, when distrust of think machines was widespread, some noble houses and guilds resorted to using
+                people whose intelligence and reasoning
+                capacity had been improved through genetic engineering. Unfortunately, the affectations and personal
+                warmth of these Calculors tended to be
+                deficient: they creeped people out. The drawback to this power is that your persuasion influence rolls
+                using any of the Spirit characteristics
+                are unfavorable.
             </en>
-            <es>Tu mente ha sido diseñada para pensar más rápido y mejor de lo normal. Antes de nivel 10, tus características de Mind pueden subir hasta 12 en
-                lugar del límite habitual. Además, puedes gastar 3 VP para convertir en afortunada una tirada basada en Mind. Tu mentalidad alterada puede
-                inquietar a los demás, y las tiradas sociales o de persuasión basadas en cualquier caracteristica de Espiritu pueden resentirse cuando esa
-                brillantez distante se hace evidente.
+            <es>Tu mente ha sido hecha más rápida y más inteligente. Benefice: Tus características de Mind pueden
+                elevarse hasta un máximo de 12, incluso antes
+                de alcanzar nivel 10. Además, puedes gastar 3 VP para exigirte al usar una de esas características (por
+                ejemplo, al reforzar una tirada de
+                habilidad): tu tirada pasa a ser afortunada. Solo puedes hacerlo un número de veces por acto igual a tu
+                nivel de clase. Este poder es raro.
+                Durante los primeros Nuevos Siglos Oscuros, cuando la desconfianza hacia las think machines era
+                generalizada, algunas casas nobles y gremios
+                recurrieron a personas cuya inteligencia y capacidad de razonamiento habían sido mejoradas mediante
+                ingeniería genética. Por desgracia, los
+                manierismos y la calidez personal de estos Calculors solían ser deficientes: daban escalofríos. La
+                desventaja de este poder es que tus tiradas
+                de influencia de persuasión usando cualquiera de las características de Spirit son desfavorables.
             </es>
         </description>
         <characteristicValues>
@@ -284,17 +367,39 @@
                 <specie>metonym</specie>
             </species>
         </restrictions>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
     </perk>
 
     <perk>
         <id>enhancedPhysique</id>
+        <group>changed</group>
         <name>
             <en>Enhanced Physique</en>
             <es>Físico Mejorado</es>
         </name>
         <description>
-            <en>Your body has been made bigger, stronger, faster, and tougher. You gain +1 Size (which also adds 1 to your Vitality and 2 meters to your movement speed). Your Body characteristics can be raised to a maximum of 12, even before you reach 10th level. Also, you can spend 3 VP to push yourself when using one of those characteristics (either to bolster a skill roll or to lift something, etc.): Your roll becomes fortunate. You can only do this a number of times per act equal to your class level. This power is common among Grimsons. It is obvious to onlookers. Not only are you taller, you’re wider and your muscles bulge. You might need specially tailored clothing (+10% cost).</en>
-            <es>Tu cuerpo ha sido hecho más grande, más fuerte, más rápido y más duro. Ganas +1 Tamaño (lo que también añade 1 a tu Vitalidad y 2 metros a tu velocidad de movimiento). Tus características de Cuerpo pueden elevarse a un máximo de 12, incluso antes de alcanzar el nivel 10. Además, puedes gastar 3 VP para impulsarte cuando uses una de esas características (ya sea para reforzar una tirada de habilidad o para levantar algo, etc.): Tu tirada se vuelve afortunada. Solo puedes hacer esto un número de veces por acto igual a tu nivel de clase. Este poder es común entre los Grimsons. Es obvio para los espectadores. No solo eres más alto, eres más ancho y tus músculos se hinchan. Podrías necesitar ropa especialmente confeccionada (+10% de costo).</es>
+            <en>Your body has been made bigger, stronger, faster, and tougher. Benefice: You gain +1 Size (which also
+                adds 1 to your Vitality and 2 meters
+                to your movement speed). Your Body characteristics can be raised to a maximum of 12, even before you
+                reach 10th level. Also, you can spend 3
+                VP to push yourself when using one of those characteristics (either to bolster a skill roll or to lift
+                something, etc.): Your roll becomes
+                fortunate. You can only do this a number of times per act equal to your class level. This power is
+                common among Grimsons. It is obvious to
+                onlookers. Not only are you taller, you are wider and your muscles bulge. You might need specially
+                tailored clothing (+10% cost).
+            </en>
+            <es>Tu cuerpo ha sido hecho más grande, más fuerte, más rápido y más resistente. Benefice: Ganas +1 Size
+                (lo que también añade 1 a tu Vitality y 2 metros a tu velocidad de movimiento). Tus características
+                de Body pueden elevarse hasta un máximo de 12, incluso antes de llegar a nivel 10. Además, puedes
+                gastar 3 VP para exigirte cuando uses una de esas características (ya sea para reforzar una tirada de
+                habilidad o para levantar algo, etc.): tu tirada se vuelve afortunada. Solo puedes hacerlo un número
+                de veces por acto igual a tu nivel de clase. Este poder es común entre los Grimsons. Es obvio para
+                quien te mira. No solo eres más alto: también eres más ancho y tus músculos sobresalen. Puede que
+                necesites ropa confeccionada a medida (+10% de coste).
+            </es>
         </description>
         <type>power</type>
         <characteristicValues>
@@ -332,13 +437,44 @@
 
     <perk>
         <id>enhancedSenses</id>
+        <group>changed</group>
         <name>
             <en>Enhanced Senses</en>
             <es>Sentidos Mejorados</es>
         </name>
         <description>
-            <en>One or more of your five senses is heightened. You can push (through strange genetics) hearing, sight, or any other sense beyond normal human bounds. One Changed might be able to see in the dark, while another could have the hearing spectrum of a canine. Each time you take this perk, declare which sense it applies to. Depending on the sense that’s heightened, you do not suffer the effects of states that would impose penalties or poor conditions upon you, such as Visually Impaired or Hearing Impaired. Additionally, a state like Blinded or Deafened might be downgraded to merely Visually Impaired or Hearing Impaired. Along with this benefit, you have an inevitable tell. An animalized character with dog-like olfactory perks, for example, might have a dog-like nose. The GM should weigh the usefulness of the perk and balance the downside. In social encounters or combat, these Changed suffer penalties at least equal to anything their ability affords, and their influence attempts are unfavorable among strangers. Once someone gets to know them, however, their rolls with that person are normal. (At the GM’s discretion, some incognito enhanced senses have no penalties.)</en>
-            <es>Uno o más de tus cinco sentidos está agudizado. Puedes empujar (a través de extrañas genéticas) el oído, la vista o cualquier otro sentido más allá de los límites humanos normales. Un Cambiado podría ser capaz de ver en la oscuridad, mientras que otro podría tener el espectro auditivo de un canino. Cada vez que tomas este rasgo, declara a qué sentido se aplica. Dependiendo del sentido agudizado, no sufres los efectos de estados que imponen penalizaciones o condiciones pobres, como Visualmente Discapacitado o Auditivamente Discapacitado. Además, un estado como Cegado o Ensordecido podría degradarse a meramente Visualmente Discapacitado o Auditivamente Discapacitado. Junto con este beneficio, tienes un inevitable indicio. Un personaje animalizado con rasgos olfativos caninos, por ejemplo, podría tener una nariz canina. El DJ debería sopesar la utilidad del rasgo y equilibrar la desventaja. En encuentros sociales o combate, estos Cambiados sufren penalizaciones al menos iguales a cualquier cosa que su habilidad proporcione, y sus intentos de influencia son desfavorables entre extraños. Una vez que alguien los conoce, sin embargo, sus tiradas con esa persona son normales. (A discreción del DJ, algunos sentidos mejorados encubiertos no tienen penalizaciones.)</es>
+            <en>One or more of your five senses is heightened. You can push (through strange genetics) hearing, sight,
+                or any other sense beyond normal human
+                bounds. One Changed might be able to see in the dark, while another could have the hearing spectrum of a
+                canine. Benefice: Each time you take
+                this perk, declare which sense it applies to. Depending on the sense that is heightened, you do not
+                suffer the effects of states that would
+                impose penalties or poor conditions upon you, such as Visually Impaired or Hearing Impaired.
+                Additionally, a state like Blinded or Deafened
+                might be downgraded to merely Visually Impaired or Hearing Impaired. Along with this benefit, you have
+                an inevitable tell. An animalized
+                character with dog-like olfactory perks, for example, might have a dog-like nose. The GM should weigh
+                the usefulness of the perk and balance
+                the downside. In social encounters or combat, these Changed suffer penalties at least equal to anything
+                their ability affords, and their
+                influence attempts are unfavorable among strangers. Once someone gets to know them, however, their rolls
+                with that person are normal.
+                (At the GM's discretion, some incognito enhanced senses have no penalties.)
+            </en>
+            <es>Uno o más de tus cinco sentidos está potenciado. Puedes llevar (mediante genética extraña) el oído,
+                la vista o cualquier otro sentido más allá de los límites humanos normales. Un Changed puede ver en
+                la oscuridad, mientras otro puede tener el rango auditivo de un can. Benefice: cada vez que tomas
+                este perk, declara a qué sentido se aplica. Según el sentido potenciado, no sufres los efectos de
+                estados que normalmente te impondrían penalizadores o malas condiciones, como Visually Impaired o
+                Hearing Impaired. Además, un estado como Blinded o Deafened puede degradarse a simplemente Visually
+                Impaired o Hearing Impaired. Junto a este beneficio, tienes una señal inevitable. Un personaje
+                animalizado con perks olfativos de tipo canino, por ejemplo, puede tener una nariz de perro. El DJ
+                debería sopesar la utilidad del perk y equilibrar su desventaja. En encuentros sociales o en combate,
+                estos Changed sufren penalizadores al menos equivalentes a las ventajas que su capacidad proporciona,
+                y sus intentos de influencia son desfavorables entre desconocidos. Cuando alguien llega a conocerlos,
+                sus tiradas con esa persona pasan a ser normales. (A discreción del DJ, algunos sentidos mejorados
+                encubiertos pueden no tener penalizaciones.)
+            </es>
         </description>
         <type>power</type>
         <restrictions>
@@ -352,6 +488,681 @@
                 <specie>metonym</specie>
             </species>
         </restrictions>
+        <repeatable>true</repeatable>
+    </perk>
+    <perk>
+        <id>exoskeleton</id>
+        <group>changed</group>
+        <name>
+            <en>Exoskeleton</en>
+            <es>Exoesqueleto</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>An exoskeleton provides natural armor, but at the cost of a human appearance. Benefice: You gain +4 Body
+                Resistance. This natural armor does
+                not interfere with an energy shield, so long as you wear no armor. Any armor you do wear must be
+                specially tailored to fit (add +20% to the
+                cost). Whether your exoskeleton is made of bone or chitinous material, this change is obvious to anyone
+                looking. You would need to be fully
+                robed and some distance away to avoid detection.
+            </en>
+            <es>Un exoesqueleto proporciona armadura natural, pero a costa de una apariencia humana. Benefice: Ganas
+                +4 Body Resistance. Esta armadura natural no interfiere con un escudo de energía, siempre que no lleves
+                armadura. Cualquier armadura que uses debe estar ajustada a medida (añade +20% al coste). Ya sea de
+                hueso o de material quitinoso, este cambio es evidente para cualquiera que te mire. Necesitarías ir
+                completamente cubierto y mantener distancia para evitar ser detectado.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>inhuman</specie>
+                <specie>animalized</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>extraLimbs</id>
+        <group>changed</group>
+        <name>
+            <en>Extra Limbs</en>
+            <es>Extremidades Extra</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>You possess an extra pair of arms or legs. Benefice: When you gain this perk, declare whether it applies
+                to arms or legs. You can take this perk
+                a second time to gain the other version: legs if you took arms the first time, or arms if you already
+                have extra legs. Extra arms and legs can
+                be useful for a variety of reasons. Extra Arms: You have trained yourself to use one of your extra limbs
+                to perform one bonus primary action
+                per turn, although this bonus action is unfavorable (even if you have the Ambidextrous perk). Also, your
+                climbing speed is doubled. You can
+                learn the Graa martial art even if you are not a vorox. Extra Legs: You double your movement speed and
+                cannot normally be knocked prone by
+                grapples and the like. Extra legs are nearly impossible to hide, but extra arms might hug the body in a
+                loose garment and escape cursory
+                inspection.
+            </en>
+            <es>Posees un par extra de brazos o de piernas. Benefice: cuando adquieres este perk, declara si se aplica
+                a brazos o a piernas. Puedes tomar este perk una segunda vez para ganar la otra versión: piernas si
+                primero tomaste brazos, o brazos si ya tenías piernas extra. Brazos y piernas adicionales pueden ser
+                útiles por distintas razones. Brazos extra: te has entrenado para usar una de tus extremidades extra
+                y realizar una acción primaria adicional por turno, aunque esa acción adicional es desfavorable
+                (incluso si tienes el perk Ambidextrous). Además, tu velocidad de escalada se duplica. Puedes aprender
+                el arte marcial Graa aunque no seas un vorox. Piernas extra: duplicas tu velocidad de movimiento y
+                normalmente no pueden derribarte por agarres y similares. Las piernas extra son casi imposibles de
+                ocultar, pero los brazos extra pueden ir pegados al cuerpo bajo una prenda holgada y pasar una
+                inspección superficial.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>inhuman</specie>
+                <specie>animalized</specie>
+                <specie>mutant</specie>
+                <specie>tweaked</specie>
+                <specie>grimson</specie>
+                <specie>clone</specie>
+                <specie>metonym</specie>
+            </species>
+        </restrictions>
+        <repeatable>true</repeatable>
+    </perk>
+    <perk>
+        <id>fangs</id>
+        <group>changed</group>
+        <name>
+            <en>Fangs</en>
+            <es>Colmillos</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>Fangs are both menacing and effective for biting. Benefice: You must decide whether your fangs are
+                incognito or noticeable. Incognito Fangs:
+                Grants +1 base damage but only after a successful grapple (at which point, they are no longer incognito
+                to witnesses). Noticeable Fangs:
+                Bestows +2 damage with Fight strike maneuvers. With either version, you can enhance a coercion-influence
+                attempt by threatening someone with
+                your fangs. This makes your roll favorable, but only the first time you bare your fangs against the same
+                target within the same act.
+            </en>
+            <es>Los colmillos son tan amenazadores como eficaces para morder. Benefice: debes decidir si tus colmillos
+                son discretos o visibles. Colmillos discretos: otorgan +1 al daño base, pero solo tras un agarre
+                exitoso (a partir de ese momento dejan de ser discretos para los testigos). Colmillos visibles:
+                otorgan +2 al daño con maniobras de golpe de Fight. Con cualquiera de las dos versiones, puedes mejorar
+                un intento de influencia por coerción amenazando con tus colmillos. Eso hace favorable tu tirada,
+                pero solo la primera vez que los enseñas contra el mismo objetivo dentro del mismo acto.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>inhuman</specie>
+                <specie>animalized</specie>
+                <specie>mutant</specie>
+                <specie>tweaked</specie>
+                <specie>grimson</specie>
+                <specie>clone</specie>
+                <specie>metonym</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>footPads</id>
+        <group>changed</group>
+        <name>
+            <en>Foot Pads</en>
+            <es>Almohadillas Plantares</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>Subcutaneous fat pockets on the bottom of your feet allow for natural stealthy movement. Benefice: Your
+                rolls are favorable for actions
+                involving sneaking and silent movement but only when you are barefoot. Since this mutation is only on
+                the bottom of your feet, it is easy to
+                hide by wearing shoes.
+            </en>
+            <es>Depósitos de grasa subcutánea en la planta de los pies permiten un movimiento sigiloso natural.
+                Benefice: tus tiradas para acciones de sigilo
+                y movimiento silencioso son favorables, pero solo cuando vas descalzo. Como esta mutación está
+                únicamente en la planta de los pies, es fácil de
+                ocultar usando calzado.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>inhuman</specie>
+                <specie>animalized</specie>
+                <specie>mutant</specie>
+                <specie>tweaked</specie>
+                <specie>grimson</specie>
+                <specie>clone</specie>
+                <specie>metonym</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>frogTongue</id>
+        <group>changed</group>
+        <name>
+            <en>Frog Tongue</en>
+            <es>Lengua de Rana</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>You can shoot a 2-meter tongue covered in microscopic suction cups from your mouth and use it to grab
+                objects. Benefice: If the objects are
+                light enough (size XS, S, or M), you may pull them toward you. Roll Vigor + Dexterity as a primary
+                action. Resistance equals the Strength of
+                the person holding the object or depends on the object's size: Demanding for M, Hard for S, or Easy for
+                XS. If the person holding the object
+                is not surprised by the frog tongue, they can spend VP to boost Resistance.
+            </en>
+            <es>Puedes lanzar desde la boca una lengua de 2 metros cubierta de ventosas microscópicas y usarla para
+                agarrar objetos. Benefice: si los objetos son lo bastante ligeros (tamaño XS, S o M), puedes
+                atraerlos hacia ti. Tira Vigor + Dexterity como acción primaria. La Resistance es igual a la
+                Strength de la persona que sujeta el objeto o depende del tamaño del objeto: Demanding para M,
+                Hard para S, o Easy para XS. Si la persona que sujeta el objeto no está sorprendida por la lengua
+                de rana, puede gastar VP para aumentar su Resistance.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>inhuman</specie>
+                <specie>animalized</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>gills</id>
+        <group>changed</group>
+        <name>
+            <en>Gills</en>
+            <es>Branquias</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>Gills, typically grown on the neck, allow you to breathe underwater for unlimited periods of time.
+                Benefice: Your gills are concealable under a
+                heavy scarf.
+            </en>
+            <es>Las branquias, normalmente desarrolladas en el cuello, te permiten respirar bajo el agua durante
+                periodos ilimitados. Benefice: tus branquias
+                pueden ocultarse bajo una bufanda gruesa.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>animalized</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>gliderWings</id>
+        <group>changed</group>
+        <name>
+            <en>Glider Wings</en>
+            <es>Alas Planeadoras</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>Humankind's yearning for flight entered the genetic stage during the First Republic era. While they
+                never produced actual wings as such, they did
+                create membranes that allowed people to glide for significant distances. Benefice: You can launch
+                yourself from any high point and glide at
+                least 100 meters at your normal movement speed, give or take an occasional boost or hindrance for strong
+                winds. The membranes between your
+                arms and torso are hard to hide from authorities. Clothing and armor must be specially tailored to allow
+                you to unfurl them (add +10% to the
+                cost).
+            </en>
+            <es>El anhelo humano de volar entró en la etapa genética durante la Primera Republica. Aunque nunca se
+                lograron alas completas, sí se crearon membranas que permitían planear a distancias significativas.
+                Benefice: puedes lanzarte desde cualquier punto alto y planear al menos 100 metros a tu velocidad
+                normal de movimiento, con posibles aumentos o reducciones por vientos fuertes. Las membranas entre
+                tus brazos y tu torso son difíciles de ocultar ante las autoridades. La ropa y la armadura deben
+                confeccionarse a medida para permitir desplegarlas (añade +10% al coste).
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>inhuman</specie>
+                <specie>animalized</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>hazardousBreath</id>
+        <group>changed</group>
+        <name>
+            <en>Hazardous Breath</en>
+            <es>Aliento Peligroso</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>Your very breath can be toxic to most life. Benefice: To cough up a cloud at a target within 3 meters,
+                you spend 2 VP (to activate the organ)
+                and roll Vigor + Endurance as a primary action versus the target's Body Resistance (ignoring armor) or
+                their Dexterity (whichever is higher).
+                Impact makes the target Stunned (unless they are breathing through a device, like a spacesuit). The
+                cloud can linger in place for 1 additional
+                turn per VP you spend. Anyone who passes through that space must make a reflexive Vigor + Endurance roll
+                versus a Demanding Resistance or be
+                Stunned as they breathe in the noxious fumes. The extra organ that produces the toxin shows up during
+                advanced medical exams.
+            </en>
+            <es>Tu propio aliento puede ser tóxico para la mayoría de formas de vida. Benefice: para expulsar una nube
+                contra un objetivo a 3 metros o menos, gastas 2 VP (para activar el órgano) y tiras Vigor + Endurance
+                como acción primaria contra la Body Resistance del objetivo (ignorando armadura) o su Dexterity
+                (la que sea más alta). El Impact deja al objetivo Stunned (salvo que respire mediante un dispositivo,
+                como un traje espacial). La nube puede permanecer 1 turno adicional por cada VP que gastes. Quien
+                atraviese ese espacio debe hacer una tirada refleja de Vigor + Endurance contra una Resistance
+                Demanding o quedará Stunned al inhalar los gases nocivos. El órgano extra que produce la toxina
+                aparece en exámenes médicos avanzados.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>inhuman</specie>
+                <specie>animalized</specie>
+                <specie>mutant</specie>
+                <specie>tweaked</specie>
+                <specie>grimson</specie>
+                <specie>clone</specie>
+                <specie>metonym</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>hiddenBody</id>
+        <group>changed</group>
+        <name>
+            <en>Hidden Body</en>
+            <es>Cuerpo Oculto</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>You are actually two people: two separate entities. The other is small and lives in a womb inside of
+                you. Benefice: The miniature version of you
+                is Size 2; it can enter and exit its womb at will as a primary action. It is half your level and has
+                half your trait ratings (round down).
+                Despite these lower stats, it could very well be the brains behind the operation. You can hide your
+                other you when it is concealed in its womb,
+                but that womb can be detected by even cursory medical exams.
+            </en>
+            <es>En realidad eres dos personas: dos entidades separadas. La otra es pequeña y vive en un útero dentro
+                de ti. Benefice: la versión miniatura de ti tiene Size 2; puede entrar y salir de su útero a voluntad
+                como acción primaria. Tiene la mitad de tu nivel y la mitad de tus rasgos (redondeando hacia abajo).
+                A pesar de esas estadísticas más bajas, puede ser perfectamente el cerebro de la operación. Puedes
+                ocultar a tu otra versión cuando está en su útero, pero ese útero puede detectarse incluso con
+                exámenes médicos superficiales.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>inhuman</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>internalRespiration</id>
+        <group>changed</group>
+        <name>
+            <en>Internal Respiration</en>
+            <es>Respiración Interna</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>Through advanced engineering, or inheritance thereof, you do not require air. Benefice: Extra organs in
+                your body allow all respiration to occur
+                inside the body, so long as there is calorific energy (i.e., food) to do so. This shows up on a medical
+                exam but is otherwise concealable from
+                most scrutiny.
+            </en>
+            <es>Mediante ingeniería avanzada, o por herencia de esta, no necesitas aire. Benefice: órganos extra en tu
+                cuerpo permiten que toda la respiración
+                ocurra internamente, siempre que haya energía calórica (es decir, alimento) para sostenerla. Esto
+                aparece en un examen médico, pero por lo demás
+                se puede ocultar ante la mayoría de inspecciones.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>inhuman</specie>
+                <specie>animalized</specie>
+                <specie>mutant</specie>
+                <specie>tweaked</specie>
+                <specie>grimson</specie>
+                <specie>clone</specie>
+                <specie>metonym</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>longevity</id>
+        <group>changed</group>
+        <name>
+            <en>Longevity</en>
+            <es>Longevidad</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>You can live longer than most of your kind, barring calamity or illness. Benefice: You are gifted with
+                an average lifespan twice that of your
+                species (150 years for humans). Longevity serums can extend it even more.
+            </en>
+            <es>Puedes vivir más tiempo que la mayoría de los tuyos, salvo por calamidad o enfermedad. Benefice: estás
+                dotado de una esperanza de vida media
+                del doble que la de tu especie (150 años para humanos). Los sueros de longevidad pueden ampliarla
+                todavía más.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>mutant</specie>
+                <specie>tweaked</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>pheromones</id>
+        <group>changed</group>
+        <name>
+            <en>Pheromones</en>
+            <es>Feromonas</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>You secrete pheromones that have a profound effect on people. The classic example is a pheromone that
+                promotes amorous feelings toward you, but
+                other secretions can induce feelings of trust, fear, or even familial devotion. Benefice: Your
+                persuasion influence rolls are favorable, so long
+                as your targets are in your presence and can breathe in your pheromones (vid- and holo-chats will not
+                provide this benefit). Alternatively,
+                when you gain this perk, you can choose fear pheromones, making your coercion rolls favorable.
+            </en>
+            <es>Secretas feromonas que tienen un efecto profundo en las personas. El ejemplo clásico es una feromona
+                que promueve sentimientos amorosos hacia ti, pero otras secreciones pueden inducir confianza, miedo
+                o incluso devoción familiar. Benefice: tus tiradas de influencia de persuasión son favorables
+                siempre que tus objetivos estén en tu presencia y puedan respirar tus feromonas (las videollamadas
+                y holollamadas no dan este beneficio). Alternativamente, cuando adquieres este perk, puedes elegir
+                feromonas de miedo, haciendo favorables tus tiradas de coerción.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>inhuman</specie>
+                <specie>animalized</specie>
+                <specie>mutant</specie>
+                <specie>tweaked</specie>
+                <specie>grimson</specie>
+                <specie>clone</specie>
+                <specie>metonym</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>photosynthesis</id>
+        <group>changed</group>
+        <name>
+            <en>Photosynthesis</en>
+            <es>Fotosíntesis</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>Like plants, your body converts sunlight into energy. Benefice: Built as a response to famines millennia
+                ago, this perk ensures that as long as
+                you have sunlight, you do not have to eat. Your skin is likely tinted with chlorophyll or another,
+                possibly alien, analog thereof.
+            </en>
+            <es>Como las plantas, tu cuerpo convierte la luz solar en energía. Benefice: diseñado como respuesta a
+                hambrunas de hace milenios, este perk
+                garantiza que, mientras tengas luz solar, no necesites comer. Es probable que tu piel esté teñida de
+                clorofila o de algún análogo, quizá alienígena.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>inhuman</specie>
+                <specie>animalized</specie>
+                <specie>mutant</specie>
+                <specie>tweaked</specie>
+                <specie>grimson</specie>
+                <specie>clone</specie>
+                <specie>metonym</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>poisonousAttack</id>
+        <group>changed</group>
+        <name>
+            <en>Poisonous Attack</en>
+            <es>Ataque Venenoso</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>You secrete poison from your body. Benefice: Your poison might come from your tears, mucous, spit, or
+                even sweat. Some Changed have control over
+                this poison's release. Others do not. You are one of the lucky ones who can control your power. Choose
+                one delivery option to describe how your
+                poison is dealt: Natural Weaponry (combined with fangs, claws, or tentacles), or Skin Secretion
+                (delivered by touch). Choose one effect option:
+                Cytotoxin or Neurotoxin, with the same VP-driven behavior and progression described in the Faction Book
+                rules.
+            </en>
+            <es>Secretas veneno desde tu cuerpo. Benefice: tu veneno puede provenir de lágrimas, mucosidad, saliva o
+                incluso sudor. Algunos Changed controlan la liberación de ese veneno; otros no. Tú eres de los
+                afortunados que sí pueden controlarlo. Elige una opción de entrega para describir cómo se aplica tu
+                veneno: Armas Naturales (combinado con colmillos, garras o tentáculos) o Secreción Cutánea
+                (por contacto). Elige una opción de efecto: Cytotoxin o Neurotoxin, con el mismo comportamiento
+                y progresión por VP descritos en las reglas del Faction Book.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>inhuman</specie>
+                <specie>animalized</specie>
+                <specie>mutant</specie>
+                <specie>tweaked</specie>
+                <specie>grimson</specie>
+                <specie>clone</specie>
+                <specie>metonym</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>roughskin</id>
+        <group>changed</group>
+        <name>
+            <en>Roughskin</en>
+            <es>Piel Rugosa</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>Your skin is hard, rough, and otherwise hard to penetrate. Benefice: You gain +2 Body Resistance. This
+                natural armor is compatible with energy
+                shields, and the skin is easily concealable under clothing.
+            </en>
+            <es>Tu piel es dura, áspera y difícil de penetrar. Benefice: ganas +2 Body Resistance. Esta armadura natural
+                es compatible con escudos de energía,
+                y la piel puede ocultarse fácilmente bajo la ropa.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>inhuman</specie>
+                <specie>animalized</specie>
+                <specie>mutant</specie>
+                <specie>tweaked</specie>
+                <specie>grimson</specie>
+                <specie>clone</specie>
+                <specie>metonym</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>skunkSpray</id>
+        <group>changed</group>
+        <name>
+            <en>Skunk Spray</en>
+            <es>Rociada Fétida</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>Noxious, odorous gas shoots forth from glands in your body. Benefice: You may choose where such glands
+                appear and can conceal them under clothes
+                until used. You spend 2 VP to eject the spray from your glands as a secondary action and can target an
+                area up to 3 meters away. Anyone without
+                breathing protection caught in the 1-meter-radius cloud is Nauseated for 3 rounds. Even with breathing
+                protection, anyone caught by the cloud
+                stinks for the next 3 hours, during which time their influence rolls are unfavorable against anyone who
+                is not wearing breathing protection.
+            </en>
+            <es>Un gas nocivo y maloliente sale disparado de glándulas de tu cuerpo. Benefice: puedes elegir dónde
+                aparecen esas glándulas y ocultarlas bajo la ropa hasta usarlas. Gastas 2 VP para expulsar la rociada
+                como acción secundaria y puedes apuntar a un área de hasta 3 metros. Cualquiera sin protección
+                respiratoria que quede atrapado en la nube de 1 metro de radio queda Nauseated durante 3 rondas.
+                Incluso con protección respiratoria, quienes queden alcanzados apestan durante las siguientes
+                3 horas, tiempo durante el cual sus tiradas de influencia son desfavorables contra cualquiera
+                que no lleve protección respiratoria.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>animalized</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>tentaclesPrehensileTail</id>
+        <group>changed</group>
+        <name>
+            <en>Tentacles / Prehensile Tail</en>
+            <es>Tentáculos / Cola Prensil</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>Tails and tentacles are extremely uncommon, even among the Changed. They function in a manner similar to
+                extra arms but with less manual
+                dexterity. Benefice: The tail or tentacles can grasp objects but cannot perform complex tasks. Each
+                affords a disarm attack (as the Melee
+                maneuver but using Fight skill instead). You can snatch an opponent's legs out from under them by
+                performing a strike with your tail or
+                tentacle, rendering them Prone. You gain initiative edge for these attacks (because most opponents are
+                not expecting a tail or tentacle). If
+                you choose the tentacle option, you can have two; if you choose the tail option, it aids your balance
+                and helps prevent being knocked down.
+            </en>
+            <es>Las colas y los tentáculos son extremadamente raros, incluso entre los Changed. Funcionan de forma
+                parecida a brazos extra, pero con menos destreza manual. Benefice: la cola o los tentáculos pueden
+                agarrar objetos, pero no realizar tareas complejas. Cada uno permite un ataque de desarme (como la
+                maniobra Melee, pero usando la habilidad Fight). Puedes barrer las piernas de un oponente realizando
+                un golpe con tu cola o tentáculo, dejándolo Prone. Ganas iniciativa edge en estos ataques (porque
+                la mayoría de oponentes no esperan una cola o un tentáculo). Si eliges la opción de tentáculos,
+                puedes tener dos; si eliges la cola, solo tienes una, pero mejora tu equilibrio y ayuda a evitar
+                que te derriben.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>inhuman</specie>
+                <specie>animalized</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>horns</id>
+        <group>changed</group>
+        <name>
+            <en>Horns</en>
+            <es>Cuernos</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>Believe it or not, horns were once fashionable during the Second Republic. Now they are forbidden signs
+                used to mark the Changed by the Church.
+                Benefice: You can perform a ram maneuver: Roll Fight + Strength as a primary action vs. the target's
+                Body Resistance. Base damage is 4
+                (includes +2 for your horn). You cannot easily hide your horns, and humans tend to have an atavistic
+                fear of horned humanoids. By revealing
+                your horns to someone, you might gain favorability on a coercion influence attempt.
+            </en>
+            <es>Aunque cueste creerlo, los cuernos estuvieron de moda durante la Segunda Republica. Ahora son señales
+                prohibidas usadas por la Iglesia para marcar a los Changed. Benefice: puedes realizar una maniobra
+                de embestida: tira Fight + Strength como acción primaria contra la Body Resistance del objetivo.
+                El daño base es 4 (incluye +2 por tu cuerno). No puedes ocultar fácilmente tus cuernos, y los humanos
+                tienden a tener un miedo atávico a los humanoides cornudos. Al mostrar tus cuernos a alguien,
+                puedes obtener favorabilidad en un intento de influencia por coerción.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>animalized</specie>
+                <specie>grimson</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>immunity</id>
+        <group>changed</group>
+        <name>
+            <en>Immunity</en>
+            <es>Inmunidad</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>One specific condition, toxin, environment, or the like does not affect you as it does normal humans.
+                Benefice: When you gain this perk, declare
+                a class of substances to which you are immune: poison gases, diseases, drugs, poisons, or venom. You can
+                gain this perk multiple times; each
+                additional perk represents a new immunity.
+            </en>
+            <es>Una condición, toxina, entorno o similar no te afecta como afecta a los humanos normales. Benefice:
+                cuando adquieres este perk, declara una clase de sustancias frente a las que eres inmune: gases
+                venenosos, enfermedades, drogas, venenos o toxinas de animales. Puedes adquirir este perk varias
+                veces; cada adquisición adicional representa una nueva inmunidad.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>inhuman</specie>
+                <specie>animalized</specie>
+                <specie>mutant</specie>
+                <specie>tweaked</specie>
+                <specie>grimson</specie>
+                <specie>clone</specie>
+                <specie>metonym</specie>
+            </species>
+        </restrictions>
+        <repeatable>true</repeatable>
+    </perk>
+    <perk>
+        <id>webbedHands</id>
+        <group>changed</group>
+        <name>
+            <en>Webbed Hands</en>
+            <es>Manos Palmeadas</es>
+        </name>
+        <type>power</type>
+        <description>
+            <en>Webbed hands are one of the more common mutations. You can swim like a creature born of water. Benefice:
+                You can swim at your full movement
+                speed, so long as your hands are free. This mutation is often coupled with Gills. Hiding the webbed
+                hands is rather easy, but other telltale
+                signs, such as scales, often go with the webbed fingers.
+            </en>
+            <es>Las manos palmeadas son una de las mutaciones más comunes. Puedes nadar como una criatura nacida del
+                agua. Benefice: puedes nadar a tu velocidad completa de movimiento, siempre que tengas las manos
+                libres. Esta mutación suele ir acompañada de Gills. Ocultar las manos palmeadas es bastante sencillo,
+                pero otras señales reveladoras, como escamas, suelen acompañar a los dedos palmeados.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>animalized</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>ozymandiasTeflonMesh</id>
@@ -361,8 +1172,13 @@
             <es>Malla de Teflón Ozymandias</es>
         </name>
         <description>
-            <en>Subcutaneous layers of highly resistant alloys across your torso, back, and upper legs increase your resistance to electricity, radiation, and acid, and let you tolerate a wider range of temperatures.</en>
-            <es>Capas subcutáneas de aleaciones muy resistentes a lo largo de tu torso, espalda y muslos aumentan tu resistencia a la electricidad, la radiación y el ácido, y te permiten tolerar un rango más amplio de temperaturas.</es>
+            <en>Subcutaneous layers of highly resistant alloys across your torso, back, and upper legs increase your
+                resistance to electricity, radiation, and acid, and let you tolerate a wider range of temperatures.
+            </en>
+            <es>Capas subcutáneas de aleaciones muy resistentes a lo largo de tu torso, espalda y muslos aumentan tu
+                resistencia a la electricidad, la radiación y el ácido, y te permiten tolerar un rango más amplio de
+                temperaturas.
+            </es>
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
@@ -380,8 +1196,12 @@
             <es>Malla de Torso Ozymandias</es>
         </name>
         <description>
-            <en>Your skin hides a second layer of metallic mesh underneath it. Externally your appearance doesn't change, but internally you gain extra protection against crude forms of weapon damage.</en>
-            <es>Tu piel oculta debajo una segunda capa de malla metálica. Externamente tu aspecto no cambia, pero internamente ganas protección adicional contra formas rudimentarias de daño por arma.</es>
+            <en>Your skin hides a second layer of metallic mesh underneath it. Externally your appearance doesn't
+                change, but internally you gain extra protection against crude forms of weapon damage.
+            </en>
+            <es>Tu piel oculta debajo una segunda capa de malla metálica. Externamente tu aspecto no cambia, pero
+                internamente ganas protección adicional contra formas rudimentarias de daño por arma.
+            </es>
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
@@ -399,8 +1219,12 @@
             <es>Alambre Ágil Circe</es>
         </name>
         <description>
-            <en>Synthetic muscle grafts boost the reaction time of your arm and leg muscles, giving you swift reactions to danger and increasing your ability to deflect and dodge.</en>
-            <es>Injertos de músculo sintético mejoran el tiempo de reacción de los músculos de tus brazos y piernas, dándote reacciones veloces ante el peligro y aumentando tu capacidad de desviar y esquivar.</es>
+            <en>Synthetic muscle grafts boost the reaction time of your arm and leg muscles, giving you swift reactions
+                to danger and increasing your ability to deflect and dodge.
+            </en>
+            <es>Injertos de músculo sintético mejoran el tiempo de reacción de los músculos de tus brazos y piernas,
+                dándote reacciones veloces ante el peligro y aumentando tu capacidad de desviar y esquivar.
+            </es>
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
@@ -419,7 +1243,9 @@
         </name>
         <description>
             <en>Synthetic muscle and nerve implants provide hair-trigger reflexes when danger is near.</en>
-            <es>Implantes de músculo y nervio sintéticos proporcionan reflejos a flor de piel cuando el peligro está cerca.</es>
+            <es>Implantes de músculo y nervio sintéticos proporcionan reflejos a flor de piel cuando el peligro está
+                cerca.
+            </es>
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
@@ -437,8 +1263,12 @@
             <es>Cavidad Subcutánea de Jorgenson</es>
         </name>
         <description>
-            <en>You've replaced some of your internal organs with smaller synthetic substitutes, freeing up a chamber where your left lung used to be.</en>
-            <es>Has reemplazado algunos de tus órganos internos por sustitutos sintéticos más pequeños, liberando una cámara donde antes estaba tu pulmón izquierdo.</es>
+            <en>You've replaced some of your internal organs with smaller synthetic substitutes, freeing up a chamber
+                where your left lung used to be.
+            </en>
+            <es>Has reemplazado algunos de tus órganos internos por sustitutos sintéticos más pequeños, liberando una
+                cámara donde antes estaba tu pulmón izquierdo.
+            </es>
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
@@ -456,8 +1286,12 @@
             <es>Pulmón Profundo Ozymandias</es>
         </name>
         <description>
-            <en>You can store an internal supply of oxygen, allowing you to breathe for an extended time, even while floating in a vacuum or submerged in liquid.</en>
-            <es>Puedes almacenar una reserva interna de oxígeno que te permite respirar durante un tiempo prolongado, incluso flotando en el vacío o sumergido en líquido.</es>
+            <en>You can store an internal supply of oxygen, allowing you to breathe for an extended time, even while
+                floating in a vacuum or submerged in liquid.
+            </en>
+            <es>Puedes almacenar una reserva interna de oxígeno que te permite respirar durante un tiempo prolongado,
+                incluso flotando en el vacío o sumergido en líquido.
+            </es>
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
@@ -475,8 +1309,14 @@
             <es>Refuerzos Lumbares Prometeicos</es>
         </name>
         <description>
-            <en>Reinforced metallic implants in your arms, lower back, and legs increase the amount of weight you can lift. As an added benefit, you are strong enough to bend metal or crush organic creatures in a steel-vise bear hug.</en>
-            <es>Implantes metálicos reforzados en tus brazos, zona lumbar y piernas aumentan la cantidad de peso que puedes levantar. Como ventaja añadida, eres lo bastante fuerte como para doblar metal o aplastar criaturas orgánicas con un abrazo de oso como un torno de acero.</es>
+            <en>Reinforced metallic implants in your arms, lower back, and legs increase the amount of weight you can
+                lift. As an added benefit, you are strong enough to bend metal or crush organic creatures in a
+                steel-vise bear hug.
+            </en>
+            <es>Implantes metálicos reforzados en tus brazos, zona lumbar y piernas aumentan la cantidad de peso que
+                puedes levantar. Como ventaja añadida, eres lo bastante fuerte como para doblar metal o aplastar
+                criaturas orgánicas con un abrazo de oso como un torno de acero.
+            </es>
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
@@ -494,8 +1334,14 @@
             <es>Ojo Etyri Tarston</es>
         </name>
         <description>
-            <en>You've replaced one of your eyes with a simulacrum that lets you focus on a specific distant or fast-moving target and coordinates with implants in both hands to align your aim. You're a crack shot with a ranged weapon in either or both hands.</en>
-            <es>Has reemplazado uno de tus ojos por un simulacro que te permite enfocar un objetivo lejano o que se mueve rápido y se coordina con implantes en ambas manos para alinear tu puntería. Eres un tirador excelente con un arma a distancia en una o ambas manos.</es>
+            <en>You've replaced one of your eyes with a simulacrum that lets you focus on a specific distant or
+                fast-moving target and coordinates with implants in both hands to align your aim. You're a crack shot
+                with a ranged weapon in either or both hands.
+            </en>
+            <es>Has reemplazado uno de tus ojos por un simulacro que te permite enfocar un objetivo lejano o que se
+                mueve rápido y se coordina con implantes en ambas manos para alinear tu puntería. Eres un tirador
+                excelente con un arma a distancia en una o ambas manos.
+            </es>
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
@@ -513,8 +1359,14 @@
             <es>Funda de Pincho Smith &amp; Smith</es>
         </name>
         <description>
-            <en>A surgeon has replaced muscle tissue inside one of your fingers, arms, or toes with thinner synthetic substitutes, providing room to implant a concealed melee weapon — usually a dagger or sword. You're very precise with that weapon.</en>
-            <es>Un cirujano ha reemplazado tejido muscular dentro de uno de tus dedos, brazos o dedos del pie por sustitutos sintéticos más finos, dejando espacio para implantar un arma cuerpo a cuerpo oculta, normalmente una daga o espada. Eres muy preciso con esa arma.</es>
+            <en>A surgeon has replaced muscle tissue inside one of your fingers, arms, or toes with thinner synthetic
+                substitutes, providing room to implant a concealed melee weapon — usually a dagger or sword. You're very
+                precise with that weapon.
+            </en>
+            <es>Un cirujano ha reemplazado tejido muscular dentro de uno de tus dedos, brazos o dedos del pie por
+                sustitutos sintéticos más finos, dejando espacio para implantar un arma cuerpo a cuerpo oculta,
+                normalmente una daga o espada. Eres muy preciso con esa arma.
+            </es>
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
@@ -532,8 +1384,12 @@
             <es>Ojo Sombra Smith &amp; Smith</es>
         </name>
         <description>
-            <en>Surgeons have replaced one of your eyes with an artificial simulacrum; you can still see with it. When activated, it also lets you see with infrared and ultraviolet night vision.</en>
-            <es>Los cirujanos han reemplazado uno de tus ojos por un simulacro artificial; aún puedes ver con él. Al activarlo, también te permite ver con visión nocturna infrarroja y ultravioleta.</es>
+            <en>Surgeons have replaced one of your eyes with an artificial simulacrum; you can still see with it. When
+                activated, it also lets you see with infrared and ultraviolet night vision.
+            </en>
+            <es>Los cirujanos han reemplazado uno de tus ojos por un simulacro artificial; aún puedes ver con él. Al
+                activarlo, también te permite ver con visión nocturna infrarroja y ultravioleta.
+            </es>
         </description>
         <source>calling</source>
         <type>cyberdevice</type>

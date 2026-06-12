@@ -46,7 +46,7 @@ public class PerkFactoryTests extends FactoryTest {
     }
 
     private static final int DEFINED_PERKS = 320;
-    private static final int DEFINED_FACTION_BOOK_PERKS = 23;
+    private static final int DEFINED_FACTION_BOOK_PERKS = 43;
 
 
     @Test
