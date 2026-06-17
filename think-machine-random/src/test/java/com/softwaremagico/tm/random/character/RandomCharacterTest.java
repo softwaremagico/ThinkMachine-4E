@@ -34,7 +34,7 @@ import org.testng.annotations.Test;
 
 @Test(groups = {"randomCharacter"})
 public class RandomCharacterTest {
-    private static final int CHARACTERS_CREATED = 100;
+    private static final int CHARACTERS_CREATED = 10000;
 
     @Test
     public void createFullRandomCharacterTest() throws InvalidRandomElementSelectedException {

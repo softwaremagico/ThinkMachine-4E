@@ -195,6 +195,8 @@ public class RandomizeCharacter {
                     final RandomCharacteristics randomCharacteristics = new RandomCharacteristics(characterPlayer, preferences, 1);
                     characterPlayer.getCharacteristicReassigns().add(new CharacteristicReassign(e.getElement(),
                             randomCharacteristics.selectElementByWeight().getId()));
+                    // Reassignments affect derived characteristic values; refresh cache before next pick.
+                    characterPlayer.getCacheManager().characteristicsChanged();
                 }
             }
         }
@@ -209,6 +211,8 @@ public class RandomizeCharacter {
                     final RandomSkill randomSkill = new RandomSkill(characterPlayer, preferences, 1);
                     characterPlayer.getSkillsReassigns().add(new SkillsReassign(e.getElement(),
                             randomSkill.selectElementByWeight().getId()));
+                    // Same rationale for skills: each new reassignment changes the next valid candidates.
+                    characterPlayer.getCacheManager().skillsChanged();
                 }
             }
         }
