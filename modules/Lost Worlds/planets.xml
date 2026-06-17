@@ -8,7 +8,7 @@
         </name>
         <description>
             <en>Antioch falls within the habitable zone of planets circling the star Eos, a stable sun that displays no sign of the Fading Suns phenomenon. With blue oceans and four continents, the planet was undergoing a mammalian evolutionary phase similar to Urth's mid-Cenozoic era when human colonists first arrived.</en>
-            <es>Antioch falls within the habitable zone of planets circling the star Eos, a stable sun that displays no sign of the Fading Suns phenomenon. With blue oceans and four continents, the planet was undergoing a mammalian evolutionary phase similar to Urth's mid-Cenozoic era when human colonists first arrived.</es>
+            <es>Antioch se encuentra en la zona habitable de los planetas que orbitan la estrella Eos, un sol estable que no muestra señales del fenómeno de los Soles Menguantes. Con océanos azules y cuatro continentes, el planeta atravesaba una fase evolutiva mamífera similar al Cenozoico medio de Urth cuando llegaron los primeros colonos humanos.</es>
         </description>
         <random>
             <probabilityMultiplier>MYTHIC</probabilityMultiplier>
@@ -22,7 +22,7 @@
         </name>
         <description>
             <en>Eridol is mostly covered in water, with a few atolls along the equator and in the northern hemisphere. Its only mountains are at its poles.</en>
-            <es>Eridol is mostly covered in water, with a few atolls along the equator and in the northern hemisphere. Its only mountains are at its poles.</es>
+            <es>Eridol está cubierto en su mayor parte por agua, con algunos atolones a lo largo del ecuador y en el hemisferio norte. Sus únicas montañas se encuentran en los polos.</es>
         </description>
         <random>
             <probabilityMultiplier>MYTHIC</probabilityMultiplier>
@@ -36,7 +36,7 @@
         </name>
         <description>
             <en>When seen from space, Heaven's Ridge is a brownish, cratered world with lots of storm systems, similar to Urth during the Devonian period. Tall mountains, sporadic lakes, and deep valleys characterize the land.</en>
-            <es>When seen from space, Heaven's Ridge is a brownish, cratered world with lots of storm systems, similar to Urth during the Devonian period. Tall mountains, sporadic lakes, and deep valleys characterize the land.</es>
+            <es>Vista desde el espacio, Heaven's Ridge es un mundo amarronado y craterizado, con numerosos sistemas de tormentas, similar a Urth durante el periodo Devónico. Montañas altas, lagos esporádicos y valles profundos caracterizan su superficie.</es>
         </description>
         <random>
             <probabilityMultiplier>MYTHIC</probabilityMultiplier>
@@ -50,7 +50,7 @@
         </name>
         <description>
             <en>High, arid plateaus and snowtopped mountains wreathed in thick clouds cover most of the world. The oceans cover less area than on most Urthlike worlds, but they are very deep and largely unexplored.</en>
-            <es>High, arid plateaus and snowtopped mountains wreathed in thick clouds cover most of the world. The oceans cover less area than on most Urthlike worlds, but they are very deep and largely unexplored.</es>
+            <es>Mesetas altas y áridas, junto a montañas nevadas envueltas en nubes densas, cubren la mayor parte del mundo. Los océanos ocupan menos superficie que en la mayoría de los mundos similares a Urth, pero son muy profundos y están en gran medida inexplorados.</es>
         </description>
         <random>
             <probabilityMultiplier>MYTHIC</probabilityMultiplier>
@@ -64,7 +64,7 @@
         </name>
         <description>
             <en>An older world, Lamorak experiences little seismic upheaval. Its mountains tend to be small. Shallow seas and oceans cover most of the planet. Light terraforming during the Second Republic transformed some biomes into ideal settings to make vids.</en>
-            <es>An older world, Lamorak experiences little seismic upheaval. Its mountains tend to be small. Shallow seas and oceans cover most of the planet. Light terraforming during the Second Republic transformed some biomes into ideal settings to make vids.</es>
+            <es>Lamorak, un mundo antiguo, experimenta poca actividad sísmica. Sus montañas tienden a ser pequeñas. Mares y océanos poco profundos cubren la mayor parte del planeta. Una terraformación ligera durante la Segunda República transformó algunos biomas en escenarios ideales para producir vids.</es>
         </description>
         <random>
             <probabilityMultiplier>MYTHIC</probabilityMultiplier>
@@ -78,7 +78,7 @@
         </name>
         <description>
             <en>The planet's continents are covered in jungles and forests, split by mighty rivers with thousands of tributaries. The high water-vapor content of Novgorod's atmosphere provides a hothouse for the planet's rampant flora. Unlike most worlds, Novgorod's poles are not frozen.</en>
-            <es>The planet's continents are covered in jungles and forests, split by mighty rivers with thousands of tributaries. The high water-vapor content of Novgorod's atmosphere provides a hothouse for the planet's rampant flora. Unlike most worlds, Novgorod's poles are not frozen.</es>
+            <es>Los continentes del planeta están cubiertos de junglas y bosques, atravesados por ríos caudalosos con miles de afluentes. El alto contenido de vapor de agua en la atmósfera de Novgorod crea un efecto de invernadero para su flora desbordante. A diferencia de la mayoría de los mundos, los polos de Novgorod no están congelados.</es>
         </description>
         <random>
             <probabilityMultiplier>MYTHIC</probabilityMultiplier>
@@ -92,7 +92,7 @@
         </name>
         <description>
             <en>Most of this planet is one vast land of rolling plains, veldt, and savanna. Bodies of water cover about 20% of the planet's surface.</en>
-            <es>Most of this planet is one vast land of rolling plains, veldt, and savanna. Bodies of water cover about 20% of the planet's surface.</es>
+            <es>La mayor parte de este planeta es una enorme extensión de llanuras onduladas, veldt y sabana. Las masas de agua cubren alrededor del 20% de su superficie.</es>
         </description>
         <random>
             <probabilityMultiplier>MYTHIC</probabilityMultiplier>
@@ -106,7 +106,7 @@
         </name>
         <description>
             <en>Thousands of small island chains are scattered across the planet's surface.</en>
-            <es>Thousands of small island chains are scattered across the planet's surface.</es>
+            <es>Miles de pequeñas cadenas de islas están dispersas por la superficie del planeta.</es>
         </description>
         <random>
             <probabilityMultiplier>MYTHIC</probabilityMultiplier>
@@ -120,7 +120,7 @@
         </name>
         <description>
             <en>Twilight is bitterly cold and virtually devoid of vegetation or a natural atmosphere, although atmosphere processors create breathable regions in some surface areas.</en>
-            <es>Twilight is bitterly cold and virtually devoid of vegetation or a natural atmosphere, although atmosphere processors create breathable regions in some surface areas.</es>
+            <es>Twilight es extremadamente frío y está casi desprovisto de vegetación y de atmósfera natural, aunque los procesadores atmosféricos crean zonas respirables en algunas áreas de la superficie.</es>
         </description>
         <random>
             <probabilityMultiplier>MYTHIC</probabilityMultiplier>

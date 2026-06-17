@@ -9,7 +9,7 @@
         </name>
         <description>
             <en>An aerosol suggestibility drug used by order-keepers in Citadel territories and by Iron Guardians in the Sayshel Collective. It reduces free will in targets and is usually delivered at 3 m range using Shoot or Vigor + Dexterity. Typical profile from the book: Potency 5, Duration 15 minutes, Overdose penalty Will -3, states Confused and Deceived.</en>
-            <es>Aerosol de sugestion usado por los vigilantes del Citadel y por los Guardianes de Hierro del colectivo Sayshel. Reduce el libre albedrio del objetivo y se aplica normalmente a 3 m con Disparo o Vigor + Destreza. Perfil tipico del libro: Potencia 5, Duracion 15 minutos, penalizador por sobredosis Voluntad -3, estados Confundido y Enganado.</es>
+            <es>Aerosol de sugestión usado por los vigilantes del Citadel y por los Guardianes de Hierro del colectivo Sayshel. Reduce el libre albedrío del objetivo y se aplica normalmente a 3 m con Disparo o Vigor + Destreza. Perfil típico del libro: Potencia 5, Duración 15 minutos, penalizador por sobredosis Voluntad -3, estados Confundido y Engañado.</es>
         </description>
         <techLevel>4</techLevel>
         <cost>15</cost>
@@ -23,11 +23,11 @@
         <type>item</type>
         <name>
             <en>Dreamweed</en>
-            <es>Hierba de sueno</es>
+            <es>Hierba de sueño</es>
         </name>
         <description>
             <en>Talush-sy seaweed cultivated under carefully controlled deep-ocean conditions. It requires Life Science Lore, Alchemy, and patience to produce. It causes euphoric and strange visions that seem to answer deep questions and is highly addictive. Book profile: cost 15 fb per dose, Potency 5 (A), Duration 20 minutes, Overdose penalties Perception -2 and Wits -1, effects Awed and Euphoric, with withdrawal causing Anxious.</en>
-            <es>Alga talush-sy cultivada bajo condiciones muy controladas en el oceano profundo. Requiere Saber de Ciencias de la Vida, Alquimia y paciencia para producirse. Provoca visiones extranas y euforicas que parecen responder preguntas profundas y es altamente adictiva. Perfil del libro: coste 15 f por dosis, Potencia 5 (A), Duracion 20 minutos, penalizadores por sobredosis Percepcion -2 e Ingenio -1, efectos Asombro y Euforia, y abstinencia con estado Ansioso.</es>
+            <es>Alga talush-sy cultivada bajo condiciones muy controladas en el océano profundo. Requiere Saber de Ciencias de la Vida, Alquimia y paciencia para producirse. Provoca visiones extrañas y eufóricas que parecen responder preguntas profundas y es altamente adictiva. Perfil del libro: coste 15 f por dosis, Potencia 5 (A), Duración 20 minutos, penalizadores por sobredosis Percepción -2 e Ingenio -1, efectos Asombro y Euforia, y abstinencia con estado Ansioso.</es>
         </description>
         <cost>15</cost>
         <size>XS</size>
@@ -44,7 +44,7 @@
         </name>
         <description>
             <en>The "food of Nidderak", an expensive and rare preparation used by kingmakers to groom selected high priests and leaders. In lore, regular consumption is tied to the Tik Ceteki role and grants larger physique and social authority among lower-status nizdharim.</en>
-            <es>El "alimento de Nidderak", una preparacion rara y costosa usada por los hacedores de reyes para formar a sacerdotes y lideres. En la ambientacion, su consumo regular se vincula al rol Tik Ceteki y se asocia a mayor talla y autoridad social entre nizdharim de menor estatus.</es>
+            <es>El "alimento de Nidderak", una preparación rara y costosa usada por los hacedores de reyes para formar a sacerdotes y líderes. En la ambientación, su consumo regular se vincula al rol Tik Ceteki y se asocia a mayor talla y autoridad social entre nizdharim de menor estatus.</es>
         </description>
         <size>XS</size>
         <restrictions>
@@ -65,7 +65,7 @@
         </name>
         <description>
             <en>Organic environmental suit adapted to nizdharim anatomy (tentacles and head). It continuously cycles a water reservoir across the skin and works with a bonded akarhim ("glue squid") attached to a tentacle that provides salt water and removes waste. With proper maintenance and refills, it negates Requires Moisture penalties while on land. Book profile: TL5, e-shield 2, cost 50 fb, Shockproof and Slamproof.</en>
-            <es>Traje ambiental organico adaptado a la anatomia nizdharim (tentaculos y cabeza). Recircula de forma continua una reserva de agua sobre la piel y funciona con un akarhim ("calamar cola") unido a un tentaculo, que aporta agua salada y elimina residuos. Con mantenimiento y recargas adecuadas, anula las penalizaciones de Requiere Humedad en tierra. Perfil del libro: TL5, e-shield 2, coste 50 f, resistente a descargas y a golpes.</es>
+            <es>Traje ambiental orgánico adaptado a la anatomía nizdharim (tentáculos y cabeza). Recircula de forma continua una reserva de agua sobre la piel y funciona con un akarhim ("calamar cola") unido a un tentáculo, que aporta agua salada y elimina residuos. Con mantenimiento y recargas adecuadas, anula las penalizaciones de Requiere Humedad en tierra. Perfil del libro: TL5, e-shield 2, coste 50 f, resistente a descargas y a golpes.</es>
         </description>
         <techLevel>5</techLevel>
         <cost>50</cost>
@@ -85,11 +85,11 @@
         <type>item</type>
         <name>
             <en>Gulik-Tlid (Organic Translator)</en>
-            <es>Gulik-Tlid (Traductor organico)</es>
+            <es>Gulik-Tlid (Traductor orgánico)</es>
         </name>
         <description>
             <en>Sea-sponge-like organic translator integrated with a think machine. Each sponge is grown for a single external language and translates both directions with nizdharim speech through microphone and speaker. It must be moisturized for at least one hour every 24 hours. Typical lifespan is about one month, but it is relatively cheap to regrow if connected to a nizdharim think machine with language data. Book profile: TL5, size S, cost 35 fb.</en>
-            <es>Traductor organico con forma de esponja marina e integrado con una maquina pensante. Cada esponja se cultiva para un unico idioma externo y traduce en ambos sentidos con el habla nizdharim mediante microfono y altavoz. Debe humedecerse al menos una hora cada 24 horas. Su vida util normal es de alrededor de un mes, pero es relativamente barato reemplazarla si se conecta a una maquina pensante nizdharim con los datos del idioma. Perfil del libro: TL5, tamano S, coste 35 f.</es>
+            <es>Traductor orgánico con forma de esponja marina e integrado con una máquina pensante. Cada esponja se cultiva para un único idioma externo y traduce en ambos sentidos con el habla nizdharim mediante micrófono y altavoz. Debe humedecerse al menos una hora cada 24 horas. Su vida útil normal es de alrededor de un mes, pero es relativamente barato reemplazarla si se conecta a una máquina pensante nizdharim con los datos del idioma. Perfil del libro: TL5, tamaño S, coste 35 f.</es>
         </description>
         <techLevel>5</techLevel>
         <cost>35</cost>
@@ -112,11 +112,11 @@
         <type>item</type>
         <name>
             <en>Clag (Laser Stave)</en>
-            <es>Clag (baston laser)</es>
+            <es>Clag (bastón láser)</es>
         </name>
         <description>
             <en>Favored nizdharim ranged weapon: a laser fired from a spear-like shaft, also usable in close combat as a spear. Book profile: TL6, +1 goal, 7 damage (laser), range 50/100, rate of fire 1, ammo 23, size XL, cost 600 fb, listed as exotic and usually seen in Vuldrok markets.</en>
-            <es>Arma a distancia preferida de los nizdharim: un laser disparado desde un asta de lanza, utilizable tambien en combate cercano como lanza. Perfil del libro: TL6, +1 a la meta, 7 de dano (laser), alcance 50/100, cadencia 1, municion 23, tamano XL, coste 600 f, clasificada como exotica y vista sobre todo en mercados vuldrok.</es>
+            <es>Arma a distancia preferida de los nizdharim: un láser disparado desde un asta de lanza, utilizable también en combate cercano como lanza. Perfil del libro: TL6, +1 a la meta, 7 de daño (láser), alcance 50/100, cadencia 1, munición 23, tamaño XL, coste 600 f, clasificada como exótica y vista sobre todo en mercados vuldrok.</es>
         </description>
         <techLevel>6</techLevel>
         <cost>600</cost>
@@ -139,7 +139,7 @@
         </name>
         <description>
             <en>Simple nizdharim "pod mover" submarine (khunnglisk): detachable cargo orb between a small passenger pod and a fusion-powered engine/propeller block. It requires specialized Nizdharim Vessel capability to pilot. Book profile: TL6, steady speed around 80 kph, cargo 2 tons, vitality 20, armor 5, range around 3,000 km, and up to 3 nizdharim passengers (or 2 humanoids).</en>
-            <es>Submarino nizdharim simple de tipo "pod mover" (khunnglisk): orbita de carga desmontable entre una pequena cabina de pasajeros y un bloque trasero de motor de fusion y helice. Requiere una capacidad especializada de Nave Nizdharim para pilotarlo. Perfil del libro: TL6, velocidad estable en torno a 80 km/h, carga de 2 toneladas, vitalidad 20, armadura 5, alcance de unos 3.000 km y hasta 3 pasajeros nizdharim (o 2 humanoides).</es>
+            <es>Submarino nizdharim simple de tipo "pod mover" (khunnglisk): órbita de carga desmontable entre una pequeña cabina de pasajeros y un bloque trasero de motor de fusión y hélice. Requiere una capacidad especializada de Nave Nizdharim para pilotarlo. Perfil del libro: TL6, velocidad estable en torno a 80 km/h, carga de 2 toneladas, vitalidad 20, armadura 5, alcance de unos 3.000 km y hasta 3 pasajeros nizdharim (o 2 humanoides).</es>
         </description>
         <techLevel>6</techLevel>
         <size>XL</size>
