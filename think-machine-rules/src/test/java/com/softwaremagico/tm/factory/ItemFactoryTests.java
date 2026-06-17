@@ -33,15 +33,17 @@ import org.testng.annotations.BeforeClass;
 
 @Test(groups = {"itemFactory"})
 public class ItemFactoryTests extends FactoryTest {
+
+    private static final int DEFINED_ITEMS = 125;
+
     @Override
     @BeforeClass
     public void enableBasicModule() {
+        ModuleManager.enableModule(ModuleManager.LOST_WORLDS_BOOK_MODULE);
         ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
         ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
         ModuleManager.resetModules();
     }
-
-	private static final int DEFINED_ITEMS = 118;
 
 	@Test
 	public void readItems() throws InvalidXmlElementException {

@@ -10,6 +10,11 @@
             <en>You have 12 tentacles, four for manipulation and weapons and eight for movement.</en>
             <es>Tienes 12 tentáculos: cuatro para manipulación y armas, y ocho para el movimiento.</es>
         </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>lwNizdharimAmbidextrous</id>
@@ -21,6 +26,11 @@
             <en>You are equally adept at using any of your tentacles.</en>
             <es>Eres igual de hábil usando cualquiera de tus tentáculos.</es>
         </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>lwNizdharimBeak</id>
@@ -32,6 +42,11 @@
             <en>Your beak can bite after a grapple.</en>
             <es>Tu pico puede morder después de una presa.</es>
         </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>lwNizdharimCamouflage</id>
@@ -43,6 +58,11 @@
             <en>Chromatophores allow camouflage in suitable environments.</en>
             <es>Los cromatóforos permiten camuflarse en entornos adecuados.</es>
         </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>lwNizdharimCantSpeakUrthish</id>
@@ -54,6 +74,11 @@
             <en>You cannot speak Urthish without an organic translator.</en>
             <es>No puedes hablar Urthish sin un traductor orgánico.</es>
         </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>lwNizdharimCarapace</id>
@@ -65,6 +90,11 @@
             <en>You have natural carapace armor.</en>
             <es>Tienes una armadura natural de caparazón.</es>
         </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>lwNizdharimHazardousBreath</id>
@@ -76,6 +106,11 @@
             <en>You can emit an underwater poison cloud from glands under your eyes.</en>
             <es>Puedes emitir una nube de veneno bajo el agua desde glándulas situadas bajo tus ojos.</es>
         </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>lwNizdharimMolluskPhysique</id>
@@ -87,6 +122,11 @@
             <en>You require custom-fitted clothing and equipment.</en>
             <es>Necesitas ropa y equipo adaptados a medida.</es>
         </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>lwNizdharimOstracized</id>
@@ -98,6 +138,11 @@
             <en>You suffer prejudice from most humans.</en>
             <es>Sufres prejuicios por parte de la mayoría de los humanos.</es>
         </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>lwNizdharimReadSpeakKhunadNizdha</id>
@@ -109,6 +154,11 @@
             <en>You speak Khunad-Nizdha and read Kursa-Nizdha ideograms.</en>
             <es>Hablas Khunad-Nizdha y lees ideogramas Kursa-Nizdha.</es>
         </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>lwNizdharimRegeneration</id>
@@ -120,6 +170,11 @@
             <en>You can regrow severed tentacles over time.</en>
             <es>Puedes regenerar tentáculos seccionados con el tiempo.</es>
         </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>lwNizdharimRequiresMoisture</id>
@@ -131,6 +186,11 @@
             <en>Your body requires regular moisture immersion.</en>
             <es>Tu cuerpo requiere inmersión regular en humedad.</es>
         </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>lwNizdharimSmall</id>
@@ -142,6 +202,11 @@
             <en>Your Size is 4.</en>
             <es>Tu Tamaño es 4.</es>
         </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>lwNizdharimSwim</id>
@@ -153,6 +218,11 @@
             <en>Your swimming speed is 12 m.</en>
             <es>Tu velocidad de nado es de 12 m.</es>
         </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>lwNizdharimTelepathy</id>
@@ -164,6 +234,11 @@
             <en>You have image-based telepathy with members of your colony.</en>
             <es>Tienes telepatía basada en imágenes con los miembros de tu colonia.</es>
         </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>lwNizdharimWaterBreather</id>
@@ -175,6 +250,11 @@
             <en>You can breathe underwater and above water.</en>
             <es>Puedes respirar bajo el agua y fuera de ella.</es>
         </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>lwNizdharimAmphibious</id>
@@ -190,6 +270,11 @@
                 sufrir penalizaciones por falta de humedad.
             </es>
         </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>lwNizdharimGaHij</id>
@@ -205,6 +290,11 @@
                 adicional, Resistencia, Daño, Ventaja de Iniciativa y maniobras avanzadas con varios tentáculos.
             </es>
         </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>lwNizdharimTikCeteki</id>
@@ -220,6 +310,11 @@
                 Tamaño 5, tiradas de Fuerza favorables e influencia favorable entre nizdharim de menor estatus.
             </es>
         </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
     </perk>
 
     <perk>
@@ -232,6 +327,11 @@
             <en>Z'go have Psi 1 and do not gain Urge.</en>
             <es>Los z'go tienen Psi 1 y no ganan Urge.</es>
         </description>
+        <restrictions>
+            <species>
+                <specie>zgo</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>lwZgoEnergySense</id>
@@ -243,6 +343,11 @@
             <en>Z'go can discern energy fields across vast distances.</en>
             <es>Los z'go pueden discernir campos de energía a enormes distancias.</es>
         </description>
+        <restrictions>
+            <species>
+                <specie>zgo</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>lwZgoFlight</id>
@@ -254,6 +359,11 @@
             <en>Move in any direction 10 meters per turn.</en>
             <es>Te mueves en cualquier dirección 10 metros por turno.</es>
         </description>
+        <restrictions>
+            <species>
+                <specie>zgo</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>lwZgoSpeakZgoish</id>
@@ -265,6 +375,11 @@
             <en>You speak Z'goish; speaking Urthish requires a dolomei.</en>
             <es>Hablas Z'goish; para hablar Urthish necesitas un dolomei.</es>
         </description>
+        <restrictions>
+            <species>
+                <specie>zgo</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>lwZgoUnskilled</id>
@@ -276,6 +391,11 @@
             <en>Crafts, Melee and Shoot begin at 0.</en>
             <es>Artesanía, Cuerpo a cuerpo y Disparo comienzan en 0.</es>
         </description>
+        <restrictions>
+            <species>
+                <specie>zgo</specie>
+            </species>
+        </restrictions>
     </perk>
     <perk>
         <id>lwZgoVoidborn</id>
@@ -287,5 +407,10 @@
             <en>You thrive in space and require containment in planetary atmosphere/gravity wells.</en>
             <es>Prosperas en el espacio y necesitas contención en atmósferas planetarias y pozos de gravedad.</es>
         </description>
+        <restrictions>
+            <species>
+                <specie>zgo</specie>
+            </species>
+        </restrictions>
     </perk>
 </perks>

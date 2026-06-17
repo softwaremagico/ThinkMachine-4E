@@ -49,6 +49,7 @@
                 <include name="cash"/>
                 <include name="options"/>
                 <include name="capabilities"/>
+                <include name="zgo"/>
                 <include name="supportClasses"/>
             </run>
         </groups>
@@ -83,6 +84,7 @@
             <class name="com.softwaremagico.tm.rules.FreeOptionsSelectionTests"/>
             <class name="com.softwaremagico.tm.rules.PerksTests"/>
             <class name="com.softwaremagico.tm.rules.CapabilitiesTests"/>
+            <class name="com.softwaremagico.tm.rules.ZgoUnskilledTests"/>
             <class name="com.softwaremagico.tm.rules.LevelTests"/>
             <class name="com.softwaremagico.tm.rules.CashTests"/>
             <class name="com.softwaremagico.tm.rules.OptionsTests"/>

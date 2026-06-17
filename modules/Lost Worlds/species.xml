@@ -290,15 +290,15 @@
                     </capability>
                 </options>
             </capabilitiesOption>
-        </capabilities>
-        <perks>
-            <perk><id>lwZgoEnergeticPsi</id></perk>
-            <perk><id>lwZgoEnergySense</id></perk>
-            <perk><id>lwZgoFlight</id></perk>
-            <perk><id>lwZgoSpeakZgoish</id></perk>
-            <perk><id>lwZgoUnskilled</id></perk>
-            <perk><id>lwZgoVoidborn</id></perk>
-        </perks>
+         </capabilities>
+         <perks>
+             <perk><id>lwZgoEnergeticPsi</id></perk>
+             <perk><id>lwZgoEnergySense</id></perk>
+             <perk><id>lwZgoFlight</id></perk>
+             <perk><id>lwZgoSpeakZgoish</id></perk>
+             <perk><id>lwZgoUnskilled</id></perk>
+             <perk><id>lwZgoVoidborn</id></perk>
+         </perks>
         <random>
             <names>
                 <male>Za'kor, Ze'lin, Zi'var, Zo'ran, Zu'mek, Qa'dor, Qe'lith, Qi'zan, Qo'reth, Qu'sar,

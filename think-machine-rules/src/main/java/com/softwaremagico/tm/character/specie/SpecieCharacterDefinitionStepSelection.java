@@ -27,6 +27,7 @@ package com.softwaremagico.tm.character.specie;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.softwaremagico.tm.character.CharacterDefinitionStepSelection;
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.skills.SkillBonusOptions;
 import com.softwaremagico.tm.character.values.Phase;
 import com.softwaremagico.tm.exceptions.InvalidGeneratedCharacter;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
@@ -49,7 +50,9 @@ public class SpecieCharacterDefinitionStepSelection extends CharacterDefinitionS
 
     @JsonIgnore
     protected int getSkillTotalPoints() {
-        return 0;
+        // Species can define fixed bonuses/penalties on skills (e.g. z'go unskilled -3).
+        // Validation must use the configured species total, not always zero.
+        return getSkillOptions().stream().mapToInt(SkillBonusOptions::getBonus).sum();
     }
 
     @Override
