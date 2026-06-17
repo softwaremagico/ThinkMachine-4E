@@ -141,10 +141,30 @@
         </perks>
         <random>
             <names>
-                <male>Ji-Giaderik, Ji-Kirtunda, Kir-Khurshtalidok, Ku-Nidderaki, Ku-Ortuk, Ku-Talus, Ky-Drenikseli, Ky-Gliskir, Ky-Tulak, Nu-Glisktikan, Nu-Wymspor, Tal-Ektalsk, Tal-Tudulid, Gulok, Gunagykkin, Kiriskulu, Kykoris, Shiakor, Sorodinmir, Termorinite, Toglotsadden, Torrosk</male>
-                <female>Ji-Giaderik, Ji-Kirtunda, Kir-Khurshtalidok, Ku-Nidderaki, Ku-Ortuk, Ku-Talus, Ky-Drenikseli, Ky-Gliskir, Ky-Tulak, Nu-Glisktikan, Nu-Wymspor, Tal-Ektalsk, Tal-Tudulid, Gulok, Gunagykkin, Kiriskulu, Kykoris, Shiakor, Sorodinmir, Termorinite, Toglotsadden, Torrosk</female>
+                <male>Ji-Giaderik, Ji-Kirtunda, Ji-Skorudak, Ji-Talumek, Kir-Khurshtalidok, Kir-Sodraskel,
+                    Kir-Tumorask, Kir-Velgudor, Ku-Nidderaki, Ku-Ortuk, Ku-Talus, Ku-Zhordek,
+                    Ky-Drenikseli, Ky-Gliskir, Ky-Tulak, Ky-Vorashk, Nu-Glisktikan, Nu-Wymspor,
+                    Nu-Kordralik, Nu-Zelthuk, Tal-Ektalsk, Tal-Tudulid, Tal-Gorashen, Tal-Vudrakin,
+                    Gulok, Gunagykkin, Gyraskul, Guldorim, Kiriskulu, Kykoris, Khorasdin, Kirtalosh,
+                    Shiakor, Skudrath, Sorodinmir, Sorkhalid, Termorinite, Torgudask, Toglotsadden,
+                    Torrosk, Tulgyran, Tudraskel, Vorskidan, Voragul, Wyrtashk, Wymdralor, Zhikoral,
+                    Zudraskin, Norkhalem, Orudrask</male>
+                <female>Ji-Giadera, Ji-Kirtulena, Ji-Skoritha, Ji-Talumira, Kir-Khurshalida, Kir-Sodreska,
+                    Kir-Tumorissa, Kir-Velgudira, Ku-Niddera, Ku-Ortura, Ku-Talusha, Ku-Zhordina,
+                    Ky-Dreniksela, Ky-Gliskira, Ky-Tulaya, Ky-Vorashka, Nu-Glisktina, Nu-Wymsora,
+                    Nu-Kordralia, Nu-Zelthura, Tal-Ektalsha, Tal-Tudulira, Tal-Gorashia, Tal-Vudrakina,
+                    Gulora, Gunagykkina, Gyraskula, Guldorina, Kiriskula, Kykorissa, Khorasdira,
+                    Kirtalosha, Shiakora, Skudratha, Sorodinmira, Sorkhalida, Termorinita, Torgudaska,
+                    Toglotsaddena, Torroska, Tulgyrana, Tudraskela, Vorskidana, Voragula, Wyrtashka,
+                    Wymdralora, Zhikorala, Zudraskina, Norkhalema, Orudraska</female>
             </names>
-            <surnames></surnames>
+            <surnames>Giadrek, Kirtundal, Khurshtalid, Nidderak, Ortukul, Taluskor, Dreniksel,
+                Gliskiran, Tulakor, Glisktar, Wymsporal, Ektalshor, Tudulask, Gulorik, Gynagor,
+                Kiriskul, Kykorath, Shiakorin, Sorodimir, Termorin, Toglotsad, Torraskel, Skorudash,
+                Talumor, Sodrask, Velgudor, Zhordrakin, Vorashkul, Kordralim, Zelthukar, Gorashden,
+                Vudrakin, Gyraskor, Khorasdik, Torgudran, Tulgyrik, Tudraskor, Vorskalid, Voragor,
+                Wyrtash, Wymdral, Zhikoral, Zudrask, Norkhal, Orudrask, Skadrelik, Drulaskor,
+                Khashorim, Vortulak, Nizkador</surnames>
             <probabilityMultiplier>MYTHIC</probabilityMultiplier>
         </random>
     </nizdharim>
@@ -276,6 +296,26 @@
             <perk><id>lwZgoVoidborn</id></perk>
         </perks>
         <random>
+            <names>
+                <male>Za'kor, Ze'lin, Zi'var, Zo'ran, Zu'mek, Qa'dor, Qe'lith, Qi'zan, Qo'reth, Qu'sar,
+                    Ra'zel, Re'vok, Ri'kar, Ro'then, Ru'gal, Sha'vor, She'zik, Shi'rel, Sho'vak, Shu'mir,
+                    Ta'kesh, Te'vor, Ti'rael, To'zun, Tu'vash, Va'lor, Ve'shik, Vi'dren, Vo'khal, Vu'ren,
+                    Xa'zir, Xe'lor, Xi'veth, Xo'ram, Xu'dek, Ya'vok, Ye'rash, Yi'zel, Yo'kren, Yu'mar,
+                    Za'veth, Ze'khar, Zi'roth, Zo'marel, Zu'vran, Qa'shiel, Ri'vokar, Sho'rel, Vu'zak,
+                    Xe'thar</male>
+                <female>Za'kora, Ze'lira, Zi'vara, Zo'rana, Zu'meka, Qa'dora, Qe'litha, Qi'zana, Qo'retha, Qu'sara,
+                    Ra'zela, Re'voka, Ri'kara, Ro'thena, Ru'gala, Sha'vora, She'zika, Shi'rela, Sho'vaka,
+                    Shu'mira, Ta'kesha, Te'vora, Ti'raela, To'zuna, Tu'vasha, Va'lora, Ve'shika, Vi'drena,
+                    Vo'khala, Vu'rena, Xa'zira, Xe'lora, Xi'vetha, Xo'rama, Xu'deka, Ya'voka, Ye'rasha,
+                    Yi'zela, Yo'krena, Yu'mara, Za'vetha, Ze'khara, Zi'rotha, Zo'marela, Zu'vrana,
+                    Qa'shiela, Ri'vokara, Sho'rela, Vu'zaka, Xe'thara</female>
+            </names>
+            <surnames>Kel'zor, Vel'qin, Mor'thex, Sar'vok, Tir'zel, Vor'qash, Xen'ril, Yor'thak, Zal'ver,
+                Zor'qel, Qa'mor, Qir'zeth, Qor'vash, Quel'rin, Ra'zkor, Re'math, Riq'zel, Ro'veth,
+                Ru'thakar, Sha'qen, Shem'zor, Shir'vak, Sho'threl, Shu'qor, Ta'vren, Teq'zal, Tir'vok,
+                Tor'zhen, Tuq'mar, Va'rqel, Vel'thior, Vin'zak, Vor'mesh, Vyr'qan, Xa'lzeth, Xeq'vor,
+                Xir'makel, Xor'zan, Xu'vrel, Yaq'then, Yel'vok, Yir'zhar, Yor'meq, Yuq'zel, Zaq'veth,
+                Zel'mor, Zir'qash, Zor'thek, Zur'vane, Zyn'qor</surnames>
             <probabilityMultiplier>MYTHIC</probabilityMultiplier>
         </random>
     </zgo>
