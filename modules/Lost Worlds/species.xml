@@ -122,12 +122,14 @@
             </capabilitiesOption>
         </capabilities>
         <perks>
+            <perk><id>lwNizdharimAmphibious</id></perk>
             <perk><id>lwNizdharimTwelveTentacles</id></perk>
             <perk><id>lwNizdharimAmbidextrous</id></perk>
             <perk><id>lwNizdharimBeak</id></perk>
             <perk><id>lwNizdharimCamouflage</id></perk>
             <perk><id>lwNizdharimCantSpeakUrthish</id></perk>
             <perk><id>lwNizdharimCarapace</id></perk>
+            <perk><id>lwNizdharimGaHij</id></perk>
             <perk><id>lwNizdharimHazardousBreath</id></perk>
             <perk><id>lwNizdharimMolluskPhysique</id></perk>
             <perk><id>lwNizdharimOstracized</id></perk>
@@ -137,6 +139,7 @@
             <perk><id>lwNizdharimSmall</id></perk>
             <perk><id>lwNizdharimSwim</id></perk>
             <perk><id>lwNizdharimTelepathy</id></perk>
+            <perk><id>lwNizdharimTikCeteki</id></perk>
             <perk><id>lwNizdharimWaterBreather</id></perk>
         </perks>
         <random>

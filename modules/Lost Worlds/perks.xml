@@ -1,114 +1,291 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <perks>
-	<perk>
-		<id>lwNizdharimTwelveTentacles</id>
-		<name><en>12 Tentacles</en><es>12 Tentaculos</es></name>
-		<description><en>You have 12 tentacles, four for manipulation and weapons and eight for movement.</en><es>You have 12 tentacles, four for manipulation and weapons and eight for movement.</es></description>
-	</perk>
-	<perk>
-		<id>lwNizdharimAmbidextrous</id>
-		<name><en>Ambidextrous</en><es>Ambidextrous</es></name>
-		<description><en>You are equally adept at using any of your tentacles.</en><es>You are equally adept at using any of your tentacles.</es></description>
-	</perk>
-	<perk>
-		<id>lwNizdharimBeak</id>
-		<name><en>Beak</en><es>Beak</es></name>
-		<description><en>Your beak can bite after a grapple.</en><es>Your beak can bite after a grapple.</es></description>
-	</perk>
-	<perk>
-		<id>lwNizdharimCamouflage</id>
-		<name><en>Camouflage</en><es>Camouflage</es></name>
-		<description><en>Chromatophores allow camouflage in suitable environments.</en><es>Chromatophores allow camouflage in suitable environments.</es></description>
-	</perk>
-	<perk>
-		<id>lwNizdharimCantSpeakUrthish</id>
-		<name><en>Can't Speak Urthish</en><es>Can't Speak Urthish</es></name>
-		<description><en>You cannot speak Urthish without an organic translator.</en><es>You cannot speak Urthish without an organic translator.</es></description>
-	</perk>
-	<perk>
-		<id>lwNizdharimCarapace</id>
-		<name><en>Carapace</en><es>Carapace</es></name>
-		<description><en>You have natural carapace armor.</en><es>You have natural carapace armor.</es></description>
-	</perk>
-	<perk>
-		<id>lwNizdharimHazardousBreath</id>
-		<name><en>Hazardous Breath</en><es>Hazardous Breath</es></name>
-		<description><en>You can emit an underwater poison cloud from glands under your eyes.</en><es>You can emit an underwater poison cloud from glands under your eyes.</es></description>
-	</perk>
-	<perk>
-		<id>lwNizdharimMolluskPhysique</id>
-		<name><en>Mollusk Physique</en><es>Mollusk Physique</es></name>
-		<description><en>You require custom-fitted clothing and equipment.</en><es>You require custom-fitted clothing and equipment.</es></description>
-	</perk>
-	<perk>
-		<id>lwNizdharimOstracized</id>
-		<name><en>Ostracized</en><es>Ostracized</es></name>
-		<description><en>You suffer prejudice from most humans.</en><es>You suffer prejudice from most humans.</es></description>
-	</perk>
-	<perk>
-		<id>lwNizdharimReadSpeakKhunadNizdha</id>
-		<name><en>Read/Speak Khunad-Nizdha</en><es>Read/Speak Khunad-Nizdha</es></name>
-		<description><en>You speak khunad-nizdha and read kursa-nizdha ideograms.</en><es>You speak khunad-nizdha and read kursa-nizdha ideograms.</es></description>
-	</perk>
-	<perk>
-		<id>lwNizdharimRegeneration</id>
-		<name><en>Regeneration</en><es>Regeneration</es></name>
-		<description><en>You can regrow severed tentacles over time.</en><es>You can regrow severed tentacles over time.</es></description>
-	</perk>
-	<perk>
-		<id>lwNizdharimRequiresMoisture</id>
-		<name><en>Requires Moisture</en><es>Requires Moisture</es></name>
-		<description><en>Your body requires regular moisture immersion.</en><es>Your body requires regular moisture immersion.</es></description>
-	</perk>
-	<perk>
-		<id>lwNizdharimSmall</id>
-		<name><en>Small</en><es>Small</es></name>
-		<description><en>Your Size is 4.</en><es>Your Size is 4.</es></description>
-	</perk>
-	<perk>
-		<id>lwNizdharimSwim</id>
-		<name><en>Swim</en><es>Swim</es></name>
-		<description><en>Your swimming speed is 12 m.</en><es>Your swimming speed is 12 m.</es></description>
-	</perk>
-	<perk>
-		<id>lwNizdharimTelepathy</id>
-		<name><en>Telepathy</en><es>Telepathy</es></name>
-		<description><en>You have image-based telepathy with members of your colony.</en><es>You have image-based telepathy with members of your colony.</es></description>
-	</perk>
-	<perk>
-		<id>lwNizdharimWaterBreather</id>
-		<name><en>Water Breather</en><es>Water Breather</es></name>
-		<description><en>You can breathe underwater and above water.</en><es>You can breathe underwater and above water.</es></description>
-	</perk>
+    <perk>
+        <id>lwNizdharimTwelveTentacles</id>
+        <name>
+            <en>12 Tentacles</en>
+            <es>12 Tentaculos</es>
+        </name>
+        <description>
+            <en>You have 12 tentacles, four for manipulation and weapons and eight for movement.</en>
+            <es>You have 12 tentacles, four for manipulation and weapons and eight for movement.</es>
+        </description>
+    </perk>
+    <perk>
+        <id>lwNizdharimAmbidextrous</id>
+        <name>
+            <en>Ambidextrous</en>
+            <es>Ambidextrous</es>
+        </name>
+        <description>
+            <en>You are equally adept at using any of your tentacles.</en>
+            <es>You are equally adept at using any of your tentacles.</es>
+        </description>
+    </perk>
+    <perk>
+        <id>lwNizdharimBeak</id>
+        <name>
+            <en>Beak</en>
+            <es>Beak</es>
+        </name>
+        <description>
+            <en>Your beak can bite after a grapple.</en>
+            <es>Your beak can bite after a grapple.</es>
+        </description>
+    </perk>
+    <perk>
+        <id>lwNizdharimCamouflage</id>
+        <name>
+            <en>Camouflage</en>
+            <es>Camouflage</es>
+        </name>
+        <description>
+            <en>Chromatophores allow camouflage in suitable environments.</en>
+            <es>Chromatophores allow camouflage in suitable environments.</es>
+        </description>
+    </perk>
+    <perk>
+        <id>lwNizdharimCantSpeakUrthish</id>
+        <name>
+            <en>Can't Speak Urthish</en>
+            <es>Can't Speak Urthish</es>
+        </name>
+        <description>
+            <en>You cannot speak Urthish without an organic translator.</en>
+            <es>You cannot speak Urthish without an organic translator.</es>
+        </description>
+    </perk>
+    <perk>
+        <id>lwNizdharimCarapace</id>
+        <name>
+            <en>Carapace</en>
+            <es>Carapace</es>
+        </name>
+        <description>
+            <en>You have natural carapace armor.</en>
+            <es>You have natural carapace armor.</es>
+        </description>
+    </perk>
+    <perk>
+        <id>lwNizdharimHazardousBreath</id>
+        <name>
+            <en>Hazardous Breath</en>
+            <es>Hazardous Breath</es>
+        </name>
+        <description>
+            <en>You can emit an underwater poison cloud from glands under your eyes.</en>
+            <es>You can emit an underwater poison cloud from glands under your eyes.</es>
+        </description>
+    </perk>
+    <perk>
+        <id>lwNizdharimMolluskPhysique</id>
+        <name>
+            <en>Mollusk Physique</en>
+            <es>Mollusk Physique</es>
+        </name>
+        <description>
+            <en>You require custom-fitted clothing and equipment.</en>
+            <es>You require custom-fitted clothing and equipment.</es>
+        </description>
+    </perk>
+    <perk>
+        <id>lwNizdharimOstracized</id>
+        <name>
+            <en>Ostracized</en>
+            <es>Ostracized</es>
+        </name>
+        <description>
+            <en>You suffer prejudice from most humans.</en>
+            <es>You suffer prejudice from most humans.</es>
+        </description>
+    </perk>
+    <perk>
+        <id>lwNizdharimReadSpeakKhunadNizdha</id>
+        <name>
+            <en>Read/Speak Khunad-Nizdha</en>
+            <es>Read/Speak Khunad-Nizdha</es>
+        </name>
+        <description>
+            <en>You speak khunad-nizdha and read kursa-nizdha ideograms.</en>
+            <es>You speak khunad-nizdha and read kursa-nizdha ideograms.</es>
+        </description>
+    </perk>
+    <perk>
+        <id>lwNizdharimRegeneration</id>
+        <name>
+            <en>Regeneration</en>
+            <es>Regeneration</es>
+        </name>
+        <description>
+            <en>You can regrow severed tentacles over time.</en>
+            <es>You can regrow severed tentacles over time.</es>
+        </description>
+    </perk>
+    <perk>
+        <id>lwNizdharimRequiresMoisture</id>
+        <name>
+            <en>Requires Moisture</en>
+            <es>Requires Moisture</es>
+        </name>
+        <description>
+            <en>Your body requires regular moisture immersion.</en>
+            <es>Your body requires regular moisture immersion.</es>
+        </description>
+    </perk>
+    <perk>
+        <id>lwNizdharimSmall</id>
+        <name>
+            <en>Small</en>
+            <es>Small</es>
+        </name>
+        <description>
+            <en>Your Size is 4.</en>
+            <es>Your Size is 4.</es>
+        </description>
+    </perk>
+    <perk>
+        <id>lwNizdharimSwim</id>
+        <name>
+            <en>Swim</en>
+            <es>Swim</es>
+        </name>
+        <description>
+            <en>Your swimming speed is 12 m.</en>
+            <es>Your swimming speed is 12 m.</es>
+        </description>
+    </perk>
+    <perk>
+        <id>lwNizdharimTelepathy</id>
+        <name>
+            <en>Telepathy</en>
+            <es>Telepathy</es>
+        </name>
+        <description>
+            <en>You have image-based telepathy with members of your colony.</en>
+            <es>You have image-based telepathy with members of your colony.</es>
+        </description>
+    </perk>
+    <perk>
+        <id>lwNizdharimWaterBreather</id>
+        <name>
+            <en>Water Breather</en>
+            <es>Water Breather</es>
+        </name>
+        <description>
+            <en>You can breathe underwater and above water.</en>
+            <es>You can breathe underwater and above water.</es>
+        </description>
+    </perk>
+    <perk>
+        <id>lwNizdharimAmphibious</id>
+        <name>
+            <en>Amphibious</en>
+            <es>Amphibious</es>
+        </name>
+        <description>
+            <en>You are equally capable in water and on land, and can remain out of water much longer before suffering
+                moisture penalties.
+            </en>
+            <es>You are equally capable in water and on land, and can remain out of water much longer before suffering
+                moisture penalties.
+            </es>
+        </description>
+    </perk>
+    <perk>
+        <id>lwNizdharimGaHij</id>
+        <name>
+            <en>Ga-Hij</en>
+            <es>Ga-Hij</es>
+        </name>
+        <description>
+            <en>You are trained to coordinate multiple tentacles in combat, gaining tactical options such as extra goal,
+                resistance, damage, initiative edge, and advanced multi-tentacle maneuvers.
+            </en>
+            <es>You are trained to coordinate multiple tentacles in combat, gaining tactical options such as extra goal,
+                resistance, damage, initiative edge, and advanced multi-tentacle maneuvers.
+            </es>
+        </description>
+    </perk>
+    <perk>
+        <id>lwNizdharimTikCeteki</id>
+        <name>
+            <en>Tik Ceteki</en>
+            <es>Tik Ceteki</es>
+        </name>
+        <description>
+            <en>After long-term feeding on Nidderaki, you become a high-status priestly leader: Size 5, favorable
+                Strength-related rolls, and favorable influence among lower-status nizdharim.
+            </en>
+            <es>After long-term feeding on Nidderaki, you become a high-status priestly leader: Size 5, favorable
+                Strength-related rolls, and favorable influence among lower-status nizdharim.
+            </es>
+        </description>
+    </perk>
 
-	<perk>
-		<id>lwZgoEnergeticPsi</id>
-		<name><en>Energetic Psi</en><es>Energetic Psi</es></name>
-		<description><en>Z'go have Psi 1 and do not gain Urge.</en><es>Z'go have Psi 1 and do not gain Urge.</es></description>
-	</perk>
-	<perk>
-		<id>lwZgoEnergySense</id>
-		<name><en>Energy Sense</en><es>Energy Sense</es></name>
-		<description><en>Z'go can discern energy fields across vast distances.</en><es>Z'go can discern energy fields across vast distances.</es></description>
-	</perk>
-	<perk>
-		<id>lwZgoFlight</id>
-		<name><en>Flight</en><es>Flight</es></name>
-		<description><en>Move in any direction 10 meters per turn.</en><es>Move in any direction 10 meters per turn.</es></description>
-	</perk>
-	<perk>
-		<id>lwZgoSpeakZgoish</id>
-		<name><en>Speak Z'goish</en><es>Speak Z'goish</es></name>
-		<description><en>You speak zgoish; speaking Urthish requires a dolomei.</en><es>You speak zgoish; speaking Urthish requires a dolomei.</es></description>
-	</perk>
-	<perk>
-		<id>lwZgoUnskilled</id>
-		<name><en>Unskilled</en><es>Unskilled</es></name>
-		<description><en>Crafts, Melee and Shoot begin at 0.</en><es>Crafts, Melee and Shoot begin at 0.</es></description>
-	</perk>
-	<perk>
-		<id>lwZgoVoidborn</id>
-		<name><en>Voidborn</en><es>Voidborn</es></name>
-		<description><en>You thrive in space and require containment in planetary atmosphere/gravity wells.</en><es>You thrive in space and require containment in planetary atmosphere/gravity wells.</es></description>
-	</perk>
+    <perk>
+        <id>lwZgoEnergeticPsi</id>
+        <name>
+            <en>Energetic Psi</en>
+            <es>Energetic Psi</es>
+        </name>
+        <description>
+            <en>Z'go have Psi 1 and do not gain Urge.</en>
+            <es>Z'go have Psi 1 and do not gain Urge.</es>
+        </description>
+    </perk>
+    <perk>
+        <id>lwZgoEnergySense</id>
+        <name>
+            <en>Energy Sense</en>
+            <es>Energy Sense</es>
+        </name>
+        <description>
+            <en>Z'go can discern energy fields across vast distances.</en>
+            <es>Z'go can discern energy fields across vast distances.</es>
+        </description>
+    </perk>
+    <perk>
+        <id>lwZgoFlight</id>
+        <name>
+            <en>Flight</en>
+            <es>Flight</es>
+        </name>
+        <description>
+            <en>Move in any direction 10 meters per turn.</en>
+            <es>Move in any direction 10 meters per turn.</es>
+        </description>
+    </perk>
+    <perk>
+        <id>lwZgoSpeakZgoish</id>
+        <name>
+            <en>Speak Z'goish</en>
+            <es>Speak Z'goish</es>
+        </name>
+        <description>
+            <en>You speak zgoish; speaking Urthish requires a dolomei.</en>
+            <es>You speak zgoish; speaking Urthish requires a dolomei.</es>
+        </description>
+    </perk>
+    <perk>
+        <id>lwZgoUnskilled</id>
+        <name>
+            <en>Unskilled</en>
+            <es>Unskilled</es>
+        </name>
+        <description>
+            <en>Crafts, Melee and Shoot begin at 0.</en>
+            <es>Crafts, Melee and Shoot begin at 0.</es>
+        </description>
+    </perk>
+    <perk>
+        <id>lwZgoVoidborn</id>
+        <name>
+            <en>Voidborn</en>
+            <es>Voidborn</es>
+        </name>
+        <description>
+            <en>You thrive in space and require containment in planetary atmosphere/gravity wells.</en>
+            <es>You thrive in space and require containment in planetary atmosphere/gravity wells.</es>
+        </description>
+    </perk>
 </perks>
