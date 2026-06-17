@@ -291,6 +291,35 @@
                 </options>
             </capabilitiesOption>
          </capabilities>
+          <skills>
+              <skillBonusOption>
+                  <total>1</total>
+                  <options>
+                      <skill>
+                          <id>crafts</id>
+                          <bonus>-3</bonus>
+                      </skill>
+                  </options>
+              </skillBonusOption>
+              <skillBonusOption>
+                  <total>1</total>
+                  <options>
+                      <skill>
+                          <id>melee</id>
+                          <bonus>-3</bonus>
+                      </skill>
+                  </options>
+              </skillBonusOption>
+              <skillBonusOption>
+                  <total>1</total>
+                  <options>
+                      <skill>
+                          <id>shoot</id>
+                          <bonus>-3</bonus>
+                      </skill>
+                  </options>
+              </skillBonusOption>
+          </skills>
          <perks>
              <perk><id>lwZgoEnergeticPsi</id></perk>
              <perk><id>lwZgoEnergySense</id></perk>
