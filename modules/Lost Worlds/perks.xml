@@ -4,7 +4,7 @@
         <id>lwNizdharimTwelveTentacles</id>
         <name>
             <en>12 Tentacles</en>
-            <es>12 Tentaculos</es>
+            <es>12 Tentáculos</es>
         </name>
         <description>
             <en>You have 12 tentacles, four for manipulation and weapons and eight for movement.</en>
@@ -41,29 +41,29 @@
         </name>
         <description>
             <en>Chromatophores allow camouflage in suitable environments.</en>
-            <es>Los cromatoforos permiten camuflarse en entornos adecuados.</es>
+            <es>Los cromatóforos permiten camuflarse en entornos adecuados.</es>
         </description>
     </perk>
     <perk>
         <id>lwNizdharimCantSpeakUrthish</id>
         <name>
             <en>Can't Speak Urthish</en>
-            <es>No puede hablar urthish</es>
+            <es>No puede hablar Urthish</es>
         </name>
         <description>
             <en>You cannot speak Urthish without an organic translator.</en>
-            <es>No puedes hablar urthish sin un traductor orgánico.</es>
+            <es>No puedes hablar Urthish sin un traductor orgánico.</es>
         </description>
     </perk>
     <perk>
         <id>lwNizdharimCarapace</id>
         <name>
             <en>Carapace</en>
-            <es>Caparazon</es>
+            <es>Caparazón</es>
         </name>
         <description>
             <en>You have natural carapace armor.</en>
-            <es>Tienes una armadura natural de caparazon.</es>
+            <es>Tienes una armadura natural de caparazón.</es>
         </description>
     </perk>
     <perk>
@@ -81,7 +81,7 @@
         <id>lwNizdharimMolluskPhysique</id>
         <name>
             <en>Mollusk Physique</en>
-            <es>Fisonomia de molusco</es>
+            <es>Fisonomía de molusco</es>
         </name>
         <description>
             <en>You require custom-fitted clothing and equipment.</en>
@@ -103,18 +103,18 @@
         <id>lwNizdharimReadSpeakKhunadNizdha</id>
         <name>
             <en>Read/Speak Khunad-Nizdha</en>
-            <es>Leer/Hablar khunad-nizdha</es>
+            <es>Leer/Hablar Khunad-Nizdha</es>
         </name>
         <description>
-            <en>You speak khunad-nizdha and read kursa-nizdha ideograms.</en>
-            <es>Hablas khunad-nizdha y lees ideogramas kursa-nizdha.</es>
+            <en>You speak Khunad-Nizdha and read Kursa-Nizdha ideograms.</en>
+            <es>Hablas Khunad-Nizdha y lees ideogramas Kursa-Nizdha.</es>
         </description>
     </perk>
     <perk>
         <id>lwNizdharimRegeneration</id>
         <name>
             <en>Regeneration</en>
-            <es>Regeneracion</es>
+            <es>Regeneración</es>
         </name>
         <description>
             <en>You can regrow severed tentacles over time.</en>
@@ -136,11 +136,11 @@
         <id>lwNizdharimSmall</id>
         <name>
             <en>Small</en>
-            <es>Pequeno</es>
+            <es>Pequeño</es>
         </name>
         <description>
             <en>Your Size is 4.</en>
-            <es>Tu Tamano es 4.</es>
+            <es>Tu Tamaño es 4.</es>
         </description>
     </perk>
     <perk>
@@ -158,7 +158,7 @@
         <id>lwNizdharimTelepathy</id>
         <name>
             <en>Telepathy</en>
-            <es>Telepatia</es>
+            <es>Telepatía</es>
         </name>
         <description>
             <en>You have image-based telepathy with members of your colony.</en>
@@ -186,7 +186,7 @@
             <en>You are equally capable in water and on land, and can remain out of water much longer before suffering
                 moisture penalties.
             </en>
-            <es>Eres igual de capaz en el agua y en tierra, y puedes permanecer fuera del agua mucho mas tiempo antes de
+            <es>Eres igual de capaz en el agua y en tierra, y puedes permanecer fuera del agua mucho más tiempo antes de
                 sufrir penalizaciones por falta de humedad.
             </es>
         </description>
@@ -198,11 +198,11 @@
             <es>Ga-Hij</es>
         </name>
         <description>
-            <en>You are trained to coordinate multiple tentacles in combat, gaining tactical options such as extra goal,
-                resistance, damage, initiative edge, and advanced multi-tentacle maneuvers.
+            <en>You are trained to coordinate multiple tentacles in combat, gaining tactical options such as extra Goal,
+                Resistance, Damage, Initiative Edge, and advanced multi-tentacle maneuvers.
             </en>
-            <es>Estás entrenado para coordinar múltiples tentáculos en combate, obteniendo opciones tácticas como meta
-                adicional, resistencia, daño, ventaja de iniciativa y maniobras avanzadas con varios tentáculos.
+            <es>Estás entrenado para coordinar múltiples tentáculos en combate, obteniendo opciones tácticas como Meta
+                adicional, Resistencia, Daño, Ventaja de Iniciativa y maniobras avanzadas con varios tentáculos.
             </es>
         </description>
     </perk>
@@ -217,7 +217,7 @@
                 Strength-related rolls, and favorable influence among lower-status nizdharim.
             </en>
             <es>Tras alimentarte de Nidderaki durante largo tiempo, te conviertes en un líder sacerdotal de alto estatus:
-                Tamano 5, tiradas de Fuerza favorables e influencia favorable entre nizdharim de menor estatus.
+                Tamaño 5, tiradas de Fuerza favorables e influencia favorable entre nizdharim de menor estatus.
             </es>
         </description>
     </perk>
@@ -259,11 +259,11 @@
         <id>lwZgoSpeakZgoish</id>
         <name>
             <en>Speak Z'goish</en>
-            <es>Hablar z'goish</es>
+            <es>Hablar Z'goish</es>
         </name>
         <description>
-            <en>You speak zgoish; speaking Urthish requires a dolomei.</en>
-            <es>Hablas z'goish; para hablar urthish necesitas un dolomei.</es>
+            <en>You speak Z'goish; speaking Urthish requires a dolomei.</en>
+            <es>Hablas Z'goish; para hablar Urthish necesitas un dolomei.</es>
         </description>
     </perk>
     <perk>
@@ -274,7 +274,7 @@
         </name>
         <description>
             <en>Crafts, Melee and Shoot begin at 0.</en>
-            <es>Artesania, Cuerpo a cuerpo y Disparo comienzan en 0.</es>
+            <es>Artesanía, Cuerpo a cuerpo y Disparo comienzan en 0.</es>
         </description>
     </perk>
     <perk>
