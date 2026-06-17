@@ -149,9 +149,17 @@ public class RandomizeCharacter {
 
     private void selectNames() throws InvalidRandomElementSelectedException {
         final RandomName randomName = new RandomName(characterPlayer, preferences);
-        randomName.assign();
+        try {
+            randomName.assign();
+        } catch (InvalidRandomElementSelectedException | InvalidXmlElementException e) {
+            randomName.assignAny();
+        }
         final RandomSurname randomSurname = new RandomSurname(characterPlayer, preferences);
-        randomSurname.assign();
+        try {
+            randomSurname.assign();
+        } catch (InvalidRandomElementSelectedException | InvalidXmlElementException e) {
+            randomSurname.assignAny();
+        }
     }
 
     private void selectCalling() throws InvalidRandomElementSelectedException {

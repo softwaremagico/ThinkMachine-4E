@@ -24,6 +24,34 @@ package com.softwaremagico.tm.file.modules;
  * #L%
  */
 
+import com.softwaremagico.tm.character.TimeFactory;
+import com.softwaremagico.tm.character.callings.CallingFactory;
+import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
+import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
+import com.softwaremagico.tm.character.combat.CombatStyleFactory;
+import com.softwaremagico.tm.character.cybernetics.CyberdeviceFactory;
+import com.softwaremagico.tm.character.equipment.DamageTypeFactory;
+import com.softwaremagico.tm.character.equipment.EquipmentTraitFactory;
+import com.softwaremagico.tm.character.equipment.TechCompulsionFactory;
+import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
+import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShieldFactory;
+import com.softwaremagico.tm.character.equipment.shields.ShieldFactory;
+import com.softwaremagico.tm.character.equipment.thinkmachines.ThinkMachineFactory;
+import com.softwaremagico.tm.character.equipment.weapons.AccessoryFactory;
+import com.softwaremagico.tm.character.equipment.weapons.AmmunitionFactory;
+import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
+import com.softwaremagico.tm.character.factions.FactionFactory;
+import com.softwaremagico.tm.character.occultism.OccultismPathFactory;
+import com.softwaremagico.tm.character.occultism.OccultismTypeFactory;
+import com.softwaremagico.tm.character.occultism.TheurgyComponentFactory;
+import com.softwaremagico.tm.character.perks.AfflictionFactory;
+import com.softwaremagico.tm.character.perks.PerkFactory;
+import com.softwaremagico.tm.character.planets.PlanetFactory;
+import com.softwaremagico.tm.character.skills.SkillFactory;
+import com.softwaremagico.tm.character.specie.SpecieFactory;
+import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
+import com.softwaremagico.tm.character.values.SpecialValueFactory;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -48,6 +76,44 @@ public final class ModuleManager {
 
     public static void enableModule(String module) {
         ENABLED_MODULES.add(module);
+    }
+
+    public static void resetModules() {
+
+        PlanetFactory.getInstance().reset();
+
+        SpecieFactory.getInstance().reset();
+        UpbringingFactory.getInstance().reset();
+        FactionFactory.getInstance().reset();
+        CallingFactory.getInstance().reset();
+
+        CharacteristicsDefinitionFactory.getInstance().reset();
+        SkillFactory.getInstance().reset();
+        CapabilityFactory.getInstance().reset();
+        PerkFactory.getInstance().reset();
+        AfflictionFactory.getInstance().reset();
+
+        CombatStyleFactory.getInstance().reset();
+
+        WeaponFactory.getInstance().reset();
+        ArmorFactory.getInstance().reset();
+        ShieldFactory.getInstance().reset();
+        HandheldShieldFactory.getInstance().reset();
+        AccessoryFactory.getInstance().reset();
+        AmmunitionFactory.getInstance().reset();
+        DamageTypeFactory.getInstance().reset();
+        EquipmentTraitFactory.getInstance().reset();
+        SpecialValueFactory.getInstance().reset();
+
+        CyberdeviceFactory.getInstance().reset();
+        TechCompulsionFactory.getInstance().reset();
+        ThinkMachineFactory.getInstance().reset();
+
+        OccultismPathFactory.getInstance().reset();
+        OccultismTypeFactory.getInstance().reset();
+        TheurgyComponentFactory.getInstance().reset();
+
+        TimeFactory.getInstance().reset();
     }
 
     public static void disableModule(String module) {

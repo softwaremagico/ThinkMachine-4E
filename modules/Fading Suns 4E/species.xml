@@ -11,86 +11,86 @@
             <es>La especie más extendida y numerosa de los Mundos Conocidos. Los humanos no reciben habilidades especiales por derecho de nacimiento, pero son muy flexibles y adaptables, capaces de escoger cualquier clase o vocación sin una preferencia innata concreta.</es>
         </description>
         <cost>0</cost>
-        <specieCharacteristics>
-            <characteristic>
+        <characteristicValues>
+            <element>
                 <id>strength</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>dexterity</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>endurance</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>wits</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>perception</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>will</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>presence</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>intuition</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>faith</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>psi</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>urge</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>theurgy</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>hubris</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-        </specieCharacteristics>
+            </element>
+        </characteristicValues>
         <movement>
             <value>5</value>
         </movement>
@@ -110,86 +110,86 @@
             <es>Psíquicos humanoides con una sociedad comunal y contemplativa. Los ur-obun comienzan la partida con Psi 1 o Teúrgia 1, pueden aumentar esa puntuación más adelante de forma normal y pueden escoger poderes psíquicos o beneficios teúrgicos como beneficios de vocación incluso sin tener vocación de psíquico o teúrgo. Su Inteligencia y Voluntad pueden llegar a 11, obtienen un bonificador de +2 a la meta en tiradas para quitarse estados gracias a su serenidad disciplinada, y hablan lojmaa como lengua materna.</es>
         </description>
         <cost>2</cost>
-        <specieCharacteristics>
-            <characteristic>
+        <characteristicValues>
+            <element>
                 <id>strength</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>dexterity</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>endurance</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>wits</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>11</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>perception</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>will</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>11</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>presence</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>intuition</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>faith</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>psi</id>
                 <value>1</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>urge</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>theurgy</id>
                 <value>1</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>hubris</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-        </specieCharacteristics>
+            </element>
+        </characteristicValues>
         <movement>
             <value>5</value>
         </movement>
@@ -378,86 +378,86 @@
             <es>Psíquicos humanoides con un pasado brutal. Los ur-ukar son hiperconscientes de amenazas y enemigos, y usan olfato, oído y tacto para la percepción instintiva de un modo que otras especies no pueden igualar. Empiezan la partida con Psi 1 y pueden escoger poderes psíquicos como beneficios de vocación incluso sin tener la vocación de psíquico. Criados en la oscuridad, poseen un tacto muy desarrollado que les permite leer superficies, detectar cambios sutiles del entorno, interpretar las escarificaciones baa'mon y anular parcialmente los efectos de la visión reducida o la ceguera. Hablan uryari como lengua materna.</es>
         </description>
         <cost>-1</cost>
-        <specieCharacteristics>
-            <characteristic>
+        <characteristicValues>
+            <element>
                 <id>strength</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>9</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>dexterity</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>endurance</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>9</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>wits</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>perception</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>will</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>presence</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>intuition</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>faith</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>psi</id>
                 <value>1</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>urge</id>
                 <value>1</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>theurgy</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>hubris</id>
                 <value>0</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-        </specieCharacteristics>
+            </element>
+        </characteristicValues>
         <movement>
             <value>5</value>
         </movement>
@@ -616,89 +616,89 @@
             <es>Gigantes de seis extremidades conocidos por su fiera lealtad. Los vorox poseen un ataque natural de mordisco, deben escoger Fuerza o Constitución como característica primaria o secundaria y pueden elevar ambas hasta 12. Sus seis extremidades les otorgan una velocidad de carrera excepcional y pueden entrenarlas para obtener ventaja en combate. Son de tamaño 7, necesitan ropa adaptada y no pueden despertar de forma natural Psi ni Teúrgia. Los vorox nobles pueden conservar un ataque de garra venenosa capaz de paralizar a sus enemigos.</es>
         </description>
         <cost>9</cost>
-        <specieCharacteristics>
-            <characteristic>
+        <characteristicValues>
+            <element>
                 <id>strength</id>
                 <value>3</value>
                 <maximumInitialValue>10</maximumInitialValue>
                 <maximumValue>12</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>dexterity</id>
                 <value>3</value>
                 <maximumInitialValue>10</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>endurance</id>
                 <value>3</value>
                 <maximumInitialValue>10</maximumInitialValue>
                 <maximumValue>12</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>wits</id>
                 <value>2</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>perception</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>will</id>
                 <value>1</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>presence</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>intuition</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>faith</id>
                 <value>3</value>
                 <maximumInitialValue>8</maximumInitialValue>
                 <maximumValue>10</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>psi</id>
                 <value>0</value>
                 <maximumInitialValue>0</maximumInitialValue>
                 <maximumValue>0</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>urge</id>
                 <value>0</value>
                 <maximumInitialValue>0</maximumInitialValue>
                 <maximumValue>0</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>theurgy</id>
                 <value>0</value>
                 <maximumInitialValue>0</maximumInitialValue>
                 <maximumValue>0</maximumValue>
-            </characteristic>
-            <characteristic>
+            </element>
+            <element>
                 <id>hubris</id>
                 <value>0</value>
                 <maximumInitialValue>0</maximumInitialValue>
                 <maximumValue>0</maximumValue>
-            </characteristic>
-        </specieCharacteristics>
+            </element>
+        </characteristicValues>
         <primaryCharacteristics>
-            <characteristic>strength</characteristic>
-            <characteristic>endurance</characteristic>
+            <element>strength</element>
+            <element>endurance</element>
         </primaryCharacteristics>
         <movement>
             <value>14</value>

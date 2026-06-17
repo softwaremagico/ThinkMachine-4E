@@ -53,147 +53,154 @@ import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.character.values.SpecialValueFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.file.modules.ModuleManager;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 @Test(groups = {"factoryValidation"})
 public class ValidateFactoryTests extends FactoryTest {
 
+	@Override
+	@BeforeClass
+	public void enableBasicModule() {
+		ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
+		ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+		ModuleManager.resetModules();
+	}
 
-    @Test
-    public void validateAccessoryFactory() throws InvalidXmlElementException {
-        AccessoryFactory.getInstance().validate();
-    }
+	@Test
+	public void validateAccessoryFactory() throws InvalidXmlElementException {
+		AccessoryFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validateAmmunitionFactory() throws InvalidXmlElementException {
-        AmmunitionFactory.getInstance().validate();
-    }
+	@Test
+	public void validateAmmunitionFactory() throws InvalidXmlElementException {
+		AmmunitionFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validateArmorFactory() throws InvalidXmlElementException {
-        ArmorFactory.getInstance().validate();
-    }
+	@Test
+	public void validateArmorFactory() throws InvalidXmlElementException {
+		ArmorFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validateArmorSpecificationsFactory() throws InvalidXmlElementException {
-        ArmorSpecificationFactory.getInstance().validate();
-    }
+	@Test
+	public void validateArmorSpecificationsFactory() throws InvalidXmlElementException {
+		ArmorSpecificationFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validateCallingFactory() throws InvalidXmlElementException {
-        CallingFactory.getInstance().validate();
-    }
+	@Test
+	public void validateCallingFactory() throws InvalidXmlElementException {
+		CallingFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validateCapabilityFactory() throws InvalidXmlElementException {
-        CapabilityFactory.getInstance().validate();
-    }
+	@Test
+	public void validateCapabilityFactory() throws InvalidXmlElementException {
+		CapabilityFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validateCharacteristicsDefinitionFactory() throws InvalidXmlElementException {
-        CharacteristicsDefinitionFactory.getInstance().validate();
-    }
+	@Test
+	public void validateCharacteristicsDefinitionFactory() throws InvalidXmlElementException {
+		CharacteristicsDefinitionFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validateCombatStyleFactory() throws InvalidXmlElementException {
-        CombatStyleFactory.getInstance().validate();
-    }
+	@Test
+	public void validateCombatStyleFactory() throws InvalidXmlElementException {
+		CombatStyleFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validateDamageTypeFactory() throws InvalidXmlElementException {
-        DamageTypeFactory.getInstance().validate();
-    }
+	@Test
+	public void validateDamageTypeFactory() throws InvalidXmlElementException {
+		DamageTypeFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validateEquipmentTraitFactory() throws InvalidXmlElementException {
-        EquipmentTraitFactory.getInstance().validate();
-    }
+	@Test
+	public void validateEquipmentTraitFactory() throws InvalidXmlElementException {
+		EquipmentTraitFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validateFactionFactory() throws InvalidXmlElementException {
-        FactionFactory.getInstance().validate();
-    }
+	@Test
+	public void validateFactionFactory() throws InvalidXmlElementException {
+		FactionFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validateHandheldShieldFactory() throws InvalidXmlElementException {
-        HandheldShieldFactory.getInstance().validate();
-    }
+	@Test
+	public void validateHandheldShieldFactory() throws InvalidXmlElementException {
+		HandheldShieldFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validateItemsFactory() throws InvalidXmlElementException {
-        ItemFactory.getInstance().validate();
-    }
+	@Test
+	public void validateItemsFactory() throws InvalidXmlElementException {
+		ItemFactory.getInstance().validate();
+	}
 
+	@Test
+	public void validateOccultismFactoryFactory() throws InvalidXmlElementException {
+		OccultismPathFactory.getInstance().validate();
+		OccultismTypeFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validateOccultismFactoryFactory() throws InvalidXmlElementException {
-        OccultismPathFactory.getInstance().validate();
-        OccultismTypeFactory.getInstance().validate();
-    }
+	@Test
+	public void validatePerksFactory() throws InvalidXmlElementException {
+		PerkFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validatePerksFactory() throws InvalidXmlElementException {
-        PerkFactory.getInstance().validate();
-    }
+	@Test
+	public void validateAfflictionsFactory() throws InvalidXmlElementException {
+		AfflictionFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validateAfflictionsFactory() throws InvalidXmlElementException {
-        AfflictionFactory.getInstance().validate();
-    }
+	@Test
+	public void validatePlanetsFactory() throws InvalidXmlElementException {
+		PlanetFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validatePlanetsFactory() throws InvalidXmlElementException {
-        PlanetFactory.getInstance().validate();
-    }
+	@Test
+	public void validateShieldFactory() throws InvalidXmlElementException {
+		ShieldFactory.getInstance().validate();
+	}
 
+	@Test
+	public void validateSkillsFactory() throws InvalidXmlElementException {
+		SkillFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validateShieldFactory() throws InvalidXmlElementException {
-        ShieldFactory.getInstance().validate();
-    }
+	@Test
+	public void validateSpecialValueFactory() throws InvalidXmlElementException {
+		SpecialValueFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validateSkillsFactory() throws InvalidXmlElementException {
-        SkillFactory.getInstance().validate();
-    }
+	@Test
+	public void validateSpecieFactory() throws InvalidXmlElementException {
+		SpecieFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validateSpecialValueFactory() throws InvalidXmlElementException {
-        SpecialValueFactory.getInstance().validate();
-    }
+	@Test
+	public void validateTechCompulsionFactory() throws InvalidXmlElementException {
+		TechCompulsionFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validateSpecieFactory() throws InvalidXmlElementException {
-        SpecieFactory.getInstance().validate();
-    }
+	@Test
+	public void validateTheurgyComponentFactory() throws InvalidXmlElementException {
+		TheurgyComponentFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validateTechCompulsionFactory() throws InvalidXmlElementException {
-        TechCompulsionFactory.getInstance().validate();
-    }
+	@Test
+	public void validateThinkMachineFactory() throws InvalidXmlElementException {
+		ThinkMachineFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validateTheurgyComponentFactory() throws InvalidXmlElementException {
-        TheurgyComponentFactory.getInstance().validate();
-    }
+	@Test
+	public void validateUpbringingFactory() throws InvalidXmlElementException {
+		UpbringingFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validateThinkMachineFactory() throws InvalidXmlElementException {
-        ThinkMachineFactory.getInstance().validate();
-    }
+	@Test
+	public void validateWeaponFactory() throws InvalidXmlElementException {
+		WeaponFactory.getInstance().validate();
+	}
 
-    @Test
-    public void validateUpbringingFactory() throws InvalidXmlElementException {
-        UpbringingFactory.getInstance().validate();
-    }
-
-    @Test
-    public void validateWeaponFactory() throws InvalidXmlElementException {
-        WeaponFactory.getInstance().validate();
-    }
-
-    @Test
-    public void validateCyberdeviceFactory() throws InvalidXmlElementException {
-        CyberdeviceFactory.getInstance().validate();
-    }
+	@Test
+	public void validateCyberdeviceFactory() throws InvalidXmlElementException {
+		CyberdeviceFactory.getInstance().validate();
+	}
 }

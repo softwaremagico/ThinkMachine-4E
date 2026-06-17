@@ -28,16 +28,46 @@ package com.softwaremagico.tm.factory;
 import com.softwaremagico.tm.character.combat.CombatStyleFactory;
 import com.softwaremagico.tm.character.cybernetics.CyberdeviceFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.file.modules.ModuleManager;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 
 @Test(groups = {"cyberdevicesFactory"})
 public class CyberdevicesFactoryTests extends FactoryTest {
+    @Override
+    @BeforeClass
+    public void enableBasicModule() {
+        ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
+        ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+        ModuleManager.resetModules();
+    }
+
     private static final int DEFINED_CYBERDEVICES = 5;
+    private static final int DEFINED_FACTION_BOOK_CYBERDEVICES = 11;
 
 
     @Test
     public void readCyberdevicesStyles() throws InvalidXmlElementException {
-        Assert.assertEquals(CyberdeviceFactory.getInstance().getElements().size(), DEFINED_CYBERDEVICES);
+        Assert.assertEquals(CyberdeviceFactory.getInstance().getElements().size(),
+                DEFINED_CYBERDEVICES + DEFINED_FACTION_BOOK_CYBERDEVICES);
+    }
+
+    @Test(dependsOnMethods = "readCyberdevicesStyles")
+    public void readCyberdevicesOnlyOnFactionBook() throws InvalidXmlElementException {
+        ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
+        ModuleManager.disableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+        ModuleManager.resetModules();
+
+        Assert.assertEquals(CyberdeviceFactory.getInstance().getElements().size(), DEFINED_FACTION_BOOK_CYBERDEVICES);
+    }
+
+    @Test(dependsOnMethods = "readCyberdevicesOnlyOnFactionBook")
+    public void readCyberdevicesOnAllModules() throws InvalidXmlElementException {
+        ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
+        ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+        ModuleManager.resetModules();
+
+        Assert.assertEquals(CyberdeviceFactory.getInstance().getElements().size(), DEFINED_CYBERDEVICES + DEFINED_FACTION_BOOK_CYBERDEVICES);
     }
 }

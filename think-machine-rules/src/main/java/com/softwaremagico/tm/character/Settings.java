@@ -27,6 +27,8 @@ package com.softwaremagico.tm.character;
 public class Settings {
     private boolean onlyOfficialAllowed = false;
     private boolean restrictionsChecked = true;
+    private boolean playerGuideEnabled = true;
+    private boolean factionsBookEnabled = true;
 
 
     public boolean isOnlyOfficialAllowed() {
@@ -49,6 +51,24 @@ public class Settings {
         if (settings != null) {
             this.onlyOfficialAllowed = settings.onlyOfficialAllowed;
             this.restrictionsChecked = settings.restrictionsChecked;
+            this.playerGuideEnabled = settings.playerGuideEnabled;
+            this.factionsBookEnabled = settings.factionsBookEnabled;
         }
+    }
+
+    public boolean isPlayerGuideEnabled() {
+        return playerGuideEnabled;
+    }
+
+    public void setPlayerGuideEnabled(boolean playerGuideEnabled) {
+        this.playerGuideEnabled = playerGuideEnabled;
+    }
+
+    public boolean isFactionsBookEnabled() {
+        return factionsBookEnabled;
+    }
+
+    public void setFactionsBookEnabled(boolean factionsBookEnabled) {
+        this.factionsBookEnabled = factionsBookEnabled;
     }
 }

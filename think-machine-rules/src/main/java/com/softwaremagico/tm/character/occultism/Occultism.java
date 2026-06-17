@@ -54,7 +54,7 @@ public class Occultism {
     }
 
     public int getDarkSideLevel(OccultismType occultismType) {
-        if (darkSideValue.get(occultismType.getId()) != null) {
+        if (occultismType != null && darkSideValue.get(occultismType.getId()) != null) {
             return darkSideValue.get(occultismType.getId());
         }
         return 0;

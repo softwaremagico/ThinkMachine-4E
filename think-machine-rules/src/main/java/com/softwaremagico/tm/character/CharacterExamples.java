@@ -35,6 +35,8 @@ import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
 import com.softwaremagico.tm.character.level.LevelSelector;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.character.skills.SkillBonusOption;
+import com.softwaremagico.tm.character.specie.ElementValues;
+import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 
 import java.util.ArrayList;
@@ -155,12 +157,19 @@ public final class CharacterExamples {
                 while (!added) {
                     try {
                         if (index == options.size() - 1
-                                || (characterPlayer.getLevel() == 2
+                                || (characterPlayer.getLevel() == ElementValues.INTERMEDIATE_LEVEL
                                 && characterPlayer.getCharacteristicValue(options.get(index).getElement().getCharacteristicName())
-                                + options.get(index).getBonus() <= CharacterPlayer.MAX_INTERMEDIATE_VALUE)
-                                || (characterPlayer.getLevel() > 2
+                                + options.get(index).getBonus() <= ElementValues.MAX_INTERMEDIATE_VALUE)
+                                || (characterPlayer.getLevel() > ElementValues.INTERMEDIATE_LEVEL && characterPlayer.getLevel() < ElementValues.ADVANCED_LEVEL
                                 && characterPlayer.getCharacteristicValue(options.get(index).getElement().getCharacteristicName())
-                                + options.get(index).getBonus() <= CharacterPlayer.LEVEL_MAX_VALUE)) {
+                                + options.get(index).getBonus()
+                                <= Math.min(ElementValues.LEVEL_MAX_VALUE, SpecieFactory.getInstance().getElement(characterPlayer.getSpecie())
+                                .getSpecieCharacteristic(options.get(index).getId()).getMaximumValue()))
+                                || (characterPlayer.getLevel() > ElementValues.ADVANCED_LEVEL
+                                && characterPlayer.getCharacteristicValue(options.get(index).getElement().getCharacteristicName())
+                                + options.get(index).getBonus()
+                                <= SpecieFactory.getInstance().getElement(characterPlayer.getSpecie())
+                                .getSpecieCharacteristic(options.get(index).getId()).getMaximumValue())) {
                             level.getSelectedCharacteristicOptions().get(i).getSelections()
                                     .add(new Selection(options.get(index)));
                             added = true;
@@ -192,9 +201,9 @@ public final class CharacterExamples {
                     try {
                         if (index == options.size() - 1
                                 || (characterPlayer.getLevel() == 2 && characterPlayer.getSkillValue(options.get(index).getElement())
-                                + options.get(index).getBonus() <= CharacterPlayer.MAX_INTERMEDIATE_VALUE)
+                                + options.get(index).getBonus() <= ElementValues.MAX_INTERMEDIATE_VALUE)
                                 || (characterPlayer.getLevel() > 2 && characterPlayer.getSkillValue(options.get(index).getElement())
-                                + options.get(index).getBonus() <= CharacterPlayer.LEVEL_MAX_VALUE)) {
+                                + options.get(index).getBonus() <= ElementValues.LEVEL_MAX_VALUE)) {
                             level.getSelectedSkillOptions().get(i).getSelections()
                                     .add(new Selection(options.get(index)));
                             added = true;
@@ -235,9 +244,9 @@ public final class CharacterExamples {
                 int index = j;
                 boolean added = false;
                 while (!added) {
-                    if (index == options.size() - 1 || characterPlayer.getLevel() > 2
+                    if (index == options.size() - 1 || characterPlayer.getLevel() > ElementValues.INTERMEDIATE_LEVEL
                             || characterPlayer.getCharacteristicValue(options.get(index).getElement().getCharacteristicName())
-                            + options.get(index).getBonus() <= CharacterPlayer.MAX_INITIAL_VALUE) {
+                            + options.get(index).getBonus() <= ElementValues.MAX_INITIAL_VALUE) {
                         step.getSelectedCharacteristicOptions().get(i).getSelections()
                                 .add(new Selection(options.get(index)));
                         added = true;
@@ -266,7 +275,7 @@ public final class CharacterExamples {
                 while (!added) {
                     if (index == options.size() - 1 || characterPlayer.getLevel() > 2
                             || characterPlayer.getSkillValue(options.get(index).getElement())
-                            + options.get(index).getBonus() <= CharacterPlayer.MAX_INITIAL_VALUE) {
+                            + options.get(index).getBonus() <= ElementValues.MAX_INITIAL_VALUE) {
                         step.getSelectedSkillOptions().get(i).getSelections()
                                 .add(new Selection(options.get(index)));
                         added = true;

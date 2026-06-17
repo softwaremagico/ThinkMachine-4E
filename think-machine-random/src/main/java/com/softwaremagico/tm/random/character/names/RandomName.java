@@ -36,8 +36,10 @@ import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedExcep
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.preferences.RandomSelector;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -77,6 +79,33 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
     }
 
     @Override
+    public void assignAny() throws InvalidSpecieException, InvalidRandomElementSelectedException {
+        if (getCharacterPlayer().getInfo().getNames() != null && !getCharacterPlayer().getInfo().getNames().isEmpty()) {
+            return;
+        }
+        final String specieId = getCharacterPlayer().getSpecie() != null ? getCharacterPlayer().getSpecie().getId() : null;
+        final boolean usesHumanNames = specieId == null || SpecieFactory.getInstance().getElement(specieId).usesHumanNames();
+        final List<Name> fallbackNames = new ArrayList<>();
+        for (Name name : getAllElements()) {
+            if (!name.getGender().equals(getCharacterPlayer().getInfo().getGender())) {
+                continue;
+            }
+            if (usesHumanNames && name.getSpecie() == null) {
+                fallbackNames.add(name);
+            }
+            if (!usesHumanNames && Objects.equals(name.getSpecie(), specieId)) {
+                fallbackNames.add(name);
+            }
+        }
+
+        if (!fallbackNames.isEmpty()) {
+            getCharacterPlayer().getInfo().addName(fallbackNames.get(RANDOM.nextInt(fallbackNames.size())));
+        } else {
+            getCharacterPlayer().getInfo().addName(selectAnyElement());
+        }
+    }
+
+    @Override
     protected Collection<Name> getAllElements() throws InvalidXmlElementException {
         final Set<Name> names = new HashSet<>();
         names.addAll(FactionFactory.getInstance().getAllNames());
@@ -93,12 +122,18 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
         }
         //Xenos have different names.
         if (getCharacterPlayer().getSpecie() != null
-                && SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId()).isXeno()) {
+                && !SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId()).usesHumanNames()) {
             if (Objects.equals(name.getSpecie(), getCharacterPlayer().getSpecie().getId())) {
                 return super.getWeight(name);
             } else {
                 throw new InvalidRandomElementSelectedException("Name '" + name + "' is restricted to specie.");
             }
+        }
+        if (getCharacterPlayer().getSpecie() != null
+                && SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId()).usesHumanNames()
+                && name.getSpecie() != null
+                && !"human".equals(name.getSpecie())) {
+            throw new InvalidRandomElementSelectedException("Name '" + name + "' is restricted to xeno species.");
         }
         // If faction has names (nobility, vuldroks). Use them.
         if (getCharacterPlayer().getFaction() != null

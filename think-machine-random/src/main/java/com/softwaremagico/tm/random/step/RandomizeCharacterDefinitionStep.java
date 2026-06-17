@@ -49,7 +49,7 @@ import java.util.List;
 import java.util.Set;
 
 public class RandomizeCharacterDefinitionStep {
-    private static final int TRIES = 20;
+    private static final int TRIES = 50;
 
     private final CharacterPlayer characterPlayer;
     private final CharacterDefinitionStepSelection characterDefinitionStepSelection;
@@ -145,7 +145,7 @@ public class RandomizeCharacterDefinitionStep {
 
                         int tries = 0;
                         boolean skillFound = false;
-                        Skill selectedSkill;
+                        Skill selectedSkill = null;
                         do {
                             final RandomSkillBonusOption randomSkill =
                                     new RandomSkillBonusOption(getCharacterPlayer(), getPreferences(),
@@ -165,8 +165,18 @@ public class RandomizeCharacterDefinitionStep {
                             skillFound = true;
                         } while (!skillFound && tries < TRIES);
 
-                        characterDefinitionStepSelection.getSelectedSkillOptions().get(i).getSelections()
-                                .add(new Selection(selectedSkill));
+                        // If no valid skill found after retries, force selection without level validation
+                        // (reassignSkills() will handle any level limit violations)
+                        if (!skillFound) {
+                            final RandomSkillBonusOption randomSkill = new RandomSkillBonusOption(
+                                    getCharacterPlayer(), getPreferences(), skillOptions.get(i));
+                            selectedSkill = randomSkill.selectElementByWeight();
+                        }
+
+                        if (selectedSkill != null) {
+                            characterDefinitionStepSelection.getSelectedSkillOptions().get(i).getSelections()
+                                    .add(new Selection(selectedSkill));
+                        }
                     }
                 } catch (InvalidXmlElementException e) {
                     throw new InvalidXmlElementException("Error on skill options '"

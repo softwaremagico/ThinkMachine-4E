@@ -28,23 +28,33 @@ import com.softwaremagico.tm.character.equipment.item.ItemFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import com.softwaremagico.tm.file.modules.ModuleManager;
+import org.testng.annotations.BeforeClass;
 
 @Test(groups = {"itemFactory"})
 public class ItemFactoryTests extends FactoryTest {
-    private static final int DEFINED_ITEMS = 74;
-
-    @Test
-    public void readItems() throws InvalidXmlElementException {
-        Assert.assertEquals(ItemFactory.getInstance().getElements().size(), DEFINED_ITEMS);
+    @Override
+    @BeforeClass
+    public void enableBasicModule() {
+        ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
+        ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+        ModuleManager.resetModules();
     }
 
-    @Test
-    public void getItemValues() throws InvalidXmlElementException {
-        Assert.assertEquals((int) ItemFactory.getInstance().getElement("estheticOrb").getTechLevel(), 6);
-    }
+	private static final int DEFINED_ITEMS = 118;
 
-    @Test
-    public void getTechCompulsion() throws InvalidXmlElementException {
-        Assert.assertEquals(ItemFactory.getInstance().getElement("multitool").getTechCompulsion(), "industrious");
-    }
+	@Test
+	public void readItems() throws InvalidXmlElementException {
+		Assert.assertEquals(ItemFactory.getInstance().getElements().size(), DEFINED_ITEMS);
+	}
+
+	@Test
+	public void getItemValues() throws InvalidXmlElementException {
+		Assert.assertEquals((int) ItemFactory.getInstance().getElement("estheticOrb").getTechLevel(), 6);
+	}
+
+	@Test
+	public void getTechCompulsion() throws InvalidXmlElementException {
+		Assert.assertEquals(ItemFactory.getInstance().getElement("multitool").getTechCompulsion(), "industrious");
+	}
 }

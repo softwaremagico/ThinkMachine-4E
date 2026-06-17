@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cyberdevices>
+    <cyberdevice>
+        <id>ozymandiasTeflonMesh</id>
+        <name>
+            <en>Ozymandias Teflon Mesh</en>
+            <es>Malla de Teflón Ozymandias</es>
+        </name>
+        <description>
+            <en>Subcutaneous layers of highly resistant alloys across your torso, back, and upper legs increase your resistance to electricity, radiation, and acid, and let you tolerate a wider range of temperatures.</en>
+            <es>Capas subcutáneas de aleaciones muy resistentes a lo largo de tu torso, espalda y muslos aumentan tu resistencia a la electricidad, la radiación y el ácido, y te permiten tolerar un rango más amplio de temperaturas.</es>
+        </description>
+        <benefice>
+            <en>You gain concealed armor rated at +2 Body Resistance. It is also Flameproof and Shockproof, it is compatible with most energy shields, and it has ABC protection (atomic, biological, and chemical).</en>
+            <es>Obtienes una armadura oculta con +2 de Resistencia Corporal. Además es Ignífuga y Antichoque, es compatible con la mayoría de escudos de energía y ofrece protección ABQ (atómica, biológica y química).</es>
+        </benefice>
+        <techLevel>6</techLevel>
+        <techCompulsion>protective</techCompulsion>
+        <restrictions>
+            <callings>
+                <calling>cyborg</calling>
+            </callings>
+        </restrictions>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
+    </cyberdevice>
+
+    <cyberdevice>
+        <id>ozymandiasTorsoMesh</id>
+        <name>
+            <en>Ozymandias Torso Mesh</en>
+            <es>Malla de Torso Ozymandias</es>
+        </name>
+        <description>
+            <en>Your skin hides a second layer of metallic mesh underneath it. Externally your appearance doesn't change, but internally you gain extra protection against crude forms of weapon damage.</en>
+            <es>Tu piel oculta debajo una segunda capa de malla metálica. Externamente tu aspecto no cambia, pero internamente ganas protección adicional contra formas rudimentarias de daño por arma.</es>
+        </description>
+        <benefice>
+            <en>You gain concealed armor rated at +2 Body Resistance. It is also Hardproof and Slamproof, and it is compatible with most energy shields.</en>
+            <es>Obtienes una armadura oculta con +2 de Resistencia Corporal. Además es Antiimpacto y Antiembestida, y es compatible con la mayoría de escudos de energía.</es>
+        </benefice>
+        <techLevel>6</techLevel>
+        <techCompulsion>protective</techCompulsion>
+        <restrictions>
+            <callings>
+                <calling>cyborg</calling>
+            </callings>
+        </restrictions>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
+    </cyberdevice>
+
+    <cyberdevice>
+        <id>circeLitheWire</id>
+        <name>
+            <en>Circe Lithe Wire</en>
+            <es>Alambre Ágil Circe</es>
+        </name>
+        <description>
+            <en>Synthetic muscle grafts boost the reaction time of your arm and leg muscles, giving you swift reactions to danger and increasing your ability to deflect and dodge.</en>
+            <es>Injertos de músculo sintético mejoran el tiempo de reacción de los músculos de tus brazos y piernas, dándote reacciones veloces ante el peligro y aumentando tu capacidad de desviar y esquivar.</es>
+        </description>
+        <benefice>
+            <en>You gain +2 goal when performing the dodge and evade maneuvers. You can spend 1 VP to boost your Body Resistance by 2. After that, the cost is normal (+1 Resistance per 1 VP).</en>
+            <es>Ganas +2 a la meta al realizar las maniobras esquivar y evadir. Puedes gastar 1 PV para aumentar tu Resistencia Corporal en 2. A partir de ahí, el coste es el normal (+1 de Resistencia por cada 1 PV).</es>
+        </benefice>
+        <techLevel>6</techLevel>
+        <techCompulsion>heedless</techCompulsion>
+        <restrictions>
+            <callings>
+                <calling>cyborg</calling>
+            </callings>
+        </restrictions>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
+    </cyberdevice>
+
+    <cyberdevice>
+        <id>circeSpryStim</id>
+        <name>
+            <en>Circe Spry-Stim</en>
+            <es>Spry-Stim Circe</es>
+        </name>
+        <description>
+            <en>Synthetic muscle and nerve implants provide hair-trigger reflexes when danger is near.</en>
+            <es>Implantes de músculo y nervio sintéticos proporcionan reflejos a flor de piel cuando el peligro está cerca.</es>
+        </description>
+        <benefice>
+            <en>You gain superior initiative edge. You always act first, unless someone else has a superior edge, in which case you roll to determine which of you acts first. Your superior edge cannot be overruled or interrupted, except by another superior edge.</en>
+            <es>Obtienes ventaja de iniciativa superior. Siempre actúas primero, a menos que otro tenga una ventaja superior, en cuyo caso tiráis para determinar quién actúa antes. Tu ventaja superior no puede ser anulada ni interrumpida, salvo por otra ventaja superior.</es>
+        </benefice>
+        <techLevel>5</techLevel>
+        <techCompulsion>heedless</techCompulsion>
+        <restrictions>
+            <callings>
+                <calling>cyborg</calling>
+            </callings>
+        </restrictions>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
+    </cyberdevice>
+
+    <cyberdevice>
+        <id>jorgensonSubcutaneousCavity</id>
+        <name>
+            <en>Jorgenson's Subcutaneous Cavity</en>
+            <es>Cavidad Subcutánea de Jorgenson</es>
+        </name>
+        <description>
+            <en>You've replaced some of your internal organs with smaller synthetic substitutes, freeing up a chamber where your left lung used to be.</en>
+            <es>Has reemplazado algunos de tus órganos internos por sustitutos sintéticos más pequeños, liberando una cámara donde antes estaba tu pulmón izquierdo.</es>
+        </description>
+        <benefice>
+            <en>Removable flesh flaps and osseous hinges allow you to open or close the chamber. You can hide an object up to one square foot inside your chest cavity. Alternatively, you can hide one Medium-sized item, two Small items, or three Extra-Small items. Drawing an object out or placing an object inside takes a primary action.</en>
+            <es>Solapas de carne extraíbles y bisagras óseas te permiten abrir o cerrar la cámara. Puedes esconder un objeto de hasta un pie cuadrado dentro de tu cavidad torácica. Alternativamente, puedes ocultar un objeto de tamaño Mediano, dos Pequeños o tres Muy Pequeños. Sacar o introducir un objeto requiere una acción primaria.</es>
+        </benefice>
+        <techLevel>5</techLevel>
+        <techCompulsion>acquisitive</techCompulsion>
+        <restrictions>
+            <callings>
+                <calling>cyborg</calling>
+            </callings>
+        </restrictions>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
+    </cyberdevice>
+
+    <cyberdevice>
+        <id>ozymandiasDeepLung</id>
+        <name>
+            <en>Ozymandias Deep Lung</en>
+            <es>Pulmón Profundo Ozymandias</es>
+        </name>
+        <description>
+            <en>You can store an internal supply of oxygen, allowing you to breathe for an extended time, even while floating in a vacuum or submerged in liquid.</en>
+            <es>Puedes almacenar una reserva interna de oxígeno que te permite respirar durante un tiempo prolongado, incluso flotando en el vacío o sumergido en líquido.</es>
+        </description>
+        <benefice>
+            <en>You can breathe in an area without external oxygen for a number of hours equal to your Endurance.</en>
+            <es>Puedes respirar en una zona sin oxígeno externo durante un número de horas igual a tu Resistencia.</es>
+        </benefice>
+        <techLevel>5</techLevel>
+        <techCompulsion>industrious</techCompulsion>
+        <restrictions>
+            <callings>
+                <calling>cyborg</calling>
+            </callings>
+        </restrictions>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
+    </cyberdevice>
+
+    <cyberdevice>
+        <id>prometheanLumbarLifts</id>
+        <name>
+            <en>Promethean Lumbar Lifts</en>
+            <es>Refuerzos Lumbares Prometeicos</es>
+        </name>
+        <description>
+            <en>Reinforced metallic implants in your arms, lower back, and legs increase the amount of weight you can lift. As an added benefit, you are strong enough to bend metal or crush organic creatures in a steel-vise bear hug.</en>
+            <es>Implantes metálicos reforzados en tus brazos, zona lumbar y piernas aumentan la cantidad de peso que puedes levantar. Como ventaja añadida, eres lo bastante fuerte como para doblar metal o aplastar criaturas orgánicas con un abrazo de oso como un torno de acero.</es>
+        </description>
+        <benefice>
+            <en>You gain +2 Strength when lifting things, grappling others, or bending/breaking items.</en>
+            <es>Ganas +2 de Fuerza al levantar cosas, agarrar a otros o doblar/romper objetos.</es>
+        </benefice>
+        <techLevel>5</techLevel>
+        <techCompulsion>destructive</techCompulsion>
+        <restrictions>
+            <callings>
+                <calling>cyborg</calling>
+            </callings>
+        </restrictions>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
+    </cyberdevice>
+
+    <cyberdevice>
+        <id>tarstonEtyriEye</id>
+        <name>
+            <en>Tarston Etyri Eye</en>
+            <es>Ojo Etyri Tarston</es>
+        </name>
+        <description>
+            <en>You've replaced one of your eyes with a simulacrum that lets you focus on a specific distant or fast-moving target and coordinates with implants in both hands to align your aim. You're a crack shot with a ranged weapon in either or both hands.</en>
+            <es>Has reemplazado uno de tus ojos por un simulacro que te permite enfocar un objetivo lejano o que se mueve rápido y se coordina con implantes en ambas manos para alinear tu puntería. Eres un tirador excelente con un arma a distancia en una o ambas manos.</es>
+        </description>
+        <benefice>
+            <en>You gain +1 goal on attacks with ranged weapons. You do not need to take the Shoot aim action to get this bonus, but you can still aim for greater accuracy. You also ignore penalties for long and extreme ranges.</en>
+            <es>Ganas +1 a la meta en ataques con armas a distancia. No necesitas usar la acción de apuntar de Disparar para obtener este bonificador, pero aún puedes apuntar para mayor precisión. También ignoras los penalizadores por alcance largo y extremo.</es>
+        </benefice>
+        <techLevel>5</techLevel>
+        <techCompulsion>inerrant</techCompulsion>
+        <restrictions>
+            <callings>
+                <calling>cyborg</calling>
+            </callings>
+        </restrictions>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
+    </cyberdevice>
+
+    <cyberdevice>
+        <id>smithShivSleeve</id>
+        <name>
+            <en>Smith &amp; Smith Shiv Sleeve</en>
+            <es>Funda de Pincho Smith &amp; Smith</es>
+        </name>
+        <description>
+            <en>A surgeon has replaced muscle tissue inside one of your fingers, arms, or toes with thinner synthetic substitutes, providing room to implant a concealed melee weapon — usually a dagger or sword. You're very precise with that weapon.</en>
+            <es>Un cirujano ha reemplazado tejido muscular dentro de uno de tus dedos, brazos o dedos del pie por sustitutos sintéticos más finos, dejando espacio para implantar un arma cuerpo a cuerpo oculta, normalmente una daga o espada. Eres muy preciso con esa arma.</es>
+        </description>
+        <benefice>
+            <en>Deploying or retracting a shiv sleeve's weapon is a secondary action. You gain +1 goal when attacking with it. You can hold a dagger in a finger, toe, or the palm of your hand, or your arm can conceal a sword.</en>
+            <es>Desplegar o retraer el arma de una funda de pincho es una acción secundaria. Ganas +1 a la meta al atacar con ella. Puedes ocultar una daga en un dedo, un dedo del pie o la palma de la mano, o tu brazo puede esconder una espada.</es>
+        </benefice>
+        <techLevel>5</techLevel>
+        <techCompulsion>bloodthirsty</techCompulsion>
+        <restrictions>
+            <callings>
+                <calling>cyborg</calling>
+            </callings>
+        </restrictions>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
+    </cyberdevice>
+
+    <cyberdevice>
+        <id>smithShadowEye</id>
+        <name>
+            <en>Smith &amp; Smith Shadow Eye</en>
+            <es>Ojo Sombra Smith &amp; Smith</es>
+        </name>
+        <description>
+            <en>Surgeons have replaced one of your eyes with an artificial simulacrum; you can still see with it. When activated, it also lets you see with infrared and ultraviolet night vision.</en>
+            <es>Los cirujanos han reemplazado uno de tus ojos por un simulacro artificial; aún puedes ver con él. Al activarlo, también te permite ver con visión nocturna infrarroja y ultravioleta.</es>
+        </description>
+        <benefice>
+            <en>You can see in the dark. You ignore the Blind and Visually Impaired states when they're caused by darkness. In addition, you can see thermal radiation — heat signatures — given off by people and tech.</en>
+            <es>Puedes ver en la oscuridad. Ignoras los estados Cegado y Visión Reducida cuando los causa la oscuridad. Además, puedes ver radiación térmica —firmas de calor— emitida por personas y tecnología.</es>
+        </benefice>
+        <techLevel>5</techLevel>
+        <techCompulsion>inerrant</techCompulsion>
+        <restrictions>
+            <callings>
+                <calling>cyborg</calling>
+            </callings>
+        </restrictions>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
+    </cyberdevice>
+
+    <cyberdevice>
+        <id>pandoranDataInterface</id>
+        <name>
+            <en>Pandoran Data Interface</en>
+            <es>Interfaz de Datos Pandorana</es>
+        </name>
+        <description>
+            <en>You've got a think machine implanted near the base of your brain.</en>
+            <es>Tienes una máquina pensante implantada cerca de la base de tu cerebro.</es>
+        </description>
+        <benefice>
+            <en>Your think machine provides three Lore capabilities and has space to add up to two more. You can access these capabilities in your think machine's database for use with a skilled action. You also have cables and adaptors for interfacing with another think machine; you can read its data and copy it into your own archives. In addition, you gain +2 goal when using the Interface skill with think machines to which you are connected.</en>
+            <es>Tu máquina pensante proporciona tres competencias de Saber y tiene espacio para añadir hasta dos más. Puedes acceder a estas competencias en la base de datos de tu máquina pensante para usarlas en una acción con habilidad. También tienes cables y adaptadores para interconectarte con otra máquina pensante; puedes leer sus datos y copiarlos en tus propios archivos. Además, ganas +2 a la meta al usar la habilidad Interfaz con máquinas pensantes a las que estés conectado.</es>
+        </benefice>
+        <techLevel>5</techLevel>
+        <techCompulsion>inerrant</techCompulsion>
+        <restrictions mode="all">
+            <callings>
+                <calling>cyborg</calling>
+            </callings>
+            <skills>
+                <skill>
+                    <name>interface</name>
+                    <value>1</value>
+                </skill>
+            </skills>
+        </restrictions>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
+    </cyberdevice>
+</cyberdevices>
+

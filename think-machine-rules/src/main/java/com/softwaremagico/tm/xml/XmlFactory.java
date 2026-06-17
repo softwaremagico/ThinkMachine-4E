@@ -198,7 +198,11 @@ public abstract class XmlFactory<T extends Element> {
             //Check if it is a new specialization of an existing element.
             boolean added = false;
             for (T currentElement : currentElements) {
-                if (currentElement.getId().equals(newElement.getId()) && !newElement.getSpecializations().isEmpty()) {
+                if (currentElement.getId().equals(newElement.getId())
+                        && newElement.getSpecializations() != null && !newElement.getSpecializations().isEmpty()) {
+                    if (currentElement.getSpecializations() == null) {
+                        currentElement.setSpecializations(new ArrayList<>());
+                    }
                     currentElement.getSpecializations().addAll(newElement.getSpecializations());
                     added = true;
                 }

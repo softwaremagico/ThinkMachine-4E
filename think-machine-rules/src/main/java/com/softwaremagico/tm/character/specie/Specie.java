@@ -41,10 +41,10 @@ import java.util.Set;
 
 public class Specie extends CharacterDefinitionStep {
 
-    public static final  String ASCORBITE = "ascorbite";
+    public static final String ASCORBITE = "ascorbite";
 
-    @JsonProperty("specieCharacteristics")
-    private List<SpecieCharacteristic> specieCharacteristics;
+    @JsonProperty("characteristicValues")
+    private List<ElementValues> characteristicValues;
 
     private Set<String> planets = null;
 
@@ -53,12 +53,18 @@ public class Specie extends CharacterDefinitionStep {
     @JsonProperty("primaryCharacteristics")
     private List<String> primaryCharacteristics;
 
+    @JsonProperty("bodyResistance")
+    private int bodyResistance = 0;
+
+    @JsonProperty("vitalityBonus")
+    private int vitalityBonus = 0;
+
     private int cost;
 
     private int size;
 
-    public SpecieCharacteristic getSpecieCharacteristic(CharacteristicName characteristicName) throws InvalidSpecieException {
-        return specieCharacteristics.stream().filter(specieCharacteristic -> specieCharacteristic.getCharacteristic() == characteristicName).findFirst()
+    public ElementValues getSpecieCharacteristic(CharacteristicName characteristicName) throws InvalidSpecieException {
+        return characteristicValues.stream().filter(elementValues -> elementValues.getCharacteristic() == characteristicName).findFirst()
                 .orElseThrow(() -> new InvalidSpecieException("Characteristic '" + characteristicName + "' does not exists on race '" + getId() + "'."));
     }
 
@@ -86,7 +92,7 @@ public class Specie extends CharacterDefinitionStep {
         }
     }
 
-    public SpecieCharacteristic getSpecieCharacteristic(String characteristicName) throws InvalidSpecieException {
+    public ElementValues getSpecieCharacteristic(String characteristicName) throws InvalidSpecieException {
         return getSpecieCharacteristic(CharacteristicName.get(characteristicName));
     }
 
@@ -109,7 +115,23 @@ public class Specie extends CharacterDefinitionStep {
     }
 
     public boolean isXeno() {
-        return !getId().equals("human");
+        return !usesHumanNames();
+    }
+
+    public boolean usesHumanNames() {
+        switch (getId()) {
+            case "human":
+            case "inhuman":
+            case "grimson":
+            case "metonym":
+            case "clone":
+            case "tweaked":
+            case "mutant":
+            case "animalized":
+                return true;
+            default:
+                return false;
+        }
     }
 
     public void setPlanets(String planetsContent) {
@@ -125,12 +147,12 @@ public class Specie extends CharacterDefinitionStep {
         this.planets = planets;
     }
 
-    public List<SpecieCharacteristic> getSpecieCharacteristics() {
-        return specieCharacteristics;
+    public List<ElementValues> getSpecieCharacteristics() {
+        return characteristicValues;
     }
 
-    public void setSpecieCharacteristics(List<SpecieCharacteristic> specieCharacteristics) {
-        this.specieCharacteristics = specieCharacteristics;
+    public void setSpecieCharacteristics(List<ElementValues> elementValues) {
+        this.characteristicValues = elementValues;
     }
 
     public List<PerkOption> getPerks() {
@@ -169,8 +191,24 @@ public class Specie extends CharacterDefinitionStep {
             planets.forEach(planet ->
                     PlanetFactory.getInstance().getElement(planet));
         }
-        if (specieCharacteristics != null) {
-            specieCharacteristics.forEach(SpecieCharacteristic::validate);
+        if (characteristicValues != null) {
+            characteristicValues.forEach(ElementValues::validate);
         }
+    }
+
+    public int getBodyResistance() {
+        return bodyResistance;
+    }
+
+    public void setBodyResistance(int bodyResistance) {
+        this.bodyResistance = bodyResistance;
+    }
+
+    public int getVitalityBonus() {
+        return vitalityBonus;
+    }
+
+    public void setVitalityBonus(int vitalityBonus) {
+        this.vitalityBonus = vitalityBonus;
     }
 }

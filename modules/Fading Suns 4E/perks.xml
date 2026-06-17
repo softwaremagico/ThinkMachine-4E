@@ -7745,6 +7745,7 @@
                 <preference>STEALTH</preference>
             </recommendedPreferences>
         </random>
+        <repeatable>true</repeatable>
     </perk>
     <perk>
         <id>secretAgent1</id>

@@ -66,8 +66,10 @@ public class PerkFactory extends XmlFactory<Perk> {
     private void classifyPerks() {
         perksBySource = new EnumMap<>(PerkSource.class);
         for (Perk perk : getElements()) {
-            perksBySource.computeIfAbsent(perk.getSource(), k -> new HashSet<>());
-            perksBySource.get(perk.getSource()).add(perk);
+            if (perk.getSource() != null) {
+                perksBySource.computeIfAbsent(perk.getSource(), k -> new HashSet<>());
+                perksBySource.get(perk.getSource()).add(perk);
+            }
         }
     }
 
@@ -75,7 +77,7 @@ public class PerkFactory extends XmlFactory<Perk> {
         if (perksBySource == null) {
             classifyPerks();
         }
-        return perksBySource.get(source);
+        return perksBySource.getOrDefault(source, new HashSet<>());
     }
 
     public Set<Perk> getClassPrivilegePerks() {

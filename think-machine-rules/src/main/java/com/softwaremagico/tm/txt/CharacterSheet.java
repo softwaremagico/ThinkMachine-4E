@@ -138,7 +138,7 @@ public class CharacterSheet {
             skillValue = characterPlayer.getSkillValue(skill);
         } catch (MaxValueExceededException e) {
             MachineLog.warning(this.getClass(), e.getMessage());
-            skillValue = CharacterPlayer.MAX_INITIAL_VALUE;
+            skillValue = e.getMaxValue();
         }
 
         stringBuilder.append(skillValue);
@@ -155,7 +155,7 @@ public class CharacterSheet {
             try {
                 skillValue = characterPlayer.getSkillValue(skill);
             } catch (MaxValueExceededException e) {
-                skillValue = CharacterPlayer.MAX_INITIAL_VALUE;
+                skillValue = e.getMaxValue();
             }
             if ((skill.isNatural() && skillValue > Skill.NATURAL_SKILL_INITIAL_VALUE)
                     || (!skill.isNatural() && skillValue > 0)) {

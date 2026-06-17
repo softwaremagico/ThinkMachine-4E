@@ -31,4 +31,13 @@ import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedExcep
 public interface AssignableRandomSelector {
 
     void assign() throws InvalidSpecieException, InvalidRandomElementSelectedException, UnofficialElementNotAllowedException;
+
+    /**
+     * Fallback assignment used when the weighted selection leaves no candidates.
+     * Implementations can bypass contextual weighting and pick any raw element to
+     * keep character generation moving.
+     */
+    default void assignAny() throws InvalidSpecieException, InvalidRandomElementSelectedException, UnofficialElementNotAllowedException {
+        assign();
+    }
 }

@@ -27,12 +27,18 @@ package com.softwaremagico.tm.character.perks;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
+import com.softwaremagico.tm.character.specie.ElementValues;
+
+import java.util.List;
 
 public class Perk extends Element {
     @JsonProperty("repeatable")
     private boolean repeatable = false;
     @JsonProperty("benefice")
     private TranslatedText benefice;
+
+    @JsonProperty("characteristicValues")
+    private List<ElementValues> characteristicValues;
 
     @JsonProperty
     private PerkSource source;
@@ -76,5 +82,13 @@ public class Perk extends Element {
         setSource(element.getSource());
         setType(element.getType());
         super.copy(element);
+    }
+
+    public List<ElementValues> getCharacteristicValues() {
+        return characteristicValues;
+    }
+
+    public void setCharacteristicValues(List<ElementValues> elementValues) {
+        this.characteristicValues = elementValues;
     }
 }
