@@ -25,6 +25,7 @@ package com.softwaremagico.tm.random.definition;
  */
 
 public enum ProbabilityMultiplier {
+    MYTHIC(0.01),
     EXOTIC(0.1),
     RARE(1),
     NORMAL(10),

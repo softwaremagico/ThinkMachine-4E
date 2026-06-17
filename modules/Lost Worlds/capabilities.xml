@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<capabilities>
+    <capability>
+        <id>speak</id>
+        <group>knowledgeLore</group>
+        <name>
+            <en>Speak</en>
+            <es>Hablar</es>
+        </name>
+        <description>
+            <en>Fluency in a chosen spoken language or tongue, allowing normal communication and comprehension.</en>
+            <es>Fluidez en una lengua o idioma hablado concreto, que permite comunicarse y comprenderlo con normalidad.</es>
+        </description>
+        <specializations>
+            <selectedSpecialization>
+                <id>khunadNizdha</id>
+                <name>
+                    <en>Khunad-Nizdha</en>
+                    <es>Khunad-Nizdha</es>
+                </name>
+            </selectedSpecialization>
+            <selectedSpecialization>
+                <id>kursaNizdha</id>
+                <name>
+                    <en>Kursa-Nizdha</en>
+                    <es>Kursa-Nizdha</es>
+                </name>
+            </selectedSpecialization>
+            <selectedSpecialization>
+                <id>zgoish</id>
+                <name>
+                    <en>Z'goish</en>
+                    <es>Z'goish</es>
+                </name>
+            </selectedSpecialization>
+        </specializations>
+    </capability>
+    <capability>
+        <id>read</id>
+        <group>knowledgeLore</group>
+        <name>
+            <en>Read</en>
+            <es>Leer</es>
+        </name>
+        <description>
+            <en>Basic literacy and the ability to interpret written language, manuscripts, records, and similar texts.</en>
+            <es>Alfabetizacion basica y capacidad para interpretar lenguaje escrito, manuscritos, registros y textos similares.</es>
+        </description>
+        <specializations>
+            <selectedSpecialization>
+                <id>khunadNizdha</id>
+                <name>
+                    <en>Khunad-Nizdha</en>
+                    <es>Khunad-Nizdha</es>
+                </name>
+            </selectedSpecialization>
+            <selectedSpecialization>
+                <id>kursaNizdha</id>
+                <name>
+                    <en>Kursa-Nizdha</en>
+                    <es>Kursa-Nizdha</es>
+                </name>
+            </selectedSpecialization>
+            <selectedSpecialization>
+                <id>zgoish</id>
+                <name>
+                    <en>Z'goish</en>
+                    <es>Z'goish</es>
+                </name>
+            </selectedSpecialization>
+        </specializations>
+    </capability>
+</capabilities>
+
