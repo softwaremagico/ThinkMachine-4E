@@ -40,16 +40,18 @@ public class CallingFactoryTests extends FactoryTest {
         ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
         ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
         ModuleManager.enableModule(ModuleManager.LOST_WORLDS_BOOK_MODULE);
+        ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_BROTHER_BATTLE_MODULE);
         ModuleManager.resetModules();
     }
 
     private static final int DEFINED_FACTIONS_FS_4E_CALLINGS = 52;
     private static final int DEFINED_FACTION_BOOK_CALLINGS = 1;
+    private static final int DEFINED_IMPERIAL_DOSSIER_BROTHER_BATTLE_CALLINGS = 2;
 
     @Test
     public void checkTotalElements() throws InvalidXmlElementException {
         Assert.assertEquals(CallingFactory.getInstance().getElements().size(),
-                DEFINED_FACTIONS_FS_4E_CALLINGS + DEFINED_FACTION_BOOK_CALLINGS);
+                DEFINED_FACTIONS_FS_4E_CALLINGS + DEFINED_FACTION_BOOK_CALLINGS + DEFINED_IMPERIAL_DOSSIER_BROTHER_BATTLE_CALLINGS);
     }
 
     @Test
@@ -87,11 +89,12 @@ public class CallingFactoryTests extends FactoryTest {
     public void checkTotalElementsWithAllModules() throws InvalidXmlElementException {
         ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
         ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+        ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_BROTHER_BATTLE_MODULE);
         ModuleManager.resetModules();
         ItemFactory.getInstance().reset();
 
         Assert.assertEquals(CallingFactory.getInstance().getElements().size(),
-                DEFINED_FACTIONS_FS_4E_CALLINGS + DEFINED_FACTION_BOOK_CALLINGS);
+                DEFINED_FACTIONS_FS_4E_CALLINGS + DEFINED_FACTION_BOOK_CALLINGS + DEFINED_IMPERIAL_DOSSIER_BROTHER_BATTLE_CALLINGS);
     }
 
     @Test(dependsOnMethods = "checkTotalElementsWithAllModules")
@@ -104,9 +107,11 @@ public class CallingFactoryTests extends FactoryTest {
         Assert.assertEquals(cyborg.getSkillOptions().get(3).getSkillBonus("techRedemption").getBonus(), 3);
     }
 
+
     private void enableFactionBookOnly() {
         ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
         ModuleManager.disableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+        ModuleManager.disableModule(ModuleManager.IMPERIAL_DOSSIER_BROTHER_BATTLE_MODULE);
         ModuleManager.resetModules();
         ItemFactory.getInstance().reset();
     }

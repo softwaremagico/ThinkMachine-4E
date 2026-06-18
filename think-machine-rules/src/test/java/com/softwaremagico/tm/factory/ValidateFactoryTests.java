@@ -65,6 +65,7 @@ public class ValidateFactoryTests extends FactoryTest {
 	public void enableBasicModule() {
 		ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
 		ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+		ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_BROTHER_BATTLE_MODULE);
 		ModuleManager.resetModules();
 	}
 

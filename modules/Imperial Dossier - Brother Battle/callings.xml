@@ -208,6 +208,29 @@
                 Esta vocación se une a la pequeña lista de vocaciones alternativas disponibles para los monjes de Hermano de Batalla: Sanador, Ocultista, Teúrgo y ahora Cura de Batalla. Un personaje que siga la vocación Hermano de Batalla puede cambiar a la vocación Cura de Batalla y viceversa.
                 Los Curas de Batalla deben empezar su carrera con la vocación Hermano de Batalla. A partir del nivel 2 o superior, pueden cambiar a esta vocación, pero, como ocurre con las otras vocaciones alternativas de la Orden, deben volver a la vocación Hermano de Batalla en uno de cada dos niveles posteriores.</es>
         </description>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>5</total>
+                <options>
+                    <characteristic>
+                        <characteristicType>body</characteristicType>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <characteristicType>mind</characteristicType>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <characteristicType>spirit</characteristicType>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>theurgy</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
         <perks>
             <perkOptions>
                 <total>1</total>
@@ -236,10 +259,15 @@
                 </options>
             </perkOptions>
         </perks>
+        <skills>
+            <skillBonusOption>
+                <total>10</total>
+            </skillBonusOption>
+        </skills>
         <restrictions>
-            <upbringings>
-                <upbringing>brotherBattle</upbringing>
-            </upbringings>
+            <callings>
+                <calling>brotherBattle</calling>
+            </callings>
         </restrictions>
         <random>
             <probabilityMultiplier>RARE</probabilityMultiplier>
@@ -250,4 +278,3 @@
         </random>
     </calling>
 </callings>
-

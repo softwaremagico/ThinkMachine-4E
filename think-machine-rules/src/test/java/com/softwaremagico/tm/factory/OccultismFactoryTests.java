@@ -43,11 +43,12 @@ public class OccultismFactoryTests extends FactoryTest {
         ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
         ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
         ModuleManager.enableModule(ModuleManager.LOST_WORLDS_BOOK_MODULE);
+        ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_BROTHER_BATTLE_MODULE);
         ModuleManager.resetModules();
     }
 
     private static final int DEFINED_PSI_PATHS = 6;
-    private static final int DEFINED_THEURGY_PATHS = 6;
+    private static final int DEFINED_THEURGY_PATHS = 7;
     private static final int DEFINED_THEURGY_COMPONENTS = 3;
     private static final int OCCULTISM_TYPES = 2;
 

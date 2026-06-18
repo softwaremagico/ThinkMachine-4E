@@ -40,6 +40,7 @@ public class PerkFactoryTests extends FactoryTest {
 
     private static final int DEFINED_PERKS = 345;
     private static final int DEFINED_FACTION_BOOK_PERKS = 43;
+    private static final int DEFINED_IMPERIAL_DOSSIER_BROTHER_BATTLE_PERKS = 5;
 
 
     @Override
@@ -48,6 +49,7 @@ public class PerkFactoryTests extends FactoryTest {
         ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
         ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
         ModuleManager.enableModule(ModuleManager.LOST_WORLDS_BOOK_MODULE);
+        ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_BROTHER_BATTLE_MODULE);
         ModuleManager.resetModules();
     }
 
@@ -55,17 +57,18 @@ public class PerkFactoryTests extends FactoryTest {
     @Test
     public void readPerks() throws InvalidXmlElementException {
         Assert.assertEquals(PerkFactory.getInstance().getElements().size(),
-                DEFINED_PERKS + DEFINED_FACTION_BOOK_PERKS);
+                DEFINED_PERKS + DEFINED_FACTION_BOOK_PERKS + DEFINED_IMPERIAL_DOSSIER_BROTHER_BATTLE_PERKS);
     }
 
     @Test(dependsOnMethods = "readPerks")
     public void readPerksOnAllModules() throws InvalidXmlElementException {
         ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
         ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+        ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_BROTHER_BATTLE_MODULE);
         ModuleManager.resetModules();
 
         Assert.assertEquals(PerkFactory.getInstance().getElements().size(),
-                DEFINED_PERKS + DEFINED_FACTION_BOOK_PERKS);
+                DEFINED_PERKS + DEFINED_FACTION_BOOK_PERKS + DEFINED_IMPERIAL_DOSSIER_BROTHER_BATTLE_PERKS);
     }
 
     @Test

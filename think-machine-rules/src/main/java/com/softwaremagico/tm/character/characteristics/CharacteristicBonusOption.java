@@ -26,6 +26,7 @@ package com.softwaremagico.tm.character.characteristics;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.Option;
 import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
@@ -36,6 +37,8 @@ public class CharacteristicBonusOption extends Option<CharacteristicDefinition> 
     private int bonus;
     @JsonProperty("extra")
     private boolean extra = false;
+    @JsonProperty("characteristicType")
+    private CharacteristicType characteristicType;
 
     public CharacteristicBonusOption() {
         super();
@@ -77,9 +80,25 @@ public class CharacteristicBonusOption extends Option<CharacteristicDefinition> 
         this.extra = extra;
     }
 
+    public CharacteristicType getCharacteristicType() {
+        return characteristicType;
+    }
+
+    public void setCharacteristicType(CharacteristicType characteristicType) {
+        this.characteristicType = characteristicType;
+    }
+
+    public boolean hasCharacteristicType() {
+        return characteristicType != null;
+    }
+
+    public boolean hasExplicitId() {
+        return getId() != null && !getId().isBlank() && !Element.DEFAULT_NULL_ID.equals(getId());
+    }
+
     @Override
     public Restrictions getRestrictions() {
-        if (getId() != null) {
+        if (hasExplicitId()) {
             return CharacteristicsDefinitionFactory.getInstance().getElement(getId()).getRestrictions();
         }
         return super.getRestrictions();

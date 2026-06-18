@@ -41,6 +41,7 @@ public class CapabilityFactoryTest extends FactoryTest {
 		ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
 		ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
 		ModuleManager.enableModule(ModuleManager.LOST_WORLDS_BOOK_MODULE);
+		ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_BROTHER_BATTLE_MODULE);
 		ModuleManager.resetModules();
 	}
 
