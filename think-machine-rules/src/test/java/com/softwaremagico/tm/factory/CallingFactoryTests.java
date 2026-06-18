@@ -132,6 +132,21 @@ public class CallingFactoryTests extends FactoryTest {
                 CharacteristicType.OCCULTISM));
     }
 
+    @Test
+    public void battleCurateSkillOptionsAreOpen() throws InvalidXmlElementException {
+        final var battleCurate = CallingFactory.getInstance().getElement("battleCurate");
+
+        // Battle Curate should have exactly 1 skill bonus option
+        Assert.assertEquals(battleCurate.getSkillOptions().size(), 1);
+
+        // That skill option should allow selecting 10 skills
+        final var skillOption = battleCurate.getSkillOptions().get(0);
+        Assert.assertEquals(skillOption.getTotalOptions(), 10);
+
+        // The option should allow any skill (empty options means all skills are available)
+        Assert.assertTrue(skillOption.getOptions().size() > 10, "Should have all available skills when options are empty");
+    }
+
     private void enableFactionBookOnly() {
         ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
         ModuleManager.disableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
