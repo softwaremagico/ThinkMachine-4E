@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<perks>
+    <perk>
+        <id>leadByExample</id>
+        <name>
+            <en>Lead by Example</en>
+            <es>Liderar con el Ejemplo</es>
+        </name>
+        <description>
+            <en>By standing fast in the face of personal danger, you can rally the spirits of those around you.
+                Benefice: Once per scene, in the same scene that you have personally weathered an injury (i.e., you’ve lost Vitality from an attack or a combat-related accident), you can rally your allies. You can affect a number of people equal to your level; through the force of your example, you can remove one of the following states from them: Afraid, Anxious, Confused, Daunted, or Terrified. You cannot use this perk while you are Afraid or Terrified.</en>
+            <es>Manteniéndote firme frente al peligro personal, puedes alzar la moral de quienes te rodean.
+                Beneficio: Una vez por escena, en la misma escena en la que hayas resistido personalmente una herida (es decir, hayas perdido Vitalidad por un ataque o por un accidente relacionado con combate), puedes reagrupar a tus aliados. Puedes afectar a un número de personas igual a tu nivel; mediante la fuerza de tu ejemplo, puedes retirarles uno de los siguientes estados: Asustado, Ansioso, Confuso, Intimidado o Aterrorizado. No puedes usar este perk mientras estés Asustado o Aterrorizado.</es>
+        </description>
+        <source>calling</source>
+        <type>ability</type>
+        <restrictions>
+            <callings>
+                <calling>brotherBattle</calling>
+                <calling>commander</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>logisticalForethought</id>
+        <name>
+            <en>Logistical Forethought</en>
+            <es>Prevision Logistica</es>
+        </name>
+        <description>
+            <en>You have been trained to keep military organizations running, ensuring your soldiers are supplied, fed, and sheltered. You can anticipate their future needs with uncanny accuracy.
+                Benefice: Once per drama for each level you have, you may add equipment that was not previously declared, representing your ability to plan ahead for times of need. If the size of the equipment is extra-small (XS) or small (S), such as a pistol or grenade, it can be revealed to have been on your person the whole time. If it is larger, such as a vehicle or rifle, you must come up with a reasonable location where you can pick it up, such as your ship, an ally’s base, or the hole you (or your unit) dug earlier when scouting the location. The total value of this equipment each time this perk is used cannot exceed 500 fb, and it must be returned after the current drama to your unit (or in some cases, returned to another specific representative of the Order).</en>
+            <es>Has sido entrenado para mantener operativas organizaciones militares, asegurando que tus soldados estén abastecidos, alimentados y protegidos. Puedes anticipar sus necesidades futuras con una precisión asombrosa.
+                Beneficio: Una vez por drama por cada nivel que tengas, puedes añadir equipo que no se hubiera declarado antes, representando tu capacidad para planificar con antelación en momentos de necesidad. Si el tamaño del equipo es extra-pequeño (XS) o pequeño (S), como una pistola o una granada, puede revelarse que lo has llevado encima todo el tiempo. Si es mayor, como un vehículo o un rifle, debes proponer una localización razonable donde recogerlo, como tu nave, la base de un aliado o el hoyo que tú (o tu unidad) cavasteis antes al reconocer la zona. El valor total de este equipo cada vez que se usa este perk no puede exceder 500 fb, y debe devolverse tras el drama actual a tu unidad (o, en algunos casos, devolverse a otro representante concreto de la Orden).</es>
+        </description>
+        <source>calling</source>
+        <type>ability</type>
+        <restrictions>
+            <callings>
+                <calling>auxiliary</calling>
+                <calling>battleCurate</calling>
+                <calling>commander</calling>
+                <calling>mercenary</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>secondWind</id>
+        <name>
+            <en>Second Wind</en>
+            <es>Segundo Aliento</es>
+        </name>
+        <description>
+            <en>Given the barest break to catch your breath and mutter a prayer, you can leap back into the fight with renewed stamina.
+                Benefice: Once per scene when you use one of your surges, you can choose to also recover Vitality equal to your Faith.</en>
+            <es>Con apenas una breve pausa para recuperar el aliento y murmurar una oración, puedes volver al combate con energías renovadas.
+                Beneficio: Una vez por escena, cuando uses una de tus embestidas, puedes elegir recuperar también Vitalidad igual a tu Fe.</es>
+        </description>
+        <source>calling</source>
+        <type>ability</type>
+        <restrictions>
+            <callings>
+                <calling>brotherBattle</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>strategicPlanning</id>
+        <name>
+            <en>Strategic Planning</en>
+            <es>Planificacion Estrategica</es>
+        </name>
+        <description>
+            <en>When you have time to lay out a plan of action, those following it greatly benefit from your leadership and experience.
+                Benefice: Once per act, after spending at least five minutes planning with a group of allies, you can make a command maneuver roll vs. Effortless Resistance to generate a plan and give your allies advice on how to carry it out. The VP you gain go into a strategic planning coffer, although you can spend from your cache to increase this. From that point on, any ally who took part in the plan and plays their role can draw VP from the strategic planning coffer as needed, as long as they stick to the plan. You can veto any person’s use of the coffer, and you may only have one strategic planning coffer available at a time. Once the plan has come to fruition (or goes so far off course it is no longer viable), you can dissolve the coffer at will; the VP are then returned to the well. You should lay out the plan for the gamemaster, who then decides when the plan is complete or no longer viable. It doesn’t have to be detailed — it’s strategic, not tactical. A goal and rough idea of how to achieve it, as well as each ally’s role, is all that’s needed. It could be as simple as: “We’re going to sneak into the fort through the abandoned sewer tunnel disguised as servants, rescue the kidnapped guild dean’s son, and escape without triggering an alarm.”</en>
+            <es>Cuando tienes tiempo para trazar un plan de acción, quienes lo siguen se benefician enormemente de tu liderazgo y experiencia.
+                Beneficio: Una vez por acto, tras dedicar al menos cinco minutos a planear con un grupo de aliados, puedes hacer una tirada de maniobra de mando contra Resistencia Sin Esfuerzo para generar un plan y aconsejar a tus aliados sobre cómo ejecutarlo. Los PV que obtienes van a una reserva de planificación estratégica, aunque puedes gastar desde tu depósito para aumentarla. A partir de ese momento, cualquier aliado que participara en el plan y cumpla su papel puede extraer PV de la reserva según sea necesario, siempre que se ciña al plan. Puedes vetar el uso de la reserva por parte de cualquier persona, y solo puedes tener una reserva de planificación estratégica activa a la vez. Cuando el plan llegue a buen término (o se desvíe tanto que deje de ser viable), puedes disolver la reserva a voluntad; los PV vuelven entonces al pozo. Debes exponer el plan al director de juego, quien decide cuándo el plan está completado o deja de ser viable. No tiene por qué ser detallado: es estratégico, no táctico. Basta con un objetivo y una idea general de cómo lograrlo, además del papel de cada aliado. Puede ser tan simple como: “Nos vamos a infiltrar en el fuerte por el túnel de alcantarillado abandonado disfrazados de sirvientes, rescatar al hijo secuestrado del deán del gremio y escapar sin activar ninguna alarma.”</es>
+        </description>
+        <source>calling</source>
+        <type>ability</type>
+        <restrictions>
+            <callings>
+                <calling>brotherBattle</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>unbreakable</id>
+        <name>
+            <en>Unbreakable</en>
+            <es>Inquebrantable</es>
+        </name>
+        <description>
+            <en>You cannot be bowed. You cannot be broken. Your devotion to Brother Battle, the Prophet, and the Pancreator will see you through any hardship.
+                Benefice: Whenever you spend VP to boost your Resistance against an attack, you gain +2 to your Resistance (rather than the usual +1 bonus) per 1 VP you spend, but only for the first 2 VP you spend. After that, any additional VP you spend increases your Resistance by 1 each.</en>
+            <es>No pueden doblegarte. No pueden romperte. Tu devoción a Hermano de Batalla, al Profeta y al Pancreador te hará superar cualquier adversidad.
+                Beneficio: Siempre que gastes PV para aumentar tu Resistencia frente a un ataque, obtienes +2 a la Resistencia (en lugar del +1 habitual) por cada 1 PV gastado, pero solo para los primeros 2 PV que gastes. Después de eso, cualquier PV adicional que gastes aumenta tu Resistencia en 1 cada uno.</es>
+        </description>
+        <source>calling</source>
+        <type>ability</type>
+        <restrictions>
+            <callings>
+                <calling>brotherBattle</calling>
+            </callings>
+        </restrictions>
+    </perk>
+</perks>
+
