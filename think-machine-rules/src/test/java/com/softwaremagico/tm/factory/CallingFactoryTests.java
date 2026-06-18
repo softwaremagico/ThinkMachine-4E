@@ -27,6 +27,7 @@ package com.softwaremagico.tm.factory;
 import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.equipment.item.ItemFactory;
 import com.softwaremagico.tm.character.characteristics.CharacteristicType;
+import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.file.modules.ModuleManager;
 import org.testng.Assert;
@@ -143,8 +144,16 @@ public class CallingFactoryTests extends FactoryTest {
         final var skillOption = battleCurate.getSkillOptions().get(0);
         Assert.assertEquals(skillOption.getTotalOptions(), 10);
 
-        // The option should allow any skill (empty options means all skills are available)
-        Assert.assertTrue(skillOption.getOptions().size() > 10, "Should have all available skills when options are empty");
+        // The option should allow any selectable skill (empty options means all skills are available)
+        final Set<String> availableSkillIds = skillOption.getOptions().stream()
+                .map(option -> option.getElement().getId())
+                .collect(Collectors.toSet());
+        final Set<String> selectableSkillIds = SkillFactory.getInstance().getSelectableElements().stream()
+                .map(skill -> skill.getId())
+                .collect(Collectors.toSet());
+
+        Assert.assertEquals(availableSkillIds, selectableSkillIds,
+                "Battle Curate must expose all selectable skills when options are empty");
     }
 
     private void enableFactionBookOnly() {
