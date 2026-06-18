@@ -32,6 +32,8 @@ import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.restrictions.Restrictions;
 
+import java.util.Objects;
+
 public class CharacteristicBonusOption extends Option<CharacteristicDefinition> {
     @JsonProperty("bonus")
     private int bonus;
@@ -112,6 +114,31 @@ public class CharacteristicBonusOption extends Option<CharacteristicDefinition> 
     @Override
     public String toString() {
         return getId() + " (+" + bonus + ")";
+    }
+
+    @Override
+    public int hashCode() {
+        if (hasExplicitId()) {
+            return super.hashCode();
+        }
+        return Objects.hash(super.hashCode(), characteristicType, bonus, extra);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof CharacteristicBonusOption)) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        final CharacteristicBonusOption other = (CharacteristicBonusOption) obj;
+        if (hasExplicitId() && other.hasExplicitId()) {
+            return true;
+        }
+        return bonus == other.bonus
+                && extra == other.extra
+                && characteristicType == other.characteristicType;
     }
 
     @JsonIgnore

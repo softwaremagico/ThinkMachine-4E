@@ -26,11 +26,15 @@ package com.softwaremagico.tm.factory;
 
 import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.equipment.item.ItemFactory;
+import com.softwaremagico.tm.character.characteristics.CharacteristicType;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.file.modules.ModuleManager;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Test(groups = {"callingFactory"})
 public class CallingFactoryTests extends FactoryTest {
@@ -107,6 +111,26 @@ public class CallingFactoryTests extends FactoryTest {
         Assert.assertEquals(cyborg.getSkillOptions().get(3).getSkillBonus("techRedemption").getBonus(), 3);
     }
 
+    @Test
+    public void battleCurateCharacteristicOptionsByType() throws InvalidXmlElementException {
+        final var battleCurate = CallingFactory.getInstance().getElement("battleCurate");
+
+        //Three tipos por filtro + una característica explícita (theurgy, OCCULTISM).
+         Assert.assertEquals(battleCurate.getCharacteristicOptions().size(), 1);
+         Assert.assertEquals(battleCurate.getCharacteristicOptions().get(0).getSourceOptions().size(), 4);
+        //Tres tipos (3*3) + 1 explícita.
+         Assert.assertEquals(battleCurate.getCharacteristicOptions().get(0).getOptions().size(), 10);
+
+         final Set<CharacteristicType> availableTypes = battleCurate.getCharacteristicOptions().get(0).getOptions().stream()
+                 .map(option -> option.getElement().getType())
+                 .collect(Collectors.toSet());
+
+        Assert.assertEquals(availableTypes, Set.of(
+                CharacteristicType.BODY,
+                CharacteristicType.MIND,
+                CharacteristicType.SPIRIT,
+                CharacteristicType.OCCULTISM));
+    }
 
     private void enableFactionBookOnly() {
         ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
