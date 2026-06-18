@@ -26,6 +26,7 @@ package com.softwaremagico.tm.factory;
 
 import com.softwaremagico.tm.character.equipment.item.ItemFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.random.definition.ProbabilityMultiplier;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.softwaremagico.tm.file.modules.ModuleManager;
@@ -34,7 +35,7 @@ import org.testng.annotations.BeforeClass;
 @Test(groups = {"itemFactory"})
 public class ItemFactoryTests extends FactoryTest {
 
-    private static final int DEFINED_ITEMS = 125;
+    private static final int DEFINED_ITEMS = 127;
 
     @Override
     @BeforeClass
@@ -42,22 +43,37 @@ public class ItemFactoryTests extends FactoryTest {
         ModuleManager.enableModule(ModuleManager.LOST_WORLDS_BOOK_MODULE);
         ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
         ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
-		ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_BROTHER_BATTLE_MODULE);
+        ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_BROTHER_BATTLE_MODULE);
         ModuleManager.resetModules();
     }
 
-	@Test
-	public void readItems() throws InvalidXmlElementException {
-		Assert.assertEquals(ItemFactory.getInstance().getElements().size(), DEFINED_ITEMS);
-	}
+    @Test
+    public void readItems() throws InvalidXmlElementException {
+        Assert.assertEquals(ItemFactory.getInstance().getElements().size(), DEFINED_ITEMS);
+    }
 
-	@Test
-	public void getItemValues() throws InvalidXmlElementException {
-		Assert.assertEquals((int) ItemFactory.getInstance().getElement("estheticOrb").getTechLevel(), 6);
-	}
+    @Test
+    public void getItemValues() throws InvalidXmlElementException {
+        Assert.assertEquals((int) ItemFactory.getInstance().getElement("estheticOrb").getTechLevel(), 6);
+    }
 
-	@Test
-	public void getTechCompulsion() throws InvalidXmlElementException {
-		Assert.assertEquals(ItemFactory.getInstance().getElement("multitool").getTechCompulsion(), "industrious");
-	}
+    @Test
+    public void getTechCompulsion() throws InvalidXmlElementException {
+        Assert.assertEquals(ItemFactory.getInstance().getElement("multitool").getTechCompulsion(), "industrious");
+    }
+
+    @Test
+    public void imperialDossierRelicsAreMythic() throws InvalidXmlElementException {
+        Assert.assertEquals(ItemFactory.getInstance().getElement("tizonaRelic")
+                .getRandomDefinition().getProbabilityMultiplier(), ProbabilityMultiplier.MYTHIC);
+        Assert.assertEquals(ItemFactory.getInstance().getElement("boneCandleRelic")
+                .getRandomDefinition().getProbabilityMultiplier(), ProbabilityMultiplier.MYTHIC);
+    }
+
+    @Test
+    public void imperialDossierRelicsAreRestrictedToBrotherBattle() throws InvalidXmlElementException {
+        final var tizonaRelic = ItemFactory.getInstance().getElement("tizonaRelic");
+        Assert.assertTrue(tizonaRelic.getRestrictions().getRestrictedToFactions().contains("brotherBattle"));
+        Assert.assertTrue(tizonaRelic.getRestrictions().getRestrictedToCallings().contains("brotherBattle"));
+    }
 }

@@ -39,7 +39,7 @@ import org.testng.annotations.Test;
 @Test(groups = {"weaponsFactory"})
 public class WeaponsFactoryTests extends FactoryTest {
 
-    private static final int DEFINED_WEAPONS = 128;
+    private static final int DEFINED_WEAPONS = 131;
 
     @Override
     @BeforeClass
@@ -83,6 +83,20 @@ public class WeaponsFactoryTests extends FactoryTest {
     public void checkRandomModifications() throws InvalidXmlElementException {
         Assert.assertEquals(WeaponFactory.getInstance().getElement("arbata")
                 .getRandomDefinition().getProbabilityMultiplier(), ProbabilityMultiplier.EXOTIC);
+    }
+
+    @Test
+    public void imperialDossierBrotherBattleWeaponsAreLoaded() throws InvalidXmlElementException {
+        Assert.assertNotNull(WeaponFactory.getInstance().getElement("brotherCassHeavyRevolver"));
+        Assert.assertNotNull(WeaponFactory.getInstance().getElement("sisterCassAutofeedRifle"));
+        Assert.assertNotNull(WeaponFactory.getInstance().getElement("pyreBlade"));
+    }
+
+    @Test
+    public void imperialDossierBrotherBattleWeaponsAreRestricted() throws InvalidXmlElementException {
+        final var brotherCass = WeaponFactory.getInstance().getElement("brotherCassHeavyRevolver");
+        Assert.assertTrue(brotherCass.getRestrictions().getRestrictedToFactions().contains("brotherBattle"));
+        Assert.assertTrue(brotherCass.getRestrictions().getRestrictedToCallings().contains("brotherBattle"));
     }
 
 //    @Test
