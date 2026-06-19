@@ -110,7 +110,7 @@
                 <options>
                     <skill>
                         <id>focus</id>
-                        <bonus>2</bonus>
+                        <bonus>3</bonus>
                     </skill>
                 </options>
             </skillBonusOption>
@@ -311,7 +311,7 @@
         <restrictions>
             <upbringings>
                 <upbringing>merchant</upbringing>
-                <upbringing>priestá</upbringing>
+                <upbringing>priest</upbringing>
                 <upbringing>yeoman</upbringing>
             </upbringings>
         </restrictions>

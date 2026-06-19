@@ -33,7 +33,8 @@ import org.testng.annotations.Test;
 public class ThinkMachineFactoryTests extends FactoryTest {
 
 
-    private static final int DEFINED_ITEMS = 2;
+    // 2 base think machines + 1 from Imperial Dossier - Reeves Guild.
+    private static final int DEFINED_ITEMS = 3;
 
     @Test
     public void readItems() throws InvalidXmlElementException {

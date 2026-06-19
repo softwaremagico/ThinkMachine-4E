@@ -24,6 +24,7 @@ package com.softwaremagico.tm.factory;
  * #L%
  */
 
+import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.equipment.item.ItemFactory;
 import com.softwaremagico.tm.character.characteristics.CharacteristicType;
@@ -42,11 +43,17 @@ public class CallingFactoryTests extends FactoryTest {
     private static final int DEFINED_FACTIONS_FS_4E_CALLINGS = 52;
     private static final int DEFINED_FACTION_BOOK_CALLINGS = 1;
     private static final int DEFINED_IMPERIAL_DOSSIER_BROTHER_BATTLE_CALLINGS = 2;
+    private static final int DEFINED_IMPERIAL_DOSSIER_CHARIOTEERS_GUILD_CALLINGS = 2;
+    private static final int DEFINED_IMPERIAL_DOSSIER_HOUSE_HAWKWOOD_CALLINGS = 3;
+    private static final int DEFINED_IMPERIAL_DOSSIER_REEVES_GUILD_CALLINGS = 4;
+
+    private static final int DEFINED_TOTAL_CALLINGS = DEFINED_FACTIONS_FS_4E_CALLINGS + DEFINED_FACTION_BOOK_CALLINGS
+            + DEFINED_IMPERIAL_DOSSIER_BROTHER_BATTLE_CALLINGS + DEFINED_IMPERIAL_DOSSIER_CHARIOTEERS_GUILD_CALLINGS
+            + DEFINED_IMPERIAL_DOSSIER_HOUSE_HAWKWOOD_CALLINGS + DEFINED_IMPERIAL_DOSSIER_REEVES_GUILD_CALLINGS;
 
     @Test
     public void checkTotalElements() throws InvalidXmlElementException {
-        Assert.assertEquals(CallingFactory.getInstance().getElements().size(),
-                DEFINED_FACTIONS_FS_4E_CALLINGS + DEFINED_FACTION_BOOK_CALLINGS + DEFINED_IMPERIAL_DOSSIER_BROTHER_BATTLE_CALLINGS);
+        Assert.assertEquals(CallingFactory.getInstance().getElements().size(), DEFINED_TOTAL_CALLINGS);
     }
 
     @Test
@@ -85,11 +92,13 @@ public class CallingFactoryTests extends FactoryTest {
         ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
         ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
         ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_BROTHER_BATTLE_MODULE);
+        ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_CHARIOTEERS_GUILD_MODULE);
+        ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_HOUSE_HAWKWOOD_MODULE);
+        ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_REEVES_GUILD_MODULE);
         ModuleManager.resetModules();
         ItemFactory.getInstance().reset();
 
-        Assert.assertEquals(CallingFactory.getInstance().getElements().size(),
-                DEFINED_FACTIONS_FS_4E_CALLINGS + DEFINED_FACTION_BOOK_CALLINGS + DEFINED_IMPERIAL_DOSSIER_BROTHER_BATTLE_CALLINGS);
+        Assert.assertEquals(CallingFactory.getInstance().getElements().size(), DEFINED_TOTAL_CALLINGS);
     }
 
     @Test(dependsOnMethods = "checkTotalElementsWithAllModules")
@@ -139,7 +148,7 @@ public class CallingFactoryTests extends FactoryTest {
                 .map(option -> option.getElement().getId())
                 .collect(Collectors.toSet());
         final Set<String> selectableSkillIds = SkillFactory.getInstance().getSelectableElements().stream()
-                .map(skill -> skill.getId())
+                .map(Element::getId)
                 .collect(Collectors.toSet());
 
         Assert.assertEquals(availableSkillIds, selectableSkillIds,
@@ -150,6 +159,9 @@ public class CallingFactoryTests extends FactoryTest {
         ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
         ModuleManager.disableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
         ModuleManager.disableModule(ModuleManager.IMPERIAL_DOSSIER_BROTHER_BATTLE_MODULE);
+        ModuleManager.disableModule(ModuleManager.IMPERIAL_DOSSIER_CHARIOTEERS_GUILD_MODULE);
+        ModuleManager.disableModule(ModuleManager.IMPERIAL_DOSSIER_HOUSE_HAWKWOOD_MODULE);
+        ModuleManager.disableModule(ModuleManager.IMPERIAL_DOSSIER_REEVES_GUILD_MODULE);
         ModuleManager.resetModules();
         ItemFactory.getInstance().reset();
     }

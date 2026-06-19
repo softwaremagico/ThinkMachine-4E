@@ -40,12 +40,18 @@ public class PerkFactoryTests extends FactoryTest {
     private static final int DEFINED_PERKS = 345;
     private static final int DEFINED_FACTION_BOOK_PERKS = 43;
     private static final int DEFINED_IMPERIAL_DOSSIER_BROTHER_BATTLE_PERKS = 5;
+    private static final int DEFINED_IMPERIAL_DOSSIER_CHARIOTEERS_GUILD_PERKS = 6;
+    private static final int DEFINED_IMPERIAL_DOSSIER_HOUSE_HAWKWOOD_PERKS = 5;
+    private static final int DEFINED_IMPERIAL_DOSSIER_REEVES_GUILD_PERKS = 3;
+
+    private static final int DEFINED_TOTAL_PERKS = DEFINED_PERKS + DEFINED_FACTION_BOOK_PERKS
+            + DEFINED_IMPERIAL_DOSSIER_BROTHER_BATTLE_PERKS + DEFINED_IMPERIAL_DOSSIER_CHARIOTEERS_GUILD_PERKS
+            + DEFINED_IMPERIAL_DOSSIER_HOUSE_HAWKWOOD_PERKS + DEFINED_IMPERIAL_DOSSIER_REEVES_GUILD_PERKS;
 
 
     @Test
     public void readPerks() throws InvalidXmlElementException {
-        Assert.assertEquals(PerkFactory.getInstance().getElements().size(),
-                DEFINED_PERKS + DEFINED_FACTION_BOOK_PERKS + DEFINED_IMPERIAL_DOSSIER_BROTHER_BATTLE_PERKS);
+        Assert.assertEquals(PerkFactory.getInstance().getElements().size(), DEFINED_TOTAL_PERKS);
     }
 
     @Test(dependsOnMethods = "readPerks")
@@ -53,10 +59,12 @@ public class PerkFactoryTests extends FactoryTest {
         ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
         ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
         ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_BROTHER_BATTLE_MODULE);
+        ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_CHARIOTEERS_GUILD_MODULE);
+        ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_HOUSE_HAWKWOOD_MODULE);
+        ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_REEVES_GUILD_MODULE);
         ModuleManager.resetModules();
 
-        Assert.assertEquals(PerkFactory.getInstance().getElements().size(),
-                DEFINED_PERKS + DEFINED_FACTION_BOOK_PERKS + DEFINED_IMPERIAL_DOSSIER_BROTHER_BATTLE_PERKS);
+        Assert.assertEquals(PerkFactory.getInstance().getElements().size(), DEFINED_TOTAL_PERKS);
     }
 
     @Test

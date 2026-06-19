@@ -31,20 +31,15 @@ import org.testng.annotations.BeforeClass;
 public abstract class FactoryTest {
 
     @BeforeClass
+    @AfterClass(alwaysRun = true)
     public void enableBasicModule() {
         ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
         ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
         ModuleManager.enableModule(ModuleManager.LOST_WORLDS_BOOK_MODULE);
         ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_BROTHER_BATTLE_MODULE);
-        ModuleManager.resetModules();
-    }
-
-    @AfterClass(alwaysRun = true)
-    public void restoreBasicModule() {
-        ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
-        ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
-        ModuleManager.enableModule(ModuleManager.LOST_WORLDS_BOOK_MODULE);
-        ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_BROTHER_BATTLE_MODULE);
+        ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_CHARIOTEERS_GUILD_MODULE);
+        ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_HOUSE_HAWKWOOD_MODULE);
+        ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_REEVES_GUILD_MODULE);
         ModuleManager.resetModules();
     }
 }

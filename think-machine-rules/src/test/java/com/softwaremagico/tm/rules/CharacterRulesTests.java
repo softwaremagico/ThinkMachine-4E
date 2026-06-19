@@ -212,8 +212,8 @@ public class CharacterRulesTests extends RulesTest {
     public void materialAwardsKnightlyOrder() {
         final Calling calling = CallingFactory.getInstance().getElement("knightlyOrder");
         Assert.assertEquals(calling.getMaterialAwards().size(), 1);
-        //4 weapons with group "militaryWeapon"
-        Assert.assertEquals(calling.getMaterialAwards().get(0).getOptions().size(), 18);
+        //militaryWeapons + combatArmor groups (includes the Charioteers Guild hullKnife).
+        Assert.assertEquals(calling.getMaterialAwards().get(0).getOptions().size(), 19);
     }
 
     @Test

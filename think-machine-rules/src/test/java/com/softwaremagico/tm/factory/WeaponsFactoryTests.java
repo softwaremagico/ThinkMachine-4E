@@ -37,7 +37,8 @@ import org.testng.annotations.Test;
 @Test(groups = {"weaponsFactory"})
 public class WeaponsFactoryTests extends FactoryTest {
 
-    private static final int DEFINED_WEAPONS = 131;
+    // 131 base weapons + 1 from Imperial Dossier - Charioteers Guild.
+    private static final int DEFINED_WEAPONS = 132;
 
 
     @Test
