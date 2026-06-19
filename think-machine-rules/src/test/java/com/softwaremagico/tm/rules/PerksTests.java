@@ -37,7 +37,7 @@ import org.testng.annotations.Test;
 import java.util.Collections;
 
 @Test(groups = "perks")
-public class PerksTests {
+public class PerksTests extends RulesTest {
 
     @Test(expectedExceptions = InvalidSelectedElementException.class, enabled = false)
     public void epiphanyWithoutCapabilitiesGroup() {

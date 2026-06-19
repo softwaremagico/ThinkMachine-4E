@@ -134,7 +134,7 @@ public class CombatAction extends Element {
     }
 
     public boolean isShootAction() {
-        return checkRestriction("slugGuns") || checkRestriction("energyGuns");
+        return checkRestriction("shoot") || checkRestriction("slugGuns") || checkRestriction("energyGuns");
     }
 
     @Override

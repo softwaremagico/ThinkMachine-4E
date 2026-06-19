@@ -58,7 +58,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Test(groups = "characterRules")
-public class CharacterRulesTests {
+public class CharacterRulesTests extends RulesTest {
 
     @Test(expectedExceptions = InvalidSpecieException.class)
     public void invalidVoroxCharacteristics() {

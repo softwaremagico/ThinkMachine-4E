@@ -29,23 +29,11 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.definition.ProbabilityMultiplier;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import com.softwaremagico.tm.file.modules.ModuleManager;
-import org.testng.annotations.BeforeClass;
 
 @Test(groups = {"itemFactory"})
 public class ItemFactoryTests extends FactoryTest {
 
     private static final int DEFINED_ITEMS = 127;
-
-    @Override
-    @BeforeClass
-    public void enableBasicModule() {
-        ModuleManager.enableModule(ModuleManager.LOST_WORLDS_BOOK_MODULE);
-        ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
-        ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
-        ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_BROTHER_BATTLE_MODULE);
-        ModuleManager.resetModules();
-    }
 
     @Test
     public void readItems() throws InvalidXmlElementException {

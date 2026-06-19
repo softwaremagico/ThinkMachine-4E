@@ -1,4 +1,4 @@
-package com.softwaremagico.tm.factory;
+package com.softwaremagico.tm.rules;
 
 /*-
  * #%L
@@ -24,21 +24,18 @@ package com.softwaremagico.tm.factory;
  * #L%
  */
 
+import com.softwaremagico.tm.file.modules.ModuleManager;
+import org.testng.annotations.BeforeClass;
 
-import com.softwaremagico.tm.character.perks.AfflictionFactory;
-import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import org.testng.Assert;
-import org.testng.annotations.Test;
+public abstract class RulesTest {
 
-@Test(groups = {"afflictionFactory"})
-public class AfflictionFactoryTests extends FactoryTest {
-
-    private static final int DEFINED_AFFLICTIONS = 15;
-
-
-    @Test
-    public void readAfflictions() throws InvalidXmlElementException {
-        Assert.assertEquals(AfflictionFactory.getInstance().getElements().size(),
-                DEFINED_AFFLICTIONS);
+    @BeforeClass
+    public void enableBasicModule() {
+        ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
+        ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+        ModuleManager.enableModule(ModuleManager.LOST_WORLDS_BOOK_MODULE);
+        ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_BROTHER_BATTLE_MODULE);
+        ModuleManager.resetModules();
     }
 }
+

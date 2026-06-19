@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<combat_styles>
+    <style>
+        <id>brotherBattleManeuvers</id>
+        <name>
+            <en>Brother Battle Maneuvers</en>
+            <es>Maniobras de Brother Battle</es>
+        </name>
+        <combatStyleGroup>fight</combatStyleGroup>
+        <combatActions>
+            <combatAction>
+                <id>defendAlly</id>
+                <name>
+                    <en>Defend Ally</en>
+                    <es>Defender Aliado</es>
+                </name>
+                <description>
+                    <en>You can block close combat strikes against an ally within your reach.</en>
+                    <es>Puedes bloquear golpes de combate cercano contra un aliado dentro de tu alcance.</es>
+                </description>
+                <requirements>
+                    <requirement1>
+                        <skill>fight, melee</skill>
+                        <value>0</value>
+                    </requirement1>
+                    <requirement2>
+                        <skill>strength</skill>
+                        <value>0</value>
+                    </requirement2>
+                </requirements>
+                <others>
+                    <en>Precondition: You can use this maneuver vs. a Fight-based, Melee-based, or thrown-weapon attack against an ally within two meters of you. Time: Instantaneous (reflexive primary action). Roll: Fight (vs. Fight-skill attacks) or Melee (vs. Melee-skill attacks) + Strength; for thrown-weapon attacks with handheld shield (and capability), use Melee + Strength. Capability: You must have the appropriate capability for the relevant weapon or shield you are wielding. Resistance: Hard (environmental conditions can increase adversity). Impact: You gain VP for your cache; you can spend this VP to aid your ally's defense against the triggering attack (+1 to their Resistance per 2 VP spent).</en>
+                    <es>Precondición: puedes usar esta maniobra contra un ataque basado en Pelea, basado en Combate o de arma arrojadiza contra un aliado a dos metros o menos de ti. Tiempo: instantaneo (accion primaria refleja). Tirada: Fight (contra ataques con habilidad Fight) o Melee (contra ataques con habilidad Melee) + Strength; para ataques con arma arrojadiza con escudo de mano (y capacidad adecuada), usa Melee + Strength. Capacidad: debes tener la capacidad apropiada para el arma o escudo relevante que empunas. Resistencia: Dificil (las condiciones ambientales pueden aumentar la adversidad). Impacto: ganas VP para tu reserva; puedes gastar estos VP para ayudar a la defensa de tu aliado contra el ataque desencadenante (+1 a su Resistencia por cada 2 VP gastados).</es>
+                </others>
+            </combatAction>
+        </combatActions>
+        <stances/>
+        <restrictions>
+            <factions>
+                <faction>brotherBattle</faction>
+            </factions>
+            <callings>
+                <calling>brotherBattle</calling>
+            </callings>
+        </restrictions>
+    </style>
+</combat_styles>
+
+

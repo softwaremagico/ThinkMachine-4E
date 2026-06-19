@@ -33,11 +33,11 @@
                 </name>
                 <requirements>
                     <requirement1>
-                        <skill>melee, fight, slugGuns, energyGuns</skill>
+                        <skill>melee, fight, shoot</skill>
                         <value>5</value>
                     </requirement1>
                     <requirement2>
-                        <skill>athletics</skill>
+                        <skill>vigor</skill>
                         <value>7</value>
                     </requirement2>
                 </requirements>
@@ -54,11 +54,11 @@
                 </name>
                 <requirements>
                     <requirement1>
-                        <skill>melee, fight, slugGuns, energyGuns</skill>
+                        <skill>melee, fight, shoot</skill>
                         <value>9</value>
                     </requirement1>
                     <requirement2>
-                        <skill>athletics</skill>
+                        <skill>vigor</skill>
                         <value>9</value>
                     </requirement2>
                 </requirements>
@@ -124,7 +124,7 @@
                         <value>5</value>
                     </requirement1>
                     <requirement2>
-                        <skill>athletics</skill>
+                        <skill>vigor</skill>
                         <value>6</value>
                     </requirement2>
                 </requirements>
@@ -145,7 +145,7 @@
                         <value>9</value>
                     </requirement1>
                     <requirement2>
-                        <skill>physick</skill>
+                        <skill>remedy</skill>
                         <value>7</value>
                     </requirement2>
                 </requirements>
@@ -197,7 +197,7 @@
                         <value>4</value>
                     </requirement1>
                     <requirement2>
-                        <skill>athletics</skill>
+                        <skill>vigor</skill>
                         <value>4</value>
                     </requirement2>
                 </requirements>
@@ -240,7 +240,7 @@
                         <value>9</value>
                     </requirement1>
                     <requirement2>
-                        <skill>athletics</skill>
+                        <skill>vigor</skill>
                         <value>7</value>
                     </requirement2>
                 </requirements>
@@ -476,7 +476,7 @@
                         <value>6</value>
                     </requirement1>
                     <requirement2>
-                        <skill>athletics</skill>
+                        <skill>vigor</skill>
                         <value>5</value>
                     </requirement2>
                 </requirements>
@@ -564,7 +564,7 @@
                         <value>6</value>
                     </requirement1>
                     <requirement2>
-                        <skill>athletics</skill>
+                        <skill>vigor</skill>
                         <value>6</value>
                     </requirement2>
                 </requirements>
@@ -653,7 +653,7 @@
                         <value>6</value>
                     </requirement1>
                     <requirement2>
-                        <skill>athletics</skill>
+                        <skill>vigor</skill>
                         <value>5</value>
                     </requirement2>
                 </requirements>
@@ -738,7 +738,7 @@
                         <value>4</value>
                     </requirement1>
                     <requirement2>
-                        <skill>selfControl</skill>
+                        <skill>will</skill>
                         <value>4</value>
                     </requirement2>
                 </requirements>
@@ -759,7 +759,7 @@
                         <value>7</value>
                     </requirement1>
                     <requirement2>
-                        <skill>athletics</skill>
+                        <skill>vigor</skill>
                         <value>6</value>
                     </requirement2>
                 </requirements>
@@ -782,7 +782,7 @@
                         <value>9</value>
                     </requirement1>
                     <requirement2>
-                        <skill>athletics</skill>
+                        <skill>vigor</skill>
                         <value>8</value>
                     </requirement2>
                 </requirements>
@@ -852,7 +852,7 @@
                         <value>6</value>
                     </requirement1>
                     <requirement2>
-                        <skill>athletics</skill>
+                        <skill>vigor</skill>
                         <value>5</value>
                     </requirement2>
                 </requirements>
@@ -873,7 +873,7 @@
                         <value>9</value>
                     </requirement1>
                     <requirement2>
-                        <skill>athletics</skill>
+                        <skill>vigor</skill>
                         <value>8</value>
                     </requirement2>
                 </requirements>
@@ -921,7 +921,7 @@
                 </name>
                 <requirements>
                     <requirement1>
-                        <skill>slugGuns, energyGuns</skill>
+                        <skill>shoot</skill>
                         <value>3</value>
                     </requirement1>
                 </requirements>
@@ -961,7 +961,7 @@
                 </name>
                 <requirements>
                     <requirement1>
-                        <skill>slugGuns, energyGuns</skill>
+                        <skill>shoot</skill>
                         <value>9</value>
                     </requirement1>
                     <requirement2>
@@ -1005,7 +1005,7 @@
                 </name>
                 <requirements>
                     <requirement1>
-                        <skill>slugGuns, energyGuns</skill>
+                        <skill>shoot</skill>
                         <value>4</value>
                     </requirement1>
                 </requirements>
@@ -1022,11 +1022,11 @@
                 </name>
                 <requirements>
                     <requirement1>
-                        <skill>slugGuns, energyGuns</skill>
+                        <skill>shoot</skill>
                         <value>6</value>
                     </requirement1>
                     <requirement2>
-                        <skill>athletics</skill>
+                        <skill>vigor</skill>
                         <value>5</value>
                     </requirement2>
                 </requirements>
@@ -1043,11 +1043,11 @@
                 </name>
                 <requirements>
                     <requirement1>
-                        <skill>slugGuns, energyGuns</skill>
+                        <skill>shoot</skill>
                         <value>9</value>
                     </requirement1>
                     <requirement2>
-                        <skill>athletics</skill>
+                        <skill>vigor</skill>
                         <value>7</value>
                     </requirement2>
                 </requirements>

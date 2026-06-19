@@ -38,7 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Test(groups = "level")
-public class LevelTests {
+public class LevelTests extends RulesTest {
 
     @Test
     public void assignOneLevel() {

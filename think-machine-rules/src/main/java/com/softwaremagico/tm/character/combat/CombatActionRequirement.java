@@ -25,8 +25,11 @@ package com.softwaremagico.tm.character.combat;
  */
 
 
+import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
+import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.values.IValue;
 
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class CombatActionRequirement {
@@ -56,6 +59,19 @@ public class CombatActionRequirement {
 
     public void setRequirement(Set<IValue> requirement) {
         this.requirement = requirement;
+    }
+
+    public void setSkill(String skillIds) {
+        final Set<IValue> parsedRequirements = new LinkedHashSet<>();
+        for (String skillId : skillIds.split(",")) {
+            final String trimmedSkillId = skillId.trim();
+            try {
+                parsedRequirements.add(SkillFactory.getInstance().getElement(trimmedSkillId));
+            } catch (Exception e) {
+                parsedRequirements.add(CharacteristicsDefinitionFactory.getInstance().getElement(trimmedSkillId));
+            }
+        }
+        setRequirement(parsedRequirements);
     }
 
     public void setValue(int value) {

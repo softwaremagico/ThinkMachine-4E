@@ -27,23 +27,11 @@ package com.softwaremagico.tm.rules;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.exceptions.MaxValueExceededException;
-import com.softwaremagico.tm.file.modules.ModuleManager;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 @Test(groups = "zgo")
-public class ZgoUnskilledTests extends com.softwaremagico.tm.factory.FactoryTest {
-
-    @Override
-    @BeforeClass
-    public void enableBasicModule() {
-        ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
-        ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
-        ModuleManager.enableModule(ModuleManager.LOST_WORLDS_BOOK_MODULE);
-        ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_BROTHER_BATTLE_MODULE);
-        ModuleManager.resetModules();
-    }
+public class ZgoUnskilledTests extends RulesTest {
 
     private int skill(CharacterPlayer cp, String skillId) {
         try {
