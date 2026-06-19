@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<equipments>
+    <equipment>
+        <id>stenograph</id>
+        <type>thinkMachine</type>
+        <name>
+            <en>Stenograph</en>
+            <es>Estenógrafo</es>
+        </name>
+        <description>
+            <en>This portable think machine (Size S) transcribes speech to text, which can be stored in the unit's internal memory, outputted to a data storage wafer, read back with the stenograph's text-to-speech function, and printed out on the unit's attached press. Focus-skill remember maneuvers aided by a stenograph or its records are favorable.</en>
+            <es>Esta máquina pensante portátil (Tamaño P) transcribe el habla a texto, que puede almacenarse en la memoria interna de la unidad, volcarse a una oblea de almacenamiento de datos, reproducirse mediante la función de texto a voz del estenógrafo e imprimirse en la prensa acoplada a la unidad. Las maniobras de recordar de la habilidad concentración asistidas por un estenógrafo o sus registros son favorables.</es>
+        </description>
+        <techLevel>5</techLevel>
+        <size>S</size>
+        <techCompulsion>inerrant</techCompulsion>
+    </equipment>
+</equipments>
+
