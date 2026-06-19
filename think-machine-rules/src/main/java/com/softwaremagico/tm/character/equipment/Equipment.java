@@ -58,6 +58,7 @@ import com.softwaremagico.tm.character.upbringing.Upbringing;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.restrictions.RestrictedCapability;
+import com.softwaremagico.tm.restrictions.Restrictions;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -113,7 +114,7 @@ public abstract class Equipment extends Element implements IElementWithTechnolog
     @JsonProperty("others")
     private Set<String> others;
 
-    public Equipment() {
+    protected Equipment() {
         super();
         this.cost = 0;
         this.techLevel = 0;
@@ -217,7 +218,6 @@ public abstract class Equipment extends Element implements IElementWithTechnolog
         if (equipment.getFeatures() != null) {
             setFeatures(new ArrayList<>(equipment.getFeatures()));
         }
-        //setQuantity(equipment.getQuantity());
         if (equipment.getTraits() != null) {
             setTraits(new ArrayList<>(equipment.getTraits()));
         }
@@ -305,5 +305,18 @@ public abstract class Equipment extends Element implements IElementWithTechnolog
     @Override
     public String toString() {
         return getId() + (getQuantity() > 1 ? " (" + getQuantity() + ")" : "");
+    }
+
+    public static boolean isOpenEquipment(Equipment equipment) {
+        if (equipment == null) {
+            return false;
+        }
+        final Restrictions restrictions = equipment.getRestrictions();
+        if (restrictions == null) {
+            return true;
+        }
+        return !restrictions.isRestricted()
+                && restrictions.getRestrictedToSpecies().isEmpty()
+                && restrictions.getRestrictedToCallings().isEmpty();
     }
 }

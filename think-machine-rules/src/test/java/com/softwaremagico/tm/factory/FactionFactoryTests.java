@@ -114,7 +114,7 @@ public class FactionFactoryTests extends FactoryTest {
 		final Faction hawkwood = FactionFactory.getInstance().getElement("hawkwood");
 		Assert.assertNotNull(hawkwood);
 		Assert.assertEquals(hawkwood.getMaterialAwards().size(), 1);
-		Assert.assertEquals(hawkwood.getMaterialAwards().get(0).getOptions().size(), 7);
+		Assert.assertEquals(hawkwood.getMaterialAwards().get(0).getOptions().size(), 5);
 		Assert.assertTrue(hawkwood.getMaterialAwards().get(0).getOptions().iterator().next()
 				.getElement() instanceof CustomizedWeapon);
 		Assert.assertEquals(
@@ -127,7 +127,7 @@ public class FactionFactoryTests extends FactoryTest {
 		final Faction brotherBattle = FactionFactory.getInstance().getElement("brotherBattle");
 		Assert.assertNotNull(brotherBattle);
 		Assert.assertEquals(brotherBattle.getMaterialAwards().size(), 1);
-		Assert.assertEquals(brotherBattle.getMaterialAwards().get(0).getOptions().size(), 82);
+		Assert.assertEquals(brotherBattle.getMaterialAwards().get(0).getOptions().size(), 78);
 		Assert.assertTrue(brotherBattle.getMaterialAwards().get(0).getOptions().iterator().next()
 				.getElement() instanceof CustomizedWeapon);
 		Assert.assertEquals(

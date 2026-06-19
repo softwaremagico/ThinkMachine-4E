@@ -25,6 +25,7 @@ package com.softwaremagico.tm.rules;
  */
 
 import com.softwaremagico.tm.character.callings.CallingFactory;
+import com.softwaremagico.tm.character.equipment.Equipment;
 import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
 import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShieldFactory;
 import com.softwaremagico.tm.character.equipment.item.ItemFactory;
@@ -34,6 +35,8 @@ import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
 import com.softwaremagico.tm.character.skills.SkillFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.stream.Stream;
 
 @Test(groups = "freeOptionsSelectionTest")
 public class FreeOptionsSelectionTests extends RulesTest {
@@ -46,9 +49,18 @@ public class FreeOptionsSelectionTests extends RulesTest {
 
     @Test
     public void spyHasFreeMaterialAwardsOptions() {
+        final long expectedOpenEquipment = Stream.of(
+                        ItemFactory.getInstance().getElements().stream(),
+                        WeaponFactory.getInstance().getElements().stream(),
+                        ArmorFactory.getInstance().getElements().stream(),
+                        ShieldFactory.getInstance().getElements().stream(),
+                        HandheldShieldFactory.getInstance().getElements().stream(),
+                        ThinkMachineFactory.getInstance().getElements().stream())
+                .flatMap(s -> s)
+                .filter(Equipment::isOpenEquipment)
+                .count();
+
         Assert.assertEquals(CallingFactory.getInstance().getElement("spy").getMaterialAwards().get(0).getOptions().size(),
-                ItemFactory.getInstance().getElements().size() + WeaponFactory.getInstance().getElements().size() +
-                        ArmorFactory.getInstance().getElements().size() + ShieldFactory.getInstance().getElements().size() +
-                        HandheldShieldFactory.getInstance().getElements().size() + ThinkMachineFactory.getInstance().getElements().size());
+                expectedOpenEquipment);
     }
 }

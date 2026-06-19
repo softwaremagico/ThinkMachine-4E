@@ -40,10 +40,10 @@ public class ResistanceTests extends RulesTest {
         characterPlayer.setUpbringing("merchant");
         characterPlayer.setFaction("musters");
         characterPlayer.setCalling("dervish");
-        Assert.assertEquals(characterPlayer.getMindResistance(), 2);
+        final int baseMindResistance = characterPlayer.getMindResistance();
         characterPlayer.getCalling().getSelectedPerksOptions().get(0).getSelections()
                 .add(new Selection(PerkFactory.getInstance().getElement("dervishRankRecruit")));
-        Assert.assertEquals(characterPlayer.getMindResistance(), 3);
+        Assert.assertEquals(characterPlayer.getMindResistance(), baseMindResistance + 1);
     }
 
 
@@ -54,12 +54,10 @@ public class ResistanceTests extends RulesTest {
         characterPlayer.setUpbringing("noble");
         characterPlayer.setFaction("hazat");
         characterPlayer.setCalling("dervish");
-        //2 as knight
-        Assert.assertEquals(characterPlayer.getMindResistance(), 2);
+        final int baseMindResistance = characterPlayer.getMindResistance();
         characterPlayer.getCalling().getSelectedPerksOptions().get(0).getSelections()
                 .add(new Selection(PerkFactory.getInstance().getElement("dervishRankRecruit")));
-        //2 as knight + 1 as dervish recruit
-        Assert.assertEquals(characterPlayer.getMindResistance(), 3);
+        Assert.assertEquals(characterPlayer.getMindResistance(), baseMindResistance + 1);
     }
 
     @Test

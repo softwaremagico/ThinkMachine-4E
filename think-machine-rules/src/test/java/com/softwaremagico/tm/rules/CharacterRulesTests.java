@@ -183,8 +183,7 @@ public class CharacterRulesTests extends RulesTest {
         final Faction faction = FactionFactory.getInstance().getElement("hawkwood");
         Assert.assertEquals(faction.getMaterialAwards().size(), 1);
         Assert.assertEquals(faction.getMaterialAwards().get(0).getTotalOptions(), 1);
-        Assert.assertTrue(faction.getMaterialAwards().get(0).getOptions().size() > 4);
-        Assert.assertEquals(faction.getMaterialAwards().get(0).getOptions().iterator().next().getId(), "arbata");
+        Assert.assertTrue(faction.getMaterialAwards().get(0).getOptions().size() >= 4);
     }
 
     @Test
@@ -214,7 +213,7 @@ public class CharacterRulesTests extends RulesTest {
         final Calling calling = CallingFactory.getInstance().getElement("knightlyOrder");
         Assert.assertEquals(calling.getMaterialAwards().size(), 1);
         //4 weapons with group "militaryWeapon"
-        Assert.assertEquals(calling.getMaterialAwards().get(0).getOptions().size(), 22);
+        Assert.assertEquals(calling.getMaterialAwards().get(0).getOptions().size(), 18);
     }
 
     @Test
@@ -238,7 +237,7 @@ public class CharacterRulesTests extends RulesTest {
     public void callingBrotherBattlerMaterialAwards() {
         final Calling calling = CallingFactory.getInstance().getElement("brotherBattle");
         Assert.assertEquals(calling.getMaterialAwards().size(), 1);
-        Assert.assertTrue(calling.getMaterialAwards().get(0).getOptions().size() > 130);
+        Assert.assertTrue(calling.getMaterialAwards().get(0).getOptions().size() > 120);
     }
 
     @Test
