@@ -25,14 +25,18 @@ package com.softwaremagico.tm.factory;
  */
 
 
+import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.equipment.weapons.AccessoryFactory;
 import com.softwaremagico.tm.character.equipment.weapons.AmmunitionFactory;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.exceptions.UnofficialElementNotAllowedException;
 import com.softwaremagico.tm.random.definition.ProbabilityMultiplier;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 @Test(groups = {"weaponsFactory"})
 public class WeaponsFactoryTests extends FactoryTest {
@@ -88,32 +92,14 @@ public class WeaponsFactoryTests extends FactoryTest {
         Assert.assertTrue(brotherCass.getRestrictions().getRestrictedToCallings().contains("brotherBattle"));
     }
 
-//    @Test
-//    public void getMainDamage() throws InvalidXmlElementException {
-//        Assert.assertEquals(WeaponFactory.getInstance().getElement("arbata").getWeaponDamages().get(0).getMainDamage(), 6);
-//        Assert.assertEquals(WeaponFactory.getInstance().getElement("typicalShotgun")
-//                .getWeaponDamages().get(0).getMainDamage(), 8);
-//        Assert.assertEquals(WeaponFactory.getInstance().getElement("wireGrenade").getWeaponDamages().get(0).getMainDamage(), 12);
-//    }
-
-//    @Test
-//    public void getAreaDamage() throws InvalidXmlElementException {
-//        Assert.assertEquals(WeaponFactory.getInstance().getElement("goboLobberJetPistol")
-//                .getWeaponDamages().get(0).getAreaMeters(), 1);
-//        Assert.assertEquals(WeaponFactory.getInstance().getElement("goboGarbageChucker")
-//                .getWeaponDamages().get(0).getAreaMeters(), 2);
-//        Assert.assertEquals(WeaponFactory.getInstance().getElement("musterNightstorm")
-//                .getWeaponDamages().get(0).getAreaMeters(), 3);
-//        Assert.assertEquals(WeaponFactory.getInstance().getElement("fragGrenades").getWeaponDamages().get(0).getAreaMeters(), 5);
-//    }
-
-//    @Test
-//    public void getDamageWithoutArea() throws InvalidXmlElementException {
-//        Assert.assertEquals(WeaponFactory.getInstance().getElement("blastPellet")
-//                .getWeaponDamages().get(0).getDamageWithoutArea(), "3");
-//        Assert.assertEquals(WeaponFactory.getInstance().getElement("fragGrenades")
-//                .getWeaponDamages().get(0).getDamageWithoutArea(), "12");
-//    }
+    @Test
+    public void getMainDamage() throws InvalidXmlElementException {
+        Assert.assertEquals(WeaponFactory.getInstance().getElement("arbata").getWeaponDamages().get(0).getMainDamage(), 6);
+        Assert.assertEquals(WeaponFactory.getInstance().getElement("typicalShotgun")
+                .getWeaponDamages().get(0).getMainDamage(), 8);
+        Assert.assertEquals(WeaponFactory.getInstance().getElement("soeCrucible")
+                .getWeaponDamages().get(0).getMainDamage(), 9);
+    }
 
 
     @Test
@@ -122,38 +108,32 @@ public class WeaponsFactoryTests extends FactoryTest {
         Assert.assertEquals(nitobiAxe.getWeaponDamages().size(), 2);
     }
 
-//    @Test
-//    public void setRangeWeapons() throws InvalidXmlElementException, UnofficialElementNotAllowedException {
-//        final CharacterPlayer player = new CharacterPlayer();
-//        Set<Weapon> weaponsToAdd = new HashSet<>();
-//        weaponsToAdd.add(WeaponFactory.getInstance().getElement("typicalShotgun"));
-//        weaponsToAdd.add(WeaponFactory.getInstance().getElement("martechSafireSniper"));
-//        player.setRangedWeapons(weaponsToAdd);
-//        Assert.assertEquals(2, player.getAllWeapons().size());
-//
-//        weaponsToAdd = new HashSet<>();
-//        weaponsToAdd.add(WeaponFactory.getInstance().getElement("typicalShotgun"));
-//        weaponsToAdd.add(WeaponFactory.getInstance().getElement("soeCrucible"));
-//        player.setRangedWeapons(weaponsToAdd);
-//        Assert.assertEquals(2, player.getAllWeapons().size());
-//
-//        weaponsToAdd = new HashSet<>();
-//        weaponsToAdd.add(WeaponFactory.getInstance().getElement("arbata"));
-//        player.setMeleeWeapons(weaponsToAdd);
-//        Assert.assertEquals(3, player.getAllWeapons().size());
-//
-//        weaponsToAdd = new HashSet<>();
-//        weaponsToAdd.add(WeaponFactory.getInstance().getElement("nitobiBlasterAxe"));
-//        player.setRangedWeapons(weaponsToAdd);
-//        Assert.assertEquals(2, player.getAllWeapons().size());
-//
-//        weaponsToAdd = new HashSet<>();
-//        player.setRangedWeapons(weaponsToAdd);
-//        Assert.assertEquals(1, player.getAllWeapons().size());
-//
-//        weaponsToAdd = new HashSet<>();
-//        player.setMeleeWeapons(weaponsToAdd);
-//        Assert.assertEquals(0, player.getAllWeapons().size());
-//    }
+    @Test
+    public void setRangeWeapons() throws InvalidXmlElementException, UnofficialElementNotAllowedException {
+        final CharacterPlayer player = new CharacterPlayer();
+        player.setPurchasedRangedWeapons(List.of(
+                WeaponFactory.getInstance().getElement("typicalShotgun"),
+                WeaponFactory.getInstance().getElement("martechSafireSniper")), true);
+        Assert.assertEquals(player.getWeapons().size(), 2);
+
+        player.setPurchasedRangedWeapons(List.of(
+                WeaponFactory.getInstance().getElement("typicalShotgun"),
+                WeaponFactory.getInstance().getElement("soeCrucible")), true);
+        Assert.assertEquals(player.getWeapons().size(), 2);
+
+        player.setPurchasedMeleeWeapons(List.of(
+                WeaponFactory.getInstance().getElement("arbata")), true);
+        Assert.assertEquals(player.getWeapons().size(), 3);
+
+        player.setPurchasedRangedWeapons(List.of(
+                WeaponFactory.getInstance().getElement("nitobiBlasterAxe")), true);
+        Assert.assertEquals(player.getWeapons().size(), 2);
+
+        player.setPurchasedRangedWeapons(List.of(), true);
+        Assert.assertEquals(player.getWeapons().size(), 1);
+
+        player.setPurchasedMeleeWeapons(List.of(), true);
+        Assert.assertEquals(player.getWeapons().size(), 0);
+    }
 
 }
