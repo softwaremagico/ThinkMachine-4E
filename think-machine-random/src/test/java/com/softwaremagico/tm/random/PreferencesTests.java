@@ -133,9 +133,9 @@ public class PreferencesTests {
         characterPlayer.setFaction("musters");
         final RandomCharacteristics randomCharacteristics = new RandomCharacteristics(characterPlayer, convert(TechPreference.PRIMITIVE));
         randomCharacteristics.updateWeights();
-        Assert.assertEquals(randomCharacteristics.getElementWeight(CharacteristicsDefinitionFactory.getInstance().getElement("strength")), 2500);
-        Assert.assertEquals(randomCharacteristics.getElementWeight(CharacteristicsDefinitionFactory.getInstance().getElement("dexterity")), 1000);
-        Assert.assertEquals(randomCharacteristics.getElementWeight(CharacteristicsDefinitionFactory.getInstance().getElement("endurance")), 2500);
-        Assert.assertEquals(randomCharacteristics.getElementWeight(CharacteristicsDefinitionFactory.getInstance().getElement("wits")), 200);
+        Assert.assertEquals(randomCharacteristics.getElementWeight(CharacteristicsDefinitionFactory.getInstance().getElement("strength")), 25000);
+        Assert.assertEquals(randomCharacteristics.getElementWeight(CharacteristicsDefinitionFactory.getInstance().getElement("dexterity")), 10000);
+        Assert.assertEquals(randomCharacteristics.getElementWeight(CharacteristicsDefinitionFactory.getInstance().getElement("endurance")), 25000);
+        Assert.assertEquals(randomCharacteristics.getElementWeight(CharacteristicsDefinitionFactory.getInstance().getElement("wits")), 2000);
     }
 }
