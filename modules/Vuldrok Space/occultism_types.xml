@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<occultismType>
+    <runemastery>
+        <id>runemastery</id>
+        <type>occultismType</type>
+        <name>
+            <en>Runecasting</en>
+            <es>Lectura de Runas</es>
+        </name>
+    </runemastery>
+    <sympathy>
+        <id>sympathy</id>
+        <type>occultismType</type>
+        <name>
+            <en>Sympathy</en>
+            <es>Simpatía</es>
+        </name>
+    </sympathy>
+</occultismType>
+

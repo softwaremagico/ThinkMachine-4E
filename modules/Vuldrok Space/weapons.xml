@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weapons>
+    <vuldrokHailstormSplinterRifle>
+        <id>vuldrokHailstormSplinterRifle</id>
+        <type>weapon</type>
+        <group>militaryWeapons</group>
+        <name>
+            <en>Vuldrok Hailstorm Splinter Rifle</en>
+            <es>Rifle de Esquirlas Hailstorm Vuldrok</es>
+        </name>
+        <description>
+            <en>A favored Vuldrok longarm that sprays a storm of metal flechettes downrange. It is prized among raiders
+                for the volume of fire it can lay down in a fight.</en>
+            <es>Un fusil largo muy apreciado por los Vuldrok que dispara una tormenta de esquirlas metálicas. Los
+                asaltantes lo valoran por el volumen de fuego que puede desatar en combate.</es>
+        </description>
+        <techLevel>5</techLevel>
+        <weaponType>SLUG</weaponType>
+        <damageList>
+            <weaponDamage>
+                <characteristic>dexterity</characteristic>
+                <skill>shoot</skill>
+                <goal>0</goal>
+                <damage>7</damage>
+                <strength>3</strength>
+                <range>40/125</range>
+                <shots>30</shots>
+                <rate>3(A)</rate>
+            </weaponDamage>
+        </damageList>
+        <damageTypes>
+            <damageType>hard</damageType>
+        </damageTypes>
+        <size>XL</size>
+        <cost>500</cost>
+        <agora>rare</agora>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+        </random>
+    </vuldrokHailstormSplinterRifle>
+    <tipala>
+        <id>tipala</id>
+        <type>weapon</type>
+        <group>militaryWeapons</group>
+        <name>
+            <en>Tipala</en>
+            <es>Tipala</es>
+        </name>
+        <description>
+            <en>A uniquely crafted Skey double-handled long knife that hums in the wielder's grip. It is wielded as a
+                close-quarters punch dagger.</en>
+            <es>Un cuchillo largo de doble empuñadura, de factura singular entre los Skey, que zumba en la mano de quien
+                lo empuña. Se usa como daga de puño en el combate a corta distancia.</es>
+        </description>
+        <techLevel>3</techLevel>
+        <weaponType>MELEE</weaponType>
+        <damageList>
+            <weaponDamage>
+                <characteristic>strength</characteristic>
+                <skill>melee</skill>
+                <goal>0</goal>
+                <damage>5</damage>
+                <strength>2</strength>
+            </weaponDamage>
+        </damageList>
+        <damageTypes>
+            <damageType>hard</damageType>
+        </damageTypes>
+        <size>S</size>
+        <cost>100</cost>
+        <agora>rare</agora>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>COMBAT</preference>
+            </recommendedPreferences>
+        </random>
+    </tipala>
+</weapons>
+

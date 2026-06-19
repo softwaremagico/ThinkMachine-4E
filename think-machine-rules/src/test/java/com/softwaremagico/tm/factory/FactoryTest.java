@@ -40,6 +40,7 @@ public abstract class FactoryTest {
         ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_CHARIOTEERS_GUILD_MODULE);
         ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_HOUSE_HAWKWOOD_MODULE);
         ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_REEVES_GUILD_MODULE);
+        ModuleManager.enableModule(ModuleManager.VULDROK_SPACE_MODULE);
         ModuleManager.resetModules();
     }
 }

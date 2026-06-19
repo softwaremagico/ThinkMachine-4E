@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<perks>
+    <perk>
+        <id>craftTulac</id>
+        <name>
+            <en>Craft Tulac</en>
+            <es>Elaborar Tulac</es>
+        </name>
+        <description>
+            <en>You know how to brew Tulac, the herbal drink that fuels a berserker's battle fury. With the right
+                ingredients you can cultivate and prepare a limited number of doses each month.</en>
+            <es>Sabes preparar el Tulac, la infusión de hierbas que alimenta la furia de combate de un berserker. Con
+                los ingredientes adecuados puedes cultivar y elaborar un número limitado de dosis al mes.</es>
+        </description>
+        <source>calling</source>
+        <type>ability</type>
+        <restrictions>
+            <callings>
+                <calling>berserker</calling>
+                <calling>skald</calling>
+                <calling>shaman</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>battleFury</id>
+        <name>
+            <en>Battle Fury</en>
+            <es>Furia de Combate</es>
+        </name>
+        <description>
+            <en>You can rouse yourself into the berserker's rage, trading defensive caution for raw offensive power in
+                close combat.</en>
+            <es>Puedes desatar la furia del berserker, cambiando la prudencia defensiva por una pura potencia ofensiva
+                en el combate cuerpo a cuerpo.</es>
+        </description>
+        <source>calling</source>
+        <type>ability</type>
+        <restrictions>
+            <callings>
+                <calling>berserker</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>sagaSinger</id>
+        <name>
+            <en>Saga Singer</en>
+            <es>Cantor de Sagas</es>
+        </name>
+        <description>
+            <en>Your performances can shape an audience's view of a person or deed, bolstering or tarnishing reputations
+                through compelling sagas.</en>
+            <es>Tus actuaciones pueden moldear la opinión del público sobre una persona o una hazaña, ensalzando o
+                empañando reputaciones mediante sagas cautivadoras.</es>
+        </description>
+        <source>calling</source>
+        <type>ability</type>
+        <restrictions>
+            <callings>
+                <calling>skald</calling>
+            </callings>
+        </restrictions>
+    </perk>
+</perks>
+

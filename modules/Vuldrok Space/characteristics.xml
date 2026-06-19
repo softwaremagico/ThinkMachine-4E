@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<characteristics>
+    <characteristicDefinition>
+        <id>runemastery</id>
+        <name>
+            <en>Runemastery</en>
+            <es>Maestría Rúnica</es>
+        </name>
+        <description>
+            <en>Represents a vitki's learned command over the runes. Like Psi or Theurgy, it ranges from 1 to 10 and
+                determines access to and potency with runecasting. Unlike them, it has no opposing dark-side trait, but
+                advancing it demands harsh sacrifices.</en>
+            <es>Representa el dominio aprendido de un vitki sobre las runas. Como Psi o Teurgia, va de 1 a 10 y determina
+                el acceso y la potencia en la lectura de runas. A diferencia de ellas, no tiene un rasgo de lado oscuro
+                opuesto, pero progresar en ella exige duros sacrificios.</es>
+        </description>
+        <abbreviation>
+            <en>Run</en>
+            <es>Run</es>
+        </abbreviation>
+        <characteristicType>occultism</characteristicType>
+        <type>characteristicDefinition</type>
+        <random>
+            <recommendedCallings>
+                <calling>runecaster</calling>
+            </recommendedCallings>
+        </random>
+    </characteristicDefinition>
+    <characteristicDefinition>
+        <id>sympathy</id>
+        <name>
+            <en>Sympathy</en>
+            <es>Simpatía</es>
+        </name>
+        <description>
+            <en>Represents a character's attunement to the spirits and the living world, the occult trait that powers
+                Erdgheist rites and the bond between a beastfriend and their animal cohort. It ranges from 1 to 10 and
+                has no opposing dark-side trait.</en>
+            <es>Representa la sintonía de un personaje con los espíritus y el mundo viviente, el rasgo oculto que da
+                poder a los ritos Erdgheist y al vínculo entre un beastfriend y su animal afín. Va de 1 a 10 y no tiene
+                un rasgo de lado oscuro opuesto.</es>
+        </description>
+        <abbreviation>
+            <en>Sym</en>
+            <es>Sim</es>
+        </abbreviation>
+        <characteristicType>occultism</characteristicType>
+        <type>characteristicDefinition</type>
+        <random>
+            <recommendedCallings>
+                <calling>shaman</calling>
+            </recommendedCallings>
+        </random>
+    </characteristicDefinition>
+</characteristics>
+

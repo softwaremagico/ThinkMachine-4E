@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<occultism>
+    <path>
+        <id>concealingRune</id>
+        <name>
+            <en>Concealing</en>
+            <es>Ocultación</es>
+        </name>
+        <occultismType>runemastery</occultismType>
+        <powers>
+            <power>
+                <id>camouflage</id>
+                <name>
+                    <en>Camouflage</en>
+                    <es>Camuflaje</es>
+                </name>
+                <description>
+                    <en>You draw on a sympathy with your surroundings to blend into them, making yourself harder to pick
+                        out while you stay still.</en>
+                    <es>Recurres a una afinidad con tu entorno para fundirte en él, lo que hace más difícil distinguirte
+                        mientras permaneces inmóvil.</es>
+                </description>
+                <occultismLevel>1</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>perception</characteristic>
+                <skills>
+                    <skill>knavery</skill>
+                </skills>
+                <resistance>
+                    <en>Depends on how visually complex the environment is: a wooded forest is Easy, a crowded street is
+                        Demanding, and an empty desert can be Tough or higher.</en>
+                    <es>Depende de lo visualmente complejo que sea el entorno: un bosque frondoso es Fácil, una calle
+                        concurrida es Exigente, y un desierto vacío puede ser Ardua o superior.</es>
+                </resistance>
+                <impact>
+                    <en>While you remain still, add your Runemastery rating to the Resistance of others' attempts to
+                        notice you. You can raise this by spending Victory Points, and spend more to keep the
+                        camouflage while moving.</en>
+                    <es>Mientras permaneces inmóvil, suma tu Maestría Rúnica a la Resistencia de los intentos ajenos de
+                        percibirte. Puedes aumentarla gastando Puntos de Victoria, y gastar más para mantener el
+                        camuflaje mientras te mueves.</es>
+                </impact>
+            </power>
+            <power>
+                <id>innocuous</id>
+                <name>
+                    <en>Innocuous</en>
+                    <es>Inofensivo</es>
+                </name>
+                <description>
+                    <en>You make it hard for others to focus their attention on you; their minds slip away from you as if
+                        repelled.</en>
+                    <es>Haces que a los demás les cueste fijar su atención en ti; sus mentes resbalan lejos de ti como si
+                        fueran repelidas.</es>
+                </description>
+                <occultismLevel>2</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>intuition</characteristic>
+                <skills>
+                    <skill>sneak</skill>
+                </skills>
+                <resistance>
+                    <en>The target's Spirit Resistance.</en>
+                    <es>La Resistencia de Espíritu del objetivo.</es>
+                </resistance>
+                <impact>
+                    <en>Raise by 1 the Resistance of any physical or influence attack the target makes against you; you
+                        can increase this further by spending Victory Points.</en>
+                    <es>Aumenta en 1 la Resistencia de cualquier ataque físico o de influencia que el objetivo realice
+                        contra ti; puedes incrementarla gastando Puntos de Victoria.</es>
+                </impact>
+            </power>
+            <power>
+                <id>falseFace</id>
+                <name>
+                    <en>False Face</en>
+                    <es>Rostro Falso</es>
+                </name>
+                <description>
+                    <en>You project a false image over yourself, deceiving the minds of onlookers and even perceptive
+                        machines such as cameras.</en>
+                    <es>Proyectas una imagen falsa sobre ti mismo, engañando a las mentes de quienes te observan e
+                        incluso a máquinas perceptivas como las cámaras.</es>
+                </description>
+                <occultismLevel>3</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>presence</characteristic>
+                <skills>
+                    <skill>knavery</skill>
+                </skills>
+                <resistance>
+                    <en>The target's Mind Resistance.</en>
+                    <es>La Resistencia de Mente del objetivo.</es>
+                </resistance>
+                <impact>
+                    <en>You appear and sound like someone you have personally seen or heard, or assume a guise you
+                        invent. The disguise normally resists everything but occult detection, which you can hinder by
+                        spending Victory Points.</en>
+                    <es>Aparentas el aspecto y la voz de alguien a quien hayas visto u oído en persona, o adoptas una
+                        apariencia que inventes. El disfraz resiste todo salvo la detección oculta, que puedes dificultar
+                        gastando Puntos de Victoria.</es>
+                </impact>
+            </power>
+            <power>
+                <id>deadenSenses</id>
+                <name>
+                    <en>Deaden Senses</en>
+                    <es>Embotar los Sentidos</es>
+                </name>
+                <description>
+                    <en>You dull one of a target's senses, impairing their sight, hearing, or touch.</en>
+                    <es>Atenúas uno de los sentidos del objetivo, mermando su vista, su oído o su tacto.</es>
+                </description>
+                <occultismLevel>4</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>perception</characteristic>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
+                <resistance>
+                    <en>The target's Mind or Spirit Resistance, as the GM decides.</en>
+                    <es>La Resistencia de Mente o Espíritu del objetivo, según decida el DJ.</es>
+                </resistance>
+                <impact>
+                    <en>The chosen sense becomes impaired; by spending extra Victory Points you can worsen the effect
+                        (for example, blinding or deafening the target).</en>
+                    <es>El sentido elegido queda mermado; gastando Puntos de Victoria adicionales puedes agravar el
+                        efecto (por ejemplo, cegar o ensordecer al objetivo).</es>
+                </impact>
+            </power>
+        </powers>
+    </path>
+</occultism>
+
