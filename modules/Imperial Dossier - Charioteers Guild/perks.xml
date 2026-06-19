@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<perks>
+    <perk>
+        <id>consignment</id>
+        <name>
+            <en>Consignment</en>
+            <es>Consignación</es>
+        </name>
+        <description>
+            <en>When local merchants cannot supply what you desire, you know a network of agents, traders, and couriers who can.
+                Benefice: When you wish to purchase an item unavailable in an agora, you can reach out to your contacts and arrange to have it delivered for a fee. Reaching out requires an hour of work and a Charm + Wits roll against a Resistance based on the item's scarcity at the nearestá agora where it's available (Hard for common goods, Tough for rare goods, Herculean for exotic goods). Success means arrangements are made to deliver the item, increasíng its purchase price by 50%; you can reduce this increase by 10% per 2 VP spent, down to a minimum of 10% (for 8 VP). Delivery takes one week within the same system or two weeks per jump between systems, reducible with VP. If the item is blocked by a monopoly or embargo, a crítical miss means running afoul of those eager to preserve their stranglehold on it.</en>
+            <es>Cuando los mercaderes locales no pueden suministrar lo que deseas, conoces una red de agentes, comerciantes y mensajeros que sí pueden.
+                Beneficio: Cuando quieras comprar un objeto no disponible en un agora, puedes recurrir a tus contactos y concertar su entrega a cambio de una tarifa. Contactar requiere una hora de trabajo y una tirada de Charm + Wits contra una Resistencia según la escasez del objeto en el agora más cercano donde esté disponible (Difícil para bienes comunes, Ardua para bienes raros, Herculea para bienes exóticos). El éxito significa que se concierta la entrega del objeto, aumentando su precio de compra un 50%; puedes reducir ese aumento un 10% por cada 2 PV gastados, hasta un mínimo del 10% (por 8 PV). La entrega tarda una semana dentro del mismo sistema o dos semanas por salto entre sistemas, reducible con PV. Si el objeto está bloqueado por un monopolio o embargo, una pifia significa toparte con quienes ansían conservar su control sobre el.</es>
+        </description>
+        <source>calling</source>
+        <type>privilege</type>
+        <restrictions>
+            <callings>
+                <calling>spy</calling>
+                <calling>trader</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>customsOfficer</id>
+        <name>
+            <en>Customs Officer</en>
+            <es>Oficial de Aduanas</es>
+        </name>
+        <description>
+            <en>You have access to records normally only available to port authorities, traffic control officers, and shipping magnates.
+                Benefice: You may gain access to spaceport records, such as cargo and passenger manifestás, starship registries, and departure/arrival logs, by presenting yourself to a port bureaucrat (typically a boatswain) and requesting to view the archives. No influence roll is required. You can also access confidential port data files, as you have a legítimate password to bypass League data encryption that would normally require an Interface skill maneuver against Severe Resistance.</en>
+            <es>Tienes acceso a registros normalmente reservados a las autoridades portuarias, los controladores de tráfico y los magnates navieros.
+                Beneficio: Puedes acceder a los registros del puerto espacial, como manifiestos de carga y pasajeros, registros de naves y bitácoras de partida/llegada, presentándote ante un burócrata portuario (normalmente un contramaestre) y solicitando ver los archivos. No se requiere tirada de influencia. También puedes acceder a los archivos de datos confidenciales del puerto, pues posees una contraseña legítima para sortear el cifrado de datos de la Liga que normalmente requeriría una maniobra de habilidad Interface contra Resistencia Severa.</es>
+        </description>
+        <source>calling</source>
+        <type>privilege</type>
+        <restrictions mode="any">
+            <upbringings>
+                <upbringing>merchant</upbringing>
+            </upbringings>
+            <callings>
+                <calling>detective</calling>
+                <calling>inquisitor</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>gunneryOfficer</id>
+        <name>
+            <en>Gunnery Officer</en>
+            <es>Oficial de Artillería</es>
+        </name>
+        <description>
+            <en>You deploy shipboard armaments with unerring accuracy. You must know the following capabilities to gain this perk: Shipboard Operations and Military Ordinance (Gunnery).
+                Benefice: When spending VP to increase damage for a victorious starship weapon attack, the first 3 points of damage only cost 1 VP each. After that, you must spend 2 VP per 1 damage, as usual. You also ignore the Resistance modifier caused by targeting specific starship systems with a fire! maneuver.</en>
+            <es>Despliegas el armamento de a bordo con precisión infalible. Debes conocer las siguientes capacidades para obtener esté perk: Operaciones de a Bordo y Artillería Militar (Artillería).
+                Beneficio: Al gastar PV para aumentar el daño de un ataque victorioso con arma de nave, los primeros 3 puntos de daño solo cuestán 1 PV cada uno. A partir de ahí, debes gastar 2 PV por cada 1 de daño, como es habitual. Además, ignoras el modificador de Resistencia causado por apuntar a sistemas concretos de una nave con una maniobra de fuego!</es>
+        </description>
+        <source>calling</source>
+        <type>ability</type>
+        <restrictions mode="any">
+            <upbringings>
+                <upbringing>merchant</upbringing>
+            </upbringings>
+            <callings>
+                <calling>explorer</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>monkeyWrench</id>
+        <name>
+            <en>Monkey Wrench</en>
+            <es>Llave Inglesa</es>
+        </name>
+        <description>
+            <en>You are an expert at throwing a spanner into the works, disabling devices and systems with practiced ease.
+                Benefice: You are deft at performing the disable maneuver with your Tech Redemption skill; your rolls to disable are favorable. Also, when you successfully disable an item or system, instead of merely disabling it you may put it into the Sabotaged state by spending 2 VP. This causes the device to deal damage to itself and its user on a failure rather than a crítical failure, after which the device is broken. Your cost to deal damage as part of a successful disable maneuver is 1 VP per damage.</en>
+            <es>Eres experto en meter un palo en las ruedas, inutilizando dispositivos y sistemas con soltura.
+                Beneficio: Eres hábil ejecutando la maniobra de inutilizar con tu habilidad Tech Redemption; tus tiradas para inutilizar son favorables. Además, cuando inutilizas con éxito un objeto o sistema, en lugar de simplemente inutilizarlo puedes colocarlo en el estádo Saboteado gastando 2 PV. Esto hace que el dispositivo se inflija daño a sí mismo y a su usuario con un fallo en lugar de una pifia, tras lo cual el dispositivo queda roto. Tu coste para infligir daño como parte de una maniobra de inutilizar éxitosa es de 1 PV por daño.</es>
+        </description>
+        <source>calling</source>
+        <type>ability</type>
+        <restrictions>
+            <callings>
+                <calling>incognito</calling>
+                <calling>saboteur</calling>
+                <calling>spy</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>outrider</id>
+        <name>
+            <en>Outrider</en>
+            <es>Batidor</es>
+        </name>
+        <description>
+            <en>You know how to get the most out of your ship's thrusters, and you can still the cries of a protesting engine with nothing more than a prayer to St. Paulus and a gentle rap on the command console.
+                Benefice: You are deft at performing the full burn maneuver with your Pilot skill; your rolls to execute full burns are favorable. Also, once per scene when engaged in pursuit, this maneuver costs you 1 VP per additional range increment.</en>
+            <es>Sabes sacar el máximo partido a los propulsores de tu nave, y puedes acallar los lamentos de un motor que protestá con apenas una oración a San Paulus y un suave golpecito en la consola de mando.
+                Beneficio: Eres hábil ejecutando la maniobra de quemado total con tu habilidad Pilot; tus tiradas para ejecutar quemados totales son favorables. Además, una vez por escena cuando estés en una persecución, está maniobra te cuestá 1 PV por cada incremento de alcance adicional.</es>
+        </description>
+        <source>calling</source>
+        <type>ability</type>
+        <restrictions>
+            <callings>
+                <calling>combatPilot</calling>
+                <calling>starPilot</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>portAuthority</id>
+        <name>
+            <en>Port Authority</en>
+            <es>Autoridad Portuaria</es>
+        </name>
+        <description>
+            <en>Your jurisdictional authority over spaceport operations grants influence and a number of strings to pull.
+                Benefice: Once per drama, you may gain the benefits of one of the following perks as if you had acquired it: Bureaucracy, Consignment, Contact, Customs Officer, Diplomatic Immunity, Embargo, Income Tax, or Passage Contract. The benefits last for the remainder of the drama. If you are placed into the Guilty or Humiliated states by a character of equal or higher rank, you lose the benefits of Port Authority until these states are overcome. If you lose your Guild Commission, replace Port Authority with another perk for which you qualify. Requires Charioteer and a Guild Commission (Lieutenant or higher).</en>
+            <es>Tu autoridad jurisdiccional sobre las operaciones del puerto espacial te otorga influencia y diversos hilos que mover.
+                Beneficio: Una vez por drama, puedes obtener los beneficios de uno de los siguientes perks como si lo hubieras adquirido: Burocracia, Consignación, Contacto, Oficial de Aduanas, Inmunidad Diplomatica, Embargo, Impuestáo sobre la Renta o Contrato de Pasaje. Los beneficios duran el restáo del drama. Si un personaje de rango igual o superior te coloca en los estádos Culpable o Humillado, pierdes los beneficios de Autoridad Portuaria hasta superar esos estádos. Si pierdes tu Comision Gremial, sustituye Autoridad Portuaria por otro perk para el que cumplas los requisitos. Requiere ser Carromatero y una Comision Gremial (Teniente o superior).</es>
+        </description>
+        <source>calling</source>
+        <type>privilege</type>
+        <restrictions>
+            <factions>
+                <faction>charioteers</faction>
+            </factions>
+        </restrictions>
+    </perk>
+</perks>
+
+
+
+
+<!-- Restáurar acentuación española completa en todos los <es> y nombres en español, corrigiendo palabras truncadas. -->
+
+
