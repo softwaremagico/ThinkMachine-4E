@@ -113,9 +113,13 @@ public class RandomizeCharacterDefinitionStep {
             for (int i = 0; i < capabilityOptions.size(); i++) {
                 for (int j = characterDefinitionStepSelection.getSelectedCapabilityOptions().get(i).getSelections().size();
                      j < capabilityOptions.get(i).getTotalOptions(); j++) {
+                    // Recalculate capability options each iteration as previous picks can change available options
+                    final List<CapabilityOptions> currentCapabilityOptions = characterDefinitionStepSelection.getNotRepeatedCapabilityOptions();
+                    final CapabilityOptions currentOption = currentCapabilityOptions.get(i);
+
                     final RandomCapabilityOption randomCapability =
                             new RandomCapabilityOption(getCharacterPlayer(), getPreferences(),
-                                    capabilityOptions.get(i),
+                                    currentOption,
                                     characterDefinitionStepSelection.getPhase());
                     try {
                         final CapabilityOption selectedCapability = randomCapability.selectElementByWeight();
@@ -127,7 +131,7 @@ public class RandomizeCharacterDefinitionStep {
                                 .add(selection);
                     } catch (InvalidXmlElementException e) {
                         throw new InvalidXmlElementException("Error on capabilities options '"
-                                + capabilityOptions.get(i) + "'.", e);
+                                + currentOption + "'.", e);
                     }
                 }
             }
@@ -146,31 +150,46 @@ public class RandomizeCharacterDefinitionStep {
                         int tries = 0;
                         boolean skillFound = false;
                         Skill selectedSkill = null;
-                        do {
-                            final RandomSkillBonusOption randomSkill =
-                                    new RandomSkillBonusOption(getCharacterPlayer(), getPreferences(),
-                                            skillOptions.get(i));
-                            selectedSkill = randomSkill.selectElementByWeight();
-                            try {
-                                //Check if skill selections does not exceed skill level limit.
-                                getCharacterPlayer().checkMaxValueByLevel(selectedSkill, getCharacterPlayer().getSkillValue(selectedSkill)
-                                        + skillOptions.get(i).getSkillBonus(selectedSkill.getId()).getBonus());
-                            } catch (InvalidSkillException e) {
-                                tries++;
-                                if (randomSkill.getWeightedElements().size() > 1) {
-                                    randomSkill.removeElementWeight(selectedSkill);
-                                }
-                                continue;
-                            }
-                            skillFound = true;
-                        } while (!skillFound && tries < TRIES);
 
-                        // If no valid skill found after retries, force selection without level validation
+                        while (!skillFound && tries < TRIES) {
+                            try {
+                                // Recalculate skill options each iteration as previous picks can change available skills
+                                final SkillBonusOptions currentSkillOption = characterDefinitionStepSelection.getSkillOptions().get(i);
+                                final RandomSkillBonusOption randomSkill =
+                                        new RandomSkillBonusOption(getCharacterPlayer(), getPreferences(),
+                                                currentSkillOption);
+                                selectedSkill = randomSkill.selectElementByWeight();
+                                try {
+                                    //Check if skill selections does not exceed skill level limit.
+                                    getCharacterPlayer().checkMaxValueByLevel(selectedSkill, getCharacterPlayer().getSkillValue(selectedSkill)
+                                            + currentSkillOption.getSkillBonus(selectedSkill.getId()).getBonus());
+                                    skillFound = true;
+                                } catch (InvalidSkillException e) {
+                                    tries++;
+                                    if (randomSkill.getWeightedElements().size() > 1) {
+                                        randomSkill.removeElementWeight(selectedSkill);
+                                    }
+                                }
+                            } catch (InvalidXmlElementException e) {
+                                // No elements available - may have reached skill level limits on all options
+                                tries++;
+                            }
+                        }
+
+                        // If no valid skill found after retrying, force selection without level validation
                         // (reassignSkills() will handle any level limit violations)
                         if (!skillFound) {
-                            final RandomSkillBonusOption randomSkill = new RandomSkillBonusOption(
-                                    getCharacterPlayer(), getPreferences(), skillOptions.get(i));
-                            selectedSkill = randomSkill.selectElementByWeight();
+                            try {
+                                final SkillBonusOptions currentSkillOption = characterDefinitionStepSelection.getSkillOptions().get(i);
+                                final RandomSkillBonusOption randomSkill = new RandomSkillBonusOption(
+                                        getCharacterPlayer(), getPreferences(), currentSkillOption);
+                                selectedSkill = randomSkill.selectElementByWeight();
+                            } catch (InvalidXmlElementException e) {
+                                // All skills in group exhausted - this is rare but can happen
+                                // Skip adding this skill, but don't propagate exception
+                                // reassignSkills() will handle any resulting gaps
+                                selectedSkill = null;
+                            }
                         }
 
                         if (selectedSkill != null) {
@@ -180,7 +199,7 @@ public class RandomizeCharacterDefinitionStep {
                     }
                 } catch (InvalidXmlElementException e) {
                     throw new InvalidXmlElementException("Error on skill options '"
-                            + skillOptions.get(i) + "'.", e);
+                            + characterDefinitionStepSelection.getSkillOptions().get(i) + "'.", e);
                 }
             }
         }
@@ -245,7 +264,8 @@ public class RandomizeCharacterDefinitionStep {
         final RandomOccultismPower randomOccultismPower = new RandomOccultismPower(getCharacterPlayer(), getPreferences());
         try {
             randomOccultismPower.assign();
-        } catch (InvalidSpecieException | InvalidRandomElementSelectedException | UnofficialElementNotAllowedException e) {
+        } catch (InvalidSpecieException | InvalidRandomElementSelectedException
+                 | UnofficialElementNotAllowedException e) {
             throw new InvalidRandomElementSelectedException("Error assigning an occultism power!", e);
         }
     }
