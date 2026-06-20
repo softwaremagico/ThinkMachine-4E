@@ -3,36 +3,40 @@
     <vuldrokHailstormSplinterRifle>
         <id>vuldrokHailstormSplinterRifle</id>
         <type>weapon</type>
-        <group>militaryWeapons</group>
         <name>
             <en>Vuldrok Hailstorm Splinter Rifle</en>
             <es>Rifle de Esquirlas Hailstorm Vuldrok</es>
         </name>
         <description>
-            <en>A favored Vuldrok longarm that sprays a storm of metal flechettes downrange. It is prized among raiders
-                for the volume of fire it can lay down in a fight.</en>
-            <es>Un fusil largo muy apreciado por los Vuldrok que dispara una tormenta de esquirlas metálicas. Los
-                asaltantes lo valoran por el volumen de fuego que puede desatar en combate.</es>
+            <en>A favored Vuldrok longarm built on the Hailstorm flechette pattern, spraying a storm of metal splinters
+                downrange. Like all flechette weapons its splinters lose force at distance, but up close it is devastating.</en>
+            <es>Un fusil largo muy apreciado por los Vuldrok, construido sobre el patrón de esquirlas Hailstorm, que
+                dispara una tormenta de fragmentos metálicos. Como toda arma de flechette, sus esquirlas pierden fuerza
+                con la distancia, pero a corta es devastadora.</es>
         </description>
-        <techLevel>5</techLevel>
+        <official>false</official>
+        <techLevel>4</techLevel>
         <weaponType>SLUG</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
                 <skill>shoot</skill>
                 <goal>0</goal>
-                <damage>7</damage>
+                <damage>5</damage>
                 <strength>3</strength>
-                <range>40/125</range>
-                <shots>30</shots>
-                <rate>3(A)</rate>
+                <range>20/30</range>
+                <shots>13</shots>
+                <rate>1</rate>
             </weaponDamage>
         </damageList>
         <damageTypes>
             <damageType>hard</damageType>
         </damageTypes>
         <size>XL</size>
-        <cost>500</cost>
+        <cost>350</cost>
+        <others>
+            <other>flechette</other>
+        </others>
         <agora>rare</agora>
         <random>
             <probabilityMultiplier>RARE</probabilityMultiplier>

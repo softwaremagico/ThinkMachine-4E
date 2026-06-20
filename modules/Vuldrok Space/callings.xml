@@ -390,6 +390,30 @@
                     <capability>
                         <id>musicalInstrument</id>
                     </capability>
+                    <capability>
+                        <group>knowledgeLore</group>
+                    </capability>
+                    <capability>
+                        <group>customsLore</group>
+                    </capability>
+                    <capability>
+                        <group>artsLore</group>
+                    </capability>
+                    <capability>
+                        <group>craftsLore</group>
+                    </capability>
+                    <capability>
+                        <group>medicalLore</group>
+                    </capability>
+                    <capability>
+                        <group>performingArtsLore</group>
+                    </capability>
+                    <capability>
+                        <group>scienceLore</group>
+                    </capability>
+                    <capability>
+                        <group>techLore</group>
+                    </capability>
                 </options>
             </capabilitiesOption>
             <capabilitiesOption>
@@ -805,6 +829,30 @@
                     <capability>
                         <id>archery</id>
                     </capability>
+                    <capability>
+                        <group>knowledgeLore</group>
+                    </capability>
+                    <capability>
+                        <group>customsLore</group>
+                    </capability>
+                    <capability>
+                        <group>artsLore</group>
+                    </capability>
+                    <capability>
+                        <group>craftsLore</group>
+                    </capability>
+                    <capability>
+                        <group>medicalLore</group>
+                    </capability>
+                    <capability>
+                        <group>performingArtsLore</group>
+                    </capability>
+                    <capability>
+                        <group>scienceLore</group>
+                    </capability>
+                    <capability>
+                        <group>techLore</group>
+                    </capability>
                 </options>
             </capabilitiesOption>
         </capabilities>
@@ -955,7 +1003,7 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <id>religionLore</id>
+                        <id>erdgheistLore</id>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -963,7 +1011,28 @@
                 <total>1</total>
                 <options>
                     <capability>
-                        <id>occultLore</id>
+                        <group>knowledgeLore</group>
+                    </capability>
+                    <capability>
+                        <group>customsLore</group>
+                    </capability>
+                    <capability>
+                        <group>artsLore</group>
+                    </capability>
+                    <capability>
+                        <group>craftsLore</group>
+                    </capability>
+                    <capability>
+                        <group>medicalLore</group>
+                    </capability>
+                    <capability>
+                        <group>performingArtsLore</group>
+                    </capability>
+                    <capability>
+                        <group>scienceLore</group>
+                    </capability>
+                    <capability>
+                        <group>techLore</group>
                     </capability>
                 </options>
             </capabilitiesOption>
@@ -1015,6 +1084,9 @@
                     </perk>
                     <perk>
                         <id>imbueTabernacle</id>
+                    </perk>
+                    <perk>
+                        <id>inspiring</id>
                     </perk>
                     <perk>
                         <id>investPhylactery</id>
