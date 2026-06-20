@@ -66,7 +66,7 @@ public class UpbringingFactoryTest extends FactoryTest {
         Assert.assertEquals(
                 UpbringingFactory.getInstance().getElement("noble").getCharacterAvailablePerksOptions().size(), 2);
         Assert.assertEquals(UpbringingFactory.getInstance().getElement("noble").getCharacterAvailablePerksOptions()
-                .get(1).getOptions().size(), 122);
+                .get(1).getOptions().size(), 132);
     }
 
     @Test

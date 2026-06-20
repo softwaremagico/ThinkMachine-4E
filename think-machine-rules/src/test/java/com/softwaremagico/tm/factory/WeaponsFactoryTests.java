@@ -41,8 +41,8 @@ import java.util.List;
 @Test(groups = {"weaponsFactory"})
 public class WeaponsFactoryTests extends FactoryTest {
 
-    // 131 base weapons + 1 from Imperial Dossier - Charioteers Guild.
-    private static final int DEFINED_WEAPONS = 132;
+    // 131 base weapons + 1 from Imperial Dossier - Charioteers Guild + 2 from Vuldrok Space.
+    private static final int DEFINED_WEAPONS = 134;
 
 
     @Test

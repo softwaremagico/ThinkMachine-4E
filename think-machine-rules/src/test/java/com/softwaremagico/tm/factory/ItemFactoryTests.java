@@ -33,8 +33,8 @@ import org.testng.annotations.Test;
 @Test(groups = {"itemFactory"})
 public class ItemFactoryTests extends FactoryTest {
 
-    // 127 base items + 3 from Imperial Dossier - Charioteers Guild.
-    private static final int DEFINED_ITEMS = 130;
+    // 127 base items + 3 from Imperial Dossier - Charioteers Guild + 3 from Vuldrok Space.
+    private static final int DEFINED_ITEMS = 133;
 
     @Test
     public void readItems() throws InvalidXmlElementException {

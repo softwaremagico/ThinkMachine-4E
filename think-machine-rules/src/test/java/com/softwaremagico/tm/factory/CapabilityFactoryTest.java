@@ -35,8 +35,8 @@ import org.testng.annotations.Test;
 @Test(groups = {"capabilityFactory"})
 public class CapabilityFactoryTest extends FactoryTest {
 
-	public static final int TOTAL_ELEMENTS = 75;
-	public static final int TOTAL_EXPANDED_ELEMENTS = 205;
+	public static final int TOTAL_ELEMENTS = 84;
+	public static final int TOTAL_EXPANDED_ELEMENTS = 215;
 
 	@Test
 	public void checkTotalElements() throws InvalidXmlElementException {

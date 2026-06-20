@@ -442,10 +442,28 @@
                 <total>1</total>
                 <options>
                     <perk>
-                        <id>sagaSinger</id>
+                        <id>gospel</id>
                     </perk>
                     <perk>
                         <id>invigorate</id>
+                    </perk>
+                    <perk>
+                        <id>keySignature</id>
+                    </perk>
+                    <perk>
+                        <id>mainAttraction</id>
+                    </perk>
+                    <perk>
+                        <id>perfectPitch</id>
+                    </perk>
+                    <perk>
+                        <id>sagaSinger</id>
+                    </perk>
+                    <perk>
+                        <id>stunningStatement</id>
+                    </perk>
+                    <perk>
+                        <id>viciousInsult</id>
                     </perk>
                 </options>
                 <openPerks>true</openPerks>
@@ -837,6 +855,9 @@
                 <total>1</total>
                 <options>
                     <perk>
+                        <id>animalFriend</id>
+                    </perk>
+                    <perk>
                         <id>chameleon</id>
                     </perk>
                     <perk>
@@ -844,6 +865,9 @@
                     </perk>
                     <perk>
                         <id>spotter</id>
+                    </perk>
+                    <perk>
+                        <id>wildDomain</id>
                     </perk>
                 </options>
                 <openPerks>true</openPerks>
@@ -989,6 +1013,15 @@
                     <perk>
                         <id>craftTulac</id>
                     </perk>
+                    <perk>
+                        <id>imbueTabernacle</id>
+                    </perk>
+                    <perk>
+                        <id>investPhylactery</id>
+                    </perk>
+                    <perk>
+                        <id>sanctifyArmsAndArmor</id>
+                    </perk>
                 </options>
                 <openPerks>true</openPerks>
             </perkOptions>
@@ -1057,6 +1090,222 @@
             <probabilityMultiplier>RARE</probabilityMultiplier>
             <recommendedPreferences>
                 <preference>THEURGY</preference>
+            </recommendedPreferences>
+        </random>
+    </calling>
+    <calling>
+        <id>runecaster</id>
+        <name>
+            <en>Runecaster</en>
+            <es>Lector de Runas</es>
+        </name>
+        <description>
+            <en>The rare vitki who have learned to see and manipulate the runes, the strange glyphs found among Ur ruins
+                and Anunnaki artifacts. Their power comes at the cost of harsh sacrifices, and both luck and ruin seem to
+                follow them.</en>
+            <es>Los escasos vitki que han aprendido a ver y manipular las runas, los extraños glifos hallados entre las
+                ruinas Ur y los artefactos Anunnaki. Su poder se paga con duros sacrificios, y tanto la fortuna como la
+                ruina parecen seguirlos.</es>
+        </description>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>runelore</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>elementalRune</id>
+                    </capability>
+                    <capability>
+                        <id>lifeRune</id>
+                    </capability>
+                    <capability>
+                        <id>mindRune</id>
+                    </capability>
+                    <capability>
+                        <id>artifactRune</id>
+                    </capability>
+                    <capability>
+                        <id>cosmicRune</id>
+                    </capability>
+                    <capability>
+                        <id>conditionRune</id>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <characteristics>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>intuition</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>perception</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                    <characteristic>
+                        <id>presence</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>will</id>
+                        <bonus>2</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+            <characteristicBonusOptions>
+                <total>1</total>
+                <options>
+                    <characteristic>
+                        <id>runemastery</id>
+                        <bonus>1</bonus>
+                    </characteristic>
+                </options>
+            </characteristicBonusOptions>
+        </characteristics>
+        <perks>
+            <perkOptions>
+                <total>1</total>
+                <options>
+                    <perk>
+                        <id>bogeyman</id>
+                    </perk>
+                    <perk>
+                        <id>dabbleInTheDark</id>
+                    </perk>
+                    <perk>
+                        <id>enlightened</id>
+                    </perk>
+                    <perk>
+                        <id>legerdemain</id>
+                    </perk>
+                    <perk>
+                        <group>runelearnerRank</group>
+                    </perk>
+                    <perk>
+                        <id>scentOfTheWitch</id>
+                    </perk>
+                    <perk>
+                        <id>wyrdKnowledge</id>
+                    </perk>
+                </options>
+                <openPerks>true</openPerks>
+            </perkOptions>
+        </perks>
+        <skills>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>charm</id>
+                        <bonus>2</bonus>
+                    </skill>
+                    <skill>
+                        <id>impress</id>
+                        <bonus>2</bonus>
+                    </skill>
+                    <skill>
+                        <id>knavery</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>empathy</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>fight</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>melee</id>
+                        <bonus>1</bonus>
+                    </skill>
+                    <skill>
+                        <id>shoot</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>focus</id>
+                        <bonus>3</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>sleightOfHand</id>
+                        <bonus>2</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+            <skillBonusOption>
+                <total>1</total>
+                <options>
+                    <skill>
+                        <id>vigor</id>
+                        <bonus>1</bonus>
+                    </skill>
+                </options>
+            </skillBonusOption>
+        </skills>
+        <materialAwards>
+            <materialAwardOption>
+                <total>1</total>
+                <options>
+                    <item>
+                        <id>runestave</id>
+                        <type>item</type>
+                    </item>
+                    <item>
+                        <id>runestoneBag</id>
+                        <type>item</type>
+                    </item>
+                    <item>
+                        <id>runestoneNecklace</id>
+                        <type>item</type>
+                    </item>
+                </options>
+            </materialAwardOption>
+        </materialAwards>
+        <random>
+            <probabilityMultiplier>EXOTIC</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>OCCULTIST</preference>
             </recommendedPreferences>
         </random>
     </calling>

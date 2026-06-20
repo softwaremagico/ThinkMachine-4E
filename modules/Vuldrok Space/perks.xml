@@ -54,12 +54,383 @@
             <es>Tus actuaciones pueden moldear la opinión del público sobre una persona o una hazaña, ensalzando o
                 empañando reputaciones mediante sagas cautivadoras.</es>
         </description>
-        <source>calling</source>
+        <source>class</source>
         <type>ability</type>
         <restrictions>
             <callings>
                 <calling>skald</calling>
             </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lodgeMember</id>
+        <name>
+            <en>Lodge Member</en>
+            <es>Miembro de Logia</es>
+        </name>
+        <description>
+            <en>You are a member in good standing of a Vuldrok lodge. You gain
+                bonus capabilities from your lodge's list as you advance in level, a goal bonus on influence rolls with
+                fellow members, and you can call on the lodge for aid, while being expected to help them in turn. You
+                can belong to only one lodge.</en>
+            <es>Eres miembro de pleno derecho de una logia vuldrok. Obtienes
+                capacidades adicionales de la lista de tu logia conforme subes de nivel, un bonificador a las tiradas
+                de influencia con otros miembros y puedes recurrir a la logia en busca de ayuda, esperándose que tú
+                también les ayudes. Solo puedes pertenecer a una logia.</es>
+        </description>
+        <source>calling</source>
+        <type>privilege</type>
+        <restrictions>
+            <callings>
+                <calling>berserker</calling>
+                <calling>fheykrig</calling>
+                <calling>skald</calling>
+                <calling>warrior</calling>
+                <calling>beastfriend</calling>
+                <calling>shaman</calling>
+                <calling>runecaster</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>spiritsign</id>
+        <name>
+            <en>Spirit Sign</en>
+            <es>Signo del Espíritu</es>
+        </name>
+        <description>
+            <en>Class • Privilege • Precondition: Vuldrok. You are believed to have been born under a lucky sign, or
+                others know you have experienced an omen marking you as chosen by a particular god or spirit. You gain
+                +2 Spirit Resistance, and whenever you spend a wyrd point to make a roll favorable, you do not suffer a
+                critical miss even if both dice roll a 20.</en>
+            <es>Clase • Privilegio • Requisito: Vuldrok. Se cree que naciste bajo un signo afortunado, o se sabe que
+                tuviste un presagio que te señala como elegido de un dios o espíritu concreto. Obtienes +2 de
+                Resistencia de Espíritu y, cuando gastas un punto de wyrd para hacer favorable una tirada, no sufres una
+                pifia aunque ambos dados saquen 20.</es>
+        </description>
+        <source>class</source>
+        <type>privilege</type>
+        <resistances>
+            <resistance>
+                <type>spirit</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>berserker</calling>
+                <calling>fheykrig</calling>
+                <calling>skald</calling>
+                <calling>warrior</calling>
+                <calling>beastfriend</calling>
+                <calling>shaman</calling>
+                <calling>runecaster</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>regardShieldman</id>
+        <name>
+            <en>Regard (Shieldman)</en>
+            <es>Estima (Hombre Escudo)</es>
+        </name>
+        <description>
+            <en>Class • Privilege • Precondition: Vuldrok. Instead of the Professional Reputation perk, Vuldrok gain
+                Regard, the measure of their renown among the Vuldrok nations. Its title depends on how many levels of
+                this hierarchical perk you possess; each successive level raises you in rank one title (Shieldman,
+                Armsman, Jarl, Thane, Great Thane, Warlord) and grants +2 Mind Resistance. A shaman uses the titles
+                Wayman, Apprentice, Wyrdworker, Seer, Godhi; skilled professionals use Noteworthy, Journeyman, Gifted,
+                Cunning, Adept, Master. (For women: Shieldwoman, Waywoman, Journeywoman.) Regard is awarded by consensus
+                at a person's local Althing.</en>
+            <es>Clase • Privilegio • Requisito: Vuldrok. En lugar del beneficio Reputación Profesional, los vuldrok
+                obtienen Estima, la medida de su renombre entre las naciones vuldrok. El título depende de cuántos
+                niveles de este beneficio jerárquico poseas; cada nivel sucesivo te sube un título (Hombre Escudo,
+                Hombre de Armas, Jarl, Thane, Gran Thane, Señor de la Guerra) y otorga +2 de Resistencia de Mente. Un
+                chamán usa los títulos Wayman, Aprendiz, Wyrdworker, Vidente, Godhi; los profesionales cualificados usan
+                Notable, Oficial, Dotado, Astuto, Adepto, Maestro. (Para mujeres: Mujer Escudo, Waywoman, Oficiala.) La
+                Estima se concede por consenso en el Althing local.</es>
+        </description>
+        <source>class</source>
+        <type>privilege</type>
+        <group>regard</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <callings>
+                <calling>berserker</calling>
+                <calling>fheykrig</calling>
+                <calling>skald</calling>
+                <calling>warrior</calling>
+                <calling>beastfriend</calling>
+                <calling>shaman</calling>
+                <calling>runecaster</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>regardArmsman</id>
+        <name>
+            <en>Regard (Armsman)</en>
+            <es>Estima (Hombre de Armas)</es>
+        </name>
+        <description>
+            <en>The second rank of Vuldrok Regard. See Regard (Shieldman).</en>
+            <es>El segundo rango de la Estima vuldrok. Véase Estima (Hombre Escudo).</es>
+        </description>
+        <source>class</source>
+        <type>privilege</type>
+        <group>regard</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <perks>
+                <perk>regardShieldman</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>regardJarl</id>
+        <name>
+            <en>Regard (Jarl)</en>
+            <es>Estima (Jarl)</es>
+        </name>
+        <description>
+            <en>The third rank of Vuldrok Regard. See Regard (Shieldman).</en>
+            <es>El tercer rango de la Estima vuldrok. Véase Estima (Hombre Escudo).</es>
+        </description>
+        <source>class</source>
+        <type>privilege</type>
+        <group>regard</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <perks>
+                <perk>regardArmsman</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>regardThane</id>
+        <name>
+            <en>Regard (Thane)</en>
+            <es>Estima (Thane)</es>
+        </name>
+        <description>
+            <en>The fourth rank of Vuldrok Regard, called captain by the Zetol or itankan by the Lakol. See Regard
+                (Shieldman).</en>
+            <es>El cuarto rango de la Estima vuldrok, llamado capitán por los Zetol o itankan por los Lakol. Véase Estima
+                (Hombre Escudo).</es>
+        </description>
+        <source>class</source>
+        <type>privilege</type>
+        <group>regard</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <perks>
+                <perk>regardJarl</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>regardGreatThane</id>
+        <name>
+            <en>Regard (Great Thane)</en>
+            <es>Estima (Gran Thane)</es>
+        </name>
+        <description>
+            <en>The fifth rank of Vuldrok Regard, called prince by the Rekgold, veiviser by the Maghtaw, or eslekan or
+                tatek among the Skey. See Regard (Shieldman).</en>
+            <es>El quinto rango de la Estima vuldrok, llamado príncipe por los Rekgold, veiviser por los Maghtaw, o
+                eslekan o tatek entre los Skey. Véase Estima (Hombre Escudo).</es>
+        </description>
+        <source>class</source>
+        <type>privilege</type>
+        <group>regard</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <perks>
+                <perk>regardThane</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>regardWarlord</id>
+        <name>
+            <en>Regard (Warlord)</en>
+            <es>Estima (Señor de la Guerra)</es>
+        </name>
+        <description>
+            <en>The sixth rank of Vuldrok Regard. A rare seventh rank, King, the singular ruler of all the Star Nations,
+                has not been held in centuries. See Regard (Shieldman).</en>
+            <es>El sexto rango de la Estima vuldrok. Un raro séptimo rango, Rey, el gobernante único de todas las
+                Naciones Estelares, no se ostenta desde hace siglos. Véase Estima (Hombre Escudo).</es>
+        </description>
+        <source>class</source>
+        <type>privilege</type>
+        <group>regard</group>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>2</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <perks>
+                <perk>regardGreatThane</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>runelearnerRankAthling</id>
+        <name>
+            <en>Runelearner Rank (Athling)</en>
+            <es>Rango de Aprendiz de Runas (Athling)</es>
+        </name>
+        <description>
+            <en>You are a member of the Urdur order, also known as the Well
+                of Wyrd or the Runelearners. Its title depends on how many levels of this hierarchical perk you possess;
+                each successive level raises you in rank one title (Athling, Ondling, Erulian, Runeskald, Erilaz, Theal)
+                and grants a goal bonus to influence attempts against those with any standing in society, plus access to
+                the order's network of runecasters and their lore, in exchange for an oath of loyalty and obedience to
+                the order's hierarchy.</en>
+            <es>Eres miembro de la orden Urdur, también conocida como el
+                Pozo del Wyrd o los Aprendices de Runas. El título depende de cuántos niveles de este beneficio
+                jerárquico poseas; cada nivel sucesivo te sube un título (Athling, Ondling, Erulian, Runeskald, Erilaz,
+                Theal) y otorga un bonificador a los intentos de influencia contra quienes tienen algún estatus social,
+                además de acceso a la red de lectores de runas de la orden y a su saber, a cambio de un voto de lealtad
+                y de obediencia a la jerarquía de la orden.</es>
+        </description>
+        <source>class</source>
+        <type>privilege</type>
+        <group>runelearnerRank</group>
+        <restrictions>
+            <callings>
+                <calling>runecaster</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>runelearnerRankOndling</id>
+        <name>
+            <en>Runelearner Rank (Ondling)</en>
+            <es>Rango de Aprendiz de Runas (Ondling)</es>
+        </name>
+        <description>
+            <en>The second rank of the Runelearners. See Runelearner Rank (Athling).</en>
+            <es>El segundo rango de los Aprendices de Runas. Véase Rango de Aprendiz de Runas (Athling).</es>
+        </description>
+        <source>class</source>
+        <type>privilege</type>
+        <group>runelearnerRank</group>
+        <restrictions>
+            <perks>
+                <perk>runelearnerRankAthling</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>runelearnerRankErulian</id>
+        <name>
+            <en>Runelearner Rank (Erulian)</en>
+            <es>Rango de Aprendiz de Runas (Erulian)</es>
+        </name>
+        <description>
+            <en>The third rank of the Runelearners. See Runelearner Rank (Athling).</en>
+            <es>El tercer rango de los Aprendices de Runas. Véase Rango de Aprendiz de Runas (Athling).</es>
+        </description>
+        <source>class</source>
+        <type>privilege</type>
+        <group>runelearnerRank</group>
+        <restrictions>
+            <perks>
+                <perk>runelearnerRankOndling</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>runelearnerRankRuneskald</id>
+        <name>
+            <en>Runelearner Rank (Runeskald)</en>
+            <es>Rango de Aprendiz de Runas (Runeskald)</es>
+        </name>
+        <description>
+            <en>The fourth rank of the Runelearners. See Runelearner Rank (Athling).</en>
+            <es>El cuarto rango de los Aprendices de Runas. Véase Rango de Aprendiz de Runas (Athling).</es>
+        </description>
+        <source>class</source>
+        <type>privilege</type>
+        <group>runelearnerRank</group>
+        <restrictions>
+            <perks>
+                <perk>runelearnerRankErulian</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>runelearnerRankErilaz</id>
+        <name>
+            <en>Runelearner Rank (Erilaz)</en>
+            <es>Rango de Aprendiz de Runas (Erilaz)</es>
+        </name>
+        <description>
+            <en>The fifth rank of the Runelearners. See Runelearner Rank (Athling).</en>
+            <es>El quinto rango de los Aprendices de Runas. Véase Rango de Aprendiz de Runas (Athling).</es>
+        </description>
+        <source>class</source>
+        <type>privilege</type>
+        <group>runelearnerRank</group>
+        <restrictions>
+            <perks>
+                <perk>runelearnerRankRuneskald</perk>
+            </perks>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>runelearnerRankTheal</id>
+        <name>
+            <en>Runelearner Rank (Theal)</en>
+            <es>Rango de Aprendiz de Runas (Theal)</es>
+        </name>
+        <description>
+            <en>The sixth rank of the Runelearners. See Runelearner Rank (Athling).</en>
+            <es>El sexto rango de los Aprendices de Runas. Véase Rango de Aprendiz de Runas (Athling).</es>
+        </description>
+        <source>class</source>
+        <type>privilege</type>
+        <group>runelearnerRank</group>
+        <restrictions>
+            <perks>
+                <perk>runelearnerRankErilaz</perk>
+            </perks>
         </restrictions>
     </perk>
 </perks>

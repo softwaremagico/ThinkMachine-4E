@@ -38,13 +38,15 @@ public class OccultismFactoryTests extends FactoryTest {
 
     private static final int DEFINED_PSI_PATHS = 6;
     private static final int DEFINED_THEURGY_PATHS = 7;
+    private static final int DEFINED_RUNEMASTERY_PATHS = 8;
+    private static final int DEFINED_SYMPATHY_PATHS = 1;
     private static final int DEFINED_THEURGY_COMPONENTS = 3;
-    private static final int OCCULTISM_TYPES = 2;
+    private static final int OCCULTISM_TYPES = 4;
 
     @Test
     public void readPaths() throws InvalidXmlElementException {
         Assert.assertEquals(OccultismPathFactory.getInstance().getElements().size(),
-                DEFINED_PSI_PATHS + DEFINED_THEURGY_PATHS);
+                DEFINED_PSI_PATHS + DEFINED_THEURGY_PATHS + DEFINED_RUNEMASTERY_PATHS + DEFINED_SYMPATHY_PATHS);
     }
 
     @Test

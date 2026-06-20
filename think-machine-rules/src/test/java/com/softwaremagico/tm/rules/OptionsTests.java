@@ -37,6 +37,6 @@ public class OptionsTests extends RulesTest {
         characterPlayer.setSpecie("human");
         characterPlayer.setUpbringing("yeoman");
 
-        Assert.assertEquals(characterPlayer.getUpbringing().getCharacteristicOptions().get(0).getOptions().size(), 11);
+        Assert.assertEquals(characterPlayer.getUpbringing().getCharacteristicOptions().get(0).getOptions().size(), 13);
     }
 }

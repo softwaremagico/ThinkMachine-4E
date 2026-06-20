@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='utf-8'?>
+<capabilities>
+    <capability>
+        <id>vuldrokCustoms</id>
+        <group>customsLore</group>
+        <name>
+            <en>Vuldrok Customs</en>
+            <es>Costumbres Vuldrok</es>
+        </name>
+        <description>
+            <en>Knowledge of the social customs and mores typical of the Vuldrok Star Nations, and how to behave and
+                understand their viewpoints.</en>
+            <es>Conocimiento de las costumbres y los usos sociales propios de las Naciones Estelares Vuldrok, y de cómo
+                comportarse y entender su punto de vista.</es>
+        </description>
+    </capability>
+    <capability>
+        <id>runelore</id>
+        <group>knowledgeLore</group>
+        <name>
+            <en>Runelore</en>
+            <es>Saber Rúnico</es>
+        </name>
+        <description>
+            <en>Knowledge of the history of the runes, their two-dimensional forms, the catalog of known runes, and the
+                famous runecasters of the past.</en>
+            <es>Conocimiento de la historia de las runas, sus formas bidimensionales, el catálogo de runas conocidas y
+                los famosos lectores de runas del pasado.</es>
+        </description>
+    </capability>
+    <capability>
+        <id>elementalRune</id>
+        <group>formRune</group>
+        <name>
+            <en>Elemental Runes</en>
+            <es>Runas Elementales</es>
+        </name>
+        <description>
+            <en>The Form rune family governing the elements: earth, water, air, fire, and ether.</en>
+            <es>La familia de runas de Forma que rige los elementos: tierra, agua, aire, fuego y éter.</es>
+        </description>
+    </capability>
+    <capability>
+        <id>lifeRune</id>
+        <group>formRune</group>
+        <name>
+            <en>Life Runes</en>
+            <es>Runas de Vida</es>
+        </name>
+        <description>
+            <en>The Form rune family governing living things: plants, beasts, and sentient species.</en>
+            <es>La familia de runas de Forma que rige a los seres vivos: plantas, bestias y especies inteligentes.</es>
+        </description>
+    </capability>
+    <capability>
+        <id>mindRune</id>
+        <group>formRune</group>
+        <name>
+            <en>Mind Runes</en>
+            <es>Runas de Mente</es>
+        </name>
+        <description>
+            <en>The Form rune family governing emotion, intellect, dreams, and other workings of the mind.</en>
+            <es>La familia de runas de Forma que rige la emoción, el intelecto, los sueños y otras facultades de la
+                mente.</es>
+        </description>
+    </capability>
+    <capability>
+        <id>artifactRune</id>
+        <group>formRune</group>
+        <name>
+            <en>Artifact Runes</en>
+            <es>Runas de Artefacto</es>
+        </name>
+        <description>
+            <en>The Form rune family governing the super-tech items made by the Anunnaki; each artifact rune is learned
+                on its own.</en>
+            <es>La familia de runas de Forma que rige los objetos de supertecnología creados por los Anunnaki; cada runa
+                de artefacto se aprende por separado.</es>
+        </description>
+    </capability>
+    <capability>
+        <id>cosmicRune</id>
+        <group>formRune</group>
+        <name>
+            <en>Cosmic Runes</en>
+            <es>Runas Cósmicas</es>
+        </name>
+        <description>
+            <en>The Form rune family governing cosmic forces such as stars, the void, eternity, and space.</en>
+            <es>La familia de runas de Forma que rige las fuerzas cósmicas como las estrellas, el vacío, la eternidad y
+                el espacio.</es>
+        </description>
+    </capability>
+    <capability>
+        <id>conditionRune</id>
+        <group>formRune</group>
+        <name>
+            <en>Condition Runes</en>
+            <es>Runas de Condición</es>
+        </name>
+        <description>
+            <en>The runes that govern the persistence, range, area, and number of targets of a runecasting, such as Time
+                and Space.</en>
+            <es>Las runas que rigen la persistencia, el alcance, el área y el número de objetivos de una lectura de
+                runas, como Tiempo y Espacio.</es>
+        </description>
+    </capability>
+    <capability>
+        <id>erdgheistLore</id>
+        <group>knowledgeLore</group>
+        <name>
+            <en>Erdgheist Lore</en>
+            <es>Saber Erdgheist</es>
+        </name>
+        <description>
+            <en>Knowledge of the Erdgheist faith, its pantheon of gods and spirits, rites, and traditions. This
+                capability substitutes for Religion Lore in Vuldrok Space.</en>
+            <es>Conocimiento de la fe Erdgheist, su panteón de dioses y espíritus, sus ritos y sus tradiciones. Esta
+                capacidad sustituye al Saber Religioso en el espacio Vuldrok.</es>
+        </description>
+        <random>
+            <recommendedPreferences>
+                <preference>FAITH</preference>
+                <preference>KNOWLEDGE</preference>
+            </recommendedPreferences>
+        </random>
+    </capability>
+    <capability>
+        <id>read</id>
+        <group>knowledgeLore</group>
+        <name>
+            <en>Read</en>
+            <es>Leer</es>
+        </name>
+        <description>
+            <en>Basic literacy and the ability to interpret written language, manuscripts, records, and similar texts.</en>
+            <es>Alfabetización básica y capacidad para interpretar lenguaje escrito, manuscritos, registros y textos
+                similares.</es>
+        </description>
+        <specializations>
+            <selectedSpecialization>
+                <id>vuldrish</id>
+                <name>
+                    <en>Vuldrish</en>
+                    <es>Vuldrés</es>
+                </name>
+            </selectedSpecialization>
+        </specializations>
+    </capability>
+</capabilities>

@@ -205,15 +205,15 @@ public class CharacterRulesTests extends RulesTest {
         characterPlayer.setCalling("spy");
 
         Assert.assertEquals(characterPlayer.getCalling().getNotSelectedPerksOptions(true).get(0).getOptions().size(),
-                115);
+                125);
     }
 
     @Test
     public void materialAwardsKnightlyOrder() {
         final Calling calling = CallingFactory.getInstance().getElement("knightlyOrder");
         Assert.assertEquals(calling.getMaterialAwards().size(), 1);
-        //militaryWeapons + combatArmor groups (includes the Charioteers Guild hullKnife).
-        Assert.assertEquals(calling.getMaterialAwards().get(0).getOptions().size(), 19);
+        //militaryWeapons + combatArmor groups (includes the Charioteers Guild hullKnife and the Vuldrok weapons).
+        Assert.assertEquals(calling.getMaterialAwards().get(0).getOptions().size(), 21);
     }
 
     @Test

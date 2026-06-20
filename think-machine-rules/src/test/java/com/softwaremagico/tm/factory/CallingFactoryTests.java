@@ -46,10 +46,12 @@ public class CallingFactoryTests extends FactoryTest {
     private static final int DEFINED_IMPERIAL_DOSSIER_CHARIOTEERS_GUILD_CALLINGS = 2;
     private static final int DEFINED_IMPERIAL_DOSSIER_HOUSE_HAWKWOOD_CALLINGS = 3;
     private static final int DEFINED_IMPERIAL_DOSSIER_REEVES_GUILD_CALLINGS = 4;
+    private static final int DEFINED_VULDROK_SPACE_CALLINGS = 7;
 
     private static final int DEFINED_TOTAL_CALLINGS = DEFINED_FACTIONS_FS_4E_CALLINGS + DEFINED_FACTION_BOOK_CALLINGS
             + DEFINED_IMPERIAL_DOSSIER_BROTHER_BATTLE_CALLINGS + DEFINED_IMPERIAL_DOSSIER_CHARIOTEERS_GUILD_CALLINGS
-            + DEFINED_IMPERIAL_DOSSIER_HOUSE_HAWKWOOD_CALLINGS + DEFINED_IMPERIAL_DOSSIER_REEVES_GUILD_CALLINGS;
+            + DEFINED_IMPERIAL_DOSSIER_HOUSE_HAWKWOOD_CALLINGS + DEFINED_IMPERIAL_DOSSIER_REEVES_GUILD_CALLINGS
+            + DEFINED_VULDROK_SPACE_CALLINGS;
 
     @Test
     public void checkTotalElements() throws InvalidXmlElementException {
@@ -77,7 +79,7 @@ public class CallingFactoryTests extends FactoryTest {
     @Test
     public void getPerksOption() throws InvalidXmlElementException {
         Assert.assertEquals(CallingFactory.getInstance().getElement("commander").getCharacterAvailablePerksOptions().size(), 1);
-        Assert.assertEquals(CallingFactory.getInstance().getElement("commander").getCharacterAvailablePerksOptions().get(0).getOptions().size(), 115);
+        Assert.assertEquals(CallingFactory.getInstance().getElement("commander").getCharacterAvailablePerksOptions().get(0).getOptions().size(), 125);
     }
 
     @Test(dependsOnMethods = "getPerksOption")
@@ -95,6 +97,7 @@ public class CallingFactoryTests extends FactoryTest {
         ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_CHARIOTEERS_GUILD_MODULE);
         ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_HOUSE_HAWKWOOD_MODULE);
         ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_REEVES_GUILD_MODULE);
+        ModuleManager.enableModule(ModuleManager.VULDROK_SPACE_MODULE);
         ModuleManager.resetModules();
         ItemFactory.getInstance().reset();
 
@@ -162,6 +165,7 @@ public class CallingFactoryTests extends FactoryTest {
         ModuleManager.disableModule(ModuleManager.IMPERIAL_DOSSIER_CHARIOTEERS_GUILD_MODULE);
         ModuleManager.disableModule(ModuleManager.IMPERIAL_DOSSIER_HOUSE_HAWKWOOD_MODULE);
         ModuleManager.disableModule(ModuleManager.IMPERIAL_DOSSIER_REEVES_GUILD_MODULE);
+        ModuleManager.disableModule(ModuleManager.VULDROK_SPACE_MODULE);
         ModuleManager.resetModules();
         ItemFactory.getInstance().reset();
     }
