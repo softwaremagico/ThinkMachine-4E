@@ -66,6 +66,15 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
 
     public static final Random RANDOM = new Random();
 
+    /**
+     * Estableix una semilla fixa per a l'aleatoriedad (útil per tests reproducibles).
+     *
+     * @param seed la semilla a establir
+     */
+    public static void setRandomSeed(long seed) {
+        RANDOM.setSeed(seed);
+    }
+
     private final CharacterPlayer characterPlayer;
     private final Set<IRandomPreference> preferences;
 

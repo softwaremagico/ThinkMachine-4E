@@ -29,12 +29,21 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Gender;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.log.RandomTestGenerationLog;
+import com.softwaremagico.tm.random.preferences.RandomSelector;
 import org.testng.Assert;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 @Test(groups = {"randomCharacter"})
 public class RandomCharacterTest {
-    private static final int CHARACTERS_CREATED = 100;
+    private static final int CHARACTERS_CREATED = 1000;
+    private static final long FIXED_SEED = 42L;
+
+    @BeforeSuite
+    public void setupFixedSeed() {
+        // Establir una semilla fixa per a tests reproducibles
+        RandomSelector.setRandomSeed(FIXED_SEED);
+    }
 
     @Test
     public void createFullRandomCharacterTest() throws InvalidRandomElementSelectedException {
@@ -600,6 +609,51 @@ public class RandomCharacterTest {
         final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
         randomizeCharacter.createCharacter();
 
+        characterPlayer.validate();
+    }
+
+    @Test
+    public void merchantReevesFactotumTest() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.getInfo().setPlanet("nowhere");
+        characterPlayer.getInfo().setGender(Gender.MALE);
+        characterPlayer.setUpbringing("merchant");
+        characterPlayer.setFaction("reeves");
+        characterPlayer.setCalling("factotum");
+        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
+        randomizeCharacter.createCharacter();
+
+        Assert.assertNotNull(characterPlayer.getSpecie());
+        Assert.assertNotNull(characterPlayer.getPrimaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getSecondaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getFaction());
+        Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
+        Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
+        Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+        Assert.assertEquals(characterPlayer.getCalling().getId(), "factotum");
+
+        characterPlayer.validate();
+    }
+
+    @Test
+    public void failingSymbolSeed269Test() throws InvalidRandomElementSelectedException {
+        // Esta semilla (269) causa un error: perk 'churchOrdinationNovitiate' no existe
+        RandomSelector.setRandomSeed(269L);
+
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
+        randomizeCharacter.createCharacter();
+
+        Assert.assertNotNull(characterPlayer.getSpecie());
+        Assert.assertNotNull(characterPlayer.getPrimaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getSecondaryCharacteristic());
+        Assert.assertNotNull(characterPlayer.getFaction());
+        Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
+        Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
+        Assert.assertNotNull(characterPlayer.getInfo().getSurname());
+
+        // Esta validación debe fallar con semilla 269
         characterPlayer.validate();
     }
 }
