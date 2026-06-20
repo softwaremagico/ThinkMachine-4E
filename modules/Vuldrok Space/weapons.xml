@@ -40,6 +40,9 @@
         <agora>rare</agora>
         <random>
             <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedFactions>
+                <faction>vuldrok</faction>
+            </recommendedFactions>
             <recommendedPreferences>
                 <preference>COMBAT</preference>
                 <preference>MILITARY</preference>
@@ -79,6 +82,9 @@
         <agora>rare</agora>
         <random>
             <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedFactions>
+                <faction>vuldrok</faction>
+            </recommendedFactions>
             <recommendedPreferences>
                 <preference>COMBAT</preference>
             </recommendedPreferences>
