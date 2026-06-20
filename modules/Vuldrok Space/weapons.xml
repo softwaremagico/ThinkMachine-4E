@@ -63,6 +63,7 @@
             <es>Un cuchillo largo de doble empuñadura, de factura singular entre los Skey, que zumba en la mano de quien
                 lo empuña. Se usa como daga de puño en el combate a corta distancia.</es>
         </description>
+        <official>false</official>
         <techLevel>3</techLevel>
         <weaponType>MELEE</weaponType>
         <damageList>
