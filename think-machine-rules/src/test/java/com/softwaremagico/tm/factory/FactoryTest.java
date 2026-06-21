@@ -34,6 +34,7 @@ public abstract class FactoryTest {
     public void enableBasicModule() {
         ModuleManager.disableModule(ModuleManager.FACTION_BOOK_MODULE);
         ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+        ModuleManager.enableModule(ModuleManager.LOST_WORLDS_BOOK_MODULE);
         ModuleManager.resetModules();
     }
 
@@ -41,6 +42,7 @@ public abstract class FactoryTest {
     public void restoreBasicModule() {
         ModuleManager.disableModule(ModuleManager.FACTION_BOOK_MODULE);
         ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+        ModuleManager.enableModule(ModuleManager.LOST_WORLDS_BOOK_MODULE);
         ModuleManager.resetModules();
     }
 }

@@ -25,12 +25,13 @@ package com.softwaremagico.tm.random.definition;
  */
 
 public enum ProbabilityMultiplier {
-    EXOTIC(0.1),
-    RARE(1),
-    NORMAL(10),
-    COMMON(30),
-    PREFERRED(100),
-    DOMINANT(1000);
+    MYTHIC(0.1),
+    EXOTIC(1),
+    RARE(10),
+    NORMAL(100),
+    COMMON(300),
+    PREFERRED(1000),
+    DOMINANT(10000);
 
     private final double value;
 

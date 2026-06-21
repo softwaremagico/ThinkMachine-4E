@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<perks>
+    <perk>
+        <id>lwNizdharimTwelveTentacles</id>
+        <name>
+            <en>12 Tentacles</en>
+            <es>12 Tentáculos</es>
+        </name>
+        <description>
+            <en>You have 12 tentacles, four for manipulation and weapons and eight for movement.</en>
+            <es>Tienes 12 tentáculos: cuatro para manipulación y armas, y ocho para el movimiento.</es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lwNizdharimAmbidextrous</id>
+        <name>
+            <en>Ambidextrous</en>
+            <es>Ambidiestro</es>
+        </name>
+        <description>
+            <en>You are equally adept at using any of your tentacles.</en>
+            <es>Eres igual de hábil usando cualquiera de tus tentáculos.</es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lwNizdharimBeak</id>
+        <name>
+            <en>Beak</en>
+            <es>Pico</es>
+        </name>
+        <description>
+            <en>Your beak can bite after a grapple.</en>
+            <es>Tu pico puede morder después de una presa.</es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lwNizdharimCamouflage</id>
+        <name>
+            <en>Camouflage</en>
+            <es>Camuflaje</es>
+        </name>
+        <description>
+            <en>Chromatophores allow camouflage in suitable environments.</en>
+            <es>Los cromatóforos permiten camuflarse en entornos adecuados.</es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lwNizdharimCantSpeakUrthish</id>
+        <name>
+            <en>Can't Speak Urthish</en>
+            <es>No puede hablar Urthish</es>
+        </name>
+        <description>
+            <en>You cannot speak Urthish without an organic translator.</en>
+            <es>No puedes hablar Urthish sin un traductor orgánico.</es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lwNizdharimCarapace</id>
+        <name>
+            <en>Carapace</en>
+            <es>Caparazón</es>
+        </name>
+        <description>
+            <en>You have natural carapace armor.</en>
+            <es>Tienes una armadura natural de caparazón.</es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lwNizdharimHazardousBreath</id>
+        <name>
+            <en>Hazardous Breath</en>
+            <es>Aliento peligroso</es>
+        </name>
+        <description>
+            <en>You can emit an underwater poison cloud from glands under your eyes.</en>
+            <es>Puedes emitir una nube de veneno bajo el agua desde glándulas situadas bajo tus ojos.</es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lwNizdharimMolluskPhysique</id>
+        <name>
+            <en>Mollusk Physique</en>
+            <es>Fisonomía de molusco</es>
+        </name>
+        <description>
+            <en>You require custom-fitted clothing and equipment.</en>
+            <es>Necesitas ropa y equipo adaptados a medida.</es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lwNizdharimOstracized</id>
+        <name>
+            <en>Ostracized</en>
+            <es>Ostracizado</es>
+        </name>
+        <description>
+            <en>You suffer prejudice from most humans.</en>
+            <es>Sufres prejuicios por parte de la mayoría de los humanos.</es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lwNizdharimReadSpeakKhunadNizdha</id>
+        <name>
+            <en>Read/Speak Khunad-Nizdha</en>
+            <es>Leer/Hablar Khunad-Nizdha</es>
+        </name>
+        <description>
+            <en>You speak Khunad-Nizdha and read Kursa-Nizdha ideograms.</en>
+            <es>Hablas Khunad-Nizdha y lees ideogramas Kursa-Nizdha.</es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lwNizdharimRegeneration</id>
+        <name>
+            <en>Regeneration</en>
+            <es>Regeneración</es>
+        </name>
+        <description>
+            <en>You can regrow severed tentacles over time.</en>
+            <es>Puedes regenerar tentáculos seccionados con el tiempo.</es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lwNizdharimRequiresMoisture</id>
+        <name>
+            <en>Requires Moisture</en>
+            <es>Requiere humedad</es>
+        </name>
+        <description>
+            <en>Your body requires regular moisture immersion.</en>
+            <es>Tu cuerpo requiere inmersión regular en humedad.</es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lwNizdharimSmall</id>
+        <name>
+            <en>Small</en>
+            <es>Pequeño</es>
+        </name>
+        <description>
+            <en>Your Size is 4.</en>
+            <es>Tu Tamaño es 4.</es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lwNizdharimSwim</id>
+        <name>
+            <en>Swim</en>
+            <es>Nadar</es>
+        </name>
+        <description>
+            <en>Your swimming speed is 12 m.</en>
+            <es>Tu velocidad de nado es de 12 m.</es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lwNizdharimTelepathy</id>
+        <name>
+            <en>Telepathy</en>
+            <es>Telepatía</es>
+        </name>
+        <description>
+            <en>You have image-based telepathy with members of your colony.</en>
+            <es>Tienes telepatía basada en imágenes con los miembros de tu colonia.</es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lwNizdharimWaterBreather</id>
+        <name>
+            <en>Water Breather</en>
+            <es>Respirador acuático</es>
+        </name>
+        <description>
+            <en>You can breathe underwater and above water.</en>
+            <es>Puedes respirar bajo el agua y fuera de ella.</es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lwNizdharimAmphibious</id>
+        <name>
+            <en>Amphibious</en>
+            <es>Anfibio</es>
+        </name>
+        <description>
+            <en>You are equally capable in water and on land, and can remain out of water much longer before suffering
+                moisture penalties.
+            </en>
+            <es>Eres igual de capaz en el agua y en tierra, y puedes permanecer fuera del agua mucho más tiempo antes de
+                sufrir penalizaciones por falta de humedad.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lwNizdharimGaHij</id>
+        <name>
+            <en>Ga-Hij</en>
+            <es>Ga-Hij</es>
+        </name>
+        <description>
+            <en>You are trained to coordinate multiple tentacles in combat, gaining tactical options such as extra Goal,
+                Resistance, Damage, Initiative Edge, and advanced multi-tentacle maneuvers.
+            </en>
+            <es>Estás entrenado para coordinar múltiples tentáculos en combate, obteniendo opciones tácticas como Meta
+                adicional, Resistencia, Daño, Ventaja de Iniciativa y maniobras avanzadas con varios tentáculos.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lwNizdharimTikCeteki</id>
+        <name>
+            <en>Tik Ceteki</en>
+            <es>Tik Ceteki</es>
+        </name>
+        <description>
+            <en>After long-term feeding on Nidderaki, you become a high-status priestly leader: Size 5, favorable
+                Strength-related rolls, and favorable influence among lower-status nizdharim.
+            </en>
+            <es>Tras alimentarte de Nidderaki durante largo tiempo, te conviertes en un líder sacerdotal de alto estatus:
+                Tamaño 5, tiradas de Fuerza favorables e influencia favorable entre nizdharim de menor estatus.
+            </es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>nizdharim</specie>
+            </species>
+        </restrictions>
+    </perk>
+
+    <perk>
+        <id>lwZgoEnergeticPsi</id>
+        <name>
+            <en>Energetic Psi</en>
+            <es>Psi energético</es>
+        </name>
+        <description>
+            <en>Z'go have Psi 1 and do not gain Urge.</en>
+            <es>Los z'go tienen Psi 1 y no ganan Urge.</es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>zgo</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lwZgoEnergySense</id>
+        <name>
+            <en>Energy Sense</en>
+            <es>Sentido energético</es>
+        </name>
+        <description>
+            <en>Z'go can discern energy fields across vast distances.</en>
+            <es>Los z'go pueden discernir campos de energía a enormes distancias.</es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>zgo</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lwZgoFlight</id>
+        <name>
+            <en>Flight</en>
+            <es>Vuelo</es>
+        </name>
+        <description>
+            <en>Move in any direction 10 meters per turn.</en>
+            <es>Te mueves en cualquier dirección 10 metros por turno.</es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>zgo</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lwZgoSpeakZgoish</id>
+        <name>
+            <en>Speak Z'goish</en>
+            <es>Hablar Z'goish</es>
+        </name>
+        <description>
+            <en>You speak Z'goish; speaking Urthish requires a dolomei.</en>
+            <es>Hablas Z'goish; para hablar Urthish necesitas un dolomei.</es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>zgo</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lwZgoUnskilled</id>
+        <name>
+            <en>Unskilled</en>
+            <es>Sin pericia</es>
+        </name>
+        <description>
+            <en>Crafts, Melee and Shoot begin at 0.</en>
+            <es>Artesanía, Cuerpo a cuerpo y Disparo comienzan en 0.</es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>zgo</specie>
+            </species>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>lwZgoVoidborn</id>
+        <name>
+            <en>Voidborn</en>
+            <es>Nacido del vacío</es>
+        </name>
+        <description>
+            <en>You thrive in space and require containment in planetary atmosphere/gravity wells.</en>
+            <es>Prosperas en el espacio y necesitas contención en atmósferas planetarias y pozos de gravedad.</es>
+        </description>
+        <restrictions>
+            <species>
+                <specie>zgo</specie>
+            </species>
+        </restrictions>
+    </perk>
+</perks>

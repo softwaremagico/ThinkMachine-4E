@@ -40,11 +40,12 @@ public class CapabilityFactoryTest extends FactoryTest {
 	public void enableBasicModule() {
 		ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
 		ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+		ModuleManager.enableModule(ModuleManager.LOST_WORLDS_BOOK_MODULE);
 		ModuleManager.resetModules();
 	}
 
 	public static final int TOTAL_ELEMENTS = 75;
-	public static final int TOTAL_EXPANDED_ELEMENTS = 199;
+	public static final int TOTAL_EXPANDED_ELEMENTS = 205;
 
 	@Test
 	public void checkTotalElements() throws InvalidXmlElementException {

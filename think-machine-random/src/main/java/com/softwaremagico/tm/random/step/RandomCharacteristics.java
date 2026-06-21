@@ -47,6 +47,7 @@ import com.softwaremagico.tm.random.preferences.RandomSelector;
 import com.softwaremagico.tm.random.preferences.RankValueAssignationPreference;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -150,14 +151,14 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
 
 
     private void selectPrimaryCharacteristics() throws InvalidRandomElementSelectedException {
-        final String mainCharacteristic = selectInitialCharacteristic();
+        final String mainCharacteristic = selectInitialCharacteristic(true);
         getCharacterPlayer().setPrimaryCharacteristic(mainCharacteristic);
         RandomSelectorLog.debug(this.getClass().getSimpleName(), "Selecting primary characteristic '" + mainCharacteristic
                 + "' with current value '" + getCharacterPlayer().getCharacteristicValue(mainCharacteristic) + "'.");
 
         String secondaryCharacteristic;
         do {
-            secondaryCharacteristic = selectInitialCharacteristic();
+            secondaryCharacteristic = selectInitialCharacteristic(false);
         } while (Objects.equals(mainCharacteristic, secondaryCharacteristic));
         getCharacterPlayer().setSecondaryCharacteristic(secondaryCharacteristic);
         RandomSelectorLog.debug(this.getClass().getSimpleName(), "Selecting secondary characteristic '" + secondaryCharacteristic
@@ -174,9 +175,22 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
                 mainCharacteristic, secondaryCharacteristic);
     }
 
-    private String selectInitialCharacteristic() throws InvalidRandomElementSelectedException {
+    private String selectInitialCharacteristic(boolean primarySelection) throws InvalidRandomElementSelectedException {
         String characteristic;
         final Specie specie = SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie());
+        final List<String> primaryCharacteristics = specie != null ? specie.getPrimaryCharacteristics() : null;
+
+        final boolean restrictToPrimaryList;
+        if (primaryCharacteristics == null || primaryCharacteristics.isEmpty()) {
+            restrictToPrimaryList = false;
+        } else if (primarySelection) {
+            // Primary must always be in the list when the list is defined.
+            restrictToPrimaryList = true;
+        } else {
+            // Secondary must be in the list only when the list has more than one option.
+            restrictToPrimaryList = primaryCharacteristics.size() > 1;
+        }
+
         boolean validCharacteristic = false;
         do {
             characteristic = selectElementByWeight().getId();
@@ -189,7 +203,7 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
             }
         } while (CharacteristicsDefinitionFactory.getInstance().getElement(characteristic).getType() == CharacteristicType.OCCULTISM
                 || CharacteristicsDefinitionFactory.getInstance().getElement(characteristic).getType() == CharacteristicType.OTHERS
-                || (specie != null && specie.getPrimaryCharacteristics() != null && !specie.getPrimaryCharacteristics().contains(characteristic))
+                || (restrictToPrimaryList && !primaryCharacteristics.contains(characteristic))
                 || !validCharacteristic);
         return characteristic;
     }

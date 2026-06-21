@@ -180,6 +180,15 @@ public class Specie extends CharacterDefinitionStep {
     }
 
     @Override
+    public int getSkillsTotalPoints() {
+        // Species may define fixed skill bonuses/penalties (e.g. z'go unskilled -3 in some skills).
+        return getSkillOptions().stream()
+                .filter(skillOptions -> skillOptions.getOptions() != null && !skillOptions.getOptions().isEmpty())
+                .mapToInt(skillOptions -> skillOptions.getTotalOptions() * skillOptions.getOptions().iterator().next().getBonus())
+                .sum();
+    }
+
+    @Override
     public void validate() throws InvalidXmlElementException {
         super.validate();
         getCharacterAvailablePerksOptions().forEach(PerkOptions::validate);

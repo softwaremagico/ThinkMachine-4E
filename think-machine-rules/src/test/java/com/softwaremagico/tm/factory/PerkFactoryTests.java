@@ -32,21 +32,24 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.file.modules.ModuleManager;
 import com.softwaremagico.tm.restrictions.RestrictionMode;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 @Test(groups = {"perkFactory"})
 public class PerkFactoryTests extends FactoryTest {
+
+    private static final int DEFINED_PERKS = 345;
+    private static final int DEFINED_FACTION_BOOK_PERKS = 43;
+
+
     @Override
     @BeforeClass
     public void enableBasicModule() {
         ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
         ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+        ModuleManager.enableModule(ModuleManager.LOST_WORLDS_BOOK_MODULE);
         ModuleManager.resetModules();
     }
-
-    private static final int DEFINED_PERKS = 320;
-    private static final int DEFINED_FACTION_BOOK_PERKS = 43;
 
 
     @Test

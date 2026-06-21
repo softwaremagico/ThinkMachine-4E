@@ -108,7 +108,7 @@ public class SelectionList<E> extends ArrayList<E> {
         try {
             return super.remove(o);
         } finally {
-            notifySelectionAddedListener();
+            notifySelectionRemovedListener();
         }
     }
 
@@ -117,7 +117,7 @@ public class SelectionList<E> extends ArrayList<E> {
         try {
             return super.removeAll(c);
         } finally {
-            notifySelectionAddedListener();
+            notifySelectionRemovedListener();
         }
     }
 

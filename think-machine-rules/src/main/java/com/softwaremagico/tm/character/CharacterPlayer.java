@@ -374,6 +374,9 @@ public class CharacterPlayer {
             if (SkillFactory.getInstance().getElement(skill).isNatural()) {
                 bonus += Skill.NATURAL_SKILL_INITIAL_VALUE;
             }
+            if (specie != null) {
+                bonus += specie.getSkillBonus(skill);
+            }
             if (upbringing != null) {
                 final int skillBonus = upbringing.getSkillBonus(skill);
                 bonus += skillBonus;

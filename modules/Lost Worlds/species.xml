@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<species>
+    <nizdharim>
+        <id>nizdharim</id>
+        <name>
+            <en>Nizdharim</en>
+            <es>Nizdharim</es>
+        </name>
+        <description>
+            <en>Tentacled mollusks from unknown space. Long believed extinct in the Known Worlds, where they were hunted
+                to extinction by the amphibious oro'ym on the watery world of Madoc (according to the oro'ym's Rassic
+                Records), this 12-tentacled, sentient mollusk species resurfaced in Vuldrok space.
+            </en>
+            <es>Moluscos tentaculados del espacio desconocido. Durante mucho tiempo se creyó que estaban extintos en los
+                Mundos Conocidos, donde fueron cazados hasta su desaparición por los anfibios oro'ym en el mundo acuático
+                de Madoc (según los Registros Rassic de los oro'ym). Esta especie de moluscos conscientes con 12
+                tentáculos reapareció en el espacio vuldrok.
+            </es>
+        </description>
+        <cost>0</cost>
+        <characteristicValues>
+            <element>
+                <id>strength</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>dexterity</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>12</maximumValue>
+            </element>
+            <element>
+                <id>endurance</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>wits</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>perception</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>will</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>presence</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>intuition</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>faith</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>psi</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>urge</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>theurgy</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>hubris</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+        </characteristicValues>
+        <movement>
+            <value>14</value>
+        </movement>
+        <size>4</size>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>speak</id>
+                        <selectedSpecialization>khunadNizdha</selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>read</id>
+                        <selectedSpecialization>kursaNizdha</selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+        </capabilities>
+        <perks>
+            <perk><id>lwNizdharimAmphibious</id></perk>
+            <perk><id>lwNizdharimTwelveTentacles</id></perk>
+            <perk><id>lwNizdharimAmbidextrous</id></perk>
+            <perk><id>lwNizdharimBeak</id></perk>
+            <perk><id>lwNizdharimCamouflage</id></perk>
+            <perk><id>lwNizdharimCantSpeakUrthish</id></perk>
+            <perk><id>lwNizdharimCarapace</id></perk>
+            <perk><id>lwNizdharimGaHij</id></perk>
+            <perk><id>lwNizdharimHazardousBreath</id></perk>
+            <perk><id>lwNizdharimMolluskPhysique</id></perk>
+            <perk><id>lwNizdharimOstracized</id></perk>
+            <perk><id>lwNizdharimReadSpeakKhunadNizdha</id></perk>
+            <perk><id>lwNizdharimRegeneration</id></perk>
+            <perk><id>lwNizdharimRequiresMoisture</id></perk>
+            <perk><id>lwNizdharimSmall</id></perk>
+            <perk><id>lwNizdharimSwim</id></perk>
+            <perk><id>lwNizdharimTelepathy</id></perk>
+            <perk><id>lwNizdharimTikCeteki</id></perk>
+            <perk><id>lwNizdharimWaterBreather</id></perk>
+        </perks>
+        <random>
+            <names>
+                <male>Ji-Giaderik, Ji-Kirtunda, Ji-Skorudak, Ji-Talumek, Kir-Khurshtalidok, Kir-Sodraskel,
+                    Kir-Tumorask, Kir-Velgudor, Ku-Nidderaki, Ku-Ortuk, Ku-Talus, Ku-Zhordek,
+                    Ky-Drenikseli, Ky-Gliskir, Ky-Tulak, Ky-Vorashk, Nu-Glisktikan, Nu-Wymspor,
+                    Nu-Kordralik, Nu-Zelthuk, Tal-Ektalsk, Tal-Tudulid, Tal-Gorashen, Tal-Vudrakin,
+                    Gulok, Gunagykkin, Gyraskul, Guldorim, Kiriskulu, Kykoris, Khorasdin, Kirtalosh,
+                    Shiakor, Skudrath, Sorodinmir, Sorkhalid, Termorinite, Torgudask, Toglotsadden,
+                    Torrosk, Tulgyran, Tudraskel, Vorskidan, Voragul, Wyrtashk, Wymdralor, Zhikoral,
+                    Zudraskin, Norkhalem, Orudrask</male>
+                <female>Ji-Giadera, Ji-Kirtulena, Ji-Skoritha, Ji-Talumira, Kir-Khurshalida, Kir-Sodreska,
+                    Kir-Tumorissa, Kir-Velgudira, Ku-Niddera, Ku-Ortura, Ku-Talusha, Ku-Zhordina,
+                    Ky-Dreniksela, Ky-Gliskira, Ky-Tulaya, Ky-Vorashka, Nu-Glisktina, Nu-Wymsora,
+                    Nu-Kordralia, Nu-Zelthura, Tal-Ektalsha, Tal-Tudulira, Tal-Gorashia, Tal-Vudrakina,
+                    Gulora, Gunagykkina, Gyraskula, Guldorina, Kiriskula, Kykorissa, Khorasdira,
+                    Kirtalosha, Shiakora, Skudratha, Sorodinmira, Sorkhalida, Termorinita, Torgudaska,
+                    Toglotsaddena, Torroska, Tulgyrana, Tudraskela, Vorskidana, Voragula, Wyrtashka,
+                    Wymdralora, Zhikorala, Zudraskina, Norkhalema, Orudraska</female>
+            </names>
+            <surnames>Giadrek, Kirtundal, Khurshtalid, Nidderak, Ortukul, Taluskor, Dreniksel,
+                Gliskiran, Tulakor, Glisktar, Wymsporal, Ektalshor, Tudulask, Gulorik, Gynagor,
+                Kiriskul, Kykorath, Shiakorin, Sorodimir, Termorin, Toglotsad, Torraskel, Skorudash,
+                Talumor, Sodrask, Velgudor, Zhordrakin, Vorashkul, Kordralim, Zelthukar, Gorashden,
+                Vudrakin, Gyraskor, Khorasdik, Torgudran, Tulgyrik, Tudraskor, Vorskalid, Voragor,
+                Wyrtash, Wymdral, Zhikoral, Zudrask, Norkhal, Orudrask, Skadrelik, Drulaskor,
+                Khashorim, Vortulak, Nizkador</surnames>
+            <probabilityMultiplier>MYTHIC</probabilityMultiplier>
+        </random>
+    </nizdharim>
+    <zgo>
+        <id>zgo</id>
+        <name>
+            <en>Z'go</en>
+            <es>Z'go</es>
+        </name>
+        <description>
+            <en>The z'go are sentient energy beings. Magnetic fields hold microscopic metallic fibers in their scant
+                material bodies.
+            </en>
+            <es>Los z'go son seres de energía conscientes. Los campos magnéticos mantienen fibras metálicas microscópicas
+                en sus escasos cuerpos materiales.
+            </es>
+        </description>
+        <cost>0</cost>
+        <characteristicValues>
+            <element>
+                <id>strength</id>
+                <value>1</value>
+                <maximumInitialValue>3</maximumInitialValue>
+                <maximumValue>3</maximumValue>
+            </element>
+            <element>
+                <id>dexterity</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>12</maximumValue>
+            </element>
+            <element>
+                <id>endurance</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>wits</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>perception</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>will</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>presence</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>intuition</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>faith</id>
+                <value>3</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>psi</id>
+                <value>1</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>urge</id>
+                <value>0</value>
+                <maximumInitialValue>0</maximumInitialValue>
+                <maximumValue>0</maximumValue>
+            </element>
+            <element>
+                <id>theurgy</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+            <element>
+                <id>hubris</id>
+                <value>0</value>
+                <maximumInitialValue>8</maximumInitialValue>
+                <maximumValue>10</maximumValue>
+            </element>
+        </characteristicValues>
+        <movement>
+            <value>10</value>
+        </movement>
+        <size>5</size>
+        <capabilities>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>speak</id>
+                        <selectedSpecialization>zgoish</selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+            <capabilitiesOption>
+                <total>1</total>
+                <options>
+                    <capability>
+                        <id>read</id>
+                        <selectedSpecialization>zgoish</selectedSpecialization>
+                    </capability>
+                </options>
+            </capabilitiesOption>
+         </capabilities>
+          <skills>
+              <skillBonusOption>
+                  <total>1</total>
+                  <options>
+                      <skill>
+                          <id>crafts</id>
+                          <bonus>-3</bonus>
+                      </skill>
+                  </options>
+              </skillBonusOption>
+              <skillBonusOption>
+                  <total>1</total>
+                  <options>
+                      <skill>
+                          <id>melee</id>
+                          <bonus>-3</bonus>
+                      </skill>
+                  </options>
+              </skillBonusOption>
+              <skillBonusOption>
+                  <total>1</total>
+                  <options>
+                      <skill>
+                          <id>shoot</id>
+                          <bonus>-3</bonus>
+                      </skill>
+                  </options>
+              </skillBonusOption>
+          </skills>
+         <perks>
+             <perk><id>lwZgoEnergeticPsi</id></perk>
+             <perk><id>lwZgoEnergySense</id></perk>
+             <perk><id>lwZgoFlight</id></perk>
+             <perk><id>lwZgoSpeakZgoish</id></perk>
+             <perk><id>lwZgoUnskilled</id></perk>
+             <perk><id>lwZgoVoidborn</id></perk>
+         </perks>
+        <random>
+            <names>
+                <male>Za'kor, Ze'lin, Zi'var, Zo'ran, Zu'mek, Qa'dor, Qe'lith, Qi'zan, Qo'reth, Qu'sar,
+                    Ra'zel, Re'vok, Ri'kar, Ro'then, Ru'gal, Sha'vor, She'zik, Shi'rel, Sho'vak, Shu'mir,
+                    Ta'kesh, Te'vor, Ti'rael, To'zun, Tu'vash, Va'lor, Ve'shik, Vi'dren, Vo'khal, Vu'ren,
+                    Xa'zir, Xe'lor, Xi'veth, Xo'ram, Xu'dek, Ya'vok, Ye'rash, Yi'zel, Yo'kren, Yu'mar,
+                    Za'veth, Ze'khar, Zi'roth, Zo'marel, Zu'vran, Qa'shiel, Ri'vokar, Sho'rel, Vu'zak,
+                    Xe'thar</male>
+                <female>Za'kora, Ze'lira, Zi'vara, Zo'rana, Zu'meka, Qa'dora, Qe'litha, Qi'zana, Qo'retha, Qu'sara,
+                    Ra'zela, Re'voka, Ri'kara, Ro'thena, Ru'gala, Sha'vora, She'zika, Shi'rela, Sho'vaka,
+                    Shu'mira, Ta'kesha, Te'vora, Ti'raela, To'zuna, Tu'vasha, Va'lora, Ve'shika, Vi'drena,
+                    Vo'khala, Vu'rena, Xa'zira, Xe'lora, Xi'vetha, Xo'rama, Xu'deka, Ya'voka, Ye'rasha,
+                    Yi'zela, Yo'krena, Yu'mara, Za'vetha, Ze'khara, Zi'rotha, Zo'marela, Zu'vrana,
+                    Qa'shiela, Ri'vokara, Sho'rela, Vu'zaka, Xe'thara</female>
+            </names>
+            <surnames>Kel'zor, Vel'qin, Mor'thex, Sar'vok, Tir'zel, Vor'qash, Xen'ril, Yor'thak, Zal'ver,
+                Zor'qel, Qa'mor, Qir'zeth, Qor'vash, Quel'rin, Ra'zkor, Re'math, Riq'zel, Ro'veth,
+                Ru'thakar, Sha'qen, Shem'zor, Shir'vak, Sho'threl, Shu'qor, Ta'vren, Teq'zal, Tir'vok,
+                Tor'zhen, Tuq'mar, Va'rqel, Vel'thior, Vin'zak, Vor'mesh, Vyr'qan, Xa'lzeth, Xeq'vor,
+                Xir'makel, Xor'zan, Xu'vrel, Yaq'then, Yel'vok, Yir'zhar, Yor'meq, Yuq'zel, Zaq'veth,
+                Zel'mor, Zir'qash, Zor'thek, Zur'vane, Zyn'qor</surnames>
+            <probabilityMultiplier>MYTHIC</probabilityMultiplier>
+        </random>
+    </zgo>
+</species>
+
