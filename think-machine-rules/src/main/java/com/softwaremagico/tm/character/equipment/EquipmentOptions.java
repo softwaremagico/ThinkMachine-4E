@@ -41,7 +41,6 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Objects;
@@ -56,7 +55,6 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
     @JsonProperty("requiredProperty")
     private Set<String> requiredProperty;
 
-
     @Override
     public LinkedHashSet<EquipmentOption> getOptions() {
         if (finalItems == null) {
@@ -67,43 +65,58 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
                     if (item.getId() != null) {
                         optionItems.add(new EquipmentOption(item));
                     } else if (item.getGroup() != null) {
-                        //Can be any
+                        // Can be any item in the group, but skip elements gated by restrictions.
                         optionItems.addAll(ItemFactory.getInstance().getElements().stream()
                                 .filter(item2 -> Objects.equals(item2.getGroup(), item.getGroup()))
+                                .filter(Equipment::isOpenEquipment)
                                 .map(EquipmentOption::new).collect(Collectors.toList()));
                         optionItems.addAll(WeaponFactory.getInstance().getElements().stream()
                                 .filter(item2 -> Objects.equals(item2.getGroup(), item.getGroup()))
+                                .filter(Equipment::isOpenEquipment)
                                 .map(EquipmentOption::new).collect(Collectors.toList()));
                         optionItems.addAll(ArmorFactory.getInstance().getElements().stream()
                                 .filter(item2 -> Objects.equals(item2.getGroup(), item.getGroup()))
+                                .filter(Equipment::isOpenEquipment)
                                 .map(EquipmentOption::new).collect(Collectors.toList()));
                         optionItems.addAll(ShieldFactory.getInstance().getElements().stream()
                                 .filter(item2 -> Objects.equals(item2.getGroup(), item.getGroup()))
+                                .filter(Equipment::isOpenEquipment)
                                 .map(EquipmentOption::new).collect(Collectors.toList()));
                         optionItems.addAll(HandheldShieldFactory.getInstance().getElements().stream()
                                 .filter(item2 -> Objects.equals(item2.getGroup(), item.getGroup()))
+                                .filter(Equipment::isOpenEquipment)
                                 .map(EquipmentOption::new).collect(Collectors.toList()));
                         optionItems.addAll(ThinkMachineFactory.getInstance().getElements().stream()
                                 .filter(item2 -> Objects.equals(item2.getGroup(), item.getGroup()))
+                                .filter(Equipment::isOpenEquipment)
                                 .map(EquipmentOption::new).collect(Collectors.toList()));
                     } else if (item.getWeaponType() != null || item.getWeaponClass() != null) {
                         final List<Weapon> customizedWeapons = new ArrayList<>();
                         if (item.getWeaponType() == WeaponType.ANY) {
-                            customizedWeapons.addAll(WeaponFactory.getInstance().getElements());
+                            customizedWeapons.addAll(WeaponFactory.getInstance().getElements().stream()
+                                    .filter(Equipment::isOpenEquipment)
+                                    .collect(Collectors.toList()));
                         } else if ((item.getType() != null && item.getWeaponClass() != null)) {
                             if (item.getWeaponType() != null) {
                                 customizedWeapons.addAll(
                                         WeaponFactory.getInstance().getWeaponsByClass(item.getWeaponClass()).stream().distinct()
                                                 .filter(WeaponFactory.getInstance().getWeapons(item.getWeaponType())::contains)
+                                                .filter(Equipment::isOpenEquipment)
                                                 .collect(Collectors.toSet()));
                             } else {
                                 customizedWeapons.addAll(
-                                        new HashSet<>(WeaponFactory.getInstance().getWeaponsByClass(item.getWeaponClass())));
+                                        WeaponFactory.getInstance().getWeaponsByClass(item.getWeaponClass()).stream()
+                                                .filter(Equipment::isOpenEquipment)
+                                                .collect(Collectors.toSet()));
                             }
                         } else if (item.getType() != null) {
-                            customizedWeapons.addAll(WeaponFactory.getInstance().getWeapons(item.getWeaponType()));
+                            customizedWeapons.addAll(WeaponFactory.getInstance().getWeapons(item.getWeaponType()).stream()
+                                    .filter(Equipment::isOpenEquipment)
+                                    .collect(Collectors.toList()));
                         } else if (item.getWeaponClass() != null) {
-                            customizedWeapons.addAll(WeaponFactory.getInstance().getWeaponsByClass(item.getWeaponClass()));
+                            customizedWeapons.addAll(WeaponFactory.getInstance().getWeaponsByClass(item.getWeaponClass()).stream()
+                                    .filter(Equipment::isOpenEquipment)
+                                    .collect(Collectors.toList()));
                         }
                         customizedWeapons.forEach(customizedWeapon ->
                                 optionItems.add(new EquipmentOption(customizedWeapon, item.getQuality(),
@@ -111,7 +124,9 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
                                         item.getType())));
                     } else if (Objects.equals(item.getType(), "handheldShield")) {
                         final List<HandheldShield> customizedHandheldShields =
-                                new ArrayList<>(HandheldShieldFactory.getInstance().getElements());
+                                HandheldShieldFactory.getInstance().getElements().stream()
+                                        .filter(Equipment::isOpenEquipment)
+                                        .collect(Collectors.toList());
                         customizedHandheldShields.forEach(handheldShield ->
                                 optionItems.add(new EquipmentOption(handheldShield, item.getQuality(),
                                         item.getStatus(), item.getQuantity(), item.getWeaponType(), item.getWeaponClass(),
@@ -123,19 +138,25 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
                     finalItems.addAll(optionItems);
                 });
             } else {
-                //Can be any
+                //Can be any open equipment.
                 finalItems = new LinkedHashSet<>();
                 finalItems.addAll(ItemFactory.getInstance().getElements().stream()
+                        .filter(Equipment::isOpenEquipment)
                         .map(EquipmentOption::new).collect(Collectors.toList()));
                 finalItems.addAll(WeaponFactory.getInstance().getElements().stream()
+                        .filter(Equipment::isOpenEquipment)
                         .map(EquipmentOption::new).collect(Collectors.toList()));
                 finalItems.addAll(ArmorFactory.getInstance().getElements().stream()
+                        .filter(Equipment::isOpenEquipment)
                         .map(EquipmentOption::new).collect(Collectors.toList()));
                 finalItems.addAll(ShieldFactory.getInstance().getElements().stream()
+                        .filter(Equipment::isOpenEquipment)
                         .map(EquipmentOption::new).collect(Collectors.toList()));
                 finalItems.addAll(HandheldShieldFactory.getInstance().getElements().stream()
+                        .filter(Equipment::isOpenEquipment)
                         .map(EquipmentOption::new).collect(Collectors.toList()));
                 finalItems.addAll(ThinkMachineFactory.getInstance().getElements().stream()
+                        .filter(Equipment::isOpenEquipment)
                         .map(EquipmentOption::new).collect(Collectors.toList()));
             }
             //Filter by required properties.
@@ -146,6 +167,7 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
         }
         return finalItems;
     }
+
 
     public Set<EquipmentOption> getOptions(Collection<Selection> items) {
         return getOptions().stream().filter(e -> items.stream().map(Selection::getId).collect(Collectors.toList())
@@ -165,10 +187,8 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
         super.validate();
         if (getOptions() != null) {
             getOptions().forEach(option -> {
-                if (option.getId() != null && !option.getId().isEmpty()) {
-                    if (option.getElement(option.getId()) == null) {
-                        throw new InvalidXmlElementException("Option with id '" + option.getId() + "' does not exist");
-                    }
+                if (option.getId() != null && !option.getId().isEmpty() && option.getElement(option.getId()) == null) {
+                    throw new InvalidXmlElementException("Option with id '" + option.getId() + "' does not exist");
                 }
             });
         }

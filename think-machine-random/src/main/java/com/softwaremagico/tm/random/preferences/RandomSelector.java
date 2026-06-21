@@ -31,11 +31,12 @@ import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import com.softwaremagico.tm.log.RandomGenerationLog;
 import com.softwaremagico.tm.log.RandomSelectorLog;
 import com.softwaremagico.tm.log.RandomValuesLog;
+import com.softwaremagico.tm.random.definition.ProbabilityMultiplier;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 
-import java.util.Collection;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -58,12 +59,21 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
     public static final int GOOD_PROBABILITY = 800;
     public static final int VERY_GOOD_PROBABILITY = 2100;
 
-    public static final int BASIC_MULTIPLIER = 5;
-    public static final int HIGH_MULTIPLIER = 10;
-    public static final int USER_SELECTION_MULTIPLIER = 15;
-    public static final int USER_INADVISABLE_DIVISOR = BASIC_MULTIPLIER;
+    public static final int BASIC_MULTIPLIER = (int) ProbabilityMultiplier.NORMAL.getValue() / 2;
+    public static final int HIGH_MULTIPLIER = (int) ProbabilityMultiplier.NORMAL.getValue();
+    public static final int USER_SELECTION_MULTIPLIER = (int) (ProbabilityMultiplier.NORMAL.getValue() * 1.5);
+    public static final int USER_INADVISABLE_DIVISOR = 5;
 
     public static final Random RANDOM = new Random();
+
+    /**
+     * Estableix una semilla fixa per a l'aleatoriedad (útil per tests reproducibles).
+     *
+     * @param seed la semilla a establir
+     */
+    public static void setRandomSeed(long seed) {
+        RANDOM.setSeed(seed);
+    }
 
     private final CharacterPlayer characterPlayer;
     private final Set<IRandomPreference> preferences;

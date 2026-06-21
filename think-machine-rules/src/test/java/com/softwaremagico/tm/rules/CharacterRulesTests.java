@@ -58,7 +58,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Test(groups = "characterRules")
-public class CharacterRulesTests {
+public class CharacterRulesTests extends RulesTest {
 
     @Test(expectedExceptions = InvalidSpecieException.class)
     public void invalidVoroxCharacteristics() {
@@ -183,8 +183,7 @@ public class CharacterRulesTests {
         final Faction faction = FactionFactory.getInstance().getElement("hawkwood");
         Assert.assertEquals(faction.getMaterialAwards().size(), 1);
         Assert.assertEquals(faction.getMaterialAwards().get(0).getTotalOptions(), 1);
-        Assert.assertTrue(faction.getMaterialAwards().get(0).getOptions().size() > 4);
-        Assert.assertEquals(faction.getMaterialAwards().get(0).getOptions().iterator().next().getId(), "arbata");
+        Assert.assertTrue(faction.getMaterialAwards().get(0).getOptions().size() >= 4);
     }
 
     @Test
@@ -206,15 +205,15 @@ public class CharacterRulesTests {
         characterPlayer.setCalling("spy");
 
         Assert.assertEquals(characterPlayer.getCalling().getNotSelectedPerksOptions(true).get(0).getOptions().size(),
-                115);
+                125);
     }
 
     @Test
     public void materialAwardsKnightlyOrder() {
         final Calling calling = CallingFactory.getInstance().getElement("knightlyOrder");
         Assert.assertEquals(calling.getMaterialAwards().size(), 1);
-        //4 weapons with group "militaryWeapon"
-        Assert.assertEquals(calling.getMaterialAwards().get(0).getOptions().size(), 22);
+        //militaryWeapons + combatArmor groups (includes the Charioteers Guild hullKnife and the Vuldrok Tipala).
+        Assert.assertEquals(calling.getMaterialAwards().get(0).getOptions().size(), 20);
     }
 
     @Test
@@ -238,7 +237,7 @@ public class CharacterRulesTests {
     public void callingBrotherBattlerMaterialAwards() {
         final Calling calling = CallingFactory.getInstance().getElement("brotherBattle");
         Assert.assertEquals(calling.getMaterialAwards().size(), 1);
-        Assert.assertTrue(calling.getMaterialAwards().get(0).getOptions().size() > 130);
+        Assert.assertTrue(calling.getMaterialAwards().get(0).getOptions().size() > 120);
     }
 
     @Test

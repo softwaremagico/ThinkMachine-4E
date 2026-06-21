@@ -60,7 +60,14 @@ public final class ModuleManager {
     public static final String FADING_SUNS_PLAYER_GUIDE_MODULE = "Fading Suns 4E";
     public static final String FACTION_BOOK_MODULE = "Faction Book";
     public static final String LOST_WORLDS_BOOK_MODULE = "Lost Worlds";
-    private static final String[] TOTAL_MODULES = {FADING_SUNS_PLAYER_GUIDE_MODULE, FACTION_BOOK_MODULE, LOST_WORLDS_BOOK_MODULE};
+    public static final String IMPERIAL_DOSSIER_BROTHER_BATTLE_MODULE = "Imperial Dossier - Brother Battle";
+    public static final String IMPERIAL_DOSSIER_CHARIOTEERS_GUILD_MODULE = "Imperial Dossier - Charioteers Guild";
+    public static final String IMPERIAL_DOSSIER_HOUSE_HAWKWOOD_MODULE = "Imperial Dossier - House Hawkwood";
+    public static final String IMPERIAL_DOSSIER_REEVES_GUILD_MODULE = "Imperial Dossier - Reeves Guild";
+    public static final String VULDROK_SPACE_MODULE = "Vuldrok Space";
+    private static final String[] TOTAL_MODULES = {FADING_SUNS_PLAYER_GUIDE_MODULE, FACTION_BOOK_MODULE, LOST_WORLDS_BOOK_MODULE,
+            IMPERIAL_DOSSIER_BROTHER_BATTLE_MODULE, IMPERIAL_DOSSIER_CHARIOTEERS_GUILD_MODULE, IMPERIAL_DOSSIER_HOUSE_HAWKWOOD_MODULE,
+            IMPERIAL_DOSSIER_REEVES_GUILD_MODULE, VULDROK_SPACE_MODULE};
     private static final Set<String> ENABLED_MODULES = new HashSet<>(Arrays.asList(TOTAL_MODULES));
 
     private ModuleManager() {

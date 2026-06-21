@@ -32,29 +32,21 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.definition.ElementClassification;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import com.softwaremagico.tm.file.modules.ModuleManager;
-import org.testng.annotations.BeforeClass;
 
 @Test(groups = {"occultismFactory"})
 public class OccultismFactoryTests extends FactoryTest {
-    @Override
-    @BeforeClass
-    public void enableBasicModule() {
-        ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
-        ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
-        ModuleManager.enableModule(ModuleManager.LOST_WORLDS_BOOK_MODULE);
-        ModuleManager.resetModules();
-    }
 
     private static final int DEFINED_PSI_PATHS = 6;
-    private static final int DEFINED_THEURGY_PATHS = 6;
+    private static final int DEFINED_THEURGY_PATHS = 7;
+    private static final int DEFINED_RUNEMASTERY_PATHS = 8;
+    private static final int DEFINED_SYMPATHY_PATHS = 1;
     private static final int DEFINED_THEURGY_COMPONENTS = 3;
-    private static final int OCCULTISM_TYPES = 2;
+    private static final int OCCULTISM_TYPES = 4;
 
     @Test
     public void readPaths() throws InvalidXmlElementException {
         Assert.assertEquals(OccultismPathFactory.getInstance().getElements().size(),
-                DEFINED_PSI_PATHS + DEFINED_THEURGY_PATHS);
+                DEFINED_PSI_PATHS + DEFINED_THEURGY_PATHS + DEFINED_RUNEMASTERY_PATHS + DEFINED_SYMPATHY_PATHS);
     }
 
     @Test

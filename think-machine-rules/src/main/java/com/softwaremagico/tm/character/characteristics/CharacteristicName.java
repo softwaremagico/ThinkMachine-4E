@@ -52,6 +52,10 @@ public enum CharacteristicName {
 
     PSI(CharacteristicType.OCCULTISM),
 
+    RUNEMASTERY(CharacteristicType.OCCULTISM),
+
+    SYMPATHY(CharacteristicType.OCCULTISM),
+
     URGE(CharacteristicType.OCCULTISM),
 
     THEURGY(CharacteristicType.OCCULTISM),

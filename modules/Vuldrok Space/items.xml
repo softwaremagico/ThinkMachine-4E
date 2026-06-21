@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<equipments>
+    <equipment>
+        <id>runestave</id>
+        <type>item</type>
+        <name>
+            <en>Runestave</en>
+            <es>Bastón Rúnico</es>
+        </name>
+        <description>
+            <en>A sturdy staff carved with the runes you know, used by vitki to focus their runecasting.</en>
+            <es>Un bastón robusto tallado con las runas que conoces, empleado por los vitki para concentrar su lectura
+                de runas.</es>
+        </description>
+        <techLevel>1</techLevel>
+        <size>M</size>
+    </equipment>
+    <equipment>
+        <id>runestoneBag</id>
+        <type>item</type>
+        <name>
+            <en>Runestone Bag</en>
+            <es>Bolsa de Piedras Rúnicas</es>
+        </name>
+        <description>
+            <en>A bag holding a stone for each rune you know, cast or drawn to aid a vitki's runecasting.</en>
+            <es>Una bolsa que contiene una piedra por cada runa que conoces, arrojadas o extraídas para ayudar en la
+                lectura de runas de un vitki.</es>
+        </description>
+        <techLevel>1</techLevel>
+        <size>S</size>
+    </equipment>
+    <equipment>
+        <id>runestoneNecklace</id>
+        <type>item</type>
+        <name>
+            <en>Runestone Necklace</en>
+            <es>Collar de Piedras Rúnicas</es>
+        </name>
+        <description>
+            <en>A necklace strung with a stone for each rune you know, worn by a vitki to focus their runecasting.</en>
+            <es>Un collar ensartado con una piedra por cada runa que conoces, llevado por un vitki para concentrar su
+                lectura de runas.</es>
+        </description>
+        <techLevel>1</techLevel>
+        <size>XS</size>
+    </equipment>
+</equipments>
+

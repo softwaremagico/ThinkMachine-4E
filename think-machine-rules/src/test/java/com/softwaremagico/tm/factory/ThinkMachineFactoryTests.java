@@ -26,25 +26,15 @@ package com.softwaremagico.tm.factory;
 
 import com.softwaremagico.tm.character.equipment.thinkmachines.ThinkMachineFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.file.modules.ModuleManager;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 @Test(groups = {"thinkMachineFactory"})
 public class ThinkMachineFactoryTests extends FactoryTest {
 
 
-    private static final int DEFINED_ITEMS = 2;
-
-    @Override
-    @BeforeClass
-    public void enableBasicModule() {
-        ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
-        ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
-        ModuleManager.enableModule(ModuleManager.LOST_WORLDS_BOOK_MODULE);
-        ModuleManager.resetModules();
-    }
+    // 2 base think machines + 1 from Imperial Dossier - Reeves Guild.
+    private static final int DEFINED_ITEMS = 3;
 
     @Test
     public void readItems() throws InvalidXmlElementException {

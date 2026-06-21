@@ -40,7 +40,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Test(groups = "cyberdeviceRules")
-public class CyberdeviceCharacterTests {
+public class CyberdeviceCharacterTests extends RulesTest {
 
     @Test
     public void shelitCyborgShouldOfferFactionBookCyberdevices() {

@@ -1,0 +1,1192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<occultism>
+    <path>
+        <id>concealingRune</id>
+        <name>
+            <en>Concealing</en>
+            <es>Ocultación</es>
+        </name>
+        <occultismType>runemastery</occultismType>
+        <powers>
+            <power>
+                <id>camouflage</id>
+                <name>
+                    <en>Camouflage</en>
+                    <es>Camuflaje</es>
+                </name>
+                <description>
+                    <en>You draw on a sympathy with your surroundings to blend into them, making yourself harder to pick
+                        out while you stay still.</en>
+                    <es>Recurres a una afinidad con tu entorno para fundirte en él, lo que hace más difícil distinguirte
+                        mientras permaneces inmóvil.</es>
+                </description>
+                <occultismLevel>1</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>perception</characteristic>
+                <skills>
+                    <skill>knavery</skill>
+                </skills>
+                <resistance>
+                    <en>Depends on how visually complex the environment is: a wooded forest is Easy, a crowded street is
+                        Demanding, and an empty desert can be Tough or higher.</en>
+                    <es>Depende de lo visualmente complejo que sea el entorno: un bosque frondoso es Fácil, una calle
+                        concurrida es Exigente, y un desierto vacío puede ser Ardua o superior.</es>
+                </resistance>
+                <impact>
+                    <en>While you remain still, add your Runemastery rating to the Resistance of others' attempts to
+                        notice you. You can raise this by spending Victory Points, and spend more to keep the
+                        camouflage while moving.</en>
+                    <es>Mientras permaneces inmóvil, suma tu Maestría Rúnica a la Resistencia de los intentos ajenos de
+                        percibirte. Puedes aumentarla gastando Puntos de Victoria, y gastar más para mantener el
+                        camuflaje mientras te mueves.</es>
+                </impact>
+            </power>
+            <power>
+                <id>innocuous</id>
+                <name>
+                    <en>Innocuous</en>
+                    <es>Inofensivo</es>
+                </name>
+                <description>
+                    <en>You make it hard for others to focus their attention on you; their minds slip away from you as if
+                        repelled.</en>
+                    <es>Haces que a los demás les cueste fijar su atención en ti; sus mentes resbalan lejos de ti como si
+                        fueran repelidas.</es>
+                </description>
+                <occultismLevel>2</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>intuition</characteristic>
+                <skills>
+                    <skill>sneak</skill>
+                </skills>
+                <resistance>
+                    <en>The target's Spirit Resistance.</en>
+                    <es>La Resistencia de Espíritu del objetivo.</es>
+                </resistance>
+                <impact>
+                    <en>Raise by 1 the Resistance of any physical or influence attack the target makes against you; you
+                        can increase this further by spending Victory Points.</en>
+                    <es>Aumenta en 1 la Resistencia de cualquier ataque físico o de influencia que el objetivo realice
+                        contra ti; puedes incrementarla gastando Puntos de Victoria.</es>
+                </impact>
+            </power>
+            <power>
+                <id>falseFace</id>
+                <name>
+                    <en>False Face</en>
+                    <es>Rostro Falso</es>
+                </name>
+                <description>
+                    <en>You project a false image over yourself, deceiving the minds of onlookers and even perceptive
+                        machines such as cameras.</en>
+                    <es>Proyectas una imagen falsa sobre ti mismo, engañando a las mentes de quienes te observan e
+                        incluso a máquinas perceptivas como las cámaras.</es>
+                </description>
+                <occultismLevel>3</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>presence</characteristic>
+                <skills>
+                    <skill>knavery</skill>
+                </skills>
+                <resistance>
+                    <en>The target's Mind Resistance.</en>
+                    <es>La Resistencia de Mente del objetivo.</es>
+                </resistance>
+                <impact>
+                    <en>You appear and sound like someone you have personally seen or heard, or assume a guise you
+                        invent. The disguise normally resists everything but occult detection, which you can hinder by
+                        spending Victory Points.</en>
+                    <es>Aparentas el aspecto y la voz de alguien a quien hayas visto u oído en persona, o adoptas una
+                        apariencia que inventes. El disfraz resiste todo salvo la detección oculta, que puedes dificultar
+                        gastando Puntos de Victoria.</es>
+                </impact>
+            </power>
+            <power>
+                <id>deadenSenses</id>
+                <name>
+                    <en>Deaden Senses</en>
+                    <es>Embotar los Sentidos</es>
+                </name>
+                <description>
+                    <en>You dull one of a target's senses, impairing their sight, hearing, or touch.</en>
+                    <es>Atenúas uno de los sentidos del objetivo, mermando su vista, su oído o su tacto.</es>
+                </description>
+                <occultismLevel>4</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>perception</characteristic>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
+                <resistance>
+                    <en>The target's Mind or Spirit Resistance, as the GM decides.</en>
+                    <es>La Resistencia de Mente o Espíritu del objetivo, según decida el DJ.</es>
+                </resistance>
+                <impact>
+                    <en>The chosen sense becomes impaired; by spending extra Victory Points you can worsen the effect
+                        (for example, blinding or deafening the target).</en>
+                    <es>El sentido elegido queda mermado; gastando Puntos de Victoria adicionales puedes agravar el
+                        efecto (por ejemplo, cegar o ensordecer al objetivo).</es>
+                </impact>
+            </power>
+        </powers>
+    </path>
+    <path>
+        <id>knowingRune</id>
+        <name>
+            <en>Knowing</en>
+            <es>Conocimiento</es>
+        </name>
+        <occultismType>runemastery</occultismType>
+        <powers>
+            <power>
+                <id>parley</id>
+                <name>
+                    <en>Parley</en>
+                    <es>Parlamento</es>
+                </name>
+                <description>
+                    <en>You can speak to and understand a person across any language barrier, as if you were a native
+                        speaker of their tongue.</en>
+                    <es>Puedes hablar con una persona y entenderla salvando cualquier barrera idiomática, como si fueras
+                        hablante nativo de su lengua.</es>
+                </description>
+                <occultismLevel>1</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>wits</characteristic>
+                <skills>
+                    <skill>charm</skill>
+                </skills>
+                <resistance>
+                    <en>Easy for your own species, Hard for an alien.</en>
+                    <es>Fácil para tu propia especie, Ardua para un alienígena.</es>
+                </resistance>
+                <impact>
+                    <en>For the scene, you communicate with the target as a native speaker of their language.</en>
+                    <es>Durante la escena, te comunicas con el objetivo como hablante nativo de su idioma.</es>
+                </impact>
+            </power>
+            <power>
+                <id>layBare</id>
+                <name>
+                    <en>Lay Bare</en>
+                    <es>Desentrañar</es>
+                </name>
+                <description>
+                    <en>You examine a person or thing to diagnose its workings: what repairs it needs, what a text says,
+                        what culture someone hails from.</en>
+                    <es>Examinas a una persona o cosa para diagnosticar su funcionamiento: qué reparaciones necesita, qué
+                        dice un texto, de qué cultura procede alguien.</es>
+                </description>
+                <occultismLevel>2</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>wits</characteristic>
+                <skills>
+                    <skill>academia</skill>
+                </skills>
+                <resistance>
+                    <en>The target's Mind Resistance or tech level.</en>
+                    <es>La Resistencia de Mente del objetivo o su nivel tecnológico.</es>
+                </resistance>
+                <impact>
+                    <en>You correctly analyse the subject and learn a solution to the problem it poses; spending more
+                        Victory Points reveals a more efficient answer.</en>
+                    <es>Analizas correctamente al sujeto y conoces una solución al problema que plantea; gastar más Puntos
+                        de Victoria revela una respuesta más eficaz.</es>
+                </impact>
+            </power>
+            <power>
+                <id>inkling</id>
+                <name>
+                    <en>Inkling</en>
+                    <es>Atisbo</es>
+                </name>
+                <description>
+                    <en>You gain significant insight into a problem that is vexing you, the depth of the revelation scaling
+                        with the effort you pour into it.</en>
+                    <es>Obtienes una intuición notable sobre un problema que te inquieta, cuya profundidad aumenta con el
+                        esfuerzo que inviertes en él.</es>
+                </description>
+                <occultismLevel>3</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>wits</characteristic>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
+                <resistance>
+                    <en>Easy.</en>
+                    <es>Fácil.</es>
+                </resistance>
+                <impact>
+                    <en>You gain insight into your dilemma; spending more Victory Points yields ever clearer guidance on
+                        its nature and resolution.</en>
+                    <es>Comprendes mejor tu dilema; gastar más Puntos de Victoria aporta una orientación cada vez más
+                        clara sobre su naturaleza y su solución.</es>
+                </impact>
+            </power>
+            <power>
+                <id>knowTheUnknown</id>
+                <name>
+                    <en>Know the Unknown</en>
+                    <es>Conocer lo Desconocido</es>
+                </name>
+                <description>
+                    <en>You can detect deliberate dishonesty in a target and glean their unstated intentions or goals.</en>
+                    <es>Puedes detectar la deshonestidad deliberada de un objetivo y vislumbrar sus intenciones o metas no
+                        declaradas.</es>
+                </description>
+                <occultismLevel>4</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>intuition</characteristic>
+                <skills>
+                    <skill>charm</skill>
+                </skills>
+                <resistance>
+                    <en>The target's Spirit Resistance.</en>
+                    <es>La Resistencia de Espíritu del objetivo.</es>
+                </resistance>
+                <impact>
+                    <en>For the rest of the scene you know when the target lies; spending more Victory Points lets you
+                        catch half-truths and lies of omission, or probe written texts.</en>
+                    <es>Durante el resto de la escena sabes cuándo miente el objetivo; gastar más Puntos de Victoria te
+                        permite detectar verdades a medias y mentiras por omisión, o examinar textos escritos.</es>
+                </impact>
+            </power>
+        </powers>
+    </path>
+    <path>
+        <id>makingRune</id>
+        <name>
+            <en>Making</en>
+            <es>Creación</es>
+        </name>
+        <occultismType>runemastery</occultismType>
+        <powers>
+            <power>
+                <id>enlarge</id>
+                <name>
+                    <en>Enlarge</en>
+                    <es>Agrandar</es>
+                </name>
+                <description>
+                    <en>You increase the size and mass of your target, making it larger, fatter, taller, or heavier.</en>
+                    <es>Aumentas el tamaño y la masa de tu objetivo, haciéndolo más grande, grueso, alto o pesado.</es>
+                </description>
+                <occultismLevel>1</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>will</characteristic>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
+                <resistance>
+                    <en>The target's Spirit Resistance if it is a living being, or a material's armor value.</en>
+                    <es>La Resistencia de Espíritu del objetivo si es un ser vivo, o el valor de blindaje de un material.</es>
+                </resistance>
+                <impact>
+                    <en>Increase the target's height and weight by 20%, plus 20% more per 2 Victory Points; every 20%
+                        raises its Size by 1, adding 1 to movement speed and Vitality per rank gained.</en>
+                    <es>Aumenta la altura y el peso del objetivo en un 20%, más un 20% por cada 2 Puntos de Victoria; cada
+                        20% sube su Tamaño en 1, añadiendo 1 a la velocidad de movimiento y a la Vitalidad por rango
+                        ganado.</es>
+                </impact>
+            </power>
+            <power>
+                <id>conjure</id>
+                <name>
+                    <en>Conjure</en>
+                    <es>Conjurar</es>
+                </name>
+                <description>
+                    <en>You create a small, simple thing out of nothing, or instill a compelling thought in someone's
+                        mind.</en>
+                    <es>Creas de la nada una cosa pequeña y simple, o infundes un pensamiento apremiante en la mente de
+                        alguien.</es>
+                </description>
+                <occultismLevel>2</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>faith</characteristic>
+                <skills>
+                    <skill>impress</skill>
+                </skills>
+                <resistance>
+                    <en>Hard for something familiar, Tough for something only described to you, Severe for something you
+                        invent; a mental command uses the target's Mind Resistance.</en>
+                    <es>Ardua para algo familiar, Difícil para algo que solo te han descrito, Severa para algo que
+                        inventas; una orden mental usa la Resistencia de Mente del objetivo.</es>
+                </resistance>
+                <impact>
+                    <en>The conjured thing appears within range and is real while the casting lasts: a pebble, a
+                        candle-sized flame, simple fungi, or a single-word mental command the target must obey.</en>
+                    <es>La cosa conjurada aparece dentro del alcance y es real mientras dure la lectura: un guijarro, una
+                        llama del tamaño de una vela, hongos simples o una orden mental de una palabra que el objetivo
+                        debe obedecer.</es>
+                </impact>
+            </power>
+            <power>
+                <id>replenish</id>
+                <name>
+                    <en>Replenish</en>
+                    <es>Reponer</es>
+                </name>
+                <description>
+                    <en>You replenish a renewable resource or function that has been lost.</en>
+                    <es>Repones un recurso o función renovable que se ha perdido.</es>
+                </description>
+                <occultismLevel>3</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>faith</characteristic>
+                <skills>
+                    <skill>remedy</skill>
+                </skills>
+                <resistance>
+                    <en>Hard.</en>
+                    <es>Ardua.</es>
+                </resistance>
+                <impact>
+                    <en>Restore a lost substance up to its normal maximum: 1 gallon of water, 1 fusion charge, or 1
+                        Vitality, plus 1 more per 2 Victory Points. The replenished substance remains after the casting
+                        ends.</en>
+                    <es>Restaura una sustancia perdida hasta su máximo normal: 1 galón de agua, 1 carga de fusión o 1 de
+                        Vitalidad, más 1 por cada 2 Puntos de Victoria. La sustancia repuesta permanece tras terminar la
+                        lectura.</es>
+                </impact>
+            </power>
+            <power>
+                <id>majorConjuration</id>
+                <name>
+                    <en>Major Conjuration</en>
+                    <es>Conjuración Mayor</es>
+                </name>
+                <description>
+                    <en>You create from nothing a large, simple thing, or instill a complex mental command.</en>
+                    <es>Creas de la nada una cosa grande y simple, o infundes una orden mental compleja.</es>
+                </description>
+                <occultismLevel>4</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>will</characteristic>
+                <skills>
+                    <skill>impress</skill>
+                </skills>
+                <resistance>
+                    <en>Hard for something familiar, Tough for something only described to you, Severe for something you
+                        invent; a mental command uses the target's Mind Resistance.</en>
+                    <es>Ardua para algo familiar, Difícil para algo que solo te han descrito, Severa para algo que
+                        inventas; una orden mental usa la Resistencia de Mente del objetivo.</es>
+                </resistance>
+                <impact>
+                    <en>As Conjure, but larger: a bonfire, a boulder, a tree, or a full straightforward sentence as a
+                        command. Creates a small item or a Size 2 living thing, doubled per 2 Victory Points.</en>
+                    <es>Como Conjurar, pero mayor: una hoguera, una roca, un árbol o una frase completa y sencilla como
+                        orden. Crea un objeto pequeño o un ser vivo de Tamaño 2, que se duplica por cada 2 Puntos de
+                        Victoria.</es>
+                </impact>
+            </power>
+        </powers>
+    </path>
+    <path>
+        <id>revealingRune</id>
+        <name>
+            <en>Revealing</en>
+            <es>Revelación</es>
+        </name>
+        <occultismType>runemastery</occultismType>
+        <powers>
+            <power>
+                <id>sharpenSenses</id>
+                <name>
+                    <en>Sharpen Senses</en>
+                    <es>Aguzar los Sentidos</es>
+                </name>
+                <description>
+                    <en>You sharpen one or more of your senses to uncanny efficiency.</en>
+                    <es>Aguzas uno o más de tus sentidos hasta una eficacia sobrenatural.</es>
+                </description>
+                <occultismLevel>1</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>perception</characteristic>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
+                <resistance>
+                    <en>Hard.</en>
+                    <es>Ardua.</es>
+                </resistance>
+                <impact>
+                    <en>Functions like the Sixth Sense psychic power Shape Senses, granting heightened acuity to the
+                        chosen sense or senses.</en>
+                    <es>Funciona como el poder psíquico Moldear los Sentidos del Sexto Sentido, otorgando una agudeza
+                        elevada al sentido o sentidos elegidos.</es>
+                </impact>
+            </power>
+            <power>
+                <id>myrkSense</id>
+                <name>
+                    <en>Myrk Sense</en>
+                    <es>Sentido Myrk</es>
+                </name>
+                <description>
+                    <en>You see thoughts and emotions as visible displays of light and color.</en>
+                    <es>Ves los pensamientos y las emociones como manifestaciones visibles de luz y color.</es>
+                </description>
+                <occultismLevel>2</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>perception</characteristic>
+                <skills>
+                    <skill>empathy</skill>
+                </skills>
+                <resistance>
+                    <en>The target's Spirit Resistance.</en>
+                    <es>La Resistencia de Espíritu del objetivo.</es>
+                </resistance>
+                <impact>
+                    <en>Functions like the Sixth Sense psychic power Subtle Sight, letting you read moods and surface
+                        thoughts.</en>
+                    <es>Funciona como el poder psíquico Vista Sutil del Sexto Sentido, permitiéndote leer estados de
+                        ánimo y pensamientos superficiales.</es>
+                </impact>
+            </power>
+            <power>
+                <id>superSense</id>
+                <name>
+                    <en>Super Sense</en>
+                    <es>Supersentido</es>
+                </name>
+                <description>
+                    <en>You alter a sensory organ to achieve perception normally reserved for technology.</en>
+                    <es>Alteras un órgano sensorial para lograr una percepción normalmente reservada a la tecnología.</es>
+                </description>
+                <occultismLevel>3</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>wits</characteristic>
+                <skills>
+                    <skill>observe</skill>
+                </skills>
+                <resistance>
+                    <en>Demanding.</en>
+                    <es>Exigente.</es>
+                </resistance>
+                <impact>
+                    <en>Use a Form rune to develop a new sense: IR vision (Fire), telescopic vision (Air), sonar hearing
+                        (Earth), or UV vision (Ether).</en>
+                    <es>Usa una runa de Forma para desarrollar un nuevo sentido: visión infrarroja (Fuego), visión
+                        telescópica (Aire), oído sónar (Tierra) o visión ultravioleta (Éter).</es>
+                </impact>
+            </power>
+            <power>
+                <id>inSight</id>
+                <name>
+                    <en>In-Sight</en>
+                    <es>Visión Interior</es>
+                </name>
+                <description>
+                    <en>You see through barriers as if they were transparent.</en>
+                    <es>Ves a través de las barreras como si fueran transparentes.</es>
+                </description>
+                <occultismLevel>4</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>intuition</characteristic>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
+                <resistance>
+                    <en>Equal to the barrier's Resistance value.</en>
+                    <es>Igual al valor de Resistencia de la barrera.</es>
+                </resistance>
+                <impact>
+                    <en>See through solid objects up to 1 metre thick - walls, closed boxes, even a body's organs;
+                        +1 metre per 2 Victory Points.</en>
+                    <es>Ves a través de objetos sólidos de hasta 1 metro de grosor: muros, cajas cerradas, incluso los
+                        órganos de un cuerpo; +1 metro por cada 2 Puntos de Victoria.</es>
+                </impact>
+            </power>
+        </powers>
+    </path>
+    <path>
+        <id>shapingRune</id>
+        <name>
+            <en>Shaping</en>
+            <es>Modelado</es>
+        </name>
+        <occultismType>runemastery</occultismType>
+        <powers>
+            <power>
+                <id>reshape</id>
+                <name>
+                    <en>Reshape</en>
+                    <es>Remodelar</es>
+                </name>
+                <description>
+                    <en>You mold basic shapes, such as bending a knife.</en>
+                    <es>Moldeas formas básicas, como doblar un cuchillo.</es>
+                </description>
+                <occultismLevel>1</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>wits</characteristic>
+                <skills>
+                    <skill>techRedemption</skill>
+                </skills>
+                <resistance>
+                    <en>Object: Size x2; living creature: Size or Spirit Resistance, whichever is higher.</en>
+                    <es>Objeto: Tamaño x2; criatura viva: Tamaño o Resistencia de Espíritu, lo que sea mayor.</es>
+                </resistance>
+                <impact>
+                    <en>Reshape the item in a single, direct way: bend a stick, blunt a blade, or warp a single cog so a
+                        machine malfunctions.</en>
+                    <es>Remodelas el objeto de una forma única y directa: doblar un palo, embotar una hoja o torcer un
+                        engranaje para que una máquina falle.</es>
+                </impact>
+            </power>
+            <power>
+                <id>carve</id>
+                <name>
+                    <en>Carve</en>
+                    <es>Tallar</es>
+                </name>
+                <description>
+                    <en>You carve an existing thing or being into a specific but simple shape.</en>
+                    <es>Tallas una cosa o ser existente para darle una forma concreta pero simple.</es>
+                </description>
+                <occultismLevel>2</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>wits</characteristic>
+                <skills>
+                    <skill>techRedemption</skill>
+                </skills>
+                <resistance>
+                    <en>Object: Size x2; living creature: Size or Spirit Resistance, whichever is higher.</en>
+                    <es>Objeto: Tamaño x2; criatura viva: Tamaño o Resistencia de Espíritu, lo que sea mayor.</es>
+                </resistance>
+                <impact>
+                    <en>Make a useful item or simple tool from existing material - a sword from raw metal, or a hand
+                        turned into a knife.</en>
+                    <es>Fabricas un objeto útil o herramienta simple a partir de material existente: una espada de metal
+                        en bruto, o una mano convertida en cuchillo.</es>
+                </impact>
+            </power>
+            <power>
+                <id>craftwork</id>
+                <name>
+                    <en>Craftwork</en>
+                    <es>Artesanía</es>
+                </name>
+                <description>
+                    <en>You carve complex shapes from existing things or beings.</en>
+                    <es>Tallas formas complejas a partir de cosas o seres existentes.</es>
+                </description>
+                <occultismLevel>3</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>wits</characteristic>
+                <skills>
+                    <skill>techRedemption</skill>
+                </skills>
+                <resistance>
+                    <en>Object: Size x2; living creature: Size or Spirit Resistance, whichever is higher.</en>
+                    <es>Objeto: Tamaño x2; criatura viva: Tamaño o Resistencia de Espíritu, lo que sea mayor.</es>
+                </resistance>
+                <impact>
+                    <en>Alter intricate detail: change facial features, forge a seal, or give a dog opposable thumbs;
+                        spend 2 Victory Points to make the alteration look natural.</en>
+                    <es>Alteras detalles intrincados: cambiar rasgos faciales, falsificar un sello o dar a un perro
+                        pulgares oponibles; gasta 2 Puntos de Victoria para que la alteración parezca natural.</es>
+                </impact>
+            </power>
+            <power>
+                <id>construct</id>
+                <name>
+                    <en>Construct</en>
+                    <es>Construir</es>
+                </name>
+                <description>
+                    <en>You carve complex shapes with moving parts from existing material.</en>
+                    <es>Tallas formas complejas con partes móviles a partir de material existente.</es>
+                </description>
+                <occultismLevel>4</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>wits</characteristic>
+                <skills>
+                    <skill>techRedemption</skill>
+                </skills>
+                <resistance>
+                    <en>Object: Size x2; living creature: Size or Spirit Resistance, whichever is higher.</en>
+                    <es>Objeto: Tamaño x2; criatura viva: Tamaño o Resistencia de Espíritu, lo que sea mayor.</es>
+                </resistance>
+                <impact>
+                    <en>Build a working device from raw stuff - a clock from a brooch or a wagon from timber. It is
+                        fragile and stops working if damaged; +1 Resistance per Victory Point (non-living only).</en>
+                    <es>Construyes un artefacto funcional a partir de material en bruto: un reloj de un broche o un carro
+                        de unos maderos. Es frágil y deja de funcionar si sufre daño; +1 Resistencia por Punto de
+                        Victoria (solo objetos no vivos).</es>
+                </impact>
+            </power>
+        </powers>
+    </path>
+    <path>
+        <id>shieldingRune</id>
+        <name>
+            <en>Shielding</en>
+            <es>Protección</es>
+        </name>
+        <occultismType>runemastery</occultismType>
+        <powers>
+            <power>
+                <id>toughen</id>
+                <name>
+                    <en>Toughen</en>
+                    <es>Endurecer</es>
+                </name>
+                <description>
+                    <en>You increase your own or another creature's Endurance, or an object's Vitality.</en>
+                    <es>Aumentas tu Aguante o el de otra criatura, o la Vitalidad de un objeto.</es>
+                </description>
+                <occultismLevel>1</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>will</characteristic>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
+                <resistance>
+                    <en>Hard.</en>
+                    <es>Ardua.</es>
+                </resistance>
+                <impact>
+                    <en>Add 2 ranks of Endurance, which also raises Vitality, or give an item +2 Vitality; +1 Endurance
+                        per 2 Victory Points.</en>
+                    <es>Añade 2 rangos de Aguante, lo que también sube la Vitalidad, o da a un objeto +2 de Vitalidad; +1
+                        de Aguante por cada 2 Puntos de Victoria.</es>
+                </impact>
+            </power>
+            <power>
+                <id>armorRune</id>
+                <name>
+                    <en>Armor</en>
+                    <es>Blindaje</es>
+                </name>
+                <description>
+                    <en>You increase your own or another thing or being's Resistance.</en>
+                    <es>Aumentas tu Resistencia o la de otra cosa o ser.</es>
+                </description>
+                <occultismLevel>2</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>will</characteristic>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
+                <resistance>
+                    <en>Hard.</en>
+                    <es>Ardua.</es>
+                </resistance>
+                <impact>
+                    <en>Raise Resistance using the matching Form rune - Earth for Body, Emotion or Intellect for Mind,
+                        Wyrd for Spirit; +1 Resistance per 2 Victory Points.</en>
+                    <es>Aumenta la Resistencia usando la runa de Forma adecuada: Tierra para el Cuerpo, Emoción o
+                        Intelecto para la Mente, Wyrd para el Espíritu; +1 de Resistencia por cada 2 Puntos de
+                        Victoria.</es>
+                </impact>
+            </power>
+            <power>
+                <id>deadlyDefense</id>
+                <name>
+                    <en>Deadly Defense</en>
+                    <es>Defensa Mortal</es>
+                </name>
+                <description>
+                    <en>You grow spikes, thorns, or darts that harm an attacker.</en>
+                    <es>Haces brotar púas, espinas o dardos que dañan al atacante.</es>
+                </description>
+                <occultismLevel>3</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>faith</characteristic>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
+                <resistance>
+                    <en>Hard.</en>
+                    <es>Ardua.</es>
+                </resistance>
+                <impact>
+                    <en>Anyone attacking the target from within 10 metres suffers an explosive-like hit with damage and
+                        blastforce equal to your Runemastery +1 per 2 Victory Points, affecting only the attacker.</en>
+                    <es>Quien ataque al objetivo desde menos de 10 metros sufre un impacto similar a un explosivo con daño
+                        y fuerza de explosión igual a tu Maestría Rúnica +1 por cada 2 Puntos de Victoria, afectando solo
+                        al atacante.</es>
+                </impact>
+            </power>
+            <power>
+                <id>repulse</id>
+                <name>
+                    <en>Repulse</en>
+                    <es>Repeler</es>
+                </name>
+                <description>
+                    <en>You create a field of energy to protect the target of your casting.</en>
+                    <es>Creas un campo de energía para proteger al objetivo de tu lectura.</es>
+                </description>
+                <occultismLevel>4</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>faith</characteristic>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
+                <resistance>
+                    <en>Hard.</en>
+                    <es>Ardua.</es>
+                </resistance>
+                <impact>
+                    <en>The target gains a personal force field like a standard energy shield (threshold 5, upper limit
+                        10 + Runemastery) that takes 10 hits, +5 per 2 Victory Points, without burnout or armor
+                        restrictions.</en>
+                    <es>El objetivo obtiene un campo de fuerza personal como un escudo de energía estándar (umbral 5,
+                        límite superior 10 + Maestría Rúnica) que aguanta 10 impactos, +5 por cada 2 Puntos de Victoria,
+                        sin sobrecarga ni restricciones de armadura.</es>
+                </impact>
+            </power>
+        </powers>
+    </path>
+    <path>
+        <id>travelingRune</id>
+        <name>
+            <en>Traveling</en>
+            <es>Viaje</es>
+        </name>
+        <occultismType>runemastery</occultismType>
+        <powers>
+            <power>
+                <id>axis</id>
+                <name>
+                    <en>Axis</en>
+                    <es>Eje</es>
+                </name>
+                <description>
+                    <en>You attain a perfect sense of direction, not only in space but within the threads of fate.</en>
+                    <es>Logras un sentido perfecto de la orientación, no solo en el espacio sino entre los hilos del
+                        destino.</es>
+                </description>
+                <occultismLevel>1</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>intuition</characteristic>
+                <skills>
+                    <skill>observe</skill>
+                </skills>
+                <resistance>
+                    <en>Easy.</en>
+                    <es>Fácil.</es>
+                </resistance>
+                <impact>
+                    <en>Functions like the Eskatonic Order theurgic rite Celestial Alignment, although you do not gain
+                        that rite's charism powers.</en>
+                    <es>Funciona como el rito teúrgico Alineación Celestial de la Orden Eskatónica, aunque no obtienes los
+                        poderes de carisma de ese rito.</es>
+                </impact>
+            </power>
+            <power>
+                <id>swiftness</id>
+                <name>
+                    <en>Swiftness</en>
+                    <es>Celeridad</es>
+                </name>
+                <description>
+                    <en>You increase a being's speed or grant motion to inanimate objects.</en>
+                    <es>Aumentas la velocidad de un ser o concedes movimiento a objetos inanimados.</es>
+                </description>
+                <occultismLevel>2</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>presence</characteristic>
+                <skills>
+                    <skill>vigor</skill>
+                </skills>
+                <resistance>
+                    <en>Hard, or the living target's Spirit Resistance, whichever is higher.</en>
+                    <es>Ardua, o la Resistencia de Espíritu del objetivo vivo, lo que sea mayor.</es>
+                </resistance>
+                <impact>
+                    <en>Raise a creature's movement by 1 metre per turn per Runemastery rank, +1 per 2 Victory Points; or
+                        send an object moving 1 metre per turn per rank in a straight line until something stops it.</en>
+                    <es>Aumenta el movimiento de una criatura en 1 metro por turno por rango de Maestría Rúnica, +1 por
+                        cada 2 Puntos de Victoria; o lanza un objeto a 1 metro por turno por rango en línea recta hasta
+                        que algo lo detenga.</es>
+                </impact>
+            </power>
+            <power>
+                <id>slowness</id>
+                <name>
+                    <en>Slowness</en>
+                    <es>Lentitud</es>
+                </name>
+                <description>
+                    <en>You impede a thing or being's movement.</en>
+                    <es>Entorpeces el movimiento de una cosa o ser.</es>
+                </description>
+                <occultismLevel>3</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>will</characteristic>
+                <skills>
+                    <skill>observe</skill>
+                </skills>
+                <resistance>
+                    <en>Hard, or the living target's Spirit Resistance, whichever is higher.</en>
+                    <es>Ardua, o la Resistencia de Espíritu del objetivo vivo, lo que sea mayor.</es>
+                </resistance>
+                <impact>
+                    <en>Halve the target's movement (again per 2 Victory Points), or lower its rate by 1 metre per turn
+                        per Runemastery rank, -1 per 2 Victory Points, to a minimum of 1.</en>
+                    <es>Reduce a la mitad el movimiento del objetivo (de nuevo por cada 2 Puntos de Victoria), o baja su
+                        ritmo en 1 metro por turno por rango de Maestría Rúnica, -1 por cada 2 Puntos de Victoria, hasta
+                        un mínimo de 1.</es>
+                </impact>
+            </power>
+            <power>
+                <id>accelerate</id>
+                <name>
+                    <en>Accelerate</en>
+                    <es>Acelerar</es>
+                </name>
+                <description>
+                    <en>You impart extra kinetic energy to a swiftly moving object, such as a bullet, an arrow, or a
+                        fist.</en>
+                    <es>Impartes energía cinética adicional a un objeto en rápido movimiento, como una bala, una flecha o
+                        un puño.</es>
+                </description>
+                <occultismLevel>4</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>will</characteristic>
+                <skills>
+                    <skill>observe</skill>
+                </skills>
+                <resistance>
+                    <en>Hard, or the living target's Spirit Resistance, whichever is higher.</en>
+                    <es>Ardua, o la Resistencia de Espíritu del objetivo vivo, lo que sea mayor.</es>
+                </resistance>
+                <impact>
+                    <en>Cast reflexively on something already in motion; it becomes harder to dodge and ignores
+                        Resistance up to your Runemastery ranks.</en>
+                    <es>Se lanza de forma refleja sobre algo ya en movimiento; se vuelve más difícil de esquivar e ignora
+                        Resistencia hasta tus rangos de Maestría Rúnica.</es>
+                </impact>
+            </power>
+        </powers>
+    </path>
+    <path>
+        <id>unmakingRune</id>
+        <name>
+            <en>Unmaking</en>
+            <es>Destrucción</es>
+        </name>
+        <occultismType>runemastery</occultismType>
+        <powers>
+            <power>
+                <id>shrink</id>
+                <name>
+                    <en>Shrink</en>
+                    <es>Encoger</es>
+                </name>
+                <description>
+                    <en>You decrease the size and mass of your target, making it smaller, thinner, or lighter.</en>
+                    <es>Reduces el tamaño y la masa de tu objetivo, haciéndolo más pequeño, delgado o ligero.</es>
+                </description>
+                <occultismLevel>1</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>will</characteristic>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
+                <resistance>
+                    <en>The target's Spirit Resistance if it is a living being, or a material's armor value.</en>
+                    <es>La Resistencia de Espíritu del objetivo si es un ser vivo, o el valor de blindaje de un material.</es>
+                </resistance>
+                <impact>
+                    <en>Lower height and weight by 20%, plus 20% more per 2 Victory Points; each 20% lowers Size by 1,
+                        subtracting 1 from movement speed and Vitality per rank lost.</en>
+                    <es>Baja la altura y el peso un 20%, más un 20% por cada 2 Puntos de Victoria; cada 20% reduce el
+                        Tamaño en 1, restando 1 a la velocidad de movimiento y a la Vitalidad por rango perdido.</es>
+                </impact>
+            </power>
+            <power>
+                <id>wound</id>
+                <name>
+                    <en>Wound</en>
+                    <es>Herir</es>
+                </name>
+                <description>
+                    <en>You inflict damage on a target.</en>
+                    <es>Infliges daño a un objetivo.</es>
+                </description>
+                <occultismLevel>2</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>will</characteristic>
+                <skills>
+                    <skill>impress</skill>
+                </skills>
+                <resistance>
+                    <en>The target's Spirit Resistance.</en>
+                    <es>La Resistencia de Espíritu del objetivo.</es>
+                </resistance>
+                <impact>
+                    <en>Deal damage equal to your Runemastery rating, +1 per 2 Victory Points; with the Fire and Ether
+                        runes the attack bypasses energy shields.</en>
+                    <es>Inflige daño igual a tu Maestría Rúnica, +1 por cada 2 Puntos de Victoria; con las runas de Fuego
+                        y Éter el ataque atraviesa los escudos de energía.</es>
+                </impact>
+            </power>
+            <power>
+                <id>weaken</id>
+                <name>
+                    <en>Weaken</en>
+                    <es>Debilitar</es>
+                </name>
+                <description>
+                    <en>You weaken your target: fire burns dimly, rock or metal becomes fragile, armor erodes.</en>
+                    <es>Debilitas tu objetivo: el fuego arde débilmente, la roca o el metal se vuelven frágiles, la
+                        armadura se erosiona.</es>
+                </description>
+                <occultismLevel>3</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>will</characteristic>
+                <skills>
+                    <skill>impress</skill>
+                </skills>
+                <resistance>
+                    <en>The target's Spirit Resistance.</en>
+                    <es>La Resistencia de Espíritu del objetivo.</es>
+                </resistance>
+                <impact>
+                    <en>Reduce a relevant rating, or lower one of a living target's characteristics by 1 rank, -1 per 2
+                        Victory Points, to a minimum of 1.</en>
+                    <es>Reduce una puntuación relevante, o baja en 1 rango una de las características de un objetivo vivo,
+                        -1 por cada 2 Puntos de Victoria, hasta un mínimo de 1.</es>
+                </impact>
+            </power>
+            <power>
+                <id>unravel</id>
+                <name>
+                    <en>Unravel</en>
+                    <es>Deshacer</es>
+                </name>
+                <description>
+                    <en>You cause a thing to fall apart or a person to sicken with aches and pains.</en>
+                    <es>Haces que una cosa se desmorone o que una persona enferme con achaques y dolores.</es>
+                </description>
+                <occultismLevel>4</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>will</characteristic>
+                <skills>
+                    <skill>knavery</skill>
+                </skills>
+                <resistance>
+                    <en>The target's Spirit Resistance.</en>
+                    <es>La Resistencia de Espíritu del objetivo.</es>
+                </resistance>
+                <impact>
+                    <en>An object's parts come apart undamaged with little evidence; a person suffers a state of your
+                        choice: Dazed, Fatigued, Hearing Impaired, Hindered, or Seeing Impaired.</en>
+                    <es>Las piezas de un objeto se separan sin dañarse y con poca evidencia; una persona sufre un estado a
+                        tu elección: Aturdido, Fatigado, Oído Mermado, Entorpecido o Vista Mermada.</es>
+                </impact>
+            </power>
+        </powers>
+    </path>
+    <path>
+        <id>beastBond</id>
+        <name>
+            <en>Beast Bond</en>
+            <es>Vínculo Bestial</es>
+        </name>
+        <occultismType>sympathy</occultismType>
+        <powers>
+            <power>
+                <id>lifeSense</id>
+                <name>
+                    <en>Life Sense</en>
+                    <es>Sentido de la Vida</es>
+                </name>
+                <description>
+                    <en>You can detect the presence of animal life, including people, within a radius that grows with your
+                        Sympathy.</en>
+                    <es>Puedes detectar la presencia de vida animal, incluidas las personas, dentro de un radio que crece
+                        con tu Simpatía.</es>
+                </description>
+                <occultismLevel>1</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>intuition</characteristic>
+                <skills>
+                    <skill>observe</skill>
+                </skills>
+                <resistance>
+                    <en>Hard for most animals; Demanding for weakened, wounded, hibernating, or dying beings.</en>
+                    <es>Ardua para la mayoría de los animales; Exigente para seres debilitados, heridos, en hibernación o
+                        moribundos.</es>
+                </resistance>
+                <impact>
+                    <en>You sense animal life within 5 metres, plus 1 metre per Sympathy rank above 1; spending 2 Victory
+                        Points pinpoints its exact location.</en>
+                    <es>Percibes vida animal en 5 metros, más 1 metro por cada punto de Simpatía por encima de 1; gastar 2
+                        Puntos de Victoria localiza su posición exacta.</es>
+                </impact>
+            </power>
+            <power>
+                <id>animalCohort</id>
+                <name>
+                    <en>Animal Cohort</en>
+                    <es>Cohorte Animal</es>
+                </name>
+                <description>
+                    <en>You gain an empathically bonded animal cohort, a loyal boon companion with whom you can
+                        communicate. Once gained, this power is permanent and requires no roll.</en>
+                    <es>Obtienes una cohorte animal vinculada por empatía, un compañero leal con el que puedes
+                        comunicarte. Una vez obtenido, este poder es permanente y no requiere tirada.</es>
+                </description>
+                <occultismLevel>2</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>None</en>
+                    <es>Ninguno</es>
+                </cost>
+                <characteristic>intuition</characteristic>
+                <skills>
+                    <skill>animalia</skill>
+                </skills>
+                <resistance>
+                    <en>None; the bond forms automatically.</en>
+                    <es>Ninguna; el vínculo se forma automáticamente.</es>
+                </resistance>
+                <impact>
+                    <en>Your cohort is loyal, will never willingly attack you, and offers companionship and aid. It is a
+                        single 3rd-level creature, or a mix of lower-level creatures of equivalent worth.</en>
+                    <es>Tu cohorte es leal, nunca te atacará por voluntad propia y te brinda compañía y ayuda. Es una
+                        criatura de nivel 3, o una mezcla de criaturas de menor nivel de valor equivalente.</es>
+                </impact>
+            </power>
+        </powers>
+    </path>
+</occultism>
+

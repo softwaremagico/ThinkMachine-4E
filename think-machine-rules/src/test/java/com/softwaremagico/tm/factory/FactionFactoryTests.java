@@ -42,7 +42,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Test(groups = {"factionsFactory"})
-public class FactionFactoryTests {
+public class FactionFactoryTests extends FactoryTest {
 	private static final int DEFINED_FACTIONS_FS_4E = 20;
 	private static final int DEFINED_FACTIONS_FACTION_BOOK = 37;
 	private static final int DEFINED_MALE_NAMES = 103;
@@ -114,7 +114,7 @@ public class FactionFactoryTests {
 		final Faction hawkwood = FactionFactory.getInstance().getElement("hawkwood");
 		Assert.assertNotNull(hawkwood);
 		Assert.assertEquals(hawkwood.getMaterialAwards().size(), 1);
-		Assert.assertEquals(hawkwood.getMaterialAwards().get(0).getOptions().size(), 6);
+		Assert.assertEquals(hawkwood.getMaterialAwards().get(0).getOptions().size(), 5);
 		Assert.assertTrue(hawkwood.getMaterialAwards().get(0).getOptions().iterator().next()
 				.getElement() instanceof CustomizedWeapon);
 		Assert.assertEquals(

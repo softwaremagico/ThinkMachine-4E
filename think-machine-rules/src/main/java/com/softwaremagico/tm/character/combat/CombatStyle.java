@@ -59,11 +59,17 @@ public class CombatStyle extends Element {
     }
 
     public void addCombatStance(CombatStance stance) {
+        if (combatStances == null) {
+            combatStances = new ArrayList<>();
+        }
         combatStances.add(stance);
         Collections.sort(combatStances);
     }
 
     public List<CombatStance> getCombatStances() {
+        if (combatStances == null) {
+            return Collections.emptyList();
+        }
         return Collections.unmodifiableList(combatStances);
     }
 
@@ -95,11 +101,17 @@ public class CombatStyle extends Element {
     }
 
     public void addCombatAction(CombatAction combatAction) {
+        if (combatActions == null) {
+            combatActions = new ArrayList<>();
+        }
         combatActions.add(combatAction);
         Collections.sort(combatActions);
     }
 
     public List<CombatAction> getCombatActions() {
+        if (combatActions == null) {
+            return Collections.emptyList();
+        }
         return Collections.unmodifiableList(combatActions);
     }
 

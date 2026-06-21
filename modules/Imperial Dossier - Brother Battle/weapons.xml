@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weapons>
+    <brotherCassHeavyRevolver>
+        <id>brotherCassHeavyRevolver</id>
+        <type>weapon</type>
+        <group>militaryWeapons</group>
+        <name>
+            <en>Brother Cass Heavy Revolver (.47)</en>
+            <es>Brother Cass Revolver Pesado (.47)</es>
+        </name>
+        <description>
+            <en>Standard sidearm used by Brother Battle forces. It is a rugged heavy revolver with an integrated short underbarrel shotgun.</en>
+            <es>Arma corta estándar usada por las fuerzas de Brother Battle. Es un revolver pesado y robusto con una escopeta corta integrada bajo el cañón.</es>
+        </description>
+        <techLevel>4</techLevel>
+        <weaponType>SLUG</weaponType>
+        <weaponClass>pistol</weaponClass>
+        <damageList>
+            <weaponDamage>
+                <damageName>
+                    <en>Heavy Revolver (.47)</en>
+                    <es>Revolver Pesado (.47)</es>
+                </damageName>
+                <characteristic>dexterity</characteristic>
+                <skill>shoot</skill>
+                <goal>0</goal>
+                <damage>6</damage>
+                <strength>4</strength>
+                <range>30/40</range>
+                <shots>7</shots>
+                <rate>2</rate>
+            </weaponDamage>
+            <weaponDamage>
+                <damageName>
+                    <en>Underbarrel Shotgun (10g)</en>
+                    <es>Escopeta Inferior (10g)</es>
+                </damageName>
+                <characteristic>dexterity</characteristic>
+                <skill>shoot</skill>
+                <goal>+2/-2/no</goal>
+                <damage>8/4/1</damage>
+                <strength>4</strength>
+                <range>5/10/no</range>
+                <shots>1</shots>
+                <rate>1</rate>
+            </weaponDamage>
+        </damageList>
+        <size>M</size>
+        <cost>300</cost>
+        <agora>rare</agora>
+        <agoraGroups>
+            <agoraGroup>brotherbattle</agoraGroup>
+        </agoraGroups>
+        <restrictions>
+            <factions>
+                <faction>brotherBattle</faction>
+            </factions>
+            <callings>
+                <calling>brotherBattle</calling>
+            </callings>
+        </restrictions>
+        <others>
+            <other>sturdy</other>
+        </others>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+        </random>
+    </brotherCassHeavyRevolver>
+
+    <sisterCassAutofeedRifle>
+        <id>sisterCassAutofeedRifle</id>
+        <type>weapon</type>
+        <group>militaryWeapons</group>
+        <name>
+            <en>Sister Cass Autofeed Rifle (.47)</en>
+            <es>Sister Cass Rifle de Autocarga (.47)</es>
+        </name>
+        <description>
+            <en>Standard Brother Battle autofeed rifle, designed as a durable battlefield weapon for line troops.</en>
+            <es>Rifle de autocarga estandar de Brother Battle, disenado como arma duradera de campo de batalla para tropas de linea.</es>
+        </description>
+        <techLevel>4</techLevel>
+        <weaponType>SLUG</weaponType>
+        <damageList>
+            <weaponDamage>
+                <characteristic>dexterity</characteristic>
+                <skill>shoot</skill>
+                <goal>0</goal>
+                <damage>7</damage>
+                <strength>4</strength>
+                <range>45/125</range>
+                <shots>32</shots>
+                <rate>3</rate>
+            </weaponDamage>
+        </damageList>
+        <size>L</size>
+        <cost>500</cost>
+        <agora>rare</agora>
+        <agoraGroups>
+            <agoraGroup>brotherbattle</agoraGroup>
+        </agoraGroups>
+        <restrictions>
+            <factions>
+                <faction>brotherBattle</faction>
+            </factions>
+            <callings>
+                <calling>brotherBattle</calling>
+            </callings>
+        </restrictions>
+        <others>
+            <other>stock</other>
+            <other>autofeed</other>
+            <other>sturdy</other>
+        </others>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+        </random>
+    </sisterCassAutofeedRifle>
+
+    <pyreBlade>
+        <id>pyreBlade</id>
+        <type>weapon</type>
+        <group>militaryWeapons</group>
+        <name>
+            <en>Pyre Blade</en>
+            <es>Hoja Pira</es>
+        </name>
+        <description>
+            <en>Blade developed on Stigmata. A pressurized ka-oil reservoir in the hilt ignites across the blade, creating a short-lived flaming sword effect.</en>
+            <es>Hoja desarrollada en Stigmata. Un deposito presurizado de aceite ka en la empunadura se enciende sobre la hoja, creando un efecto temporal de espada en llamas.</es>
+        </description>
+        <techLevel>4</techLevel>
+        <weaponType>MELEE</weaponType>
+        <weaponClass>sword</weaponClass>
+        <damageList>
+            <weaponDamage>
+                <damageName>
+                    <en>Unlit blade</en>
+                    <es>Hoja sin encender</es>
+                </damageName>
+                <characteristic>strength</characteristic>
+                <skill>melee</skill>
+                <goal>0</goal>
+                <damage>6</damage>
+                <strength>4</strength>
+            </weaponDamage>
+            <weaponDamage>
+                <damageName>
+                    <en>Ignited blade (5 uses)</en>
+                    <es>Hoja encendida (5 usos)</es>
+                </damageName>
+                <characteristic>strength</characteristic>
+                <skill>melee</skill>
+                <goal>0</goal>
+                <damage>6(2)</damage>
+                <strength>4</strength>
+            </weaponDamage>
+        </damageList>
+        <damageTypes>
+            <damageType>fire</damageType>
+        </damageTypes>
+        <size>L</size>
+        <cost>100</cost>
+        <agora>rare</agora>
+        <agoraGroups>
+            <agoraGroup>brotherbattle</agoraGroup>
+        </agoraGroups>
+        <restrictions>
+            <factions>
+                <faction>brotherBattle</faction>
+            </factions>
+            <callings>
+                <calling>brotherBattle</calling>
+            </callings>
+        </restrictions>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>MILITARY</preference>
+            </recommendedPreferences>
+        </random>
+    </pyreBlade>
+</weapons>
+
+

@@ -43,19 +43,26 @@ public class CharacteristicBonusOptions extends OptionSelector<CharacteristicDef
     public LinkedHashSet<CharacteristicBonusOption> getOptions() {
         if (finalCharacteristics == null) {
             try {
-                if (super.getOptions() == null || super.getOptions().isEmpty()
-                        || (!super.getOptions().isEmpty() && super.getOptions().iterator().next().getId() == null)) {
-                    finalCharacteristics = new LinkedHashSet<>();
-                    if (super.getOptions() != null && !super.getOptions().isEmpty()) {
-                        finalCharacteristics.addAll(CharacteristicsDefinitionFactory.getInstance().getSelectableElements().stream()
-                                .map(c -> new CharacteristicBonusOption(c, super.getOptions().iterator().next().getBonus()))
-                                .collect(Collectors.toList()));
-                    } else {
-                        finalCharacteristics.addAll(CharacteristicsDefinitionFactory.getInstance().getSelectableElements().stream()
-                                .map(CharacteristicBonusOption::new).collect(Collectors.toList()));
-                    }
+                finalCharacteristics = new LinkedHashSet<>();
+                if (super.getOptions() == null || super.getOptions().isEmpty()) {
+                    finalCharacteristics.addAll(CharacteristicsDefinitionFactory.getInstance().getSelectableElements().stream()
+                            .map(CharacteristicBonusOption::new).collect(Collectors.toList()));
                 } else {
-                    finalCharacteristics = super.getOptions();
+                    super.getOptions().forEach(option -> {
+                        if (option.hasExplicitId()) {
+                            finalCharacteristics.add(option);
+                        } else {
+                            finalCharacteristics.addAll(CharacteristicsDefinitionFactory.getInstance().getSelectableElements().stream()
+                                    .filter(characteristicDefinition -> !option.hasCharacteristicType()
+                                            || option.getCharacteristicType() == characteristicDefinition.getType())
+                                    .map(c -> {
+                                        final CharacteristicBonusOption characteristicBonusOption = new CharacteristicBonusOption(c, option.getBonus());
+                                        characteristicBonusOption.setExtra(option.isExtra());
+                                        return characteristicBonusOption;
+                                    })
+                                    .collect(Collectors.toList()));
+                        }
+                    });
                 }
             } catch (InvalidXmlElementException e) {
                 MachineXmlReaderLog.errorMessage(this.getClass(), e);
@@ -95,7 +102,7 @@ public class CharacteristicBonusOptions extends OptionSelector<CharacteristicDef
         super.validate();
         if (getOptions() != null) {
             getOptions().forEach(option -> {
-                if (option.getId() != null) {
+                if (option.hasExplicitId()) {
                     CharacteristicsDefinitionFactory.getInstance().getElement(option.getId());
                 }
             });

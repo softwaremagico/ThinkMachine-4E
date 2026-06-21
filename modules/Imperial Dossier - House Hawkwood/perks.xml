@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<perks>
+    <perk>
+        <id>boardingAction</id>
+        <name>
+            <en>Boarding Action</en>
+            <es>Acción de Abordaje</es>
+        </name>
+        <description>
+            <en>You have tactical training for breaching new zones of fire. Whenever you breach a protected área, either
+                through a blasted open wall or bulkhead, or any closed door (locked, barricaded, or otherwise), you have
+                been tactically trained on how to enter the new zone swiftly, maximizing your own line of fire while
+                looking out for enemy defenders.
+                Benefice: During the turn you breach a new zone of combat, and for one turn after, all attack actions
+                you make are favorable and any attack actions against you are unfavorable.
+            </en>
+            <es>Tienes entrenamiento táctico para irrumpir en nuevas zonas de fuego. Siempre que penetres un área
+                protegida, ya sea a través de un muro o mampara reventados, o de cualquier puerta cerrada (con cerrojo,
+                barricada o de otro modo), has sido entrenado tácticamente sobre como entrar con rapidez en la nueva
+                zona, maximizando tu propia línea de fuego mientras vigilas a los defensores enemigos.
+                Beneficio: Durante el turno en que irrumpes en una nueva zona de combate, y durante un turno después,
+                todas las acciones de ataque que realices son favorables y cualquier acción de ataque contra ti es
+                desfavorable.
+            </es>
+        </description>
+        <source>calling</source>
+        <type>ability</type>
+        <restrictions>
+            <callings>
+                <calling>pirate</calling>
+                <calling>starMarine</calling>
+            </callings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>holyKnight</id>
+        <name>
+            <en>Holy Knight</en>
+            <es>Caballero Sagrado</es>
+        </name>
+        <description>
+            <en>Holy Knight is a title that may be conferred by the Church, usually by a bishop or higher. They are
+                generally considered as equals by their knight-rank noble counterparts, though the title is rare and not
+                an inheritable rank.
+                Benefice: You gain +1 Mind Resistance, in addition to the bonuses bestáowed by your Church Ordination
+                rank(s). Also, you gain +2 goal to any castigate maneuvers you make against anyone you have bestéd in
+                physical combat (for the remainder of the same act). You are empowered to temporarily conscript serfs
+                and freemen in defense of the Church or the faithful (such as against heretics, cultists, etc.). If a
+                conscripted person is killed, the Church customarily extends charity to their family, but is not
+                required to pay wergild. If you abuse this privilege, you might be brought before a Church tribunal to
+                judge your actions. If you're deemed to have misused your authority, it can be stripped until you
+                perform proper penance.
+            </en>
+            <es>Caballero Sagrado es un título que puede ser conferido por la Iglesia, normalmente por un obispo o
+                superior. Suelen ser considerados iguales por sus homólogos nobles de rango caballero, aunque el título
+                es raro y no es un rango heredable.
+                Beneficio: Ganas +1 a la Resistencia Mental, además de los bonificadores otorgados por tu(s) rango(s) de
+                Ordenacion de la Iglesia. Además, ganas +2 al objetivo en cualquier maniobra de castigar que realices
+                contra alguien al que hayas vencido en combate físico (durante el restáo del mismo acto). Estás facultado
+                para reclutar temporalmente a siervos y hombres libres en defensa de la Iglesia o de los fieles (como
+                contra herejes, cultistas, etc.). Si una persona reclutada muere, la Iglesia suele extender caridad a su
+                familia, pero no estáá obligada a pagar wergild. Si abusas de este privilegio, podrías ser llevado ante
+                un tribunal de la Iglesia para juzgar tus actos. Si se considera que has usado mal tu autoridad, puede
+                serte retirada hasta que cumplas la penitencia adecuada.
+            </es>
+        </description>
+        <source>calling</source>
+        <type>privilege</type>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>1</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <upbringings>
+                <upbringing>priest</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>nobleMien</id>
+        <name>
+            <en>Noble Mien</en>
+            <es>Porte Noble</es>
+        </name>
+        <description>
+            <en>You are a paradigm of nobility, and embody what people expect of their rulers in style, comportment, and
+                knowledge. Through natural inclination and study, you easíly navigate the noble system's social and
+                legal mores. You are well-known and respected within your house, and even those of other houses respect
+                your seemingly inherent nobility.
+                Benefice: In any situation in which the Court Customs capability applies, you are recognized and
+                respected as a paragon of your house, and your evident nobility smooths your dealings within the noble
+                system's social and legal mores.
+            </en>
+            <es>Eres un paradigma de la nobleza y encarnas lo que la gente espera de sus gobernantes en estilo,
+                compostura y conocimiento. Por inclinación natural y estudio, navegas con fácilidad las costumbres
+                sociales y legales del sistema noble. Eres bien conocido y respetado dentro de tu casa, e incluso los de
+                otras casas respetan tu nobleza aparentemente innata.
+                Beneficio: En cualquier situación en la que se aplique la capacidad Costumbres de la Corte, eres
+                reconocido y respetado como un dechado de tu casa, y tu evidente nobleza facilita tus tratos dentro de
+                las costumbres sociales y legales del sistema noble.
+            </es>
+        </description>
+        <source>calling</source>
+        <type>privilege</type>
+        <restrictions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>sovereign</id>
+        <name>
+            <en>Sovereign Title</en>
+            <es>Soberano</es>
+        </name>
+        <description>
+            <en>Much of the feudal system is contingent on the relationship between nobles and their vassals, with lower
+                ranking nobility owing fealty to the noble(s) above them, all the way up to their fealty to the prince
+                who leads their house (or duke in the case of minor houses). Sovereign nobles get off this ladder
+                somewhat, still owing ultimate fealty to the head of their house but owing no obedience to any other
+                nobles in the house hierarchy. A "sovereign" duke or baroness has far more ability to act independently
+                than one whose powers are contingent (at least in that sphere) on the noble above them. Sovereign nobles
+                especially impress other nobles who do not share this freedom, though this autonomy can also be grounds
+                for suspicion. Nobles, sovereign or non-sovereign, of any rank or house, are taught since birth to
+                respect the hierarchy and traditions of their class.
+                Benefice: Gain +1 Mind Resistance. You are free to act far more independently than non-sovereign nobles,
+                and this lends to your mystique in the family. You gain an additional use of the Imperious perk within
+                the same span (you can now use that perk twice in a single span), to ward off influence attempts and
+                occult powers used against you. (See the Imperious perk under Perks in Chapter 3: Traits of the
+                Character Book.)
+            </en>
+            <es>Buena parte del sistema feudal depende de la relación entre los nobles y sus vasallos, con la nobleza de
+                menor rango debiendo fidelidad al noble (o nobles) por encima de ellos, hasta llegar a su fidelidad al
+                príncipe que lidera su casa (o al duque en el caso de las casas menores). Los nobles soberanos se libran
+                en parte de esta escalera: siguen debiendo fidelidad última a la cabeza de su casa, pero no deben
+                obediencia a ningun otro noble de la jerarquía de la casa. Un duque o baronesa "soberano" tiene mucha
+                más capacidad de actuar de forma independiente que aquel cuyos poderes dependen (al menos en esa esfera)
+                del noble por encima de él. Los nobles soberanos impresionan especialmente a otros nobles que no
+                comparten está libertad, aunque está autonomía también puede ser motivo de sospecha. Los nobles,
+                soberanos o no, de cualquier rango o casa, son educados desde el nacimiento para respetar la jerarquía y
+                las tradiciones de su clase.
+                Beneficio: Ganas +1 a la Resistencia Mental. Eres libre de actuar de forma mucho más independiente que
+                los nobles no soberanos, y estáo contribuye a tu mística dentro de la familia. Obtienes un uso adicional
+                del perk Imperioso dentro del mismo lapso (ahora puedes usar ese perk dos veces en un solo lapso), para
+                protegerte de intentos de influencia y poderes ocultos usados contra ti. (Consulta el perk Imperioso en
+                Perks, en el Capítulo 3: Rasgos del Libro del Personaje.)
+            </es>
+        </description>
+        <source>calling</source>
+        <type>privilege</type>
+        <resistances>
+            <resistance>
+                <type>mind</type>
+                <category>privilege</category>
+                <bonus>1</bonus>
+            </resistance>
+        </resistances>
+        <restrictions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+    <perk>
+        <id>viscount</id>
+        <name>
+            <en>Viscount/Viscountess</en>
+            <es>Vizconde/Vizcondesa</es>
+        </name>
+        <description>
+            <en>A viscount or viscountess is a common lower-level title. It is awarded to a low-level noble (baronet or
+                higher) by a count (or higher) to assist in the running of a province and the performance of judicial or
+                military duties. In the 51st century it is not a hereditary title. If the counts make the laws, the
+                viscounts enforce or administer them, either as judges, castellans, local legislators, or as inspector
+                generals (weeding out corruption). Since the Diaspora, the rank of viscount has generally held prestige
+                roughly between that of baronet and baron. The title is not a separate stepping stone to higher rank on
+                its own, though it is sometimes given to particularly promising lower nobles (barons or marquis) as
+                training ground for later acquiring the count rank. Viscounts have a range of investigatory powers which
+                they may use at the behest of higher nobles who want answers, or they may launch their own
+                investigations if legítimately warranted. The privileges of this perk end at the edge of the viscount's
+                house's holdings. A Hazat viscount can hardly expect to use his position to investigate doings in Li
+                Halan territory. Viscounts who misuse their power may end up on the receiving end of punishment.
+                Benefice: You might be called to testify or even judge a dispute in free court, or (more rarely) regency
+                court, either to defend a house member or seek redress against another house. In your investigative
+                capacity, rooting out corruption, you may gain access to protected archives within your house, even
+                those that might be hidden from someone of higher noble standing. You do so by presenting yourself to
+                the local head of house and requesting to view the archives. No influence roll is required. You can also
+                access secure noble-held data files (you have a legítimate password to bypass house data encryption,
+                normally an Interface skill maneuver against Severe Resistance). Additionally, you have the recognized
+                authority to investigate any place within the boundaries of your house's properties and can thus gain
+                access to Church or League fácilities on those properties (as with the All-Access-Pass perk). This does
+                not protect you from those factions' ire, however; you might make enemies if you misuse this privilege.
+            </en>
+            <es>Un vizconde o vizcondesa es un título común de nivel inferior. Lo otorga un conde (o superior) a un
+                noble de bajo nivel (baronet o superior) para asistir en la administración de una provincia y el
+                desempeño de deberes judiciales o militares. En el siglo LI no es un título hereditario. Si los condes
+                hacen las leyes, los vizcondes las hacen cumplir o las administran, ya sea como jueces, castellanos,
+                legisladores locales o como inspectores generales (erradicando la corrupción). Desde la Diaspora, el
+                rango de vizconde ha tenido por lo general un prestigio situado más o menos entre el de baronet y el de
+                baron. El título no es por sí mismo un peldaño aparte hacia rangos superiores, aunque a veces se concede
+                a nobles inferiores especialmente prometedores (barones o marqueses) como campo de entrenamiento para
+                adquirir más tarde el rango de conde. Los vizcondes tienen una serie de poderes de investigación que
+                pueden usar a petición de nobles superiores que quieren respuestás, o pueden iniciar sus propias
+                investigaciónes si está legítimamente justificado. Los privilegios de este perk terminan en el límite de
+                las propiedades de la casa del vizconde. Un vizconde Hazat difícilmente puede esperar usar su posición
+                para investigar asuntos en territorio Li Halan. Los vizcondes que abusan de su poder pueden acabar
+                siendo objeto de castigo.
+                Beneficio: Podrías ser llamado a testificar o incluso a juzgar una disputa en tribunal libre o (más
+                raramente) en tribunal de regencia, ya sea para defender a un miembro de la casa o buscar reparación
+                contra otra casa. En tu capacidad investigadora, erradicando la corrupción, puedes obtener acceso a
+                archivos protegidos dentro de tu casa, incluso a aquellos que podrían estár ocultos a alguien de mayor
+                rango noble. Lo haces presentándote ante la cabeza de casa local y solicitando ver los archivos. No se
+                requiere tirada de influencia. También puedes acceder a archivos de datos seguros en manos de nobles
+                (posees una contraseña legítima para sortear el cifrado de datos de la casa, normalmente una maniobra de
+                habilidad Interface contra Resistencia Severa). Además, tienes la autoridad reconocida para investigar
+                cualquier lugar dentro de los límites de las propiedades de tu casa y, por tanto, puedes acceder a
+                instalaciones de la Iglesia o la Liga en esas propiedades (como con el perk Pase de Acceso Total). Esto
+                no te protege, sin embargo, de la ira de esas facciones; podrías hacerte enemigos si abusas de este
+                privilegio.
+            </es>
+        </description>
+        <source>calling</source>
+        <type>privilege</type>
+        <restrictions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+            </upbringings>
+        </restrictions>
+    </perk>
+</perks>
+

@@ -64,8 +64,22 @@ public class Specie extends CharacterDefinitionStep {
     private int size;
 
     public ElementValues getSpecieCharacteristic(CharacteristicName characteristicName) throws InvalidSpecieException {
-        return characteristicValues.stream().filter(elementValues -> elementValues.getCharacteristic() == characteristicName).findFirst()
-                .orElseThrow(() -> new InvalidSpecieException("Characteristic '" + characteristicName + "' does not exists on race '" + getId() + "'."));
+        final java.util.Optional<ElementValues> found = characteristicValues.stream()
+                .filter(elementValues -> elementValues.getCharacteristic() == characteristicName).findFirst();
+        if (found.isPresent()) {
+            return found.get();
+        }
+        // Occultism characteristics added by optional modules (e.g. Runemastery and Sympathy from Vuldrok Space)
+        // are not declared per specie. Any sentient species may learn them, so provide a default (untrained,
+        // capped at the standard occultism maximum) instead of failing.
+        if (characteristicName == CharacteristicName.RUNEMASTERY || characteristicName == CharacteristicName.SYMPATHY) {
+            final ElementValues defaultValues = new ElementValues();
+            defaultValues.setCharacteristic(characteristicName);
+            defaultValues.setInitialValue(0);
+            defaultValues.setMaximumValue(ElementValues.LEVEL_MAX_VALUE);
+            return defaultValues;
+        }
+        throw new InvalidSpecieException("Characteristic '" + characteristicName + "' does not exists on race '" + getId() + "'.");
     }
 
     public void setMaximumValue(CharacteristicName characteristicName, int maxValue) {

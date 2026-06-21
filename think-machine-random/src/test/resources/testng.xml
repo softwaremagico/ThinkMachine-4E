@@ -16,6 +16,7 @@
             <run>
                 <include name="random"/>
                 <include name="randomCharacter"/>
+                <include name="randomCharacterSeed"/>
                 <include name="randomLevel"/>
                 <include name="preferences"/>
                 <include name="equipment"/>

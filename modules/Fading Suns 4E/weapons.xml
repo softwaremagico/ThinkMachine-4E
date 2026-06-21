@@ -18,7 +18,8 @@
                 with collectors.
             </en>
             <es>Esta increíble "espada de cristal" de los Ascorbitas está fabricada con una sustancia cristalina única
-                que sólo se encuentra en las profundas grutas subterráneas de Severus. El cristal fluye en un estado casi
+                que sólo se encuentra en las profundas grutas subterráneas de Severus. El cristal fluye en un estado
+                casi
                 líquido en pequeños arroyos que se "desangran" a través de cortes tallados en duras rocas cristalinas, y
                 a partir de esta forma puede modelarse. Una vez que se haya expuesto a la luz, el material se endurece a
                 una fuerza similar a la del diamante. Al propinar un golpe contra una roca dura justo antes de atacar,
@@ -66,7 +67,8 @@
             <en>This is a simple woodcutter’s tool. This is the kind of weapon
                 often snatched up by peasants trying to defend their farms from strangers.
             </en>
-            <es>Es una sencilla herramienta de un leñador. Esta es la clase de arma que a menudo emplean los campesinos que tratan de defender sus granjas de
+            <es>Es una sencilla herramienta de un leñador. Esta es la clase de arma que a menudo emplean los campesinos
+                que tratan de defender sus granjas de
                 los extraños.
             </es>
         </description>
@@ -1244,7 +1246,8 @@
                 effective when used by or against mounted cavalry, in which case the mount’s size is added to the
                 lance wielder’s for the purpose of determining Damage Bonus.
             </en>
-            <es>Las lanzas que son más largas y más robustas son particularmente eficaces cuando son utilizadas por o en contra de
+            <es>Las lanzas que son más largas y más robustas son particularmente eficaces cuando son utilizadas por o en
+                contra de
                 la caballería montada, en cuyo caso se suma el tamaño de la montura a la del portador de la lanza, a fin
                 de determinar el bonificador al Daño.
             </es>
@@ -1302,12 +1305,11 @@
             <other>charge2</other>
             <other>guard</other>
         </others>
-<!--        TODO:()-->
-<!--        <restrictions>-->
-<!--            <species>-->
-<!--                <specie>shantor</specie>-->
-<!--            </species>-->
-<!--        </restrictions>-->
+        <restrictions>
+            <species>
+                <specie>shantor</specie>
+            </species>
+        </restrictions>
     </shantorHorn>
     <sword>
         <id>sword</id>
@@ -1586,12 +1588,11 @@
         <agoraGroups>
             <agoraGroup>shantor</agoraGroup>
         </agoraGroups>
-<!--        <restrictions>-->
-<!--            TODO():-->
-<!--            <species>-->
-<!--                <specie>shantor</specie>-->
-<!--            </species>-->
-<!--        </restrictions>-->
+        <restrictions>
+            <species>
+                <specie>shantor</specie>
+            </species>
+        </restrictions>
         <random>
             <probabilityMultiplier>RARE</probabilityMultiplier>
         </random>

@@ -25,27 +25,55 @@ package com.softwaremagico.tm.factory;
  */
 
 
-import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.combat.CombatActionRequirement;
 import com.softwaremagico.tm.character.combat.CombatStyle;
 import com.softwaremagico.tm.character.combat.CombatStyleFactory;
+import com.softwaremagico.tm.character.skills.Skill;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import com.softwaremagico.tm.file.modules.ModuleManager;
-import org.testng.annotations.BeforeClass;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Test(groups = {"combatStyleFactory"})
 public class CombatStylesFactoryTests extends FactoryTest {
-    @Override
-    @BeforeClass
-    public void enableBasicModule() {
-        ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
-        ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
-        ModuleManager.enableModule(ModuleManager.LOST_WORLDS_BOOK_MODULE);
-        ModuleManager.resetModules();
-    }
 
-    private static final int DEFINED_STYLES = 12;
-    private static final int DEFINED_ACTIONS = DEFINED_STYLES * 3;
+    private static final int DEFINED_STYLES = 13;
+    private static final int DEFINED_ACTIONS = 37;
+    private static final int DEFINED_STANCES = 12;
+
+    private static final class TestCharacterPlayer extends CharacterPlayer {
+        private final Map<String, Integer> skillValues = new HashMap<>();
+        private final Map<String, Integer> characteristicValues = new HashMap<>();
+
+        private TestCharacterPlayer withSkill(String skillId, int value) {
+            skillValues.put(skillId, value);
+            return this;
+        }
+
+        private TestCharacterPlayer withCharacteristic(String characteristicId, int value) {
+            characteristicValues.put(characteristicId, value);
+            return this;
+        }
+
+        @Override
+        public int getSkillValue(Skill skill) {
+            return skillValues.getOrDefault(skill.getId(), 0);
+        }
+
+        @Override
+        public CombatActionRequirement getCharacteristicCombatValue(String id) {
+            final Integer value = characteristicValues.get(id);
+            if (value == null) {
+                return null;
+            }
+            final CombatActionRequirement combatActionRequirement = new CombatActionRequirement();
+            combatActionRequirement.setValue(value);
+            return combatActionRequirement;
+        }
+    }
 
 
     @Test
@@ -65,7 +93,7 @@ public class CombatStylesFactoryTests extends FactoryTest {
         for (final CombatStyle combatStyle : CombatStyleFactory.getInstance().getElements()) {
             combatActions += combatStyle.getCombatActions().size();
         }
-        Assert.assertEquals(DEFINED_ACTIONS, combatActions);
+        Assert.assertEquals(combatActions, DEFINED_ACTIONS);
     }
 
     @Test
@@ -74,87 +102,80 @@ public class CombatStylesFactoryTests extends FactoryTest {
         for (final CombatStyle combatStyle : CombatStyleFactory.getInstance().getElements()) {
             combatStances += combatStyle.getCombatStances().size();
         }
-        // One stance by style.
-        Assert.assertEquals(DEFINED_STYLES, combatStances);
+        Assert.assertEquals(combatStances, DEFINED_STANCES);
     }
 
-//    @Test
-//    public void checkSkillRestrictions() throws InvalidXmlElementException {
-//        final CharacterPlayer characterPlayer = new CharacterPlayer(LANGUAGE, PathManager.DEFAULT_MODULE_FOLDER);
-//        characterPlayer.setSkillRank(
-//                AvailableSkillsFactory.getInstance().getElement("melee", LANGUAGE, PathManager.DEFAULT_MODULE_FOLDER),
-//                6);
-//        characterPlayer.setSkillRank(AvailableSkillsFactory.getInstance().getElement("athletics", LANGUAGE,
-//                PathManager.DEFAULT_MODULE_FOLDER), 5);
-//
-//        final CombatStyle torero = CombatStyleFactory.getInstance().getElement("torero", LANGUAGE,
-//                PathManager.DEFAULT_MODULE_FOLDER);
-//        Assert.assertTrue(torero.getCombatAction("maskingStrike").isAvailable(characterPlayer));
-//        Assert.assertTrue(torero.getCombatAction("disarmingCloak").isAvailable(characterPlayer));
-//        Assert.assertFalse(torero.getCombatAction("entaglingStrike").isAvailable(characterPlayer));
-//    }
-//
-//    @Test
-//    public void checkOptionalSkillRestrictions() throws InvalidXmlElementException, InvalidRanksException, RestrictedElementException,
-//            UnofficialElementNotAllowedException {
-//        final CharacterPlayer characterPlayer = new CharacterPlayer(LANGUAGE, PathManager.DEFAULT_MODULE_FOLDER);
-//        characterPlayer.setSkillRank(AvailableSkillsFactory.getInstance().getElement("slugGuns", LANGUAGE,
-//                PathManager.DEFAULT_MODULE_FOLDER), 6);
-//        characterPlayer.setSkillRank(AvailableSkillsFactory.getInstance().getElement("athletics", LANGUAGE,
-//                PathManager.DEFAULT_MODULE_FOLDER), 5);
-//
-//        final CombatStyle pistola = CombatStyleFactory.getInstance().getElement("pistola", LANGUAGE,
-//                PathManager.DEFAULT_MODULE_FOLDER);
-//        Assert.assertTrue(pistola.getCombatAction("snapShot").isAvailable(characterPlayer));
-//        Assert.assertTrue(pistola.getCombatAction("rollAndShoot").isAvailable(characterPlayer));
-//        Assert.assertFalse(pistola.getCombatAction("runAndGun").isAvailable(characterPlayer));
-//    }
-//
-//    @Test
-//    public void checkOptionalSkillRestrictionsAgain() throws InvalidXmlElementException, InvalidRanksException, RestrictedElementException,
-//            UnofficialElementNotAllowedException {
-//        final CharacterPlayer characterPlayer = new CharacterPlayer(LANGUAGE, PathManager.DEFAULT_MODULE_FOLDER);
-//        characterPlayer.setSkillRank(AvailableSkillsFactory.getInstance().getElement("energyGuns", LANGUAGE,
-//                PathManager.DEFAULT_MODULE_FOLDER), 6);
-//        characterPlayer.setSkillRank(AvailableSkillsFactory.getInstance().getElement("athletics", LANGUAGE,
-//                PathManager.DEFAULT_MODULE_FOLDER), 5);
-//
-//        final CombatStyle pistola = CombatStyleFactory.getInstance().getElement("pistola", LANGUAGE,
-//                PathManager.DEFAULT_MODULE_FOLDER);
-//        Assert.assertTrue(pistola.getCombatAction("snapShot").isAvailable(characterPlayer));
-//        Assert.assertTrue(pistola.getCombatAction("rollAndShoot").isAvailable(characterPlayer));
-//        Assert.assertFalse(pistola.getCombatAction("runAndGun").isAvailable(characterPlayer));
-//    }
-//
-//    @Test
-//    public void checkCharacteristicsRestrictions() throws InvalidXmlElementException, InvalidRanksException, RestrictedElementException,
-//            UnofficialElementNotAllowedException {
-//        final CharacterPlayer characterPlayer = new CharacterPlayer(LANGUAGE, PathManager.DEFAULT_MODULE_FOLDER);
-//        characterPlayer.setSkillRank(
-//                AvailableSkillsFactory.getInstance().getElement("fight", LANGUAGE, PathManager.DEFAULT_MODULE_FOLDER),
-//                6);
-//        characterPlayer.setCharacteristic(CharacteristicName.FAITH, 6);
-//
-//        final CombatStyle mantok = CombatStyleFactory.getInstance().getElement("mantok", LANGUAGE,
-//                PathManager.DEFAULT_MODULE_FOLDER);
-//        Assert.assertTrue(mantok.getCombatAction("closePalmReachHeart").isAvailable(characterPlayer));
-//        Assert.assertTrue(mantok.getCombatAction("crossArmsDonTheRobe").isAvailable(characterPlayer));
-//        Assert.assertFalse(mantok.getCombatAction("strechSpineSpeakTheWord").isAvailable(characterPlayer));
-//    }
-//
-//    @Test
-//    public void checkRestrictedSpecies() throws InvalidXmlElementException {
-//        final CombatStyle graa = CombatStyleFactory.getInstance().getElement("graa", LANGUAGE,
-//                PathManager.DEFAULT_MODULE_FOLDER);
-//        Assert.assertEquals(RaceFactory.getInstance().getElement("vorox", LANGUAGE, PathManager.DEFAULT_MODULE_FOLDER),
-//                graa.getRestrictedToSpecies().iterator().next());
-//    }
-//
-//    @Test
-//    public void checkRestrictedRToCharacter() throws InvalidXmlElementException, RestrictedElementException, UnofficialElementNotAllowedException {
-//        final CharacterPlayer characterPlayer = new CharacterPlayer(LANGUAGE, PathManager.DEFAULT_MODULE_FOLDER);
-//        characterPlayer.setRace(RaceFactory.getInstance().getElement("human", LANGUAGE, PathManager.DEFAULT_MODULE_FOLDER));
-//        Assert.assertFalse(CombatStyleFactory.getInstance().getElement("graa", LANGUAGE, PathManager.DEFAULT_MODULE_FOLDER)
-//                .canUseCombatStyle(characterPlayer));
-//    }
+    @Test
+    public void readBrotherBattleManeuverAndRestrictions() throws InvalidXmlElementException {
+        final var brotherBattleManeuvers = CombatStyleFactory.getInstance().getElement("brotherBattleManeuvers");
+
+        Assert.assertNotNull(brotherBattleManeuvers);
+        Assert.assertEquals(brotherBattleManeuvers.getCombatActions().size(), 1);
+        Assert.assertNotNull(brotherBattleManeuvers.getCombatAction("defendAlly"));
+        Assert.assertTrue(brotherBattleManeuvers.getRestrictions().getRestrictedToFactions().contains("brotherBattle"));
+        Assert.assertTrue(brotherBattleManeuvers.getRestrictions().getRestrictedToCallings().contains("brotherBattle"));
+    }
+
+    @Test
+    public void checkSkillRestrictions() throws InvalidXmlElementException {
+        final CharacterPlayer characterPlayer = new TestCharacterPlayer()
+                .withSkill("melee", 6)
+                .withSkill("vigor", 5);
+
+        final CombatStyle torero = CombatStyleFactory.getInstance().getElement("torero");
+        Assert.assertTrue(torero.getCombatAction("maskingStrike").isAvailable(characterPlayer));
+        Assert.assertTrue(torero.getCombatAction("disarmingCloak").isAvailable(characterPlayer));
+        Assert.assertFalse(torero.getCombatAction("entaglingStrike").isAvailable(characterPlayer));
+    }
+
+    @Test
+    public void checkOptionalSkillRestrictions() throws InvalidXmlElementException {
+        final CharacterPlayer characterPlayer = new TestCharacterPlayer()
+                .withSkill("shoot", 6)
+                .withSkill("vigor", 5);
+
+        final CombatStyle pistola = CombatStyleFactory.getInstance().getElement("pistola");
+        Assert.assertTrue(pistola.getCombatAction("snapShot").isAvailable(characterPlayer));
+        Assert.assertTrue(pistola.getCombatAction("rollAndShoot").isAvailable(characterPlayer));
+        Assert.assertFalse(pistola.getCombatAction("runAndGun").isAvailable(characterPlayer));
+    }
+
+    @Test
+    public void checkOptionalSkillRestrictionsAgain() throws InvalidXmlElementException {
+        final CharacterPlayer characterPlayer = new TestCharacterPlayer()
+                .withSkill("shoot", 6)
+                .withSkill("vigor", 5);
+
+        final CombatStyle pistola = CombatStyleFactory.getInstance().getElement("pistola");
+        Assert.assertTrue(pistola.getCombatAction("snapShot").isAvailable(characterPlayer));
+        Assert.assertTrue(pistola.getCombatAction("rollAndShoot").isAvailable(characterPlayer));
+        Assert.assertFalse(pistola.getCombatAction("runAndGun").isAvailable(characterPlayer));
+    }
+
+    @Test
+    public void checkCharacteristicsRestrictions() throws InvalidXmlElementException {
+        final CharacterPlayer characterPlayer = new TestCharacterPlayer()
+                .withSkill("fight", 6)
+                .withCharacteristic("faith", 6);
+
+        final CombatStyle mantok = CombatStyleFactory.getInstance().getElement("mantok");
+        Assert.assertTrue(mantok.getCombatAction("closePalmReachHeart").isAvailable(characterPlayer));
+        Assert.assertTrue(mantok.getCombatAction("crossArmsDonTheRobe").isAvailable(characterPlayer));
+        Assert.assertFalse(mantok.getCombatAction("strechSpineSpeakTheWord").isAvailable(characterPlayer));
+    }
+
+    @Test
+    public void checkRestrictedSpecies() throws InvalidXmlElementException {
+        final CombatStyle graa = CombatStyleFactory.getInstance().getElement("graa");
+        Assert.assertEquals(graa.getRestrictions().getRestrictedToSpecies().size(), 1);
+        Assert.assertTrue(graa.getRestrictions().getRestrictedToSpecies().contains("vorox"));
+    }
+
+    @Test
+    public void checkRestrictedToCharacter() throws InvalidXmlElementException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        Assert.assertFalse(CombatStyleFactory.getInstance().getElement("graa")
+                .canUseCombatStyle(characterPlayer));
+    }
 }

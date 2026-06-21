@@ -5650,7 +5650,7 @@
                 <total>1</total>
                 <options>
                     <perk>
-                        <id>churchOrdinationNovitiate</id>
+                        <group>churchOrdination</group>
                     </perk>
                 </options>
                 <openPerks>false</openPerks>
@@ -5843,7 +5843,7 @@
                 <total>1</total>
                 <options>
                     <perk>
-                        <id>churchOrdinationNovitiate</id>
+                        <group>churchOrdination</group>
                     </perk>
                 </options>
                 <openPerks>false</openPerks>
@@ -6024,7 +6024,7 @@
                 <total>1</total>
                 <options>
                     <perk>
-                        <id>churchOrdinationNovitiate</id>
+                        <group>churchOrdination</group>
                     </perk>
                 </options>
                 <openPerks>false</openPerks>
@@ -6208,7 +6208,7 @@
                 <total>1</total>
                 <options>
                     <perk>
-                        <id>churchOrdinationNovitiate</id>
+                        <group>churchOrdination</group>
                     </perk>
                 </options>
                 <openPerks>false</openPerks>

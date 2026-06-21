@@ -27,22 +27,11 @@ package com.softwaremagico.tm.factory;
 
 import com.softwaremagico.tm.character.perks.AfflictionFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.file.modules.ModuleManager;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 @Test(groups = {"afflictionFactory"})
 public class AfflictionFactoryTests extends FactoryTest {
-
-    @Override
-    @BeforeClass
-    public void enableBasicModule() {
-        ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
-        ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
-        ModuleManager.enableModule(ModuleManager.LOST_WORLDS_BOOK_MODULE);
-        ModuleManager.resetModules();
-    }
 
     private static final int DEFINED_AFFLICTIONS = 15;
 

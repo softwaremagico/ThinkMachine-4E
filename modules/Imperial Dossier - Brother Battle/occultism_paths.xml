@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<occultism>
+    <path>
+        <id>brotherBattleDossierRituals</id>
+        <name>
+            <en>Brother Battle Rites</en>
+            <es>Ritos de Hermano de Batalla</es>
+        </name>
+        <occultismType>theurgy</occultismType>
+        <powers>
+            <power>
+                <id>sentinelsWatchfulEye</id>
+                <name>
+                    <en>Sentinel’s Watchful Eye</en>
+                    <es>Ojo Vigilante del Centinela</es>
+                </name>
+                <description>
+                    <en>Your senses become super sharp, alerting you to the slightest danger.</en>
+                    <es>Tus sentidos se vuelven extremadamente agudos y te alertan del menor peligro.</es>
+                </description>
+                <occultismLevel>3</occultismLevel>
+                <time>instantaneous</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>perception</characteristic>
+                <skills>
+                    <skill>observe</skill>
+                </skills>
+                <components>
+                    <component>LG</component>
+                </components>
+                <resistance>
+                    <en>Demanding</en>
+                    <es>Exigente</es>
+                </resistance>
+                <impact>
+                    <en>By saying a short prayer to know the threats arrayed against you, you gain an increased ability to sense immediate danger. For the next scene, you gain a bonus to your instinctual perception equal to your Theurgy rating. Also, your rolls to detect imminent threats are favorable. This theurgic sense is not extended by technological devices, such as long-distance communications.</en>
+                    <es>Al recitar una breve oracion para conocer las amenazas que se alzan contra ti, ganas una capacidad aumentada para percibir el peligro inmediato. Durante la siguiente escena, obtienes un bonificador a tu percepcion instintiva igual a tu puntuacion de Teurgia. Ademas, tus tiradas para detectar amenazas inminentes son favorables. Este sentido teurgico no se extiende mediante dispositivos tecnologicos, como las comunicaciones de larga distancia.</es>
+                </impact>
+            </power>
+            <power>
+                <id>fortressOfThePilgrimsDefense</id>
+                <name>
+                    <en>Fortress of the Pilgrim’s Defense</en>
+                    <es>Fortaleza de la Defensa del Peregrino</es>
+                </name>
+                <description>
+                    <en>By marking a structure with the jumpgate symbol and spreading holy oil over and around it, you can fortify a building against evil.</en>
+                    <es>Al marcar una estructura con el simbolo de la puerta de salto y extender aceite sagrado sobre ella y a su alrededor, puedes fortificar un edificio contra el mal.</es>
+                </description>
+                <occultismLevel>8</occultismLevel>
+                <time>presentTense</time>
+                <cost>
+                    <en>1 VP</en>
+                    <es>1 PV</es>
+                </cost>
+                <characteristic>faith</characteristic>
+                <skills>
+                    <skill>focus</skill>
+                </skills>
+                <components>
+                    <component>LPG</component>
+                </components>
+                <resistance>
+                    <en>Tough</en>
+                    <es>Ardua</es>
+                </resistance>
+                <impact>
+                    <en>Time: One minute per 100 square meters of space (as a primary action each round)
+                        By marking a structure and declaring it to be defended by the power of the Pancreator, you can create a safe haven from occult forces. Any roll to activate a non-theurgy occult power that targets a worshipper of the Pancreator inside the structure is unfavorable; at the gamemaster’s discretion, related rolls for that use of the power may be unfavorable. Any supernatural creature or symbiot that attempts to enter the structure must roll Focus + Will vs. Tough Resistance before they cross through any window, door, hole, or other entrance. Failure means the creature is forced to remain outside for the rest of the scene. You, as the caster, immediately know when either of these situations occurs (whether the creature succeeds or fails to enter), but this doesn’t allow you to automatically sense where in the structure this takes place.
+                        This rite’s effects last until the next sunrise. It can be extended by one hour per 2 VP spent during casting.</en>
+                    <es>Tiempo: Un minuto por cada 100 metros cuadrados de espacio (como accion primaria cada ronda).
+                        Al marcar una estructura y declararla defendida por el poder del Pancreador, puedes crear un refugio seguro frente a fuerzas ocultas. Cualquier tirada para activar un poder oculto no teurgico que tenga como objetivo a un adorador del Pancreador dentro de la estructura es desfavorable; a discrecion del director de juego, las tiradas relacionadas para ese uso del poder tambien pueden ser desfavorables. Cualquier criatura sobrenatural o simbiote que intente entrar en la estructura debe tirar Introspeccion + Voluntad contra Resistencia Ardua antes de cruzar por cualquier ventana, puerta, hueco u otra entrada. Un fallo significa que la criatura se ve obligada a permanecer fuera durante el resto de la escena. Tu, como lanzador, sabes inmediatamente cuando ocurre cualquiera de estas situaciones (tanto si la criatura logra entrar como si falla), pero esto no te permite percibir automaticamente en que punto de la estructura sucede.
+                        Los efectos de este rito duran hasta el siguiente amanecer. Puede ampliarse una hora por cada 2 PV gastados durante el lanzamiento.</es>
+                </impact>
+            </power>
+        </powers>
+        <random>
+            <classification>combat</classification>
+        </random>
+        <restrictions mode="any_from_group">
+            <factions>
+                <faction>brotherBattle</faction>
+            </factions>
+            <callings>
+                <calling>brotherBattle</calling>
+                <calling>theurgist</calling>
+            </callings>
+        </restrictions>
+    </path>
+</occultism>
+

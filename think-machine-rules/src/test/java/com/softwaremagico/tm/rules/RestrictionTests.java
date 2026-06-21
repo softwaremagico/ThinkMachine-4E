@@ -33,7 +33,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test(groups = "restrictions")
-public class RestrictionTests {
+public class RestrictionTests extends RulesTest {
 
     @Test
     public void restrictedWeaponByAgora() {

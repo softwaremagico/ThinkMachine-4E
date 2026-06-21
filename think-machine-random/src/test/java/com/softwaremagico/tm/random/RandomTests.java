@@ -168,7 +168,7 @@ public class RandomTests {
         final RandomCalling randomCalling = new RandomCalling(characterPlayer, null);
         randomCalling.updateWeights();
 
-        Assert.assertEquals(randomCalling.getAssignedWeight(CallingFactory.getInstance().getElement("explorer")), Integer.valueOf(21000));
-        Assert.assertEquals(randomCalling.getAssignedWeight(CallingFactory.getInstance().getElement("spy")), Integer.valueOf(1000));
+        Assert.assertEquals(randomCalling.getAssignedWeight(CallingFactory.getInstance().getElement("explorer")), Integer.valueOf(210000));
+        Assert.assertEquals(randomCalling.getAssignedWeight(CallingFactory.getInstance().getElement("spy")), Integer.valueOf(10000));
     }
 }

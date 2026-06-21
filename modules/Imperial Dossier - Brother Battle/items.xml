@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<equipments>
+    <equipment>
+        <id>tizonaRelic</id>
+        <type>item</type>
+        <name>
+            <en>Tizona (Relic Blade)</en>
+            <es>Tizona (Hoja Reliquia)</es>
+        </name>
+        <description>
+            <en>Relic flux sword linked to Saint De Moley. A legendary lost blade sought by Brother Battle after the fall of Absolution.</en>
+            <es>Espada de flujo reliquia vinculada a San De Moley. Una hoja legendaria perdida que Brother Battle sigue buscando tras la caída de Absolution.</es>
+        </description>
+        <size>L</size>
+        <restrictions>
+            <factions>
+                <faction>brotherBattle</faction>
+            </factions>
+            <callings>
+                <calling>brotherBattle</calling>
+            </callings>
+        </restrictions>
+        <random>
+            <probabilityMultiplier>MYTHIC</probabilityMultiplier>
+        </random>
+    </equipment>
+    <equipment>
+        <id>boneCandleRelic</id>
+        <type>item</type>
+        <name>
+            <en>The Bone Candle</en>
+            <es>La Vela de Hueso</es>
+        </name>
+        <description>
+            <en>Relic candle recovered on Stigmata and used to expose symbiot infiltrators when lit.</en>
+            <es>Vela reliquia recuperada en Stigmata y usada para exponer infiltrados simbiontes cuando está encendida.</es>
+        </description>
+        <size>S</size>
+        <restrictions>
+            <factions>
+                <faction>brotherBattle</faction>
+            </factions>
+            <callings>
+                <calling>brotherBattle</calling>
+            </callings>
+        </restrictions>
+        <random>
+            <probabilityMultiplier>MYTHIC</probabilityMultiplier>
+        </random>
+    </equipment>
+</equipments>
+

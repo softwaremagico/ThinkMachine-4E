@@ -31,19 +31,9 @@ import com.softwaremagico.tm.character.resistances.ResistanceType;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import com.softwaremagico.tm.file.modules.ModuleManager;
-import org.testng.annotations.BeforeClass;
 
 @Test(groups = {"armorFactory"})
 public class ArmorFactoryTests extends FactoryTest {
-    @Override
-    @BeforeClass
-    public void enableBasicModule() {
-        ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
-        ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
-        ModuleManager.enableModule(ModuleManager.LOST_WORLDS_BOOK_MODULE);
-        ModuleManager.resetModules();
-    }
 
     private static final int DEFINED_ARMOURS = 33;
 

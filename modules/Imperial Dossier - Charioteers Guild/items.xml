@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<equipments>
+    <equipment>
+        <id>irisCutterValve</id>
+        <type>item</type>
+        <name>
+            <en>Iris Cutter Valve (ICV)</en>
+            <es>Valvula Cortadora de Iris (ICV)</es>
+        </name>
+        <description>
+            <en>A meter-wide hoop of sturdy metal studded with láser nozzles. Placed onto the outer hull of a ship and activated, it cuts through the hull and seals the breach with a retractable plasteel iris. This is a Present Tense action requiring no roll. While boarders apply an ICV, those in the ship section usually prepare for battle. Once attached and sealed, detaching it takes 10 minutes; a stable float in space provides sufficient conditions, while a moving ship makes the job riskier. The mere presence of an ICV is taken as intent to commit piracy.</en>
+            <es>Un aro de metal robusto de un metro de ancho tachonado de boquillas láser. Colocado sobre el casco exterior de una nave y activado, corta el casco y sella la brecha con un iris retráctil de plasacero. Es una acción de Tiempo Presente que no requiere tirada. Mientras los abordadores aplican una ICV, quienes están en esa sección de la nave suelen prepararse para el combate. Una vez fijada y sellada, retirarla lleva 10 minutos; una flotación estáble en el espacio ofrece condiciones suficientes, mientras que una nave en movimiento hace la tárea más arriesgada. La mera presencia de una ICV se interpreta como intención de cometer piratería.</es>
+        </description>
+        <size>L</size>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
+    </equipment>
+    <equipment>
+        <id>triVeeSuit</id>
+        <type>item</type>
+        <name>
+            <en>Tri-Vee Suit</en>
+            <es>Traje Tri-Vee</es>
+        </name>
+        <description>
+            <en>A wearable holographic projector that surrounds its user in a dynamic nimbus of light and sound. This eye-catching, programmable display can project text, recorded video, and other audiovisual information the wearer wishes surrounding rabble to see. Traders have long used this so-called shill's halo to dazzle the eye and befuddle the mind of potential customers. While wearing an active tri-vee suit, you can use the befriend and convince Charm-skill maneuvers to place your target in the Awed or Mesmerized state. A TL 6 suit runs for 8 hours on a small fusión cell; TL 7 suits connect wirelessly and are lighter and less obtrusive.</en>
+            <es>Un proyector holográfico portatil que envuelve a su usuario en un nimbo dinámico de luz y sonido. Este despliegue llamativo y programable puede proyectar texto, video grabado y cualquier otra información audiovisual que el portador desee mostrar a la chusma circundante. Los comerciantes llevan mucho tiempo usando esté llamado halo de charlatan para deslumbrar la vista y confundir la mente de posibles clientes. Mientras llevas puestáo un traje tri-vee activo, puedes usar las maniobras de habilidad Charm de congraciarse y convencer para colocar a tu objetivo en el estádo Asombrado o Hipnotizado. Un traje de NT 6 funciona 8 horas con una celda de fusión pequeña; los trajes de NT 7 se conectan de forma inalámbrica y son más ligeros y discretos.</es>
+        </description>
+        <size>M</size>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+        </random>
+    </equipment>
+    <equipment>
+        <id>vacBag</id>
+        <type>item</type>
+        <name>
+            <en>Vac Bag</en>
+            <es>Bolsa de Vacío</es>
+        </name>
+        <description>
+            <en>The cheapestá of all possible spacesuits, thanks to generous League subsidies. Easíly donned and bestá reserved for emergency situations, it is little more than a transparent polymer membrane that inflates slightly when pressurized. It protects against vacuum and nothing else. Vac bags have no life support system of their own and use attached cables to hook into a starship's emergency air feed or a bulky external rebreather.</en>
+            <es>El más barato de todos los trajes espaciales posibles, gracias a las generosas subvenciones de la Liga. Facil de poner y reservado preferentemente para emergencias, no es más que una membrana de polímero transparente que se infla ligeramente al presurizarse. Protege contra el vacío y nada más. Las bolsas de vacío carecen de sistema de soporte vital propio y emplean cables acoplados para conectarse al suministro de aire de emergencia de una nave o a un voluminoso respirador externo.</es>
+        </description>
+        <size>S</size>
+        <random>
+            <probabilityMultiplier>COMMON</probabilityMultiplier>
+        </random>
+    </equipment>
+</equipments>

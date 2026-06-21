@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weapons>
+    <hullKnife>
+        <id>hullKnife</id>
+        <type>weapon</type>
+        <group>militaryWeapons</group>
+        <name>
+            <en>Hull Knife</en>
+            <es>Cuchillo de Casco</es>
+        </name>
+        <description>
+            <en>A láser torch used for cutting spaceship hulls and earthbound walls and doors. Using a hull knife is a Present Tense action; it cannot be used for turn-by-turn combat against moving targets. It uses a standard fusión cell holding 20 charges (1 charge per roll). Its Shearing attack property halves the Resistance of a target's materials; cutting into a ship's outer hull (Resistance 8) takes on average 6-10 rolls.</en>
+            <es>Un soplete láser usado para cortar cascos de naves espaciales y muros y puertas en tierra. Usar un cuchillo de casco es una acción de Tiempo Presente; no puede emplearse en combate por turnos contra blancos en movimiento. Utiliza una celda de fusión estándar con 20 cargas (1 carga por tirada). Su propiedad de ataque Cizalla reduce a la mitad la Resistencia de los materiales del objetivo; abrirse paso por el casco exterior de una nave (Resistencia 8) requiere de media de 6 a 10 tiradas.</es>
+        </description>
+        <techLevel>5</techLevel>
+        <weaponType>LASER</weaponType>
+        <damageList>
+            <weaponDamage>
+                <characteristic>dexterity</characteristic>
+                <skill>shoot</skill>
+                <goal>0</goal>
+                <damage>8</damage>
+                <strength>0</strength>
+                <shots>20</shots>
+                <rate>1</rate>
+            </weaponDamage>
+        </damageList>
+        <damageTypes>
+            <damageType>fire</damageType>
+        </damageTypes>
+        <size>M</size>
+        <cost>300</cost>
+        <agora>rare</agora>
+        <agoraGroups>
+            <agoraGroup>charioteers</agoraGroup>
+        </agoraGroups>
+        <random>
+            <probabilityMultiplier>RARE</probabilityMultiplier>
+            <recommendedPreferences>
+                <preference>TECHNICAL</preference>
+            </recommendedPreferences>
+        </random>
+    </hullKnife>
+</weapons>

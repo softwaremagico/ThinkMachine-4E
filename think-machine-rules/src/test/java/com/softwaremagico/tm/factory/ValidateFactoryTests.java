@@ -53,20 +53,10 @@ import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.character.values.SpecialValueFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.file.modules.ModuleManager;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 @Test(groups = {"factoryValidation"})
 public class ValidateFactoryTests extends FactoryTest {
-
-	@Override
-	@BeforeClass
-	public void enableBasicModule() {
-		ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
-		ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
-		ModuleManager.resetModules();
-	}
 
 	@Test
 	public void validateAccessoryFactory() throws InvalidXmlElementException {
