@@ -28,22 +28,37 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.log.RandomTestGenerationLog;
 import com.softwaremagico.tm.random.preferences.RandomSelector;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-//@Test(groups = {"randomCharacter"})
+import java.util.concurrent.ThreadLocalRandom;
+
+@Test(groups = {"randomCharacterSeed"})
 public class FindFailingSeedTest {
     private static final int CHARACTERS_PER_SEED = 1;
     private static final long MAX_SEEDS_TO_TEST = 10000;
 
     @Test
     public void findFailingSeed() throws InvalidRandomElementSelectedException {
-        for (long seed = 0; seed < MAX_SEEDS_TO_TEST; seed++) {
+        final long startSeed = ThreadLocalRandom.current().nextLong(Long.MAX_VALUE - MAX_SEEDS_TO_TEST + 1);
+        System.out.println("Starting seed: " + startSeed + ", iterations: " + MAX_SEEDS_TO_TEST);
+
+        for (long iteration = 0; iteration < MAX_SEEDS_TO_TEST; iteration++) {
+            final long seed = startSeed + iteration;
             RandomSelector.setRandomSeed(seed);
 
             for (int i = 0; i < CHARACTERS_PER_SEED; i++) {
                 final CharacterPlayer characterPlayer = new CharacterPlayer();
                 final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
                 randomizeCharacter.createCharacter();
+
+                Assert.assertNotNull(characterPlayer.getSpecie());
+                Assert.assertNotNull(characterPlayer.getPrimaryCharacteristic());
+                Assert.assertNotNull(characterPlayer.getSecondaryCharacteristic());
+                Assert.assertNotNull(characterPlayer.getFaction());
+                Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
+                Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
+                Assert.assertNotNull(characterPlayer.getInfo().getSurname());
 
                 try {
                     characterPlayer.validate();
@@ -63,11 +78,12 @@ public class FindFailingSeedTest {
                 }
             }
 
-            if (seed % 1000 == 0 && seed > 0) {
-                System.out.println("Tested seeds: " + seed + "/" + MAX_SEEDS_TO_TEST);
+            if (iteration % 1000 == 0 && iteration > 0) {
+                System.out.println("Tested seeds: " + iteration + "/" + MAX_SEEDS_TO_TEST);
             }
         }
 
-        System.out.println("No failing seeds found in range 0-" + MAX_SEEDS_TO_TEST);
+        System.out.println("No failing seeds found in range " + startSeed + "-"
+                + (startSeed + MAX_SEEDS_TO_TEST - 1));
     }
 }
