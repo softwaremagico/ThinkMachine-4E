@@ -77,13 +77,16 @@ public class CharacterSheetCreationTest extends PdfGeneration {
     }
 
     @Test
-    public void characterPdfEnglishWithCallingCombination() {
+    public void characterPdfEnglishWithCallingCombinationAtLevel2() {
         Translator.setLanguage("EN");
         final var characterPlayer = CharacterExamples.generateHumanNobleDecadosCommander();
         characterPlayer.addLevel().setCalling("conspiracist");
         CharacterExamples.populateLevel(characterPlayer);
 
+        Assert.assertEquals(characterPlayer.getLevel(), 2);
+        Assert.assertEquals(characterPlayer.getCallingCombinationRepresentation(" / "), "Commander / Conspiracist");
+
         final CharacterSheet sheet = new CharacterSheet(characterPlayer);
-        Assert.assertEquals(sheet.createFile(OUTPUT_FOLDER + "CharacterFS_EN_callings.pdf"), 2);
+        Assert.assertEquals(sheet.createFile(OUTPUT_FOLDER + "CharacterFS_EN_callings_level2.pdf"), 2);
     }
 }

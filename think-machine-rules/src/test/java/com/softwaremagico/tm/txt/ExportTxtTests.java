@@ -80,4 +80,18 @@ public class ExportTxtTests {
         final CharacterSheet characterSheet = new CharacterSheet(player);
         Assert.assertTrue(characterSheet.toString().contains("Commander / Conspiracist"));
     }
+
+    @Test
+    public void checkLevel2CallingChangeIsShownOnTxtSheet() {
+        Translator.setLanguage("EN");
+        final CharacterPlayer player = CharacterExamples.generateHumanNobleDecadosCommander();
+        player.addLevel().setCalling("conspiracist");
+        CharacterExamples.populateLevel(player);
+
+        Assert.assertEquals(player.getLevel(), 2);
+        Assert.assertEquals(player.getCallingCombinationRepresentation(" / "), "Commander / Conspiracist");
+
+        final CharacterSheet characterSheet = new CharacterSheet(player);
+        Assert.assertTrue(characterSheet.toString().contains("Commander / Conspiracist"));
+    }
 }
