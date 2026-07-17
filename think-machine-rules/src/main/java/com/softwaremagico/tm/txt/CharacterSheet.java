@@ -68,6 +68,43 @@ public class CharacterSheet {
         return characterPlayer;
     }
 
+    private void appendProfessionElement(StringBuilder profession, String value) {
+        if (!profession.isEmpty()) {
+            profession.append(ELEMENT_SEPARATOR);
+        }
+        profession.append(value);
+    }
+
+    private void appendCharacterInfoDetails(StringBuilder stringBuilder) throws InvalidXmlElementException {
+        if (getCharacterPlayer().getInfo().getGender() != null) {
+            stringBuilder.append(" ").append(TextFactory.getInstance().getElement(getCharacterPlayer().getInfo().getGender().toString())
+                    .getNameRepresentation());
+        }
+        if (getCharacterPlayer().getInfo().getAge() != null) {
+            stringBuilder.append(" ").append(getCharacterPlayer().getInfo().getAge()).append(" ")
+                    .append(TextFactory.getInstance().getElement("years").getNameRepresentation().toLowerCase());
+        }
+        if (getCharacterPlayer().getInfo().getPlanet() != null) {
+            stringBuilder.append(" (").append(PlanetFactory.getInstance().getElement(getCharacterPlayer().getInfo().getPlanet())
+                    .getNameRepresentation()).append(")");
+        }
+    }
+
+    private void appendCharacterProfession(StringBuilder profession) throws InvalidXmlElementException {
+        if (getCharacterPlayer().getUpbringing() != null) {
+            appendProfessionElement(profession, getCharacterPlayer().getUpbringing().getNameRepresentation());
+            if (characterPlayer.isRaisedInSpace()) {
+                profession.append(" (").append(TextFactory.getInstance().getElement("raisedInSpace")).append(")");
+            }
+        }
+        if (getCharacterPlayer().getFaction() != null) {
+            appendProfessionElement(profession, getCharacterPlayer().getFaction().getNameRepresentation());
+        }
+        if (getCharacterPlayer().getCalling() != null) {
+            appendProfessionElement(profession, getCharacterPlayer().getCalling().getNameRepresentation());
+        }
+    }
+
 
     private void setCharacterInfoText(StringBuilder stringBuilder) throws InvalidXmlElementException {
         stringBuilder.append(getCharacterPlayer().getCompleteNameRepresentation());
@@ -76,42 +113,11 @@ public class CharacterSheet {
             stringBuilder.append(SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie()).getNameRepresentation());
         }
         if (getCharacterPlayer().getInfo() != null) {
-            if (getCharacterPlayer().getInfo().getGender() != null) {
-                stringBuilder.append(" ").append(TextFactory.getInstance().getElement(getCharacterPlayer().getInfo().getGender().toString())
-                        .getNameRepresentation());
-            }
-            if (getCharacterPlayer().getInfo().getAge() != null) {
-                stringBuilder.append(" ").append(getCharacterPlayer().getInfo().getAge()).append(" ")
-                        .append(TextFactory.getInstance().getElement("years").getNameRepresentation().toLowerCase());
-            }
-            if (getCharacterPlayer().getInfo().getPlanet() != null) {
-                stringBuilder.append(" (").append(PlanetFactory.getInstance().getElement(getCharacterPlayer().getInfo().getPlanet())
-                        .getNameRepresentation()).append(")");
-            }
+            appendCharacterInfoDetails(stringBuilder);
             stringBuilder.append("\n");
         }
         final StringBuilder profession = new StringBuilder();
-        if (getCharacterPlayer().getUpbringing() != null) {
-            if (profession.length() > 0) {
-                profession.append(ELEMENT_SEPARATOR);
-            }
-            profession.append(getCharacterPlayer().getUpbringing().getNameRepresentation());
-            if (characterPlayer.isRaisedInSpace()) {
-                profession.append(" (").append(TextFactory.getInstance().getElement("raisedInSpace")).append(")");
-            }
-        }
-        if (getCharacterPlayer().getFaction() != null) {
-            if (profession.length() > 0) {
-                profession.append(ELEMENT_SEPARATOR);
-            }
-            profession.append(getCharacterPlayer().getFaction().getNameRepresentation());
-        }
-        if (getCharacterPlayer().getCalling() != null) {
-            if (profession.length() > 0) {
-                profession.append(ELEMENT_SEPARATOR);
-            }
-            profession.append(getCharacterPlayer().getCalling().getNameRepresentation());
-        }
+        appendCharacterProfession(profession);
         stringBuilder.append(profession);
         stringBuilder.append("\n");
     }
@@ -433,13 +439,33 @@ public class CharacterSheet {
                 data.append(separator).append(TextFactory.getInstance().getElement("techCompulsion").getNameRepresentation()).append(" ")
                         .append(TechCompulsionFactory.getInstance().getElement(item.getTechCompulsion()).getNameRepresentation());
             }
-            if (data.length() > 0) {
+            if (!data.isEmpty()) {
                 stringBuilder.append(" (");
                 stringBuilder.append(data);
                 stringBuilder.append(")");
             }
             stringBuilder.append("\n");
         }
+    }
+
+    private StringBuilder buildCyberdeviceData(Cyberdevice cyberdevice) {
+        final StringBuilder data = new StringBuilder();
+        String separator = "";
+        if (cyberdevice.getTechLevel() != null && cyberdevice.getTechLevel() > 0) {
+            data.append(separator).append(TextFactory.getInstance().getElement("techLevel").getNameRepresentation()).append(" ")
+                    .append(cyberdevice.getTechLevel());
+            separator = ELEMENT_SEPARATOR;
+        }
+        if (cyberdevice.getSize() != null) {
+            data.append(separator).append(TextFactory.getInstance().getElement("size").getNameRepresentation()).append(" ")
+                    .append(cyberdevice.getSize());
+            separator = ELEMENT_SEPARATOR;
+        }
+        if (cyberdevice.getTechCompulsion() != null) {
+            data.append(separator).append(TextFactory.getInstance().getElement("techCompulsion").getNameRepresentation()).append(" ")
+                    .append(TechCompulsionFactory.getInstance().getElement(cyberdevice.getTechCompulsion()).getNameRepresentation());
+        }
+        return data;
     }
 
     private void setFirebirds(StringBuilder stringBuilder) {
@@ -459,23 +485,8 @@ public class CharacterSheet {
 
             for (final Cyberdevice cyberdevice : getCharacterPlayer().getCyberdevices()) {
                 stringBuilder.append("\t- ").append(cyberdevice.getName());
-                final StringBuilder data = new StringBuilder();
-                String separator = "";
-                if (cyberdevice.getTechLevel() != null && cyberdevice.getTechLevel() > 0) {
-                    data.append(separator).append(TextFactory.getInstance().getElement("techLevel").getNameRepresentation()).append(" ")
-                            .append(cyberdevice.getTechLevel());
-                    separator = ELEMENT_SEPARATOR;
-                }
-                if (cyberdevice.getSize() != null) {
-                    data.append(separator).append(TextFactory.getInstance().getElement("size").getNameRepresentation()).append(" ")
-                            .append(cyberdevice.getSize());
-                    separator = ELEMENT_SEPARATOR;
-                }
-                if (cyberdevice.getTechCompulsion() != null) {
-                    data.append(separator).append(TextFactory.getInstance().getElement("techCompulsion").getNameRepresentation()).append(" ")
-                            .append(TechCompulsionFactory.getInstance().getElement(cyberdevice.getTechCompulsion()).getNameRepresentation());
-                }
-                if (data.length() > 0) {
+                final StringBuilder data = buildCyberdeviceData(cyberdevice);
+                if (!data.isEmpty()) {
                     stringBuilder.append(" (");
                     stringBuilder.append(data);
                     stringBuilder.append(")");

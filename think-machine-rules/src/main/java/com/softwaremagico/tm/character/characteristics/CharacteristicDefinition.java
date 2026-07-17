@@ -94,8 +94,8 @@ public class CharacteristicDefinition extends Element implements Comparable<Elem
 
     @Override
     public int compareTo(Element characteristic) {
-        if (characteristic instanceof CharacteristicDefinition) {
-            return getCharacteristicName().compareTo(((CharacteristicDefinition) characteristic).getCharacteristicName());
+        if (characteristic instanceof CharacteristicDefinition characteristicDefinition) {
+            return getCharacteristicName().compareTo(characteristicDefinition.getCharacteristicName());
         }
         return super.compareTo(characteristic);
     }

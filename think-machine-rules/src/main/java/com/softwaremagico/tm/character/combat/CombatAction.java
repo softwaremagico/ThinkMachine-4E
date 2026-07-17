@@ -36,6 +36,18 @@ import java.util.Objects;
 import java.util.Set;
 
 public class CombatAction extends Element {
+    public static final class CombatActionData {
+        private final String goal;
+        private final String damage;
+        private final String others;
+
+        public CombatActionData(String goal, String damage, String others) {
+            this.goal = goal;
+            this.damage = damage;
+            this.others = others;
+        }
+    }
+
     private String goal;
     private String damage;
     private String others;
@@ -46,11 +58,11 @@ public class CombatAction extends Element {
     }
 
     public CombatAction(String id, TranslatedText name, TranslatedText description, String language, String moduleName,
-                        String goal, String damage, String others, Set<CombatActionRequirement> requirements) {
+                        CombatActionData actionData, Set<CombatActionRequirement> requirements) {
         super(id, name, description, language, moduleName);
-        this.goal = goal;
-        this.damage = damage;
-        this.others = others;
+        this.goal = actionData.goal;
+        this.damage = actionData.damage;
+        this.others = actionData.others;
         this.requirements = requirements;
     }
 
@@ -70,26 +82,36 @@ public class CombatAction extends Element {
         return requirements;
     }
 
+    private boolean matchesSkillRequirement(CharacterPlayer characterPlayer, CombatActionRequirement requirement, Skill skill) {
+        try {
+            return characterPlayer.getSkillValue(skill) >= requirement.getValue();
+        } catch (MaxValueExceededException e) {
+            return true;
+        }
+    }
+
+    private boolean matchesCharacteristicRequirement(CharacterPlayer characterPlayer, CombatActionRequirement requirement,
+                                                     CharacteristicDefinition characteristicDefinition) {
+        return characterPlayer.getCharacteristicCombatValue(characteristicDefinition.getId()) != null
+                && characterPlayer.getCharacteristicCombatValue(characteristicDefinition.getId()).getValue() >= requirement.getValue();
+    }
+
+    private boolean isRequirementAllowed(CharacterPlayer characterPlayer, CombatActionRequirement requirement) {
+        for (final IValue restriction : requirement.getRequirements()) {
+            if (restriction instanceof Skill skill && matchesSkillRequirement(characterPlayer, requirement, skill)) {
+                return true;
+            }
+            if (restriction instanceof CharacteristicDefinition characteristicDefinition
+                    && matchesCharacteristicRequirement(characterPlayer, requirement, characteristicDefinition)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean isAvailable(CharacterPlayer characterPlayer) {
         for (final CombatActionRequirement requirement : getRequirements()) {
-            boolean allowed = false;
-            for (final IValue restriction : requirement.getRequirements()) {
-                if (restriction instanceof Skill) {
-                    try {
-                        if (characterPlayer.getSkillValue((Skill) restriction) >= requirement.getValue()) {
-                            allowed = true;
-                        }
-                    } catch (MaxValueExceededException e) {
-                        allowed = true;
-                    }
-                } else if (restriction instanceof CharacteristicDefinition) {
-                    if (characterPlayer.getCharacteristicCombatValue(restriction.getId()) != null
-                            && characterPlayer.getCharacteristicCombatValue(restriction.getId()).getValue() >= requirement.getValue()) {
-                        allowed = true;
-                    }
-                }
-            }
-            if (!allowed) {
+            if (!isRequirementAllowed(characterPlayer, requirement)) {
                 return false;
             }
         }
@@ -99,10 +121,8 @@ public class CombatAction extends Element {
     private boolean checkRestriction(String skillId) {
         for (final CombatActionRequirement requirement : getRequirements()) {
             for (final IValue restriction : requirement.getRequirements()) {
-                if (restriction instanceof Skill) {
-                    if (Objects.equals(restriction.getId(), skillId)) {
-                        return true;
-                    }
+                if (restriction instanceof Skill skill && Objects.equals(skill.getId(), skillId)) {
+                    return true;
                 }
             }
         }

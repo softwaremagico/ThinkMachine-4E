@@ -147,102 +147,114 @@ public class CharacterDefinitionStep extends Element {
     public void validate() throws InvalidXmlElementException {
         super.validate();
 
-        if (capabilityOptions != null) {
-            try {
-                capabilityOptions.forEach(CapabilityOptions::validate);
-            } catch (InvalidXmlElementException e) {
-                throw new InvalidXmlElementException("Error on capability option in '" + getId() + "'.", e);
-            }
-        }
-        if (characteristicBonusOptions != null) {
-            try {
-                characteristicBonusOptions.forEach(OptionSelector::validate);
-            } catch (InvalidXmlElementException e) {
-                throw new InvalidXmlElementException("Error on characteristic option in '" + getId() + "'.", e);
-            }
-        }
-        if (skillBonusOptions != null) {
-            try {
-                skillBonusOptions.forEach(OptionSelector::validate);
-            } catch (InvalidXmlElementException e) {
-                throw new InvalidXmlElementException("Error on skill option in '" + getId() + "'.", e);
-            }
-        }
-        if (getSourcePerks() != null) {
-            try {
-                getSourcePerks().forEach(OptionSelector::validate);
-            } catch (InvalidXmlElementException e) {
-                throw new InvalidXmlElementException("Error on perk option in '" + getId() + "'.", e);
-            }
-        }
-        if (materialAwards != null) {
-            try {
-                materialAwards.forEach(EquipmentOptions::validate);
-            } catch (InvalidXmlElementException e) {
-                throw new InvalidXmlElementException("Error on material awards options in '" + getId() + "'.", e);
-            }
-        }
+        validateSelectableOptions();
+        validateCharacteristicOptions();
+        validateSkillOptions();
+        validatePerksOptions();
+    }
 
-        int totalCharacteristicsPoints = 0;
-        for (CharacteristicBonusOptions characteristicOptions : getCharacteristicOptions()) {
-            final CharacteristicBonusOption option = characteristicOptions.getOptions().iterator().next();
-            if (option.getElement() == null
-                    || option.getElement().getType() == null
-                    || !option.isExtra()) {
-                totalCharacteristicsPoints += characteristicOptions.getTotalOptions() * option.getBonus();
-            }
-        }
+    private void validateSelectableOptions() {
+        validateOptions(capabilityOptions, CapabilityOptions::validate, "capability option");
+        validateOptions(characteristicBonusOptions, OptionSelector::validate, "characteristic option");
+        validateOptions(skillBonusOptions, OptionSelector::validate, "skill option");
+        validateOptions(getSourcePerks(), OptionSelector::validate, "perk option");
+        validateOptions(materialAwards, EquipmentOptions::validate, "material awards options");
+    }
+
+    private void validateCharacteristicOptions() {
+        final int totalCharacteristicsPoints = getTotalCharacteristicsPoints();
         if (totalCharacteristicsPoints != getCharacteristicsTotalPoints()) {
             throw new InvalidXmlElementException("Element '" + getId() + "' has invalid number of characteristics options: '"
                     + getCharacteristicsTotalPoints() + "'. "
                     + "Currently has '" + totalCharacteristicsPoints + "' characteristic points.");
         }
+        getCharacteristicOptions().forEach(this::validateUniformCharacteristicBonus);
+    }
 
-        //All options, same bonus.
+    private int getTotalCharacteristicsPoints() {
+        int totalCharacteristicsPoints = 0;
         for (CharacteristicBonusOptions characteristicOptions : getCharacteristicOptions()) {
-            Integer bonus = null;
-            for (CharacteristicBonusOption characteristicBonusOption : characteristicOptions.getOptions()) {
-                if (bonus == null) {
-                    bonus = characteristicBonusOption.getBonus();
-                } else {
-                    if (bonus != characteristicBonusOption.getBonus()) {
-                        throw new InvalidXmlElementException("Characteristic bonus is invalid on '" + this + "' ");
-                    }
-                }
+            final CharacteristicBonusOption option = characteristicOptions.getOptions().iterator().next();
+            if (isCountableCharacteristicOption(option)) {
+                totalCharacteristicsPoints += characteristicOptions.getTotalOptions() * option.getBonus();
             }
         }
+        return totalCharacteristicsPoints;
+    }
 
+    private boolean isCountableCharacteristicOption(CharacteristicBonusOption option) {
+        return option.getElement() == null || option.getElement().getType() == null || !option.isExtra();
+    }
 
-        int totalSkillPoints = 0;
-        for (SkillBonusOptions skillOptions : getSkillOptions()) {
-            totalSkillPoints += skillOptions.getTotalOptions() * skillOptions.getOptions().iterator().next().getBonus();
+    private void validateUniformCharacteristicBonus(CharacteristicBonusOptions characteristicOptions) {
+        Integer bonus = null;
+        for (CharacteristicBonusOption characteristicBonusOption : characteristicOptions.getOptions()) {
+            if (bonus == null) {
+                bonus = characteristicBonusOption.getBonus();
+            } else if (bonus != characteristicBonusOption.getBonus()) {
+                throw new InvalidXmlElementException("Characteristic bonus is invalid on '" + this + "' ");
+            }
         }
+    }
+
+    private void validateSkillOptions() {
+        final int totalSkillPoints = getTotalSkillPoints();
         if (totalSkillPoints != getSkillsTotalPoints()) {
             throw new InvalidXmlElementException("Element '" + getId() + "' has invalid skill options: '" + getSkillsTotalPoints()
                     + "'. Currently has '" + totalSkillPoints + "' skill points.");
         }
+        getSkillOptions().forEach(this::validateUniformSkillBonus);
+    }
 
-        //All options, same bonus.
+    private int getTotalSkillPoints() {
+        int totalSkillPoints = 0;
         for (SkillBonusOptions skillOptions : getSkillOptions()) {
-            Integer bonus = null;
-            for (SkillBonusOption skillBonusOption : skillOptions.getOptions()) {
-                if (bonus == null) {
-                    bonus = skillBonusOption.getBonus();
-                } else {
-                    if (bonus != skillBonusOption.getBonus()) {
-                        throw new InvalidXmlElementException("Skill bonus is invalid on '" + this + "' on skill '" + skillBonusOption.getId() + "' ");
-                    }
-                }
+            totalSkillPoints += skillOptions.getTotalOptions() * skillOptions.getOptions().iterator().next().getBonus();
+        }
+        return totalSkillPoints;
+    }
+
+    private void validateUniformSkillBonus(SkillBonusOptions skillOptions) {
+        Integer bonus = null;
+        for (SkillBonusOption skillBonusOption : skillOptions.getOptions()) {
+            if (bonus == null) {
+                bonus = skillBonusOption.getBonus();
+            } else if (bonus != skillBonusOption.getBonus()) {
+                throw new InvalidXmlElementException("Skill bonus is invalid on '" + this + "' on skill '" + skillBonusOption.getId() + "' ");
             }
         }
+    }
+
+    private void validatePerksOptions() {
         if (getSourcePerks().size() != getTotalPerksOptions()) {
             throw new InvalidXmlElementException("Element '" + getId() + "' must have '" + getTotalPerksOptions() + "' perks options."
                     + " Now have '" + getSourcePerks().size() + "'.");
         }
+    }
 
-        //Mercurian has 3!
-//        if (capabilityOptions.size() != getTotalCapabilitiesOptions()) {
-//            throw new InvalidXmlElementException("Element must have '" + getTotalCapabilitiesOptions() + "' capabilities options.");
-//        }
+    @FunctionalInterface
+    private interface OptionValidator<T> {
+        void validate(T option);
+    }
+
+    private <T> void validateOptions(Collection<T> options, OptionValidator<T> validator, String optionName) {
+        if (options == null) {
+            return;
+        }
+        try {
+            options.forEach(validator::validate);
+        } catch (InvalidXmlElementException e) {
+            throw new InvalidXmlElementException("Error on " + optionName + " in '" + getId() + "'.", e);
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
 }

@@ -415,28 +415,25 @@ public class CharacterPlayer {
     public String getSkillComposition(String skill) {
         final StringBuilder stringBuilder = new StringBuilder();
         if (upbringing != null) {
-            final int skillBonus = upbringing.getSkillBonus(skill);
-            if (skillBonus > 0) {
-                stringBuilder.append("upbringing: ").append(skillBonus);
-            }
+            appendSkillBonusIfPresent(stringBuilder, "upbringing", upbringing.getSkillBonus(skill));
         }
         if (faction != null) {
-            final int skillBonus = faction.getSkillBonus(skill);
-            if (skillBonus > 0) {
-                stringBuilder.append((stringBuilder.length() > 0 ? ", " : "")).append("faction: ").append(skillBonus);
-            }
+            appendSkillBonusIfPresent(stringBuilder, "faction", faction.getSkillBonus(skill));
         }
         if (calling != null) {
-            final int skillBonus = calling.getSkillBonus(skill);
-            if (skillBonus > 0) {
-                stringBuilder.append((stringBuilder.length() > 0 ? ", " : "")).append("calling: ").append(skillBonus);
-            }
+            appendSkillBonusIfPresent(stringBuilder, "calling", calling.getSkillBonus(skill));
         }
-        final int cyberdevicesBonus = getCyberdevicesAlwaysBonification(skill);
-        if (cyberdevicesBonus > 0) {
-            stringBuilder.append((stringBuilder.length() > 0 ? ", " : "")).append("cyberdevices: ").append(cyberdevicesBonus);
-        }
+        appendSkillBonusIfPresent(stringBuilder, "cyberdevices", getCyberdevicesAlwaysBonification(skill));
         return stringBuilder.toString();
+    }
+
+    private void appendSkillBonusIfPresent(StringBuilder stringBuilder, String source, int bonus) {
+        if (bonus > 0) {
+            if (!stringBuilder.isEmpty()) {
+                stringBuilder.append(", ");
+            }
+            stringBuilder.append(source).append(": ").append(bonus);
+        }
     }
 
     private int getCyberdevicesAlwaysBonification(String valueId) {
@@ -463,8 +460,7 @@ public class CharacterPlayer {
             return true;
         }
 
-        if (affects instanceof SpecialValue) {
-            final SpecialValue specialValue = (SpecialValue) affects;
+        if (affects instanceof SpecialValue specialValue) {
             if (specialValue.getAffects() == null) {
                 return false;
             }
@@ -647,7 +643,10 @@ public class CharacterPlayer {
 
     private void appendBonusIfPresent(StringBuilder stringBuilder, String label, int bonus) {
         if (bonus > 0) {
-            stringBuilder.append((stringBuilder.length() > 0 ? ", " : "")).append(label).append(": ").append(bonus);
+            if (!stringBuilder.isEmpty()) {
+                stringBuilder.append(", ");
+            }
+            stringBuilder.append(label).append(": ").append(bonus);
         }
     }
 
@@ -693,11 +692,18 @@ public class CharacterPlayer {
     }
 
     public CombatActionRequirement getCharacteristicCombatValue(String id) {
-        // Placeholder until combat characteristic requirements are modeled in CharacterPlayer.
+        // Keep null behavior for unknown/invalid ids to preserve existing combat checks.
         if (id == null || id.isBlank()) {
             return null;
         }
-        return null;
+        try {
+            final int characteristicValue = getCharacteristicValue(id);
+            final CombatActionRequirement combatActionRequirement = new CombatActionRequirement();
+            combatActionRequirement.setValue(characteristicValue);
+            return combatActionRequirement;
+        } catch (InvalidCharacteristicException | MaxValueExceededException e) {
+            return null;
+        }
     }
 
     public int getCharacteristicReassignValueDecreased(String characteristic) {
@@ -1058,7 +1064,7 @@ public class CharacterPlayer {
     public Collection<String> getCapabilities(CharacterDefinitionStepSelection step) {
         if (step != null) {
             return step.getSelectedCapabilities().stream().map(c -> ComparableUtils.getComparisonId(c.getId(), c.getSpecialization()))
-                    .collect(Collectors.toList());
+                    .toList();
         }
         return new ArrayList<>();
     }
@@ -1218,7 +1224,7 @@ public class CharacterPlayer {
     }
 
     public <T extends Equipment> List<T> getEquipmentPurchased(Class<T> equipmentClass) {
-        return getEquipmentPurchased().stream().filter(equipmentClass::isInstance).map(equipmentClass::cast).collect(Collectors.toList());
+        return getEquipmentPurchased().stream().filter(equipmentClass::isInstance).map(equipmentClass::cast).toList();
     }
 
     public Set<Equipment> getEquipmentPurchased() {
@@ -1336,7 +1342,7 @@ public class CharacterPlayer {
     }
 
     public List<Weapon> getPurchasedMeleeWeapons() {
-        return getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isMeleeWeapon).collect(Collectors.toList());
+        return getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isMeleeWeapon).toList();
     }
 
     public void setPurchasedMeleeWeapons(List<Weapon> weapons, boolean removeOld) throws UnofficialElementNotAllowedException {
@@ -1355,7 +1361,7 @@ public class CharacterPlayer {
     }
 
     public List<Weapon> getPurchasedRangedWeapons() {
-        return getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isRangedWeapon).collect(Collectors.toList());
+        return getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isRangedWeapon).toList();
     }
 
     public void setPurchasedRangedWeapons(List<Weapon> weapons, boolean removeOld) throws UnofficialElementNotAllowedException {
@@ -1385,7 +1391,7 @@ public class CharacterPlayer {
     }
 
     public <T extends Equipment> List<T> getEquipment(Class<T> equipmentClass) {
-        return getEquipment().stream().filter(equipmentClass::isInstance).map(equipmentClass::cast).collect(Collectors.toList());
+        return getEquipment().stream().filter(equipmentClass::isInstance).map(equipmentClass::cast).toList();
     }
 
     public String getRepresentation() {
@@ -1726,13 +1732,13 @@ public class CharacterPlayer {
     }
 
     public List<OccultismPower> getAllSelectedPowers() {
-        return getOccultism().getSelectedPowers().values().stream().flatMap(Collection::stream).collect(Collectors.toList());
+        return getOccultism().getSelectedPowers().values().stream().flatMap(Collection::stream).toList();
     }
 
     public List<Cyberdevice> getCyberdevices() {
         final List<SpecializedPerk> cyberdevices = getPerks().stream()
-                .filter(perk -> Objects.equals(perk.getType(), PerkType.CYBERDEVICE)).collect(Collectors.toList());
-        return CyberdeviceFactory.getInstance().getElements(cyberdevices.stream().map(Perk::getId).collect(Collectors.toList()));
+                .filter(perk -> Objects.equals(perk.getType(), PerkType.CYBERDEVICE)).toList();
+        return CyberdeviceFactory.getInstance().getElements(cyberdevices.stream().map(Perk::getId).toList());
     }
 
     public Affliction getAffliction() {
@@ -1747,21 +1753,21 @@ public class CharacterPlayer {
         if (cacheManager.getCombatArmor() == null) {
             cacheManager.setCombatArmor(hasCapability(Capability.COMBAT_ARMOR_CAPABILITY, (String) null));
         }
-        return cacheManager.getCombatArmor() != null;
+        return cacheManager.getCombatArmor();
     }
 
     public boolean canUseWarArmor() {
         if (cacheManager.getWarArmor() == null) {
             cacheManager.setWarArmor(hasCapability(Capability.WAR_ARMOR_CAPABILITY, (String) null));
         }
-        return cacheManager.getWarArmor() != null;
+        return cacheManager.getWarArmor();
     }
 
     public boolean canUseMilitaryWeapons() {
         if (cacheManager.getMilitaryWeapons() == null) {
             cacheManager.setMilitaryWeapons(hasCapability(Capability.MILITARY_WEAPONS_CAPABILITY, (String) null));
         }
-        return cacheManager.getMilitaryWeapons() != null;
+        return cacheManager.getMilitaryWeapons();
     }
 
     public CacheManager getCacheManager() {

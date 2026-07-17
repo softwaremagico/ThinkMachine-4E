@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.values.IValue;
 
+import java.util.Objects;
+
 /*-
  * #%L
  * Think Machine (Core)
@@ -63,9 +65,28 @@ public class Characteristic extends Element implements IValue {
 
     @Override
     public int compareTo(Element element) {
-        if (element instanceof Characteristic) {
-            return getCharacteristicDefinition().getOrder().compareTo(((Characteristic) element).getCharacteristicDefinition().getOrder());
+        if (element instanceof Characteristic characteristic) {
+            return getCharacteristicDefinition().getOrder().compareTo(characteristic.getCharacteristicDefinition().getOrder());
         }
         return super.compareTo(element);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), value, characteristicDefinition);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        if (!(obj instanceof Characteristic other)) {
+            return false;
+        }
+        return value == other.value && Objects.equals(characteristicDefinition, other.characteristicDefinition);
     }
 }

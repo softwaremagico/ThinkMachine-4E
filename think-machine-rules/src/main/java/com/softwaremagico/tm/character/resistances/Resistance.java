@@ -48,7 +48,6 @@ import com.softwaremagico.tm.xml.XmlFactory;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.EnumMap;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -159,13 +158,13 @@ public class Resistance {
         }
         if (characterPlayer.getBestArmor() != null) {
             characterPlayer.getBestArmor().getResistances().forEach(resistance -> {
-                resistancesByType.computeIfAbsent(resistance.getType(), k -> new HashMap<>());
+                resistancesByType.computeIfAbsent(resistance.getType(), k -> new EnumMap<>(ResistanceCategory.class));
                 resistancesByType.get(resistance.getType()).computeIfAbsent(resistance.getCategory(), k -> new ArrayList<>()).add(resistance);
             });
         }
         if (characterPlayer.getBestHandHandledShield() != null) {
             characterPlayer.getBestHandHandledShield().getResistances().forEach(resistance -> {
-                resistancesByType.computeIfAbsent(resistance.getType(), k -> new HashMap<>());
+                resistancesByType.computeIfAbsent(resistance.getType(), k -> new EnumMap<>(ResistanceCategory.class));
                 resistancesByType.get(resistance.getType()).computeIfAbsent(resistance.getCategory(), k -> new ArrayList<>()).add(resistance);
             });
         }
@@ -183,13 +182,13 @@ public class Resistance {
         if (xmlFactory != null) {
             //Basic resistances
             xmlFactory.getElement(characterDefinitionStepSelection.getId()).getResistances().forEach(resistance -> {
-                resistancesByCategory.computeIfAbsent(resistance.getType(), k -> new HashMap<>());
+                resistancesByCategory.computeIfAbsent(resistance.getType(), k -> new EnumMap<>(ResistanceCategory.class));
                 resistancesByCategory.get(resistance.getType()).computeIfAbsent(resistance.getCategory(), k -> new ArrayList<>()).add(resistance);
             });
         }
         //Resistances based on selections.
         getResistanceFromOptions(characterDefinitionStepSelection).forEach(resistance -> {
-            resistancesByCategory.computeIfAbsent(resistance.getType(), k -> new HashMap<>());
+            resistancesByCategory.computeIfAbsent(resistance.getType(), k -> new EnumMap<>(ResistanceCategory.class));
             resistancesByCategory.get(resistance.getType()).computeIfAbsent(resistance.getCategory(), k -> new ArrayList<>()).add(resistance);
         });
     }
