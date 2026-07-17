@@ -197,7 +197,7 @@ public class RandomizeCharacterDefinitionStep {
                                     getCharacterPlayer(), getPreferences(), currentSkillOption);
                             selectedSkill = null;
                             for (final var option : currentSkillOption.getOptions()) {
-                                final Skill candidateSkill = (Skill) option.getElement();
+                                            final Skill candidateSkill = option.getElement();
                                 final boolean alreadySelectedOnOption = characterDefinitionStepSelection.getSelectedSkillOptions().get(optionIndex)
                                         .getSelections().stream().anyMatch(selection -> selection.getId() != null
                                                 && selection.getId().equals(candidateSkill.getId()));

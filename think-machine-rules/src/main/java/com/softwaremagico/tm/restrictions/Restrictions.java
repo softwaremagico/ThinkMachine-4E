@@ -233,40 +233,76 @@ public class Restrictions extends XmlData {
 
     /**
      * Checks if a perk is open but does not check hierarchical perks (riches, cash, title)
+     * Reduced complexity by extracting isAnythingRestricted (S3776, S36)
      *
      * @param parent the perk to check.
-     * @return
+     * @return true if the element is open/unrestricted
      */
     public boolean isOpen(Element parent) {
-        return !this.restricted
-                && (restrictedToSpecies == null || restrictedToSpecies.isEmpty())
-                && (restrictedToUpbringing == null || restrictedToUpbringing.isEmpty())
-                && (restrictedToFactions == null || restrictedToFactions.isEmpty())
-                && (restrictedToFactionGroups == null || restrictedToFactionGroups.isEmpty())
-                && (restrictedToCallings == null || restrictedToCallings.isEmpty())
-                && (restrictedToCapabilities == null || restrictedToCapabilities.isEmpty())
-                && ((parent instanceof Perk) || restrictedPerks == null || restrictedPerks.isEmpty())
-                && (restrictedToPerksGroups == null || restrictedToPerksGroups.isEmpty())
-                && (restrictedToCapabilitiesGroups == null || restrictedToCapabilitiesGroups.isEmpty())
-                && (restrictedCharacteristics == null || restrictedCharacteristics.isEmpty())
-                && (restrictedSkills == null || restrictedSkills.isEmpty())
-                && (restrictedPlanets == null || restrictedPlanets.isEmpty());
+        return !this.restricted && !isAnythingRestricted(parent, true);
     }
 
+    /**
+     * Checks if this restriction allows unrestricted access
+     * Reduced complexity by extracting isAnythingRestricted (S3776, S36)
+     *
+     * @return true if the element is open/unrestricted
+     */
     public boolean isOpen() {
-        return !this.restricted
-                && (restrictedToSpecies == null || restrictedToSpecies.isEmpty())
-                && (restrictedToUpbringing == null || restrictedToUpbringing.isEmpty())
-                && (restrictedToFactions == null || restrictedToFactions.isEmpty())
-                && (restrictedToFactionGroups == null || restrictedToFactionGroups.isEmpty())
-                && (restrictedToCallings == null || restrictedToCallings.isEmpty())
-                && (restrictedToCapabilities == null || restrictedToCapabilities.isEmpty())
-                && (restrictedPerks == null || restrictedPerks.isEmpty())
-                && (restrictedToPerksGroups == null || restrictedToPerksGroups.isEmpty())
-                && (restrictedToCapabilitiesGroups == null || restrictedToCapabilitiesGroups.isEmpty())
-                && (restrictedCharacteristics == null || restrictedCharacteristics.isEmpty())
-                && (restrictedSkills == null || restrictedSkills.isEmpty())
-                && (restrictedPlanets == null || restrictedPlanets.isEmpty());
+        return !this.restricted && !isAnythingRestricted(null, false);
+    }
+
+    /**
+     * Helper method to reduce cognitive complexity of isOpen methods (S3776)
+     *
+     * @param parent the perk to check (can be null)
+     * @param checkPerksForParent whether to check perks only if parent is a Perk
+     * @return true if anything is restricted
+     */
+    private boolean isAnythingRestricted(Element parent, boolean checkPerksForParent) {
+        if (restrictedToSpecies != null && !restrictedToSpecies.isEmpty()) {
+            return true;
+        }
+        if (restrictedToUpbringing != null && !restrictedToUpbringing.isEmpty()) {
+            return true;
+        }
+        if (restrictedToFactions != null && !restrictedToFactions.isEmpty()) {
+            return true;
+        }
+        if (restrictedToFactionGroups != null && !restrictedToFactionGroups.isEmpty()) {
+            return true;
+        }
+        if (restrictedToCallings != null && !restrictedToCallings.isEmpty()) {
+            return true;
+        }
+        if (restrictedToCapabilities != null && !restrictedToCapabilities.isEmpty()) {
+            return true;
+        }
+
+        // When the parent IS a Perk, skip the restrictedPerks check (perks don't restrict their own type),
+        // but continue evaluating the remaining restrictions (groups, characteristics, skills, planets).
+        final boolean skipPerksCheck = checkPerksForParent && (parent instanceof Perk);
+        if (!skipPerksCheck && restrictedPerks != null && !restrictedPerks.isEmpty()) {
+            return true;
+        }
+
+        if (restrictedToPerksGroups != null && !restrictedToPerksGroups.isEmpty()) {
+            return true;
+        }
+        if (restrictedToCapabilitiesGroups != null && !restrictedToCapabilitiesGroups.isEmpty()) {
+            return true;
+        }
+        if (restrictedCharacteristics != null && !restrictedCharacteristics.isEmpty()) {
+            return true;
+        }
+        if (restrictedSkills != null && !restrictedSkills.isEmpty()) {
+            return true;
+        }
+        if (restrictedPlanets != null && !restrictedPlanets.isEmpty()) {
+            return true;
+        }
+
+        return false;
     }
 
     public boolean isRestrictedByAllCharacteristics(CharacterPlayer characterPlayer) {

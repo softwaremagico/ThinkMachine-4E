@@ -82,6 +82,13 @@ public class RandomElementDefinition extends XmlData {
         }
     }
 
+    private void updateSet(Set<String> sourceSet, Set<String> targetSet) {
+        if (sourceSet != null && !sourceSet.isEmpty()) {
+            targetSet.clear();
+            targetSet.addAll(sourceSet);
+        }
+    }
+
     private void update(RandomElementDefinition randomDefinition) {
         if (randomDefinition.getStaticProbability() != null) {
             setStaticProbability(randomDefinition.getStaticProbability());
@@ -95,52 +102,19 @@ public class RandomElementDefinition extends XmlData {
         if (randomDefinition.probabilityMultiplier != null) {
             setProbabilityMultiplier(randomDefinition.probabilityMultiplier);
         }
-        if (randomDefinition.getRecommendedFactions() != null && !randomDefinition.getRecommendedFactions().isEmpty()) {
-            recommendedFactions.clear();
-            recommendedFactions.addAll(randomDefinition.getRecommendedFactions());
-        }
-        if (randomDefinition.getRecommendedFactionsGroups() != null && !randomDefinition.getRecommendedFactionsGroups().isEmpty()) {
-            recommendedFactionsGroups.clear();
-            recommendedFactionsGroups.addAll(randomDefinition.getRecommendedFactions());
-        }
-        if (randomDefinition.getRecommendedSpecies() != null && !randomDefinition.getRecommendedSpecies().isEmpty()) {
-            recommendedSpecies.clear();
-            recommendedSpecies.addAll(randomDefinition.getRecommendedSpecies());
-        }
-        if (randomDefinition.getRecommendedUpbringings() != null && !randomDefinition.getRecommendedUpbringings().isEmpty()) {
-            recommendedUpbringings.clear();
-            recommendedUpbringings.addAll(randomDefinition.getRecommendedUpbringings());
-        }
-        if (randomDefinition.getRecommendedCallings() != null && !randomDefinition.getRecommendedCallings().isEmpty()) {
-            recommendedCallings.clear();
-            recommendedCallings.addAll(randomDefinition.getRecommendedCallings());
-        }
-        if (randomDefinition.getForbiddenPreferences() != null && !randomDefinition.getForbiddenPreferences().isEmpty()) {
-            forbiddenPreferences.clear();
-            forbiddenPreferences.addAll(randomDefinition.getForbiddenPreferences());
-        }
-        if (randomDefinition.getRestrictedPreferences() != null && !randomDefinition.getRestrictedPreferences().isEmpty()) {
-            restrictedPreferences.clear();
-            restrictedPreferences.addAll(randomDefinition.getRestrictedPreferences());
-        }
-        if (randomDefinition.getRestrictedPreferences() != null && !randomDefinition.getRestrictedPreferences().isEmpty()) {
-            inadvisablePreferences.clear();
-            inadvisablePreferences.addAll(randomDefinition.getRestrictedPreferences());
-        }
-        if (randomDefinition.getRecommendedPreferences() != null && !randomDefinition.getRecommendedPreferences().isEmpty()) {
-            recommendedPreferences.clear();
-            recommendedPreferences.addAll(randomDefinition.getRecommendedPreferences());
-        }
+        updateSet(randomDefinition.getRecommendedFactions(), recommendedFactions);
+        updateSet(randomDefinition.getRecommendedFactionsGroups(), recommendedFactionsGroups);
+        updateSet(randomDefinition.getRecommendedSpecies(), recommendedSpecies);
+        updateSet(randomDefinition.getRecommendedUpbringings(), recommendedUpbringings);
+        updateSet(randomDefinition.getRecommendedCallings(), recommendedCallings);
+        updateSet(randomDefinition.getForbiddenPreferences(), forbiddenPreferences);
+        updateSet(randomDefinition.getRestrictedPreferences(), restrictedPreferences);
+        updateSet(randomDefinition.getInadvisablePreferences(), inadvisablePreferences);
+        updateSet(randomDefinition.getRecommendedPreferences(), recommendedPreferences);
+        updateSet(randomDefinition.getRecommendedPerks(), recommendedPerks);
+        updateSet(randomDefinition.getRecommendedPerksGroups(), recommendedPerksGroups);
         if (randomDefinition.getProbability() != null) {
             setProbability(randomDefinition.getProbability());
-        }
-        if (randomDefinition.getRecommendedPerks() != null && !randomDefinition.getRecommendedPerks().isEmpty()) {
-            recommendedPerks.clear();
-            recommendedPerks.addAll(randomDefinition.getRecommendedPerks());
-        }
-        if (randomDefinition.getRecommendedPerksGroups() != null && !randomDefinition.getRecommendedPerksGroups().isEmpty()) {
-            recommendedPerksGroups.clear();
-            recommendedPerksGroups.addAll(randomDefinition.getRecommendedPerksGroups());
         }
     }
 
@@ -338,17 +312,17 @@ public class RandomElementDefinition extends XmlData {
     }
 
     public Set<Name> getNames(String faction, String specie, Gender gender) {
-        final Set<Name> names = new HashSet<>();
+        final Set<Name> result = new HashSet<>();
         if (gender == Gender.MALE && namesElements != null) {
             Arrays.stream(namesElements.getMaleNames().split(",")).forEach(s ->
-                    names.add(new Name(replaceAnyBlancSpace(s), gender, faction, specie))
+                    result.add(new Name(replaceAnyBlancSpace(s), gender, faction, specie))
             );
         } else if (gender == Gender.FEMALE && namesElements != null) {
             Arrays.stream(namesElements.getFemaleNames().split(",")).forEach(s ->
-                    names.add(new Name(replaceAnyBlancSpace(s), gender, faction, specie))
+                    result.add(new Name(replaceAnyBlancSpace(s), gender, faction, specie))
             );
         }
-        return names;
+        return result;
     }
 
     private String replaceAnyBlancSpace(String value) {

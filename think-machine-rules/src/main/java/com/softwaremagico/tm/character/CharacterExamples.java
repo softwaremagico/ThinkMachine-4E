@@ -45,6 +45,14 @@ import java.util.List;
 public final class CharacterExamples {
     public static final int AGE = 31;
 
+    // String constants to avoid duplication (S1192)
+    private static final String OLIVER = "Oliver";
+    private static final String QUEEN = "Queen";
+    private static final String PLAYER_1 = "Player 1";
+    private static final String HUMAN = "human";
+    private static final String NOBLE = "noble";
+    private static final String SUTEK = "sutek";
+
     private CharacterExamples() {
 
     }
@@ -52,15 +60,15 @@ public final class CharacterExamples {
     public static CharacterPlayer generateHumanNobleDecadosCommander() {
         final CharacterPlayer characterPlayer = new CharacterPlayer();
 
-        characterPlayer.getInfo().addName(new Name("Oliver", Gender.MALE, null, null));
-        characterPlayer.getInfo().setSurname(new Surname("Queen", null, null));
-        characterPlayer.getInfo().setPlayer("Player 1");
+        characterPlayer.getInfo().addName(new Name(OLIVER, Gender.MALE, null, null));
+        characterPlayer.getInfo().setSurname(new Surname(QUEEN, null, null));
+        characterPlayer.getInfo().setPlayer(PLAYER_1);
         characterPlayer.getInfo().setGender(Gender.MALE);
         characterPlayer.getInfo().setAge(AGE);
-        characterPlayer.getInfo().setPlanet(PlanetFactory.getInstance().getElement("sutek"));
+        characterPlayer.getInfo().setPlanet(PlanetFactory.getInstance().getElement(SUTEK));
 
-        characterPlayer.setSpecie("human");
-        characterPlayer.setUpbringing("noble");
+        characterPlayer.setSpecie(HUMAN);
+        characterPlayer.setUpbringing(NOBLE);
         characterPlayer.setFaction("decados");
         characterPlayer.setCalling("commander");
 
@@ -82,15 +90,15 @@ public final class CharacterExamples {
     public static CharacterPlayer generateHumanNobleHawkwoodCommander() {
         final CharacterPlayer characterPlayer = new CharacterPlayer();
 
-        characterPlayer.getInfo().addName(new Name("Oliver", Gender.MALE, null, null));
-        characterPlayer.getInfo().setSurname(new Surname("Queen", null, null));
-        characterPlayer.getInfo().setPlayer("Player 1");
+        characterPlayer.getInfo().addName(new Name(OLIVER, Gender.MALE, null, null));
+        characterPlayer.getInfo().setSurname(new Surname(QUEEN, null, null));
+        characterPlayer.getInfo().setPlayer(PLAYER_1);
         characterPlayer.getInfo().setGender(Gender.MALE);
         characterPlayer.getInfo().setAge(AGE);
-        characterPlayer.getInfo().setPlanet(PlanetFactory.getInstance().getElement("sutek"));
+        characterPlayer.getInfo().setPlanet(PlanetFactory.getInstance().getElement(SUTEK));
 
-        characterPlayer.setSpecie("human");
-        characterPlayer.setUpbringing("noble");
+        characterPlayer.setSpecie(HUMAN);
+        characterPlayer.setUpbringing(NOBLE);
         characterPlayer.setFaction("hawkwood");
         characterPlayer.setCalling("commander");
 
@@ -104,15 +112,15 @@ public final class CharacterExamples {
     public static CharacterPlayer generateHumanNobleDecadosSybarite() {
         final CharacterPlayer characterPlayer = new CharacterPlayer();
 
-        characterPlayer.getInfo().addName(new Name("Oliver", Gender.MALE, null, null));
-        characterPlayer.getInfo().setSurname(new Surname("Queen", null, null));
-        characterPlayer.getInfo().setPlayer("Player 1");
+        characterPlayer.getInfo().addName(new Name(OLIVER, Gender.MALE, null, null));
+        characterPlayer.getInfo().setSurname(new Surname(QUEEN, null, null));
+        characterPlayer.getInfo().setPlayer(PLAYER_1);
         characterPlayer.getInfo().setGender(Gender.MALE);
         characterPlayer.getInfo().setAge(AGE);
-        characterPlayer.getInfo().setPlanet(PlanetFactory.getInstance().getElement("sutek"));
+        characterPlayer.getInfo().setPlanet(PlanetFactory.getInstance().getElement(SUTEK));
 
-        characterPlayer.setSpecie("human");
-        characterPlayer.setUpbringing("noble");
+        characterPlayer.setSpecie(HUMAN);
+        characterPlayer.setUpbringing(NOBLE);
         characterPlayer.setFaction("decados");
         characterPlayer.setCalling("sybarite");
 

@@ -228,7 +228,7 @@
             <recommendedFactionGroups>engineer</recommendedFactionGroups>
         </random>
         <classification>enhancement</classification>
-        <techCompulsion>inerrant</techCompulsion>
+        <techCompulsion>hypercritical</techCompulsion>
     </cyberdevice>
     <cyberdevice>
         <id>etherEar</id>
@@ -299,6 +299,39 @@
         </bonifications>
         <classification>combat</classification>
         <techCompulsion>destructive</techCompulsion>
+    </cyberdevice>
+    <cyberdevice>
+        <id>litheWire</id>
+        <official>false</official>
+        <name>
+            <en>Lithe Wire</en>
+            <es>Cable Flexible</es>
+        </name>
+        <description>
+            <en>This device is a network of synthetic nerves cabling over and inside the owner’s body, connected to
+                hubs up and down the spine and augmenting the nervous system. It allows for superb motor control,
+                including manual and fine dexterity. These cables are not concealed although they are durable enough
+                (encased in flexible metal sheaths).
+            </en>
+            <es>Este dispositivo es una red de nervios sintéticos estructurados en un cableado que entra y sale del
+                cuerpo del dueño, conectado a los centros superior e inferior de la columna vertebral, aumentando en
+                consecuencia el sistema nervioso. Permite un excelente control motriz, incluyendo una destreza manual y
+                delicada. Estos cables no están ocultos aunque son bastante resistentes (cubiertos por las flexibles
+                fundas metálicas).
+            </es>
+        </description>
+        <techLevel>6</techLevel>
+        <points>5</points>
+        <incompatibility>4</incompatibility>
+        <traits>organic, metal, obvious, automatic, selfPowered</traits>
+        <bonifications>
+            <bonification>
+                <value>3</value>
+                <affects>dexterity</affects>
+            </bonification>
+        </bonifications>
+        <classification>combat</classification>
+        <techCompulsion>reckless</techCompulsion>
     </cyberdevice>
     <cyberdevice>
         <id>oxyLung</id>

@@ -41,8 +41,8 @@ import java.util.List;
 @Test(groups = {"weaponsFactory"})
 public class WeaponsFactoryTests extends FactoryTest {
 
-    // 131 base weapons + 1 from Imperial Dossier - Charioteers Guild + 2 from Vuldrok Space.
-    private static final int DEFINED_WEAPONS = 134;
+    // 131 base weapons + 1 from Imperial Dossier - Charioteers Guild + 2 from Vuldrok Space + 79 from Fading Suns Revised Edition.
+    private static final int DEFINED_WEAPONS = 213;
 
 
     @Test
@@ -90,6 +90,13 @@ public class WeaponsFactoryTests extends FactoryTest {
         final var brotherCass = WeaponFactory.getInstance().getElement("brotherCassHeavyRevolver");
         Assert.assertTrue(brotherCass.getRestrictions().getRestrictedToFactions().contains("brotherBattle"));
         Assert.assertTrue(brotherCass.getRestrictions().getRestrictedToCallings().contains("brotherBattle"));
+    }
+
+    @Test
+    public void fadingSunsRevisedEditionWeaponsAreLoaded() throws InvalidXmlElementException {
+        Assert.assertNotNull(WeaponFactory.getInstance().getElement("cestus"));
+        Assert.assertNotNull(WeaponFactory.getInstance().getElement("saber"));
+        Assert.assertNotNull(WeaponFactory.getInstance().getElement("flail"));
     }
 
     @Test

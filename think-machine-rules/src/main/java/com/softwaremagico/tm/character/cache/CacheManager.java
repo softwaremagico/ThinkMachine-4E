@@ -76,6 +76,8 @@ public class CacheManager {
 
     public void perksChanged() {
         perksWithSpecializations = null;
+        skillValues = new HashMap<>();
+        characteristicsValues = new HashMap<>();
     }
 
     public void skillsChanged() {

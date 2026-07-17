@@ -53,16 +53,15 @@ public class RestrictedCharacteristic {
     @JsonIgnore
     public String getNameRepresentation() {
         if (getCharacteristic() != null) {
-            return CharacteristicsDefinitionFactory.getInstance().getElement(getCharacteristic()).getNameRepresentation() + " (" + getValue() + ")";
+            return String.format("%s (%d)",
+                CharacteristicsDefinitionFactory.getInstance().getElement(getCharacteristic()).getNameRepresentation(),
+                getValue());
         }
         return "";
     }
 
     @Override
     public String toString() {
-        return "RestrictedCharacteristic{"
-                + "characteristic='" + characteristic + '\''
-                + ", value=" + value
-                + '}';
+        return String.format("RestrictedCharacteristic{characteristic='%s', value=%d}", characteristic, value);
     }
 }

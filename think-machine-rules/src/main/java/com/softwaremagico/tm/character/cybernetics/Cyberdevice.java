@@ -28,15 +28,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.character.equipment.Size;
 import com.softwaremagico.tm.character.equipment.TechCompulsionFactory;
 import com.softwaremagico.tm.character.perks.Perk;
+import com.softwaremagico.tm.character.values.Bonification;
+import com.softwaremagico.tm.character.values.IElementWithBonification;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
-public class Cyberdevice extends Perk {
+import java.util.Collections;
+import java.util.Set;
+
+public class Cyberdevice extends Perk implements IElementWithBonification {
     @JsonProperty("techLevel")
     private Integer techLevel;
     @JsonProperty("techCompulsion")
     private String techCompulsion;
     @JsonProperty("size")
     private Size size;
+    @JsonProperty("bonifications")
+    private Set<Bonification> bonifications;
 
     public Integer getTechLevel() {
         return techLevel;
@@ -60,6 +67,18 @@ public class Cyberdevice extends Perk {
 
     public void setSize(Size size) {
         this.size = size;
+    }
+
+    @Override
+    public Set<Bonification> getBonifications() {
+        if (bonifications == null) {
+            return Collections.emptySet();
+        }
+        return bonifications;
+    }
+
+    public void setBonifications(Set<Bonification> bonifications) {
+        this.bonifications = bonifications;
     }
 
     @Override

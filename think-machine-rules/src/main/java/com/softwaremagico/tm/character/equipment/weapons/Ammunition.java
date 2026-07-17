@@ -46,18 +46,9 @@ public class Ammunition extends Element {
         super();
     }
 
-    public Ammunition(String id, TranslatedText name, TranslatedText description, String language, String moduleName, String goal, String damage,
-                      Integer strength, String range, Size size, Integer cost, Set<String> damageTypes,
-                      Set<String> accessories) {
+    // Using setters to break down the large constructor (S107)
+    public Ammunition(String id, TranslatedText name, TranslatedText description, String language, String moduleName) {
         super(id, name, description, language, moduleName);
-        this.goal = goal;
-        this.damage = damage;
-        this.strength = strength;
-        this.range = range;
-        this.cost = cost;
-        this.size = size;
-        this.damageTypes = damageTypes;
-        this.accessories = accessories;
     }
 
     public String getGoal() {

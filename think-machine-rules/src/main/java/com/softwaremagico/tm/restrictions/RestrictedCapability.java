@@ -76,17 +76,21 @@ public class RestrictedCapability implements IComparable {
     public String getNameRepresentation() {
         if (getId() != null) {
             final Capability capability = CapabilityFactory.getInstance().getElement(getId());
-            return capability.getNameRepresentation() + (specialization != null ? " ("
-                    + capability.getSpecialization(specialization).getNameRepresentation() + ")" : "");
+            if (specialization != null) {
+                return String.format("%s (%s)",
+                    capability.getNameRepresentation(),
+                    capability.getSpecialization(specialization).getNameRepresentation());
+            }
+            return capability.getNameRepresentation();
         }
         return "";
     }
 
     @Override
     public String toString() {
-        return "RestrictedCapability{"
-                + "id='" + id + '\''
-                + (specialization != null ? ", specialization=" + specialization : "")
-                + '}';
+        if (specialization != null) {
+            return String.format("RestrictedCapability{id='%s', specialization=%s}", id, specialization);
+        }
+        return String.format("RestrictedCapability{id='%s'}", id);
     }
 }

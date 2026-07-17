@@ -127,7 +127,7 @@ public class FactionFactoryTests extends FactoryTest {
 		final Faction brotherBattle = FactionFactory.getInstance().getElement("brotherBattle");
 		Assert.assertNotNull(brotherBattle);
 		Assert.assertEquals(brotherBattle.getMaterialAwards().size(), 1);
-		Assert.assertEquals(brotherBattle.getMaterialAwards().get(0).getOptions().size(), 79);
+                Assert.assertEquals(brotherBattle.getMaterialAwards().get(0).getOptions().size(), 94);
 		Assert.assertTrue(brotherBattle.getMaterialAwards().get(0).getOptions().iterator().next()
 				.getElement() instanceof CustomizedWeapon);
 		Assert.assertEquals(

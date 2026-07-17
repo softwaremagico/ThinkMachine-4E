@@ -37,18 +37,20 @@ public class CyberdevicesFactoryTests extends FactoryTest {
 
     private static final int DEFINED_CYBERDEVICES = 5;
     private static final int DEFINED_FACTION_BOOK_CYBERDEVICES = 11;
+    private static final int DEFINED_REVISED_EDITION_CYBERDEVICES = 18;
 
 
     @Test
     public void readCyberdevicesStyles() throws InvalidXmlElementException {
         Assert.assertEquals(CyberdeviceFactory.getInstance().getElements().size(),
-                DEFINED_CYBERDEVICES + DEFINED_FACTION_BOOK_CYBERDEVICES);
+                DEFINED_CYBERDEVICES + DEFINED_FACTION_BOOK_CYBERDEVICES + DEFINED_REVISED_EDITION_CYBERDEVICES);
     }
 
     @Test(dependsOnMethods = "readCyberdevicesStyles")
     public void readCyberdevicesOnlyOnFactionBook() throws InvalidXmlElementException {
         ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
         ModuleManager.disableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+        ModuleManager.disableModule(ModuleManager.FADING_SUNS_REVISED_EDITION_MODULE);
         ModuleManager.resetModules();
 
         Assert.assertEquals(CyberdeviceFactory.getInstance().getElements().size(), DEFINED_FACTION_BOOK_CYBERDEVICES);
@@ -58,8 +60,17 @@ public class CyberdevicesFactoryTests extends FactoryTest {
     public void readCyberdevicesOnAllModules() throws InvalidXmlElementException {
         ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
         ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+        ModuleManager.enableModule(ModuleManager.FADING_SUNS_REVISED_EDITION_MODULE);
         ModuleManager.resetModules();
 
-        Assert.assertEquals(CyberdeviceFactory.getInstance().getElements().size(), DEFINED_CYBERDEVICES + DEFINED_FACTION_BOOK_CYBERDEVICES);
+        Assert.assertEquals(CyberdeviceFactory.getInstance().getElements().size(),
+                DEFINED_CYBERDEVICES + DEFINED_FACTION_BOOK_CYBERDEVICES + DEFINED_REVISED_EDITION_CYBERDEVICES);
+    }
+
+    @Test
+    public void fadingSunsRevisedEditionCyberdevicesAreLoaded() throws InvalidXmlElementException {
+        Assert.assertNotNull(CyberdeviceFactory.getInstance().getElement("centurionKnife"));
+        Assert.assertNotNull(CyberdeviceFactory.getInstance().getElement("viperSword"));
+        Assert.assertNotNull(CyberdeviceFactory.getInstance().getElement("secondBrain"));
     }
 }

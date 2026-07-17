@@ -53,16 +53,15 @@ public class RestrictedSkill {
     @JsonIgnore
     public String getNameRepresentation() {
         if (getSkill() != null) {
-            return SkillFactory.getInstance().getElement(getSkill()).getNameRepresentation() + " (" + getValue() + ")";
+            return String.format("%s (%d)",
+                SkillFactory.getInstance().getElement(getSkill()).getNameRepresentation(),
+                getValue());
         }
         return "";
     }
 
     @Override
     public String toString() {
-        return "RestrictedSkill{"
-                + "skill='" + skill + '\''
-                + ", value=" + value
-                + '}';
+        return String.format("RestrictedSkill{skill='%s', value=%d}", skill, value);
     }
 }
