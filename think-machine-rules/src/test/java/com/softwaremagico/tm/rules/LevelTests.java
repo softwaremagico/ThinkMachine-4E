@@ -31,6 +31,7 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOption
 import com.softwaremagico.tm.character.level.LevelSelector;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.perks.PerkOption;
+import com.softwaremagico.tm.exceptions.InvalidFactionException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -115,5 +116,61 @@ public class LevelTests extends RulesTest {
         final PerkOption royalties = new PerkOption(PerkFactory.getInstance().getElement("cash1000"));
         Assert.assertFalse(level.getClassPerksOptions().get(0).getAvailableSelections()
                 .contains(new Selection(royalties)));
+    }
+
+    @Test
+    public void changingCallingAtLevelShouldBeAllowedAndPersistByDefault() {
+        final CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleDecadosCommander();
+
+        final LevelSelector level2 = characterPlayer.addLevel();
+        level2.setCalling("conspiracist");
+        CharacterExamples.populateLevel(characterPlayer);
+
+        Assert.assertEquals(characterPlayer.getCallingAtLevel(1).getId(), "commander");
+        Assert.assertEquals(characterPlayer.getCallingAtLevel(2).getId(), "conspiracist");
+
+        characterPlayer.addLevel();
+        Assert.assertEquals(characterPlayer.getCallingAtLevel(3).getId(), "conspiracist");
+        Assert.assertEquals(characterPlayer.getCallingCombinationIds(), List.of("commander", "conspiracist"));
+    }
+
+    @Test
+    public void brotherBattleCallingShouldReturnOnOddLevels() {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("brotherBattle");
+        characterPlayer.setFaction("brotherBattle");
+        characterPlayer.setCalling("brotherBattle");
+        CharacterExamples.populateCharacter(characterPlayer);
+
+        final LevelSelector level2 = characterPlayer.addLevel();
+        level2.setCalling("theurgist");
+        CharacterExamples.populateLevel(characterPlayer);
+
+        characterPlayer.addLevel();
+        Assert.expectThrows(InvalidFactionException.class, characterPlayer::validate);
+    }
+
+    @Test
+    public void brotherBattleCallingCanAlternateWhenReturningCorrectly() {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("brotherBattle");
+        characterPlayer.setFaction("brotherBattle");
+        characterPlayer.setCalling("brotherBattle");
+        CharacterExamples.populateCharacter(characterPlayer);
+
+        final LevelSelector level2 = characterPlayer.addLevel();
+        level2.setCalling("theurgist");
+        CharacterExamples.populateLevel(characterPlayer);
+
+        final LevelSelector level3 = characterPlayer.addLevel();
+        level3.setCalling("brotherBattle");
+        CharacterExamples.populateLevel(characterPlayer);
+
+        characterPlayer.validate();
+        Assert.assertEquals(characterPlayer.getCallingAtLevel(1).getId(), "brotherBattle");
+        Assert.assertEquals(characterPlayer.getCallingAtLevel(2).getId(), "theurgist");
+        Assert.assertEquals(characterPlayer.getCallingAtLevel(3).getId(), "brotherBattle");
     }
 }

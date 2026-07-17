@@ -119,6 +119,13 @@ public class CharacterPlayer {
     private static final int BANK_INITIAL_VALUE = 5;
     private static final int INITIAL_TECH_LEVEL = 4;
     private static final int INITIAL_CASH = 300;
+    private static final String BROTHER_BATTLE_CALLING = "brotherBattle";
+    private static final Set<String> BROTHER_BATTLE_ALLOWED_ALTERNATIVE_CALLINGS = Set.of(
+            BROTHER_BATTLE_CALLING,
+            "healer",
+            "imperialCohortPriest",
+            "occultist",
+            "theurgist");
 
     // Basic description of the character.
     private CharacterInfo info;
@@ -226,9 +233,33 @@ public class CharacterPlayer {
           this.validateSkills();
           this.checkDuplicatedPerks();
           this.checkDuplicatedCapabilities();
+          this.validateBrotherBattleCallingProgression();
           this.getLevels().forEach(LevelSelector::validate);
         } catch (final InvalidSelectionException e) {
             throw new InvalidFactionException("Error on character '" + this + "'.", e);
+        }
+    }
+
+    private void validateBrotherBattleCallingProgression() {
+        if (this.calling == null || !Objects.equals(this.calling.getId(), BROTHER_BATTLE_CALLING)) {
+            return;
+        }
+
+        for (int level = 2; level <= this.getLevel(); level++) {
+            final CallingCharacterDefinitionStepSelection levelCalling = this.getCallingAtLevel(level);
+            if (levelCalling == null) {
+                continue;
+            }
+
+            if (level % 2 == 1) {
+                if (!Objects.equals(levelCalling.getId(), BROTHER_BATTLE_CALLING)) {
+                    throw new InvalidCallingException("Brother Battle calling progression is invalid at level '" + level
+                            + "'. After choosing an alternative calling, odd levels must return to '" + BROTHER_BATTLE_CALLING + "'.");
+                }
+            } else if (!BROTHER_BATTLE_ALLOWED_ALTERNATIVE_CALLINGS.contains(levelCalling.getId())) {
+                throw new InvalidCallingException("Brother Battle calling progression is invalid at level '" + level
+                        + "'. Allowed alternative callings are '" + BROTHER_BATTLE_ALLOWED_ALTERNATIVE_CALLINGS + "'.");
+            }
         }
     }
 
@@ -341,6 +372,44 @@ public class CharacterPlayer {
         return this.calling;
     }
 
+    public CallingCharacterDefinitionStepSelection getCallingAtLevel(int level) {
+        if (level <= 1 || this.calling == null) {
+            return this.calling;
+        }
+
+        CallingCharacterDefinitionStepSelection selectedCalling = this.calling;
+        final int maxLevelToCheck = Math.min(level - 2, this.levels.size() - 1);
+        for (int i = 0; i <= maxLevelToCheck; i++) {
+            final String levelCallingId = this.levels.get(i).getCallingId();
+            if (levelCallingId != null) {
+                selectedCalling = new CallingCharacterDefinitionStepSelection(this, levelCallingId);
+            }
+        }
+        return selectedCalling;
+    }
+
+    public List<String> getCallingCombinationIds() {
+        final List<String> callingIds = new ArrayList<>();
+        String previousId = null;
+        for (int level = 1; level <= this.getLevel(); level++) {
+            final CallingCharacterDefinitionStepSelection levelCalling = this.getCallingAtLevel(level);
+            if (levelCalling == null) {
+                continue;
+            }
+            if (!Objects.equals(previousId, levelCalling.getId())) {
+                callingIds.add(levelCalling.getId());
+                previousId = levelCalling.getId();
+            }
+        }
+        return callingIds;
+    }
+
+    public String getCallingCombinationRepresentation(String separator) {
+        return this.getCallingCombinationIds().stream()
+                .map(callingId -> CallingFactory.getInstance().getElement(callingId).getNameRepresentation())
+                .collect(Collectors.joining(separator));
+    }
+
     public void setCalling(CallingCharacterDefinitionStepSelection calling) {
         this.calling = calling;
     }
@@ -359,8 +428,13 @@ public class CharacterPlayer {
     }
 
     public boolean isFavoredCalling() {
-        return (this.getFaction() != null && this.getCalling() != null
-                && FactionFactory.getInstance().getElement(this.getFaction()).getFavoredCallings().contains(this.getCalling().getId()));
+        return this.isFavoredCalling(this.getLevel());
+    }
+
+    public boolean isFavoredCalling(int level) {
+        final CallingCharacterDefinitionStepSelection levelCalling = this.getCallingAtLevel(level);
+        return (this.getFaction() != null && levelCalling != null
+                && FactionFactory.getInstance().getElement(this.getFaction()).getFavoredCallings().contains(levelCalling.getId()));
     }
 
     public Settings getSettings() {

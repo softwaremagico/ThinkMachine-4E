@@ -29,7 +29,6 @@ import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.CharacterPlayer;
-import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
@@ -100,7 +99,7 @@ public abstract class CharacterBasicsTableFactory extends BaseElement {
                     break;
                 case "calling":
                     if (characterPlayer.getCalling() != null) {
-                        table.addCell(getHandwrittingCell(CallingFactory.getInstance().getElement(characterPlayer.getCalling().getId()).getName(),
+                        table.addCell(getHandwrittingCell(characterPlayer.getCallingCombinationRepresentation(" / "),
                                 Element.ALIGN_LEFT, fontSize - 1, maxWidth));
                     } else {
                         table.addCell(getHandwrittingCell("", Element.ALIGN_LEFT, fontSize - 1, maxWidth));
