@@ -31,6 +31,7 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicBonusOption
 import com.softwaremagico.tm.character.level.LevelSelector;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.perks.PerkOption;
+import com.softwaremagico.tm.exceptions.InvalidCallingException;
 import com.softwaremagico.tm.exceptions.InvalidFactionException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -172,5 +173,45 @@ public class LevelTests extends RulesTest {
         Assert.assertEquals(characterPlayer.getCallingAtLevel(1).getId(), "brotherBattle");
         Assert.assertEquals(characterPlayer.getCallingAtLevel(2).getId(), "theurgist");
         Assert.assertEquals(characterPlayer.getCallingAtLevel(3).getId(), "brotherBattle");
+    }
+
+    @Test
+    public void levelCallingShouldRejectRestrictedCalling() {
+        final CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleDecadosCommander();
+
+        final LevelSelector level2 = characterPlayer.addLevel();
+        Assert.expectThrows(InvalidCallingException.class, () -> level2.setCalling("brotherBattle"));
+    }
+
+    @Test
+    public void changingCallingShouldUpdateCombinationRepresentation() {
+        final CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleDecadosCommander();
+
+        final LevelSelector level2 = characterPlayer.addLevel();
+        level2.setCalling("conspiracist");
+        CharacterExamples.populateLevel(characterPlayer);
+
+        final LevelSelector level3 = characterPlayer.addLevel();
+        level3.setCalling("commander");
+        CharacterExamples.populateLevel(characterPlayer);
+
+        Assert.assertEquals(characterPlayer.getCallingCombinationIds(), List.of("commander", "conspiracist", "commander"));
+        Assert.assertEquals(characterPlayer.getCallingCombinationRepresentation(" / "), "Commander / Conspiracist / Commander");
+    }
+
+    @Test
+    public void brotherBattleCallingShouldRejectNotAllowedAlternativeOnEvenLevel() {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("brotherBattle");
+        characterPlayer.setFaction("brotherBattle");
+        characterPlayer.setCalling("brotherBattle");
+        CharacterExamples.populateCharacter(characterPlayer);
+
+        final LevelSelector level2 = characterPlayer.addLevel();
+        level2.setCalling("dervish");
+        CharacterExamples.populateLevel(characterPlayer);
+
+        Assert.expectThrows(InvalidFactionException.class, characterPlayer::validate);
     }
 }

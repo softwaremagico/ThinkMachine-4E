@@ -272,6 +272,9 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     }
 
     public List<CharacterSelectedEquipment> getSelectedMaterialAwards() {
+        if (selectedMaterialAwards == null) {
+            return new ArrayList<>();
+        }
         return selectedMaterialAwards;
     }
 

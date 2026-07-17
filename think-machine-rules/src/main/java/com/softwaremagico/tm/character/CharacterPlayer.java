@@ -383,6 +383,7 @@ public class CharacterPlayer {
             final String levelCallingId = this.levels.get(i).getCallingId();
             if (levelCallingId != null) {
                 selectedCalling = new CallingCharacterDefinitionStepSelection(this, levelCallingId);
+                selectedCalling.selectDefaultOptions();
             }
         }
         return selectedCalling;

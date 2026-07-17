@@ -69,4 +69,15 @@ public class ExportTxtTests {
                 .getResource("HawkwoodCommander.txt").toURI())));
         Assert.assertEquals(characterSheet.toString().trim(), text.trim());
     }
+
+    @Test
+    public void checkCallingCombinationIsShownOnTxtSheet() {
+        Translator.setLanguage("EN");
+        final CharacterPlayer player = CharacterExamples.generateHumanNobleDecadosCommander();
+        player.addLevel().setCalling("conspiracist");
+        CharacterExamples.populateLevel(player);
+
+        final CharacterSheet characterSheet = new CharacterSheet(player);
+        Assert.assertTrue(characterSheet.toString().contains("Commander / Conspiracist"));
+    }
 }
