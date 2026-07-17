@@ -497,6 +497,7 @@
     <kurganSideSword>
         <id>kurganSideSword</id>
         <type>weapon</type>
+        <group>militaryWeapons</group>
         <name>
             <en>Kurgan Side Sword</en>
             <es>Espada Ropera Kurgan</es>
@@ -801,6 +802,7 @@
     <spear>
         <id>spear</id>
         <type>weapon</type>
+        <group>militaryWeapons</group>
         <name>
             <en>Spear</en>
             <es>Lanza</es>

@@ -25,12 +25,19 @@ package com.softwaremagico.tm.factory;
  */
 
 
-import com.softwaremagico.tm.character.combat.CombatStyleFactory;
+import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.cybernetics.Cyberdevice;
 import com.softwaremagico.tm.character.cybernetics.CyberdeviceFactory;
+import com.softwaremagico.tm.character.perks.Perk;
+import com.softwaremagico.tm.character.perks.PerkType;
+import com.softwaremagico.tm.character.perks.SpecializedPerk;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.file.modules.ModuleManager;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.List;
+import java.util.Set;
 
 @Test(groups = {"cyberdevicesFactory"})
 public class CyberdevicesFactoryTests extends FactoryTest {
@@ -72,5 +79,38 @@ public class CyberdevicesFactoryTests extends FactoryTest {
         Assert.assertNotNull(CyberdeviceFactory.getInstance().getElement("centurionKnife"));
         Assert.assertNotNull(CyberdeviceFactory.getInstance().getElement("viperSword"));
         Assert.assertNotNull(CyberdeviceFactory.getInstance().getElement("secondBrain"));
+    }
+
+    @Test
+    public void officialOnlyShouldIgnoreRevisedEditionCyberdevices() throws InvalidXmlElementException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer() {
+            @Override
+            public Set<SpecializedPerk> getPerks() {
+                return Set.of(createCyberdevicePerk("centurionKnife"));
+            }
+        };
+        characterPlayer.getSettings().setOnlyOfficialAllowed(true);
+
+        Assert.assertTrue(characterPlayer.getCyberdevices().isEmpty());
+    }
+
+    @Test
+    public void unofficialCyberdevicesShouldBeAvailableWhenOfficialOnlyIsDisabled() throws InvalidXmlElementException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer() {
+            @Override
+            public Set<SpecializedPerk> getPerks() {
+                return Set.of(createCyberdevicePerk("centurionKnife"));
+            }
+        };
+
+        Assert.assertEquals(characterPlayer.getCyberdevices().stream().map(Cyberdevice::getId).toList(),
+                List.of("centurionKnife"));
+    }
+
+    private SpecializedPerk createCyberdevicePerk(String id) {
+        final Perk perk = new Perk();
+        perk.setId(id);
+        perk.setType(PerkType.CYBERDEVICE);
+        return new SpecializedPerk(perk, null);
     }
 }

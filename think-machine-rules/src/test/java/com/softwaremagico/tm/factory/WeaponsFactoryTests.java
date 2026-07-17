@@ -41,8 +41,8 @@ import java.util.List;
 @Test(groups = {"weaponsFactory"})
 public class WeaponsFactoryTests extends FactoryTest {
 
-    // 131 base weapons + 1 from Imperial Dossier - Charioteers Guild + 2 from Vuldrok Space + 79 from Fading Suns Revised Edition.
-    private static final int DEFINED_WEAPONS = 213;
+    // 131 base weapons + 1 from Imperial Dossier - Charioteers Guild + 2 from Vuldrok Space + 78 from Fading Suns Revised Edition.
+    private static final int DEFINED_WEAPONS = 212;
 
 
     @Test
@@ -94,9 +94,9 @@ public class WeaponsFactoryTests extends FactoryTest {
 
     @Test
     public void fadingSunsRevisedEditionWeaponsAreLoaded() throws InvalidXmlElementException {
-        Assert.assertNotNull(WeaponFactory.getInstance().getElement("cestus"));
         Assert.assertNotNull(WeaponFactory.getInstance().getElement("saber"));
         Assert.assertNotNull(WeaponFactory.getInstance().getElement("flail"));
+        Assert.assertNotNull(WeaponFactory.getInstance().getElement("dart"));
     }
 
     @Test
@@ -141,6 +141,15 @@ public class WeaponsFactoryTests extends FactoryTest {
 
         player.setPurchasedMeleeWeapons(List.of(), true);
         Assert.assertEquals(player.getWeapons().size(), 0);
+    }
+
+    @Test
+    public void officialOnlyShouldRejectRevisedEditionWeapons() throws InvalidXmlElementException {
+        final CharacterPlayer player = new CharacterPlayer();
+        player.getSettings().setOnlyOfficialAllowed(true);
+
+        Assert.expectThrows(UnofficialElementNotAllowedException.class,
+                () -> player.setPurchasedMeleeWeapons(List.of(WeaponFactory.getInstance().getElement("saber")), true));
     }
 
 }

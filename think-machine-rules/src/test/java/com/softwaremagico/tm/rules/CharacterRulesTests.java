@@ -212,8 +212,10 @@ public class CharacterRulesTests extends RulesTest {
     public void materialAwardsKnightlyOrder() {
         final Calling calling = CallingFactory.getInstance().getElement("knightlyOrder");
         Assert.assertEquals(calling.getMaterialAwards().size(), 1);
-        //militaryWeapons + combatArmor groups (includes the Charioteers Guild hullKnife and the Vuldrok Tipala).
-        Assert.assertEquals(calling.getMaterialAwards().get(0).getOptions().size(), 20);
+        // militaryWeapons + combatArmor groups (includes the Charioteers Guild hullKnife, the Vuldrok Tipala,
+        // the Fading Suns 4E spear and Kurgan Side Sword, and the Revised Edition saber, splinter sword,
+        // two-handed axe, two-handed sword, and war sword).
+        Assert.assertEquals(calling.getMaterialAwards().get(0).getOptions().size(), 27);
     }
 
     @Test

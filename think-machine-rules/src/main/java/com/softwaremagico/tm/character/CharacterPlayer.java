@@ -148,56 +148,56 @@ public class CharacterPlayer {
     private final CacheManager cacheManager;
 
     public CharacterPlayer() {
-        settings = new Settings();
-        cacheManager = new CacheManager();
-        reset();
+      this.settings = new Settings();
+      this.cacheManager = new CacheManager();
+      this.reset();
     }
 
     private void reset() {
-        info = new CharacterInfo();
-        occultism = new Occultism();
-        specie = null;
-        upbringing = null;
-        faction = null;
-        calling = null;
-        equipmentPurchased = new SelectionSet<>();
-        cacheManager.reset();
+      this.info = new CharacterInfo();
+      this.occultism = new Occultism();
+      this.specie = null;
+      this.upbringing = null;
+      this.faction = null;
+      this.calling = null;
+      this.equipmentPurchased = new SelectionSet<>();
+      this.cacheManager.reset();
     }
 
     public SpecieCharacterDefinitionStepSelection getSpecie() {
-        return specie;
+        return this.specie;
     }
 
     private void validateSelections() throws InvalidSelectionException {
-        if (specie != null) {
+        if (this.specie != null) {
             this.specie.validate();
         }
-        if (upbringing != null) {
+        if (this.upbringing != null) {
             this.upbringing.validate();
         }
-        if (faction != null) {
+        if (this.faction != null) {
             this.faction.validate();
         }
-        if (calling != null) {
+        if (this.calling != null) {
             this.calling.validate();
         }
     }
 
     private void validateCharacteristics() throws MaxValueExceededException, InvalidXmlElementException {
-        if (getPrimaryCharacteristic() == null || getSecondaryCharacteristic() == null) {
+        if (this.getPrimaryCharacteristic() == null || this.getSecondaryCharacteristic() == null) {
             throw new InvalidCharacteristicException("You must choose your primary and secondary characteristic.");
         }
-        for (CharacteristicDefinition characteristicDefinition : CharacteristicsDefinitionFactory.getInstance().getElements()) {
+        for (final CharacteristicDefinition characteristicDefinition : CharacteristicsDefinitionFactory.getInstance().getElements()) {
             if (characteristicDefinition.getType() != CharacteristicType.OTHERS) {
-                final int characteristicValue = getCharacteristicValue(characteristicDefinition.getCharacteristicName());
-                if (characteristicValue > (SpecieFactory.getInstance().getElement(getSpecie().getId())
+                final int characteristicValue = this.getCharacteristicValue(characteristicDefinition.getCharacteristicName());
+                if (characteristicValue > (SpecieFactory.getInstance().getElement(this.getSpecie().getId())
                         .getSpecieCharacteristic(characteristicDefinition.getCharacteristicName()).getMaximumValue())) {
                     throw new MaxValueExceededException("Characteristic '" + characteristicDefinition.getCharacteristicName()
                             + "' has exceeded its maximum value of '"
-                            + (SpecieFactory.getInstance().getElement(getSpecie().getId())
+                            + (SpecieFactory.getInstance().getElement(this.getSpecie().getId())
                             .getSpecieCharacteristic(characteristicDefinition.getCharacteristicName()).getMaximumValue())
                             + "' by specie.", characteristicDefinition.getId(), characteristicValue,
-                            (SpecieFactory.getInstance().getElement(getSpecie().getId())
+                            (SpecieFactory.getInstance().getElement(this.getSpecie().getId())
                                     .getSpecieCharacteristic(characteristicDefinition.getCharacteristicName()).getMaximumValue()));
                 }
             }
@@ -206,54 +206,54 @@ public class CharacterPlayer {
 
     private void validateSkill(Skill skill) throws InvalidSkillException {
         try {
-            getSkillValue(skill);
-        } catch (InvalidSkillException e) {
+          this.getSkillValue(skill);
+        } catch (final InvalidSkillException e) {
             throw new InvalidSkillException("Skill '" + skill.getId()
-                    + "' has exceeded its maximum value at level '" + getLevel() + "'.");
+                    + "' has exceeded its maximum value at level '" + this.getLevel() + "'.");
         }
     }
 
-    private void validateSkills() throws InvalidSkillException, InvalidXmlElementException {
-        for (Skill skill : SkillFactory.getInstance().getElements()) {
-            validateSkill(skill);
+    private void validateSkills() throws InvalidXmlElementException {
+        for (final Skill skill : SkillFactory.getInstance().getElements()) {
+          this.validateSkill(skill);
         }
     }
 
     public void validate() {
         try {
-            validateSelections();
-            validateCharacteristics();
-            validateSkills();
-            checkDuplicatedPerks();
-            checkDuplicatedCapabilities();
-            getLevels().forEach(LevelSelector::validate);
-        } catch (InvalidSelectionException e) {
+          this.validateSelections();
+          this.validateCharacteristics();
+          this.validateSkills();
+          this.checkDuplicatedPerks();
+          this.checkDuplicatedCapabilities();
+          this.getLevels().forEach(LevelSelector::validate);
+        } catch (final InvalidSelectionException e) {
             throw new InvalidFactionException("Error on character '" + this + "'.", e);
         }
     }
 
     public void checkMaxValueByLevel(Element element, int value) throws MaxValueExceededException {
         if (element != null) {
-            checkMaxValueByLevel(element.getId(), value);
+          this.checkMaxValueByLevel(element.getId(), value);
         }
     }
 
     public void checkMaxValueByLevel(String element, int value) throws MaxValueExceededException {
-        if ((getLevel() == ElementValues.INITIAL_LEVEL && value > getMaximumInitialValue(element))
-                || (getLevel() == ElementValues.INTERMEDIATE_LEVEL && value > getMaximumIntermediateValue())
-                || (getLevel() > ElementValues.INTERMEDIATE_LEVEL && getLevel() < ElementValues.ADVANCED_LEVEL
-                && value > Math.min(ElementValues.LEVEL_MAX_VALUE, getMaximumValue(element)))
-                || getLevel() > ElementValues.ADVANCED_LEVEL && value > getMaximumValue(element)) {
+        if ((this.getLevel() == ElementValues.INITIAL_LEVEL && value > this.getMaximumInitialValue(element))
+                || (this.getLevel() == ElementValues.INTERMEDIATE_LEVEL && value > this.getMaximumIntermediateValue())
+                || (this.getLevel() > ElementValues.INTERMEDIATE_LEVEL && this.getLevel() < ElementValues.ADVANCED_LEVEL
+                && value > Math.min(ElementValues.LEVEL_MAX_VALUE, this.getMaximumValue(element)))
+                || this.getLevel() > ElementValues.ADVANCED_LEVEL && value > this.getMaximumValue(element)) {
             String composition;
             try {
-                composition = getCharacteristicComposition(element);
-            } catch (Exception e) {
-                composition = getSkillComposition(element);
+                composition = this.getCharacteristicComposition(element);
+            } catch (final Exception e) {
+                composition = this.getSkillComposition(element);
             }
-            final int maxValue = getLevel() == ElementValues.INITIAL_LEVEL ? getMaximumInitialValue(element)
-                    : (getLevel() == ElementValues.INTERMEDIATE_LEVEL ? getMaximumIntermediateValue()
-                    : Math.min(ElementValues.LEVEL_MAX_VALUE, getMaximumValue(element)));
-            throw new MaxValueExceededException("Element '" + element + "' has exceeded its maximum value '" + value + "' at level '" + getLevel() + "'. "
+            final int maxValue = this.getLevel() == ElementValues.INITIAL_LEVEL ? this.getMaximumInitialValue(element)
+                    : (this.getLevel() == ElementValues.INTERMEDIATE_LEVEL ? this.getMaximumIntermediateValue()
+                    : Math.min(ElementValues.LEVEL_MAX_VALUE, this.getMaximumValue(element)));
+            throw new MaxValueExceededException("Element '" + element + "' has exceeded its maximum value '" + value + "' at level '" + this.getLevel() + "'. "
                     + "Obtained by " + composition, element, value, maxValue);
         }
     }
@@ -263,7 +263,7 @@ public class CharacterPlayer {
             this.specie = new SpecieCharacterDefinitionStepSelection(this, specie);
             try {
                 this.specie.validate();
-            } catch (InvalidSelectionException e) {
+            } catch (final InvalidSelectionException e) {
                 this.specie = null;
                 throw e;
             }
@@ -275,17 +275,17 @@ public class CharacterPlayer {
             if (this.upbringing != null) {
                 this.upbringing.validate();
             }
-        } catch (InvalidSelectionException e) {
-            setUpbringing((String) null);
+        } catch (final InvalidSelectionException e) {
+          this.setUpbringing((String) null);
         }
     }
 
     public FactionCharacterDefinitionStepSelection getFaction() {
-        return faction;
+        return this.faction;
     }
 
     public UpbringingCharacterDefinitionStepSelection getUpbringing() {
-        return upbringing;
+        return this.upbringing;
     }
 
     public void setUpbringing(UpbringingCharacterDefinitionStepSelection upbringing) {
@@ -304,11 +304,11 @@ public class CharacterPlayer {
             this.upbringing = null;
         }
         if (this.faction != null && FactionFactory.getInstance().getElement(this.faction.getId()).getRestrictions().isRestricted(this)) {
-            setFaction((String) null);
+          this.setFaction((String) null);
         }
 
         if (this.calling != null && CallingFactory.getInstance().getElement(this.calling.getId()).getRestrictions().isRestricted(this)) {
-            setCalling((String) null);
+          this.setCalling((String) null);
         }
     }
 
@@ -330,15 +330,15 @@ public class CharacterPlayer {
         }
         try {
             if (this.calling != null && CallingFactory.getInstance().getElement(this.calling.getId()).getRestrictions().isRestricted(this)) {
-                setCalling((String) null);
+              this.setCalling((String) null);
             }
-        } catch (InvalidSelectionException e) {
-            setCalling((String) null);
+        } catch (final InvalidSelectionException e) {
+          this.setCalling((String) null);
         }
     }
 
     public CallingCharacterDefinitionStepSelection getCalling() {
-        return calling;
+        return this.calling;
     }
 
     public void setCalling(CallingCharacterDefinitionStepSelection calling) {
@@ -359,71 +359,71 @@ public class CharacterPlayer {
     }
 
     public boolean isFavoredCalling() {
-        return (getFaction() != null && getCalling() != null
-                && FactionFactory.getInstance().getElement(getFaction()).getFavoredCallings().contains(getCalling().getId()));
+        return (this.getFaction() != null && this.getCalling() != null
+                && FactionFactory.getInstance().getElement(this.getFaction()).getFavoredCallings().contains(this.getCalling().getId()));
     }
 
     public Settings getSettings() {
-        return settings;
+        return this.settings;
     }
 
     public int getSkillValue(Skill skill) throws MaxValueExceededException {
         if (skill == null) {
             return 0;
         }
-        return getSkillValue(skill.getId());
+        return this.getSkillValue(skill.getId());
     }
 
     public int getSkillValue(String skill) throws MaxValueExceededException {
-        if (cacheManager.getSkillValue(skill) == null) {
+        if (this.cacheManager.getSkillValue(skill) == null) {
             int bonus = 0;
             if (SkillFactory.getInstance().getElement(skill).isNatural()) {
                 bonus += Skill.NATURAL_SKILL_INITIAL_VALUE;
             }
-            if (specie != null) {
-                bonus += specie.getSkillBonus(skill);
+            if (this.specie != null) {
+                bonus += this.specie.getSkillBonus(skill);
             }
-            if (upbringing != null) {
-                final int skillBonus = upbringing.getSkillBonus(skill);
+            if (this.upbringing != null) {
+                final int skillBonus = this.upbringing.getSkillBonus(skill);
                 bonus += skillBonus;
             }
-            if (faction != null) {
-                final int skillBonus = faction.getSkillBonus(skill);
+            if (this.faction != null) {
+                final int skillBonus = this.faction.getSkillBonus(skill);
                 bonus += skillBonus;
             }
-            if (calling != null) {
-                final int skillBonus = calling.getSkillBonus(skill);
+            if (this.calling != null) {
+                final int skillBonus = this.calling.getSkillBonus(skill);
                 bonus += skillBonus;
             }
 
-            bonus -= getSkillReassignValueDecreased(skill);
-            bonus += getSkillReassignValueIncreased(skill);
+            bonus -= this.getSkillReassignValueDecreased(skill);
+            bonus += this.getSkillReassignValueIncreased(skill);
 
-            for (LevelSelector levelSelector : getLevels()) {
+            for (final LevelSelector levelSelector : this.getLevels()) {
                 bonus += levelSelector.getSkillBonus(skill);
             }
 
-            bonus += getCyberdevicesAlwaysBonification(skill);
+            bonus += this.getCyberdevicesAlwaysBonification(skill);
 
-            checkMaxValueByLevel(skill, bonus);
+          this.checkMaxValueByLevel(skill, bonus);
 
-            cacheManager.setSkillValue(skill, bonus);
+          this.cacheManager.setSkillValue(skill, bonus);
         }
-        return cacheManager.getSkillValue(skill);
+        return this.cacheManager.getSkillValue(skill);
     }
 
     public String getSkillComposition(String skill) {
         final StringBuilder stringBuilder = new StringBuilder();
-        if (upbringing != null) {
-            appendSkillBonusIfPresent(stringBuilder, "upbringing", upbringing.getSkillBonus(skill));
+        if (this.upbringing != null) {
+          this.appendSkillBonusIfPresent(stringBuilder, "upbringing", this.upbringing.getSkillBonus(skill));
         }
-        if (faction != null) {
-            appendSkillBonusIfPresent(stringBuilder, "faction", faction.getSkillBonus(skill));
+        if (this.faction != null) {
+          this.appendSkillBonusIfPresent(stringBuilder, "faction", this.faction.getSkillBonus(skill));
         }
-        if (calling != null) {
-            appendSkillBonusIfPresent(stringBuilder, "calling", calling.getSkillBonus(skill));
+        if (this.calling != null) {
+          this.appendSkillBonusIfPresent(stringBuilder, "calling", this.calling.getSkillBonus(skill));
         }
-        appendSkillBonusIfPresent(stringBuilder, "cyberdevices", getCyberdevicesAlwaysBonification(skill));
+      this.appendSkillBonusIfPresent(stringBuilder, "cyberdevices", this.getCyberdevicesAlwaysBonification(skill));
         return stringBuilder.toString();
     }
 
@@ -438,12 +438,12 @@ public class CharacterPlayer {
 
     private int getCyberdevicesAlwaysBonification(String valueId) {
         int bonus = 0;
-        for (Cyberdevice cyberdevice : getCyberdevices()) {
-            for (Bonification bonification : cyberdevice.getBonifications()) {
+        for (final Cyberdevice cyberdevice : this.getCyberdevices()) {
+            for (final Bonification bonification : cyberdevice.getBonifications()) {
                 if (bonification.getSituation() != null && !bonification.getSituation().isBlank()) {
                     continue;
                 }
-                if (affectsValue(bonification.getAffects(), valueId)) {
+                if (this.affectsValue(bonification.getAffects(), valueId)) {
                     bonus += bonification.getValue() != null ? bonification.getValue() : 0;
                 }
             }
@@ -472,7 +472,7 @@ public class CharacterPlayer {
 
     public int getSkillReassignValueDecreased(String skill) {
         int total = 0;
-        for (SkillsReassign skillsReassign : skillsReassigns) {
+        for (final SkillsReassign skillsReassign : this.skillsReassigns) {
             if (skillsReassign.getFrom().equals(skill)) {
                 total++;
             }
@@ -482,7 +482,7 @@ public class CharacterPlayer {
 
     public int getSkillReassignValueIncreased(String skill) {
         int total = 0;
-        for (SkillsReassign skillsReassign : skillsReassigns) {
+        for (final SkillsReassign skillsReassign : this.skillsReassigns) {
             if (skillsReassign.getTo().equals(skill)) {
                 total++;
             }
@@ -491,18 +491,18 @@ public class CharacterPlayer {
     }
 
     public List<SkillsReassign> getSkillsReassigns() {
-        return skillsReassigns;
+        return this.skillsReassigns;
     }
 
     public int getCharacteristicValue(CharacteristicName characteristic) throws MaxValueExceededException {
         if (characteristic == null) {
             return 0;
         }
-        return getCharacteristicValue(characteristic.getId());
+        return this.getCharacteristicValue(characteristic.getId());
     }
 
     public String getPrimaryCharacteristic() {
-        return primaryCharacteristic;
+        return this.primaryCharacteristic;
     }
 
     public void setPrimaryCharacteristic(String primaryCharacteristic) {
@@ -510,7 +510,7 @@ public class CharacterPlayer {
     }
 
     public String getSecondaryCharacteristic() {
-        return secondaryCharacteristic;
+        return this.secondaryCharacteristic;
     }
 
     public void setSecondaryCharacteristic(String secondaryCharacteristic) {
@@ -518,14 +518,14 @@ public class CharacterPlayer {
     }
 
     private int getCharacteristicInitialValue(String characteristic) {
-        return SpecieFactory.getInstance().getElement(getSpecie()).getSpecieCharacteristic(characteristic).getInitialValue();
+        return SpecieFactory.getInstance().getElement(this.getSpecie()).getSpecieCharacteristic(characteristic).getInitialValue();
     }
 
 
     private int getInitialValue(String element) {
         try {
-            return getCharacteristicInitialValue(element);
-        } catch (InvalidXmlElementException e) {
+            return this.getCharacteristicInitialValue(element);
+        } catch (final InvalidXmlElementException e) {
             //Not a characteristic
             return ElementValues.INITIAL_VALUE;
         }
@@ -533,8 +533,8 @@ public class CharacterPlayer {
 
     public int getMaximumValue(String element) {
         try {
-            return SpecieFactory.getInstance().getElement(getSpecie()).getSpecieCharacteristic(element).getMaximumValue();
-        } catch (InvalidXmlElementException | NullPointerException e) {
+            return SpecieFactory.getInstance().getElement(this.getSpecie()).getSpecieCharacteristic(element).getMaximumValue();
+        } catch (final InvalidXmlElementException | NullPointerException e) {
             return ElementValues.LEVEL_MAX_VALUE;
         }
     }
@@ -545,20 +545,20 @@ public class CharacterPlayer {
 
     private int getMaximumInitialValue(String element) {
         try {
-            return SpecieFactory.getInstance().getElement(getSpecie()).getSpecieCharacteristic(element).getMaximumInitialValue();
-        } catch (InvalidXmlElementException | NullPointerException e) {
+            return SpecieFactory.getInstance().getElement(this.getSpecie()).getSpecieCharacteristic(element).getMaximumInitialValue();
+        } catch (final InvalidXmlElementException | NullPointerException e) {
             return ElementValues.MAX_INITIAL_VALUE;
         }
     }
 
     private int getBaseCharacteristicBonus(String characteristic, CharacteristicName characteristicName) {
-        if (getPrimaryCharacteristic() != null && Objects.equals(getPrimaryCharacteristic(), characteristic)) {
+        if (this.getPrimaryCharacteristic() != null && Objects.equals(this.getPrimaryCharacteristic(), characteristic)) {
             return CharacteristicDefinition.PRIMARY_CHARACTERISTIC_VALUE;
-        } else if (getSecondaryCharacteristic() != null && Objects.equals(getSecondaryCharacteristic(), characteristic)) {
+        } else if (this.getSecondaryCharacteristic() != null && Objects.equals(this.getSecondaryCharacteristic(), characteristic)) {
             return CharacteristicDefinition.SECONDARY_CHARACTERISTIC_VALUE;
-        } else if (specie != null) {
-            return getInitialValue(characteristic);
-        } else if (isBasicCharacteristic(characteristicName)) {
+        } else if (this.specie != null) {
+            return this.getInitialValue(characteristic);
+        } else if (this.isBasicCharacteristic(characteristicName)) {
             return CharacteristicDefinition.INITIAL_CHARACTERISTIC_VALUE;
         }
         return 0;
@@ -571,62 +571,62 @@ public class CharacterPlayer {
     }
 
     private int accumulateCharacteristicBonuses(String characteristic, int bonus) {
-        if (upbringing != null) {
-            bonus += upbringing.getCharacteristicBonus(characteristic);
+        if (this.upbringing != null) {
+            bonus += this.upbringing.getCharacteristicBonus(characteristic);
         }
-        if (faction != null) {
-            bonus += faction.getCharacteristicBonus(characteristic);
+        if (this.faction != null) {
+            bonus += this.faction.getCharacteristicBonus(characteristic);
         }
-        if (calling != null) {
-            bonus += calling.getCharacteristicBonus(characteristic);
+        if (this.calling != null) {
+            bonus += this.calling.getCharacteristicBonus(characteristic);
         }
-        for (LevelSelector levelSelector : getLevels()) {
+        for (final LevelSelector levelSelector : this.getLevels()) {
             bonus += levelSelector.getCharacteristicBonus(characteristic);
         }
-        bonus += getCyberdevicesAlwaysBonification(characteristic);
-        bonus -= getCharacteristicReassignValueDecreased(characteristic);
-        bonus += getCharacteristicReassignValueIncreased(characteristic);
+        bonus += this.getCyberdevicesAlwaysBonification(characteristic);
+        bonus -= this.getCharacteristicReassignValueDecreased(characteristic);
+        bonus += this.getCharacteristicReassignValueIncreased(characteristic);
         return bonus;
     }
 
     public int getCharacteristicValue(String characteristic) throws MaxValueExceededException {
-        if (cacheManager.getCharacteristicValue(characteristic) == null) {
+        if (this.cacheManager.getCharacteristicValue(characteristic) == null) {
             final CharacteristicName characteristicName = CharacteristicName.get(characteristic);
             if (characteristicName == null) {
                 throw new InvalidCharacteristicException("No characteristic '" + characteristic + "' exists.");
             }
-            int bonus = getBaseCharacteristicBonus(characteristic, characteristicName);
-            bonus = accumulateCharacteristicBonuses(characteristic, bonus);
-            checkMaxValueByLevel(characteristic, bonus);
-            if (specie != null && bonus > getMaximumValue(characteristic)) {
+            int bonus = this.getBaseCharacteristicBonus(characteristic, characteristicName);
+            bonus = this.accumulateCharacteristicBonuses(characteristic, bonus);
+          this.checkMaxValueByLevel(characteristic, bonus);
+            if (this.specie != null && bonus > this.getMaximumValue(characteristic)) {
                 throw new MaxValueExceededException("Characteristic '" + characteristic + "' has exceeded the maximum value of '"
-                        + getMaximumValue(characteristic) + "' with '"
-                        + bonus + "'. " + getCharacteristicComposition(characteristic), characteristic, bonus,
-                        getMaximumValue(characteristic));
+                        + this.getMaximumValue(characteristic) + "' with '"
+                        + bonus + "'. " + this.getCharacteristicComposition(characteristic), characteristic, bonus,
+                        this.getMaximumValue(characteristic));
             }
-            cacheManager.setCharacteristicValue(characteristic, bonus);
+          this.cacheManager.setCharacteristicValue(characteristic, bonus);
         }
 
-        return cacheManager.getCharacteristicValue(characteristic);
+        return this.cacheManager.getCharacteristicValue(characteristic);
     }
 
     private String getPrimaryCharacteristicComposition(String characteristic) {
-        if (getPrimaryCharacteristic() != null && Objects.equals(getPrimaryCharacteristic(), characteristic)) {
+        if (this.getPrimaryCharacteristic() != null && Objects.equals(this.getPrimaryCharacteristic(), characteristic)) {
             return "Primary characteristic: " + CharacteristicDefinition.PRIMARY_CHARACTERISTIC_VALUE;
         }
         return null;
     }
 
     private String getSecondaryCharacteristicComposition(String characteristic) {
-        if (getSecondaryCharacteristic() != null && Objects.equals(getSecondaryCharacteristic(), characteristic)) {
+        if (this.getSecondaryCharacteristic() != null && Objects.equals(this.getSecondaryCharacteristic(), characteristic)) {
             return "Secondary characteristic: " + CharacteristicDefinition.SECONDARY_CHARACTERISTIC_VALUE;
         }
         return null;
     }
 
     private String getSpecieCharacteristicComposition(String characteristic) {
-        if (specie != null) {
-            final int bonus = getInitialValue(characteristic);
+        if (this.specie != null) {
+            final int bonus = this.getInitialValue(characteristic);
             if (bonus > 0) {
                 return "Specie bonus: " + bonus;
             }
@@ -635,7 +635,7 @@ public class CharacterPlayer {
     }
 
     private String getBasicCharacteristicComposition(CharacteristicName characteristicName) {
-        if (isBasicCharacteristic(characteristicName)) {
+        if (this.isBasicCharacteristic(characteristicName)) {
             return "Basic bonus: " + CharacteristicDefinition.INITIAL_CHARACTERISTIC_VALUE;
         }
         return null;
@@ -657,19 +657,19 @@ public class CharacterPlayer {
         }
         final StringBuilder stringBuilder = new StringBuilder();
 
-        final String primaryComp = getPrimaryCharacteristicComposition(characteristic);
+        final String primaryComp = this.getPrimaryCharacteristicComposition(characteristic);
         if (primaryComp != null) {
             stringBuilder.append(primaryComp);
         } else {
-            final String secondaryComp = getSecondaryCharacteristicComposition(characteristic);
+            final String secondaryComp = this.getSecondaryCharacteristicComposition(characteristic);
             if (secondaryComp != null) {
                 stringBuilder.append(secondaryComp);
             } else {
-                final String specieComp = getSpecieCharacteristicComposition(characteristic);
+                final String specieComp = this.getSpecieCharacteristicComposition(characteristic);
                 if (specieComp != null) {
                     stringBuilder.append(specieComp);
                 } else {
-                    final String basicComp = getBasicCharacteristicComposition(characteristicName);
+                    final String basicComp = this.getBasicCharacteristicComposition(characteristicName);
                     if (basicComp != null) {
                         stringBuilder.append(basicComp);
                     }
@@ -677,17 +677,17 @@ public class CharacterPlayer {
             }
         }
 
-        if (upbringing != null) {
-            appendBonusIfPresent(stringBuilder, "upbringing", upbringing.getCharacteristicBonus(characteristic));
+        if (this.upbringing != null) {
+          this.appendBonusIfPresent(stringBuilder, "upbringing", this.upbringing.getCharacteristicBonus(characteristic));
         }
-        if (faction != null) {
-            appendBonusIfPresent(stringBuilder, "faction", faction.getCharacteristicBonus(characteristic));
+        if (this.faction != null) {
+          this.appendBonusIfPresent(stringBuilder, "faction", this.faction.getCharacteristicBonus(characteristic));
         }
-        if (calling != null) {
-            appendBonusIfPresent(stringBuilder, "calling", calling.getCharacteristicBonus(characteristic));
+        if (this.calling != null) {
+          this.appendBonusIfPresent(stringBuilder, "calling", this.calling.getCharacteristicBonus(characteristic));
         }
-        appendBonusIfPresent(stringBuilder, "cyberdevices", getCyberdevicesAlwaysBonification(characteristic));
-        appendBonusIfPresent(stringBuilder, "balance", getCharacteristicReassignValueIncreased(characteristic));
+      this.appendBonusIfPresent(stringBuilder, "cyberdevices", this.getCyberdevicesAlwaysBonification(characteristic));
+      this.appendBonusIfPresent(stringBuilder, "balance", this.getCharacteristicReassignValueIncreased(characteristic));
         return stringBuilder.toString();
     }
 
@@ -697,18 +697,18 @@ public class CharacterPlayer {
             return null;
         }
         try {
-            final int characteristicValue = getCharacteristicValue(id);
+            final int characteristicValue = this.getCharacteristicValue(id);
             final CombatActionRequirement combatActionRequirement = new CombatActionRequirement();
             combatActionRequirement.setValue(characteristicValue);
             return combatActionRequirement;
-        } catch (InvalidCharacteristicException | MaxValueExceededException e) {
+        } catch (final InvalidCharacteristicException | MaxValueExceededException e) {
             return null;
         }
     }
 
     public int getCharacteristicReassignValueDecreased(String characteristic) {
         int total = 0;
-        for (CharacteristicReassign characteristicReassign : characteristicReassigns) {
+        for (final CharacteristicReassign characteristicReassign : this.characteristicReassigns) {
             if (characteristicReassign.getFrom().equals(characteristic)) {
                 total++;
             }
@@ -718,7 +718,7 @@ public class CharacterPlayer {
 
     public int getCharacteristicReassignValueIncreased(String characteristic) {
         int total = 0;
-        for (CharacteristicReassign characteristicReassign : characteristicReassigns) {
+        for (final CharacteristicReassign characteristicReassign : this.characteristicReassigns) {
             if (characteristicReassign.getTo().equals(characteristic)) {
                 total++;
             }
@@ -727,7 +727,7 @@ public class CharacterPlayer {
     }
 
     public List<CharacteristicReassign> getCharacteristicReassigns() {
-        return characteristicReassigns;
+        return this.characteristicReassigns;
     }
 
     /**
@@ -740,33 +740,33 @@ public class CharacterPlayer {
     }
 
     public Set<SpecializedPerk> getPerks() {
-        if (cacheManager.getPerksWithSpecializations() == null) {
-            cacheManager.setPerksWithSpecializations(getPerks((Integer) null));
+        if (this.cacheManager.getPerksWithSpecializations() == null) {
+          this.cacheManager.setPerksWithSpecializations(this.getPerks((Integer) null));
         }
-        return cacheManager.getPerksWithSpecializations();
+        return this.cacheManager.getPerksWithSpecializations();
     }
 
     public Set<SpecializedPerk> getPerks(Integer level) {
         final Set<SpecializedPerk> perks = new HashSet<>();
-        if (upbringing != null) {
-            perks.addAll(getSelectedPerks(upbringing));
+        if (this.upbringing != null) {
+            perks.addAll(this.getSelectedPerks(this.upbringing));
         }
-        if (faction != null) {
-            perks.addAll(getSelectedPerks(faction));
+        if (this.faction != null) {
+            perks.addAll(this.getSelectedPerks(this.faction));
         }
-        if (calling != null) {
-            perks.addAll(getSelectedPerks(calling));
+        if (this.calling != null) {
+            perks.addAll(this.getSelectedPerks(this.calling));
         }
-        for (LevelSelector levelSelector : getLevels()) {
+        for (final LevelSelector levelSelector : this.getLevels()) {
             if (level == null || level <= levelSelector.getLevel()) {
-                perks.addAll(getSelectedPerks(levelSelector));
+                perks.addAll(this.getSelectedPerks(levelSelector));
             }
         }
         return perks;
     }
 
     public boolean hasPerk(String id) {
-        for (SpecializedPerk specializedPerk : getPerks()) {
+        for (final SpecializedPerk specializedPerk : this.getPerks()) {
             if (specializedPerk.getId().equals(id)) {
                 return true;
             }
@@ -780,7 +780,7 @@ public class CharacterPlayer {
                 perkOption.getSelections().forEach(selection -> {
                     try {
                         perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection), selection.getSpecialization()));
-                    } catch (Exception e) {
+                    } catch (final Exception e) {
                         MachineLog.warning(this.getClass(), e.getMessage());
                     }
                 }));
@@ -788,77 +788,77 @@ public class CharacterPlayer {
     }
 
     public CharacterInfo getInfo() {
-        return info;
+        return this.info;
     }
 
     public Integer getVitalityValue() throws InvalidXmlElementException {
-        final AtomicInteger vitality = new AtomicInteger(getCharacteristicValue(CharacteristicName.ENDURANCE)
-                + getCharacteristicValue(CharacteristicName.WILL)
-                + getCharacteristicValue(CharacteristicName.FAITH)
-                + (specie != null ? SpecieFactory.getInstance().getElement(specie).getSize() : 0)
-                + (specie != null ? SpecieFactory.getInstance().getElement(specie).getVitalityBonus() : 0));
-        getLevels().forEach(level -> vitality.addAndGet(level.getExtraVitality()));
+        final AtomicInteger vitality = new AtomicInteger(this.getCharacteristicValue(CharacteristicName.ENDURANCE)
+                + this.getCharacteristicValue(CharacteristicName.WILL)
+                + this.getCharacteristicValue(CharacteristicName.FAITH)
+                + (this.specie != null ? SpecieFactory.getInstance().getElement(this.specie).getSize() : 0)
+                + (this.specie != null ? SpecieFactory.getInstance().getElement(this.specie).getVitalityBonus() : 0));
+      this.getLevels().forEach(level -> vitality.addAndGet(level.getExtraVitality()));
         return vitality.get();
     }
 
     public Set<CapabilityWithSpecialization> getCapabilitiesWithSpecialization() {
-        if (cacheManager.getCapabilityWithSpecializations() == null) {
+        if (this.cacheManager.getCapabilityWithSpecializations() == null) {
             final Set<CapabilityWithSpecialization> capabilities = new HashSet<>();
-            if (specie != null) {
-                specie.getSelectedCapabilityOptions().forEach(capabilityOption ->
+            if (this.specie != null) {
+              this.specie.getSelectedCapabilityOptions().forEach(capabilityOption ->
                         capabilityOption.getSelections().forEach(selection ->
                                 capabilities.add(CapabilityWithSpecialization.from(selection))));
             }
-            if (upbringing != null) {
-                upbringing.getSelectedCapabilityOptions().forEach(capabilityOption ->
+            if (this.upbringing != null) {
+              this.upbringing.getSelectedCapabilityOptions().forEach(capabilityOption ->
                         capabilityOption.getSelections().forEach(selection ->
                                 capabilities.add(CapabilityWithSpecialization.from(selection))));
             }
-            if (faction != null) {
-                faction.getSelectedCapabilityOptions().forEach(capabilityOption ->
+            if (this.faction != null) {
+              this.faction.getSelectedCapabilityOptions().forEach(capabilityOption ->
                         capabilityOption.getSelections().forEach(selection ->
                                 capabilities.add(CapabilityWithSpecialization.from(selection))));
             }
-            if (calling != null) {
-                calling.getSelectedCapabilityOptions().forEach(capabilityOption ->
+            if (this.calling != null) {
+              this.calling.getSelectedCapabilityOptions().forEach(capabilityOption ->
                         capabilityOption.getSelections().forEach(selection ->
                                 capabilities.add(CapabilityWithSpecialization.from(selection))));
             }
-            for (LevelSelector levelSelector : getLevels()) {
+            for (final LevelSelector levelSelector : this.getLevels()) {
                 levelSelector.getSelectedCapabilityOptions().forEach(capabilityOption ->
                         capabilityOption.getSelections().forEach(selection ->
                                 capabilities.add(CapabilityWithSpecialization.from(selection))));
             }
-            cacheManager.setCapabilityWithSpecializations(capabilities);
+          this.cacheManager.setCapabilityWithSpecializations(capabilities);
         }
-        return cacheManager.getCapabilityWithSpecializations();
+        return this.cacheManager.getCapabilityWithSpecializations();
     }
 
     public boolean hasCapability(String capability, String specialization) {
         final String comparedCapability = ComparableUtils.getComparisonId(capability, specialization);
-        return getCapabilitiesWithSpecialization().stream().map(CapabilityWithSpecialization::getComparisonId)
+        return this.getCapabilitiesWithSpecialization().stream().map(CapabilityWithSpecialization::getComparisonId)
                 .anyMatch(x -> Objects.equals(x, comparedCapability));
     }
 
     private boolean checkCapabilityInPhases(String comparedCapability, Phase phase, String stepId) {
-        if (Phase.SPECIE.isCheckedPhase(phase) && hasCapability(comparedCapability, specie)) {
+        if (Phase.SPECIE.isCheckedPhase(phase) && this.hasCapability(comparedCapability, this.specie)) {
             return true;
         }
-        if (Phase.UPBRINGING.isCheckedPhase(phase) && hasCapability(comparedCapability, upbringing)) {
+        if (Phase.UPBRINGING.isCheckedPhase(phase) && this.hasCapability(comparedCapability, this.upbringing)) {
             return true;
         }
-        if (Phase.FACTION.isCheckedPhase(phase) && hasCapability(comparedCapability, faction)) {
+        if (Phase.FACTION.isCheckedPhase(phase) && this.hasCapability(comparedCapability, this.faction)) {
             return true;
         }
-        if (Phase.CALLING.isCheckedPhase(phase) && hasCapability(comparedCapability, calling)) {
+        if (Phase.CALLING.isCheckedPhase(phase) && this.hasCapability(comparedCapability, this.calling)) {
             return true;
         }
         if (Phase.LEVEL.isCheckedPhase(phase) || phase == Phase.LEVEL) {
-            for (LevelSelector levelSelector : getLevels()) {
+            for (final LevelSelector levelSelector : this.getLevels()) {
                 if (Objects.equals(levelSelector.getId(), stepId)) {
                     break;
                 }
-                if (hasCapability(comparedCapability, levelSelector)) {
+                if (this.hasCapability(comparedCapability, levelSelector)) {
                     return true;
                 }
             }
@@ -868,7 +868,7 @@ public class CharacterPlayer {
 
     public boolean hasCapability(String capability, String specialization, Phase phase, String stepId) {
         final String comparedCapability = ComparableUtils.getComparisonId(capability, specialization);
-        return checkCapabilityInPhases(comparedCapability, phase, stepId);
+        return this.checkCapabilityInPhases(comparedCapability, phase, stepId);
     }
 
     public boolean hasCapability(String comparedCapabilityId, CharacterDefinitionStepSelection step) {
@@ -882,20 +882,20 @@ public class CharacterPlayer {
 
     private void removePerkSelectionsFromPhases(ArrayList<Selection> possibleSelections, Phase phase, Integer level) {
         if (Phase.SPECIE.isCheckedPhase(phase)) {
-            possibleSelections.removeAll(specie.getSelectedPerks());
+            possibleSelections.removeAll(this.specie.getSelectedPerks());
         }
-        if (Phase.UPBRINGING.isCheckedPhase(phase) && upbringing != null) {
-            possibleSelections.removeAll(upbringing.getSelectedPerks());
+        if (Phase.UPBRINGING.isCheckedPhase(phase) && this.upbringing != null) {
+            possibleSelections.removeAll(this.upbringing.getSelectedPerks());
         }
-        if (Phase.FACTION.isCheckedPhase(phase) && faction != null) {
-            possibleSelections.removeAll(faction.getSelectedPerks());
+        if (Phase.FACTION.isCheckedPhase(phase) && this.faction != null) {
+            possibleSelections.removeAll(this.faction.getSelectedPerks());
         }
-        if (Phase.CALLING.isCheckedPhase(phase) && calling != null) {
-            possibleSelections.removeAll(calling.getSelectedPerks());
+        if (Phase.CALLING.isCheckedPhase(phase) && this.calling != null) {
+            possibleSelections.removeAll(this.calling.getSelectedPerks());
         }
         if ((Phase.LEVEL.isCheckedPhase(phase) || phase == Phase.LEVEL) && level != null) {
-            for (int i = 0; i < getLevels().size() && i < level; i++) {
-                possibleSelections.removeAll(getLevels().get(i).getSelectedPerks());
+            for (int i = 0; i < this.getLevels().size() && i < level; i++) {
+                possibleSelections.removeAll(this.getLevels().get(i).getSelectedPerks());
             }
         }
     }
@@ -912,11 +912,11 @@ public class CharacterPlayer {
         if (perk.getSpecializations() == null || perk.getSpecializations().isEmpty()) {
             possibleSelections.add(new Selection(perk));
         } else {
-            for (Specialization specialization : perk.getSpecializations()) {
+            for (final Specialization specialization : perk.getSpecializations()) {
                 possibleSelections.add(new Selection(perk, specialization));
             }
         }
-        removePerkSelectionsFromPhases(possibleSelections, phase, level);
+      this.removePerkSelectionsFromPhases(possibleSelections, phase, level);
         return !possibleSelections.isEmpty();
     }
 
@@ -924,35 +924,35 @@ public class CharacterPlayer {
         if (step == null) {
             return false;
         }
-        return hasSelection(perkSelection, step.getPhase(), step.getLevel());
+        return this.hasSelection(perkSelection, step.getPhase(), step.getLevel());
     }
 
     public boolean hasSelection(Selection perkSelection, Phase phase, Integer level) {
         final List<CharacterDefinitionStepSelection> stepsToCheck = new ArrayList<>();
-        if (phase != null && specie != null && phase.checkedUntilPhase(Phase.SPECIE)) {
-            stepsToCheck.add(specie);
+        if (phase != null && this.specie != null && phase.checkedUntilPhase(Phase.SPECIE)) {
+            stepsToCheck.add(this.specie);
         }
-        if (phase != null && upbringing != null && phase.checkedUntilPhase(Phase.UPBRINGING)) {
-            stepsToCheck.add(upbringing);
+        if (phase != null && this.upbringing != null && phase.checkedUntilPhase(Phase.UPBRINGING)) {
+            stepsToCheck.add(this.upbringing);
         }
-        if (phase != null && faction != null && phase.checkedUntilPhase(Phase.FACTION)) {
-            stepsToCheck.add(faction);
+        if (phase != null && this.faction != null && phase.checkedUntilPhase(Phase.FACTION)) {
+            stepsToCheck.add(this.faction);
         }
-        if (phase != null && calling != null && phase.checkedUntilPhase(Phase.CALLING)) {
-            stepsToCheck.add(calling);
+        if (phase != null && this.calling != null && phase.checkedUntilPhase(Phase.CALLING)) {
+            stepsToCheck.add(this.calling);
         }
         //Levels always check previous levels.
         if (phase != null && phase.checkedUntilPhase(Phase.LEVEL) || phase == Phase.LEVEL) {
-            for (int i = 0; i < getLevels().size() && (level == null || i < level - 1); i++) {
-                stepsToCheck.add(getLevels().get(i));
+            for (int i = 0; i < this.getLevels().size() && (level == null || i < level - 1); i++) {
+                stepsToCheck.add(this.getLevels().get(i));
             }
         }
-        return hasSelection(perkSelection, stepsToCheck);
+        return this.hasSelection(perkSelection, stepsToCheck);
     }
 
     public boolean hasSelection(Selection selection, Collection<CharacterDefinitionStepSelection> steps) {
         if (steps != null) {
-            for (CharacterDefinitionStepSelection step : steps) {
+            for (final CharacterDefinitionStepSelection step : steps) {
                 if (step.getSelectedPerks().contains(selection)) {
                     MachineLog.debug(this.getClass().getName(), "Selection '{}' found on step '{}'.", selection, step);
                     return true;
@@ -976,8 +976,8 @@ public class CharacterPlayer {
         final Collection<Selection> nextPerks = new HashSet<>(phasePerks);
         phasePerks.retainAll(completePerkList);
         if (!phasePerks.isEmpty()) {
-            for (Selection perk : phasePerks) {
-                if (!isRepeatablePerk(perk)) {
+            for (final Selection perk : phasePerks) {
+                if (!this.isRepeatablePerk(perk)) {
                     throw new InvalidXmlElementException("Duplicated perks '" + phasePerks + "' on " + phaseName + ".");
                 }
             }
@@ -986,13 +986,13 @@ public class CharacterPlayer {
     }
 
     private void checkDuplicatedPerksInLevels(Collection<Selection> completePerkList) {
-        for (LevelSelector levelSelector : getLevels()) {
-            final Collection<Selection> levelPerks = getPerks(levelSelector);
+        for (final LevelSelector levelSelector : this.getLevels()) {
+            final Collection<Selection> levelPerks = this.getPerks(levelSelector);
             final Collection<Selection> nextPerks = new ArrayList<>(levelPerks);
             levelPerks.retainAll(completePerkList);
             if (!levelPerks.isEmpty()) {
-                for (Selection perk : levelPerks) {
-                    if (!isRepeatablePerk(perk)) {
+                for (final Selection perk : levelPerks) {
+                    if (!this.isRepeatablePerk(perk)) {
                         throw new InvalidXmlElementException("Duplicated perk '" + levelPerks + "' on level '" + levelSelector + "'.");
                     }
                 }
@@ -1002,17 +1002,17 @@ public class CharacterPlayer {
     }
 
     public void checkDuplicatedPerks() {
-        final Collection<Selection> speciePerks = getPerks(specie);
-        final Collection<Selection> upbringingPerks = getPerks(upbringing);
-        final Collection<Selection> factionPerks = getPerks(faction);
-        final Collection<Selection> callingPerks = getPerks(calling);
+        final Collection<Selection> speciePerks = this.getPerks(this.specie);
+        final Collection<Selection> upbringingPerks = this.getPerks(this.upbringing);
+        final Collection<Selection> factionPerks = this.getPerks(this.faction);
+        final Collection<Selection> callingPerks = this.getPerks(this.calling);
 
         final Collection<Selection> completePerkList = new HashSet<>(speciePerks);
 
-        checkDuplicatedPerksInPhase(upbringingPerks, completePerkList, "upbringing '" + getUpbringing() + "'");
-        checkDuplicatedPerksInPhase(factionPerks, completePerkList, "faction '" + getFaction() + "'");
-        checkDuplicatedPerksInPhase(callingPerks, completePerkList, "calling '" + getCalling() + "'");
-        checkDuplicatedPerksInLevels(completePerkList);
+      this.checkDuplicatedPerksInPhase(upbringingPerks, completePerkList, "upbringing '" + this.getUpbringing() + "'");
+      this.checkDuplicatedPerksInPhase(factionPerks, completePerkList, "faction '" + this.getFaction() + "'");
+      this.checkDuplicatedPerksInPhase(callingPerks, completePerkList, "calling '" + this.getCalling() + "'");
+      this.checkDuplicatedPerksInLevels(completePerkList);
     }
 
     private boolean isRepeatablePerk(Selection perk) {
@@ -1021,36 +1021,36 @@ public class CharacterPlayer {
 
     public void checkDuplicatedCapabilities() {
         //Check duplicate capabilities.
-        final Collection<String> specieCapabilities = getCapabilities(specie);
-        final Collection<String> upbringingCapabilities = getCapabilities(upbringing);
-        final Collection<String> factionCapabilities = getCapabilities(faction);
-        final Collection<String> callingCapabilities = getCapabilities(calling);
+        final Collection<String> specieCapabilities = this.getCapabilities(this.specie);
+        final Collection<String> upbringingCapabilities = this.getCapabilities(this.upbringing);
+        final Collection<String> factionCapabilities = this.getCapabilities(this.faction);
+        final Collection<String> callingCapabilities = this.getCapabilities(this.calling);
 
         final Collection<String> completeCapabilitiesList = new HashSet<>(specieCapabilities);
         Collection<String> nextCapabilities = new HashSet<>(upbringingCapabilities);
 
         upbringingCapabilities.retainAll(completeCapabilitiesList);
         if (!upbringingCapabilities.isEmpty()) {
-            throw new InvalidXmlElementException("Duplicated capability '" + upbringingCapabilities + "' on upbringing '" + getUpbringing() + "'.");
+            throw new InvalidXmlElementException("Duplicated capability '" + upbringingCapabilities + "' on upbringing '" + this.getUpbringing() + "'.");
         }
         completeCapabilitiesList.addAll(nextCapabilities);
 
         nextCapabilities = new ArrayList<>(factionCapabilities);
         factionCapabilities.retainAll(completeCapabilitiesList);
         if (!factionCapabilities.isEmpty()) {
-            throw new InvalidXmlElementException("Duplicated capability '" + upbringingCapabilities + "' on faction '" + getFaction() + "'.");
+            throw new InvalidXmlElementException("Duplicated capability '" + upbringingCapabilities + "' on faction '" + this.getFaction() + "'.");
         }
         completeCapabilitiesList.addAll(nextCapabilities);
 
         nextCapabilities = new ArrayList<>(callingCapabilities);
         callingCapabilities.retainAll(completeCapabilitiesList);
         if (!callingCapabilities.isEmpty()) {
-            throw new InvalidXmlElementException("Duplicated capability '" + callingCapabilities + "' on calling '" + getCalling() + "'.");
+            throw new InvalidXmlElementException("Duplicated capability '" + callingCapabilities + "' on calling '" + this.getCalling() + "'.");
         }
         completeCapabilitiesList.addAll(nextCapabilities);
 
-        for (LevelSelector levelSelector : getLevels()) {
-            final Collection<String> levelCapabilities = getCapabilities(levelSelector);
+        for (final LevelSelector levelSelector : this.getLevels()) {
+            final Collection<String> levelCapabilities = this.getCapabilities(levelSelector);
             nextCapabilities = new ArrayList<>(levelCapabilities);
             levelCapabilities.retainAll(completeCapabilitiesList);
             if (!levelCapabilities.isEmpty()) {
@@ -1063,8 +1063,10 @@ public class CharacterPlayer {
 
     public Collection<String> getCapabilities(CharacterDefinitionStepSelection step) {
         if (step != null) {
-            return step.getSelectedCapabilities().stream().map(c -> ComparableUtils.getComparisonId(c.getId(), c.getSpecialization()))
-                    .toList();
+            // checkDuplicatedCapabilities() aplica retainAll(), por lo que esta colección debe ser mutable.
+            return new ArrayList<>(step.getSelectedCapabilities().stream()
+                    .map(c -> ComparableUtils.getComparisonId(c.getId(), c.getSpecialization()))
+                    .toList());
         }
         return new ArrayList<>();
     }
@@ -1072,11 +1074,11 @@ public class CharacterPlayer {
 
     public String getCompleteNameRepresentation() {
         final StringBuilder stringBuilder = new StringBuilder();
-        if (getInfo() != null) {
-            stringBuilder.append(getInfo().getNameRepresentation());
+        if (this.getInfo() != null) {
+            stringBuilder.append(this.getInfo().getNameRepresentation());
             stringBuilder.append(" ");
-            if (getInfo() != null && getInfo().getSurname() != null) {
-                stringBuilder.append(getInfo().getSurname().getName());
+            if (this.getInfo() != null && this.getInfo().getSurname() != null) {
+                stringBuilder.append(this.getInfo().getSurname().getName());
             }
         }
         return stringBuilder.toString().trim();
@@ -1084,7 +1086,7 @@ public class CharacterPlayer {
 
     public int getBodyResistance() {
         return Resistance.getBonus(ResistanceType.BODY, this)
-                + SpecieFactory.getInstance().getElement(getSpecie().getId()).getBodyResistance();
+                + SpecieFactory.getInstance().getElement(this.getSpecie().getId()).getBodyResistance();
     }
 
     public int getMindResistance() {
@@ -1096,33 +1098,33 @@ public class CharacterPlayer {
     }
 
     public int getLevel() {
-        return 1 + levels.size();
+        return 1 + this.levels.size();
     }
 
     public LevelSelector getLevel(int index) {
-        return levels.get(index - 1);
+        return this.levels.get(index - 1);
     }
 
     public LevelSelector getLatestLevel() {
-        return levels.get(levels.size() - 1);
+        return this.levels.get(this.levels.size() - 1);
     }
 
     public Stack<LevelSelector> getLevels() {
-        return levels;
+        return this.levels;
     }
 
     public LevelSelector addLevel() {
-        if (getFaction() == null || getSpecie() == null || getCalling() == null) {
+        if (this.getFaction() == null || this.getSpecie() == null || this.getCalling() == null) {
             throw new InvalidLevelException("Error on character '" + this + "'. Please, finalize or correct level 1 first.");
         }
         try {
-            validate();
-        } catch (InvalidXmlElementException e) {
+          this.validate();
+        } catch (final InvalidXmlElementException e) {
             throw new InvalidLevelException("Error on character '" + this + "'. Please, finalize or correct previous level first.", e);
         }
-        final LevelSelector newLevel = new LevelSelector(this, getLevel() + 1);
-        levels.add(newLevel);
-        cacheManager.reset();
+        final LevelSelector newLevel = new LevelSelector(this, this.getLevel() + 1);
+      this.levels.add(newLevel);
+      this.cacheManager.reset();
         return newLevel;
     }
 
@@ -1131,47 +1133,47 @@ public class CharacterPlayer {
             throw new InvalidLevelException("First level cannot be removed.");
         }
         try {
-            levels.remove(level - 2);
-            cacheManager.reset();
-        } catch (IndexOutOfBoundsException e) {
+          this.levels.remove(level - 2);
+          this.cacheManager.reset();
+        } catch (final IndexOutOfBoundsException e) {
             //Level not existing.
         }
     }
 
     public int getBank() throws InvalidXmlElementException {
         final AtomicInteger bank = new AtomicInteger(BANK_INITIAL_VALUE);
-        getLevels().forEach(level ->
+      this.getLevels().forEach(level ->
                 bank.addAndGet(level.getExtraVPBank()));
         return bank.get();
     }
 
     public int getSurgesRating() throws InvalidXmlElementException {
-        final AtomicInteger surge = new AtomicInteger(Math.max(Math.max(getCharacteristicValue(CharacteristicName.STRENGTH),
-                        getCharacteristicValue(CharacteristicName.WITS)),
-                getCharacteristicValue(CharacteristicName.FAITH)));
-        getLevels().forEach(level ->
+        final AtomicInteger surge = new AtomicInteger(Math.max(Math.max(this.getCharacteristicValue(CharacteristicName.STRENGTH),
+                        this.getCharacteristicValue(CharacteristicName.WITS)),
+                this.getCharacteristicValue(CharacteristicName.FAITH)));
+      this.getLevels().forEach(level ->
                 surge.addAndGet(level.getExtraSurgeRating()));
         return surge.get();
     }
 
     public int getSurgesNumber() throws InvalidXmlElementException {
         final AtomicInteger surge = new AtomicInteger(1);
-        getLevels().forEach(level ->
+      this.getLevels().forEach(level ->
                 surge.addAndGet(level.getExtraSurgeNumber()));
         return surge.get();
     }
 
     public int getRevivalsRating() throws InvalidXmlElementException {
         final AtomicInteger revivals = new AtomicInteger(
-                (specie != null ? SpecieFactory.getInstance().getElement(specie).getSize() : 0));
-        getLevels().forEach(level ->
+                (this.specie != null ? SpecieFactory.getInstance().getElement(this.specie).getSize() : 0));
+      this.getLevels().forEach(level ->
                 revivals.addAndGet(level.getExtraRevivalRating()));
         return revivals.get();
     }
 
     public int getRevivalsNumber() throws InvalidXmlElementException {
         final AtomicInteger revivals = new AtomicInteger(1);
-        getLevels().forEach(level ->
+      this.getLevels().forEach(level ->
                 revivals.addAndGet(level.getExtraRevivalNumber()));
         return revivals.get();
     }
@@ -1183,7 +1185,7 @@ public class CharacterPlayer {
      * @return all weapons of the character.
      */
     public List<Weapon> getWeapons() {
-        return getEquipment(Weapon.class);
+        return this.getEquipment(Weapon.class);
     }
 
     /**
@@ -1192,7 +1194,7 @@ public class CharacterPlayer {
      * @return all weapons of the character.
      */
     public List<Item> getItems() {
-        return getEquipment(Item.class);
+        return this.getEquipment(Item.class);
     }
 
     private Set<EquipmentOption> getSelectedMaterialAwards(CharacterDefinitionStepSelection definitionStepSelection, XmlFactory<?> factory,
@@ -1212,36 +1214,36 @@ public class CharacterPlayer {
     }
 
     public List<EquipmentOption> getMaterialAwardsSelected() {
-        return getMaterialAwardsSelected(false);
+        return this.getMaterialAwardsSelected(false);
     }
 
     public List<EquipmentOption> getMaterialAwardsSelected(boolean ignoreRemoved) {
         final List<EquipmentOption> materialAwards = new ArrayList<>();
-        materialAwards.addAll(getSelectedMaterialAwards(upbringing, UpbringingFactory.getInstance(), ignoreRemoved));
-        materialAwards.addAll(getSelectedMaterialAwards(faction, FactionFactory.getInstance(), ignoreRemoved));
-        materialAwards.addAll(getSelectedMaterialAwards(calling, CallingFactory.getInstance(), ignoreRemoved));
+        materialAwards.addAll(this.getSelectedMaterialAwards(this.upbringing, UpbringingFactory.getInstance(), ignoreRemoved));
+        materialAwards.addAll(this.getSelectedMaterialAwards(this.faction, FactionFactory.getInstance(), ignoreRemoved));
+        materialAwards.addAll(this.getSelectedMaterialAwards(this.calling, CallingFactory.getInstance(), ignoreRemoved));
         return materialAwards;
     }
 
     public <T extends Equipment> List<T> getEquipmentPurchased(Class<T> equipmentClass) {
-        return getEquipmentPurchased().stream().filter(equipmentClass::isInstance).map(equipmentClass::cast).toList();
+        return this.getEquipmentPurchased().stream().filter(equipmentClass::isInstance).map(equipmentClass::cast).toList();
     }
 
     public Set<Equipment> getEquipmentPurchased() {
-        if (equipmentPurchased == null) {
-            equipmentPurchased = new SelectionSet<>();
-            equipmentPurchased.addSelectionUpdatedListeners(() -> getCacheManager().equipmentPurchasedChanged());
+        if (this.equipmentPurchased == null) {
+          this.equipmentPurchased = new SelectionSet<>();
+          this.equipmentPurchased.addSelectionUpdatedListeners(() -> this.getCacheManager().equipmentPurchasedChanged());
         }
-        return equipmentPurchased;
+        return this.equipmentPurchased;
     }
 
     public void addEquipmentPurchased(Equipment equipmentPurchased) {
-        getEquipmentPurchased().add(equipmentPurchased);
+      this.getEquipmentPurchased().add(equipmentPurchased);
     }
 
     public void setEquipmentPurchased(SelectionSet<Equipment> equipmentPurchased) {
         this.equipmentPurchased = equipmentPurchased;
-        this.equipmentPurchased.addSelectionUpdatedListeners(() -> getCacheManager().equipmentPurchasedChanged());
+        this.equipmentPurchased.addSelectionUpdatedListeners(() -> this.getCacheManager().equipmentPurchasedChanged());
     }
 
     /**
@@ -1250,7 +1252,7 @@ public class CharacterPlayer {
      * @return all weapons of the character.
      */
     public Armor getBestArmor() {
-        final List<Armor> armors = getEquipment(Armor.class);
+        final List<Armor> armors = this.getEquipment(Armor.class);
         if (armors.isEmpty()) {
             return null;
         }
@@ -1258,18 +1260,18 @@ public class CharacterPlayer {
     }
 
     public Armor getPurchasedArmor() {
-        return getEquipmentPurchased(Armor.class).stream().findFirst().orElse(null);
+        return this.getEquipmentPurchased(Armor.class).stream().findFirst().orElse(null);
     }
 
     public void setPurchasedArmor(Armor armor, boolean removeOld) throws UnofficialElementNotAllowedException {
-        if (armor != null && !armor.isOfficial() && getSettings().isOnlyOfficialAllowed()) {
+        if (armor != null && !armor.isOfficial() && this.getSettings().isOnlyOfficialAllowed()) {
             throw new UnofficialElementNotAllowedException("Armor '" + armor + "' is not official and cannot be added due "
                     + "to configuration limitations.");
         }
         if (removeOld) {
-            getEquipmentPurchased(Armor.class).forEach(e -> getEquipmentPurchased().remove(e));
+          this.getEquipmentPurchased(Armor.class).forEach(e -> this.getEquipmentPurchased().remove(e));
         }
-        getEquipmentPurchased().add(armor);
+      this.getEquipmentPurchased().add(armor);
     }
 
     /**
@@ -1278,7 +1280,7 @@ public class CharacterPlayer {
      * @return all weapons of the character.
      */
     public Shield getBestShield() {
-        final List<Shield> shields = getEquipment(Shield.class);
+        final List<Shield> shields = this.getEquipment(Shield.class);
         if (shields.isEmpty()) {
             return null;
         }
@@ -1291,7 +1293,7 @@ public class CharacterPlayer {
      * @return all weapons of the character.
      */
     public HandheldShield getBestHandHandledShield() {
-        final List<HandheldShield> handheldShields = getEquipment(HandheldShield.class);
+        final List<HandheldShield> handheldShields = this.getEquipment(HandheldShield.class);
         if (handheldShields.isEmpty()) {
             return null;
         }
@@ -1299,55 +1301,55 @@ public class CharacterPlayer {
     }
 
     public HandheldShield getPurchasedHandheldShield() {
-        return getEquipmentPurchased(HandheldShield.class).stream().findFirst().orElse(null);
+        return this.getEquipmentPurchased(HandheldShield.class).stream().findFirst().orElse(null);
     }
 
     public void setPurchasedHandheldShield(HandheldShield handheldShield, boolean removeOld) throws UnofficialElementNotAllowedException {
-        if (handheldShield != null && !handheldShield.isOfficial() && getSettings().isOnlyOfficialAllowed()) {
+        if (handheldShield != null && !handheldShield.isOfficial() && this.getSettings().isOnlyOfficialAllowed()) {
             throw new UnofficialElementNotAllowedException("HandheldShields shield '" + handheldShield + "' is not official and cannot be added due "
                     + "to configuration limitations.");
         }
         if (removeOld) {
-            getEquipmentPurchased(HandheldShield.class).forEach(e -> getEquipmentPurchased().remove(e));
+          this.getEquipmentPurchased(HandheldShield.class).forEach(e -> this.getEquipmentPurchased().remove(e));
         }
-        getEquipmentPurchased().add(handheldShield);
+      this.getEquipmentPurchased().add(handheldShield);
     }
 
     public Shield getPurchasedShield() {
-        return getEquipmentPurchased(Shield.class).stream().findFirst().orElse(null);
+        return this.getEquipmentPurchased(Shield.class).stream().findFirst().orElse(null);
     }
 
     public void setPurchasedShield(Shield shield, boolean removeOld) throws UnofficialElementNotAllowedException {
-        if (shield != null && !shield.isOfficial() && getSettings().isOnlyOfficialAllowed()) {
+        if (shield != null && !shield.isOfficial() && this.getSettings().isOnlyOfficialAllowed()) {
             throw new UnofficialElementNotAllowedException("Shield '" + shield + "' is not official and cannot be added due "
                     + "to configuration limitations.");
         }
         if (removeOld) {
-            getEquipmentPurchased(Shield.class).forEach(e -> getEquipmentPurchased().remove(e));
+          this.getEquipmentPurchased(Shield.class).forEach(e -> this.getEquipmentPurchased().remove(e));
         }
-        getEquipmentPurchased().add(shield);
+      this.getEquipmentPurchased().add(shield);
     }
 
     public Set<String> getAllowedShields() {
-        if (cacheManager.getAllowedShields() == null) {
-            if (getBestHandHandledShield() != null) {
+        if (this.cacheManager.getAllowedShields() == null) {
+            if (this.getBestHandHandledShield() != null) {
                 return new HashSet<>();
             }
-            if (getBestArmor() != null) {
-                return getBestArmor().getAllowedShields();
+            if (this.getBestArmor() != null) {
+                return this.getBestArmor().getAllowedShields();
             }
-            cacheManager.setAllowedShields(ShieldFactory.getInstance().getElements().stream().map(Element::getId).collect(Collectors.toSet()));
+          this.cacheManager.setAllowedShields(ShieldFactory.getInstance().getElements().stream().map(Element::getId).collect(Collectors.toSet()));
         }
-        return cacheManager.getAllowedShields();
+        return this.cacheManager.getAllowedShields();
     }
 
     public List<Weapon> getPurchasedMeleeWeapons() {
-        return getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isMeleeWeapon).toList();
+        return this.getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isMeleeWeapon).toList();
     }
 
     public void setPurchasedMeleeWeapons(List<Weapon> weapons, boolean removeOld) throws UnofficialElementNotAllowedException {
-        if (getSettings().isOnlyOfficialAllowed()) {
-            for (Weapon weapon : weapons) {
+        if (this.getSettings().isOnlyOfficialAllowed()) {
+            for (final Weapon weapon : weapons) {
                 if (!weapon.isOfficial()) {
                     throw new UnofficialElementNotAllowedException("Weapon '" + weapon + "' is not official and cannot be added due "
                             + "to configuration limitations.");
@@ -1355,18 +1357,18 @@ public class CharacterPlayer {
             }
         }
         if (removeOld) {
-            getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isMeleeWeapon).forEach(e -> getEquipmentPurchased().remove(e));
+          this.getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isMeleeWeapon).forEach(e -> this.getEquipmentPurchased().remove(e));
         }
-        getEquipmentPurchased().addAll(weapons);
+      this.getEquipmentPurchased().addAll(weapons);
     }
 
     public List<Weapon> getPurchasedRangedWeapons() {
-        return getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isRangedWeapon).toList();
+        return this.getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isRangedWeapon).toList();
     }
 
     public void setPurchasedRangedWeapons(List<Weapon> weapons, boolean removeOld) throws UnofficialElementNotAllowedException {
-        if (getSettings().isOnlyOfficialAllowed()) {
-            for (Weapon weapon : weapons) {
+        if (this.getSettings().isOnlyOfficialAllowed()) {
+            for (final Weapon weapon : weapons) {
                 if (!weapon.isOfficial()) {
                     throw new UnofficialElementNotAllowedException("Weapon '" + weapon + "' is not official and cannot be added due "
                             + "to configuration limitations.");
@@ -1374,24 +1376,24 @@ public class CharacterPlayer {
             }
         }
         if (removeOld) {
-            getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isRangedWeapon).forEach(e -> getEquipmentPurchased().remove(e));
+          this.getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isRangedWeapon).forEach(e -> this.getEquipmentPurchased().remove(e));
         }
-        getEquipmentPurchased().addAll(weapons);
+      this.getEquipmentPurchased().addAll(weapons);
     }
 
     public boolean hasWeapon(Weapon weapon) {
-        return getEquipmentPurchased(Weapon.class).stream().anyMatch(w -> Objects.equals(w, weapon));
+        return this.getEquipmentPurchased(Weapon.class).stream().anyMatch(w -> Objects.equals(w, weapon));
     }
 
     public List<Equipment> getEquipment() {
         final List<Equipment> totalEquipment = new ArrayList<>();
-        totalEquipment.addAll(getMaterialAwardsSelected().stream().map(EquipmentOption::getElement).collect(Collectors.toSet()));
-        totalEquipment.addAll(getEquipmentPurchased());
+        totalEquipment.addAll(this.getMaterialAwardsSelected().stream().map(EquipmentOption::getElement).collect(Collectors.toSet()));
+        totalEquipment.addAll(this.getEquipmentPurchased());
         return totalEquipment;
     }
 
     public <T extends Equipment> List<T> getEquipment(Class<T> equipmentClass) {
-        return getEquipment().stream().filter(equipmentClass::isInstance).map(equipmentClass::cast).toList();
+        return this.getEquipment().stream().filter(equipmentClass::isInstance).map(equipmentClass::cast).toList();
     }
 
     public String getRepresentation() {
@@ -1400,225 +1402,225 @@ public class CharacterPlayer {
     }
 
     public int getTechgnosisLevel() {
-        return getLevel();
+        return this.getLevel();
     }
 
     public int getTechLevel() {
-        if (cacheManager.getTechLevel() == null) {
-            cacheManager.setTechLevel(INITIAL_TECH_LEVEL + (int) getCapabilitiesWithSpecialization().stream().filter(capability ->
+        if (this.cacheManager.getTechLevel() == null) {
+          this.cacheManager.setTechLevel(INITIAL_TECH_LEVEL + (int) this.getCapabilitiesWithSpecialization().stream().filter(capability ->
                     capability.getId().startsWith("techLore") && Objects.equals(capability.getGroup(), "techLore")).count());
         }
-        return cacheManager.getTechLevel();
+        return this.cacheManager.getTechLevel();
     }
 
     public double getCashMoney() {
-        if (cacheManager.getCash() == null) {
+        if (this.cacheManager.getCash() == null) {
             double cash = 0;
-            for (Perk perk : getPerks()) {
-                final double perkCash = getCashValue(perk);
+            for (final Perk perk : this.getPerks()) {
+                final double perkCash = this.getCashValue(perk);
                 if (perkCash > cash) {
                     cash = perkCash;
                 }
             }
-            cacheManager.setCash(cash + INITIAL_CASH);
+          this.cacheManager.setCash(cash + INITIAL_CASH);
         }
-        return cacheManager.getCash();
+        return this.cacheManager.getCash();
     }
 
     private double getCashValue(Perk perk) {
         try {
             return Double.parseDouble(perk.getId().replace("cash", ""));
-        } catch (Exception e) {
+        } catch (final Exception e) {
             return 0d;
         }
     }
 
     public double getRemainingCash() {
-        return getCashMoney() - getSpentCash();
+        return this.getCashMoney() - this.getSpentCash();
     }
 
     public double getSpentCash() {
-        if (cacheManager.getSpentCash() == null) {
+        if (this.cacheManager.getSpentCash() == null) {
             double total = 0;
-            for (Equipment equipment : getEquipmentPurchased()) {
+            for (final Equipment equipment : this.getEquipmentPurchased()) {
                 if (equipment != null) {
                     total += equipment.getCost();
                 }
             }
-            cacheManager.setSpentCash(total);
+          this.cacheManager.setSpentCash(total);
         }
-        return cacheManager.getSpentCash();
+        return this.cacheManager.getSpentCash();
     }
 
 
     public void checkIsOfficial() throws UnofficialCharacterException {
-        if ((getFaction() != null && !FactionFactory.getInstance().getElement(getFaction().getId()).isOfficial())) {
-            throw new UnofficialCharacterException("Faction '" + getFaction() + "' is not official.");
+        if ((this.getFaction() != null && !FactionFactory.getInstance().getElement(this.getFaction().getId()).isOfficial())) {
+            throw new UnofficialCharacterException("Faction '" + this.getFaction() + "' is not official.");
         }
-        if ((getSpecie() != null && !SpecieFactory.getInstance().getElement(getSpecie()).isOfficial())) {
-            throw new UnofficialCharacterException("Specie '" + getSpecie() + "' is not official.");
+        if ((this.getSpecie() != null && !SpecieFactory.getInstance().getElement(this.getSpecie()).isOfficial())) {
+            throw new UnofficialCharacterException("Specie '" + this.getSpecie() + "' is not official.");
         }
-        if ((getBestArmor() != null && !getBestArmor().isOfficial())) {
-            throw new UnofficialCharacterException("Armor '" + getBestArmor() + "' is not official.");
+        if ((this.getBestArmor() != null && !this.getBestArmor().isOfficial())) {
+            throw new UnofficialCharacterException("Armor '" + this.getBestArmor() + "' is not official.");
         }
-        if ((getBestShield() != null && !getBestShield().isOfficial())) {
-            throw new UnofficialCharacterException("Shield '" + getBestShield() + "' is not official.");
+        if ((this.getBestShield() != null && !this.getBestShield().isOfficial())) {
+            throw new UnofficialCharacterException("Shield '" + this.getBestShield() + "' is not official.");
         }
-        if (!getWeapons().stream().allMatch(Equipment::isOfficial)) {
-            throw new UnofficialCharacterException("Equipment '" + getWeapons() + "' are not all official.");
+        if (!this.getWeapons().stream().allMatch(Equipment::isOfficial)) {
+            throw new UnofficialCharacterException("Equipment '" + this.getWeapons() + "' are not all official.");
         }
 
-        for (final String occultismPathId : occultism.getSelectedPowers().keySet()) {
+        for (final String occultismPathId : this.occultism.getSelectedPowers().keySet()) {
             try {
                 if (!OccultismPathFactory.getInstance().getElement(occultismPathId).isOfficial()) {
                     throw new UnofficialCharacterException("Occultism path '" + occultismPathId + "' is not official.");
                 }
-            } catch (InvalidXmlElementException e) {
+            } catch (final InvalidXmlElementException e) {
                 // Ignore.
             }
         }
     }
 
     public void checkIsNotRestricted() throws RestrictedElementException {
-        if ((getFaction() != null && FactionFactory.getInstance().getElement(getFaction().getId()).getRestrictions().isRestricted(this))) {
-            throw new RestrictedElementException("Faction '" + getFaction() + "' is restricted.");
+        if ((this.getFaction() != null && FactionFactory.getInstance().getElement(this.getFaction().getId()).getRestrictions().isRestricted(this))) {
+            throw new RestrictedElementException("Faction '" + this.getFaction() + "' is restricted.");
         }
-        if ((getSpecie() != null && SpecieFactory.getInstance().getElement(getSpecie()).getRestrictions().isRestricted(this))) {
-            throw new RestrictedElementException("Specie '" + getSpecie() + "' is restricted.");
-        }
-
-        if ((getBestArmor() != null && ArmorFactory.getInstance().getElement(getBestArmor()).getRestrictions().isRestricted(this))) {
-            throw new RestrictedElementException("Armor '" + getBestArmor() + "' is restricted.");
-        }
-        if ((getBestShield() != null && ShieldFactory.getInstance().getElement(getBestShield()).getRestrictions().isRestricted(this))) {
-            throw new RestrictedElementException("Shield '" + getBestShield() + "' is restricted.");
+        if ((this.getSpecie() != null && SpecieFactory.getInstance().getElement(this.getSpecie()).getRestrictions().isRestricted(this))) {
+            throw new RestrictedElementException("Specie '" + this.getSpecie() + "' is restricted.");
         }
 
-        if (!getWeapons().stream().allMatch(w -> w.getRestrictions().isRestricted(this))) {
-            throw new RestrictedElementException("Weapons '" + getWeapons() + "' have some restricted element.");
+        if ((this.getBestArmor() != null && ArmorFactory.getInstance().getElement(this.getBestArmor()).getRestrictions().isRestricted(this))) {
+            throw new RestrictedElementException("Armor '" + this.getBestArmor() + "' is restricted.");
         }
-        for (final String occultismPathId : occultism.getSelectedPowers().keySet()) {
+        if ((this.getBestShield() != null && ShieldFactory.getInstance().getElement(this.getBestShield()).getRestrictions().isRestricted(this))) {
+            throw new RestrictedElementException("Shield '" + this.getBestShield() + "' is restricted.");
+        }
+
+        if (!this.getWeapons().stream().allMatch(w -> w.getRestrictions().isRestricted(this))) {
+            throw new RestrictedElementException("Weapons '" + this.getWeapons() + "' have some restricted element.");
+        }
+        for (final String occultismPathId : this.occultism.getSelectedPowers().keySet()) {
             try {
                 if (!OccultismPathFactory.getInstance().getElement(occultismPathId).getRestrictions().isRestricted(this)) {
                     throw new RestrictedElementException("Occultism path '" + occultismPathId + "' is restricted.");
                 }
-            } catch (InvalidXmlElementException e) {
+            } catch (final InvalidXmlElementException e) {
                 // Ignore.
             }
         }
     }
 
     public boolean isOccultist() {
-        if (getCharacteristicValue(CharacteristicName.PSI) > 0) {
+        if (this.getCharacteristicValue(CharacteristicName.PSI) > 0) {
             return true;
         }
-        if (getCharacteristicValue(CharacteristicName.THEURGY) > 0) {
+        if (this.getCharacteristicValue(CharacteristicName.THEURGY) > 0) {
             return true;
         }
-        if (getCalling() != null) {
-            final String callingGroup = CallingFactory.getInstance().getElement(getCalling().getId()).getGroup();
+        if (this.getCalling() != null) {
+            final String callingGroup = CallingFactory.getInstance().getElement(this.getCalling().getId()).getGroup();
             return CharacteristicName.PSI.name().equalsIgnoreCase(callingGroup) || CharacteristicName.THEURGY.name().equalsIgnoreCase(callingGroup);
         }
         return false;
     }
 
     private Occultism getOccultism() {
-        return occultism;
+        return this.occultism;
     }
 
     public int getOccultismPointsAvailable(CharacterDefinitionStepSelection characterDefinitionStepSelection) {
-        return (int) getPerks(characterDefinitionStepSelection).stream().filter(perk -> Objects.equals(perk.getId(), PerkFactory.THEURGY_RITES_PERK)
+        return (int) this.getPerks(characterDefinitionStepSelection).stream().filter(perk -> Objects.equals(perk.getId(), PerkFactory.THEURGY_RITES_PERK)
                 || Objects.equals(perk.getId(), PerkFactory.PSYCHIC_POWERS_PERK)).count();
     }
 
     public int getOccultismPointsAvailable() {
-        return (int) getPerks().stream().filter(perk -> Objects.equals(perk.getId(), PerkFactory.THEURGY_RITES_PERK)
+        return (int) this.getPerks().stream().filter(perk -> Objects.equals(perk.getId(), PerkFactory.THEURGY_RITES_PERK)
                 || Objects.equals(perk.getId(), PerkFactory.PSYCHIC_POWERS_PERK)).count();
     }
 
     public int getOccultismPointsSpent() {
-        return getTotalSelectedPaths();
+        return this.getTotalSelectedPaths();
     }
 
     public int getOccultismLevel(OccultismType occultismType) {
         if (occultismType == null) {
             return 0;
         }
-        return getCharacteristicValue(occultismType.getId());
+        return this.getCharacteristicValue(occultismType.getId());
     }
 
     public int setOccultismLevel(OccultismType occultismType) {
-        return getCharacteristicValue(occultismType.getId());
+        return this.getCharacteristicValue(occultismType.getId());
     }
 
     public int getOccultismLevel() {
         try {
             int level = 0;
             for (final OccultismType occultismType : OccultismTypeFactory.getInstance().getElements()) {
-                final int typeLevel = getOccultismLevel(occultismType);
+                final int typeLevel = this.getOccultismLevel(occultismType);
                 if (typeLevel > level) {
                     level = typeLevel;
                 }
             }
             return level;
-        } catch (InvalidXmlElementException e) {
+        } catch (final InvalidXmlElementException e) {
             //Ignore
         }
         return 0;
     }
 
     public int getDarkSideLevel(OccultismType occultismType) {
-        return getOccultism().getDarkSideLevel(occultismType);
+        return this.getOccultism().getDarkSideLevel(occultismType);
     }
 
     public void setDarkSideLevel(OccultismType occultismType, int darkSideValue) {
-        getOccultism().setDarkSideLevel(occultismType, darkSideValue);
+      this.getOccultism().setDarkSideLevel(occultismType, darkSideValue);
     }
 
     public Map<String, List<OccultismPower>> getSelectedPowers() {
-        return getOccultism().getSelectedPowers();
+        return this.getOccultism().getSelectedPowers();
     }
 
     public int getTotalSelectedPowers() {
-        return getOccultism().getTotalSelectedPowers();
+        return this.getOccultism().getTotalSelectedPowers();
     }
 
     public int getTotalSelectedPaths() {
-        return getOccultism().getTotalSelectedPaths();
+        return this.getOccultism().getTotalSelectedPaths();
     }
 
     private OccultismType checkFactionOccultismType() {
-        if (getFaction() != null && (FactionGroup.get(getFaction().getGroup()) == FactionGroup.CHURCH
-                || FactionGroup.get(getFaction().getGroup()) == FactionGroup.MINOR_CHURCH || Objects.equals(getFaction().getId(), Faction.SIBANZI)
-                || Objects.equals(getFaction().getId(), Faction.VAGABONDS) || Objects.equals(getFaction().getId(), Faction.SWORD_OF_LEXTIUS))) {
+        if (this.getFaction() != null && (FactionGroup.get(this.getFaction().getGroup()) == FactionGroup.CHURCH
+                || FactionGroup.get(this.getFaction().getGroup()) == FactionGroup.MINOR_CHURCH || Objects.equals(this.getFaction().getId(), Faction.SIBANZI)
+                || Objects.equals(this.getFaction().getId(), Faction.VAGABONDS) || Objects.equals(this.getFaction().getId(), Faction.SWORD_OF_LEXTIUS))) {
             return OccultismTypeFactory.getTheurgy();
         }
         return null;
     }
 
     private OccultismType checkCallingOccultismType() {
-        if (getCalling() != null && Objects.equals(getCalling().getId(), Calling.DERVISH)) {
+        if (this.getCalling() != null && Objects.equals(this.getCalling().getId(), Calling.DERVISH)) {
             return OccultismTypeFactory.getPsi();
         }
-        if (getCalling() != null && CallingGroup.get(getCalling().getGroup()) == CallingGroup.PSI) {
+        if (this.getCalling() != null && CallingGroup.get(this.getCalling().getGroup()) == CallingGroup.PSI) {
             return OccultismTypeFactory.getPsi();
         }
-        if (getCalling() != null && CallingGroup.get(getCalling().getGroup()) == CallingGroup.THEURGY) {
+        if (this.getCalling() != null && CallingGroup.get(this.getCalling().getGroup()) == CallingGroup.THEURGY) {
             return OccultismTypeFactory.getTheurgy();
         }
         return null;
     }
 
     private OccultismType checkSpecieOccultismType() {
-        if (getSpecie() != null && Objects.equals(getSpecie().getId(), Specie.ASCORBITE)) {
+        if (this.getSpecie() != null && Objects.equals(this.getSpecie().getId(), Specie.ASCORBITE)) {
             return OccultismTypeFactory.getPsi();
         }
         return null;
     }
 
     private OccultismType checkSelectedPowerOccultismType() throws InvalidXmlElementException {
-        if (!getOccultism().getSelectedPowers().isEmpty()) {
-            final Map.Entry<String, List<OccultismPower>> occultismPowers = getOccultism().getSelectedPowers().entrySet().iterator().next();
+        if (!this.getOccultism().getSelectedPowers().isEmpty()) {
+            final Map.Entry<String, List<OccultismPower>> occultismPowers = this.getOccultism().getSelectedPowers().entrySet().iterator().next();
             if (occultismPowers.getValue() != null && !occultismPowers.getValue().isEmpty()) {
                 final OccultismPower occultismPower = occultismPowers.getValue().iterator().next();
                 if (OccultismPathFactory.getInstance().getOccultismPath(occultismPower) != null) {
@@ -1631,15 +1633,15 @@ public class CharacterPlayer {
     }
 
     private int getDefaultOccultismLevel(OccultismType occultismType) {
-        if (getSpecie() == null) {
+        if (this.getSpecie() == null) {
             return 0;
         }
         if (occultismType.getId().equals(OccultismTypeFactory.PSI_TAG)) {
-            return SpecieFactory.getInstance().getElement(getSpecie())
+            return SpecieFactory.getInstance().getElement(this.getSpecie())
                     .getSpecieCharacteristic(CharacteristicName.PSI).getInitialValue();
         }
         if (occultismType.getId().equals(OccultismTypeFactory.THEURGY_TAG)) {
-            return SpecieFactory.getInstance().getElement(getSpecie())
+            return SpecieFactory.getInstance().getElement(this.getSpecie())
                     .getSpecieCharacteristic(CharacteristicName.THEURGY).getInitialValue();
         }
         return 0;
@@ -1647,8 +1649,8 @@ public class CharacterPlayer {
 
     private OccultismType checkCharacteristicOccultismType() throws InvalidXmlElementException {
         for (final OccultismType occultismType : OccultismTypeFactory.getInstance().getElements()) {
-            final int defaultOccultismLevel = getDefaultOccultismLevel(occultismType);
-            if (getCharacteristicValue(occultismType.getId()) > defaultOccultismLevel) {
+            final int defaultOccultismLevel = this.getDefaultOccultismLevel(occultismType);
+            if (this.getCharacteristicValue(occultismType.getId()) > defaultOccultismLevel) {
                 return occultismType;
             }
         }
@@ -1661,25 +1663,25 @@ public class CharacterPlayer {
      * @return an occultism type or null if nothing has been selected.
      */
     public OccultismType getOccultismType() {
-        OccultismType result = checkFactionOccultismType();
+        OccultismType result = this.checkFactionOccultismType();
         if (result != null) {
             return result;
         }
-        result = checkCallingOccultismType();
+        result = this.checkCallingOccultismType();
         if (result != null) {
             return result;
         }
-        result = checkSpecieOccultismType();
+        result = this.checkSpecieOccultismType();
         if (result != null) {
             return result;
         }
         try {
-            result = checkSelectedPowerOccultismType();
+            result = this.checkSelectedPowerOccultismType();
             if (result != null) {
                 return result;
             }
-            return checkCharacteristicOccultismType();
-        } catch (InvalidXmlElementException e) {
+            return this.checkCharacteristicOccultismType();
+        } catch (final InvalidXmlElementException e) {
             MachineLog.errorMessage(this.getClass().getName(), e);
         }
         return null;
@@ -1690,17 +1692,17 @@ public class CharacterPlayer {
         if (path == null) {
             return false;
         }
-        return getOccultism().hasPower(path, power);
+        return this.getOccultism().hasPower(path, power);
     }
 
     public boolean canAddOccultismPower(OccultismPower power) {
         final OccultismPath path = OccultismPathFactory.getInstance().getOccultismPath(power);
         try {
-            getOccultism().canAddPower(this, path, power,
-                    getFaction() != null ? getFaction().getId() : null,
-                    getSpecie() != null ? getSpecie().getId() : null, getSettings());
+          this.getOccultism().canAddPower(this, path, power,
+                    this.getFaction() != null ? this.getFaction().getId() : null,
+                    this.getSpecie() != null ? this.getSpecie().getId() : null, this.getSettings());
             return true;
-        } catch (InvalidOccultismPowerException e) {
+        } catch (final InvalidOccultismPowerException e) {
             return false;
         }
     }
@@ -1709,7 +1711,7 @@ public class CharacterPlayer {
         if (power == null) {
             throw new InvalidOccultismPowerException("Null value not allowed");
         }
-        if (!power.isOfficial() && getSettings().isOnlyOfficialAllowed()) {
+        if (!power.isOfficial() && this.getSettings().isOnlyOfficialAllowed()) {
             throw new UnofficialElementNotAllowedException("Occultism Power '" + power + "' is not official and cannot be added due "
                     + "to configuration limitations.");
         }
@@ -1717,32 +1719,35 @@ public class CharacterPlayer {
             throw new InvalidOccultismPowerException("Occultism Power '" + power + "' is restricted to this character.");
         }
         final OccultismPath path = OccultismPathFactory.getInstance().getOccultismPath(power);
-        getOccultism().addPower(this, path, power, getFaction() != null ? getFaction().getId() : null, getSpecie().getId(), getSettings());
+      this.getOccultism().addPower(this, path, power, this.getFaction() != null ? this.getFaction().getId()
+              : null, this.getSpecie().getId(), this.getSettings());
     }
 
     public void removeOccultismPower(OccultismPower power) {
         final OccultismPath path = OccultismPathFactory.getInstance().getOccultismPath(power);
         if (path != null) {
-            getOccultism().removePower(path, power);
+          this.getOccultism().removePower(path, power);
         }
     }
 
     public boolean hasOccultismPath(OccultismPath path) {
-        return getOccultism().hasPath(path);
+        return this.getOccultism().hasPath(path);
     }
 
     public List<OccultismPower> getAllSelectedPowers() {
-        return getOccultism().getSelectedPowers().values().stream().flatMap(Collection::stream).toList();
+        return this.getOccultism().getSelectedPowers().values().stream().flatMap(Collection::stream).toList();
     }
 
     public List<Cyberdevice> getCyberdevices() {
-        final List<SpecializedPerk> cyberdevices = getPerks().stream()
+        final List<SpecializedPerk> cyberdevices = this.getPerks().stream()
                 .filter(perk -> Objects.equals(perk.getType(), PerkType.CYBERDEVICE)).toList();
-        return CyberdeviceFactory.getInstance().getElements(cyberdevices.stream().map(Perk::getId).toList());
+        return CyberdeviceFactory.getInstance().getElements(cyberdevices.stream().map(Perk::getId).toList()).stream()
+                .filter(cyberdevice -> !this.getSettings().isOnlyOfficialAllowed() || cyberdevice.isOfficial())
+                .toList();
     }
 
     public Affliction getAffliction() {
-        return affliction;
+        return this.affliction;
     }
 
     public void setAffliction(Affliction affliction) {
@@ -1750,54 +1755,54 @@ public class CharacterPlayer {
     }
 
     public boolean canUseCombatArmor() {
-        if (cacheManager.getCombatArmor() == null) {
-            cacheManager.setCombatArmor(hasCapability(Capability.COMBAT_ARMOR_CAPABILITY, (String) null));
+        if (this.cacheManager.getCombatArmor() == null) {
+          this.cacheManager.setCombatArmor(this.hasCapability(Capability.COMBAT_ARMOR_CAPABILITY, (String) null));
         }
-        return cacheManager.getCombatArmor();
+        return this.cacheManager.getCombatArmor();
     }
 
     public boolean canUseWarArmor() {
-        if (cacheManager.getWarArmor() == null) {
-            cacheManager.setWarArmor(hasCapability(Capability.WAR_ARMOR_CAPABILITY, (String) null));
+        if (this.cacheManager.getWarArmor() == null) {
+          this.cacheManager.setWarArmor(this.hasCapability(Capability.WAR_ARMOR_CAPABILITY, (String) null));
         }
-        return cacheManager.getWarArmor();
+        return this.cacheManager.getWarArmor();
     }
 
     public boolean canUseMilitaryWeapons() {
-        if (cacheManager.getMilitaryWeapons() == null) {
-            cacheManager.setMilitaryWeapons(hasCapability(Capability.MILITARY_WEAPONS_CAPABILITY, (String) null));
+        if (this.cacheManager.getMilitaryWeapons() == null) {
+          this.cacheManager.setMilitaryWeapons(this.hasCapability(Capability.MILITARY_WEAPONS_CAPABILITY, (String) null));
         }
-        return cacheManager.getMilitaryWeapons();
+        return this.cacheManager.getMilitaryWeapons();
     }
 
     public CacheManager getCacheManager() {
-        return cacheManager;
+        return this.cacheManager;
     }
 
 
     @Override
     public String toString() {
-        final String name = getCompleteNameRepresentation();
+        final String name = this.getCompleteNameRepresentation();
         return "CharacterPlayer{"
                 + (name != null && !name.isBlank() ? "name=" + name + ", " : "")
-                + "specie=" + specie
-                + ", upbringing=" + upbringing
-                + ", faction=" + faction
-                + ", calling=" + calling
-                + ", level=" + getLevel()
+                + "specie=" + this.specie
+                + ", upbringing=" + this.upbringing
+                + ", faction=" + this.faction
+                + ", calling=" + this.calling
+                + ", level=" + this.getLevel()
                 + '}';
     }
 
     public void setRaisedInSpace(boolean raisedInSpace) {
-        if (getUpbringing() != null) {
-            getUpbringing().setRaisedInSpace(raisedInSpace);
-            getCacheManager().reset();
+        if (this.getUpbringing() != null) {
+          this.getUpbringing().setRaisedInSpace(raisedInSpace);
+          this.getCacheManager().reset();
         }
     }
 
     public boolean isRaisedInSpace() {
-        if (getUpbringing() != null) {
-            return getUpbringing().isRaisedInSpace();
+        if (this.getUpbringing() != null) {
+            return this.getUpbringing().isRaisedInSpace();
         }
         return false;
     }

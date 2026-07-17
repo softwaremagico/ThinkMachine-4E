@@ -1,42 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
 <weapons>
-    <cestus>
-        <id>cestus</id>
-        <type>weapon</type>
-        <official>false</official>
-        <name>
-            <en>Cestus</en>
-            <es>Cestus</es>
-        </name>
-        <description>
-            <en>These metal knuckle covers give the wearer an edge in fist fights. Most are simple lumps of metal worn
-                over the knuckles, but some are ornate designs with hooks, poison jets, and spikes. The spiked ones are
-                especially popular among Bannockburn’s professional pugilists. The cestus adds to a characters unarmed
-                damage.
-            </en>
-            <es>Estos nudillos de metal conceden a su portador una ventaja en las peleas a puñetazos. La mayoría de los
-                Cestus son simples trozos de metal que se colocan en los nudillos, pero algunos Cestus son diseños
-                adornados con ganchos, inyectores de veneno, y pinchos. Los Cestus con pinchos son especialmente
-                populares entre los pugilistas profesionales de Bannockburn
-            </es>
-        </description>
-        <techLevel>1</techLevel>
-        <weaponType>MELEE</weaponType>
-        <damageList>
-            <weaponDamage>
-                <characteristic>dexterity</characteristic>
-                <skill>melee</skill>
-                <goal>0</goal>
-                <damage>2</damage>
-                <strength>1</strength>
-            </weaponDamage>
-        </damageList>
-        <size>XS</size>
-        <cost>1</cost>
-        <random>
-            <probabilityMultiplier>COMMON</probabilityMultiplier>
-        </random>
-    </cestus>
     <curvedSword>
         <id>curvedSword</id>
         <type>weapon</type>
@@ -58,7 +21,7 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>6</damage>
@@ -85,7 +48,7 @@
                 nunchaku. Metal flails and morning stars are the business versions of this weapon (DMG 5 for TL2+).
             </en>
             <es>Dos palos largos unidos por una cadena. Esta podría ser el arma medieval estándar o el nunchaku moderno.
-                Los Mayales con cuchillas metálicas y las Estrellas de la Mañana son las versiones comerciales de este
+                Los Mayales con cuchillas metálicas y las Estrellas de la Mañana son las versiones comerciales de esta
                 arma (Daño 5 en un NT2+).
             </es>
         </description>
@@ -93,14 +56,14 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>4</damage>
                 <strength>4</strength>
             </weaponDamage>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <damageTechLevel>2</damageTechLevel>
                 <goal>0</goal>
@@ -137,7 +100,7 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>1</goal>
                 <damage>7</damage>
@@ -154,6 +117,7 @@
     <saber>
         <id>saber</id>
         <type>weapon</type>
+        <group>militaryWeapons</group>
         <official>false</official>
         <name>
             <en>Saber</en>
@@ -175,7 +139,7 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>6</damage>
@@ -191,6 +155,7 @@
     <splinterSword>
         <id>splinterSword</id>
         <type>weapon</type>
+        <group>militaryWeapons</group>
         <official>false</official>
         <name>
             <en>Splinter Sword</en>
@@ -223,7 +188,7 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>5</damage>
@@ -258,14 +223,14 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>4</damage>
                 <strength>3</strength>
             </weaponDamage>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <damageTechLevel>1</damageTechLevel>
                 <goal>0</goal>
@@ -310,7 +275,7 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0/+3</goal>
                 <damage>3</damage>
@@ -327,6 +292,7 @@
     <twoHandedAxe>
         <id>twoHandedAxe</id>
         <type>weapon</type>
+        <group>militaryWeapons</group>
         <official>false</official>
         <name>
             <en>Two-Handed Axe</en>
@@ -354,14 +320,14 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>8</damage>
                 <strength>6</strength>
             </weaponDamage>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <damageTechLevel>2</damageTechLevel>
                 <goal>0</goal>
@@ -379,6 +345,7 @@
     <twoHandedSword>
         <id>twoHandedSword</id>
         <type>weapon</type>
+        <group>militaryWeapons</group>
         <official>false</official>
         <name>
             <en>Two-Handed Sword</en>
@@ -404,14 +371,14 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>8</damage>
                 <strength>6</strength>
             </weaponDamage>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <damageTechLevel>2</damageTechLevel>
                 <goal>0</goal>
@@ -429,6 +396,7 @@
     <warSword>
         <id>warSword</id>
         <type>weapon</type>
+        <group>militaryWeapons</group>
         <official>false</official>
         <name>
             <en>War Sword</en>
@@ -450,14 +418,14 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>0</goal>
                 <damage>6</damage>
                 <strength>4</strength>
             </weaponDamage>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <damageTechLevel>2</damageTechLevel>
                 <goal>0</goal>
@@ -495,7 +463,7 @@
         <weaponType>MELEE</weaponType>
         <damageList>
             <weaponDamage>
-                <characteristic>dexterity</characteristic>
+                <characteristic>strength</characteristic>
                 <skill>melee</skill>
                 <goal>–1</goal>
                 <damage>3</damage>
@@ -529,11 +497,11 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <weaponType>MELEE</weaponType>
+        <weaponType>THROWING</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>melee</skill>
+                <skill>vigor</skill>
                 <goal>+1</goal>
                 <damage>1</damage>
                 <strength>1</strength>
@@ -547,7 +515,7 @@
                     <es>Sin alas</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>melee</skill>
+                <skill>vigor</skill>
                 <goal>0</goal>
                 <damage>1</damage>
                 <strength>1</strength>
@@ -582,11 +550,11 @@
             </es>
         </description>
         <techLevel>0</techLevel>
-        <weaponType>MELEE</weaponType>
+        <weaponType>THROWING</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>melee</skill>
+                <skill>vigor</skill>
                 <goal>0</goal>
                 <damage>3</damage>
                 <strength>3</strength>
@@ -596,7 +564,7 @@
             </weaponDamage>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>melee</skill>
+                <skill>vigor</skill>
                 <damageTechLevel>1</damageTechLevel>
                 <goal>0</goal>
                 <damage>4</damage>
@@ -629,7 +597,7 @@
             </es>
         </description>
         <techLevel>0</techLevel>
-        <weaponType>MELEE</weaponType>
+        <weaponType>THROWING</weaponType>
         <damageList>
             <weaponDamage>
                 <damageName>
@@ -637,7 +605,7 @@
                     <es>Ligera</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>melee</skill>
+                <skill>vigor</skill>
                 <goal>0</goal>
                 <damage>1</damage>
                 <strength>1</strength>
@@ -652,7 +620,7 @@
                     <es>Media</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>melee</skill>
+                <skill>vigor</skill>
                 <goal>0</goal>
                 <damage>2</damage>
                 <strength>2</strength>
@@ -667,7 +635,7 @@
                     <es>Pesada</es>
                 </damageName>
                 <characteristic>dexterity</characteristic>
-                <skill>melee</skill>
+                <skill>vigor</skill>
                 <goal>0</goal>
                 <damage>4</damage>
                 <strength>3</strength>
@@ -681,8 +649,8 @@
                     <en>Large</en>
                     <es>Grande</es>
                 </damageName>
-                <characteristic>dexterity</characteristic>
-                <skill>melee</skill>
+                <characteristic>strength</characteristic>
+                <skill>vigor</skill>
                 <goal>-1</goal>
                 <damage>6</damage>
                 <strength>5</strength>
@@ -696,8 +664,8 @@
                     <en>Huge</en>
                     <es>Enorme</es>
                 </damageName>
-                <characteristic>dexterity</characteristic>
-                <skill>melee</skill>
+                <characteristic>strength</characteristic>
+                <skill>vigor</skill>
                 <goal>-1</goal>
                 <damage>8</damage>
                 <strength>5</strength>
@@ -730,11 +698,11 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <weaponType>MELEE</weaponType>
+        <weaponType>THROWING</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>melee</skill>
+                <skill>vigor</skill>
                 <goal>-1</goal>
                 <damage>1</damage>
                 <strength>1</strength>
@@ -744,7 +712,7 @@
             </weaponDamage>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>melee</skill>
+                <skill>vigor</skill>
                 <damageTechLevel>2</damageTechLevel>
                 <goal>-1</goal>
                 <damage>2</damage>
@@ -778,11 +746,11 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <weaponType>MELEE</weaponType>
+        <weaponType>THROWING</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>melee</skill>
+                <skill>vigor</skill>
                 <goal>0</goal>
                 <damage>4</damage>
                 <strength>3</strength>
@@ -792,7 +760,7 @@
             </weaponDamage>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>melee</skill>
+                <skill>vigor</skill>
                 <damageTechLevel>2</damageTechLevel>
                 <goal>0</goal>
                 <damage>3</damage>
@@ -829,11 +797,11 @@
             </es>
         </description>
         <techLevel>1</techLevel>
-        <weaponType>MELEE</weaponType>
+        <weaponType>THROWING</weaponType>
         <damageList>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>melee</skill>
+                <skill>vigor</skill>
                 <goal>0</goal>
                 <damage>3</damage>
                 <strength>2</strength>
@@ -843,7 +811,7 @@
             </weaponDamage>
             <weaponDamage>
                 <characteristic>dexterity</characteristic>
-                <skill>melee</skill>
+                <skill>vigor</skill>
                 <damageTechLevel>2</damageTechLevel>
                 <goal>0</goal>
                 <damage>2</damage>
