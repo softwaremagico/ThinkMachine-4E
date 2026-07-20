@@ -80,7 +80,7 @@ public class CapabilityOptions extends OptionSelector<Capability, CapabilityOpti
     }
 
     private boolean isEmptyOptions() {
-        LinkedHashSet<CapabilityOption> options = super.getOptions();
+        final LinkedHashSet<CapabilityOption> options = super.getOptions();
         return options == null || options.isEmpty();
     }
 

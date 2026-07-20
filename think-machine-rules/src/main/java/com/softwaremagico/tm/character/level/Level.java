@@ -58,12 +58,12 @@ public class Level extends CharacterDefinitionStep {
     public Level(CharacterPlayer characterPlayer, int index) {
         this.characterPlayer = characterPlayer;
         this.index = index;
-        setId("Level" + index);
-        setName(new TranslatedText("Level" + index));
+        this.setId("Level" + index);
+        this.setName(new TranslatedText("Level" + index));
     }
 
     public int getIndex() {
-        return index;
+        return this.index;
     }
 
     public void setIndex(int index) {
@@ -71,7 +71,7 @@ public class Level extends CharacterDefinitionStep {
     }
 
     private CharacterPlayer getCharacterPlayer() {
-        return characterPlayer;
+        return this.characterPlayer;
     }
 
     private int getExtraCapabilities() {
@@ -79,14 +79,14 @@ public class Level extends CharacterDefinitionStep {
     }
 
     private int getExtraCharacteristics() {
-        if (index % 2 == 0) {
+        if (this.index % 2 == 0) {
             return 2;
         }
         return 1;
     }
 
     private int getExtraClassPerks() {
-        if (index % 2 == 0) {
+        if (this.index % 2 == 0) {
             return 0;
         }
         return 1;
@@ -101,14 +101,14 @@ public class Level extends CharacterDefinitionStep {
     }
 
     public int getExtraRevivalNumber() {
-        if ((index - 1) % THREE == 0) {
+        if ((this.index - 1) % THREE == 0) {
             return 0;
         }
         return 1;
     }
 
     public int getExtraSkillsPoints() {
-        if (index % 2 == 0) {
+        if (this.index % 2 == 0) {
             return THREE;
         }
         return 2;
@@ -119,7 +119,7 @@ public class Level extends CharacterDefinitionStep {
     }
 
     public int getExtraSurgeNumber() {
-        if ((index - 1) % THREE == 0) {
+        if ((this.index - 1) % THREE == 0) {
             return 0;
         }
         return 1;
@@ -130,7 +130,7 @@ public class Level extends CharacterDefinitionStep {
     }
 
     public int getExtraVPBank() {
-        if (index % 2 == 0) {
+        if (this.index % 2 == 0) {
             return FIVE;
         }
         return 0;
@@ -139,7 +139,7 @@ public class Level extends CharacterDefinitionStep {
     @Override
     public List<CharacteristicBonusOptions> getCharacteristicOptions() {
         final List<CharacteristicBonusOptions> characteristics = new ArrayList<>();
-        for (int i = 0; i < getExtraCharacteristics(); i++) {
+        for (int i = 0; i < this.getExtraCharacteristics(); i++) {
             final CharacteristicBonusOptions characteristicBonusOptions = new CharacteristicBonusOptions();
             characteristicBonusOptions.setTotalOptions(1);
             characteristics.add(characteristicBonusOptions);
@@ -150,7 +150,7 @@ public class Level extends CharacterDefinitionStep {
     @Override
     public List<SkillBonusOptions> getSkillOptions() {
         final List<SkillBonusOptions> skills = new ArrayList<>();
-        for (int i = 0; i < getExtraSkillsPoints(); i++) {
+        for (int i = 0; i < this.getExtraSkillsPoints(); i++) {
             final SkillBonusOptions skillBonusOptions = new SkillBonusOptions();
             skillBonusOptions.setTotalOptions(1);
             skills.add(skillBonusOptions);
@@ -164,28 +164,31 @@ public class Level extends CharacterDefinitionStep {
     }
 
     public Set<PerkOption> getClassPerksOptions() {
-        if (getTotalClassPerksOptions() == 0) {
+        if (this.getTotalClassPerksOptions() == 0) {
             return new HashSet<>();
         }
-        final Set<PerkOption> classPerks = PerkFactory.getInstance().getBySource(PerkSource.CLASS).stream().map(PerkOption::new).collect(Collectors.toSet());
-        if (getCharacterPlayer().isFavoredCalling(getIndex())) {
-            //Set privilege calling perks. But already taken must be filtered.
-            classPerks.addAll(getCallingPerksOptions().stream()
-                    .filter(p -> p.getElement() != null && p.getElement().getType() == PerkType.PRIVILEGE
-                    ).collect(Collectors.toList()));
+        final Set<PerkOption> classPerks = PerkFactory.getInstance().getBySource(PerkSource.CLASS).stream()
+                .map(PerkOption::new).collect(Collectors.toSet());
+        if (this.getCharacterPlayer().isFavoredCalling(this.getIndex())) {
+            // Set privilege calling perks. But already taken must be filtered.
+            classPerks.addAll(this.getCallingPerksOptions().stream()
+                    .filter(p -> p.getElement() != null && p.getElement().getType() == PerkType.PRIVILEGE).toList());
         }
-        return classPerks.stream().filter(perkOption -> !perkOption.getRestrictions().isRestricted(getCharacterPlayer())).collect(Collectors.toSet());
+        return classPerks.stream()
+                .filter(perkOption -> !perkOption.getRestrictions().isRestricted(this.getCharacterPlayer()))
+                .collect(Collectors.toSet());
     }
 
     public List<CharacterPerkOptions> getAvailableSelections(boolean addPerksIfEmpty) {
-        if (getCharacterPlayer().getUpbringing() == null) {
+        if (this.getCharacterPlayer().getUpbringing() == null) {
             return new ArrayList<>();
         }
-        final List<CharacterPerkOptions> perks = getCharacterPlayer().getUpbringing().getNotSelectedPerksOptions(addPerksIfEmpty);
-        if (getCharacterPlayer().isFavoredCalling(getIndex())) {
-            final Set<SpecializedPerk> favouredOptions = getFavouredPerksOptions();
-            for (CharacterPerkOptions characterPerkOptions : perks) {
-                //Set privilege calling perks. But already taken must be filtered.
+        final List<CharacterPerkOptions> perks = this.getCharacterPlayer().getUpbringing()
+                .getNotSelectedPerksOptions(addPerksIfEmpty);
+        if (this.getCharacterPlayer().isFavoredCalling(this.getIndex())) {
+            final Set<SpecializedPerk> favouredOptions = this.getFavouredPerksOptions();
+            for (final CharacterPerkOptions characterPerkOptions : perks) {
+                // Set privilege calling perks. But already taken must be filtered.
                 favouredOptions.forEach(p -> characterPerkOptions.getAvailableSelections().add(new Selection(p)));
             }
         }
@@ -193,49 +196,49 @@ public class Level extends CharacterDefinitionStep {
     }
 
     public Set<SpecializedPerk> getFavouredPerksOptions() {
-        if (getCharacterPlayer().isFavoredCalling(getIndex())) {
-            //Get privilege perks.
-            final Set<SpecializedPerk> selectedPerks = getCharacterPlayer().getPerks(getIndex() - 1);
-            final Set<SpecializedPerk> favouredPerks = SpecializedPerk.create(PerkFactory.getInstance().getClassPrivilegePerks().stream().filter(perk ->
-                    !perk.getRestrictions().isRestricted(getCharacterPlayer())
-            ).collect(Collectors.toSet()));
+        if (this.getCharacterPlayer().isFavoredCalling(this.getIndex())) {
+            // Get privilege perks.
+            final Set<SpecializedPerk> selectedPerks = this.getCharacterPlayer().getPerks(this.getIndex() - 1);
+            final Set<SpecializedPerk> favouredPerks = SpecializedPerk
+                    .create(PerkFactory.getInstance().getClassPrivilegePerks().stream()
+                            .filter(perk -> !perk.getRestrictions().isRestricted(this.getCharacterPlayer()))
+                            .collect(Collectors.toSet()));
             selectedPerks.forEach(favouredPerks::remove);
-            favouredPerks.removeIf(s -> s.getRestrictions().isRestricted(getCharacterPlayer()));
+            favouredPerks.removeIf(s -> s.getRestrictions().isRestricted(this.getCharacterPlayer()));
             return favouredPerks;
         }
         return new HashSet<>();
     }
 
     public Set<Selection> getFavouredSelections() {
-        if (getCharacterPlayer().isFavoredCalling(getIndex())) {
-            //Get privilege perks.
-            final Set<SpecializedPerk> selectedPerks = getCharacterPlayer().getPerks(getIndex() - 1);
-            final Set<Selection> favouredPerks = PerkFactory.getInstance().getClassPrivilegeSelections().stream().filter(perk ->
-                    !perk.getRestrictions().isRestricted(getCharacterPlayer())
-            ).collect(Collectors.toSet());
+        if (this.getCharacterPlayer().isFavoredCalling(this.getIndex())) {
+            // Get privilege perks.
+            final Set<SpecializedPerk> selectedPerks = this.getCharacterPlayer().getPerks(this.getIndex() - 1);
+            final Set<Selection> favouredPerks = PerkFactory.getInstance().getClassPrivilegeSelections().stream()
+                    .filter(perk -> !perk.getRestrictions().isRestricted(this.getCharacterPlayer()))
+                    .collect(Collectors.toSet());
             selectedPerks.forEach(s -> favouredPerks.remove(new Selection(s)));
-            favouredPerks.removeIf(s -> s.getRestrictions().isRestricted(getCharacterPlayer()));
+            favouredPerks.removeIf(s -> s.getRestrictions().isRestricted(this.getCharacterPlayer()));
             return favouredPerks;
         }
         return new HashSet<>();
     }
 
     public Set<PerkOption> getCallingPerksOptions() {
-        if (getTotalCallingPerksOptions() == 0) {
+        if (this.getTotalCallingPerksOptions() == 0) {
             return new HashSet<>();
         }
-        final CallingCharacterDefinitionStepSelection levelCalling = getCharacterPlayer().getCallingAtLevel(getIndex());
+        final CallingCharacterDefinitionStepSelection levelCalling = this.getCharacterPlayer().getCallingAtLevel(this.getIndex());
         if (levelCalling == null) {
             return new HashSet<>();
         }
         return levelCalling.getNotSelectedPerksOptions(true).stream()
-                .flatMap(perkOptions -> perkOptions.getOptions().stream())
-                .collect(Collectors.toSet());
+                .flatMap(perkOptions -> perkOptions.getOptions().stream()).collect(Collectors.toSet());
     }
 
     public List<CharacterPerkOptions> getNotRepeatedCallingPerksOptions() {
-        final CallingCharacterDefinitionStepSelection levelCalling = getCharacterPlayer().getCallingAtLevel(getIndex());
-        if (levelCalling == null || getTotalCallingPerksOptions() == 0) {
+        final CallingCharacterDefinitionStepSelection levelCalling = this.getCharacterPlayer().getCallingAtLevel(this.getIndex());
+        if (levelCalling == null || this.getTotalCallingPerksOptions() == 0) {
             return new ArrayList<>();
         }
         return levelCalling.getNotSelectedPerksOptions(true);
@@ -244,7 +247,7 @@ public class Level extends CharacterDefinitionStep {
     @Override
     public List<CapabilityOptions> getCapabilityOptions() {
         final List<CapabilityOptions> capabilities = new ArrayList<>();
-        for (int i = 0; i < getExtraCapabilities(); i++) {
+        for (int i = 0; i < this.getExtraCapabilities(); i++) {
             final CapabilityOptions capabilityOptions = new CapabilityOptions();
             capabilityOptions.setTotalOptions(1);
             capabilities.add(capabilityOptions);
@@ -259,29 +262,29 @@ public class Level extends CharacterDefinitionStep {
 
     @Override
     public int getCharacteristicsTotalPoints() {
-        return getExtraCharacteristics();
+        return this.getExtraCharacteristics();
     }
 
     @Override
     public int getSkillsTotalPoints() {
-        return getExtraSkillsPoints();
+        return this.getExtraSkillsPoints();
     }
 
     @Override
     public int getTotalPerksOptions() {
-        return getTotalCallingPerksOptions() + getTotalClassPerksOptions();
+        return this.getTotalCallingPerksOptions() + this.getTotalClassPerksOptions();
     }
 
     public int getTotalClassPerksOptions() {
-        return getExtraClassPerks();
+        return this.getExtraClassPerks();
     }
 
     public int getTotalCallingPerksOptions() {
-        return getExtraCallingPerks();
+        return this.getExtraCallingPerks();
     }
 
     @Override
     public int getTotalCapabilitiesOptions() {
-        return getExtraCapabilities();
+        return this.getExtraCapabilities();
     }
 }

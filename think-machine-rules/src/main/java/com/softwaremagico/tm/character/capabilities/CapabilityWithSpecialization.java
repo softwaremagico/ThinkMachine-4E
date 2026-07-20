@@ -34,14 +34,14 @@ import java.util.List;
 
 public class CapabilityWithSpecialization extends Capability implements IComparable {
     private Specialization specialization;
-    private transient String comparisonId;
+    private String comparisonId;
 
     public CapabilityWithSpecialization() {
         super();
     }
 
     public Specialization getSpecialization() {
-        return specialization;
+        return this.specialization;
     }
 
     public void setSpecialization(Specialization specialization) {
@@ -55,7 +55,7 @@ public class CapabilityWithSpecialization extends Capability implements ICompara
 
     @Override
     public void setSpecializations(List<Specialization> specializations) {
-        //Do nothing
+        // Do nothing
     }
 
     public static CapabilityWithSpecialization from(Selection selection) {
@@ -64,24 +64,28 @@ public class CapabilityWithSpecialization extends Capability implements ICompara
         capabilityWithSpecialization.copy(capability);
         capabilityWithSpecialization.setSpecializations(null);
         if (selection.getSpecialization() != null) {
-            capabilityWithSpecialization.setSpecialization(capability.getSpecialization(selection.getSpecialization().getId()));
+            capabilityWithSpecialization
+                    .setSpecialization(capability.getSpecialization(selection.getSpecialization().getId()));
         }
         return capabilityWithSpecialization;
     }
 
     @Override
     public String getNameRepresentation() {
-        if (getName() != null) {
-            return getName().getTranslatedText() + (getSpecialization() != null ? " (" + getSpecialization().getNameRepresentation() + ")" : "");
+        if (this.getName() != null) {
+            return this.getName().getTranslatedText() + (this.getSpecialization() != null
+                    ? " (" + this.getSpecialization().getNameRepresentation() + ")"
+                    : "");
         }
         return "";
     }
 
     @Override
     public String getComparisonId() {
-        if (comparisonId == null) {
-            comparisonId = ComparableUtils.getComparisonId(getId(), getSpecialization() != null ? getSpecialization().getId() : null);
+        if (this.comparisonId == null) {
+            this.comparisonId = ComparableUtils.getComparisonId(this.getId(),
+                    this.getSpecialization() != null ? this.getSpecialization().getId() : null);
         }
-        return comparisonId;
+        return this.comparisonId;
     }
 }

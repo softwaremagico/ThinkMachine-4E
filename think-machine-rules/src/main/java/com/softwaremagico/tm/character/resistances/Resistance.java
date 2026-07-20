@@ -73,7 +73,7 @@ public class Resistance {
     }
 
     public ResistanceType getType() {
-        return type;
+        return this.type;
     }
 
     public void setType(ResistanceType type) {
@@ -81,7 +81,7 @@ public class Resistance {
     }
 
     public ResistanceCategory getCategory() {
-        return category;
+        return this.category;
     }
 
     public void setCategory(ResistanceCategory category) {
@@ -89,7 +89,7 @@ public class Resistance {
     }
 
     public int getBonus() {
-        return bonus;
+        return this.bonus;
     }
 
     public void setBonus(int bonus) {
@@ -97,7 +97,8 @@ public class Resistance {
     }
 
     public static int getBonus(ResistanceType type, Element element) {
-        return element.getResistances().stream().filter(r -> Objects.equals(r.getType(), type)).mapToInt(Resistance::getBonus).sum();
+        return element.getResistances().stream().filter(r -> Objects.equals(r.getType(), type))
+                .mapToInt(Resistance::getBonus).sum();
     }
 
     public static int getBonus(ResistanceType type, CharacterPlayer player) {
@@ -106,70 +107,78 @@ public class Resistance {
         if (resistancesByCategory == null) {
             return bonus;
         }
-        //Abilities do not combine.
+        // Abilities do not combine.
         if (resistancesByCategory.get(ResistanceCategory.ABILITY) != null) {
-            bonus += resistancesByCategory.get(ResistanceCategory.ABILITY).stream().max(Comparator.comparing(Resistance::getBonus))
-                    .orElse(new Resistance()).getBonus();
+            bonus += resistancesByCategory.get(ResistanceCategory.ABILITY).stream()
+                    .max(Comparator.comparing(Resistance::getBonus)).orElse(new Resistance()).getBonus();
         }
-        //Austerities do not combine.
+        // Austerities do not combine.
         if (resistancesByCategory.get(ResistanceCategory.AUSTERITY) != null) {
-            bonus += resistancesByCategory.get(ResistanceCategory.AUSTERITY).stream().max(Comparator.comparing(Resistance::getBonus))
-                    .orElse(new Resistance()).getBonus();
+            bonus += resistancesByCategory.get(ResistanceCategory.AUSTERITY).stream()
+                    .max(Comparator.comparing(Resistance::getBonus)).orElse(new Resistance()).getBonus();
         }
-        //Cyberdevices do not combine.
+        // Cyberdevices do not combine.
         if (resistancesByCategory.get(ResistanceCategory.CYBER_DEVICE) != null) {
-            bonus += resistancesByCategory.get(ResistanceCategory.CYBER_DEVICE).stream().max(Comparator.comparing(Resistance::getBonus))
-                    .orElse(new Resistance()).getBonus();
+            bonus += resistancesByCategory.get(ResistanceCategory.CYBER_DEVICE).stream()
+                    .max(Comparator.comparing(Resistance::getBonus)).orElse(new Resistance()).getBonus();
         }
-        //Privileges combine.
+        // Privileges combine.
         if (resistancesByCategory.get(ResistanceCategory.PRIVILEGE) != null) {
-            bonus += resistancesByCategory.get(ResistanceCategory.PRIVILEGE).stream().mapToInt(Resistance::getBonus).sum();
+            bonus += resistancesByCategory.get(ResistanceCategory.PRIVILEGE).stream().mapToInt(Resistance::getBonus)
+                    .sum();
         }
-        //Species combine.
+        // Species combine.
         if (resistancesByCategory.get(ResistanceCategory.SPECIE) != null) {
             bonus += resistancesByCategory.get(ResistanceCategory.SPECIE).stream().mapToInt(Resistance::getBonus).sum();
         }
-        //Items not combine.
+        // Items not combine.
         if (resistancesByCategory.get(ResistanceCategory.ITEM) != null) {
-            bonus += resistancesByCategory.get(ResistanceCategory.ITEM).stream().max(Comparator.comparing(Resistance::getBonus))
-                    .orElse(new Resistance()).getBonus();
+            bonus += resistancesByCategory.get(ResistanceCategory.ITEM).stream()
+                    .max(Comparator.comparing(Resistance::getBonus)).orElse(new Resistance()).getBonus();
         }
-        //Handhandled Shields are extras.
+        // Handhandled Shields are extras.
         if (resistancesByCategory.get(ResistanceCategory.HANDHELD_SHIELD) != null) {
-            bonus += resistancesByCategory.get(ResistanceCategory.HANDHELD_SHIELD).stream().max(Comparator.comparing(Resistance::getBonus))
-                    .orElse(new Resistance()).getBonus();
+            bonus += resistancesByCategory.get(ResistanceCategory.HANDHELD_SHIELD).stream()
+                    .max(Comparator.comparing(Resistance::getBonus)).orElse(new Resistance()).getBonus();
         }
         return bonus;
     }
 
-    public static Map<ResistanceType, Map<ResistanceCategory, List<Resistance>>> groupResistances(CharacterPlayer characterPlayer) {
-        final Map<ResistanceType, Map<ResistanceCategory, List<Resistance>>> resistancesByType = new EnumMap<>(ResistanceType.class);
+    public static Map<ResistanceType, Map<ResistanceCategory, List<Resistance>>> groupResistances(
+            CharacterPlayer characterPlayer) {
+        final Map<ResistanceType, Map<ResistanceCategory, List<Resistance>>> resistancesByType = new EnumMap<>(
+                ResistanceType.class);
         if (characterPlayer.getSpecie() != null) {
             populateResistanceFromOptions(characterPlayer.getSpecie(), SpecieFactory.getInstance(), resistancesByType);
         }
         if (characterPlayer.getUpbringing() != null) {
-            populateResistanceFromOptions(characterPlayer.getUpbringing(), UpbringingFactory.getInstance(), resistancesByType);
+            populateResistanceFromOptions(characterPlayer.getUpbringing(), UpbringingFactory.getInstance(),
+                    resistancesByType);
         }
         if (characterPlayer.getFaction() != null) {
-            populateResistanceFromOptions(characterPlayer.getFaction(), FactionFactory.getInstance(), resistancesByType);
+            populateResistanceFromOptions(characterPlayer.getFaction(), FactionFactory.getInstance(),
+                    resistancesByType);
         }
         if (characterPlayer.getCalling() != null) {
-            populateResistanceFromOptions(characterPlayer.getCalling(), CallingFactory.getInstance(), resistancesByType);
+            populateResistanceFromOptions(characterPlayer.getCalling(), CallingFactory.getInstance(),
+                    resistancesByType);
         }
         if (characterPlayer.getBestArmor() != null) {
             characterPlayer.getBestArmor().getResistances().forEach(resistance -> {
                 resistancesByType.computeIfAbsent(resistance.getType(), k -> new EnumMap<>(ResistanceCategory.class));
-                resistancesByType.get(resistance.getType()).computeIfAbsent(resistance.getCategory(), k -> new ArrayList<>()).add(resistance);
+                resistancesByType.get(resistance.getType())
+                        .computeIfAbsent(resistance.getCategory(), k -> new ArrayList<>()).add(resistance);
             });
         }
         if (characterPlayer.getBestHandHandledShield() != null) {
             characterPlayer.getBestHandHandledShield().getResistances().forEach(resistance -> {
                 resistancesByType.computeIfAbsent(resistance.getType(), k -> new EnumMap<>(ResistanceCategory.class));
-                resistancesByType.get(resistance.getType()).computeIfAbsent(resistance.getCategory(), k -> new ArrayList<>()).add(resistance);
+                resistancesByType.get(resistance.getType())
+                        .computeIfAbsent(resistance.getCategory(), k -> new ArrayList<>()).add(resistance);
             });
         }
 
-        for (LevelSelector level : characterPlayer.getLevels()) {
+        for (final LevelSelector level : characterPlayer.getLevels()) {
             populateResistanceFromOptions(level, null, resistancesByType);
         }
 
@@ -177,77 +186,86 @@ public class Resistance {
     }
 
     private static void populateResistanceFromOptions(CharacterDefinitionStepSelection characterDefinitionStepSelection,
-                                                      XmlFactory<?> xmlFactory,
-                                                      Map<ResistanceType, Map<ResistanceCategory, List<Resistance>>> resistancesByCategory) {
+            XmlFactory<?> xmlFactory,
+            Map<ResistanceType, Map<ResistanceCategory, List<Resistance>>> resistancesByCategory) {
         if (xmlFactory != null) {
-            //Basic resistances
+            // Basic resistances
             xmlFactory.getElement(characterDefinitionStepSelection.getId()).getResistances().forEach(resistance -> {
-                resistancesByCategory.computeIfAbsent(resistance.getType(), k -> new EnumMap<>(ResistanceCategory.class));
-                resistancesByCategory.get(resistance.getType()).computeIfAbsent(resistance.getCategory(), k -> new ArrayList<>()).add(resistance);
+                resistancesByCategory.computeIfAbsent(resistance.getType(),
+                        k -> new EnumMap<>(ResistanceCategory.class));
+                resistancesByCategory.get(resistance.getType())
+                        .computeIfAbsent(resistance.getCategory(), k -> new ArrayList<>()).add(resistance);
             });
         }
-        //Resistances based on selections.
+        // Resistances based on selections.
         getResistanceFromOptions(characterDefinitionStepSelection).forEach(resistance -> {
             resistancesByCategory.computeIfAbsent(resistance.getType(), k -> new EnumMap<>(ResistanceCategory.class));
-            resistancesByCategory.get(resistance.getType()).computeIfAbsent(resistance.getCategory(), k -> new ArrayList<>()).add(resistance);
+            resistancesByCategory.get(resistance.getType())
+                    .computeIfAbsent(resistance.getCategory(), k -> new ArrayList<>()).add(resistance);
         });
     }
 
-    private static List<Resistance> getResistanceFromOptions(CharacterDefinitionStepSelection characterDefinitionStepSelection) {
+    private static List<Resistance> getResistanceFromOptions(
+            CharacterDefinitionStepSelection characterDefinitionStepSelection) {
         if (characterDefinitionStepSelection == null) {
             return new ArrayList<>();
         }
         final List<Resistance> resistances = new ArrayList<>();
 
-        characterDefinitionStepSelection.getSelectedCapabilityOptions().forEach(element ->
-                element.getSelections().forEach(selection ->
-                        resistances.addAll(CapabilityFactory.getInstance().getElement(selection.getId()).getResistances())));
+        characterDefinitionStepSelection.getSelectedCapabilityOptions()
+                .forEach(element -> element.getSelections().forEach(selection -> resistances
+                        .addAll(CapabilityFactory.getInstance().getElement(selection.getId()).getResistances())));
 
-        characterDefinitionStepSelection.getSelectedCharacteristicOptions().forEach(element ->
-                element.getSelections().forEach(selection ->
-                        resistances.addAll(CharacteristicsDefinitionFactory.getInstance().getElement(selection.getId()).getResistances())));
+        characterDefinitionStepSelection.getSelectedCharacteristicOptions()
+                .forEach(element -> element.getSelections()
+                        .forEach(selection -> resistances.addAll(CharacteristicsDefinitionFactory.getInstance()
+                                .getElement(selection.getId()).getResistances())));
 
-        characterDefinitionStepSelection.getSelectedSkillOptions().forEach(element ->
-                element.getSelections().forEach(selection ->
-                        resistances.addAll(SkillFactory.getInstance().getElement(selection.getId()).getResistances())));
+        characterDefinitionStepSelection.getSelectedSkillOptions()
+                .forEach(element -> element.getSelections().forEach(selection -> resistances
+                        .addAll(SkillFactory.getInstance().getElement(selection.getId()).getResistances())));
 
-        characterDefinitionStepSelection.getSelectedPerksOptions().forEach(element ->
-                element.getSelections().forEach(selection ->
-                        resistances.addAll(PerkFactory.getInstance().getElement(selection.getId()).getResistances())));
+        characterDefinitionStepSelection.getSelectedPerksOptions()
+                .forEach(element -> element.getSelections().forEach(selection -> resistances
+                        .addAll(PerkFactory.getInstance().getElement(selection.getId()).getResistances())));
 
-        characterDefinitionStepSelection.getSelectedMaterialAwards().forEach(element ->
-                element.getSelections().forEach(selection -> {
+        characterDefinitionStepSelection.getSelectedMaterialAwards()
+                .forEach(element -> element.getSelections().forEach(selection -> {
                     if (!element.getRemoved().contains(selection)) {
-                        //Armors are ignored, as selecting best later.
+                        // Armors are ignored, as selecting best later.
                         try {
-                            resistances.addAll(WeaponFactory.getInstance().getElement(selection.getId()).getResistances());
+                            resistances
+                                    .addAll(WeaponFactory.getInstance().getElement(selection.getId()).getResistances());
                             return;
-                        } catch (InvalidXmlElementException ignored) {
-
+                        } catch (final InvalidXmlElementException ignored) {
+                            // It is not this kind of resistance
                         }
                         try {
-                            resistances.addAll(ItemFactory.getInstance().getElement(selection.getId()).getResistances());
+                            resistances
+                                    .addAll(ItemFactory.getInstance().getElement(selection.getId()).getResistances());
                             return;
-                        } catch (InvalidXmlElementException ignored) {
-
+                        } catch (final InvalidXmlElementException ignored) {
+                            // It is not this kind of resistance
                         }
                         try {
-                            resistances.addAll(ShieldFactory.getInstance().getElement(selection.getId()).getResistances());
+                            resistances
+                                    .addAll(ShieldFactory.getInstance().getElement(selection.getId()).getResistances());
                             return;
-                        } catch (InvalidXmlElementException ignored) {
-
+                        } catch (final InvalidXmlElementException ignored) {
+                            // It is not this kind of resistance
                         }
                         try {
-                            resistances.addAll(HandheldShieldFactory.getInstance().getElement(selection.getId()).getResistances());
+                            resistances.addAll(
+                                    HandheldShieldFactory.getInstance().getElement(selection.getId()).getResistances());
                             return;
-                        } catch (InvalidXmlElementException ignored) {
-
+                        } catch (final InvalidXmlElementException ignored) {
+                            // It is not this kind of resistance
                         }
                         try {
-                            resistances.addAll(ThinkMachineFactory.getInstance().getElement(selection.getId()).getResistances());
-                            return;
-                        } catch (InvalidXmlElementException ignored) {
-
+                            resistances.addAll(
+                                    ThinkMachineFactory.getInstance().getElement(selection.getId()).getResistances());
+                        } catch (final InvalidXmlElementException ignored) {
+                            // It is not this kind of resistance
                         }
                     }
                 }));

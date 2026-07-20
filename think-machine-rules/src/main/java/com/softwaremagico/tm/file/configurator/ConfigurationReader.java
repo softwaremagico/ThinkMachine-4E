@@ -30,6 +30,7 @@ import com.softwaremagico.tm.log.ConfigurationLog;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -39,225 +40,225 @@ import java.util.Properties;
 import java.util.Set;
 
 public abstract class ConfigurationReader {
-	private static final String VALUES_SEPARATOR_REGEX = " *, *";
-	private static final char PREFIX_SEPARATOR_CHAR = '.';
-	private final Map<Class<?>, IValueConverter<?>> converter;
-	private final Map<String, String> propertiesDefault;
-	private final Map<String, String> propertiesFinalValue;
-	private final List<IPropertiesSource> propertiesSources;
-	private final Set<PropertyChangedListener> propertyChangedListeners;
-	private final Map<IPropertiesSource, Map<String, String>> propertiesBySourceValues;
+    private static final char PREFIX_SEPARATOR_CHAR = '.';
+    private static final String PROPERTY_LOG_PREFIX = "Property '";
 
-	protected ConfigurationReader() {
-		this.converter = new HashMap<>();
-		this.propertiesDefault = new HashMap<>();
-		this.propertiesFinalValue = new HashMap<>();
-		this.propertiesSources = new ArrayList<>();
-		this.propertyChangedListeners = new HashSet<>();
-		this.propertiesBySourceValues = new HashMap<>();
+    private final Map<Class<?>, IValueConverter<?>> converter;
+    private final Map<String, String> propertiesDefault;
+    private final Map<String, String> propertiesFinalValue;
+    private final List<IPropertiesSource> propertiesSources;
+    private final Set<PropertyChangedListener> propertyChangedListeners;
+    private final Map<IPropertiesSource, Map<String, String>> propertiesBySourceValues;
 
-		this.addConverter(Boolean.class, new BooleanValueConverter());
-		this.addConverter(Integer.class, new IntegerValueConverter());
-		this.addConverter(Double.class, new DoubleValueConverter());
+    protected ConfigurationReader() {
+        this.converter = new HashMap<>();
+        this.propertiesDefault = new HashMap<>();
+        this.propertiesFinalValue = new HashMap<>();
+        this.propertiesSources = new ArrayList<>();
+        this.propertyChangedListeners = new HashSet<>();
+        this.propertiesBySourceValues = new HashMap<>();
 
-		// Log if any property has changed the value.
-		this.addPropertyChangedListener(new PropertyChangedListener() {
+        this.addConverter(Boolean.class, new BooleanValueConverter());
+        this.addConverter(Integer.class, new IntegerValueConverter());
+        this.addConverter(Double.class, new DoubleValueConverter());
 
-			@Override
-			public void propertyChanged(String propertyId, String oldValue, String newValue) {
-				ConfigurationLog.info(this.getClass().getName(), "Property '" + propertyId
-						+ "' has changed value from '" + oldValue + "' to '" + newValue + "'.");
-			}
-		});
-	}
+        // Log if any property has changed the value.
+        this.addPropertyChangedListener(new PropertyChangedListener() {
 
-	public interface PropertyChangedListener {
-		void propertyChanged(String propertyId, String oldValue, String newValue);
-	}
+            @Override
+            public void propertyChanged(String propertyId, String oldValue, String newValue) {
+                ConfigurationLog.info(this.getClass().getName(), PROPERTY_LOG_PREFIX + propertyId
+                        + "' has changed value from '" + oldValue + "' to '" + newValue + "'.");
+            }
+        });
+    }
 
-	public <T> void addConverter(Class<T> clazz, IValueConverter<T> valueConverter) {
-		this.converter.put(clazz, valueConverter);
-	}
+    public interface PropertyChangedListener {
+        void propertyChanged(String propertyId, String oldValue, String newValue);
+    }
 
-	@SuppressWarnings("unchecked")
-	public <T> IValueConverter<T> getConverter(Class<T> clazz) {
-		return (IValueConverter<T>) this.converter.get(clazz);
-	}
+    public <T> void addConverter(Class<T> clazz, IValueConverter<T> valueConverter) {
+        this.converter.put(clazz, valueConverter);
+    }
 
-	public void addPropertiesSource(IPropertiesSource propertiesSource) {
-		this.propertiesSources.add(propertiesSource);
-	}
+    @SuppressWarnings("unchecked")
+    public <T> IValueConverter<T> getConverter(Class<T> clazz) {
+        return (IValueConverter<T>) this.converter.get(clazz);
+    }
 
-	public void removePropertiesSource(IPropertiesSource propertiesSource) {
-		if (propertiesSource != null) {
-			this.propertiesSources.remove(propertiesSource);
-		}
-	}
+    public void addPropertiesSource(IPropertiesSource propertiesSource) {
+        this.propertiesSources.add(propertiesSource);
+    }
 
-	/**
-	 * Restarts all properties to their default values and then reads all the
-	 * configuration files again.
-	 */
-	public void readConfigurations() {
-		this.propertiesFinalValue.clear();
-		this.propertiesFinalValue.putAll(this.propertiesDefault);
+    public void removePropertiesSource(IPropertiesSource propertiesSource) {
+        if (propertiesSource != null) {
+            this.propertiesSources.remove(propertiesSource);
+        }
+    }
 
-		for (final IPropertiesSource propertiesSource : this.propertiesSources) {
-			final Properties propertyFile = propertiesSource.loadFile();
-			if (propertyFile != null) {
-				this.readAllProperties(propertyFile, propertiesSource);
-			}
-		}
-	}
+    /**
+     * Restarts all properties to their default values and then reads all the
+     * configuration files again.
+     */
+    public void readConfigurations() {
+        this.propertiesFinalValue.clear();
+        this.propertiesFinalValue.putAll(this.propertiesDefault);
 
-	public abstract void storeProperties() throws PropertyNotStoredException;
+        for (final IPropertiesSource propertiesSource : this.propertiesSources) {
+            final Properties propertyFile = propertiesSource.loadFile();
+            if (propertyFile != null) {
+                this.readAllProperties(propertyFile, propertiesSource);
+            }
+        }
+    }
 
-	public abstract File getUserProperties();
+    public abstract void storeProperties() throws PropertyNotStoredException;
 
-	/**
-	 * Reads all properties configured in this configuration reader from
-	 * propertyFile. If they doesn't exist, then the current value is mantained as
-	 * default value.
-	 *
-	 * @param propertyFile
-	 */
-	private void readAllProperties(Properties propertyFile, IPropertiesSource propertiesSource) {
-		for (final String propertyId : new HashSet<String>(this.propertiesFinalValue.keySet())) {
-			final String value = propertyFile.getProperty(propertyId, this.propertiesFinalValue.get(propertyId));
-			// Notify property change
-			this.propertiesBySourceValues.computeIfAbsent(propertiesSource, k -> new HashMap<String, String>());
+    public abstract File getUserProperties();
 
-			if (this.propertiesBySourceValues.get(propertiesSource).get(propertyId) != null
-					&& this.propertiesBySourceValues.get(propertiesSource).get(propertyId).length() > 0
-					&& !this.propertiesBySourceValues.get(propertiesSource).get(propertyId).equals(value)) {
-				// Launch listeners.
-				for (final PropertyChangedListener propertyChangedListener : this.propertyChangedListeners) {
-					propertyChangedListener.propertyChanged(propertyId, this.propertiesFinalValue.get(propertyId),
-							value);
-				}
-				ConfigurationLog.info(this.getClass().getName(),
-						"Property '" + propertyId + "' updated as '" + value + "'.");
-			}
-			// Store value.
-			this.propertiesBySourceValues.get(propertiesSource).put(propertyId, value);
-			this.propertiesFinalValue.put(propertyId, value);
-			ConfigurationLog.debug(this.getClass().getName(),
-					"Property '" + propertyId + "' set as value '" + value + "'.");
-		}
-	}
+    /**
+     * Reads all properties configured in this configuration reader from
+     * propertyFile. If they doesn't exist, then the current value is mantained as
+     * default value.
+     *
+     * @param propertyFile
+     */
+    private void readAllProperties(Properties propertyFile, IPropertiesSource propertiesSource) {
+        for (final String propertyId : new HashSet<String>(this.propertiesFinalValue.keySet())) {
+            final String value = propertyFile.getProperty(propertyId, this.propertiesFinalValue.get(propertyId));
+            // Notify property change
+            this.propertiesBySourceValues.computeIfAbsent(propertiesSource, k -> new HashMap<String, String>());
 
-	/**
-	 * Adds a property
-	 *
-	 * @param propertyName
-	 * @param defaultValue
-	 */
-	protected <T> void setProperty(String propertyName, T defaultValue) {
-		if (defaultValue == null) {
-			this.propertiesDefault.put(propertyName, null);
-			this.propertiesFinalValue.put(propertyName, null);
-		} else if (defaultValue instanceof String) {
-			this.propertiesDefault.put(propertyName, ((String) defaultValue).trim());
-			this.propertiesFinalValue.put(propertyName, ((String) defaultValue).trim());
-		} else {
-			this.propertiesDefault.put(propertyName,
-					this.getConverter(defaultValue.getClass()).convertToString(defaultValue));
-			this.propertiesFinalValue.put(propertyName,
-					this.getConverter(defaultValue.getClass()).convertToString(defaultValue));
-		}
-	}
+            if (this.propertiesBySourceValues.get(propertiesSource).get(propertyId) != null
+                    && !this.propertiesBySourceValues.get(propertiesSource).get(propertyId).isEmpty()
+                    && !this.propertiesBySourceValues.get(propertiesSource).get(propertyId).equals(value)) {
+                // Launch listeners.
+                for (final PropertyChangedListener propertyChangedListener : this.propertyChangedListeners) {
+                    propertyChangedListener.propertyChanged(propertyId, this.propertiesFinalValue.get(propertyId),
+                            value);
+                }
+                ConfigurationLog.info(this.getClass().getName(),
+                        PROPERTY_LOG_PREFIX + propertyId + "' updated as '" + value + "'.");
+            }
+            // Store value.
+            this.propertiesBySourceValues.get(propertiesSource).put(propertyId, value);
+            this.propertiesFinalValue.put(propertyId, value);
+            ConfigurationLog.debug(this.getClass().getName(),
+                    PROPERTY_LOG_PREFIX + propertyId + "' set as value '" + value + "'.");
+        }
+    }
 
-	/**
-	 * Read all properties and set an empty string as default value.
-	 */
-	public void initializeAllProperties() {
-		for (final IPropertiesSource propertiesSource : this.propertiesSources) {
-			final Properties propertyFile = propertiesSource.loadFile();
-			if (propertyFile != null) {
-				final Enumeration<?> enumerator = propertyFile.propertyNames();
-				while (enumerator.hasMoreElements()) {
-					this.setProperty((String) enumerator.nextElement(), "");
-				}
-			}
-		}
-	}
+    /**
+     * Adds a property
+     *
+     * @param propertyName
+     * @param defaultValue
+     */
+    protected <T> void setProperty(String propertyName, T defaultValue) {
+        if (defaultValue == null) {
+            this.propertiesDefault.put(propertyName, null);
+            this.propertiesFinalValue.put(propertyName, null);
+        } else if (defaultValue instanceof String string) {
+            this.propertiesDefault.put(propertyName, string.trim());
+            this.propertiesFinalValue.put(propertyName, string.trim());
+        } else {
+            this.propertiesDefault.put(propertyName,
+                    this.getConverter(defaultValue.getClass()).convertToString(defaultValue));
+            this.propertiesFinalValue.put(propertyName,
+                    this.getConverter(defaultValue.getClass()).convertToString(defaultValue));
+        }
+    }
 
-	/**
-	 * Gets all defined prefix for the properties.
-	 *
-	 * @return
-	 */
-	public Set<String> getAllPropertiesPrefixes() {
-		final Set<String> prefixes = new HashSet<>();
-		for (final IPropertiesSource propertiesSource : this.propertiesSources) {
-			final Properties propertyFile = propertiesSource.loadFile();
-			if (propertyFile != null) {
-				final Enumeration<?> enumerator = propertyFile.propertyNames();
-				while (enumerator.hasMoreElements()) {
-					final String element = (String) enumerator.nextElement();
-					if (element.contains(String.valueOf(PREFIX_SEPARATOR_CHAR))) {
-						prefixes.add(element.substring(0, element.indexOf(PREFIX_SEPARATOR_CHAR)));
-					}
-				}
-			}
-		}
-		return prefixes;
-	}
+    /**
+     * Read all properties and set an empty string as default value.
+     */
+    public void initializeAllProperties() {
+        for (final IPropertiesSource propertiesSource : this.propertiesSources) {
+            final Properties propertyFile = propertiesSource.loadFile();
+            if (propertyFile != null) {
+                final Enumeration<?> enumerator = propertyFile.propertyNames();
+                while (enumerator.hasMoreElements()) {
+                    this.setProperty((String) enumerator.nextElement(), "");
+                }
+            }
+        }
+    }
 
-	public String getProperty(String propertyName) throws PropertyNotFoundException {
-		if (this.propertiesFinalValue.containsKey(propertyName)) {
-			if (this.propertiesFinalValue.get(propertyName) != null) {
-				return this.propertiesFinalValue.get(propertyName).trim();
-			} else {
-				return null;
-			}
-		} else {
-			throw new PropertyNotFoundException(
-					"Property '" + propertyName + "' not defined in the configuration reader");
-		}
-	}
+    /**
+     * Gets all defined prefix for the properties.
+     *
+     * @return
+     */
+    public Set<String> getAllPropertiesPrefixes() {
+        final Set<String> prefixes = new HashSet<>();
+        for (final IPropertiesSource propertiesSource : this.propertiesSources) {
+            final Properties propertyFile = propertiesSource.loadFile();
+            if (propertyFile != null) {
+                final Enumeration<?> enumerator = propertyFile.propertyNames();
+                while (enumerator.hasMoreElements()) {
+                    final String element = (String) enumerator.nextElement();
+                    if (element.contains(String.valueOf(PREFIX_SEPARATOR_CHAR))) {
+                        prefixes.add(element.substring(0, element.indexOf(PREFIX_SEPARATOR_CHAR)));
+                    }
+                }
+            }
+        }
+        return prefixes;
+    }
 
-	public <T> T getProperty(String propertyName, Class<? extends T> type) throws PropertyNotFoundException {
-		final String stringValue = this.getProperty(propertyName);
-		if (stringValue != null) {
-			return this.getConverter(type).convertFromString(stringValue);
-		} else {
-			return null;
-		}
-	}
+    public String getProperty(String propertyName) throws PropertyNotFoundException {
+        if (this.propertiesFinalValue.containsKey(propertyName)) {
+            if (this.propertiesFinalValue.get(propertyName) != null) {
+                return this.propertiesFinalValue.get(propertyName).trim();
+            } else {
+                return null;
+            }
+        } else {
+            throw new PropertyNotFoundException(
+                    PROPERTY_LOG_PREFIX + propertyName + "' not defined in the configuration reader");
+        }
+    }
 
-	public Map<String, String> getAllProperties() {
-		return this.propertiesFinalValue;
-	}
+    public <T> T getProperty(String propertyName, Class<? extends T> type) throws PropertyNotFoundException {
+        final String stringValue = this.getProperty(propertyName);
+        if (stringValue != null) {
+            return this.getConverter(type).convertFromString(stringValue);
+        } else {
+            return null;
+        }
+    }
 
-	public List<IPropertiesSource> getPropertiesSources() {
-		return this.propertiesSources;
-	}
+    public Map<String, String> getAllProperties() {
+        return this.propertiesFinalValue;
+    }
 
-	public void addPropertyChangedListener(PropertyChangedListener propertyChangedListener) {
-		this.propertyChangedListeners.add(propertyChangedListener);
-	}
+    public List<IPropertiesSource> getPropertiesSources() {
+        return this.propertiesSources;
+    }
 
-	/**
-	 * Stops file watchers in from all configuration files.
-	 */
-	public void stopFileWatchers() {
-		for (final IPropertiesSource sources : this.propertiesSources) {
-			if (sources instanceof PropertiesSourceFile) {
-				((PropertiesSourceFile) sources).stopFileWatcher();
-			}
-		}
-	}
+    public void addPropertyChangedListener(PropertyChangedListener propertyChangedListener) {
+        this.propertyChangedListeners.add(propertyChangedListener);
+    }
 
-	protected String[] getCommaSeparatedValues(String propertyName) throws PropertyNotFoundException {
-		String value = this.getProperty(propertyName);
-		// Remove useless spaces around commas.
-		value = value.replaceAll(VALUES_SEPARATOR_REGEX, ",");
-		// Split by commas.
-		return value.split(",");
+    /**
+     * Stops file watchers in from all configuration files.
+     */
+    public void stopFileWatchers() {
+        for (final IPropertiesSource sources : this.propertiesSources) {
+            if (sources instanceof PropertiesSourceFile propertiesSourceFile) {
+                propertiesSourceFile.stopFileWatcher();
+            }
+        }
+    }
 
-	}
+    protected String[] getCommaSeparatedValues(String propertyName) throws PropertyNotFoundException {
+        final String value = this.getProperty(propertyName);
+        return Arrays.stream(value.split(","))
+                .map(String::trim)
+                .filter(s -> !s.isEmpty())
+                .toArray(String[]::new);
+    }
 
-	public abstract String getUserPropertiesPath();
+    public abstract String getUserPropertiesPath();
 
 }

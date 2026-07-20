@@ -41,68 +41,68 @@ import com.softwaremagico.tm.pdf.complete.skills.CharacteristicsAndSkillsTableFa
  * Concrete PDF generator for complete character sheets.
  */
 public class CharacterSheet extends PdfDocument {
-	private CharacterPlayer characterPlayer = null;
+    private CharacterPlayer characterPlayer = null;
 
-	/**
-	 * Creates an empty character sheet generator.
-	 */
-	public CharacterSheet() {
-	}
+    /**
+     * Creates an empty character sheet generator.
+     */
+    public CharacterSheet() {
+    }
 
-	/**
-	 * Creates a character sheet generator bound to a character.
-	 *
-	 * @param characterPlayer
-	 *            source character.
-	 */
-	public CharacterSheet(CharacterPlayer characterPlayer) {
-		this.characterPlayer = characterPlayer;
-	}
+    /**
+     * Creates a character sheet generator bound to a character.
+     *
+     * @param characterPlayer
+     *            source character.
+     */
+    public CharacterSheet(CharacterPlayer characterPlayer) {
+        this.characterPlayer = characterPlayer;
+    }
 
-	@Override
-	protected void createContent(Document document) throws InvalidXmlElementException, DocumentException {
+    @Override
+    protected void createContent(Document document) throws InvalidXmlElementException, DocumentException {
       this.createCharacterPDF(document, this.getCharacterPlayer());
-	}
+    }
 
-	@Override
-	protected Rectangle getPageSize() {
-		return PageSize.A4;
-	}
+    @Override
+    protected Rectangle getPageSize() {
+        return PageSize.A4;
+    }
 
-	@Override
-	protected void addEvent(PdfWriter writer) {
-		super.addEvent(writer);
-		writer.setPageEvent(new SheetAlternatedBackgroundEvent());
-	}
+    @Override
+    protected void addEvent(PdfWriter writer) {
+        super.addEvent(writer);
+        writer.setPageEvent(new SheetAlternatedBackgroundEvent());
+    }
 
-	@Override
-	protected void createCharacterPDF(Document document, CharacterPlayer characterPlayer)
-			throws InvalidXmlElementException, DocumentException {
+    @Override
+    protected void createCharacterPDF(Document document, CharacterPlayer characterPlayer)
+            throws InvalidXmlElementException, DocumentException {
 
-		document.add(CharacterBasicsCompleteTableFactory.getCharacterBasicsTable(characterPlayer));
+        document.add(CharacterBasicsCompleteTableFactory.getCharacterBasicsTable(characterPlayer));
 
-		document.add(CharacteristicsAndSkillsTableFactory.getCharacteristicsAndSkillsBasicsTable(characterPlayer));
+        document.add(CharacteristicsAndSkillsTableFactory.getCharacteristicsAndSkillsBasicsTable(characterPlayer));
 
-		document.add(
-				ResistancesCapabilitiesAndProtectionsTable.getResistancesAndProtectionsBasicsTable(characterPlayer));
+        document.add(
+                ResistancesCapabilitiesAndProtectionsTable.getResistancesAndProtectionsBasicsTable(characterPlayer));
 
-		document.newPage();
+        document.newPage();
 
-		document.add(DescriptionAndAnnotationsTableFactory.getDescriptionAndAnnotationsTable(characterPlayer));
+        document.add(DescriptionAndAnnotationsTableFactory.getDescriptionAndAnnotationsTable(characterPlayer));
 
-		document.add(FirebirdsAndOthersTable.getFirebirdsAndOthersTable(characterPlayer));
+        document.add(FirebirdsAndOthersTable.getFirebirdsAndOthersTable(characterPlayer));
 
-		document.add(ItemsPackFactory.getItemsPack(characterPlayer));
+        document.add(ItemsPackFactory.getItemsPack(characterPlayer));
 
-	}
+    }
 
-	private CharacterPlayer getCharacterPlayer() {
-		return this.characterPlayer;
-	}
+    private CharacterPlayer getCharacterPlayer() {
+        return this.characterPlayer;
+    }
 
-	@Override
-	protected void addDocumentWriterEvents(PdfWriter writer) {
-		// No background.
-	}
+    @Override
+    protected void addDocumentWriterEvents(PdfWriter writer) {
+        // No background.
+    }
 
 }
