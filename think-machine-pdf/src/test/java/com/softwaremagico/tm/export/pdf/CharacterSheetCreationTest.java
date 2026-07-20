@@ -29,24 +29,32 @@ import com.softwaremagico.tm.character.CharacterExamples;
 import com.softwaremagico.tm.language.Translator;
 import com.softwaremagico.tm.pdf.complete.CharacterSheet;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+/**
+ * Integration tests for PDF character sheet generation.
+ */
 @Test(groups = {"characterPdfGeneration"})
 public class CharacterSheetCreationTest extends PdfGeneration {
 
+    /**
+     * Creates the output folder used by PDF tests.
+     *
+     * @throws IOException if the output folder cannot be created.
+     */
     @BeforeClass
     public void prepareFolder() throws IOException {
         Files.createDirectories(Paths.get(OUTPUT_FOLDER));
     }
 
-
+    /**
+     * Generates an empty Spanish PDF character sheet.
+     */
     @Test
     public void emptyPdfSpanish() {
         Translator.setLanguage("ES");
@@ -54,6 +62,9 @@ public class CharacterSheetCreationTest extends PdfGeneration {
         Assert.assertEquals(sheet.createFile(OUTPUT_FOLDER + "FadingSuns_ES.pdf"), 2);
     }
 
+    /**
+     * Generates an empty English PDF character sheet.
+     */
     @Test
     public void emptyPdfEnglish() {
         Translator.setLanguage("EN");
@@ -61,7 +72,9 @@ public class CharacterSheetCreationTest extends PdfGeneration {
         Assert.assertEquals(sheet.createFile(OUTPUT_FOLDER + "FadingSuns_EN.pdf"), 2);
     }
 
-
+    /**
+     * Generates a populated Spanish PDF character sheet.
+     */
     @Test
     public void characterPdfSpanish() {
         Translator.setLanguage("ES");
@@ -69,6 +82,9 @@ public class CharacterSheetCreationTest extends PdfGeneration {
         Assert.assertEquals(sheet.createFile(OUTPUT_FOLDER + "CharacterFS_ES.pdf"), 2);
     }
 
+    /**
+     * Generates a populated English PDF character sheet.
+     */
     @Test
     public void characterPdfEnglish() {
         Translator.setLanguage("EN");
@@ -76,6 +92,9 @@ public class CharacterSheetCreationTest extends PdfGeneration {
         Assert.assertEquals(sheet.createFile(OUTPUT_FOLDER + "CharacterFS_EN.pdf"), 2);
     }
 
+    /**
+     * Generates an English PDF for a level-2 character after changing calling at level up.
+     */
     @Test
     public void characterPdfEnglishWithCallingCombinationAtLevel2() {
         Translator.setLanguage("EN");

@@ -38,12 +38,27 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class CapabilitiesTableFactory extends BaseElement {
+/**
+ * Factory that renders the capabilities section for the complete PDF sheet.
+ */
+public final class CapabilitiesTableFactory extends BaseElement {
     private static final float[] WIDTHS = {1f};
     private static final String GAP = "_________________________";
     private static final int NAME_COLUMN_WIDTH = 110;
     private static final int TOTAL_CELLS = 21;
 
+    /**
+     * Utility class.
+     */
+    private CapabilitiesTableFactory() {
+    }
+
+    /**
+     * Builds the capabilities section table.
+     *
+     * @param characterPlayer source character.
+     * @return capabilities table.
+     */
     public static PdfPTable getCapabilitiesTable(CharacterPlayer characterPlayer) {
         final PdfPTable table = new PdfPTable(WIDTHS);
         setTableProperties(table);

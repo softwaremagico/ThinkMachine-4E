@@ -36,11 +36,27 @@ import com.softwaremagico.tm.pdf.complete.elements.BaseElement;
 import com.softwaremagico.tm.pdf.complete.utils.CellUtils;
 import com.softwaremagico.tm.txt.TextFactory;
 
-public class AnnotationsTableFactory extends BaseElement {
+/**
+ * Factory for annotations and notes tables in the complete PDF sheet.
+ */
+public final class AnnotationsTableFactory extends BaseElement {
     private static final float[] WIDTHS = {1f};
     private static final float CELL_HEIGHT = 80;
     private static final int DESCRIPTION_WIDTH = 2500;
 
+    /**
+     * Utility class.
+     */
+    private AnnotationsTableFactory() {
+    }
+
+    /**
+     * Builds the annotations block table for the sheet.
+     *
+     * @param characterPlayer source character.
+     * @return annotations table.
+     * @throws InvalidXmlElementException if any text key is invalid.
+     */
     public static PdfPTable getAnnotationsTable(CharacterPlayer characterPlayer) throws InvalidXmlElementException {
         final PdfPTable table = new PdfPTable(WIDTHS);
         table.getDefaultCell().setBorder(0);
@@ -54,6 +70,12 @@ public class AnnotationsTableFactory extends BaseElement {
         return table;
     }
 
+    /**
+     * Creates the internal table with description and background text areas.
+     *
+     * @param characterPlayer source character.
+     * @return annotations content table.
+     */
     public static PdfPTable createAnnotationsValue(CharacterPlayer characterPlayer) {
         final float[] widths = {1f};
         final PdfPTable table = new PdfPTable(widths);

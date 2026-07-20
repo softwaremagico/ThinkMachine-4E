@@ -34,9 +34,24 @@ import com.softwaremagico.tm.pdf.complete.FadingSunsTheme;
 
 import java.io.IOException;
 
-public class CharacterBasicsCompleteTableFactory extends CharacterBasicsTableFactory {
+/**
+ * Factory for the complete character basics header table.
+ */
+public final class CharacterBasicsCompleteTableFactory extends CharacterBasicsTableFactory {
     private static final int MAX_VALUE_LENGTH = 13;
 
+    /**
+     * Utility class.
+     */
+    private CharacterBasicsCompleteTableFactory() {
+    }
+
+    /**
+     * Builds the top basic-information table for complete sheet format.
+     *
+     * @param characterPlayer source character.
+     * @return character basics table.
+     */
     public static PdfPTable getCharacterBasicsTable(CharacterPlayer characterPlayer) {
         final float[] widths = {1f, 1f, 1f};
         final PdfPTable table = new PdfPTable(widths);

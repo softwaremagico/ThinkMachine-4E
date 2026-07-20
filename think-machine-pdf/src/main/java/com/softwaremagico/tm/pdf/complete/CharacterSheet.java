@@ -24,7 +24,6 @@ package com.softwaremagico.tm.pdf.complete;
  * #L%
  */
 
-
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.PageSize;
@@ -38,63 +37,72 @@ import com.softwaremagico.tm.pdf.complete.info.CharacterBasicsCompleteTableFacto
 import com.softwaremagico.tm.pdf.complete.info.DescriptionAndAnnotationsTableFactory;
 import com.softwaremagico.tm.pdf.complete.skills.CharacteristicsAndSkillsTableFactory;
 
+/**
+ * Concrete PDF generator for complete character sheets.
+ */
 public class CharacterSheet extends PdfDocument {
-    private static final float[] REAR_TABLE_WIDTHS = {1f, 1f, 1f};
-    private static final int MAX_WIDTH = 100;
-    private static final int PSI_ROWS = 10;
-    private static final int PSI_EXTENDED_ROWS = 21;
-    private CharacterPlayer characterPlayer = null;
+	private CharacterPlayer characterPlayer = null;
 
-    public CharacterSheet() {
-    }
+	/**
+	 * Creates an empty character sheet generator.
+	 */
+	public CharacterSheet() {
+	}
 
-    public CharacterSheet(CharacterPlayer characterPlayer) {
-        this.characterPlayer = characterPlayer;
-    }
+	/**
+	 * Creates a character sheet generator bound to a character.
+	 *
+	 * @param characterPlayer
+	 *            source character.
+	 */
+	public CharacterSheet(CharacterPlayer characterPlayer) {
+		this.characterPlayer = characterPlayer;
+	}
 
-    @Override
-    protected void createContent(Document document) throws InvalidXmlElementException, DocumentException {
-        createCharacterPDF(document, getCharacterPlayer());
-    }
+	@Override
+	protected void createContent(Document document) throws InvalidXmlElementException, DocumentException {
+      this.createCharacterPDF(document, this.getCharacterPlayer());
+	}
 
-    @Override
-    protected Rectangle getPageSize() {
-        return PageSize.A4;
-    }
+	@Override
+	protected Rectangle getPageSize() {
+		return PageSize.A4;
+	}
 
-    @Override
-    protected void addEvent(PdfWriter writer) {
-        super.addEvent(writer);
-        writer.setPageEvent(new SheetAlternatedBackgroundEvent());
-    }
+	@Override
+	protected void addEvent(PdfWriter writer) {
+		super.addEvent(writer);
+		writer.setPageEvent(new SheetAlternatedBackgroundEvent());
+	}
 
-    @Override
-    protected void createCharacterPDF(Document document, CharacterPlayer characterPlayer) throws InvalidXmlElementException, DocumentException {
+	@Override
+	protected void createCharacterPDF(Document document, CharacterPlayer characterPlayer)
+			throws InvalidXmlElementException, DocumentException {
 
-        document.add(CharacterBasicsCompleteTableFactory.getCharacterBasicsTable(characterPlayer));
+		document.add(CharacterBasicsCompleteTableFactory.getCharacterBasicsTable(characterPlayer));
 
-        document.add(CharacteristicsAndSkillsTableFactory.getCharacteristicsAndSkillsBasicsTable(characterPlayer));
+		document.add(CharacteristicsAndSkillsTableFactory.getCharacteristicsAndSkillsBasicsTable(characterPlayer));
 
-        document.add(ResistancesCapabilitiesAndProtectionsTable.getResistancesAndProtectionsBasicsTable(characterPlayer));
+		document.add(
+				ResistancesCapabilitiesAndProtectionsTable.getResistancesAndProtectionsBasicsTable(characterPlayer));
 
-        document.newPage();
+		document.newPage();
 
-        document.add(DescriptionAndAnnotationsTableFactory.getDescriptionAndAnnotationsTable(characterPlayer));
+		document.add(DescriptionAndAnnotationsTableFactory.getDescriptionAndAnnotationsTable(characterPlayer));
 
-        document.add(FirebirdsAndOthersTable.getFirebirdsAndOthersTable(characterPlayer));
+		document.add(FirebirdsAndOthersTable.getFirebirdsAndOthersTable(characterPlayer));
 
-        document.add(ItemsPackFactory.getItemsPack(characterPlayer));
+		document.add(ItemsPackFactory.getItemsPack(characterPlayer));
 
+	}
 
-    }
+	private CharacterPlayer getCharacterPlayer() {
+		return this.characterPlayer;
+	}
 
-    private CharacterPlayer getCharacterPlayer() {
-        return characterPlayer;
-    }
-
-    @Override
-    protected void addDocumentWriterEvents(PdfWriter writer) {
-        // No background.
-    }
+	@Override
+	protected void addDocumentWriterEvents(PdfWriter writer) {
+		// No background.
+	}
 
 }
