@@ -7,12 +7,12 @@
             <es>Acuerdo</es>
         </name>
         <description>
-            <en>Calling • Ability • Precondition: Lawyer or Negotiator
+            <en>Lawyer or Negotiator
                 This functions as the Bureaucracy perk (see Chapter 3: Traits, in the Character Book), except when you use the draft contract maneuver you negotiate a contract between two different parties rather than yourself and a target. Success puts both signatories in the Bonded state until their side of the agreement is either fulfilled or its duration expires. If a bonded signatory violates the agreement or fails to complete their task, they suffer a chronic mental or social state established during negotiations. Each signatory can be subject to a different penalty. Penalties include:
                 • Chastisement: Signatory gains the Castigated state.
                 • Mortification: Signatory gains the Humiliated state.
                 • Remuneration: Signatory gains the Beholden state. (See the States sidebar in this chapter.)</en>
-            <es>Vocación • Capacidad • Requisito: Abogado o Negociador
+            <es>Abogado o Negociador
                 Funciona como el beneficio Burocracia (consulta el Capítulo 3: Rasgos, en el Libro del Personaje), salvo que, cuando usas la maniobra de redactar contrato, negocias un contrato entre dos partes distintas en lugar de entre tú y un objetivo. El éxito coloca a ambos firmantes en el estado Vinculado hasta que su parte del acuerdo se cumpla o expire su duración. Si un firmante vinculado infringe el acuerdo o no completa su tarea, sufre un estado mental o social crónico establecido durante las negociaciones. Cada firmante puede quedar sujeto a una penalización diferente. Las penalizaciones incluyen:
                 • Reprensión: El firmante recibe el estado Castigado.
                 • Mortificación: El firmante recibe el estado Humillado.
@@ -20,6 +20,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>lawyer</calling>
@@ -34,15 +35,16 @@
             <es>Dinero para Gastos</es>
         </name>
         <description>
-            <en>Calling • Verve • Precondition: Banker, Fixer, Negotiator, or Credit Worthy
+            <en>
                 Even when you're short of cash, your word is good enough to supplement your funds when needed.
                 Benefice: Once per span when you spend money you may convert VP from your bank into firebirds at a rate of 2 VP per 1 firebird to help cover the cost of a transaction. You can rationalize this a number of ways, from a small cache of discretionary funds you keep on your person to simply having an honest enough face to be floated credit or a discount.</en>
-            <es>Vocación • Brío • Requisito: Banquero, Mediador, Negociador o Solvente
+            <es>
                 Incluso cuando andas escaso de efectivo, tu palabra basta para complementar tus fondos cuando hace falta.
                 Beneficio: Una vez por lapso, cuando gastes dinero, puedes convertir PV de tu banco en firebirds a razón de 2 PV por 1 firebird para ayudar a cubrir el coste de una transacción. Puedes justificarlo de varias maneras, desde una pequeña reserva de fondos discrecionales que llevas encima hasta simplemente tener una cara lo bastante honrada como para que te fíen crédito o te hagan un descuento.</es>
         </description>
         <source>calling</source>
         <type>verve</type>
+        <elementType>COMMERCE</elementType>
         <restrictions mode="any">
             <callings>
                 <calling>banker</calling>
@@ -61,15 +63,16 @@
             <es>Red de Aprovisionamiento</es>
         </name>
         <description>
-            <en>Calling • Ability • Precondition: Fixer or Trader
+            <en>
                 You have an extensive network of merchants, smugglers, and fences who can supply you with virtually anything.
                 Benefice: Once per act you can reach out to your network to find a specific item that is not otherwise readily available at an agora, such as an invitation to a noble's soiree, an illegal weapon, or a parcel of selchaka. Reaching out requires an hour of work and a Knavery + Presence roll against a Resistance determined by the GM. Resistance ranges from Hard for items that are hard to come by but otherwise legal, to Tough for dangerous and illegal items, all the way to Miraculous for Ur-tech and heretical occult items. Overcoming this Resistance only indicates you have found a source for the item.</en>
-            <es>Vocación • Capacidad • Requisito: Mediador o Mercader
+            <es>
                 Cuentas con una extensa red de mercaderes, contrabandistas y peristas capaces de suministrarte prácticamente cualquier cosa.
                 Beneficio: Una vez por acto puedes recurrir a tu red para encontrar un objeto concreto que de otro modo no estaría disponible con facilidad en un ágora, como una invitación a la velada de un noble, un arma ilegal o una partida de selchaka. Recurrir a ella requiere una hora de trabajo y una tirada de Knavery + Presence contra una Resistencia determinada por el DJ. La Resistencia va desde Difícil para objetos difíciles de conseguir pero por lo demás legales, hasta Ardua para objetos peligrosos e ilegales, y llega a Milagrosa para Ur-tecnología y objetos ocultos heréticos. Superar esta Resistencia solo indica que has encontrado una fuente para el objeto.</es>
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>COMMERCE</elementType>
         <restrictions>
             <callings>
                 <calling>fixer</calling>

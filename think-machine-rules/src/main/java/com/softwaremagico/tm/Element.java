@@ -74,6 +74,9 @@ public class Element extends XmlData implements Comparable<Element> {
     @JsonProperty("group")
     private String group;
 
+    @JsonProperty("elementType")
+    private ElementType elementType;
+
     //If this element is a valid option for the user.
     @JsonProperty("selectable")
     private boolean selectable = true;
@@ -192,6 +195,14 @@ public class Element extends XmlData implements Comparable<Element> {
 
     public void setGroup(String group) {
         this.group = group;
+    }
+
+    public ElementType getElementType() {
+        return elementType;
+    }
+
+    public void setElementType(ElementType elementType) {
+        this.elementType = elementType;
     }
 
     public boolean isSelectable() {

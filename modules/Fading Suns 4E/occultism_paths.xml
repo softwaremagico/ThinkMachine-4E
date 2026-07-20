@@ -7,6 +7,7 @@
             <es>Mano Lejana</es>
         </name>
         <occultismType>psi</occultismType>
+        <elementType>COMBAT</elementType>
         <powers>
             <power>
                 <id>liftingHand</id>
@@ -557,6 +558,7 @@
             <es>Augurio</es>
         </name>
         <occultismType>psi</occultismType>
+        <elementType>SPIRITUAL</elementType>
         <powers>
             <power>
                 <id>shadowsGoneBy</id>
@@ -773,6 +775,7 @@
             <es>Psique</es>
         </name>
         <occultismType>psi</occultismType>
+        <elementType>SPIRITUAL</elementType>
         <powers>
             <power>
                 <id>mindSpeech</id>
@@ -1351,6 +1354,7 @@
             <es>Sexto Sentido</es>
         </name>
         <occultismType>psi</occultismType>
+        <elementType>TECHNICAL</elementType>
         <powers>
             <power>
                 <id>shapeSenses</id>
@@ -1939,6 +1943,7 @@
             <es>Soma (Control Corporal)</es>
         </name>
         <occultismType>psi</occultismType>
+        <elementType>TECHNICAL</elementType>
         <powers>
             <power>
                 <id>toughening</id>
@@ -2406,6 +2411,7 @@
             <es>Arte Vis (Control de Energía)</es>
         </name>
         <occultismType>psi</occultismType>
+        <elementType>COMBAT</elementType>
         <powers>
             <power>
                 <id>visEye</id>
@@ -2933,6 +2939,7 @@
             <es>Ritos Ecuménicos (Libres)</es>
         </name>
         <occultismType>theurgy</occultismType>
+        <elementType>SPIRITUAL</elementType>
         <powers>
             <power>
                 <id>prophetsHolyBlessing</id>
@@ -3656,6 +3663,7 @@
             <es>Ritos de los Hermanos de Batalla</es>
         </name>
         <occultismType>theurgy</occultismType>
+        <elementType>COMBAT</elementType>
         <powers>
             <power>
                 <id>soulsVessel</id>
@@ -4156,6 +4164,7 @@
             <es>Ritos de la Orden Eskatónica</es>
         </name>
         <occultismType>theurgy</occultismType>
+        <elementType>SPIRITUAL</elementType>
         <powers>
             <power>
                 <id>celestialAlignments</id>
@@ -4829,6 +4838,7 @@
             <es>Ritos del Santuario de Aeón</es>
         </name>
         <occultismType>theurgy</occultismType>
+        <elementType>SPIRITUAL</elementType>
         <powers>
             <power>
                 <id>cleansing</id>
@@ -5432,6 +5442,7 @@
             <es>Ritos del Templo Avesti</es>
         </name>
         <occultismType>theurgy</occultismType>
+        <elementType>SPIRITUAL</elementType>
         <powers>
             <power>
                 <id>knowingTheFalseHeart</id>
@@ -5969,6 +5980,7 @@
             <es>Ritos de los Ortodoxos de Urth</es>
         </name>
         <occultismType>theurgy</occultismType>
+        <elementType>SPIRITUAL</elementType>
         <powers>
             <power>
                 <id>consecration</id>
