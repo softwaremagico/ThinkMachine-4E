@@ -29,34 +29,34 @@ import com.softwaremagico.tm.txt.TextFactory;
 
 public class CustomizedWeapon extends Weapon {
 
-    public CustomizedWeapon() {
-        super();
-    }
+	public CustomizedWeapon() {
+		super();
+	}
 
-    public CustomizedWeapon(Weapon weapon) {
-        this();
-        copy(weapon);
-    }
+	public CustomizedWeapon(Weapon weapon) {
+		this();
+      this.copy(weapon);
+	}
 
-    @Override
-    public String getWeaponOthersText() {
-        final StringBuilder stringBuilder = new StringBuilder();
+	@Override
+	public String getWeaponOthersText() {
+		final StringBuilder stringBuilder = new StringBuilder();
 
-        if (getQuality() != null && getQuality() != Quality.STANDARD) {
-            stringBuilder.append(TextFactory.getInstance().getElement(getQuality().name().toLowerCase()));
-        }
-        if (stringBuilder.length() > 0) {
-            stringBuilder.append(", ");
-        }
-        if (getStatus() != null) {
-            stringBuilder.append(TextFactory.getInstance().getElement(getStatus().name().toLowerCase()));
-        }
+		if (this.getQuality() != null && this.getQuality() != Quality.STANDARD) {
+			stringBuilder.append(TextFactory.getInstance().getElement(this.getQuality().name().toLowerCase()));
+		}
+		if (!stringBuilder.isEmpty()) {
+			stringBuilder.append(", ");
+		}
+		if (this.getStatus() != null) {
+			stringBuilder.append(TextFactory.getInstance().getElement(this.getStatus().name().toLowerCase()));
+		}
 
-        final String standardOthers = super.getWeaponOthersText();
-        if (stringBuilder.length() > 0 && !standardOthers.isEmpty()) {
-            stringBuilder.append(", ");
-            stringBuilder.append(standardOthers);
-        }
-        return stringBuilder.toString();
-    }
+		final String standardOthers = super.getWeaponOthersText();
+		if (!stringBuilder.isEmpty() && !standardOthers.isEmpty()) {
+			stringBuilder.append(", ");
+			stringBuilder.append(standardOthers);
+		}
+		return stringBuilder.toString();
+	}
 }

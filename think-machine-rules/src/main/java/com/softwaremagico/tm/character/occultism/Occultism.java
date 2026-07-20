@@ -76,7 +76,7 @@ public class Occultism {
         return getSelectedPowers().size();
     }
 
-    public void canAddPower(CharacterPlayer characterPlayer, OccultismPath path, OccultismPower power, String faction, String specie, Settings settings)
+    public void canAddPower(CharacterPlayer characterPlayer, OccultismPath path, OccultismPower power, String faction, Settings settings)
             throws InvalidOccultismPowerException {
         if (power == null) {
             throw new InvalidOccultismPowerException("Power cannot be null.");
@@ -84,6 +84,13 @@ public class Occultism {
         if (faction == null && settings.isRestrictionsChecked()) {
             throw new InvalidOccultismPowerException("Faction cannot be null.");
         }
+        validateOccultismLevel(characterPlayer, path, power);
+        validatePowerPoints(characterPlayer);
+        validatePathRestrictions(path, characterPlayer, power);
+        validatePsiPreviousLevel(path, power);
+    }
+
+    private void validateOccultismLevel(CharacterPlayer characterPlayer, OccultismPath path, OccultismPower power) throws InvalidOccultismPowerException {
         // Correct level of psi or theurgy
         try {
             if (power.getOccultismLevel() > characterPlayer.getCharacteristicValue(path.getOccultismType())) {
@@ -92,37 +99,46 @@ public class Occultism {
         } catch (InvalidXmlElementException e) {
             MachineXmlReaderLog.errorMessage(this.getClass(), e);
         }
+    }
+
+    private void validatePowerPoints(CharacterPlayer characterPlayer) throws InvalidOccultismPowerException {
         //Enough perks points.
         if (characterPlayer.getOccultismPointsAvailable() <= characterPlayer.getTotalSelectedPowers()) {
             throw new InvalidNumberOfPowersException("Invalid perk numbers for acquiring a new occultism power. Allowed points are '"
                     + characterPlayer.getOccultismPointsAvailable() + "' and current number of powers is '"
                     + characterPlayer.getTotalSelectedPowers() + "'");
         }
+    }
 
+    private void validatePathRestrictions(OccultismPath path, CharacterPlayer characterPlayer, OccultismPower power) throws InvalidOccultismPowerException {
         if (path.getRestrictions().isRestricted(characterPlayer)) {
             throw new InvalidOccultismPowerException("Power '" + power + "' is restricted to  '" + path.getRestrictions() + "'.");
         }
+    }
 
+    private void validatePsiPreviousLevel(OccultismPath path, OccultismPower power) throws InvalidOccultismPowerException {
         // Psi must have previous level.
         if (OccultismTypeFactory.getPsi() != null && Objects.equals(path.getOccultismType(), OccultismTypeFactory.getPsi().getId())) {
-            boolean acquiredLevel = false;
-            for (final OccultismPower previousLevelPower : path.getPreviousLevelPowers(power)) {
-                if (selectedPowers.get(path.getId()) != null
-                        && selectedPowers.get(path.getId()).contains(previousLevelPower)) {
-                    acquiredLevel = true;
-                    break;
-                }
-            }
-            if (!acquiredLevel && !path.getPreviousLevelPowers(power).isEmpty()) {
+            if (!hasPreviousLevelPower(path, power) && !path.getPreviousLevelPowers(power).isEmpty()) {
                 throw new InvalidPowerLevelException(
                         "At least one power from '" + path.getPreviousLevelPowers(power) + "' must be selected.");
             }
         }
     }
 
-    public boolean addPower(CharacterPlayer characterPlayer, OccultismPath path, OccultismPower power, String faction, String specie, Settings settings)
+    private boolean hasPreviousLevelPower(OccultismPath path, OccultismPower power) {
+        for (final OccultismPower previousLevelPower : path.getPreviousLevelPowers(power)) {
+            if (selectedPowers.get(path.getId()) != null
+                    && selectedPowers.get(path.getId()).contains(previousLevelPower)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean addPower(CharacterPlayer characterPlayer, OccultismPath path, OccultismPower power, String faction, Settings settings)
             throws InvalidOccultismPowerException {
-        canAddPower(characterPlayer, path, power, faction, specie, settings);
+        canAddPower(characterPlayer, path, power, faction, settings);
         selectedPowers.computeIfAbsent(path.getId(), k -> new ArrayList<>());
         return selectedPowers.get(path.getId()).add(power);
     }

@@ -41,60 +41,59 @@ import java.util.List;
 import static com.softwaremagico.tm.pdf.complete.elements.BaseElement.createBigWhiteSeparator;
 
 public final class SkillsColumn {
-    private static final String GAP = "   ";
 
-    private SkillsColumn() {
+	private SkillsColumn() {
 
-    }
+	}
 
-    public static PdfPCell createContent(CharacterPlayer characterPlayer, List<Skill> skills) {
-        final float[] widths = {3f, 0.5f, 1.5f, 0.1f};
-        final PdfPTable table = new PdfPTable(widths);
-        BaseElement.setTableProperties(table);
-        table.getDefaultCell().setBorder(0);
-        table.getDefaultCell().setVerticalAlignment(Element.ALIGN_TOP);
+	public static PdfPCell createContent(CharacterPlayer characterPlayer, List<Skill> skills) {
+		final float[] widths = {3f, 0.5f, 1.5f, 0.1f};
+		final PdfPTable table = new PdfPTable(widths);
+		BaseElement.setTableProperties(table);
+		table.getDefaultCell().setBorder(0);
+		table.getDefaultCell().setVerticalAlignment(Element.ALIGN_TOP);
 
-        final PdfPCell separator = createBigWhiteSeparator();
-        separator.setColspan(widths.length);
-        table.addCell(separator);
+		final PdfPCell separator = createBigWhiteSeparator();
+		separator.setColspan(widths.length);
+		table.addCell(separator);
 
-        for (final Skill skill : skills) {
-            final Paragraph paragraph = new Paragraph();
-            paragraph.add(new Paragraph(skill.getName().getTranslatedText(),
-                    new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
-            final PdfPCell characteristicTitle = new PdfPCell(paragraph);
-            characteristicTitle.setBorder(0);
-            characteristicTitle.setMinimumHeight(FadingSunsTheme.ROW_HEIGHT);
-            characteristicTitle.setVerticalAlignment(Element.ALIGN_TOP);
-            table.addCell(characteristicTitle);
+		for (final Skill skill : skills) {
+			final Paragraph paragraph = new Paragraph();
+			paragraph.add(new Paragraph(skill.getName().getTranslatedText(),
+					new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
+			final PdfPCell characteristicTitle = new PdfPCell(paragraph);
+			characteristicTitle.setBorder(0);
+			characteristicTitle.setMinimumHeight(FadingSunsTheme.ROW_HEIGHT);
+			characteristicTitle.setVerticalAlignment(Element.ALIGN_TOP);
+			table.addCell(characteristicTitle);
 
-            final Paragraph defaultValue = new Paragraph();
-            defaultValue.add(new Chunk("(", new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
-            defaultValue.add(new Chunk((skill.isNatural() ? Skill.NATURAL_SKILL_INITIAL_VALUE : 0) + "", new Font(FadingSunsTheme.getLineFont(),
-                    FadingSunsTheme.LINE_FONT_SIZE)));
-            defaultValue.add(new Chunk(")", new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
+			final Paragraph defaultValue = new Paragraph();
+			defaultValue.add(new Chunk("(", new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
+			defaultValue.add(new Chunk((skill.isNatural() ? Skill.NATURAL_SKILL_INITIAL_VALUE : 0) + "",
+					new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
+			defaultValue.add(new Chunk(")", new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
 
-            final PdfPCell skillTitleInitialValue = new PdfPCell(defaultValue);
-            skillTitleInitialValue.setBorder(0);
-            table.addCell(skillTitleInitialValue);
+			final PdfPCell skillTitleInitialValue = new PdfPCell(defaultValue);
+			skillTitleInitialValue.setBorder(0);
+			table.addCell(skillTitleInitialValue);
 
-            // Rectangle
-            if (characterPlayer == null) {
-                table.addCell(CustomPdfTable.createRectangle());
-            } else {
-                table.addCell(CustomPdfTable.createRectangle(characterPlayer.getSkillValue(skill) + ""));
-            }
+			// Rectangle
+			if (characterPlayer == null) {
+				table.addCell(CustomPdfTable.createRectangle());
+			} else {
+				table.addCell(CustomPdfTable.createRectangle(characterPlayer.getSkillValue(skill) + ""));
+			}
 
-            // Margin
-            final PdfPCell margin = new PdfPCell();
-            margin.setBorder(0);
-            table.addCell(margin);
-        }
+			// Margin
+			final PdfPCell margin = new PdfPCell();
+			margin.setBorder(0);
+			table.addCell(margin);
+		}
 
-        final PdfPCell cell = new PdfPCell();
-        cell.addElement(table);
-        BaseElement.setCellProperties(cell);
+		final PdfPCell cell = new PdfPCell();
+		cell.addElement(table);
+		BaseElement.setCellProperties(cell);
 
-        return cell;
-    }
+		return cell;
+	}
 }

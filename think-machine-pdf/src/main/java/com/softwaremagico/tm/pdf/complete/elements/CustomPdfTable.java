@@ -54,11 +54,11 @@ public abstract class CustomPdfTable extends PdfPTable {
 	 */
 	protected CustomPdfTable(float[] widths) {
 		super(widths);
-		setColumnWidths(widths);
+		this.setColumnWidths(widths);
 	}
 
 	protected PdfPCell createTitle(String title, int fontSize) {
-		final PdfPCell titleCell = createCompactTitle(title, fontSize);
+		final PdfPCell titleCell = this.createCompactTitle(title, fontSize);
 		titleCell.setRowspan(2);
 		return titleCell;
 	}
@@ -76,7 +76,7 @@ public abstract class CustomPdfTable extends PdfPTable {
 		final Font font = new Font(FadingSunsTheme.getTitleFont(), fontSize);
 		final Phrase content = new Phrase(title, font);
 		final PdfPCell titleCell = new PdfPCell(content);
-		titleCell.setColspan(getColumnWidths().length);
+		titleCell.setColspan(this.getColumnWidths().length);
 		titleCell.setHorizontalAlignment(Element.ALIGN_CENTER);
 		titleCell.setBorder(0);
 		return titleCell;
@@ -173,7 +173,7 @@ public abstract class CustomPdfTable extends PdfPTable {
 	}
 
 	public float[] getColumnWidths() {
-		return Arrays.copyOf(columnWidths, columnWidths.length);
+		return Arrays.copyOf(this.columnWidths, this.columnWidths.length);
 	}
 
 	private void setColumnWidths(float[] columnWidths) {

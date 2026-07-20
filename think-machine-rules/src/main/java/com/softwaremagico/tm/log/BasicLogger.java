@@ -54,7 +54,9 @@ public abstract class BasicLogger {
      * @param arguments       parameters to fill up the template
      */
     public static void warning(Logger logger, String className, String messageTemplate, Object... arguments) {
-        logger.warn(className + ": " + messageTemplate, arguments);
+        if (logger.isWarnEnabled()) {
+            logger.warn("{}: " + messageTemplate, prependArg(className, arguments));
+        }
     }
 
     /**
@@ -108,8 +110,15 @@ public abstract class BasicLogger {
      */
     public static void debug(Logger logger, String className, String messageTemplate, Object... arguments) {
         if (logger.isDebugEnabled()) {
-            logger.debug(className + ": " + messageTemplate, arguments);
+            logger.debug("{}: " + messageTemplate, prependArg(className, arguments));
         }
+    }
+
+    private static Object[] prependArg(Object first, Object[] rest) {
+        final Object[] result = new Object[rest.length + 1];
+        result[0] = first;
+        System.arraycopy(rest, 0, result, 1, rest.length);
+        return result;
     }
 
     /**

@@ -31,102 +31,101 @@ import java.util.Set;
 
 public class SelectionList<E> extends ArrayList<E> {
 
-    private static final long serialVersionUID = 8095691182370285272L;
+	private static final long serialVersionUID = 8095691182370285272L;
 
-    private final Set<ISelectionAddedListener> iSelectionAddedListeners;
-    private final Set<ISelectionRemovedListener> iSelectionRemovedListeners;
+	private final transient Set<ISelectionAddedListener> iSelectionAddedListeners;
+	private final transient Set<ISelectionRemovedListener> iSelectionRemovedListeners;
 
-    public interface ISelectionAddedListener {
-        void added();
-    }
+	public interface ISelectionAddedListener {
+		void added();
+	}
 
-    public interface ISelectionRemovedListener {
-        void removed();
-    }
+	public interface ISelectionRemovedListener {
+		void removed();
+	}
 
-    public SelectionList() {
-        this.iSelectionAddedListeners = new HashSet<>();
-        this.iSelectionRemovedListeners = new HashSet<>();
-    }
+	public SelectionList() {
+		this.iSelectionAddedListeners = new HashSet<>();
+		this.iSelectionRemovedListeners = new HashSet<>();
+	}
 
-    public SelectionList(Collection<E> elements) {
-        super(elements);
-        this.iSelectionAddedListeners = new HashSet<>();
-        this.iSelectionRemovedListeners = new HashSet<>();
-    }
+	public SelectionList(Collection<E> elements) {
+		super(elements);
+		this.iSelectionAddedListeners = new HashSet<>();
+		this.iSelectionRemovedListeners = new HashSet<>();
+	}
 
-    public void addSelectionAddedListeners(ISelectionAddedListener listener) {
-        iSelectionAddedListeners.add(listener);
-    }
+	public void addSelectionAddedListeners(ISelectionAddedListener listener) {
+		this.iSelectionAddedListeners.add(listener);
+	}
 
-    public void notifySelectionAddedListener() {
-        for (ISelectionAddedListener listener : iSelectionAddedListeners) {
-            listener.added();
-        }
-    }
+	public void notifySelectionAddedListener() {
+		for (final ISelectionAddedListener listener : this.iSelectionAddedListeners) {
+			listener.added();
+		}
+	}
 
-    public void addSelectionRemovedListeners(ISelectionRemovedListener listener) {
-        iSelectionRemovedListeners.add(listener);
-    }
+	public void addSelectionRemovedListeners(ISelectionRemovedListener listener) {
+		this.iSelectionRemovedListeners.add(listener);
+	}
 
-    public void notifySelectionRemovedListener() {
-        for (ISelectionRemovedListener listener : iSelectionRemovedListeners) {
-            listener.removed();
-        }
-    }
+	public void notifySelectionRemovedListener() {
+		for (final ISelectionRemovedListener listener : this.iSelectionRemovedListeners) {
+			listener.removed();
+		}
+	}
 
+	@Override
+	public boolean add(E element) {
+		try {
+			return super.add(element);
+		} finally {
+			this.notifySelectionAddedListener();
+		}
+	}
 
-    @Override
-    public boolean add(E element) {
-        try {
-            return super.add(element);
-        } finally {
-            notifySelectionAddedListener();
-        }
-    }
+	@Override
+	public void add(int index, E element) {
+		try {
+			super.add(index, element);
+		} finally {
+			this.notifySelectionAddedListener();
+		}
+	}
 
-    @Override
-    public void add(int index, E element) {
-        try {
-            super.add(index, element);
-        } finally {
-            notifySelectionAddedListener();
-        }
-    }
+	@Override
+	public boolean addAll(Collection<? extends E> c) {
+		try {
+			return super.addAll(c);
+		} finally {
+			this.notifySelectionAddedListener();
+		}
+	}
 
-    @Override
-    public boolean addAll(Collection<? extends E> c) {
-        try {
-            return super.addAll(c);
-        } finally {
-            notifySelectionAddedListener();
-        }
-    }
+	@Override
+	public boolean remove(Object o) {
+		try {
+			return super.remove(o);
+		} finally {
+			this.notifySelectionRemovedListener();
+		}
+	}
 
-    @Override
-    public boolean remove(Object o) {
-        try {
-            return super.remove(o);
-        } finally {
-            notifySelectionRemovedListener();
-        }
-    }
+	@Override
+	public boolean removeAll(Collection<?> c) {
+		try {
+			return super.removeAll(c);
+		} finally {
+			this.notifySelectionRemovedListener();
+		}
+	}
 
-    @Override
-    public boolean removeAll(Collection<?> c) {
-        try {
-            return super.removeAll(c);
-        } finally {
-            notifySelectionRemovedListener();
-        }
-    }
-
-    @Override
-    public E set(int index, E element) {
-        try {
-            return super.set(index, element);
-        } finally {
-            notifySelectionAddedListener();
-        }
-    }
+	@Override
+	public E set(int index, E element) {
+		try {
+			return super.set(index, element);
+		} finally {
+			this.notifySelectionAddedListener();
+		}
+	}
 }
