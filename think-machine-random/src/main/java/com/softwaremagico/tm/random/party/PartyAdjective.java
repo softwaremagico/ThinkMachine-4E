@@ -29,81 +29,84 @@ package com.softwaremagico.tm.random.party;
  * Combines with PartyName to create full party names.
  */
 public class PartyAdjective {
-	private final String adjective;
-	private final RandomParty randomParty;
-	private final String language;
-	private final String moduleName;
+    private final String adjective;
+    private final RandomParty randomParty;
+    private final String language;
+    private final String moduleName;
 
-	/**
-	 * Creates a party adjective element.
-	 *
-	 * @param adjective
-	 *            Descriptive adjective (e.g., "de las Sombras", "of Shadows").
-	 * @param randomParty
-	 *            Parent RandomParty definition.
-	 * @param language
-	 *            Language code (ES/EN).
-	 * @param moduleName
-	 *            Module name (e.g., "Fading Suns 4E").
-	 */
-	public PartyAdjective(String adjective, RandomParty randomParty, String language, String moduleName) {
-		this.adjective = adjective;
-		this.randomParty = randomParty;
-		this.language = language;
-		this.moduleName = moduleName;
-	}
+    /**
+     * Creates a party adjective element.
+     *
+     * @param adjective
+     *            Descriptive adjective (e.g., "de las Sombras", "of Shadows").
+     * @param randomParty
+     *            Parent RandomParty definition.
+     * @param language
+     *            Language code (ES/EN).
+     * @param moduleName
+     *            Module name (e.g., "Fading Suns 4E").
+     */
+    public PartyAdjective(String adjective, RandomParty randomParty, String language, String moduleName) {
+        this.adjective = adjective;
+        this.randomParty = randomParty;
+        this.language = language;
+        this.moduleName = moduleName;
+    }
 
-	/**
-	 * Gets the adjective text.
-	 *
-	 * @return Adjective descriptor.
-	 */
-	public String getName() {
-		return adjective;
-	}
+    /**
+     * Gets the adjective text.
+     *
+     * @return Adjective descriptor.
+     */
+    public String getName() {
+        return adjective;
+    }
 
-	/**
-	 * Gets the parent random party definition.
-	 *
-	 * @return RandomParty definition.
-	 */
-	public RandomParty getRandomParty() {
-		return randomParty;
-	}
+    /**
+     * Gets the parent random party definition.
+     *
+     * @return RandomParty definition.
+     */
+    public RandomParty getRandomParty() {
+        return randomParty;
+    }
 
-	/**
-	 * Gets the language for this adjective.
-	 *
-	 * @return Language code (ES/EN).
-	 */
-	public String getLanguage() {
-		return language;
-	}
+    /**
+     * Gets the language for this adjective.
+     *
+     * @return Language code (ES/EN).
+     */
+    public String getLanguage() {
+        return language;
+    }
 
-	/**
-	 * Gets the module name for this adjective.
-	 *
-	 * @return Module name.
-	 */
-	public String getModuleName() {
-		return moduleName;
-	}
+    /**
+     * Gets the module name for this adjective.
+     *
+     * @return Module name.
+     */
+    public String getModuleName() {
+        return moduleName;
+    }
 
-	@Override
-	public int hashCode() {
-		return adjective.hashCode();
-	}
+    @Override
+    public int hashCode() {
+        return adjective.hashCode();
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		final PartyAdjective other = (PartyAdjective) obj;
-		return adjective.equals(other.adjective);
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final PartyAdjective other = (PartyAdjective) obj;
+        return adjective.equals(other.adjective);
+    }
 
 }

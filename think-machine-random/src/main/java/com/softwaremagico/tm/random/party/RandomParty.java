@@ -29,74 +29,81 @@ package com.softwaremagico.tm.random.party;
  * minimum/maximum members per profile, and threat level balance.
  */
 public class RandomParty {
-	private final String language;
-	private final String moduleName;
+    private final String language;
+    private final String moduleName;
 
-	/**
-	 * Creates a random party definition.
-	 *
-	 * @param language
-	 *            Language for text generation (ES/EN).
-	 * @param moduleName
-	 *            Module name (e.g., "Fading Suns 4E").
-	 */
-	public RandomParty(String language, String moduleName) {
-		this.language = language;
-		this.moduleName = moduleName;
-	}
+    /**
+     * Creates a random party definition.
+     *
+     * @param language
+     *            Language for text generation (ES/EN).
+     * @param moduleName
+     *            Module name (e.g., "Fading Suns 4E").
+     */
+    public RandomParty(String language, String moduleName) {
+        this.language = language;
+        this.moduleName = moduleName;
+    }
 
-	/**
-	 * Gets the language for this random party.
-	 *
-	 * @return Language code (ES/EN).
-	 */
-	public String getLanguage() {
-		return language;
-	}
+    /**
+     * Gets the language for this random party.
+     *
+     * @return Language code (ES/EN).
+     */
+    public String getLanguage() {
+        return language;
+    }
 
-	/**
-	 * Gets the module name for this random party.
-	 *
-	 * @return Module name.
-	 */
-	public String getModuleName() {
-		return moduleName;
-	}
+    /**
+     * Gets the module name for this random party.
+     *
+     * @return Module name.
+     */
+    public String getModuleName() {
+        return moduleName;
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((language == null) ? 0 : language.hashCode());
-		result = prime * result + ((moduleName == null) ? 0 : moduleName.hashCode());
-		return result;
-	}
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((language == null) ? 0 : language.hashCode());
+        result = prime * result + ((moduleName == null) ? 0 : moduleName.hashCode());
+        return result;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		final RandomParty other = (RandomParty) obj;
-		if (language == null) {
-			if (other.language != null)
-				return false;
-		} else if (!language.equals(other.language))
-			return false;
-		if (moduleName == null) {
-			if (other.moduleName != null)
-				return false;
-		} else if (!moduleName.equals(other.moduleName))
-			return false;
-		return true;
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final RandomParty other = (RandomParty) obj;
+        if (language == null) {
+            if (other.language != null) {
+                return false;
+            }
+        } else if (!language.equals(other.language)) {
+            return false;
+        }
+        if (moduleName == null) {
+            if (other.moduleName != null) {
+                return false;
+            }
+        } else if (!moduleName.equals(other.moduleName)) {
+            return false;
+        }
+        return true;
+    }
 
-	@Override
-	public String toString() {
-		return "RandomParty [language=" + language + ", moduleName=" + moduleName + "]";
-	}
+    @Override
+    public String toString() {
+        return "RandomParty [language=" + language + ", moduleName=" + moduleName + "]";
+    }
 
 }

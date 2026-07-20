@@ -54,11 +54,11 @@ public final class ThreatLevel {
     private static final int MELEE_THREAT_MULTIPLICATOR = 3;
     private static final int DAMAGE_AREA_THREAT_MULTIPLICATOR = 3;
     private static final int DAMAGE_TYPES_THREAT_MULTIPLICATOR = 3;
+    private static final int RESISTANCE_THREAT_MULTIPLICATOR = 2;
     private static final int RANGE_THREAT_DIVISOR = WEAPON_THREAT_MULTIPLICATOR * DAMAGE_THREAT_MULTIPLICATOR
             + RESISTANCE_THREAT_MULTIPLICATOR + RESISTANCE_THREAT_MULTIPLICATOR;
     private static final int CYBERNETICSCOMBAT_THREAT_MULTIPLICATOR = 2;
     private static final int CYBERNETICS_ENHANCEMENT_THREAT_MULTIPLICATOR = 1;
-    private static final int RESISTANCE_THREAT_MULTIPLICATOR = 2;
     private static final int OCCULTISM_COMBAT_THREAT_MULTIPLICATOR = 1;
     private static final int OCCULTISM_OTHER_THREAT_MULTIPLICATOR = 1;
     private static final int OCCULTISM_TYPE_THREAT_MULTIPLICATOR = 2;

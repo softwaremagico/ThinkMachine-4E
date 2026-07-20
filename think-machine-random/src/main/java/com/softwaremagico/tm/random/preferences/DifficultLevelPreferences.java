@@ -35,119 +35,125 @@ import java.util.Set;
  */
 public enum DifficultLevelPreferences implements IRandomPreference {
 
-	/**
-	 * Very Easy - Target threat level ~50
-	 * Characters are significantly below normal power level.
-	 */
-	VERY_EASY(-5, -15, 0),
+    /**
+     * Very Easy - Target threat level ~50
+     * Characters are significantly below normal power level.
+     */
+    VERY_EASY(-5, -15, 0),
 
-	/**
-	 * Easy - Target threat level ~58
-	 * Characters are below normal power level.
-	 */
-	EASY(-3, -10, 0),
+    /**
+     * Easy - Target threat level ~58
+     * Characters are below normal power level.
+     */
+    EASY(-3, -10, 0),
 
-	/**
-	 * Medium - Target threat level ~65
-	 * Standard character generation with default bonuses.
-	 */
-	MEDIUM(0, 0, 0),
+    /**
+     * Medium - Target threat level ~65
+     * Standard character generation with default bonuses.
+     */
+    MEDIUM(0, 0, 0),
 
-	/**
-	 * Hard - Target threat level ~85
-	 * Characters are above normal power level.
-	 */
-	HARD(0, 5, 50),
+    /**
+     * Hard - Target threat level ~85
+     * Characters are above normal power level.
+     */
+    HARD(0, 5, 50),
 
-	/**
-	 * Very Hard - Target threat level ~100
-	 * Characters are significantly above normal power level.
-	 */
-	VERY_HARD(5, 10, 100);
+    /**
+     * Very Hard - Target threat level ~100
+     * Characters are significantly above normal power level.
+     */
+    VERY_HARD(5, 10, 100);
 
-	private final int characteristicsBonus;
-	private final int skillsBonus;
-	private final int experienceBonus;
+    private static final int VERY_EASY_THREAT_LEVEL = 50;
+    private static final int EASY_THREAT_LEVEL = 58;
+    private static final int MEDIUM_THREAT_LEVEL = 65;
+    private static final int HARD_THREAT_LEVEL = 85;
+    private static final int VERY_HARD_THREAT_LEVEL = 100;
 
-	/**
-	 * Creates a difficulty level preference.
-	 *
-	 * @param characteristicsBonus
-	 *            Bonus to characteristic generation (-5 to +5).
-	 * @param skillsBonus
-	 *            Bonus to skill points (-15 to +10).
-	 * @param experienceBonus
-	 *            Bonus to starting experience points (0 to 100).
-	 */
-	DifficultLevelPreferences(int characteristicsBonus, int skillsBonus, int experienceBonus) {
-		this.characteristicsBonus = characteristicsBonus;
-		this.skillsBonus = skillsBonus;
-		this.experienceBonus = experienceBonus;
-	}
+    private final int characteristicsBonus;
+    private final int skillsBonus;
+    private final int experienceBonus;
 
-	/**
-	 * Gets the characteristics bonus for this difficulty level.
-	 * Positive values increase raw characteristic values during generation.
-	 *
-	 * @return Characteristics bonus (-5 to +5).
-	 */
-	public int getCharacteristicsBonus() {
-		return characteristicsBonus;
-	}
+    /**
+     * Creates a difficulty level preference.
+     *
+     * @param characteristicsBonus
+     *            Bonus to characteristic generation (-5 to +5).
+     * @param skillsBonus
+     *            Bonus to skill points (-15 to +10).
+     * @param experienceBonus
+     *            Bonus to starting experience points (0 to 100).
+     */
+    DifficultLevelPreferences(int characteristicsBonus, int skillsBonus, int experienceBonus) {
+        this.characteristicsBonus = characteristicsBonus;
+        this.skillsBonus = skillsBonus;
+        this.experienceBonus = experienceBonus;
+    }
 
-	/**
-	 * Gets the skills bonus for this difficulty level.
-	 * Affects the total skill points available during generation.
-	 *
-	 * @return Skills bonus (-15 to +10).
-	 */
-	public int getSkillsBonus() {
-		return skillsBonus;
-	}
+    /**
+     * Gets the characteristics bonus for this difficulty level.
+     * Positive values increase raw characteristic values during generation.
+     *
+     * @return Characteristics bonus (-5 to +5).
+     */
+    public int getCharacteristicsBonus() {
+        return characteristicsBonus;
+    }
 
-	/**
-	 * Gets the experience bonus for this difficulty level.
-	 * Increases starting experience pool for advanced characters.
-	 *
-	 * @return Experience bonus (0 to 100).
-	 */
-	public int getExperienceBonus() {
-		return experienceBonus;
-	}
+    /**
+     * Gets the skills bonus for this difficulty level.
+     * Affects the total skill points available during generation.
+     *
+     * @return Skills bonus (-15 to +10).
+     */
+    public int getSkillsBonus() {
+        return skillsBonus;
+    }
 
-	/**
-	 * Gets the estimated threat level for this difficulty level.
-	 *
-	 * @return Approximate threat level (50-100).
-	 */
-	public int getEstimatedThreatLevel() {
-		return switch (this) {
-			case VERY_EASY -> 50;
-			case EASY -> 58;
-			case MEDIUM -> 65;
-			case HARD -> 85;
-			case VERY_HARD -> 100;
-		};
-	}
+    /**
+     * Gets the experience bonus for this difficulty level.
+     * Increases starting experience pool for advanced characters.
+     *
+     * @return Experience bonus (0 to 100).
+     */
+    public int getExperienceBonus() {
+        return experienceBonus;
+    }
 
-	/**
-	 * Selects a difficulty preference from a set of preferences.
-	 * Returns MEDIUM if no difficulty preference is found.
-	 *
-	 * @param preferences
-	 *            Set of preferences to search.
-	 * @return Selected DifficultLevelPreferences or MEDIUM as default.
-	 */
-	public static DifficultLevelPreferences getSelected(Set<IRandomPreference> preferences) {
-		if (preferences == null) {
-			return MEDIUM;
-		}
-		for (final IRandomPreference preference : preferences) {
-			if (preference instanceof DifficultLevelPreferences) {
-				return (DifficultLevelPreferences) preference;
-			}
-		}
-		return MEDIUM;
-	}
+    /**
+     * Gets the estimated threat level for this difficulty level.
+     *
+     * @return Approximate threat level (50-100).
+     */
+    public int getEstimatedThreatLevel() {
+        return switch (this) {
+            case VERY_EASY -> VERY_EASY_THREAT_LEVEL;
+            case EASY -> EASY_THREAT_LEVEL;
+            case MEDIUM -> MEDIUM_THREAT_LEVEL;
+            case HARD -> HARD_THREAT_LEVEL;
+            case VERY_HARD -> VERY_HARD_THREAT_LEVEL;
+        };
+    }
+
+    /**
+     * Selects a difficulty preference from a set of preferences.
+     * Returns MEDIUM if no difficulty preference is found.
+     *
+     * @param preferences
+     *            Set of preferences to search.
+     * @return Selected DifficultLevelPreferences or MEDIUM as default.
+     */
+    public static DifficultLevelPreferences getSelected(Set<IRandomPreference> preferences) {
+        if (preferences == null) {
+            return MEDIUM;
+        }
+        for (final IRandomPreference preference : preferences) {
+            if (preference instanceof DifficultLevelPreferences) {
+                return (DifficultLevelPreferences) preference;
+            }
+        }
+        return MEDIUM;
+    }
 
 }

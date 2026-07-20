@@ -1,15 +1,3 @@
-/*
- *  Copyright (C) 2024 Softwaremagico
- *
- *  This software is designed by Jorge Hortelano Otero. Jorge Hortelano Otero  <softwaremagico@gmail.com> Valencia (Spain).
- *
- *  This program is free software; you can redistribute it and/or modify it under  the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License along with this Program; If not, see <http://www.gnu.org/licenses/gpl-3.0.html>.
- */
-
 package com.softwaremagico.tm.pdf.small;
 
 /*-
@@ -54,6 +42,8 @@ import com.softwaremagico.tm.pdf.complete.elements.BaseElement;
  * Generates compact party sheets showing 2 characters per page in A4 landscape.
  */
 public class SmallPartySheet extends PdfDocument {
+    private static final int CELL_PADDING = 5;
+
     private final Party party;
     private PdfPTable mainTable;
 
@@ -108,7 +98,7 @@ public class SmallPartySheet extends PdfDocument {
         final PdfPCell cell = new PdfPCell();
         cell.setVerticalAlignment(Element.ALIGN_TOP);
         cell.setBorderWidth(1);
-        cell.setPadding(5);
+        cell.setPadding(CELL_PADDING);
 
         // Create a simple character summary cell with character name
         final StringBuilder content = new StringBuilder();

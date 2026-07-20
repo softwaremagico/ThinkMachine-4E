@@ -29,81 +29,84 @@ package com.softwaremagico.tm.random.party;
  * Combines with PartyAdjective to create full party names.
  */
 public class PartyName {
-	private final String name;
-	private final RandomParty randomParty;
-	private final String language;
-	private final String moduleName;
+    private final String name;
+    private final RandomParty randomParty;
+    private final String language;
+    private final String moduleName;
 
-	/**
-	 * Creates a party name element.
-	 *
-	 * @param name
-	 *            Base name (e.g., "Sombras", "Guardians").
-	 * @param randomParty
-	 *            Parent RandomParty definition.
-	 * @param language
-	 *            Language code (ES/EN).
-	 * @param moduleName
-	 *            Module name (e.g., "Fading Suns 4E").
-	 */
-	public PartyName(String name, RandomParty randomParty, String language, String moduleName) {
-		this.name = name;
-		this.randomParty = randomParty;
-		this.language = language;
-		this.moduleName = moduleName;
-	}
+    /**
+     * Creates a party name element.
+     *
+     * @param name
+     *            Base name (e.g., "Sombras", "Guardians").
+     * @param randomParty
+     *            Parent RandomParty definition.
+     * @param language
+     *            Language code (ES/EN).
+     * @param moduleName
+     *            Module name (e.g., "Fading Suns 4E").
+     */
+    public PartyName(String name, RandomParty randomParty, String language, String moduleName) {
+        this.name = name;
+        this.randomParty = randomParty;
+        this.language = language;
+        this.moduleName = moduleName;
+    }
 
-	/**
-	 * Gets the party name text.
-	 *
-	 * @return Party name.
-	 */
-	public String getName() {
-		return name;
-	}
+    /**
+     * Gets the party name text.
+     *
+     * @return Party name.
+     */
+    public String getName() {
+        return name;
+    }
 
-	/**
-	 * Gets the parent random party definition.
-	 *
-	 * @return RandomParty definition.
-	 */
-	public RandomParty getRandomParty() {
-		return randomParty;
-	}
+    /**
+     * Gets the parent random party definition.
+     *
+     * @return RandomParty definition.
+     */
+    public RandomParty getRandomParty() {
+        return randomParty;
+    }
 
-	/**
-	 * Gets the language for this party name.
-	 *
-	 * @return Language code (ES/EN).
-	 */
-	public String getLanguage() {
-		return language;
-	}
+    /**
+     * Gets the language for this party name.
+     *
+     * @return Language code (ES/EN).
+     */
+    public String getLanguage() {
+        return language;
+    }
 
-	/**
-	 * Gets the module name for this party name.
-	 *
-	 * @return Module name.
-	 */
-	public String getModuleName() {
-		return moduleName;
-	}
+    /**
+     * Gets the module name for this party name.
+     *
+     * @return Module name.
+     */
+    public String getModuleName() {
+        return moduleName;
+    }
 
-	@Override
-	public int hashCode() {
-		return name.hashCode();
-	}
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		final PartyName other = (PartyName) obj;
-		return name.equals(other.name);
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final PartyName other = (PartyName) obj;
+        return name.equals(other.name);
+    }
 
 }
