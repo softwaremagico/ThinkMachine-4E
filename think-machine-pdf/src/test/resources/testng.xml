@@ -21,10 +21,13 @@
                 <include name="customCharacterGeneration"/>
                 <include name="randomCharacterSheetCreation"/>
                 <include name="randomPsiCharacterTest"/>
+                <include name="smallPartyPdfGeneration"/>
             </run>
         </groups>
         <classes>
             <class name="com.softwaremagico.tm.export.pdf.CharacterSheetCreationTest"/>
+            <class name="com.softwaremagico.tm.export.pdf.SmallPartySheetCreationTest"/>
+            <class name="com.softwaremagico.tm.export.pdf.PartyThreatLevelTest"/>
             <!--			<class name="com.softwaremagico.tm.export.pdf.CustomCharacters" />-->
             <!--			<class-->
             <!--				name="com.softwaremagico.tm.export.pdf.RandomCharacterSheetCreationTest" />-->

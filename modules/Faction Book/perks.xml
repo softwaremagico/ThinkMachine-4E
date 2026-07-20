@@ -21,6 +21,7 @@
                 <specie>ascorbite</specie>
             </species>
         </restrictions>
+        <elementType>TECHNICAL</elementType>
     </perk>
     <perk>
         <id>flyingAce</id>
@@ -43,6 +44,7 @@
                 <specie>etyri</specie>
             </species>
         </restrictions>
+        <elementType>TECHNICAL</elementType>
     </perk>
     <perk>
         <id>ectothermicAdaption</id>
@@ -74,6 +76,7 @@
                 <specie>hironemKimmu</specie>
             </species>
         </restrictions>
+        <elementType>TECHNICAL</elementType>
     </perk>
     <perk>
         <id>oreoymAmphibious</id>
@@ -107,6 +110,7 @@
                 <specie>oroym</specie>
             </species>
         </restrictions>
+        <elementType>TECHNICAL</elementType>
     </perk>
     <perk>
         <id>godLore</id>
@@ -147,6 +151,7 @@
                 <specie>oroym</specie>
             </species>
         </restrictions>
+        <elementType>SPIRITUAL</elementType>
     </perk>
     <perk>
         <id>alternativeRespiration</id>
@@ -156,6 +161,7 @@
             <es>Respiración Alternativa</es>
         </name>
         <type>power</type>
+        <elementType>COMBAT</elementType>
         <description>
             <en>You can breathe in toxic environments. Benefice: You can convert noxious substances, such as methane or
                 other gases, into whatever you need
@@ -193,6 +199,7 @@
             <es>Camaleón</es>
         </name>
         <type>power</type>
+        <elementType>STEALTH</elementType>
         <description>
             <en>Your skin mimics the environment around it, whether it is natural or manmade. Benefice: Your rolls are
                 favorable for Sneak blend in,
@@ -235,6 +242,7 @@
             <es>Garras</es>
         </name>
         <type>power</type>
+        <elementType>COMBAT</elementType>
         <description>
             <en>You have claws or talons on your hands and/or feet (or some other Changed limb). Benefice: These claws
                 or talons provide natural defense in
@@ -271,6 +279,7 @@
             <es>Dedos Elongados</es>
         </name>
         <type>power</type>
+        <elementType>TECHNICAL</elementType>
         <description>
             <en>Your long fingers give you extraordinary manual dexterity. Benefice: Your rolls for any hand-based
                 manipulations or ministrations are
@@ -306,6 +315,7 @@
             <es>Intelecto Mejorado</es>
         </name>
         <type>power</type>
+        <elementType>TECHNICAL</elementType>
         <description>
             <en>Your mind has been made smarter and faster. Benefice: Your Mind characteristics can be raised to a
                 maximum of 12, even before you reach 10th
@@ -402,6 +412,7 @@
             </es>
         </description>
         <type>power</type>
+        <elementType>TECHNICAL</elementType>
         <characteristicValues>
             <element>
                 <id>strength</id>
@@ -477,6 +488,7 @@
             </es>
         </description>
         <type>power</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <species>
                 <specie>inhuman</specie>
@@ -498,6 +510,7 @@
             <es>Exoesqueleto</es>
         </name>
         <type>power</type>
+        <elementType>COMBAT</elementType>
         <description>
             <en>An exoskeleton provides natural armor, but at the cost of a human appearance. Benefice: You gain +4 Body
                 Resistance. This natural armor does
@@ -529,6 +542,7 @@
             <es>Extremidades Extra</es>
         </name>
         <type>power</type>
+        <elementType>TECHNICAL</elementType>
         <description>
             <en>You possess an extra pair of arms or legs. Benefice: When you gain this perk, declare whether it applies
                 to arms or legs. You can take this perk
@@ -577,6 +591,7 @@
             <es>Colmillos</es>
         </name>
         <type>power</type>
+        <elementType>COMBAT</elementType>
         <description>
             <en>Fangs are both menacing and effective for biting. Benefice: You must decide whether your fangs are
                 incognito or noticeable. Incognito Fangs:
@@ -615,6 +630,7 @@
             <es>Almohadillas Plantares</es>
         </name>
         <type>power</type>
+        <elementType>STEALTH</elementType>
         <description>
             <en>Subcutaneous fat pockets on the bottom of your feet allow for natural stealthy movement. Benefice: Your
                 rolls are favorable for actions
@@ -649,6 +665,7 @@
             <es>Lengua de Rana</es>
         </name>
         <type>power</type>
+        <elementType>STEALTH</elementType>
         <description>
             <en>You can shoot a 2-meter tongue covered in microscopic suction cups from your mouth and use it to grab
                 objects. Benefice: If the objects are
@@ -681,6 +698,7 @@
             <es>Branquias</es>
         </name>
         <type>power</type>
+        <elementType>TECHNICAL</elementType>
         <description>
             <en>Gills, typically grown on the neck, allow you to breathe underwater for unlimited periods of time.
                 Benefice: Your gills are concealable under a
@@ -705,6 +723,7 @@
             <es>Alas Planeadoras</es>
         </name>
         <type>power</type>
+        <elementType>TECHNICAL</elementType>
         <description>
             <en>Humankind's yearning for flight entered the genetic stage during the First Republic era. While they
                 never produced actual wings as such, they did
@@ -739,6 +758,7 @@
             <es>Aliento Peligroso</es>
         </name>
         <type>power</type>
+        <elementType>TECHNICAL</elementType>
         <description>
             <en>Your very breath can be toxic to most life. Benefice: To cough up a cloud at a target within 3 meters,
                 you spend 2 VP (to activate the organ)
@@ -781,6 +801,7 @@
             <es>Cuerpo Oculto</es>
         </name>
         <type>power</type>
+        <elementType>TECHNICAL</elementType>
         <description>
             <en>You are actually two people: two separate entities. The other is small and lives in a womb inside of
                 you. Benefice: The miniature version of you
@@ -812,6 +833,7 @@
             <es>Respiración Interna</es>
         </name>
         <type>power</type>
+        <elementType>TECHNICAL</elementType>
         <description>
             <en>Through advanced engineering, or inheritance thereof, you do not require air. Benefice: Extra organs in
                 your body allow all respiration to occur
@@ -846,6 +868,7 @@
             <es>Longevidad</es>
         </name>
         <type>power</type>
+        <elementType>TECHNICAL</elementType>
         <description>
             <en>You can live longer than most of your kind, barring calamity or illness. Benefice: You are gifted with
                 an average lifespan twice that of your
@@ -872,6 +895,7 @@
             <es>Feromonas</es>
         </name>
         <type>power</type>
+        <elementType>STEALTH</elementType>
         <description>
             <en>You secrete pheromones that have a profound effect on people. The classic example is a pheromone that
                 promotes amorous feelings toward you, but
@@ -909,6 +933,7 @@
             <es>Fotosíntesis</es>
         </name>
         <type>power</type>
+        <elementType>TECHNICAL</elementType>
         <description>
             <en>Like plants, your body converts sunlight into energy. Benefice: Built as a response to famines millennia
                 ago, this perk ensures that as long as
@@ -941,6 +966,7 @@
             <es>Ataque Venenoso</es>
         </name>
         <type>power</type>
+        <elementType>COMBAT</elementType>
         <description>
             <en>You secrete poison from your body. Benefice: Your poison might come from your tears, mucous, spit, or
                 even sweat. Some Changed have control over
@@ -979,6 +1005,7 @@
             <es>Piel Rugosa</es>
         </name>
         <type>power</type>
+        <elementType>COMBAT</elementType>
         <description>
             <en>Your skin is hard, rough, and otherwise hard to penetrate. Benefice: You gain +2 Body Resistance. This
                 natural armor is compatible with energy
@@ -1009,6 +1036,7 @@
             <es>Rociada Fétida</es>
         </name>
         <type>power</type>
+        <elementType>STEALTH</elementType>
         <description>
             <en>Noxious, odorous gas shoots forth from glands in your body. Benefice: You may choose where such glands
                 appear and can conceal them under clothes
@@ -1042,6 +1070,7 @@
             <es>Tentáculos / Cola Prensil</es>
         </name>
         <type>power</type>
+        <elementType>COMBAT</elementType>
         <description>
             <en>Tails and tentacles are extremely uncommon, even among the Changed. They function in a manner similar to
                 extra arms but with less manual
@@ -1079,6 +1108,7 @@
             <es>Cuernos</es>
         </name>
         <type>power</type>
+        <elementType>COMBAT</elementType>
         <description>
             <en>Believe it or not, horns were once fashionable during the Second Republic. Now they are forbidden signs
                 used to mark the Changed by the Church.
@@ -1111,6 +1141,7 @@
             <es>Inmunidad</es>
         </name>
         <type>power</type>
+        <elementType>TECHNICAL</elementType>
         <description>
             <en>One specific condition, toxin, environment, or the like does not affect you as it does normal humans.
                 Benefice: When you gain this perk, declare
@@ -1145,6 +1176,7 @@
             <es>Manos Palmeadas</es>
         </name>
         <type>power</type>
+        <elementType>TECHNICAL</elementType>
         <description>
             <en>Webbed hands are one of the more common mutations. You can swim like a creature born of water. Benefice:
                 You can swim at your full movement
@@ -1182,6 +1214,7 @@
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <callings>
                 <calling>cyborg</calling>
@@ -1205,6 +1238,7 @@
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <callings>
                 <calling>cyborg</calling>
@@ -1228,6 +1262,7 @@
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <callings>
                 <calling>cyborg</calling>
@@ -1249,6 +1284,7 @@
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <callings>
                 <calling>cyborg</calling>
@@ -1272,6 +1308,7 @@
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <callings>
                 <calling>cyborg</calling>
@@ -1295,6 +1332,7 @@
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <callings>
                 <calling>cyborg</calling>
@@ -1320,6 +1358,7 @@
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <callings>
                 <calling>cyborg</calling>
@@ -1345,6 +1384,7 @@
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <callings>
                 <calling>cyborg</calling>
@@ -1370,6 +1410,7 @@
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <callings>
                 <calling>cyborg</calling>
@@ -1393,6 +1434,7 @@
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <callings>
                 <calling>cyborg</calling>
@@ -1412,6 +1454,7 @@
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions mode="all">
             <callings>
                 <calling>cyborg</calling>

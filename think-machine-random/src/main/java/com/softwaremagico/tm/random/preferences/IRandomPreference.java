@@ -55,6 +55,11 @@ public interface IRandomPreference {
             // Not this value. Continue.
         }
         try {
+            return DifficultLevelPreferences.valueOf(name);
+        } catch (final IllegalArgumentException ignore) {
+            // Not this value. Continue.
+        }
+        try {
             return LegalStatusPreference.valueOf(name);
         } catch (final IllegalArgumentException ignore) {
             // Not this value. Continue.

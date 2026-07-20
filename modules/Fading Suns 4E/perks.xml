@@ -32,6 +32,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>confessor</calling>
@@ -56,6 +57,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <callings>
                 <calling>duelist</calling>
@@ -91,6 +93,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <specializations>
             <selectedSpecialization>
                 <id>obun</id>
@@ -187,6 +190,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <specializations>
             <selectedSpecialization>
                 <id>obun</id>
@@ -281,6 +285,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>detective</calling>
@@ -327,6 +332,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <random>
             <recommendedPreferences>
                 <preference>SOCIAL</preference>
@@ -357,6 +363,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <random>
             <recommendedPreferences>
                 <preference>COMBAT</preference>
@@ -387,6 +394,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>dreamtender</calling>
@@ -415,6 +423,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions mode="any">
             <callings>
                 <calling>explorer</calling>
@@ -445,6 +454,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>explorer</calling>
@@ -474,6 +484,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
@@ -510,6 +521,7 @@
         </description>
         <source>calling</source>
         <type>austerity</type>
+        <elementType>SPIRITUAL</elementType>
         <resistances>
             <resistance>
                 <type>spirit</type>
@@ -546,6 +558,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <callings>
                 <calling>friar</calling>
@@ -601,6 +614,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <callings>
                 <calling>psychic</calling>
@@ -629,6 +643,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <callings>
                 <calling>scribe</calling>
@@ -661,6 +676,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>imperialCohortPriest</calling>
@@ -689,6 +705,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <restrictions>
             <callings>
                 <calling>imperialCohortPriest</calling>
@@ -724,6 +741,7 @@
         </description>
         <source>calling</source>
         <type>verve</type>
+        <elementType>COMMERCE</elementType>
         <restrictions>
             <callings>
                 <calling>banker</calling>
@@ -752,6 +770,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
@@ -783,6 +802,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <factions>
                 <faction>brotherBattle</faction>
@@ -819,6 +839,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <callings>
                 <calling>amateur</calling>
@@ -854,6 +875,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>sybarite</calling>
@@ -891,6 +913,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>STEALTH</elementType>
         <restrictions>
             <callings>
                 <calling>inquisitor</calling>
@@ -921,6 +944,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <callings>
                 <calling>templar</calling>
@@ -962,6 +986,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>chainer</calling>
@@ -988,6 +1013,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>amateur</calling>
@@ -1045,6 +1071,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>enthusiast</calling>
@@ -1075,6 +1102,7 @@
         </description>
         <source>calling</source>
         <type>verve</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <callings>
                 <calling>chorister</calling>
@@ -1113,6 +1141,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>lawyer</calling>
@@ -1141,6 +1170,7 @@
         </description>
         <source>calling</source>
         <type>verve</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <callings>
                 <calling>conspiracist</calling>
@@ -1172,6 +1202,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <callings>
                 <calling>confessor</calling>
@@ -1215,6 +1246,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <callings>
                 <calling>pirate</calling>
@@ -1253,6 +1285,7 @@
         </description>
         <source>calling</source>
         <type>verve</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <callings>
                 <calling>mercurian</calling>
@@ -1291,6 +1324,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <callings>
                 <calling>explorer</calling>
@@ -1318,6 +1352,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>COMMERCE</elementType>
         <random>
             <recommendedPreferences>
                 <preference>TRADE</preference>
@@ -1352,6 +1387,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>COMMERCE</elementType>
         <restrictions>
             <perks>
                 <perk>cash1000</perk>
@@ -1390,6 +1426,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>COMMERCE</elementType>
         <restrictions>
             <perks>
                 <perk>cash2000</perk>
@@ -1427,6 +1464,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>COMMERCE</elementType>
         <restrictions>
             <perks>
                 <perk>cash3000</perk>
@@ -1462,6 +1500,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>COMMERCE</elementType>
         <restrictions>
             <perks>
                 <perk>cash4000</perk>
@@ -1492,6 +1531,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>STEALTH</elementType>
         <restrictions>
             <callings>
                 <calling>artist</calling>
@@ -1526,6 +1566,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>STEALTH</elementType>
         <restrictions>
             <perks>
                 <perk>wildDomain</perk>
@@ -1559,6 +1600,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions mode="any_from_group">
             <perksGroups>
                 <group>churchOrdination</group>
@@ -1587,6 +1629,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions mode="all">
             <species>
                 <specie>obun</specie>
@@ -1619,6 +1662,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <callings>
                 <calling>dreamtender</calling>
@@ -1642,6 +1686,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
     </perk>
     <perk>
         <id>comprehendTechLevel5</id>
@@ -1687,6 +1732,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <callings>
                 <calling>techRedeemer</calling>
@@ -1741,6 +1787,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <perks>
                 <perk>comprehendTechLevel5</perk>
@@ -1795,6 +1842,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <perks>
                 <perk>comprehendTechLevel6</perk>
@@ -1850,6 +1898,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <perks>
                 <perk>comprehendTechLevel7</perk>
@@ -1885,6 +1934,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <callings>
                 <calling>healer</calling>
@@ -1920,6 +1970,7 @@
         </description>
         <source>calling</source>
         <type>verve</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -1964,6 +2015,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <restrictions mode="any_from_group">
             <callings>
                 <calling>commander</calling>
@@ -2014,6 +2066,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <random>
             <recommendedPreferences>
                 <preference>SOCIAL</preference>
@@ -2038,6 +2091,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>STEALTH</elementType>
         <restrictions>
             <callings>
                 <calling>artist</calling>
@@ -2070,6 +2124,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions mode="any_from_group">
             <callings>
                 <calling>conspiracist</calling>
@@ -2105,6 +2160,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <callings>
                 <calling>occultist</calling>
@@ -2136,6 +2192,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>STEALTH</elementType>
         <restrictions>
             <callings>
                 <calling>clergy</calling>
@@ -2186,6 +2243,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>psychic</calling>
@@ -2226,6 +2284,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions mode="any_from_group">
             <callings>
                 <calling>techRedeemer</calling>
@@ -2280,6 +2339,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions mode="any_from_group">
             <callings>
                 <calling>techRedeemer</calling>
@@ -2314,6 +2374,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>COMMERCE</elementType>
         <restrictions>
             <callings>
                 <calling>tycoon</calling>
@@ -2346,6 +2407,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>bountyHunter</calling>
@@ -2382,6 +2444,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <callings>
                 <calling>occultist</calling>
@@ -2411,6 +2474,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <callings>
                 <calling>duelist</calling>
@@ -2448,6 +2512,7 @@
         </description>
         <source>calling</source>
         <type>verve</type>
+        <elementType>STEALTH</elementType>
     </perk>
     <perk>
         <id>daredevil</id>
@@ -2482,6 +2547,7 @@
         </description>
         <source>calling</source>
         <type>verve</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <callings>
                 <calling>starPilot</calling>
@@ -2518,6 +2584,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>sybarite</calling>
@@ -2554,6 +2621,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <callings>
                 <calling>detective</calling>
@@ -2585,6 +2653,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <callings>
                 <calling>brotherBattle</calling>
@@ -2615,6 +2684,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>COMMERCE</elementType>
         <restrictions>
             <callings>
                 <calling>detective</calling>
@@ -2678,6 +2748,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>dervishRank</group>
         <resistances>
             <resistance>
@@ -2745,6 +2816,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>dervishRank</group>
         <resistances>
             <resistance>
@@ -2812,6 +2884,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>dervishRank</group>
         <resistances>
             <resistance>
@@ -2879,6 +2952,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>dervishRank</group>
         <resistances>
             <resistance>
@@ -2946,6 +3020,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>dervishRank</group>
         <resistances>
             <resistance>
@@ -2986,6 +3061,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <perks>
                 <perk>churchOrdinationNovitiate</perk>
@@ -3034,6 +3110,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>COMMERCE</elementType>
         <restrictions>
             <perks>
                 <perk>guildCommissionCharioteer3</perk>
@@ -3062,6 +3139,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>dreamtender</calling>
@@ -3087,6 +3165,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <callings>
                 <calling>monkScholarlyTradition</calling>
@@ -3122,6 +3201,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>courtier</calling>
@@ -3158,6 +3238,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions mode="any_from_group">
             <callings>
                 <calling>dreamtender</calling>
@@ -3201,6 +3282,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <callings>
                 <calling>lord</calling>
@@ -3225,6 +3307,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>LEADERSHIP</elementType>
         <repeatable>true</repeatable>
     </perk>
     <perk>
@@ -3264,6 +3347,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
     </perk>
     <perk>
         <id>familyTies</id>
@@ -3289,6 +3373,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
     </perk>
     <perk>
         <id>duello1</id>
@@ -3307,6 +3392,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions mode="all">
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -3338,6 +3424,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <perks>
                 <perk>duello1</perk>
@@ -3366,6 +3453,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions mode="any">
             <species>
                 <specie>ukar</specie>
@@ -3406,6 +3494,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <perks>
                 <perk>kraxi1</perk>
@@ -3440,6 +3529,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions mode="all">
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -3472,6 +3562,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <perks>
                 <perk>serpentis1</perk>
@@ -3500,6 +3591,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions mode="all">
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -3531,6 +3623,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <perks>
                 <perk>torero1</perk>
@@ -3565,6 +3658,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
     </perk>
     <perk>
         <id>fortitudeInFaith</id>
@@ -3589,6 +3683,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <callings>
                 <calling>healer</calling>
@@ -3642,6 +3737,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <callings>
                 <calling>lawyer</calling>
@@ -3675,6 +3771,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <upbringings>
                 <upbringing>merchant</upbringing>
@@ -3713,6 +3810,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <upbringings>
                 <upbringing>merchant</upbringing>
@@ -3747,6 +3845,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions mode="all">
             <callings>
                 <calling>chorister</calling>
@@ -3790,6 +3889,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <repeatable>true</repeatable>
         <restrictions>
             <capabilitiesGroups>
@@ -3822,6 +3922,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions mode="any">
             <species>
                 <specie>vorox</specie>
@@ -3854,6 +3955,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>detective</calling>
@@ -3885,6 +3987,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions mode="any">
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -3917,6 +4020,7 @@
         </description>
         <source>calling</source>
         <type>verve</type>
+        <elementType>COMMERCE</elementType>
         <restrictions>
             <callings>
                 <calling>tycoon</calling>
@@ -3969,6 +4073,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -4007,6 +4112,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>ronin</calling>
@@ -4039,6 +4145,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -4066,6 +4173,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>confessor</calling>
@@ -4103,6 +4211,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <upbringings>
                 <upbringing>yeoman</upbringing>
@@ -4132,6 +4241,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>bountyHunter</calling>
@@ -4162,6 +4272,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <callings>
                 <calling>brotherBattle</calling>
@@ -4217,6 +4328,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>questingKnight</calling>
@@ -4262,6 +4374,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -4289,6 +4402,7 @@
         </description>
         <source>class</source>
         <type>verve</type>
+        <elementType>LEADERSHIP</elementType>
         <restrictions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -4339,6 +4453,7 @@
         </description>
         <source>calling</source>
         <type>verve</type>
+        <elementType>SPIRITUAL</elementType>
         <random>
             <recommendedPreferences>
                 <preference>SOCIAL</preference>
@@ -4363,6 +4478,7 @@
         </description>
         <source>calling</source>
         <type>verve</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>trader</calling>
@@ -4392,6 +4508,7 @@
         </description>
         <source>calling</source>
         <type>austerity</type>
+        <elementType>SPIRITUAL</elementType>
         <resistances>
             <resistance>
                 <type>spirit</type>
@@ -4426,6 +4543,7 @@
         </description>
         <source>class</source>
         <type>verve</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <upbringings>
                 <upbringing>yeoman</upbringing>
@@ -4460,6 +4578,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>clergy</calling>
@@ -4484,6 +4603,7 @@
         </description>
         <source>class</source>
         <type>verve</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <upbringings>
                 <upbringing>merchant</upbringing>
@@ -4519,6 +4639,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions mode="any_from_group">
             <callings>
                 <calling>inquisitor</calling>
@@ -4548,6 +4669,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <callings>
                 <calling>inquisitor</calling>
@@ -4580,6 +4702,7 @@
         </description>
         <source>class</source>
         <type>verve</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -4610,6 +4733,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>STEALTH</elementType>
         <restrictions>
             <callings>
                 <calling>reclaimer</calling>
@@ -4655,6 +4779,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions mode="any_from_group">
             <callings>
                 <calling>brotherBattle</calling>
@@ -4693,6 +4818,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions mode="any">
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -4721,6 +4847,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>STEALTH</elementType>
         <restrictions>
             <callings>
                 <calling>thief</calling>
@@ -4753,6 +4880,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>STEALTH</elementType>
         <restrictions>
             <callings>
                 <calling>confessor</calling>
@@ -4781,6 +4909,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>chorister</calling>
@@ -4814,6 +4943,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <restrictions>
             <callings>
                 <calling>chainer</calling>
@@ -4846,6 +4976,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -4879,6 +5010,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>friar</calling>
@@ -4914,6 +5046,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <perks>
                 <perk>nobleTitleBaron</perk>
@@ -4938,6 +5071,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <callings>
                 <calling>amateur</calling>
@@ -4970,6 +5104,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions mode="any">
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -4999,6 +5134,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>thief</calling>
@@ -5040,6 +5176,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>scholar</calling>
@@ -5077,6 +5214,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>scholar</calling>
@@ -5113,6 +5251,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>mendicant</calling>
@@ -5145,6 +5284,7 @@
         </description>
         <source>calling</source>
         <type>verve</type>
+        <elementType>STEALTH</elementType>
         <restrictions>
             <callings>
                 <calling>tycoon</calling>
@@ -5178,6 +5318,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <callings>
                 <calling>healer</calling>
@@ -5214,6 +5355,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>incognito</calling>
@@ -5256,6 +5398,7 @@
         </description>
         <source>calling</source>
         <type>verve</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>commander</calling>
@@ -5288,6 +5431,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>artist</calling>
@@ -5318,6 +5462,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <callings>
                 <calling>bountyHunter</calling>
@@ -5348,6 +5493,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <callings>
                 <calling>brotherBattle</calling>
@@ -5377,6 +5523,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <perks>
                 <perk>mantok1</perk>
@@ -5413,6 +5560,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions mode="any">
             <upbringings>
                 <upbringing>merchant</upbringing>
@@ -5455,6 +5603,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions mode="any">
             <upbringings>
                 <upbringing>merchant</upbringing>
@@ -5494,6 +5643,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <species>
                 <specie>vorox</specie>
@@ -5522,6 +5672,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <perks>
                 <perk>graa1</perk>
@@ -5554,6 +5705,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions mode="any">
             <factions>
                 <faction>musters</faction>
@@ -5591,6 +5743,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <perks>
                 <perk>ironHeel1</perk>
@@ -5621,6 +5774,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <random>
             <recommendedPreferences>
                 <preference>COMBAT</preference>
@@ -5646,6 +5800,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <perks>
                 <perk>joxBoxing1</perk>
@@ -5674,6 +5829,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <random>
             <recommendedPreferences>
                 <preference>COMBAT</preference>
@@ -5697,6 +5853,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <perks>
                 <perk>koto1</perk>
@@ -5727,6 +5884,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -5757,6 +5915,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <perks>
                 <perk>shaidan1</perk>
@@ -5785,6 +5944,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>STEALTH</elementType>
         <restrictions mode="all">
             <callings>
                 <calling>conspiracist</calling>
@@ -5825,6 +5985,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions mode="all">
             <callings>
                 <calling>starPilot</calling>
@@ -5872,6 +6033,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <restrictions>
             <callings>
                 <calling>incognito</calling>
@@ -5896,6 +6058,7 @@
         </description>
         <source>calling</source>
         <type>austerity</type>
+        <elementType>SPIRITUAL</elementType>
         <resistances>
             <resistance>
                 <type>spirit</type>
@@ -5931,6 +6094,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <callings>
                 <calling>confessor</calling>
@@ -5963,6 +6127,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>spy</calling>
@@ -5994,6 +6159,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <callings>
                 <calling>monkScholarlyTradition</calling>
@@ -6026,6 +6192,7 @@
         </description>
         <source>calling</source>
         <type>verve</type>
+        <elementType>COMMERCE</elementType>
         <restrictions>
             <callings>
                 <calling>banker</calling>
@@ -6058,6 +6225,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>artist</calling>
@@ -6095,6 +6263,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
     </perk>
     <perk>
         <id>noblesseOblige</id>
@@ -6123,6 +6292,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -6147,6 +6317,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions mode="any">
             <callings>
                 <calling>chainer</calling>
@@ -6175,6 +6346,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions mode="any">
             <species>
                 <specie>obun</specie>
@@ -6202,6 +6374,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <restrictions>
             <callings>
                 <calling>knightlyOrder</calling>
@@ -6227,6 +6400,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions mode="any">
             <species>
                 <specie>vorox</specie>
@@ -6255,6 +6429,7 @@
         </description>
         <source>calling</source>
         <type>verve</type>
+        <elementType>LEADERSHIP</elementType>
         <restrictions>
             <callings>
                 <calling>knightlyOrder</calling>
@@ -6293,6 +6468,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>courtier</calling>
@@ -6325,6 +6501,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>COMMERCE</elementType>
         <random>
             <recommendedPreferences>
                 <preference>TRADE</preference>
@@ -6355,6 +6532,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <callings>
                 <calling>enthusiast</calling>
@@ -6384,6 +6562,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions mode="any">
             <upbringings>
                 <upbringing>yeoman</upbringing>
@@ -6414,6 +6593,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>artist</calling>
@@ -6441,6 +6621,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <callings>
                 <calling>scribe</calling>
@@ -6468,6 +6649,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -6506,6 +6688,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <repeatable>true</repeatable>
         <restrictions>
             <callings>
@@ -6546,6 +6729,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <callings>
                 <calling>scholar</calling>
@@ -6589,6 +6773,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>lord</calling>
@@ -6615,6 +6800,7 @@
         </description>
         <source>class</source>
         <type>verve</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -6649,6 +6835,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -6673,6 +6860,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>clergy</calling>
@@ -6713,6 +6901,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <callings>
                 <calling>conspiracist</calling>
@@ -6767,6 +6956,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions mode="all">
             <callings>
                 <calling>reclaimer</calling>
@@ -6804,6 +6994,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <perks>
                 <perk>riches2</perk>
@@ -6831,6 +7022,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <random>
             <recommendedPreferences>
                 <preference>WANTED</preference>
@@ -6854,6 +7046,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions mode="any">
             <callings>
                 <calling>mercenary</calling>
@@ -6886,6 +7079,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>courtier</calling>
@@ -6928,6 +7122,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -6964,6 +7159,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>COMMERCE</elementType>
         <restrictions>
             <perks>
                 <perk>riches1</perk>
@@ -7005,6 +7201,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>COMMERCE</elementType>
         <restrictions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -7058,6 +7255,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>COMMERCE</elementType>
         <restrictions>
             <perks>
                 <perk>riches1</perk>
@@ -7108,6 +7306,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>COMMERCE</elementType>
         <restrictions>
             <perks>
                 <perk>riches2</perk>
@@ -7157,6 +7356,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>COMMERCE</elementType>
         <restrictions>
             <perks>
                 <perk>riches3</perk>
@@ -7206,6 +7406,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>COMMERCE</elementType>
         <restrictions>
             <perks>
                 <perk>riches4</perk>
@@ -7242,6 +7443,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions mode="all">
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -7274,6 +7476,7 @@
         </description>
         <source>calling</source>
         <type>austerity</type>
+        <elementType>SPIRITUAL</elementType>
         <resistances>
             <resistance>
                 <type>spirit</type>
@@ -7325,6 +7528,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>amateur</calling>
@@ -7339,15 +7543,16 @@
             <es>Porte Noble</es>
         </name>
         <description>
-            <en>Calling • Ability: Precondition: Confessor Your interactions with noble houses have brought insight into the nobility. Benefice: You have
+            <en>Your interactions with noble houses have brought insight into the nobility. Benefice: You have
                 capability in the Court Customs social arena and gain favorability to persuasion or coercion (choose one method) influence against nobles.
             </en>
-            <es>Confesor Tus interacciones con las casas nobles te han permitido conocer mejor la nobleza. Beneficio: Tienes
+            <es>Tus interacciones con las casas nobles te han permitido conocer mejor la nobleza. Beneficio: Tienes
                 la competencia Usos de la Corte y tus tiradas de persuasión o coacción (elige uno de los dos métodos) son favorables contra nobles.
             </es>
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>confessor</calling>
@@ -7384,6 +7589,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>artist</calling>
@@ -7408,6 +7614,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>bountyHunter</calling>
@@ -7443,6 +7650,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>conspiracist</calling>
@@ -7467,6 +7675,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <upbringings>
                 <upbringing>merchant</upbringing>
@@ -7500,6 +7709,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>verve</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -7542,6 +7752,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions mode="any_from_group">
             <callings>
                 <calling>brotherBattle</calling>
@@ -7582,6 +7793,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>verve</type>
+        <elementType>COMMERCE</elementType>
         <restrictions>
             <callings>
                 <calling>banker</calling>
@@ -7624,6 +7836,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
     </perk>
     <perk>
         <id>scentOfTheWitch</id>
@@ -7648,6 +7861,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <callings>
                 <calling>inquisitor</calling>
@@ -7685,6 +7899,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>courtier</calling>
@@ -7722,6 +7937,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>STEALTH</elementType>
         <repeatable>true</repeatable>
         <restrictions>
             <callings>
@@ -7781,6 +7997,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>STEALTH</elementType>
         <restrictions>
             <callings>
                 <calling>spy</calling>
@@ -7832,6 +8049,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>STEALTH</elementType>
         <restrictions>
             <perks>
                 <perk>secretAgent1</perk>
@@ -7883,6 +8101,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>STEALTH</elementType>
         <restrictions>
             <perks>
                 <perk>secretAgent2</perk>
@@ -7934,6 +8153,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>STEALTH</elementType>
         <restrictions>
             <perks>
                 <perk>secretAgent3</perk>
@@ -7985,6 +8205,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>STEALTH</elementType>
         <restrictions>
             <perks>
                 <perk>secretAgent4</perk>
@@ -8017,6 +8238,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>mercenary</calling>
@@ -8049,6 +8271,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <random>
             <recommendedPreferences>
                 <preference>GOOD</preference>
@@ -8080,6 +8303,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>verve</type>
+        <elementType>SPIRITUAL</elementType>
         <repeatable>true</repeatable>
         <restrictions>
             <upbringings>
@@ -8114,6 +8338,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <restrictions>
             <callings>
                 <calling>lawyer</calling>
@@ -8143,6 +8368,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <species>
                 <specie>ukar</specie>
@@ -8168,6 +8394,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>STEALTH</elementType>
         <restrictions>
             <species>
                 <specie>vorox</specie>
@@ -8194,6 +8421,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>STEALTH</elementType>
         <restrictions mode="any">
             <species>
                 <specie>vorox</specie>
@@ -8224,6 +8452,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>brotherBattle</calling>
@@ -8256,6 +8485,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>TECHNICAL</elementType>
     </perk>
     <perk>
         <id>stoicBody</id>
@@ -8274,6 +8504,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <resistances>
             <resistance>
                 <type>body</type>
@@ -8298,6 +8529,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <resistances>
             <resistance>
                 <type>mind</type>
@@ -8323,6 +8555,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <resistances>
             <resistance>
                 <type>spirit</type>
@@ -8352,6 +8585,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>LEADERSHIP</elementType>
         <restrictions>
             <callings>
                 <calling>commander</calling>
@@ -8378,6 +8612,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>lawyer</calling>
@@ -8404,6 +8639,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <callings>
                 <calling>starPilot</calling>
@@ -8439,6 +8675,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <callings>
                 <calling>monkScholarlyTradition</calling>
@@ -8471,6 +8708,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>amateur</calling>
@@ -8509,6 +8747,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>verve</type>
+        <elementType>COMMERCE</elementType>
         <restrictions>
             <callings>
                 <calling>trader</calling>
@@ -8534,6 +8773,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>verve</type>
+        <elementType>COMMERCE</elementType>
         <restrictions>
             <callings>
                 <calling>banker</calling>
@@ -8564,6 +8804,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <upbringings>
                 <upbringing>merchant</upbringing>
@@ -8598,6 +8839,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>mercurian</calling>
@@ -8624,6 +8866,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>verve</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <callings>
                 <calling>friar</calling>
@@ -8659,6 +8902,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <capabilities>
                 <capability>commonsCustoms</capability>
@@ -8702,6 +8946,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>incognito</calling>
@@ -8741,6 +8986,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>ronin</calling>
@@ -8769,6 +9015,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>TECHNICAL</elementType>
         <repeatable>true</repeatable>
         <restrictions>
             <callings>
@@ -8796,6 +9043,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions mode="any">
             <upbringings>
                 <upbringing>noble</upbringing>
@@ -8835,6 +9083,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <capabilities>
                 <capability>streetwise</capability>
@@ -8868,6 +9117,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>lord</calling>
@@ -8894,6 +9144,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
     </perk>
     <perk>
         <id>viciousInsult</id>
@@ -8913,6 +9164,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>conspiracist</calling>
@@ -8951,6 +9203,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>artist</calling>
@@ -8983,6 +9236,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>austerity</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions>
             <callings>
                 <calling>mendicant</calling>
@@ -9023,6 +9277,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>conspiracist</calling>
@@ -9049,6 +9304,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
     </perk>
     <perk>
         <id>wildDomain</id>
@@ -9072,6 +9328,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions mode="any">
             <species>
                 <specie>vorox</specie>
@@ -9097,6 +9354,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>verve</type>
+        <elementType>COMMERCE</elementType>
         <restrictions>
             <callings>
                 <calling>banker</calling>
@@ -9125,15 +9383,16 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions mode="any_from_group">
             <upbringings>
                 <upbringing>priest</upbringing>
             </upbringings>
             <callings>
-                
-                
-                
-                
+
+
+
+
             </callings>
         </restrictions>
     </perk>
@@ -9161,6 +9420,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <restrictions mode="any">
             <upbringings>
                 <upbringing>priest</upbringing>
@@ -9194,6 +9454,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>austerity</type>
+        <elementType>SPIRITUAL</elementType>
         <resistances>
             <resistance>
                 <type>spirit</type>
@@ -9232,6 +9493,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <group>churchOrdination</group>
         <resistances>
             <resistance>
@@ -9270,6 +9532,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <group>churchOrdination</group>
         <resistances>
             <resistance>
@@ -9304,6 +9567,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <group>churchOrdination</group>
         <resistances>
             <resistance>
@@ -9338,6 +9602,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <group>churchOrdination</group>
         <resistances>
             <resistance>
@@ -9372,6 +9637,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <group>churchOrdination</group>
         <resistances>
             <resistance>
@@ -9406,6 +9672,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <group>churchOrdination</group>
         <resistances>
             <resistance>
@@ -9440,6 +9707,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -9474,6 +9742,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -9508,6 +9777,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -9542,6 +9812,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -9576,6 +9847,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -9610,6 +9882,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -9644,6 +9917,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -9678,6 +9952,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -9712,6 +9987,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -9746,6 +10022,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -9780,6 +10057,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -9814,6 +10092,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -9848,6 +10127,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -9882,6 +10162,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -9916,6 +10197,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -9950,6 +10232,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -9984,6 +10267,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -10018,6 +10302,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -10052,6 +10337,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -10086,6 +10372,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -10120,6 +10407,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -10154,6 +10442,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -10188,6 +10477,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -10222,6 +10512,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -10256,6 +10547,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -10290,6 +10582,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -10324,6 +10617,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -10358,6 +10652,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -10392,6 +10687,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -10426,6 +10722,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>guildCommission</group>
         <resistances>
             <resistance>
@@ -10460,6 +10757,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <group>nobleTitle</group>
         <resistances>
             <resistance>
@@ -10494,6 +10792,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <group>nobleTitle</group>
         <resistances>
             <resistance>
@@ -10528,6 +10827,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <group>nobleTitle</group>
         <resistances>
             <resistance>
@@ -10562,6 +10862,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <group>nobleTitle</group>
         <resistances>
             <resistance>
@@ -10596,6 +10897,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <group>nobleTitle</group>
         <resistances>
             <resistance>
@@ -10630,6 +10932,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <group>nobleTitle</group>
         <resistances>
             <resistance>
@@ -10669,6 +10972,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <group>professionalReputation</group>
         <resistances>
             <resistance>
@@ -10716,6 +11020,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <group>professionalReputation</group>
         <resistances>
             <resistance>
@@ -10755,6 +11060,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <group>professionalReputation</group>
         <resistances>
             <resistance>
@@ -10794,6 +11100,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <resistances>
             <resistance>
                 <type>mind</type>
@@ -10833,6 +11140,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <group>professionalReputation</group>
         <resistances>
             <resistance>
@@ -10880,6 +11188,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>militaryRank</group>
         <random>
             <recommendedPreferences>
@@ -10920,6 +11229,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>militaryRank</group>
         <restrictions>
             <perks>
@@ -10965,6 +11275,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>militaryRank</group>
         <restrictions>
             <perks>
@@ -11010,6 +11321,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>militaryRank</group>
         <restrictions>
             <perks>
@@ -11055,6 +11367,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>LEADERSHIP</elementType>
         <group>militaryRank</group>
         <restrictions>
             <perks>
@@ -11122,6 +11435,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>power</type>
+        <elementType>SPIRITUAL</elementType>
         <repeatable>true</repeatable>
         <restrictions mode="any">
             <callings>
@@ -11203,6 +11517,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>power</type>
+        <elementType>SPIRITUAL</elementType>
         <repeatable>true</repeatable>
         <restrictions mode="any">
             <callings>
@@ -11260,6 +11575,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
+        <elementType>TECHNICAL</elementType>
         <random>
             <recommendedPreferences>
                 <preference>HI_TECH</preference>
@@ -11307,6 +11623,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <callings>
                 <calling>duelist</calling>
@@ -11352,6 +11669,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <species>
                 <specie>vorox</specie>
@@ -11408,6 +11726,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions>
             <callings>
                 <calling>techRedeemer</calling>
@@ -11454,6 +11773,7 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
         </description>
         <source>calling</source>
         <type>cyberdevice</type>
+        <elementType>TECHNICAL</elementType>
         <restrictions mode="any">
             <species>
                 <specie>vorox</specie>

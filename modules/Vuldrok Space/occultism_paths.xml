@@ -7,6 +7,7 @@
             <es>Ocultación</es>
         </name>
         <occultismType>runemastery</occultismType>
+        <elementType>STEALTH</elementType>
         <powers>
             <power>
                 <id>camouflage</id>
@@ -153,6 +154,7 @@
             <es>Conocimiento</es>
         </name>
         <occultismType>runemastery</occultismType>
+        <elementType>SPIRITUAL</elementType>
         <powers>
             <power>
                 <id>parley</id>
@@ -292,6 +294,7 @@
             <es>Creación</es>
         </name>
         <occultismType>runemastery</occultismType>
+        <elementType>TECHNICAL</elementType>
         <powers>
             <power>
                 <id>enlarge</id>
@@ -437,6 +440,7 @@
             <es>Revelación</es>
         </name>
         <occultismType>runemastery</occultismType>
+        <elementType>SPIRITUAL</elementType>
         <powers>
             <power>
                 <id>sharpenSenses</id>
@@ -571,6 +575,7 @@
             <es>Modelado</es>
         </name>
         <occultismType>runemastery</occultismType>
+        <elementType>TECHNICAL</elementType>
         <powers>
             <power>
                 <id>reshape</id>
@@ -706,6 +711,7 @@
             <es>Protección</es>
         </name>
         <occultismType>runemastery</occultismType>
+        <elementType>TECHNICAL</elementType>
         <powers>
             <power>
                 <id>toughen</id>
@@ -844,6 +850,7 @@
             <es>Viaje</es>
         </name>
         <occultismType>runemastery</occultismType>
+        <elementType>TECHNICAL</elementType>
         <powers>
             <power>
                 <id>axis</id>
@@ -983,6 +990,7 @@
             <es>Destrucción</es>
         </name>
         <occultismType>runemastery</occultismType>
+        <elementType>COMBAT</elementType>
         <powers>
             <power>
                 <id>shrink</id>
@@ -1118,6 +1126,7 @@
             <es>Vínculo Bestial</es>
         </name>
         <occultismType>sympathy</occultismType>
+        <elementType>SPIRITUAL</elementType>
         <powers>
             <power>
                 <id>lifeSense</id>
