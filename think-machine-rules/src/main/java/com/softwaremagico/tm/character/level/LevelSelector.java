@@ -31,10 +31,13 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.CharacterSelectedElement;
 import com.softwaremagico.tm.character.OptionsList;
 import com.softwaremagico.tm.character.Selection;
+import com.softwaremagico.tm.character.callings.CallingCharacterDefinitionStepSelection;
+import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.equipment.CharacterSelectedEquipment;
 import com.softwaremagico.tm.character.perks.CharacterPerkOptions;
 import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.character.values.Phase;
+import com.softwaremagico.tm.exceptions.InvalidCallingException;
 import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 
 import java.util.ArrayList;
@@ -51,6 +54,9 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
 
     @JsonProperty("callingPerks")
     private OptionsList<CharacterSelectedElement> selectedCallingPerksOptions;
+
+    @JsonProperty("calling")
+    private String callingId;
 
     private final int level;
 
@@ -71,6 +77,32 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
         }
         characterPlayer.getCacheManager().reset();
         setListeners();
+    }
+
+    public String getCallingId() {
+        return callingId;
+    }
+
+    public CallingCharacterDefinitionStepSelection getCalling() {
+        if (callingId == null) {
+            return null;
+        }
+        return new CallingCharacterDefinitionStepSelection(getCharacterPlayer(), callingId);
+    }
+
+    public void setCalling(String callingId) {
+        if (callingId == null || callingId.isBlank()) {
+            this.callingId = null;
+            getCharacterPlayer().getCacheManager().perksChanged();
+            return;
+        }
+
+        final CallingCharacterDefinitionStepSelection newCalling = new CallingCharacterDefinitionStepSelection(getCharacterPlayer(), callingId);
+        if (CallingFactory.getInstance().getElement(newCalling.getId()).getRestrictions().isRestricted(getCharacterPlayer())) {
+            throw new InvalidCallingException("Calling '" + callingId + "' is restricted to the character.");
+        }
+        this.callingId = callingId;
+        getCharacterPlayer().getCacheManager().perksChanged();
     }
 
     @Override

@@ -32,3 +32,4 @@ think-machine-rules/.checkstyle
 modules/Fading Suns 4E/json/*
 src/main/resources/version.txt
 Books
+.editorconfig

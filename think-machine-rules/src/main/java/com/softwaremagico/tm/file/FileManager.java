@@ -30,14 +30,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.Reader;
 import java.io.StringWriter;
-import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.net.URL;
 import java.net.URLDecoder;
@@ -58,7 +56,7 @@ public final class FileManager {
     private FileManager() {
     }
 
-    public static List<String> inLines(String filename) throws FileNotFoundException, IOException {
+    public static List<String> inLines(String filename) throws IOException {
         final String os = System.getProperty("os.name");
         if (os.contains("Windows Vista")) {
             return readTextFileInLines(filename, "ISO8859_1");
@@ -75,31 +73,23 @@ public final class FileManager {
      * @return
      * @throws IOException
      */
-    public static String inString(String filename) throws FileNotFoundException, IOException {
+    public static String inString(String filename) throws IOException {
         return readTextFile(filename, "ISO8859_1");
     }
 
     private static List<String> readTextFileInLines(String filename, String mode) throws FileNotFoundException {
         final List<String> contents = new ArrayList<>();
 
-        BufferedReader input = null;
-        try {
-            input = new BufferedReader(new InputStreamReader(new FileInputStream(new File(filename)), mode));
+        try (BufferedReader input = new BufferedReader(
+                new InputStreamReader(new FileInputStream(new File(filename)), mode))) {
             String line;
             while ((line = input.readLine()) != null) {
                 contents.add(line);
             }
-        } catch (FileNotFoundException ex) {
+        } catch (final FileNotFoundException ex) {
             throw new FileNotFoundException("Impossible to read the file: " + filename);
-        } catch (IOException ex) {
-        } finally {
-            try {
-                if (input != null) {
-                    input.close();
-                }
-            } catch (IOException ex) {
-            }
-
+        } catch (final IOException ex) {
+            // Handle IOException silently
         }
         return contents;
     }
@@ -113,11 +103,14 @@ public final class FileManager {
             throw new FileNotFoundException("File not found: " + file.getAbsolutePath());
         }
         final StringBuilder text = new StringBuilder();
-        try (Scanner scanner = new Scanner(file, StandardCharsets.UTF_8.name())) {
+        try (Scanner scanner = new Scanner(file, StandardCharsets.UTF_8)) {
             while (scanner.hasNextLine()) {
                 text.append(scanner.nextLine()).append("\n");
             }
             return text.toString();
+        } catch (final IOException e) {
+            ConfigurationLog.errorMessage(FileManager.class.getName(), e);
+            return null;
         }
     }
 
@@ -146,15 +139,14 @@ public final class FileManager {
         final ClassLoader classLoader = FileManager.class.getClassLoader();
         final File file = new File(classLoader.getResource(fileName).getFile());
 
-        try (Scanner scanner = new Scanner(file, StandardCharsets.UTF_8.name())) {
+        try (Scanner scanner = new Scanner(file, StandardCharsets.UTF_8)) {
             while (scanner.hasNextLine()) {
                 final String line = scanner.nextLine();
-                if (line.length() > 0) {
+                if (!line.isEmpty()) {
                     contents.add(line);
                 }
             }
-            scanner.close();
-        } catch (IOException e) {
+        } catch (final IOException e) {
             ConfigurationLog.errorMessage(FileManager.class.getName(), e);
         }
 
@@ -166,11 +158,11 @@ public final class FileManager {
         final List<String> contents = new ArrayList<>();
         String thisLine;
         try (InputStream is = FileManager.class.getResourceAsStream(file);
-             BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8.name()));) {
+                BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
             while ((thisLine = br.readLine()) != null) {
                 contents.add(thisLine);
             }
-        } catch (Exception e) {
+        } catch (final Exception e) {
             ConfigurationLog.errorMessage(FileManager.class.getName(), e);
         }
         return contents;
@@ -178,22 +170,18 @@ public final class FileManager {
 
     public static File[] findJarFiles(String path) {
         final File dir = new File(path);
-        return dir.listFiles(new FilenameFilter() {
-            public boolean accept(File dir, String filename) {
-                return filename.endsWith(".jar");
-            }
-        });
+        return dir.listFiles((parentDir, filename) -> filename.endsWith(".jar"));
     }
 
     public static String readTextFromJar(String file) {
         final StringBuilder totalText = new StringBuilder();
         String thisLine;
         try (InputStream is = FileManager.class.getResourceAsStream(file);
-             BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8.name()));) {
+                BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
             while ((thisLine = br.readLine()) != null) {
                 totalText.append(thisLine);
             }
-        } catch (Exception e) {
+        } catch (final Exception e) {
             ConfigurationLog.errorMessage(FileManager.class.getName(), e);
         }
         return totalText.toString();
@@ -206,30 +194,32 @@ public final class FileManager {
      */
     public static boolean deleteFile(String filename) {
         final File f = new File(filename);
-        if (f.exists() && f.canWrite()) {
-            return f.delete();
+        if (f.exists()) {
+            try {
+                Files.delete(f.toPath());
+                return true;
+            } catch (final IOException e) {
+                ConfigurationLog.errorMessage(FileManager.class.getName(), e);
+                return false;
+            }
         }
         return false;
     }
 
     public static String convertStreamToString(InputStream is) throws IOException {
         /*
-         * To convert the InputStream to String we use the Reader.read(char[] buffer) method. We iterate until the
-         * Reader return -1 which means there's no more data to read. We use the StringWriter class to produce the
-         * string.
+         * To convert the InputStream to String we use the Reader.read(char[] buffer)
+         * method. We iterate until the Reader return -1 which means there's no more
+         * data to read. We use the StringWriter class to produce the string.
          */
         if (is != null) {
             final Writer writer = new StringWriter();
-
             final char[] buffer = new char[KILOBYTE];
-            try {
-                final Reader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8.name()));
+            try (Reader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
                 int n;
                 while ((n = reader.read(buffer)) != -1) {
                     writer.write(buffer, 0, n);
                 }
-            } finally {
-                is.close();
             }
             return writer.toString();
         } else {
@@ -245,10 +235,7 @@ public final class FileManager {
      */
     public static boolean fileExist(String path) {
         final File f = new File(path);
-        if (f.exists()) {
-            return true;
-        }
-        return false;
+        return f.exists();
     }
 
     public static File getResource(String fileName) throws NullPointerException {
@@ -258,65 +245,65 @@ public final class FileManager {
     @SuppressWarnings({"java:S2259"})
     public static File getResource(Class<?> classWithResources, String fileName) throws NullPointerException {
         final URL url = classWithResources.getClassLoader().getResource(fileName);
+        logResourceSearch(url, fileName);
+        try {
+            return findResourceFile(url, fileName);
+        } catch (final NullPointerException npe) {
+            throw new NullPointerException("File '" + fileName + "' does not exist.");
+        }
+    }
+
+    private static void logResourceSearch(URL url, String fileName) {
         if (url != null) {
             ConfigurationLog.info(FileManager.class.getName(),
                     "Resource to read '" + fileName + "' found at url '" + url + "'.");
         } else {
             ConfigurationLog.warning(FileManager.class.getName(), "Invalid resource '" + fileName + "'.");
         }
-        File file = null;
-        // Jetty load resource.
-        try {
-            // We use path to remove URI special codification that is not
-            // allowed for File.
-            final String path = URLDecoder.decode(url.getPath(), StandardCharsets.UTF_8.name());
-            file = new File(convert2OsPath(url));
-            // Apache load resource
-            if (!file.exists()) {
-                file = new File(path);
-                // Resource inside a jar.
-                if (path.contains(".jar!")) {
-                    ConfigurationLog.info(FileManager.class.getName(), "Resource inside a jar. Copy to a temporal file.");
-                    // Copy to a temp file and return it.
-                    try {
-                        // Url has the absolute path with the correct
-                        // codification for an InputStream.
-                        final InputStream inputStream = url.openStream();
-                        try {
-                            if (inputStream != null) {
-                                final File tempFile = File.createTempFile(fileName, "_jar");
-                                // tempFile.deleteOnExit();
-                                try (OutputStream os = Files.newOutputStream(tempFile.toPath())) {
-                                    final byte[] buffer = new byte[KILOBYTE];
-                                    int bytesRead;
-                                    // read from is to buffer
-                                    while ((bytesRead = inputStream.read(buffer)) != -1) {
-                                        os.write(buffer, 0, bytesRead);
-                                    }
-                                }
-                                return tempFile;
-                            }
-                        } finally {
-                            try {
-                                inputStream.close();
-                            } catch (Exception e) {
-                                // Do nothing.
-                            }
-                        }
-                    } catch (IOException e) {
-                        ConfigurationLog.errorMessage(FileManager.class.getName(), e);
+    }
+
+    private static File findResourceFile(URL url, String fileName) {
+        final String path = URLDecoder.decode(url.getPath(), StandardCharsets.UTF_8);
+        final File file = new File(convert2OsPath(url));
+
+        if (file.exists()) {
+            return file;
+        }
+
+        final File fallbackFile = new File(path);
+        if (fallbackFile.exists()) {
+            return fallbackFile;
+        }
+
+        if (path.contains(".jar!")) {
+            final File jarFile = copyResourceFromJar(url, fileName);
+            if (jarFile != null) {
+                return jarFile;
+            }
+        }
+
+        ConfigurationLog.severe(FileManager.class.getName(), "File not found '" + path + "'.");
+        return fallbackFile;
+    }
+
+    private static File copyResourceFromJar(URL url, String fileName) {
+        ConfigurationLog.info(FileManager.class.getName(), "Resource inside a jar. Copy to a temporal file.");
+        try (InputStream inputStream = url.openStream()) {
+            if (inputStream != null) {
+                final File tempFile = File.createTempFile(fileName, "_jar");
+                try (OutputStream os = Files.newOutputStream(tempFile.toPath())) {
+                    final byte[] buffer = new byte[KILOBYTE];
+                    int bytesRead;
+                    while ((bytesRead = inputStream.read(buffer)) != -1) {
+                        os.write(buffer, 0, bytesRead);
                     }
                 }
-                if (!file.exists()) {
-                    ConfigurationLog.severe(FileManager.class.getName(), "File not found '" + path + "'.");
-                }
+                return tempFile;
             }
-        } catch (NullPointerException npe) {
-            throw new NullPointerException("File '" + fileName + "' does not exist.");
-        } catch (UnsupportedEncodingException ue) {
-            ConfigurationLog.errorMessage(FileManager.class.getName(), ue);
+        } catch (final IOException e) {
+            ConfigurationLog.errorMessage(FileManager.class.getName(), e);
         }
-        return file;
+        return null;
     }
 
     public static String convert2OsPath(URL string) {
@@ -330,7 +317,7 @@ public final class FileManager {
             } else {
                 return (string.getPath());
             }
-        } catch (NullPointerException npe) {
+        } catch (final NullPointerException npe) {
             return null;
         }
     }

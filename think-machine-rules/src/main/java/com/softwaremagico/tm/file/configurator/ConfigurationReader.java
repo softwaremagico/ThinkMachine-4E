@@ -30,6 +30,7 @@ import com.softwaremagico.tm.log.ConfigurationLog;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -39,8 +40,9 @@ import java.util.Properties;
 import java.util.Set;
 
 public abstract class ConfigurationReader {
-    private static final String VALUES_SEPARATOR_REGEX = " *, *";
     private static final char PREFIX_SEPARATOR_CHAR = '.';
+    private static final String PROPERTY_LOG_PREFIX = "Property '";
+
     private final Map<Class<?>, IValueConverter<?>> converter;
     private final Map<String, String> propertiesDefault;
     private final Map<String, String> propertiesFinalValue;
@@ -48,25 +50,25 @@ public abstract class ConfigurationReader {
     private final Set<PropertyChangedListener> propertyChangedListeners;
     private final Map<IPropertiesSource, Map<String, String>> propertiesBySourceValues;
 
-    public ConfigurationReader() {
-        converter = new HashMap<>();
-        propertiesDefault = new HashMap<>();
-        propertiesFinalValue = new HashMap<>();
-        propertiesSources = new ArrayList<>();
-        propertyChangedListeners = new HashSet<>();
-        propertiesBySourceValues = new HashMap<>();
+    protected ConfigurationReader() {
+        this.converter = new HashMap<>();
+        this.propertiesDefault = new HashMap<>();
+        this.propertiesFinalValue = new HashMap<>();
+        this.propertiesSources = new ArrayList<>();
+        this.propertyChangedListeners = new HashSet<>();
+        this.propertiesBySourceValues = new HashMap<>();
 
-        addConverter(Boolean.class, new BooleanValueConverter());
-        addConverter(Integer.class, new IntegerValueConverter());
-        addConverter(Double.class, new DoubleValueConverter());
+        this.addConverter(Boolean.class, new BooleanValueConverter());
+        this.addConverter(Integer.class, new IntegerValueConverter());
+        this.addConverter(Double.class, new DoubleValueConverter());
 
         // Log if any property has changed the value.
-        addPropertyChangedListener(new PropertyChangedListener() {
+        this.addPropertyChangedListener(new PropertyChangedListener() {
 
             @Override
             public void propertyChanged(String propertyId, String oldValue, String newValue) {
-                ConfigurationLog.info(this.getClass().getName(),
-                        "Property '" + propertyId + "' has changed value from '" + oldValue + "' to '" + newValue + "'.");
+                ConfigurationLog.info(this.getClass().getName(), PROPERTY_LOG_PREFIX + propertyId
+                        + "' has changed value from '" + oldValue + "' to '" + newValue + "'.");
             }
         });
     }
@@ -76,21 +78,21 @@ public abstract class ConfigurationReader {
     }
 
     public <T> void addConverter(Class<T> clazz, IValueConverter<T> valueConverter) {
-        converter.put(clazz, valueConverter);
+        this.converter.put(clazz, valueConverter);
     }
 
     @SuppressWarnings("unchecked")
     public <T> IValueConverter<T> getConverter(Class<T> clazz) {
-        return (IValueConverter<T>) converter.get(clazz);
+        return (IValueConverter<T>) this.converter.get(clazz);
     }
 
     public void addPropertiesSource(IPropertiesSource propertiesSource) {
-        propertiesSources.add(propertiesSource);
+        this.propertiesSources.add(propertiesSource);
     }
 
     public void removePropertiesSource(IPropertiesSource propertiesSource) {
         if (propertiesSource != null) {
-            propertiesSources.remove(propertiesSource);
+            this.propertiesSources.remove(propertiesSource);
         }
     }
 
@@ -99,13 +101,13 @@ public abstract class ConfigurationReader {
      * configuration files again.
      */
     public void readConfigurations() {
-        propertiesFinalValue.clear();
-        propertiesFinalValue.putAll(propertiesDefault);
+        this.propertiesFinalValue.clear();
+        this.propertiesFinalValue.putAll(this.propertiesDefault);
 
-        for (final IPropertiesSource propertiesSource : propertiesSources) {
+        for (final IPropertiesSource propertiesSource : this.propertiesSources) {
             final Properties propertyFile = propertiesSource.loadFile();
             if (propertyFile != null) {
-                readAllProperties(propertyFile, propertiesSource);
+                this.readAllProperties(propertyFile, propertiesSource);
             }
         }
     }
@@ -122,24 +124,27 @@ public abstract class ConfigurationReader {
      * @param propertyFile
      */
     private void readAllProperties(Properties propertyFile, IPropertiesSource propertiesSource) {
-        for (final String propertyId : new HashSet<String>(propertiesFinalValue.keySet())) {
-            final String value = propertyFile.getProperty(propertyId, propertiesFinalValue.get(propertyId));
+        for (final String propertyId : new HashSet<String>(this.propertiesFinalValue.keySet())) {
+            final String value = propertyFile.getProperty(propertyId, this.propertiesFinalValue.get(propertyId));
             // Notify property change
-            propertiesBySourceValues.computeIfAbsent(propertiesSource, k -> new HashMap<String, String>());
+            this.propertiesBySourceValues.computeIfAbsent(propertiesSource, k -> new HashMap<String, String>());
 
-            if (propertiesBySourceValues.get(propertiesSource).get(propertyId) != null
-                    && propertiesBySourceValues.get(propertiesSource).get(propertyId).length() > 0
-                    && !propertiesBySourceValues.get(propertiesSource).get(propertyId).equals(value)) {
+            if (this.propertiesBySourceValues.get(propertiesSource).get(propertyId) != null
+                    && !this.propertiesBySourceValues.get(propertiesSource).get(propertyId).isEmpty()
+                    && !this.propertiesBySourceValues.get(propertiesSource).get(propertyId).equals(value)) {
                 // Launch listeners.
-                for (final PropertyChangedListener propertyChangedListener : propertyChangedListeners) {
-                    propertyChangedListener.propertyChanged(propertyId, propertiesFinalValue.get(propertyId), value);
+                for (final PropertyChangedListener propertyChangedListener : this.propertyChangedListeners) {
+                    propertyChangedListener.propertyChanged(propertyId, this.propertiesFinalValue.get(propertyId),
+                            value);
                 }
-                ConfigurationLog.info(this.getClass().getName(), "Property '" + propertyId + "' updated as '" + value + "'.");
+                ConfigurationLog.info(this.getClass().getName(),
+                        PROPERTY_LOG_PREFIX + propertyId + "' updated as '" + value + "'.");
             }
             // Store value.
-            propertiesBySourceValues.get(propertiesSource).put(propertyId, value);
-            propertiesFinalValue.put(propertyId, value);
-            ConfigurationLog.debug(this.getClass().getName(), "Property '" + propertyId + "' set as value '" + value + "'.");
+            this.propertiesBySourceValues.get(propertiesSource).put(propertyId, value);
+            this.propertiesFinalValue.put(propertyId, value);
+            ConfigurationLog.debug(this.getClass().getName(),
+                    PROPERTY_LOG_PREFIX + propertyId + "' set as value '" + value + "'.");
         }
     }
 
@@ -151,14 +156,16 @@ public abstract class ConfigurationReader {
      */
     protected <T> void setProperty(String propertyName, T defaultValue) {
         if (defaultValue == null) {
-            propertiesDefault.put(propertyName, null);
-            propertiesFinalValue.put(propertyName, null);
-        } else if (defaultValue instanceof String) {
-            propertiesDefault.put(propertyName, ((String) defaultValue).trim());
-            propertiesFinalValue.put(propertyName, ((String) defaultValue).trim());
+            this.propertiesDefault.put(propertyName, null);
+            this.propertiesFinalValue.put(propertyName, null);
+        } else if (defaultValue instanceof String string) {
+            this.propertiesDefault.put(propertyName, string.trim());
+            this.propertiesFinalValue.put(propertyName, string.trim());
         } else {
-            propertiesDefault.put(propertyName, getConverter(defaultValue.getClass()).convertToString(defaultValue));
-            propertiesFinalValue.put(propertyName, getConverter(defaultValue.getClass()).convertToString(defaultValue));
+            this.propertiesDefault.put(propertyName,
+                    this.getConverter(defaultValue.getClass()).convertToString(defaultValue));
+            this.propertiesFinalValue.put(propertyName,
+                    this.getConverter(defaultValue.getClass()).convertToString(defaultValue));
         }
     }
 
@@ -166,12 +173,12 @@ public abstract class ConfigurationReader {
      * Read all properties and set an empty string as default value.
      */
     public void initializeAllProperties() {
-        for (final IPropertiesSource propertiesSource : propertiesSources) {
+        for (final IPropertiesSource propertiesSource : this.propertiesSources) {
             final Properties propertyFile = propertiesSource.loadFile();
             if (propertyFile != null) {
                 final Enumeration<?> enumerator = propertyFile.propertyNames();
                 while (enumerator.hasMoreElements()) {
-                    setProperty((String) enumerator.nextElement(), "");
+                    this.setProperty((String) enumerator.nextElement(), "");
                 }
             }
         }
@@ -184,7 +191,7 @@ public abstract class ConfigurationReader {
      */
     public Set<String> getAllPropertiesPrefixes() {
         final Set<String> prefixes = new HashSet<>();
-        for (final IPropertiesSource propertiesSource : propertiesSources) {
+        for (final IPropertiesSource propertiesSource : this.propertiesSources) {
             final Properties propertyFile = propertiesSource.loadFile();
             if (propertyFile != null) {
                 final Enumeration<?> enumerator = propertyFile.propertyNames();
@@ -200,56 +207,56 @@ public abstract class ConfigurationReader {
     }
 
     public String getProperty(String propertyName) throws PropertyNotFoundException {
-        if (propertiesFinalValue.containsKey(propertyName)) {
-            if (propertiesFinalValue.get(propertyName) != null) {
-                return propertiesFinalValue.get(propertyName).trim();
+        if (this.propertiesFinalValue.containsKey(propertyName)) {
+            if (this.propertiesFinalValue.get(propertyName) != null) {
+                return this.propertiesFinalValue.get(propertyName).trim();
             } else {
                 return null;
             }
         } else {
-            throw new PropertyNotFoundException("Property '" + propertyName + "' not defined in the configuration reader");
+            throw new PropertyNotFoundException(
+                    PROPERTY_LOG_PREFIX + propertyName + "' not defined in the configuration reader");
         }
     }
 
     public <T> T getProperty(String propertyName, Class<? extends T> type) throws PropertyNotFoundException {
-        final String stringValue = getProperty(propertyName);
+        final String stringValue = this.getProperty(propertyName);
         if (stringValue != null) {
-            return getConverter(type).convertFromString(stringValue);
+            return this.getConverter(type).convertFromString(stringValue);
         } else {
             return null;
         }
     }
 
     public Map<String, String> getAllProperties() {
-        return propertiesFinalValue;
+        return this.propertiesFinalValue;
     }
 
     public List<IPropertiesSource> getPropertiesSources() {
-        return propertiesSources;
+        return this.propertiesSources;
     }
 
     public void addPropertyChangedListener(PropertyChangedListener propertyChangedListener) {
-        propertyChangedListeners.add(propertyChangedListener);
+        this.propertyChangedListeners.add(propertyChangedListener);
     }
 
     /**
      * Stops file watchers in from all configuration files.
      */
     public void stopFileWatchers() {
-        for (final IPropertiesSource sources : propertiesSources) {
-            if (sources instanceof PropertiesSourceFile) {
-                ((PropertiesSourceFile) sources).stopFileWatcher();
+        for (final IPropertiesSource sources : this.propertiesSources) {
+            if (sources instanceof PropertiesSourceFile propertiesSourceFile) {
+                propertiesSourceFile.stopFileWatcher();
             }
         }
     }
 
     protected String[] getCommaSeparatedValues(String propertyName) throws PropertyNotFoundException {
-        String value = getProperty(propertyName);
-        // Remove useless spaces around commas.
-        value = value.replaceAll(VALUES_SEPARATOR_REGEX, ",");
-        // Split by commas.
-        return value.split(",");
-
+        final String value = this.getProperty(propertyName);
+        return Arrays.stream(value.split(","))
+                .map(String::trim)
+                .filter(s -> !s.isEmpty())
+                .toArray(String[]::new);
     }
 
     public abstract String getUserPropertiesPath();

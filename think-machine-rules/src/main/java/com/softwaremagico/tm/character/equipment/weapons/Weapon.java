@@ -52,7 +52,6 @@ public class Weapon extends Equipment {
 
     private Set<String> ammunition;
 
-
     /**
      * For creating empty elements.
      */
@@ -67,49 +66,46 @@ public class Weapon extends Equipment {
     }
 
     public WeaponType getType() {
-        return type;
+        return this.type;
     }
-
 
     @SuppressWarnings({"java:S3655"})
     public boolean isMeleeWeapon() {
-        return getType() == WeaponType.MELEE || getType() == WeaponType.MELEE_ARTIFACT || getType() == WeaponType.MELEE_SHIELD
-                || (getWeaponDamages().stream().findFirst().isPresent() && getWeaponDamages().stream().findFirst().get().getRange() == null);
+        return this.getType() == WeaponType.MELEE || this.getType() == WeaponType.MELEE_ARTIFACT
+                || this.getType() == WeaponType.MELEE_SHIELD || (this.getWeaponDamages().stream().findFirst().isPresent()
+                        && this.getWeaponDamages().stream().findFirst().get().getRange() == null);
     }
 
     public boolean isRangedWeapon() {
-        return !isMeleeWeapon();
+        return !this.isMeleeWeapon();
     }
 
     public boolean isAutomaticWeapon() {
-        if (!weaponDamages.isEmpty()) {
-            if (weaponDamages.get(0).getRate() != null) {
-                return weaponDamages.get(0).getRate().toLowerCase().contains("a");
-            }
+        if (!this.weaponDamages.isEmpty() && this.weaponDamages.get(0).getRate() != null) {
+            return this.weaponDamages.get(0).getRate().toLowerCase().contains("a");
         }
         return false;
     }
 
     public String getSpecial() {
-        return special;
+        return this.special;
     }
 
     public Set<String> getDamageTypes() {
-        return damageTypes;
+        return this.damageTypes;
     }
 
     public boolean isTechLevelSpecial() {
-        return techLevelSpecial;
+        return this.techLevelSpecial;
     }
 
     public Set<String> getAmmunition() {
-        return ammunition;
+        return this.ammunition;
     }
 
     public void setWeaponDamages(List<WeaponDamage> weaponDamages) {
         this.weaponDamages = weaponDamages;
     }
-
 
     public void setTechLevelSpecial(boolean techLevelSpecial) {
         this.techLevelSpecial = techLevelSpecial;
@@ -132,7 +128,7 @@ public class Weapon extends Equipment {
     }
 
     public WeaponClass getWeaponClass() {
-        return weaponClass;
+        return this.weaponClass;
     }
 
     public void setWeaponClass(WeaponClass weaponClass) {
@@ -142,57 +138,58 @@ public class Weapon extends Equipment {
     public String getWeaponOthersText() {
         // Damage types
         final StringBuilder stringBuilder = new StringBuilder();
-        for (final String damageType : getDamageTypes()) {
-            if (stringBuilder.length() > 0) {
+        for (final String damageType : this.getDamageTypes()) {
+            if (stringBuilder.isEmpty()) {
                 stringBuilder.append(", ");
             }
             try {
-                stringBuilder.append(DamageTypeFactory.getInstance().getElement(damageType).getName().getTranslatedText());
-            } catch (InvalidXmlElementException e) {
+                stringBuilder
+                        .append(DamageTypeFactory.getInstance().getElement(damageType).getName().getTranslatedText());
+            } catch (final InvalidXmlElementException e) {
                 MachineXmlReaderLog.errorMessage(this.getClass(), e);
             }
         }
 
         // Others
-        if (getSpecial() != null && !getSpecial().isEmpty()) {
-            if (stringBuilder.length() > 0) {
+        if (this.getSpecial() != null && !this.getSpecial().isEmpty()) {
+            if (stringBuilder.isEmpty()) {
                 stringBuilder.append(" / ");
             }
-            stringBuilder.append(getSpecial());
+            stringBuilder.append(this.getSpecial());
         }
         return stringBuilder.toString();
     }
 
     public List<WeaponDamage> getWeaponDamages() {
-        return weaponDamages;
+        return this.weaponDamages;
     }
 
     public void copy(Weapon weapon) {
         super.copy(weapon);
-        setWeaponDamages(weapon.getWeaponDamages());
-        setTechLevelSpecial(weapon.isTechLevelSpecial());
-        setSpecial(weapon.getSpecial());
-        setWeaponClass(weapon.getWeaponClass());
-        setDamageTypes(weapon.getDamageTypes());
-        setType(weapon.getType());
+        this.setWeaponDamages(weapon.getWeaponDamages());
+        this.setTechLevelSpecial(weapon.isTechLevelSpecial());
+        this.setSpecial(weapon.getSpecial());
+        this.setWeaponClass(weapon.getWeaponClass());
+        this.setDamageTypes(weapon.getDamageTypes());
+        this.setType(weapon.getType());
         if (weapon.getAmmunition() != null) {
-            setAmmunition(new HashSet<>(weapon.getAmmunition()));
+            this.setAmmunition(new HashSet<>(weapon.getAmmunition()));
         }
         if (weapon.getOthers() != null) {
-            setOthers(new HashSet<>(weapon.getOthers()));
+            this.setOthers(new HashSet<>(weapon.getOthers()));
         }
     }
 
     @Override
     public void validate() throws InvalidXmlElementException {
         super.validate();
-        if (damageTypes != null) {
-            damageTypes.forEach(damageType -> DamageTypeFactory.getInstance().getElement(damageType));
+        if (this.damageTypes != null) {
+            this.damageTypes.forEach(damageType -> DamageTypeFactory.getInstance().getElement(damageType));
         }
-        if (ammunition != null) {
-            ammunition.forEach(ammo -> AmmunitionFactory.getInstance().getElement(ammo));
+        if (this.ammunition != null) {
+            this.ammunition.forEach(ammo -> AmmunitionFactory.getInstance().getElement(ammo));
         }
-        for (WeaponDamage weaponDamage : getWeaponDamages()) {
+        for (final WeaponDamage weaponDamage : this.getWeaponDamages()) {
             weaponDamage.validate();
         }
     }

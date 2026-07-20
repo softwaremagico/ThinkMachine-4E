@@ -28,6 +28,7 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.skills.Skill;
 import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 @Test(groups = "zgo")
@@ -47,22 +48,19 @@ public class ZgoUnskilledTests extends RulesTest {
         return cp;
     }
 
-    @Test
-    public void lwZgoUnskilledProfileHasCraftsAtZero() {
-        final CharacterPlayer cp = buildCharacterWithLwZgoUnskilledProfile();
-        Assert.assertEquals(skill(cp, "crafts"), 0);
+    @DataProvider(name = "unskilledSkills")
+    public Object[][] unskilledSkillsProvider() {
+        return new Object[][] {
+            { "crafts" },
+            { "melee" },
+            { "shoot" }
+        };
     }
 
-    @Test
-    public void lwZgoUnskilledProfileHasMeleeAtZero() {
+    @Test(dataProvider = "unskilledSkills")
+    public void lwZgoUnskilledProfileHasUnskilledAtZero(String skillId) {
         final CharacterPlayer cp = buildCharacterWithLwZgoUnskilledProfile();
-        Assert.assertEquals(skill(cp, "melee"), 0);
-    }
-
-    @Test
-    public void lwZgoUnskilledProfileHasShootAtZero() {
-        final CharacterPlayer cp = buildCharacterWithLwZgoUnskilledProfile();
-        Assert.assertEquals(skill(cp, "shoot"), 0);
+        Assert.assertEquals(skill(cp, skillId), 0);
     }
 
     @Test

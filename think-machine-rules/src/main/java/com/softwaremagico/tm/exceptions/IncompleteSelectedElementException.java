@@ -24,16 +24,18 @@ package com.softwaremagico.tm.exceptions;
  * #L%
  */
 
-
 import com.softwaremagico.tm.character.Selection;
 
+import java.io.Serial;
+
 public class IncompleteSelectedElementException extends InvalidXmlElementException {
+    @Serial
     private static final long serialVersionUID = 194333793074549262L;
-    private final Selection selection;
+    private final transient Selection selection;
 
     public IncompleteSelectedElementException(String message) {
         super(message);
-        selection = null;
+        this.selection = null;
     }
 
     public IncompleteSelectedElementException(String message, Selection selection) {
@@ -47,6 +49,6 @@ public class IncompleteSelectedElementException extends InvalidXmlElementExcepti
     }
 
     public Selection getSelection() {
-        return selection;
+        return this.selection;
     }
 }

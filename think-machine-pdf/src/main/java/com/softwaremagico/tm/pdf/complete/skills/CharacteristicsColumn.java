@@ -41,13 +41,26 @@ import com.softwaremagico.tm.txt.TextFactory;
 
 import java.util.List;
 
+/**
+ * Renderer for one characteristics column in the sheet.
+ */
 public final class CharacteristicsColumn extends BaseElement {
     private static final String GAP = "  ";
 
+    /**
+     * Utility class.
+     */
     private CharacteristicsColumn() {
 
     }
 
+    /**
+     * Creates the characteristics content cell for one characteristic group.
+     *
+     * @param characterPlayer source character.
+     * @param characteristicType target group.
+     * @return rendered content cell.
+     */
     public static PdfPCell createContent(CharacterPlayer characterPlayer, CharacteristicType characteristicType) {
         final float[] widths = {3f, 0.5f, 1.5f, 0.1f};
         final PdfPTable table = new PdfPTable(widths);

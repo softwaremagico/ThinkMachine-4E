@@ -101,7 +101,7 @@ public class CharacterSheet {
             appendProfessionElement(profession, getCharacterPlayer().getFaction().getNameRepresentation());
         }
         if (getCharacterPlayer().getCalling() != null) {
-            appendProfessionElement(profession, getCharacterPlayer().getCalling().getNameRepresentation());
+            appendProfessionElement(profession, getCharacterPlayer().getCallingCombinationRepresentation(" / "));
         }
     }
 

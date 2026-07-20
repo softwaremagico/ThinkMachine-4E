@@ -24,7 +24,6 @@ package com.softwaremagico.tm.pdf.complete.elements;
  * #L%
  */
 
-
 import com.lowagie.text.Element;
 import com.lowagie.text.Font;
 import com.lowagie.text.Paragraph;
@@ -39,27 +38,45 @@ import com.softwaremagico.tm.pdf.complete.utils.CellUtils;
 import java.awt.Color;
 import java.util.Arrays;
 
+/**
+ * Base table abstraction with utility renderers for compact PDF sections.
+ */
 public abstract class CustomPdfTable extends PdfPTable {
     private static final int MIN_HEIGHT = 12;
     private static final int RECTANGLE_MIN_HEIGHT = 15;
     private float[] columnWidths;
 
-    public CustomPdfTable(float[] widths) {
+    /**
+     * Creates a custom PDF table with fixed column widths.
+     *
+     * @param widths
+     *            relative column widths.
+     */
+    protected CustomPdfTable(float[] widths) {
         super(widths);
-        setColumnWidths(widths);
+        this.setColumnWidths(widths);
     }
 
     protected PdfPCell createTitle(String title, int fontSize) {
-        final PdfPCell titleCell = createCompactTitle(title, fontSize);
+        final PdfPCell titleCell = this.createCompactTitle(title, fontSize);
         titleCell.setRowspan(2);
         return titleCell;
     }
 
+    /**
+     * Creates a compact title cell spanning all columns.
+     *
+     * @param title
+     *            title text.
+     * @param fontSize
+     *            title font size.
+     * @return title cell.
+     */
     protected PdfPCell createCompactTitle(String title, int fontSize) {
         final Font font = new Font(FadingSunsTheme.getTitleFont(), fontSize);
         final Phrase content = new Phrase(title, font);
         final PdfPCell titleCell = new PdfPCell(content);
-        titleCell.setColspan(getColumnWidths().length);
+        titleCell.setColspan(this.getColumnWidths().length);
         titleCell.setHorizontalAlignment(Element.ALIGN_CENTER);
         titleCell.setBorder(0);
         return titleCell;
@@ -74,16 +91,8 @@ public abstract class CustomPdfTable extends PdfPTable {
     }
 
     protected static PdfPCell createEmptyElementLine(int alignment, String text) {
-        final PdfPCell cell = BaseElement.getCell(text, 0, 1, alignment, Color.WHITE,
-                FadingSunsTheme.getLineFont(), FadingSunsTheme.TABLE_LINE_FONT_SIZE);
-        cell.setMinimumHeight(MIN_HEIGHT);
-        cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-        return cell;
-    }
-
-    protected static PdfPCell createEmptyChunk(int alignment, String text) {
-        final PdfPCell cell = BaseElement.getCell(text, 0, 1, alignment, Color.WHITE,
-                FadingSunsTheme.getLineFont(), FadingSunsTheme.TABLE_LINE_FONT_SIZE);
+        final PdfPCell cell = BaseElement.getCell(text, 0, 1, alignment, Color.WHITE, FadingSunsTheme.getLineFont(),
+                FadingSunsTheme.TABLE_LINE_FONT_SIZE);
         cell.setMinimumHeight(MIN_HEIGHT);
         cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
         return cell;
@@ -100,8 +109,7 @@ public abstract class CustomPdfTable extends PdfPTable {
     }
 
     private static PdfPCell createBasicElementLine(String text, int fontSize, int horizontalAlignment, BaseFont font) {
-        final PdfPCell cell = BaseElement.getCell(text, 0, 1, horizontalAlignment, Color.WHITE,
-                font, fontSize);
+        final PdfPCell cell = BaseElement.getCell(text, 0, 1, horizontalAlignment, Color.WHITE, font, fontSize);
         cell.setMinimumHeight(MIN_HEIGHT);
         cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
         return cell;
@@ -112,6 +120,15 @@ public abstract class CustomPdfTable extends PdfPTable {
                 FadingSunsTheme.getHandWrittingFontSize(FadingSunsTheme.TABLE_LINE_FONT_SIZE));
     }
 
+    /**
+     * Creates a handwriting line from integer value.
+     *
+     * @param value
+     *            numeric value.
+     * @param maxWidth
+     *            max text width.
+     * @return rendered cell.
+     */
     protected static PdfPCell createElementLine(Integer value, int maxWidth) {
         return createElementLine(value, maxWidth,
                 FadingSunsTheme.getHandWrittingFontSize(FadingSunsTheme.TABLE_LINE_FONT_SIZE));
@@ -150,13 +167,13 @@ public abstract class CustomPdfTable extends PdfPTable {
         if (text == null || text.equals("null")) {
             text = "";
         }
-        final String remainingText = CellUtils.getSubStringFitsIn(text, FadingSunsTheme.getHandwrittingFont(),
-                fontSize, maxWidth);
+        final String remainingText = CellUtils.getSubStringFitsIn(text, FadingSunsTheme.getHandwrittingFont(), fontSize,
+                maxWidth);
         return createBasicElementLine(remainingText, fontSize, alignment, FadingSunsTheme.getHandwrittingFont());
     }
 
     public float[] getColumnWidths() {
-        return Arrays.copyOf(columnWidths, columnWidths.length);
+        return Arrays.copyOf(this.columnWidths, this.columnWidths.length);
     }
 
     private void setColumnWidths(float[] columnWidths) {
@@ -179,8 +196,8 @@ public abstract class CustomPdfTable extends PdfPTable {
         if (value == null) {
             return createRectangle();
         }
-        final PdfPCell box = new PdfPCell(new Paragraph(value, new Font(FadingSunsTheme.getHandwrittingFont(),
-                FadingSunsTheme.HANDWRITTING_DEFAULT_FONT_SIZE)));
+        final PdfPCell box = new PdfPCell(new Paragraph(value,
+                new Font(FadingSunsTheme.getHandwrittingFont(), FadingSunsTheme.HANDWRITTING_DEFAULT_FONT_SIZE)));
         box.setVerticalAlignment(Element.ALIGN_MIDDLE);
         box.setHorizontalAlignment(Element.ALIGN_CENTER);
         box.setMinimumHeight(RECTANGLE_MIN_HEIGHT);

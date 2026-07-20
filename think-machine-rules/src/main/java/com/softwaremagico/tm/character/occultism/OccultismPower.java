@@ -186,10 +186,8 @@ public class OccultismPower extends Element {
 
     @Override
     public int compareTo(Element element) {
-        if (element instanceof OccultismPower) {
-            if (getOccultismLevel() != ((OccultismPower) element).getOccultismLevel()) {
-                return Integer.compare(getOccultismLevel(), ((OccultismPower) element).getOccultismLevel());
-            }
+        if (element instanceof OccultismPower occultismPower && getOccultismLevel() != occultismPower.getOccultismLevel()) {
+            return Integer.compare(getOccultismLevel(), occultismPower.getOccultismLevel());
         }
         return super.compareTo(element);
     }

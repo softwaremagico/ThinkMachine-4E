@@ -30,13 +30,20 @@ import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPCellEvent;
 import com.lowagie.text.pdf.PdfPTable;
 
+/**
+ * Cell event that draws dotted horizontal borders.
+ */
 public class CellDottedBorderEvent implements PdfPCellEvent {
     private static final float DASH = 3f;
 
+    /**
+     * Creates a dotted top/bottom border event.
+     */
     public CellDottedBorderEvent() {
         super();
     }
 
+    @Override
     public void cellLayout(PdfPCell cell, Rectangle position, PdfContentByte[] canvases) {
         final PdfContentByte canvas = canvases[PdfPTable.LINECANVAS];
         canvas.setLineDash(DASH, DASH);

@@ -32,30 +32,29 @@ import com.softwaremagico.tm.restrictions.Restrictions;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class PerkOption extends Option<Perk> {
     private final boolean repeatable;
 
     public PerkOption() {
         super();
-        repeatable = false;
+        this.repeatable = false;
     }
 
     public PerkOption(Perk perk) {
         super();
-        setId(perk.getId());
-        setSpecializations(perk.getSpecializations());
-        repeatable = perk.isRepeatable();
+        this.setId(perk.getId());
+        this.setSpecializations(perk.getSpecializations());
+        this.repeatable = perk.isRepeatable();
     }
 
     public List<PerkOption> expandGroup() {
         final List<PerkOption> finalPerkOptions = new ArrayList<>();
-        if (getGroup() != null) {
+        if (this.getGroup() != null) {
             try {
-                finalPerkOptions.addAll(PerkFactory.getInstance().getElementsByGroup(getGroup()).stream()
-                        .map(PerkOption::new).collect(Collectors.toList()));
-            } catch (InvalidXmlElementException e) {
+                finalPerkOptions.addAll(PerkFactory.getInstance().getElementsByGroup(this.getGroup()).stream()
+                        .map(PerkOption::new).toList());
+            } catch (final InvalidXmlElementException e) {
                 MachineLog.errorMessage(this.getClass(), e);
             }
         } else {
@@ -67,11 +66,10 @@ public class PerkOption extends Option<Perk> {
     public List<Selection> getOptionsBySpecialization() {
         final List<PerkOption> finalPerkOptions = this.expandGroup();
         final List<Selection> specializedPerks = new ArrayList<>();
-        for (PerkOption perkOption : finalPerkOptions) {
+        for (final PerkOption perkOption : finalPerkOptions) {
             if (perkOption.getSpecializations() != null && !perkOption.getSpecializations().isEmpty()) {
-                perkOption.getSpecializations().forEach(specialization ->
-                        specializedPerks.add(new Selection(perkOption.getElement(), specialization))
-                );
+                perkOption.getSpecializations().forEach(
+                        specialization -> specializedPerks.add(new Selection(perkOption.getElement(), specialization)));
             } else {
                 specializedPerks.add(new Selection(perkOption.getElement(), null));
             }
@@ -81,14 +79,14 @@ public class PerkOption extends Option<Perk> {
 
     @Override
     public Restrictions getRestrictions() {
-        if (getId() != null) {
-            return PerkFactory.getInstance().getElement(getId()).getRestrictions();
+        if (this.getId() != null) {
+            return PerkFactory.getInstance().getElement(this.getId()).getRestrictions();
         }
         return super.getRestrictions();
     }
 
     public boolean isRepeatable() {
-        return repeatable;
+        return this.repeatable;
     }
 
     @Override
@@ -98,6 +96,6 @@ public class PerkOption extends Option<Perk> {
 
     @Override
     public String toString() {
-        return getId() != null ? getId() : getGroup();
+        return this.getId() != null ? this.getId() : this.getGroup();
     }
 }

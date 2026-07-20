@@ -150,10 +150,10 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         for (int i = 0; i < options.size(); i++) {
             if (options.get(i).getOptions().size() == 1) {
                 final Element option = options.get(i).getOptions().iterator().next();
-                if (option instanceof CapabilityOption) {
-                    if (((CapabilityOption) option).getSelectedSpecialization() != null) {
+                if (option instanceof CapabilityOption capabilityOption) {
+                    if (capabilityOption.getSelectedSpecialization() != null) {
                         selectedElements.get(i).setSelections(new ArrayList<>(List.of(new Selection(option,
-                                ((CapabilityOption) option).getSelectedSpecialization()))));
+                                capabilityOption.getSelectedSpecialization()))));
                     }
                 } else if (option.getSpecializations() == null
                         || option.getSpecializations().isEmpty()) {
@@ -176,8 +176,8 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         for (int i = 0; i < options.size(); i++) {
             if (options.get(i).getOptions().size() == 1) {
                 final Element option = options.get(i).getOptions().iterator().next();
-                if (option instanceof CapabilityOption) {
-                    if (((CapabilityOption) option).getSelectedSpecialization() != null) {
+                if (option instanceof CapabilityOption capabilityOption) {
+                    if (capabilityOption.getSelectedSpecialization() != null) {
                         selectedElements.get(i).setSelections(new ArrayList<>());
                     }
                 } else if (option.getSpecializations() == null
@@ -272,6 +272,9 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     }
 
     public List<CharacterSelectedEquipment> getSelectedMaterialAwards() {
+        if (selectedMaterialAwards == null) {
+            return new ArrayList<>();
+        }
         return selectedMaterialAwards;
     }
 
@@ -305,7 +308,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                         + getCapabilityOptions().get(i).getOptions().size() + "' are available.");
             }
             final List<Selection> availableOptions = getNotRepeatedCapabilityOptions(getPhase()).get(i).getOptions()
-                    .stream().map(co -> new Selection(co, co.getSelectedSpecialization())).collect(Collectors.toList());
+                    .stream().map(co -> new Selection(co, co.getSelectedSpecialization())).toList();
             for (Selection selection : selectedCapabilityOptions.get(i).getSelections()) {
                 //Compare specializations, or capabilities without specialization if not defined in the options.
                 if (!availableOptions.contains(selection) && !availableOptions.contains(selection.getMainSelection())) {
@@ -331,7 +334,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                         + "' are available.");
             }
             final List<Selection> availableOptions = getCharacteristicOptions().get(i).getOptions()
-                    .stream().map(Selection::new).collect(Collectors.toList());
+                    .stream().map(Selection::new).toList();
             for (Selection selection : selectedCharacteristicOptions.get(i).getSelections()) {
                 if (!availableOptions.contains(selection)) {
                     throw new InvalidSelectedElementException("Selected characteristic '" + selection + "' does not exist.", selection);
@@ -368,7 +371,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                         + "' are available.");
             }
             final List<Selection> availableOptions = getSkillOptions().get(i).getOptions()
-                    .stream().map(Selection::new).collect(Collectors.toList());
+                    .stream().map(Selection::new).toList();
             for (Selection selection : selectedSkillOptions.get(i).getSelections()) {
                 if (!availableOptions.contains(selection)) {
                     throw new InvalidSelectedElementException("Selected skill '" + selection + "' does not exist.", selection);
@@ -507,7 +510,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                 final CharacterPerkOptions newPerkOptions = new CharacterPerkOptions(
                         new PerkOptions(availablePerkOptions, PerkFactory.getInstance().getElements()
                                 .stream().filter(e -> !e.getRestrictions().isRestricted(characterPlayer))
-                                .map(PerkOption::new).collect(Collectors.toList())));
+                                .map(PerkOption::new).toList()));
                 //Remove orinal options. As if no option is available means that all 'oldOptions' are already selected by the user.
                 originalSelections.forEach(newPerkOptions.getAvailableSelections()::remove);
                 finalPerkOptions.add(newPerkOptions);

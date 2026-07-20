@@ -58,60 +58,99 @@ public class CapabilityOptions extends OptionSelector<Capability, CapabilityOpti
 
     @Override
     public LinkedHashSet<CapabilityOption> getOptions() {
-        if (finalCapabilities == null) {
-            try {
-                finalCapabilities = new LinkedHashSet<>();
-                if (super.getOptions() == null || super.getOptions().isEmpty()) {
-                    try {
-                        CapabilityFactory.getInstance().getElements().stream()
-                                .map(CapabilityOption::new).forEach(co ->
-                                        finalCapabilities.addAll(expandCapabilitiesWithSpecializacion(co)));
-                    } catch (InvalidXmlElementException e) {
-                        MachineXmlReaderLog.errorMessage(this.getClass(), e);
-                    }
-                } else {
-                    //Add Groups
-                    for (CapabilityOption capabilityOption : super.getOptions()) {
-                        if (capabilityOption.getGroup() != null) {
-                            try {
-                                CapabilityFactory.getInstance().getElementsByGroup(capabilityOption.getGroup()).stream()
-                                        .map(CapabilityOption::new).forEach(co ->
-                                                finalCapabilities.addAll(expandCapabilitiesWithSpecializacion(co)));
-                            } catch (InvalidXmlElementException e) {
-                                MachineLog.errorMessage(this.getClass(), e);
-                            }
-                        } else {
-                            //add specialities if needed
-                            finalCapabilities.addAll(expandCapabilitiesWithSpecializacion(capabilityOption));
-                        }
-                    }
-                }
-            } catch (NullPointerException e) {
-                throw new InvalidXmlElementException("Error on options '" + getOptions() + "'");
-            }
+        if (finalCapabilities != null) {
+            return finalCapabilities;
+        }
+
+        try {
+            finalCapabilities = new LinkedHashSet<>();
+            initializeCapabilities();
+        } catch (NullPointerException e) {
+            throw new InvalidXmlElementException("Error on options '" + getOptions() + "'");
         }
         return finalCapabilities;
+    }
+
+    private void initializeCapabilities() {
+        if (isEmptyOptions()) {
+            expandAllCapabilities();
+        } else {
+            expandGroupCapabilities();
+        }
+    }
+
+    private boolean isEmptyOptions() {
+        final LinkedHashSet<CapabilityOption> options = super.getOptions();
+        return options == null || options.isEmpty();
+    }
+
+    private void expandAllCapabilities() {
+        try {
+            CapabilityFactory.getInstance().getElements().stream()
+                    .map(CapabilityOption::new).forEach(co ->
+                            finalCapabilities.addAll(expandCapabilitiesWithSpecializacion(co)));
+        } catch (InvalidXmlElementException e) {
+            MachineXmlReaderLog.errorMessage(this.getClass(), e);
+        }
+    }
+
+    private void expandGroupCapabilities() {
+        //Add Groups
+        for (CapabilityOption capabilityOption : super.getOptions()) {
+            if (capabilityOption.getGroup() != null) {
+                expandCapabilityGroup(capabilityOption);
+            } else {
+                //add specialities if needed
+                finalCapabilities.addAll(expandCapabilitiesWithSpecializacion(capabilityOption));
+            }
+        }
+    }
+
+    private void expandCapabilityGroup(CapabilityOption capabilityOption) {
+        try {
+            CapabilityFactory.getInstance().getElementsByGroup(capabilityOption.getGroup()).stream()
+                    .map(CapabilityOption::new).forEach(co ->
+                            finalCapabilities.addAll(expandCapabilitiesWithSpecializacion(co)));
+        } catch (InvalidXmlElementException e) {
+            MachineLog.errorMessage(this.getClass(), e);
+        }
     }
 
     private List<CapabilityOption> expandCapabilitiesWithSpecializacion(CapabilityOption capabilityOption) {
         final List<CapabilityOption> capabilityOptions = new ArrayList<>();
         final Capability capability = CapabilityFactory.getInstance().getElement(capabilityOption.getId());
-        if (capability.getSpecializations() != null && !capability.getSpecializations().isEmpty()) {
-            if (capabilityOption.getSelectedSpecialization() == null) {
-                //No specialization defined, can be any.
-                for (Specialization specialization : capability.getSpecializations()) {
-                    capabilityOptions.add(new CapabilityOption(capability, specialization));
-                }
-            } else {
-                //Specializations defined. Can be only these.
-                capabilityOptions.add(new CapabilityOption(capability,
-                        capability.getSpecialization(capabilityOption.getSelectedSpecialization().getId())));
-            }
+
+        if (hasSpecializations(capability)) {
+            addSpecializedCapabilities(capabilityOptions, capability, capabilityOption);
         } else {
-            //No specielization, is itself.
             capabilityOptions.add(capabilityOption);
         }
         return capabilityOptions;
+    }
+
+    private boolean hasSpecializations(Capability capability) {
+        return capability.getSpecializations() != null && !capability.getSpecializations().isEmpty();
+    }
+
+    private void addSpecializedCapabilities(List<CapabilityOption> capabilityOptions,
+                                           Capability capability, CapabilityOption capabilityOption) {
+        if (capabilityOption.getSelectedSpecialization() == null) {
+            addAllSpecializations(capabilityOptions, capability);
+        } else {
+            addSelectedSpecialization(capabilityOptions, capability, capabilityOption);
+        }
+    }
+
+    private void addAllSpecializations(List<CapabilityOption> capabilityOptions, Capability capability) {
+        for (Specialization specialization : capability.getSpecializations()) {
+            capabilityOptions.add(new CapabilityOption(capability, specialization));
+        }
+    }
+
+    private void addSelectedSpecialization(List<CapabilityOption> capabilityOptions,
+                                          Capability capability, CapabilityOption capabilityOption) {
+        capabilityOptions.add(new CapabilityOption(capability,
+                capability.getSpecialization(capabilityOption.getSelectedSpecialization().getId())));
     }
 
     @Override

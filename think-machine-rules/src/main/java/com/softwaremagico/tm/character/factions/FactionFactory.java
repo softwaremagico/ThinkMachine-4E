@@ -37,7 +37,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public final class FactionFactory extends XmlFactory<Faction> {
     private static final String XML_FILE = "factions.xml";
@@ -54,7 +53,6 @@ public final class FactionFactory extends XmlFactory<Faction> {
         return FactionFactoryInit.INSTANCE;
     }
 
-
     @Override
     public String getXmlFile() {
         return XML_FILE;
@@ -62,41 +60,42 @@ public final class FactionFactory extends XmlFactory<Faction> {
 
     @Override
     public List<Faction> getElements() throws InvalidXmlElementException {
-        return readXml(Faction.class);
+        return this.readXml(Faction.class);
     }
 
     private void setNames() {
-        if (namesByFaction == null) {
-            namesByFaction = new HashMap<>();
-            getElements().forEach(f -> {
-                for (Gender gender : Gender.values()) {
-                    namesByFaction.computeIfAbsent(f.getId(), k -> new EnumMap<>(Gender.class));
-                    namesByFaction.get(f.getId()).computeIfAbsent(gender, k -> new HashSet<>());
-                    namesByFaction.get(f.getId()).put(gender, f.getRandomDefinition().getNames(f.getId(), HUMAN, gender));
+        if (this.namesByFaction == null) {
+          this.namesByFaction = new HashMap<>();
+          this.getElements().forEach(f -> {
+                for (final Gender gender : Gender.values()) {
+                  this.namesByFaction.computeIfAbsent(f.getId(), k -> new EnumMap<>(Gender.class));
+                  this.namesByFaction.get(f.getId()).computeIfAbsent(gender, k -> new HashSet<>());
+                  this.namesByFaction.get(f.getId()).put(gender,
+                            f.getRandomDefinition().getNames(f.getId(), HUMAN, gender));
                 }
             });
         }
     }
 
     private void setSurnames() {
-        if (surnamesByFaction == null) {
-            surnamesByFaction = new HashMap<>();
-            getElements().forEach(f ->
-                    surnamesByFaction.put(f.getId(), f.getRandomDefinition().getSurnames(f.getId(), HUMAN)));
+        if (this.surnamesByFaction == null) {
+          this.surnamesByFaction = new HashMap<>();
+          this.getElements().forEach(
+                    f -> this.surnamesByFaction.put(f.getId(), f.getRandomDefinition().getSurnames(f.getId(), HUMAN)));
         }
     }
 
     public Set<Name> getAllNames(String faction, Gender gender) {
-        if (namesByFaction == null) {
-            setNames();
+        if (this.namesByFaction == null) {
+          this.setNames();
         }
-        return namesByFaction.get(faction).get(gender);
+        return this.namesByFaction.get(faction).get(gender);
     }
 
     public Set<Name> getAllNames() {
         final Set<Name> names = new HashSet<>();
-        for (final Faction faction : getElements()) {
-            names.addAll(getAllNames(faction.getId()));
+        for (final Faction faction : this.getElements()) {
+            names.addAll(this.getAllNames(faction.getId()));
         }
         return names;
     }
@@ -105,31 +104,31 @@ public final class FactionFactory extends XmlFactory<Faction> {
         final Set<Name> names = new HashSet<>();
         for (final Gender gender : Gender.values()) {
             try {
-                names.addAll(getAllNames(faction, gender));
-            } catch (NullPointerException e) {
-                //No names defined.
+                names.addAll(this.getAllNames(faction, gender));
+            } catch (final NullPointerException e) {
+                // No names defined.
             }
         }
         return names;
     }
 
     public Set<Surname> getAllSurnames(String faction) {
-        if (surnamesByFaction == null) {
-            setSurnames();
+        if (this.surnamesByFaction == null) {
+          this.setSurnames();
         }
-        return surnamesByFaction.get(faction);
+        return this.surnamesByFaction.get(faction);
     }
 
     public Set<Surname> getAllSurnames() {
         final Set<Surname> surnames = new HashSet<>();
-        for (final Faction faction : getElements()) {
-            surnames.addAll(getAllSurnames(faction.getId()));
+        for (final Faction faction : this.getElements()) {
+            surnames.addAll(this.getAllSurnames(faction.getId()));
         }
         return surnames;
     }
 
     public List<Faction> getByFactionGroups(Collection<FactionGroup> factionGroups) {
-        return getElements().stream().filter(faction -> factionGroups.contains(FactionGroup.get(faction.getGroup())))
-                .collect(Collectors.toList());
+        return this.getElements().stream().filter(faction -> factionGroups.contains(FactionGroup.get(faction.getGroup())))
+                .toList();
     }
 }

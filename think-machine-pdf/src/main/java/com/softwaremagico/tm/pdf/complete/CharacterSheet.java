@@ -24,7 +24,6 @@ package com.softwaremagico.tm.pdf.complete;
  * #L%
  */
 
-
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.PageSize;
@@ -38,23 +37,31 @@ import com.softwaremagico.tm.pdf.complete.info.CharacterBasicsCompleteTableFacto
 import com.softwaremagico.tm.pdf.complete.info.DescriptionAndAnnotationsTableFactory;
 import com.softwaremagico.tm.pdf.complete.skills.CharacteristicsAndSkillsTableFactory;
 
+/**
+ * Concrete PDF generator for complete character sheets.
+ */
 public class CharacterSheet extends PdfDocument {
-    private static final float[] REAR_TABLE_WIDTHS = {1f, 1f, 1f};
-    private static final int MAX_WIDTH = 100;
-    private static final int PSI_ROWS = 10;
-    private static final int PSI_EXTENDED_ROWS = 21;
     private CharacterPlayer characterPlayer = null;
 
+    /**
+     * Creates an empty character sheet generator.
+     */
     public CharacterSheet() {
     }
 
+    /**
+     * Creates a character sheet generator bound to a character.
+     *
+     * @param characterPlayer
+     *            source character.
+     */
     public CharacterSheet(CharacterPlayer characterPlayer) {
         this.characterPlayer = characterPlayer;
     }
 
     @Override
     protected void createContent(Document document) throws InvalidXmlElementException, DocumentException {
-        createCharacterPDF(document, getCharacterPlayer());
+      this.createCharacterPDF(document, this.getCharacterPlayer());
     }
 
     @Override
@@ -69,13 +76,15 @@ public class CharacterSheet extends PdfDocument {
     }
 
     @Override
-    protected void createCharacterPDF(Document document, CharacterPlayer characterPlayer) throws InvalidXmlElementException, DocumentException {
+    protected void createCharacterPDF(Document document, CharacterPlayer characterPlayer)
+            throws InvalidXmlElementException, DocumentException {
 
         document.add(CharacterBasicsCompleteTableFactory.getCharacterBasicsTable(characterPlayer));
 
         document.add(CharacteristicsAndSkillsTableFactory.getCharacteristicsAndSkillsBasicsTable(characterPlayer));
 
-        document.add(ResistancesCapabilitiesAndProtectionsTable.getResistancesAndProtectionsBasicsTable(characterPlayer));
+        document.add(
+                ResistancesCapabilitiesAndProtectionsTable.getResistancesAndProtectionsBasicsTable(characterPlayer));
 
         document.newPage();
 
@@ -85,11 +94,10 @@ public class CharacterSheet extends PdfDocument {
 
         document.add(ItemsPackFactory.getItemsPack(characterPlayer));
 
-
     }
 
     private CharacterPlayer getCharacterPlayer() {
-        return characterPlayer;
+        return this.characterPlayer;
     }
 
     @Override

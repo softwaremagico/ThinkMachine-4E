@@ -24,7 +24,6 @@ package com.softwaremagico.tm.character.occultism;
  * #L%
  */
 
-
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Settings;
 import com.softwaremagico.tm.exceptions.InvalidNumberOfPowersException;
@@ -41,7 +40,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-
 public class Occultism {
     private final Map<String, Integer> darkSideValue;
 
@@ -49,13 +47,13 @@ public class Occultism {
     private final Map<String, List<OccultismPower>> selectedPowers;
 
     public Occultism() {
-        selectedPowers = new HashMap<>();
-        darkSideValue = new HashMap<>();
+        this.selectedPowers = new HashMap<>();
+        this.darkSideValue = new HashMap<>();
     }
 
     public int getDarkSideLevel(OccultismType occultismType) {
-        if (occultismType != null && darkSideValue.get(occultismType.getId()) != null) {
-            return darkSideValue.get(occultismType.getId());
+        if (occultismType != null && this.darkSideValue.get(occultismType.getId()) != null) {
+            return this.darkSideValue.get(occultismType.getId());
         }
         return 0;
     }
@@ -65,83 +63,104 @@ public class Occultism {
     }
 
     public Map<String, List<OccultismPower>> getSelectedPowers() {
-        return selectedPowers;
+        return this.selectedPowers;
     }
 
     public int getTotalSelectedPowers() {
-        return (int) selectedPowers.values().stream().mapToLong(Collection::size).sum();
+        return (int) this.selectedPowers.values().stream().mapToLong(Collection::size).sum();
     }
 
     public int getTotalSelectedPaths() {
-        return getSelectedPowers().size();
+        return this.getSelectedPowers().size();
     }
 
-    public void canAddPower(CharacterPlayer characterPlayer, OccultismPath path, OccultismPower power, String faction, String specie, Settings settings)
-            throws InvalidOccultismPowerException {
+    public void canAddPower(CharacterPlayer characterPlayer, OccultismPath path, OccultismPower power, String faction,
+            String specie, Settings settings) throws InvalidOccultismPowerException {
         if (power == null) {
             throw new InvalidOccultismPowerException("Power cannot be null.");
         }
         if (faction == null && settings.isRestrictionsChecked()) {
             throw new InvalidOccultismPowerException("Faction cannot be null.");
         }
+        this.validateOccultismLevel(characterPlayer, path, power);
+        this.validatePowerPoints(characterPlayer);
+        this.validatePathRestrictions(path, characterPlayer, power);
+        this.validatePsiPreviousLevel(path, power);
+    }
+
+    private void validateOccultismLevel(CharacterPlayer characterPlayer, OccultismPath path, OccultismPower power)
+            throws InvalidOccultismPowerException {
         // Correct level of psi or theurgy
         try {
             if (power.getOccultismLevel() > characterPlayer.getCharacteristicValue(path.getOccultismType())) {
                 throw new InvalidPsiqueLevelException("Insufficient psi/theurgy level to acquire '" + power + "'.");
             }
-        } catch (InvalidXmlElementException e) {
+        } catch (final InvalidXmlElementException e) {
             MachineXmlReaderLog.errorMessage(this.getClass(), e);
-        }
-        //Enough perks points.
-        if (characterPlayer.getOccultismPointsAvailable() <= characterPlayer.getTotalSelectedPowers()) {
-            throw new InvalidNumberOfPowersException("Invalid perk numbers for acquiring a new occultism power. Allowed points are '"
-                    + characterPlayer.getOccultismPointsAvailable() + "' and current number of powers is '"
-                    + characterPlayer.getTotalSelectedPowers() + "'");
-        }
-
-        if (path.getRestrictions().isRestricted(characterPlayer)) {
-            throw new InvalidOccultismPowerException("Power '" + power + "' is restricted to  '" + path.getRestrictions() + "'.");
-        }
-
-        // Psi must have previous level.
-        if (OccultismTypeFactory.getPsi() != null && Objects.equals(path.getOccultismType(), OccultismTypeFactory.getPsi().getId())) {
-            boolean acquiredLevel = false;
-            for (final OccultismPower previousLevelPower : path.getPreviousLevelPowers(power)) {
-                if (selectedPowers.get(path.getId()) != null
-                        && selectedPowers.get(path.getId()).contains(previousLevelPower)) {
-                    acquiredLevel = true;
-                    break;
-                }
-            }
-            if (!acquiredLevel && !path.getPreviousLevelPowers(power).isEmpty()) {
-                throw new InvalidPowerLevelException(
-                        "At least one power from '" + path.getPreviousLevelPowers(power) + "' must be selected.");
-            }
         }
     }
 
-    public boolean addPower(CharacterPlayer characterPlayer, OccultismPath path, OccultismPower power, String faction, String specie, Settings settings)
+    private void validatePowerPoints(CharacterPlayer characterPlayer) throws InvalidOccultismPowerException {
+        // Enough perks points.
+        if (characterPlayer.getOccultismPointsAvailable() <= characterPlayer.getTotalSelectedPowers()) {
+            throw new InvalidNumberOfPowersException(
+                    "Invalid perk numbers for acquiring a new occultism power. Allowed points are '"
+                            + characterPlayer.getOccultismPointsAvailable() + "' and current number of powers is '"
+                            + characterPlayer.getTotalSelectedPowers() + "'");
+        }
+    }
+
+    private void validatePathRestrictions(OccultismPath path, CharacterPlayer characterPlayer, OccultismPower power)
             throws InvalidOccultismPowerException {
-        canAddPower(characterPlayer, path, power, faction, specie, settings);
-        selectedPowers.computeIfAbsent(path.getId(), k -> new ArrayList<>());
-        return selectedPowers.get(path.getId()).add(power);
+        if (path.getRestrictions().isRestricted(characterPlayer)) {
+            throw new InvalidOccultismPowerException(
+                    "Power '" + power + "' is restricted to  '" + path.getRestrictions() + "'.");
+        }
+    }
+
+    private void validatePsiPreviousLevel(OccultismPath path, OccultismPower power)
+            throws InvalidOccultismPowerException {
+        // Psi must have previous level.
+        if (OccultismTypeFactory.getPsi() != null
+                && Objects.equals(path.getOccultismType(), OccultismTypeFactory.getPsi().getId())
+                && (!this.hasPreviousLevelPower(path, power) && !path.getPreviousLevelPowers(power).isEmpty())) {
+            throw new InvalidPowerLevelException(
+                    "At least one power from '" + path.getPreviousLevelPowers(power) + "' must be selected.");
+        }
+    }
+
+    private boolean hasPreviousLevelPower(OccultismPath path, OccultismPower power) {
+        for (final OccultismPower previousLevelPower : path.getPreviousLevelPowers(power)) {
+            if (this.selectedPowers.get(path.getId()) != null
+                    && this.selectedPowers.get(path.getId()).contains(previousLevelPower)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean addPower(CharacterPlayer characterPlayer, OccultismPath path, OccultismPower power, String faction,
+            String specie, Settings settings) throws InvalidOccultismPowerException {
+        this.canAddPower(characterPlayer, path, power, faction, specie, settings);
+        this.selectedPowers.computeIfAbsent(path.getId(), k -> new ArrayList<>());
+        return this.selectedPowers.get(path.getId()).add(power);
     }
 
     public boolean removePower(OccultismPath path, OccultismPower power) {
-        selectedPowers.computeIfAbsent(path.getId(), k -> new ArrayList<>());
-        return selectedPowers.get(path.getId()).remove(power);
+        this.selectedPowers.computeIfAbsent(path.getId(), k -> new ArrayList<>());
+        return this.selectedPowers.get(path.getId()).remove(power);
 
     }
 
     public boolean hasPower(OccultismPath path, OccultismPower power) {
-        if (selectedPowers.get(path.getId()) == null) {
+        if (this.selectedPowers.get(path.getId()) == null) {
             return false;
         }
-        return selectedPowers.get(path.getId()).contains(power);
+        return this.selectedPowers.get(path.getId()).contains(power);
     }
 
     public boolean hasPath(OccultismPath path) {
-        return selectedPowers.containsKey(path.getId());
+        return this.selectedPowers.containsKey(path.getId());
     }
 
 }

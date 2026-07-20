@@ -46,7 +46,7 @@ public class CharacteristicBonusOptions extends OptionSelector<CharacteristicDef
                 finalCharacteristics = new LinkedHashSet<>();
                 if (super.getOptions() == null || super.getOptions().isEmpty()) {
                     finalCharacteristics.addAll(CharacteristicsDefinitionFactory.getInstance().getSelectableElements().stream()
-                            .map(CharacteristicBonusOption::new).collect(Collectors.toList()));
+                            .map(CharacteristicBonusOption::new).toList());
                 } else {
                     super.getOptions().forEach(option -> {
                         if (option.hasExplicitId()) {
@@ -60,7 +60,7 @@ public class CharacteristicBonusOptions extends OptionSelector<CharacteristicDef
                                         characteristicBonusOption.setExtra(option.isExtra());
                                         return characteristicBonusOption;
                                     })
-                                    .collect(Collectors.toList()));
+                                    .toList());
                         }
                     });
                 }

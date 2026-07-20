@@ -43,6 +43,9 @@ import com.softwaremagico.tm.pdf.complete.utils.CellUtils;
 import java.awt.Color;
 import java.io.IOException;
 
+/**
+ * Base helper with reusable cell/table builders for complete PDF sections.
+ */
 public class BaseElement {
     private static final int TOP_PADDING = 10;
     private static final int WIDTH = 100;
@@ -50,8 +53,18 @@ public class BaseElement {
     private static final int TITLE_PADDING_CORRECTION = -2;
     private static final int SEPARATOR_MIN_HEIGHT = 6;
     private static final int BIG_SEPARATOR_MIN_HEIGHT = 15;
+    /** Shared margin factor used by PDF layout helpers. */
     public static final float MARGIN_LENGTH = 0.1f;
 
+    /**
+     * Base helper constructor.
+     */
+    protected BaseElement() {
+    }
+
+    /**
+     * Creates a styled text cell.
+     */
     public static PdfPCell getCell(String text, int border, int colspan, int align, Color color, BaseFont font,
                                    float fontSize) {
         if (text == null) {
@@ -67,29 +80,44 @@ public class BaseElement {
         return cell;
     }
 
+    /**
+     * Creates a chunk limited to a maximum width.
+     */
     public static Chunk getChunk(String text, int maxWidth) {
         return getChunk(text, maxWidth, FadingSunsTheme.LINE_FONT_SIZE);
     }
 
+    /**
+     * Creates a chunk limited to width with explicit size.
+     */
     public static Chunk getChunk(String text, int maxWidth, int fontSize) {
         return getChunk(text, maxWidth, null, FadingSunsTheme.getLineFont(), fontSize);
     }
 
+    /**
+     * Creates a chunk limited to width with custom font.
+     */
     public static Chunk getChunk(String text, int maxWidth, BaseFont font, int fontSize) {
         return getChunk(text, maxWidth, null, font, fontSize);
     }
 
-
+    /**
+     * Creates a chunk with default line font.
+     */
     public static Chunk getChunk(String text) {
         return getChunk(text, null, FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE);
     }
 
-
+    /**
+     * Creates a chunk with custom font and size.
+     */
     public static Chunk getChunk(String text, BaseFont font, int fontSize) {
         return getChunk(text, null, font, fontSize);
     }
 
-
+    /**
+     * Creates a chunk with optional background color.
+     */
     public static Chunk getChunk(String text, Color color, BaseFont font, int fontSize) {
         if (text == null) {
             text = "";
@@ -102,6 +130,9 @@ public class BaseElement {
         return content;
     }
 
+    /**
+     * Creates a cropped chunk that fits in the requested width.
+     */
     public static Chunk getChunk(String text, int maxWidth, Color color, BaseFont font, int fontSize) {
         if (text == null || text.equals("null")) {
             text = "";
@@ -110,7 +141,9 @@ public class BaseElement {
         return getChunk(remainingText, color, font, fontSize);
     }
 
-
+    /**
+     * Creates a styled cell from a paragraph.
+     */
     public static PdfPCell getCell(Paragraph paragraph, int border, int colspan, int align, Color color) {
         final PdfPCell cell = new PdfPCell(paragraph);
         cell.setColspan(colspan);
@@ -121,6 +154,9 @@ public class BaseElement {
         return cell;
     }
 
+    /**
+     * Creates a styled cell from plain text.
+     */
     protected PdfPCell getCell(String text, int border, int colspan, int align, Color color, String font,
                                int fontSize, int fontType) {
         if (text == null) {
@@ -136,6 +172,9 @@ public class BaseElement {
         return cell;
     }
 
+    /**
+     * Loads an image file into a cell.
+     */
     public static PdfPCell createImageCell(String path) throws DocumentException, IOException {
         final Image img = Image.getInstance(path);
         final PdfPCell cell = new PdfPCell(img, true);
@@ -143,6 +182,9 @@ public class BaseElement {
         return cell;
     }
 
+    /**
+     * Loads the sheet logo into a centered cell.
+     */
     public static PdfPCell createLogoCell() throws DocumentException, IOException {
         final Image image = Image.getInstance(BaseElement.class.getResource("/"
                 + FadingSunsTheme.LOGO_IMAGE));
@@ -153,12 +195,18 @@ public class BaseElement {
         return cell;
     }
 
+    /**
+     * Applies standard border/padding/alignment properties to a cell.
+     */
     public static void setCellProperties(PdfPCell cell) {
         cell.setBorder(0);
         cell.setPadding(0);
         cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
     }
 
+    /**
+     * Creates a compact separator (white + black line).
+     */
     public static PdfPCell createSeparator() {
         final float[] widths = {1f};
         final PdfPTable table = new PdfPTable(widths);
@@ -173,10 +221,16 @@ public class BaseElement {
         return cell;
     }
 
+    /**
+     * Creates a wide separator with default width.
+     */
     public static PdfPCell createBigSeparator() {
         return createBigSeparator(WIDTH - 2);
     }
 
+    /**
+     * Creates a wide separator using a custom width percentage.
+     */
     public static PdfPCell createBigSeparator(int width) {
         final float[] widths = {1f};
         final PdfPTable table = new PdfPTable(widths);
@@ -192,10 +246,16 @@ public class BaseElement {
         return cell;
     }
 
+    /**
+     * Creates a black title strip for a section.
+     */
     public static PdfPCell createSectionTitle(TranslatedText title, int colspan) {
         return createSectionTitle(title.getTranslatedText(), colspan);
     }
 
+    /**
+     * Creates a black title strip for a section.
+     */
     public static PdfPCell createSectionTitle(String title, int colspan) {
         final Font font = new Font(FadingSunsTheme.getTitleFont(), FadingSunsTheme.SECTION_TITLE_FONT_SIZE);
         font.setColor(Color.WHITE);
@@ -211,14 +271,23 @@ public class BaseElement {
         return titleCell;
     }
 
+    /**
+     * Creates a subtitle line.
+     */
     protected static PdfPCell createTableSubtitleElement(TranslatedText text) {
         return createTableSubtitleElement(text.getTranslatedText(), FadingSunsTheme.SECTION_SUBTITLE_HIGH);
     }
 
+    /**
+     * Creates a subtitle line.
+     */
     protected static PdfPCell createTableSubtitleElement(String text) {
         return createTableSubtitleElement(text, FadingSunsTheme.SECTION_SUBTITLE_HIGH);
     }
 
+    /**
+     * Creates a subtitle line with explicit height.
+     */
     protected static PdfPCell createTableSubtitleElement(String text, int height) {
         final PdfPCell cell = BaseElement.getCell(text, 0, 1, Element.ALIGN_CENTER,
                 Color.WHITE, FadingSunsTheme.getSubtitleFont(), FadingSunsTheme.TABLE_LINE_FONT_SIZE);
@@ -227,12 +296,18 @@ public class BaseElement {
         return cell;
     }
 
+    /**
+     * Creates the first content line in a row (left aligned).
+     */
     protected static PdfPCell createFirstElementLine(String text, int maxWidth, int fontSize) {
         final PdfPCell cell = createElementLine(text, maxWidth, fontSize);
         cell.setHorizontalAlignment(Element.ALIGN_LEFT);
         return cell;
     }
 
+    /**
+     * Creates a black separator cell.
+     */
     public static PdfPCell createBlackSeparator() {
         final PdfPCell cell = new PdfPCell();
         cell.setBackgroundColor(Color.BLACK);
@@ -241,6 +316,9 @@ public class BaseElement {
         return cell;
     }
 
+    /**
+     * Creates a white separator cell with a given height.
+     */
     public static PdfPCell createWhiteSeparator(int height) {
         final PdfPCell cell = new PdfPCell();
         cell.setBackgroundColor(Color.WHITE);
@@ -249,14 +327,23 @@ public class BaseElement {
         return cell;
     }
 
+    /**
+     * Creates a white separator cell with default height.
+     */
     public static PdfPCell createWhiteSeparator() {
         return createWhiteSeparator(SEPARATOR_MIN_HEIGHT);
     }
 
+    /**
+     * Creates a larger white separator cell.
+     */
     public static PdfPCell createBigWhiteSeparator() {
         return createWhiteSeparator(BIG_SEPARATOR_MIN_HEIGHT);
     }
 
+    /**
+     * Applies standard table defaults used by this PDF module.
+     */
     public static void setTableProperties(PdfPTable table) {
         table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
         table.getDefaultCell().setVerticalAlignment(Element.ALIGN_MIDDLE);
@@ -266,10 +353,16 @@ public class BaseElement {
         table.setSpacingBefore(0);
     }
 
+    /**
+     * Creates an empty boxed rectangle cell.
+     */
     public static PdfPCell createRectangle() {
         return createRectangle((String) null);
     }
 
+    /**
+     * Creates a boxed rectangle cell with an integer value.
+     */
     public static PdfPCell createRectangle(Integer value) {
         if (value == null) {
             return createRectangle((String) null);
@@ -278,6 +371,9 @@ public class BaseElement {
         }
     }
 
+    /**
+     * Creates a boxed rectangle cell with text.
+     */
     public static PdfPCell createRectangle(String value) {
         // Rectangle
         final PdfPCell rectangle;
@@ -290,10 +386,16 @@ public class BaseElement {
         return rectangle;
     }
 
+    /**
+     * Creates an empty line cell.
+     */
     protected static PdfPCell createEmptyElementLine(String text) {
         return createEmptyElementLine(Element.ALIGN_CENTER, text);
     }
 
+    /**
+     * Creates an empty line cell with explicit alignment.
+     */
     protected static PdfPCell createEmptyElementLine(int alignment, String text) {
         final PdfPCell cell = BaseElement.getCell(text, 0, 1, alignment, Color.WHITE,
                 FadingSunsTheme.getLineFont(), FadingSunsTheme.TABLE_LINE_FONT_SIZE);
@@ -302,6 +404,9 @@ public class BaseElement {
         return cell;
     }
 
+    /**
+     * Creates a plain text chunk cell.
+     */
     protected static PdfPCell createEmptyChunk(int alignment, String text) {
         final PdfPCell cell = BaseElement.getCell(text, 0, 1, alignment, Color.WHITE,
                 FadingSunsTheme.getLineFont(), FadingSunsTheme.TABLE_LINE_FONT_SIZE);
@@ -310,26 +415,41 @@ public class BaseElement {
         return cell;
     }
 
+    /**
+     * Creates an empty line cell truncating text to width.
+     */
     public static PdfPCell createEmptyElementLine(String text, int maxWidth) {
         return createEmptyElementLine(text, maxWidth, FadingSunsTheme.TABLE_LINE_FONT_SIZE);
     }
 
+    /**
+     * Creates an empty line cell truncating text to width.
+     */
     public static PdfPCell createEmptyElementLine(String text, int maxWidth, int fontSize) {
         final String remainingText = CellUtils.getSubStringFitsIn(text, FadingSunsTheme.getLineFont(), fontSize,
                 maxWidth);
         return createEmptyElementLine(remainingText);
     }
 
+    /**
+     * Creates a handwriting line from text.
+     */
     protected static PdfPCell createElementLine(String text, int maxWidth) {
         return createElementLine(text, maxWidth,
                 FadingSunsTheme.getHandWrittingFontSize(FadingSunsTheme.TABLE_LINE_FONT_SIZE));
     }
 
+    /**
+     * Creates a handwriting line from integer value.
+     */
     protected static PdfPCell createElementLine(Integer value, int maxWidth) {
         return createElementLine(value, maxWidth,
                 FadingSunsTheme.getHandWrittingFontSize(FadingSunsTheme.TABLE_LINE_FONT_SIZE));
     }
 
+    /**
+     * Creates a handwriting line from integer value.
+     */
     protected static PdfPCell createElementLine(Integer value, int maxWidth, int fontSize) {
         if (value == null) {
             return createElementLine("", maxWidth, fontSize);
@@ -337,10 +457,16 @@ public class BaseElement {
         return createElementLine((value > 0 ? "+" + value : value + ""), maxWidth, fontSize);
     }
 
+    /**
+     * Creates a handwriting line from text.
+     */
     protected static PdfPCell createElementLine(String text, int maxWidth, int fontSize) {
         return createElementLine(text, maxWidth, fontSize, FadingSunsTheme.getHandwrittingFont());
     }
 
+    /**
+     * Creates a handwriting line from text and explicit font.
+     */
     protected static PdfPCell createElementLine(String text, int maxWidth, int fontSize, BaseFont font) {
         if (text == null || text.equals("null")) {
             text = "";
