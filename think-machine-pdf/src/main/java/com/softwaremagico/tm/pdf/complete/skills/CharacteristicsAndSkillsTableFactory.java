@@ -38,10 +38,25 @@ import com.softwaremagico.tm.txt.TextFactory;
 import java.util.Comparator;
 import java.util.List;
 
-public class CharacteristicsAndSkillsTableFactory extends BaseElement {
+/**
+ * Factory for the combined characteristics and skills section.
+ */
+public final class CharacteristicsAndSkillsTableFactory extends BaseElement {
 
     private static final int SEPARATOR_MIN_HEIGHT = 10;
 
+    /**
+     * Utility class.
+     */
+    private CharacteristicsAndSkillsTableFactory() {
+    }
+
+    /**
+     * Builds the combined skills and characteristics table.
+     *
+     * @param characterPlayer source character.
+     * @return full skills/characteristics table.
+     */
     public static PdfPTable getCharacteristicsAndSkillsBasicsTable(CharacterPlayer characterPlayer) {
         final float[] widths = {2f, 1f};
         final PdfPTable table = new PdfPTable(widths);
@@ -57,6 +72,12 @@ public class CharacteristicsAndSkillsTableFactory extends BaseElement {
         return table;
     }
 
+    /**
+     * Builds the skills sub-table.
+     *
+     * @param characterPlayer source character.
+     * @return skills table.
+     */
     public static PdfPTable getSkillsBasicsTable(CharacterPlayer characterPlayer) {
         final float[] widths = {1f, 1f};
         final PdfPTable table = new PdfPTable(widths);
@@ -72,6 +93,12 @@ public class CharacteristicsAndSkillsTableFactory extends BaseElement {
         return table;
     }
 
+    /**
+     * Builds the characteristics sub-table.
+     *
+     * @param characterPlayer source character.
+     * @return characteristics table.
+     */
     public static PdfPTable getCharacteristicsBasicsTable(CharacterPlayer characterPlayer) {
         final float[] widths = {1f};
         final PdfPTable table = new PdfPTable(widths);

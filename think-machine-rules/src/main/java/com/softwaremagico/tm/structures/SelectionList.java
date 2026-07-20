@@ -33,8 +33,8 @@ public class SelectionList<E> extends ArrayList<E> {
 
     private static final long serialVersionUID = 8095691182370285272L;
 
-    private final Set<ISelectionAddedListener> iSelectionAddedListeners;
-    private final Set<ISelectionRemovedListener> iSelectionRemovedListeners;
+    private final transient Set<ISelectionAddedListener> iSelectionAddedListeners;
+    private final transient Set<ISelectionRemovedListener> iSelectionRemovedListeners;
 
     public interface ISelectionAddedListener {
         void added();
@@ -56,32 +56,31 @@ public class SelectionList<E> extends ArrayList<E> {
     }
 
     public void addSelectionAddedListeners(ISelectionAddedListener listener) {
-        iSelectionAddedListeners.add(listener);
+        this.iSelectionAddedListeners.add(listener);
     }
 
     public void notifySelectionAddedListener() {
-        for (ISelectionAddedListener listener : iSelectionAddedListeners) {
+        for (final ISelectionAddedListener listener : this.iSelectionAddedListeners) {
             listener.added();
         }
     }
 
     public void addSelectionRemovedListeners(ISelectionRemovedListener listener) {
-        iSelectionRemovedListeners.add(listener);
+        this.iSelectionRemovedListeners.add(listener);
     }
 
     public void notifySelectionRemovedListener() {
-        for (ISelectionRemovedListener listener : iSelectionRemovedListeners) {
+        for (final ISelectionRemovedListener listener : this.iSelectionRemovedListeners) {
             listener.removed();
         }
     }
-
 
     @Override
     public boolean add(E element) {
         try {
             return super.add(element);
         } finally {
-            notifySelectionAddedListener();
+            this.notifySelectionAddedListener();
         }
     }
 
@@ -90,7 +89,7 @@ public class SelectionList<E> extends ArrayList<E> {
         try {
             super.add(index, element);
         } finally {
-            notifySelectionAddedListener();
+            this.notifySelectionAddedListener();
         }
     }
 
@@ -99,7 +98,7 @@ public class SelectionList<E> extends ArrayList<E> {
         try {
             return super.addAll(c);
         } finally {
-            notifySelectionAddedListener();
+            this.notifySelectionAddedListener();
         }
     }
 
@@ -108,7 +107,7 @@ public class SelectionList<E> extends ArrayList<E> {
         try {
             return super.remove(o);
         } finally {
-            notifySelectionRemovedListener();
+            this.notifySelectionRemovedListener();
         }
     }
 
@@ -117,7 +116,7 @@ public class SelectionList<E> extends ArrayList<E> {
         try {
             return super.removeAll(c);
         } finally {
-            notifySelectionRemovedListener();
+            this.notifySelectionRemovedListener();
         }
     }
 
@@ -126,7 +125,7 @@ public class SelectionList<E> extends ArrayList<E> {
         try {
             return super.set(index, element);
         } finally {
-            notifySelectionAddedListener();
+            this.notifySelectionAddedListener();
         }
     }
 }

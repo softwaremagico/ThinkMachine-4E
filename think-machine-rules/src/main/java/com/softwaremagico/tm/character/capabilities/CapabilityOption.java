@@ -101,8 +101,10 @@ public class CapabilityOption extends Option<Capability> implements IComparable 
 
     @Override
     public String toString() {
-        return (getId() != null ? getId() : (getGroup() != null ? getGroup() : null))
-                + (selectedSpecialization != null ? " (" + selectedSpecialization.getId() + ")" : "");
+        final String group = getGroup();
+        final String identifier = getId() != null ? getId() : group;
+        final String specialization = selectedSpecialization != null ? " (" + selectedSpecialization.getId() + ")" : "";
+        return identifier + specialization;
     }
 
     @Override

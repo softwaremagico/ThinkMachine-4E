@@ -32,14 +32,14 @@ public abstract class SourceFile<FileType> implements ISourceFile<FileType> {
     private String filePath;
     private final String fileName;
 
-    public SourceFile(String fileName) {
+    protected SourceFile(String fileName) {
         this.fileName = fileName;
-        setFilePath(null);
+        this.setFilePath(null);
     }
 
-    public SourceFile(String filePath, String fileName) {
+    protected SourceFile(String filePath, String fileName) {
         this.fileName = fileName;
-        setFilePath(filePath);
+        this.setFilePath(filePath);
     }
 
     @Override
@@ -51,17 +51,17 @@ public abstract class SourceFile<FileType> implements ISourceFile<FileType> {
 
     @Override
     public String getFilePath() {
-        return filePath;
+        return this.filePath;
     }
 
     @Override
     public String getFileName() {
-        return fileName;
+        return this.fileName;
     }
 
     @Override
     public String toString() {
-        return (getFilePath() != null ? getFilePath() + File.separator : "") + getFileName();
+        return (this.getFilePath() != null ? this.getFilePath() + File.separator : "") + this.getFileName();
     }
 
     public static String readEnvironmentVariable(String environmentVariable) {

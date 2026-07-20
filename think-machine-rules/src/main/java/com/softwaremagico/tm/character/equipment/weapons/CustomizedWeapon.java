@@ -35,25 +35,25 @@ public class CustomizedWeapon extends Weapon {
 
     public CustomizedWeapon(Weapon weapon) {
         this();
-        copy(weapon);
+      this.copy(weapon);
     }
 
     @Override
     public String getWeaponOthersText() {
         final StringBuilder stringBuilder = new StringBuilder();
 
-        if (getQuality() != null && getQuality() != Quality.STANDARD) {
-            stringBuilder.append(TextFactory.getInstance().getElement(getQuality().name().toLowerCase()));
+        if (this.getQuality() != null && this.getQuality() != Quality.STANDARD) {
+            stringBuilder.append(TextFactory.getInstance().getElement(this.getQuality().name().toLowerCase()));
         }
-        if (stringBuilder.length() > 0) {
+        if (!stringBuilder.isEmpty()) {
             stringBuilder.append(", ");
         }
-        if (getStatus() != null) {
-            stringBuilder.append(TextFactory.getInstance().getElement(getStatus().name().toLowerCase()));
+        if (this.getStatus() != null) {
+            stringBuilder.append(TextFactory.getInstance().getElement(this.getStatus().name().toLowerCase()));
         }
 
         final String standardOthers = super.getWeaponOthersText();
-        if (stringBuilder.length() > 0 && !standardOthers.isEmpty()) {
+        if (!stringBuilder.isEmpty() && !standardOthers.isEmpty()) {
             stringBuilder.append(", ");
             stringBuilder.append(standardOthers);
         }

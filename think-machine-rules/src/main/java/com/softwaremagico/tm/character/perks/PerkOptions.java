@@ -55,42 +55,41 @@ public class PerkOptions extends OptionSelector<Perk, PerkOption> {
     public PerkOptions(PerkOptions optionSelector, List<PerkOption> finalPerks) {
         super(optionSelector);
         this.finalPerks = new LinkedHashSet<>(finalPerks);
-        setOptions(this.finalPerks);
+        this.setOptions(this.finalPerks);
     }
 
     public PerkOptions(Collection<PerkOption> sourcePerks) {
         super();
-        setTotalOptions(1);
-        setOptions(new LinkedHashSet<>(sourcePerks));
-        setIncludeOpenPerks(false);
-        initFinalPerks();
+        this.setTotalOptions(1);
+        this.setOptions(new LinkedHashSet<>(sourcePerks));
+        this.setIncludeOpenPerks(false);
+        this.initFinalPerks();
     }
 
     public Set<PerkOption> getFinalPerks() {
-        return finalPerks;
+        return this.finalPerks;
     }
 
     @Override
     public LinkedHashSet<PerkOption> getOptions() {
-        if (finalPerks == null || finalPerks.isEmpty()) {
-            initFinalPerks();
+        if (this.finalPerks == null || this.finalPerks.isEmpty()) {
+            this.initFinalPerks();
         }
-        return new LinkedHashSet<>(finalPerks);
+        return new LinkedHashSet<>(this.finalPerks);
     }
 
     private void initFinalPerks() {
-        finalPerks = new LinkedHashSet<>();
-        for (PerkOption perkOption : super.getOptions()) {
-            finalPerks.addAll(perkOption.expandGroup());
+        this.finalPerks = new LinkedHashSet<>();
+        for (final PerkOption perkOption : super.getOptions()) {
+            this.finalPerks.addAll(perkOption.expandGroup());
         }
-        if (isIncludeOpenPerks()) {
-            PerkFactory.getInstance().getOpenElements().forEach(element -> finalPerks.add(new PerkOption(element)));
+        if (this.isIncludeOpenPerks()) {
+            PerkFactory.getInstance().getOpenElements().forEach(element -> this.finalPerks.add(new PerkOption(element)));
         }
     }
 
-
     public boolean isIncludeOpenPerks() {
-        return includeOpenPerks;
+        return this.includeOpenPerks;
     }
 
     public void setIncludeOpenPerks(boolean includeOpenPerks) {
@@ -99,23 +98,19 @@ public class PerkOptions extends OptionSelector<Perk, PerkOption> {
 
     @Override
     public String toString() {
-        return "PerkOptions{"
-                + "(x" + getTotalOptions() + "): "
-                + super.getOptions()
-                + '}';
+        return "PerkOptions{" + "(x" + this.getTotalOptions() + "): " + super.getOptions() + '}';
     }
 
     @Override
     public void validate() throws InvalidXmlElementException {
         super.validate();
-        if (getOptions() != null) {
-            getOptions().forEach(option -> {
+        if (this.getOptions() != null) {
+            this.getOptions().forEach(option -> {
                 if (option.getId() != null) {
                     PerkFactory.getInstance().getElement(option.getId());
-                } else if (option.getGroup() != null) {
-                    if (PerkFactory.getInstance().getElementsByGroup(option.getGroup()).isEmpty()) {
-                        throw new InvalidXmlElementException("Invalid group '" + option.getGroup() + "' on perk. ");
-                    }
+                } else if (option.getGroup() != null
+                        && PerkFactory.getInstance().getElementsByGroup(option.getGroup()).isEmpty()) {
+                    throw new InvalidXmlElementException("Invalid group '" + option.getGroup() + "' on perk. ");
                 }
             });
         }

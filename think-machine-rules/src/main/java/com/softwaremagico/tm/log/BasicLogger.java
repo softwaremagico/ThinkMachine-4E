@@ -54,7 +54,10 @@ public abstract class BasicLogger {
      * @param arguments       parameters to fill up the template
      */
     public static void warning(Logger logger, String className, String messageTemplate, Object... arguments) {
-        logger.warn(className + ": " + messageTemplate, arguments);
+        if (logger.isWarnEnabled()) {
+            final String formattedTemplate = "{}: " + messageTemplate;
+            logger.warn(formattedTemplate, prependArg(className, arguments));
+        }
     }
 
     /**
@@ -80,7 +83,10 @@ public abstract class BasicLogger {
      * @param arguments       parameters to fill up the template
      */
     public static void info(Logger logger, String className, String messageTemplate, Object... arguments) {
-        info(logger, className + ": " + messageTemplate, arguments);
+        if (logger.isInfoEnabled()) {
+            final String formattedTemplate = "{}: " + messageTemplate;
+            logger.info(formattedTemplate, prependArg(className, arguments));
+        }
     }
 
     /**
@@ -98,18 +104,24 @@ public abstract class BasicLogger {
     }
 
     /**
-     * For following the trace of the execution. I.e. Knowing if the application
-     * access to a method, opening database connection, etc.
+    /**
+     * To log any not expected error that can cause application malfunctions.
      *
      * @param logger          the Logger.
      * @param className       the class to log.
      * @param messageTemplate string with static text as template.
      * @param arguments       parameters to fill up the template
      */
-    public static void debug(Logger logger, String className, String messageTemplate, Object... arguments) {
-        if (logger.isDebugEnabled()) {
-            logger.debug(className + ": " + messageTemplate, arguments);
-        }
+    public static void severe(Logger logger, String className, String messageTemplate, Object... arguments) {
+        final String formattedTemplate = "{}: " + messageTemplate;
+        severe(logger, formattedTemplate, prependArg(className, arguments));
+    }
+
+    private static Object[] prependArg(Object first, Object[] rest) {
+        final Object[] result = new Object[rest.length + 1];
+        result[0] = first;
+        System.arraycopy(rest, 0, result, 1, rest.length);
+        return result;
     }
 
     /**
@@ -124,17 +136,6 @@ public abstract class BasicLogger {
         logger.error(messageTemplate, arguments);
     }
 
-    /**
-     * To log any not expected error that can cause application malfunctions.
-     *
-     * @param logger          the Logger.
-     * @param className       the class to log.
-     * @param messageTemplate string with static text as template.
-     * @param arguments       parameters to fill up the template
-     */
-    public static void severe(Logger logger, String className, String messageTemplate, Object... arguments) {
-        severe(logger, className + ": " + messageTemplate, arguments);
-    }
 
     /**
      * Logs an error and email the email configured in settings.conf
