@@ -40,137 +40,137 @@ import java.util.Set;
  * Represents a party of characters.
  */
 public class Party {
-	private final Set<CharacterPlayer> characterPlayers;
-	private final transient Map<CharacterPlayer, Integer> threatByCharacter;
-	private String partyName;
-	private final String language;
-	private final String moduleName;
+    private final Set<CharacterPlayer> characterPlayers;
+    private final transient Map<CharacterPlayer, Integer> threatByCharacter;
+    private String partyName;
+    private final String language;
+    private final String moduleName;
 
-	/**
-	 * Creates a party with language and module name.
-	 *
-	 * @param language
-	 *            the language code (e.g., "ES", "EN").
-	 * @param moduleName
-	 *            the module name.
-	 */
-	public Party(String language, String moduleName) {
-		this.language = language;
-		this.moduleName = moduleName;
-		this.characterPlayers = new HashSet<>();
-		this.threatByCharacter = new HashMap<>();
-	}
+    /**
+     * Creates a party with language and module name.
+     *
+     * @param language
+     *            the language code (e.g., "ES", "EN").
+     * @param moduleName
+     *            the module name.
+     */
+    public Party(String language, String moduleName) {
+        this.language = language;
+        this.moduleName = moduleName;
+        this.characterPlayers = new HashSet<>();
+        this.threatByCharacter = new HashMap<>();
+    }
 
-	/**
-	 * Adds a character member to the party.
-	 *
-	 * @param characterPlayer
-	 *            the character to add.
-	 */
-	public void addMember(CharacterPlayer characterPlayer) {
-		this.characterPlayers.add(characterPlayer);
-		this.threatByCharacter.put(characterPlayer, ThreatLevel.getThreatLevel(characterPlayer));
-	}
+    /**
+     * Adds a character member to the party.
+     *
+     * @param characterPlayer
+     *            the character to add.
+     */
+    public void addMember(CharacterPlayer characterPlayer) {
+        this.characterPlayers.add(characterPlayer);
+        this.threatByCharacter.put(characterPlayer, ThreatLevel.getThreatLevel(characterPlayer));
+    }
 
-	/**
-	 * Removes a character from the party.
-	 *
-	 * @param characterPlayer
-	 *            the character to remove.
-	 */
-	public void removeCharacter(CharacterPlayer characterPlayer) {
-		this.characterPlayers.remove(characterPlayer);
-		this.threatByCharacter.remove(characterPlayer);
-	}
+    /**
+     * Removes a character from the party.
+     *
+     * @param characterPlayer
+     *            the character to remove.
+     */
+    public void removeCharacter(CharacterPlayer characterPlayer) {
+        this.characterPlayers.remove(characterPlayer);
+        this.threatByCharacter.remove(characterPlayer);
+    }
 
-	/**
-	 * Gets an unmodifiable list of party members sorted by threat level (descending).
-	 *
-	 * @return list of character players sorted by threat level.
-	 */
-	public List<CharacterPlayer> getMembers() {
-		final List<CharacterPlayer> sortedCharacterPlayers = new ArrayList<>(this.characterPlayers);
-		Collections.sort(sortedCharacterPlayers, new Comparator<CharacterPlayer>() {
-			@Override
-			public int compare(CharacterPlayer arg0, CharacterPlayer arg1) {
-				final Integer threat0 = threatByCharacter.getOrDefault(arg0, 0);
-				final Integer threat1 = threatByCharacter.getOrDefault(arg1, 0);
-				return threat1 - threat0; // Descending: highest threat first
-			}
-		});
-		return Collections.unmodifiableList(sortedCharacterPlayers);
-	}
+    /**
+     * Gets an unmodifiable list of party members sorted by threat level (descending).
+     *
+     * @return list of character players sorted by threat level.
+     */
+    public List<CharacterPlayer> getMembers() {
+        final List<CharacterPlayer> sortedCharacterPlayers = new ArrayList<>(this.characterPlayers);
+        Collections.sort(sortedCharacterPlayers, new Comparator<CharacterPlayer>() {
+            @Override
+            public int compare(CharacterPlayer arg0, CharacterPlayer arg1) {
+                final Integer threat0 = threatByCharacter.getOrDefault(arg0, 0);
+                final Integer threat1 = threatByCharacter.getOrDefault(arg1, 0);
+                return threat1 - threat0; // Descending: highest threat first
+            }
+        });
+        return Collections.unmodifiableList(sortedCharacterPlayers);
+    }
 
-	/**
-	 * Gets the party name.
-	 *
-	 * @return the party name.
-	 */
-	public String getPartyName() {
-		return this.partyName;
-	}
+    /**
+     * Gets the party name.
+     *
+     * @return the party name.
+     */
+    public String getPartyName() {
+        return this.partyName;
+    }
 
-	/**
-	 * Sets the party name.
-	 *
-	 * @param partyName
-	 *            the party name to set.
-	 */
-	public void setPartyName(String partyName) {
-		this.partyName = partyName;
-	}
+    /**
+     * Sets the party name.
+     *
+     * @param partyName
+     *            the party name to set.
+     */
+    public void setPartyName(String partyName) {
+        this.partyName = partyName;
+    }
 
-	/**
-	 * Gets the language.
-	 *
-	 * @return the language code.
-	 */
-	public String getLanguage() {
-		return this.language;
-	}
+    /**
+     * Gets the language.
+     *
+     * @return the language code.
+     */
+    public String getLanguage() {
+        return this.language;
+    }
 
-	/**
-	 * Gets the module name.
-	 *
-	 * @return the module name.
-	 */
-	public String getModuleName() {
-		return this.moduleName;
-	}
+    /**
+     * Gets the module name.
+     *
+     * @return the module name.
+     */
+    public String getModuleName() {
+        return this.moduleName;
+    }
 
-	/**
-	 * Gets the number of members in the party.
-	 *
-	 * @return the member count.
-	 */
-	public int getMemberCount() {
-		return this.characterPlayers.size();
-	}
+    /**
+     * Gets the number of members in the party.
+     *
+     * @return the member count.
+     */
+    public int getMemberCount() {
+        return this.characterPlayers.size();
+    }
 
-	/**
-	 * Gets the total threat level of the party (sum of all members).
-	 *
-	 * @return the total threat level.
-	 */
-	public int getThreatLevel() {
-		int threatLevel = 0;
-		for (final Integer threat : this.threatByCharacter.values()) {
-			threatLevel += threat;
-		}
-		return threatLevel;
-	}
+    /**
+     * Gets the total threat level of the party (sum of all members).
+     *
+     * @return the total threat level.
+     */
+    public int getThreatLevel() {
+        int threatLevel = 0;
+        for (final Integer threat : this.threatByCharacter.values()) {
+            threatLevel += threat;
+        }
+        return threatLevel;
+    }
 
-	/**
-	 * Gets the threat level of a specific character.
-	 *
-	 * @param characterPlayer
-	 *            the character to query.
-	 * @return the threat level of the character, or 0 if not found.
-	 */
-	public int getThreatLevel(CharacterPlayer characterPlayer) {
-		if (this.threatByCharacter.get(characterPlayer) == null) {
-			return 0;
-		}
-		return this.threatByCharacter.get(characterPlayer);
-	}
+    /**
+     * Gets the threat level of a specific character.
+     *
+     * @param characterPlayer
+     *            the character to query.
+     * @return the threat level of the character, or 0 if not found.
+     */
+    public int getThreatLevel(CharacterPlayer characterPlayer) {
+        if (this.threatByCharacter.get(characterPlayer) == null) {
+            return 0;
+        }
+        return this.threatByCharacter.get(characterPlayer);
+    }
 }
