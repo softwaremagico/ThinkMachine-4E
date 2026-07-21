@@ -46,7 +46,7 @@ public class Perk extends Element {
     private PerkType type;
 
     public TranslatedText getBenefice() {
-        return benefice;
+        return this.benefice;
     }
 
     public void setBenefice(TranslatedText benefice) {
@@ -54,7 +54,7 @@ public class Perk extends Element {
     }
 
     public boolean isRepeatable() {
-        return repeatable;
+        return this.repeatable;
     }
 
     public void setRepeatable(boolean repeatable) {
@@ -62,7 +62,7 @@ public class Perk extends Element {
     }
 
     public PerkSource getSource() {
-        return source;
+        return this.source;
     }
 
     public void setSource(PerkSource source) {
@@ -70,7 +70,7 @@ public class Perk extends Element {
     }
 
     public PerkType getType() {
-        return type;
+        return this.type;
     }
 
     public void setType(PerkType type) {
@@ -78,14 +78,15 @@ public class Perk extends Element {
     }
 
     public void copy(Perk element) {
-        setRepeatable(element.isRepeatable());
-        setSource(element.getSource());
-        setType(element.getType());
+        this.setRepeatable(element.isRepeatable());
+        this.setSource(element.getSource());
+        this.setType(element.getType());
+        this.setElementType(element.getElementType());
         super.copy(element);
     }
 
     public List<ElementValues> getCharacteristicValues() {
-        return characteristicValues;
+        return this.characteristicValues;
     }
 
     public void setCharacteristicValues(List<ElementValues> elementValues) {

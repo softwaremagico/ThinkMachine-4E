@@ -54,55 +54,54 @@ public class SkillBonusOptions extends OptionSelector<Skill, SkillBonusOption> {
 
     @Override
     public LinkedHashSet<SkillBonusOption> getOptions() {
-        if (finalSkills == null) {
+        if (this.finalSkills == null) {
             try {
                 if (super.getOptions() == null || super.getOptions().isEmpty()
                         || (!super.getOptions().isEmpty() && super.getOptions().iterator().next().getId() == null)) {
-                    finalSkills = new LinkedHashSet<>();
+                    this.finalSkills = new LinkedHashSet<>();
                     if (super.getOptions() != null && !super.getOptions().isEmpty()) {
-                        finalSkills.addAll(SkillFactory.getInstance().getElements().stream()
-                                .map(skill -> new SkillBonusOption(skill, super.getOptions().iterator().next().getBonus())).collect(Collectors.toList()));
+                        this.finalSkills.addAll(SkillFactory.getInstance().getElements().stream().map(
+                                skill -> new SkillBonusOption(skill, super.getOptions().iterator().next().getBonus()))
+                                .toList());
                     } else {
-                        finalSkills.addAll(SkillFactory.getInstance().getElements().stream()
-                                .map(SkillBonusOption::new).collect(Collectors.toList()));
+                        this.finalSkills.addAll(
+                                SkillFactory.getInstance().getElements().stream().map(SkillBonusOption::new).toList());
                     }
                 } else {
-                    finalSkills = super.getOptions();
+                    this.finalSkills = super.getOptions();
                 }
-            } catch (InvalidXmlElementException e) {
+            } catch (final InvalidXmlElementException e) {
                 MachineXmlReaderLog.errorMessage(this.getClass(), e);
             }
         }
-        return finalSkills;
+        return this.finalSkills;
     }
 
     public SkillBonusOption getSkillBonus(String skill) {
-        if (skillBonusById == null) {
-            skillBonusById = getOptions().stream().collect(Collectors.toMap(SkillBonusOption::getId, item -> item));
+        if (this.skillBonusById == null) {
+            this.skillBonusById = this.getOptions().stream()
+                    .collect(Collectors.toMap(SkillBonusOption::getId, item -> item));
         }
-        return skillBonusById.get(skill);
+        return this.skillBonusById.get(skill);
     }
 
     public int getBonus() {
         if (super.getOptions() != null && !super.getOptions().isEmpty()) {
-            return getOptions().iterator().next().getBonus();
+            return this.getOptions().iterator().next().getBonus();
         }
         return 1;
     }
 
     @Override
     public String toString() {
-        return "SkillOption{"
-                + "(x" + getTotalOptions() + "): "
-                + super.getOptions()
-                + '}';
+        return "SkillOption{" + "(x" + this.getTotalOptions() + "): " + super.getOptions() + '}';
     }
 
     @Override
     public void validate() throws InvalidXmlElementException {
         super.validate();
-        if (getOptions() != null) {
-            getOptions().forEach(option -> {
+        if (this.getOptions() != null) {
+            this.getOptions().forEach(option -> {
                 if (option.getId() != null) {
                     SkillFactory.getInstance().getElement(option.getId());
                 } else if (option.getGroup() != null

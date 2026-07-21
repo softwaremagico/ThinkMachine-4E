@@ -39,15 +39,27 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 
+/**
+ * Abstract base for PDF document generators used by character sheets.
+ */
 public abstract class PdfDocument {
     private static final int RIGHT_MARGIN = 30;
     private static final int LEFT_MARGIN = 30;
     private static final int TOP_MARGIN = 30;
     private static final int BOTTOM_MARGIN = 30;
 
+    /**
+     * Base constructor for PDF generators.
+     */
     protected PdfDocument() {
     }
 
+    /**
+     * Adds common metadata fields to the PDF document.
+     *
+     * @param document target document.
+     * @return same document with metadata.
+     */
     protected Document addMetaData(Document document) {
         document.addTitle("Fading Suns Character Sheet");
         document.addAuthor("Software Mágico");
@@ -58,26 +70,31 @@ public abstract class PdfDocument {
         return document;
     }
 
-    private void generatePDF(Document document, PdfWriter writer) throws EmptyPdfBodyException, InvalidXmlElementException, DocumentException {
-        addMetaData(document);
-        document.open();
-        createContent(document);
-        document.close();
-    }
-
+    /**
+     * Creates the body content for this document implementation.
+     *
+     * @param document target document.
+     * @throws InvalidXmlElementException if XML-backed content cannot be resolved.
+     * @throws DocumentException if PDF content cannot be written.
+     */
     protected abstract void createContent(Document document) throws InvalidXmlElementException, DocumentException;
 
+    /**
+     * Registers shared page events.
+     *
+     * @param writer PDF writer.
+     */
     protected void addEvent(PdfWriter writer) {
         writer.setPageEvent(new FooterEvent());
     }
 
     /**
-     * Pdf as byte array. Be careful with big PDF files.
+     * Generates the PDF and returns it as byte array.
      *
-     * @return
-     * @throws EmptyPdfBodyException
-     * @throws DocumentException
-     * @throws InvalidXmlElementException
+     * @return generated PDF bytes.
+     * @throws EmptyPdfBodyException if no content is written.
+     * @throws DocumentException if PDF generation fails.
+     * @throws InvalidXmlElementException if XML-backed content is invalid.
      */
     public final byte[] generate() throws EmptyPdfBodyException, DocumentException, InvalidXmlElementException {
         final Document document = new Document(getPageSize(), RIGHT_MARGIN, LEFT_MARGIN, TOP_MARGIN, BOTTOM_MARGIN);
@@ -89,8 +106,19 @@ public abstract class PdfDocument {
 
     }
 
+    /**
+     * Hook to allow subclasses to register custom writer events.
+     *
+     * @param writer PDF writer.
+     */
     protected abstract void addDocumentWriterEvents(PdfWriter writer);
 
+    /**
+     * Generates a PDF file in disk.
+     *
+     * @param path output path.
+     * @return number of generated pages, or 0 if generation fails.
+     */
     public int createFile(String path) {
         if (!path.endsWith(".pdf")) {
             path += ".pdf";
@@ -114,7 +142,26 @@ public abstract class PdfDocument {
         // }
     }
 
+    /**
+     * Returns the page size used by the concrete document.
+     *
+     * @return page size.
+     */
     protected abstract Rectangle getPageSize();
 
+    /**
+     * Creates a full character PDF content.
+     *
+     * @param document target document.
+     * @param character source character.
+     * @throws Exception if rendering fails.
+     */
     protected abstract void createCharacterPDF(Document document, CharacterPlayer character) throws Exception;
+
+    private void generatePDF(Document document, PdfWriter writer) throws EmptyPdfBodyException, InvalidXmlElementException, DocumentException {
+        addMetaData(document);
+        document.open();
+        createContent(document);
+        document.close();
+    }
 }

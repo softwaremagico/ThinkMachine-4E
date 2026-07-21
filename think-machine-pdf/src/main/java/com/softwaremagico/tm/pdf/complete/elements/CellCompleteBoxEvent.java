@@ -33,26 +33,51 @@ import com.lowagie.text.pdf.PdfPTable;
 
 import java.util.Arrays;
 
+/**
+ * Cell event that draws a configurable rectangular border around a table cell.
+ */
 public class CellCompleteBoxEvent implements PdfPCellEvent {
     private static final int MARGIN = 3;
 
+    /**
+     * Border segments that can be drawn around a cell.
+     */
     public enum Border {
-        TOP, LEFT, RIGHT, BOTTOM;
+        /** Top edge. */
+        TOP,
+        /** Left edge. */
+        LEFT,
+        /** Right edge. */
+        RIGHT,
+        /** Bottom edge. */
+        BOTTOM;
     }
 
     private int borderThickness = 1;
 
     private Border[] borders;
 
+    /**
+     * Creates an event with default line thickness.
+     *
+     * @param borders edges to draw.
+     */
     public CellCompleteBoxEvent(Border[] borders) {
         this.borders = Arrays.copyOf(borders, borders.length);
     }
 
+    /**
+     * Creates an event with custom line thickness.
+     *
+     * @param borderThickness line width.
+     * @param borders edges to draw.
+     */
     public CellCompleteBoxEvent(int borderThickness, Border[] borders) {
         this.borderThickness = borderThickness;
         this.borders = Arrays.copyOf(borders, borders.length);
     }
 
+    @Override
     public void cellLayout(PdfPCell cell, Rectangle position, PdfContentByte[] canvases) {
         final PdfContentByte canvas = canvases[PdfPTable.LINECANVAS];
         canvas.setLineWidth(borderThickness);

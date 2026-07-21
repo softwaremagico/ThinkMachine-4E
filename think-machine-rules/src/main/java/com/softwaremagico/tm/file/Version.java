@@ -52,16 +52,16 @@ public final class Version {
                     }
                 }
             } else {
-                final String manifestPath = classPath.substring(0, classPath.lastIndexOf("!") + 1) + "/META-INF/MANIFEST.MF";
+                final String manifestPath = classPath.substring(0, classPath.lastIndexOf("!") + 1)
+                        + "/META-INF/MANIFEST.MF";
                 manifest = new Manifest(new URL(manifestPath).openStream());
             }
 
             if (manifest != null) {
                 final Attributes attributes = manifest.getMainAttributes();
-                final String version = attributes.getValue("Implementation-Version");
-                return version;
+                return attributes.getValue("Implementation-Version");
             }
-        } catch (IOException | NullPointerException e) {
+        } catch (final IOException | NullPointerException e) {
             return null;
         }
         return null;

@@ -24,14 +24,13 @@ package com.softwaremagico.tm.file.configurator;
  * #L%
  */
 
-import com.softwaremagico.tm.file.FileManager;
 import com.softwaremagico.tm.exceptions.PropertyNotFoundException;
 import com.softwaremagico.tm.exceptions.PropertyNotStoredException;
+import com.softwaremagico.tm.file.FileManager;
 import com.softwaremagico.tm.file.modules.ModuleManager;
 import com.softwaremagico.tm.file.watcher.FileWatcher;
 import com.softwaremagico.tm.file.watcher.FileWatcher.FileModifiedListener;
 import com.softwaremagico.tm.log.ConfigurationLog;
-import com.softwaremagico.tm.log.SuppressFBWarnings;
 
 import java.io.File;
 import java.io.IOException;
@@ -47,67 +46,67 @@ public class MachineConfigurationReader extends ConfigurationReader {
     private static final String MODULES_PATH = "modulesPath";
 
     // Default
-
-    private static volatile MachineConfigurationReader instance;
     private PropertiesSourceFile userSourceFile;
 
-    @SuppressFBWarnings(value = "DC_DOUBLECHECK")
-    public static MachineConfigurationReader getInstance() {
-        if (instance == null) {
-            synchronized (MachineConfigurationReader.class) {
-                if (instance == null) {
-                    instance = new MachineConfigurationReader();
-                }
-            }
+    private static final class InstanceHolder {
+        private static final MachineConfigurationReader INSTANCE = new MachineConfigurationReader();
+
+        private InstanceHolder() {
         }
-        return instance;
+    }
+
+    public static MachineConfigurationReader getInstance() {
+        return InstanceHolder.INSTANCE;
     }
 
     protected MachineConfigurationReader() {
         super();
 
-        setProperty(MODULES_PATH, System.getProperty("java.io.tmpdir"));
+        this.setProperty(MODULES_PATH, System.getProperty("java.io.tmpdir"));
 
         final PropertiesSourceFile sourceFile = new PropertiesSourceFile(DEFAULT_CONFIG_FILE);
         sourceFile.addFileModifiedListeners(new FileModifiedListener() {
 
             @Override
             public void changeDetected(Path pathToFile) {
-                ConfigurationLog.info(this.getClass().getName(), "Application's settings file '" + pathToFile + "' change detected.");
-                readConfigurations();
+                ConfigurationLog.info(this.getClass().getName(),
+                        "Application's settings file '" + pathToFile + "' change detected.");
+                MachineConfigurationReader.this.readConfigurations();
             }
         });
-        addPropertiesSource(sourceFile);
+        this.addPropertiesSource(sourceFile);
 
-        setUserSourceFile(getSettingsFolderAtHome(), USER_CONFIG_FILE);
+        this.setUserSourceFile(getSettingsFolderAtHome(), USER_CONFIG_FILE);
 
         // Log if any property has changed the value.
-        addPropertyChangedListener(new PropertyChangedListener() {
+        this.addPropertyChangedListener(new PropertyChangedListener() {
 
             @Override
             public void propertyChanged(String propertyId, String oldValue, String newValue) {
-                ConfigurationLog.info(this.getClass().getName(),
-                        "Property '" + propertyId + "' has changed value from '" + oldValue + "' to '" + newValue + "'.");
+                ConfigurationLog.info(this.getClass().getName(), "Property '" + propertyId
+                        + "' has changed value from '" + oldValue + "' to '" + newValue + "'.");
             }
         });
 
-        readConfigurations();
+        this.readConfigurations();
     }
 
     public void setUserSourceFile(String path, String file) {
-        removePropertiesSource(userSourceFile);
-        userSourceFile = new PropertiesSourceFile(file);
-        userSourceFile.setFilePath(path);
-        ConfigurationLog.info(this.getClass().getName(), "User config file set to '" + userSourceFile.toString() + "'.");
-        userSourceFile.addFileModifiedListeners(new FileModifiedListener() {
+        this.removePropertiesSource(this.userSourceFile);
+        this.userSourceFile = new PropertiesSourceFile(file);
+        this.userSourceFile.setFilePath(path);
+        ConfigurationLog.info(this.getClass().getName(),
+                "User config file set to '" + this.userSourceFile.toString() + "'.");
+        this.userSourceFile.addFileModifiedListeners(new FileModifiedListener() {
 
             @Override
             public void changeDetected(Path pathToFile) {
-                ConfigurationLog.info(this.getClass().getName(), "Application's settings file '" + pathToFile + "' change detected.");
-                readConfigurations();
+                ConfigurationLog.info(this.getClass().getName(),
+                        "Application's settings file '" + pathToFile + "' change detected.");
+                MachineConfigurationReader.this.readConfigurations();
             }
         });
-        addPropertiesSource(userSourceFile);
+        this.addPropertiesSource(this.userSourceFile);
     }
 
     public static String getSettingsFolderAtHome() {
@@ -119,69 +118,71 @@ public class MachineConfigurationReader extends ConfigurationReader {
     @Override
     public void storeProperties() throws PropertyNotStoredException {
         try {
-            userSourceFile.storeInFile(getAllProperties());
-        } catch (IOException e) {
+            this.userSourceFile.storeInFile(this.getAllProperties());
+        } catch (final IOException e) {
             throw new PropertyNotStoredException(MachineConfigurationReader.class.getName(), e);
         }
     }
 
     @Override
     public File getUserProperties() {
-        return new File(userSourceFile.getFilePath() + File.separator + userSourceFile.getFileName());
+        return new File(this.userSourceFile.getFilePath() + File.separator + this.userSourceFile.getFileName());
     }
 
     @Override
     public String getUserPropertiesPath() {
-        return userSourceFile.getFilePath() + File.separator + userSourceFile.getFileName();
+        return this.userSourceFile.getFilePath() + File.separator + this.userSourceFile.getFileName();
     }
 
     protected String getPropertyLogException(String propertyId) {
         try {
-            return getProperty(propertyId);
-        } catch (PropertyNotFoundException e) {
+            return this.getProperty(propertyId);
+        } catch (final PropertyNotFoundException e) {
             ConfigurationLog.errorMessage(this.getClass().getName(), e);
             return null;
         }
     }
 
     public String getModulesPath() {
-        return getPropertyLogException(MODULES_PATH);
+        return this.getPropertyLogException(MODULES_PATH);
     }
 
     /**
      * This method is intended to be only used by the ModuleManager.
      *
-     * @param modulesFolder        path to the new modules folder.
-     * @param fileModifiedListener Listen if a new module is added.
+     * @param modulesFolder
+     *            path to the new modules folder.
+     * @param fileModifiedListener
+     *            Listen if a new module is added.
      */
     public void setModulesPath(String modulesFolder, FileModifiedListener fileModifiedListener) {
-        setProperty(MODULES_PATH, modulesFolder);
-        setModulesWatcher(modulesFolder);
+        this.setProperty(MODULES_PATH, modulesFolder);
+        this.setModulesWatcher(modulesFolder);
         if (fileModifiedListener != null) {
-            addModulesFileModifiedListener(fileModifiedListener);
+            this.addModulesFileModifiedListener(fileModifiedListener);
         }
     }
 
     private void setModulesWatcher(final String modulesFolderpath) {
-        stopModulesFileWatcher();
+        this.stopModulesFileWatcher();
         try {
-            modulesFileWatcher = new FileWatcher(modulesFolderpath);
-        } catch (IOException e) {
+            this.modulesFileWatcher = new FileWatcher(modulesFolderpath);
+        } catch (final IOException e) {
             ConfigurationLog.errorMessage(ModuleManager.class.getName(), e);
-        } catch (NullPointerException npe) {
+        } catch (final NullPointerException npe) {
             ConfigurationLog.warning(ModuleManager.class.getName(), "Modules directory to watch not found!");
         }
     }
 
     public void stopModulesFileWatcher() {
-        if (modulesFileWatcher != null) {
-            modulesFileWatcher.closeFileWatcher();
+        if (this.modulesFileWatcher != null) {
+            this.modulesFileWatcher.closeFileWatcher();
         }
     }
 
     public void addModulesFileModifiedListener(FileModifiedListener fileModifiedListener) {
-        if (modulesFileWatcher != null) {
-            modulesFileWatcher.addFileModifiedListener(fileModifiedListener);
+        if (this.modulesFileWatcher != null) {
+            this.modulesFileWatcher.addFileModifiedListener(fileModifiedListener);
         }
     }
 }

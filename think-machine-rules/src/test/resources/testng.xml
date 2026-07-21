@@ -54,6 +54,8 @@
                 <include name="capabilities"/>
                 <include name="zgo"/>
                 <include name="supportClasses"/>
+                <include name="threatLevelCalculation"/>
+                <include name="partyManagement"/>
             </run>
         </groups>
         <classes>
@@ -94,6 +96,9 @@
             <class name="com.softwaremagico.tm.rules.RestrictionTests"/>
             <class name="com.softwaremagico.tm.txt.ExportTxtTests"/>
             <class name="com.softwaremagico.tm.SupportClassesTests"/>
+            <class name="com.softwaremagico.tm.character.ThreatLevelTest"/>
+            <class name="com.softwaremagico.tm.character.ThreatLevelPerksTest"/>
+            <class name="com.softwaremagico.tm.party.PartyTest"/>
         </classes>
     </test>
 </suite>

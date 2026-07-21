@@ -29,7 +29,6 @@ import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.CharacterPlayer;
-import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.planets.PlanetFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
@@ -40,11 +39,24 @@ import com.softwaremagico.tm.txt.TextFactory;
 
 import java.awt.Color;
 
+/**
+ * Shared helpers to render character basic information fields.
+ */
 public abstract class CharacterBasicsTableFactory extends BaseElement {
     private static final int MIN_HEIGHT = 20;
 
+    /** Placeholder line used when a value is empty. */
     protected static final String LINE = "_______________";
 
+    /**
+     * Base constructor for helper subclasses.
+     */
+    protected CharacterBasicsTableFactory() {
+    }
+
+    /**
+     * Creates one labeled field row for character basics.
+     */
     protected static PdfPCell createField(CharacterPlayer characterPlayer, String tag, int fontSize, int maxWidth) {
         final float[] widths = {0.7f, 1f};
         final PdfPTable table = new PdfPTable(widths);
@@ -100,7 +112,7 @@ public abstract class CharacterBasicsTableFactory extends BaseElement {
                     break;
                 case "calling":
                     if (characterPlayer.getCalling() != null) {
-                        table.addCell(getHandwrittingCell(CallingFactory.getInstance().getElement(characterPlayer.getCalling().getId()).getName(),
+                        table.addCell(getHandwrittingCell(characterPlayer.getCallingCombinationRepresentation(" / "),
                                 Element.ALIGN_LEFT, fontSize - 1, maxWidth));
                     } else {
                         table.addCell(getHandwrittingCell("", Element.ALIGN_LEFT, fontSize - 1, maxWidth));
@@ -138,10 +150,16 @@ public abstract class CharacterBasicsTableFactory extends BaseElement {
         return cell;
     }
 
+    /**
+     * Creates a standard text cell.
+     */
     protected static PdfPCell getCell(String text, int align, int fontSize) {
         return getCell(text, 0, 1, align, Color.WHITE, FadingSunsTheme.getLineFont(), fontSize);
     }
 
+    /**
+     * Creates a handwriting-styled cell from translated text.
+     */
     protected static PdfPCell getHandwrittingCell(TranslatedText text, int align, int fontSize, int maxWidth) {
         if (text != null) {
             return getHandwrittingCell(text.getTranslatedText(), align, fontSize, maxWidth);
@@ -150,6 +168,9 @@ public abstract class CharacterBasicsTableFactory extends BaseElement {
         }
     }
 
+    /**
+     * Creates a handwriting-styled cell from plain text.
+     */
     protected static PdfPCell getHandwrittingCell(String text, int align, int fontSize, int maxWidth) {
         if (text != null && text.length() > maxWidth) {
             text = text.substring(0, maxWidth + 1);
@@ -160,6 +181,9 @@ public abstract class CharacterBasicsTableFactory extends BaseElement {
         return cell;
     }
 
+    /**
+     * Translates the label key used in basics table.
+     */
     protected static String getTranslatedTag(String tag, int maxWidth) {
         final String value = TextFactory.getInstance().getElement(tag).getName().getTranslatedText();
         if (value != null && value.length() > maxWidth) {

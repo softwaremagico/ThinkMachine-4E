@@ -37,12 +37,28 @@ import com.softwaremagico.tm.pdf.complete.elements.BaseElement;
 import com.softwaremagico.tm.pdf.complete.elements.CustomPdfTable;
 import com.softwaremagico.tm.txt.TextFactory;
 
-public class ArmorTableFactory extends BaseElement {
+/**
+ * Factory that renders the armor section of the complete PDF sheet.
+ */
+public final class ArmorTableFactory extends BaseElement {
     private static final float[] WIDTHS = {1f};
     private static final String GAP = "___________________";
     private static final int NAME_COLUMN_WIDTH = 70;
     private static final int DAMAGE_HEIGHT = 28;
 
+    /**
+     * Utility class.
+     */
+    private ArmorTableFactory() {
+    }
+
+    /**
+     * Builds the armor table section for the character sheet.
+     *
+     * @param characterPlayer source character.
+     * @return armor table.
+     * @throws InvalidXmlElementException if any translated key is invalid.
+     */
     public static PdfPTable getArmorTable(CharacterPlayer characterPlayer) throws InvalidXmlElementException {
         final PdfPTable table = new PdfPTable(WIDTHS);
         setTableProperties(table);

@@ -31,51 +31,68 @@ public interface IRandomPreference {
     static IRandomPreference valueOf(String name) {
         try {
             return AffiliationPreference.valueOf(name);
-        } catch (IllegalArgumentException ignore) {
+        } catch (final IllegalArgumentException ignore) {
+            // Not this value. Continue.
         }
         try {
             return AgePreference.valueOf(name);
-        } catch (IllegalArgumentException ignore) {
+        } catch (final IllegalArgumentException ignore) {
+            // Not this value. Continue.
         }
         try {
             return AlignmentPreference.valueOf(name);
-        } catch (IllegalArgumentException ignore) {
+        } catch (final IllegalArgumentException ignore) {
+            // Not this value. Continue.
         }
         try {
             return AttackPreferences.valueOf(name);
-        } catch (IllegalArgumentException ignore) {
+        } catch (final IllegalArgumentException ignore) {
+            // Not this value. Continue.
         }
         try {
             return DefensePreference.valueOf(name);
-        } catch (IllegalArgumentException ignore) {
+        } catch (final IllegalArgumentException ignore) {
+            // Not this value. Continue.
+        }
+        try {
+            return DifficultLevelPreferences.valueOf(name);
+        } catch (final IllegalArgumentException ignore) {
+            // Not this value. Continue.
         }
         try {
             return LegalStatusPreference.valueOf(name);
-        } catch (IllegalArgumentException ignore) {
+        } catch (final IllegalArgumentException ignore) {
+            // Not this value. Continue.
         }
         try {
             return OccultismPreference.valueOf(name);
-        } catch (IllegalArgumentException ignore) {
+        } catch (final IllegalArgumentException ignore) {
+            // Not this value. Continue.
         }
         try {
             return OperationalRolePreference.valueOf(name);
-        } catch (IllegalArgumentException ignore) {
+        } catch (final IllegalArgumentException ignore) {
+            // Not this value. Continue.
         }
         try {
             return OriginPreference.valueOf(name);
-        } catch (IllegalArgumentException ignore) {
+        } catch (final IllegalArgumentException ignore) {
+            // Not this value. Continue.
         }
         try {
             return RankValueAssignationPreference.valueOf(name);
-        } catch (IllegalArgumentException ignore) {
+        } catch (final IllegalArgumentException ignore) {
+            // Not this value. Continue.
         }
         try {
             return TechPreference.valueOf(name);
-        } catch (IllegalArgumentException ignore) {
+        } catch (final IllegalArgumentException ignore) {
+            // Not this value. Continue.
         }
         try {
             return WealthPreference.valueOf(name);
-        } catch (IllegalArgumentException ignore) {
+        } catch (final IllegalArgumentException ignore) {
+            // Not this value. Continue.
         }
         throw new IllegalArgumentException("Unknown enum value: " + name);
     }

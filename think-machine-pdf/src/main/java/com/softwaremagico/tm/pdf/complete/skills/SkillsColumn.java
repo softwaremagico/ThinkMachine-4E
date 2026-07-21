@@ -41,7 +41,6 @@ import java.util.List;
 import static com.softwaremagico.tm.pdf.complete.elements.BaseElement.createBigWhiteSeparator;
 
 public final class SkillsColumn {
-    private static final String GAP = "   ";
 
     private SkillsColumn() {
 
@@ -70,8 +69,8 @@ public final class SkillsColumn {
 
             final Paragraph defaultValue = new Paragraph();
             defaultValue.add(new Chunk("(", new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
-            defaultValue.add(new Chunk((skill.isNatural() ? Skill.NATURAL_SKILL_INITIAL_VALUE : 0) + "", new Font(FadingSunsTheme.getLineFont(),
-                    FadingSunsTheme.LINE_FONT_SIZE)));
+            defaultValue.add(new Chunk((skill.isNatural() ? Skill.NATURAL_SKILL_INITIAL_VALUE : 0) + "",
+                    new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
             defaultValue.add(new Chunk(")", new Font(FadingSunsTheme.getLineFont(), FadingSunsTheme.LINE_FONT_SIZE)));
 
             final PdfPCell skillTitleInitialValue = new PdfPCell(defaultValue);

@@ -55,6 +55,8 @@ import java.util.stream.Collectors;
 
 public class Restrictions extends XmlData {
 
+    private static final String RESTRICTION_ERROR_MESSAGE = "Is restricted!";
+
     //Cannot be chosen by the character. Is assigned by race or faction.
     @JsonProperty("restricted")
     private boolean restricted = false;
@@ -260,49 +262,70 @@ public class Restrictions extends XmlData {
      * @return true if anything is restricted
      */
     private boolean isAnythingRestricted(Element parent, boolean checkPerksForParent) {
-        if (restrictedToSpecies != null && !restrictedToSpecies.isEmpty()) {
-            return true;
-        }
-        if (restrictedToUpbringing != null && !restrictedToUpbringing.isEmpty()) {
-            return true;
-        }
-        if (restrictedToFactions != null && !restrictedToFactions.isEmpty()) {
-            return true;
-        }
-        if (restrictedToFactionGroups != null && !restrictedToFactionGroups.isEmpty()) {
-            return true;
-        }
-        if (restrictedToCallings != null && !restrictedToCallings.isEmpty()) {
-            return true;
-        }
-        if (restrictedToCapabilities != null && !restrictedToCapabilities.isEmpty()) {
-            return true;
-        }
+        return hasRestrictedSpecies()
+                || hasRestrictedUpbringing()
+                || hasRestrictedFactions()
+                || hasRestrictedFactionGroups()
+                || hasRestrictedCallings()
+                || hasRestrictedCapabilities()
+                || (shouldCheckPerks(parent, checkPerksForParent) && hasRestrictedPerks())
+                || hasRestrictedPerksGroups()
+                || hasRestrictedCapabilitiesGroups()
+                || hasRestrictedCharacteristics()
+                || hasRestrictedSkills()
+                || hasRestrictedPlanets();
+    }
 
-        // When the parent IS a Perk, skip the restrictedPerks check (perks don't restrict their own type),
-        // but continue evaluating the remaining restrictions (groups, characteristics, skills, planets).
-        final boolean skipPerksCheck = checkPerksForParent && (parent instanceof Perk);
-        if (!skipPerksCheck && restrictedPerks != null && !restrictedPerks.isEmpty()) {
-            return true;
-        }
+    private boolean shouldCheckPerks(Element parent, boolean checkPerksForParent) {
+        return !(checkPerksForParent && (parent instanceof Perk));
+    }
 
-        if (restrictedToPerksGroups != null && !restrictedToPerksGroups.isEmpty()) {
-            return true;
-        }
-        if (restrictedToCapabilitiesGroups != null && !restrictedToCapabilitiesGroups.isEmpty()) {
-            return true;
-        }
-        if (restrictedCharacteristics != null && !restrictedCharacteristics.isEmpty()) {
-            return true;
-        }
-        if (restrictedSkills != null && !restrictedSkills.isEmpty()) {
-            return true;
-        }
-        if (restrictedPlanets != null && !restrictedPlanets.isEmpty()) {
-            return true;
-        }
+    private boolean hasRestrictedSpecies() {
+        return restrictedToSpecies != null && !restrictedToSpecies.isEmpty();
+    }
 
-        return false;
+    private boolean hasRestrictedUpbringing() {
+        return restrictedToUpbringing != null && !restrictedToUpbringing.isEmpty();
+    }
+
+    private boolean hasRestrictedFactions() {
+        return restrictedToFactions != null && !restrictedToFactions.isEmpty();
+    }
+
+    private boolean hasRestrictedFactionGroups() {
+        return restrictedToFactionGroups != null && !restrictedToFactionGroups.isEmpty();
+    }
+
+    private boolean hasRestrictedCallings() {
+        return restrictedToCallings != null && !restrictedToCallings.isEmpty();
+    }
+
+    private boolean hasRestrictedCapabilities() {
+        return restrictedToCapabilities != null && !restrictedToCapabilities.isEmpty();
+    }
+
+    private boolean hasRestrictedPerks() {
+        return restrictedPerks != null && !restrictedPerks.isEmpty();
+    }
+
+    private boolean hasRestrictedPerksGroups() {
+        return restrictedToPerksGroups != null && !restrictedToPerksGroups.isEmpty();
+    }
+
+    private boolean hasRestrictedCapabilitiesGroups() {
+        return restrictedToCapabilitiesGroups != null && !restrictedToCapabilitiesGroups.isEmpty();
+    }
+
+    private boolean hasRestrictedCharacteristics() {
+        return restrictedCharacteristics != null && !restrictedCharacteristics.isEmpty();
+    }
+
+    private boolean hasRestrictedSkills() {
+        return restrictedSkills != null && !restrictedSkills.isEmpty();
+    }
+
+    private boolean hasRestrictedPlanets() {
+        return restrictedPlanets != null && !restrictedPlanets.isEmpty();
     }
 
     public boolean isRestrictedByAllCharacteristics(CharacterPlayer characterPlayer) {
@@ -399,79 +422,104 @@ public class Restrictions extends XmlData {
         try {
             return isOpen()
                     || isRaisedInSpace(characterPlayer)
-                    //Check Specie
-                    || isRestrictedToSpecie(characterPlayer)
-                    // Check Faction
-                    || isRestrictedToFaction(characterPlayer)
-                    // Check characteristics
-                    || isRestrictedByAnyCharacteristic(characterPlayer)
-                    // Check skills
-                    || isRestrictedByAnySkill(characterPlayer)
-                    //Check level
-                    || isRestrictedByLevel(characterPlayer)
-                    // Check upbringing
-                    || (!getRestrictedToUpbringing().isEmpty() && (characterPlayer.getUpbringing() != null && getRestrictedToUpbringing()
-                    .contains(characterPlayer.getUpbringing().getId())))
-                    //Check Callings
-                    || (!getRestrictedToCallings().isEmpty() && (characterPlayer.getCalling() != null && getRestrictedToCallings()
-                    .contains(characterPlayer.getCalling().getId())))
-                    //Check Planet
-                    || (!getRestrictedPlanets().isEmpty() && (characterPlayer.getInfo().getPlanet() != null && getRestrictedPlanets()
-                    .contains(characterPlayer.getInfo().getPlanet())))
-                    // Check Perks
-                    || (!getRestrictedPerks().isEmpty() && (characterPlayer.getPerks() != null && !Collections.disjoint(
-                    getRestrictedPerks(), (characterPlayer.getPerks().stream().map(Element::getId).toList()))))
-                    // Check perks Groups
-                    || (!getRestrictedToPerksGroups().isEmpty() && (characterPlayer.getPerks() != null && getRestrictedToPerksGroups().stream()
-                    .anyMatch(characterPlayer.getPerks().stream().map(Element::getGroup).toList()::contains)))
-                    // Check Capabilities Groups
-                    || (!getRestrictedToCapabilitiesGroups().isEmpty() && (characterPlayer.getCapabilitiesWithSpecialization() != null
-                    && getRestrictedToCapabilitiesGroups().stream().anyMatch(characterPlayer.getCapabilitiesWithSpecialization().stream()
-                    .map(Element::getGroup).toList()::contains)))
-                    //Check capabilities
-                    || (!getRestrictedToCapabilities().isEmpty() && (characterPlayer.getCapabilitiesWithSpecialization() != null
-                    && !Collections.disjoint(getRestrictedToCapabilities().stream().map(RestrictedCapability::getComparisonId)
-                            .toList(),
-                    (characterPlayer.getCapabilitiesWithSpecialization().stream().map(CapabilityWithSpecialization::getComparisonId)
-                            .toList()))));
+                    || checkAnyRestrictionMatches(characterPlayer);
         } catch (InvalidXmlElementException e) {
-            MachineLog.errorMessage("Is restricted!", e);
+            MachineLog.errorMessage(RESTRICTION_ERROR_MESSAGE, e);
         }
         return false;
     }
 
+    private boolean checkAnyRestrictionMatches(CharacterPlayer characterPlayer) {
+        return isRestrictedToSpecie(characterPlayer)
+                || isRestrictedToFaction(characterPlayer)
+                || isRestrictedByAnyCharacteristic(characterPlayer)
+                || isRestrictedByAnySkill(characterPlayer)
+                || isRestrictedByLevel(characterPlayer)
+                || checkUpbringingRestriction(characterPlayer)
+                || checkCallingRestriction(characterPlayer)
+                || checkPlanetRestriction(characterPlayer)
+                || checkPerksRestriction(characterPlayer)
+                || checkPerksGroupsRestriction(characterPlayer)
+                || checkCapabilitiesGroupsRestriction(characterPlayer)
+                || checkCapabilitiesRestriction(characterPlayer);
+    }
+
+    private boolean checkUpbringingRestriction(CharacterPlayer characterPlayer) {
+        return !getRestrictedToUpbringing().isEmpty() && (characterPlayer.getUpbringing() != null && getRestrictedToUpbringing()
+                .contains(characterPlayer.getUpbringing().getId()));
+    }
+
+    private boolean checkCallingRestriction(CharacterPlayer characterPlayer) {
+        return !getRestrictedToCallings().isEmpty() && (characterPlayer.getCalling() != null && getRestrictedToCallings()
+                .contains(characterPlayer.getCalling().getId()));
+    }
+
+    private boolean checkPlanetRestriction(CharacterPlayer characterPlayer) {
+        return !getRestrictedPlanets().isEmpty() && (characterPlayer.getInfo().getPlanet() != null && getRestrictedPlanets()
+                .contains(characterPlayer.getInfo().getPlanet()));
+    }
+
+    private boolean checkPerksRestriction(CharacterPlayer characterPlayer) {
+        return !getRestrictedPerks().isEmpty() && (characterPlayer.getPerks() != null && !Collections.disjoint(
+                getRestrictedPerks(), (characterPlayer.getPerks().stream().map(Element::getId).toList())));
+    }
+
+    private boolean checkPerksGroupsRestriction(CharacterPlayer characterPlayer) {
+        return !getRestrictedToPerksGroups().isEmpty() && (characterPlayer.getPerks() != null && getRestrictedToPerksGroups().stream()
+                .anyMatch(characterPlayer.getPerks().stream().map(Element::getGroup).toList()::contains));
+    }
+
+    private boolean checkCapabilitiesGroupsRestriction(CharacterPlayer characterPlayer) {
+        return !getRestrictedToCapabilitiesGroups().isEmpty() && (characterPlayer.getCapabilitiesWithSpecialization() != null
+                && getRestrictedToCapabilitiesGroups().stream().anyMatch(characterPlayer.getCapabilitiesWithSpecialization().stream()
+                .map(Element::getGroup).toList()::contains));
+    }
+
+    private boolean checkCapabilitiesRestriction(CharacterPlayer characterPlayer) {
+        return !getRestrictedToCapabilities().isEmpty() && (characterPlayer.getCapabilitiesWithSpecialization() != null
+                && !Collections.disjoint(getRestrictedToCapabilities().stream().map(RestrictedCapability::getComparisonId)
+                .toList(),
+                (characterPlayer.getCapabilitiesWithSpecialization().stream().map(CapabilityWithSpecialization::getComparisonId)
+                        .toList())));
+    }
+
     private boolean accomplishEachGroupCoreRestriction(CharacterPlayer characterPlayer) {
+        return checkSpecieAndFactionRestrictions(characterPlayer)
+                && !isRestrictedByAnyCharacteristic(characterPlayer)
+                && !isRestrictedByAnySkill(characterPlayer)
+                && !isRestrictedByLevel(characterPlayer)
+                && checkUpbringingAndCallingRestrictions(characterPlayer)
+                && checkPlanetAndPerksRestrictions(characterPlayer)
+                && checkEachGroupCapabilitiesRestrictions(characterPlayer);
+    }
+
+    private boolean checkSpecieAndFactionRestrictions(CharacterPlayer characterPlayer) {
         return (getRestrictedToSpecies().isEmpty() || (characterPlayer.getSpecie() != null && getRestrictedToSpecies()
                 .contains(characterPlayer.getSpecie().getId())))
-                // Check Faction
                 && (getRestrictedToFactions().isEmpty() || (characterPlayer.getFaction() != null && getRestrictedToFactions()
-                .contains(characterPlayer.getFaction().getId())))
-                // Check characteristics
-                && !isRestrictedByAnyCharacteristic(characterPlayer)
-                // Check skills
-                && !isRestrictedByAnySkill(characterPlayer)
-                //Check level
-                && !isRestrictedByLevel(characterPlayer)
-                // Check upbringing
-                && (getRestrictedToUpbringing().isEmpty() || (characterPlayer.getUpbringing() != null && getRestrictedToUpbringing()
+                .contains(characterPlayer.getFaction().getId())));
+    }
+
+    private boolean checkUpbringingAndCallingRestrictions(CharacterPlayer characterPlayer) {
+        return (getRestrictedToUpbringing().isEmpty() || (characterPlayer.getUpbringing() != null && getRestrictedToUpbringing()
                 .contains(characterPlayer.getUpbringing().getId())))
-                //Check Callings
                 && (getRestrictedToCallings().isEmpty() || (characterPlayer.getCalling() != null && getRestrictedToCallings()
-                .contains(characterPlayer.getCalling().getId())))
-                //Check Planet
-                && (getRestrictedPlanets().isEmpty() || (characterPlayer.getInfo().getPlanet() != null && getRestrictedPlanets()
+                .contains(characterPlayer.getCalling().getId())));
+    }
+
+    private boolean checkPlanetAndPerksRestrictions(CharacterPlayer characterPlayer) {
+        return (getRestrictedPlanets().isEmpty() || (characterPlayer.getInfo().getPlanet() != null && getRestrictedPlanets()
                 .contains(characterPlayer.getInfo().getPlanet())))
-                // Check Perks
                 && (getRestrictedPerks().isEmpty() || (characterPlayer.getPerks() != null && !Collections.disjoint(
                 getRestrictedPerks(), (characterPlayer.getPerks().stream().map(Element::getId).toList()))))
-                // Check perks Groups
                 && (getRestrictedToPerksGroups().isEmpty() || (characterPlayer.getPerks() != null && getRestrictedToPerksGroups().stream()
-                .anyMatch(characterPlayer.getPerks().stream().map(Element::getGroup).toList()::contains)))
-                // Check capabilities Groups
-                && (getRestrictedToCapabilitiesGroups().isEmpty() || (characterPlayer.getCapabilitiesWithSpecialization() != null
+                .anyMatch(characterPlayer.getPerks().stream().map(Element::getGroup).toList()::contains)));
+    }
+
+    private boolean checkEachGroupCapabilitiesRestrictions(CharacterPlayer characterPlayer) {
+        return (getRestrictedToCapabilitiesGroups().isEmpty() || (characterPlayer.getCapabilitiesWithSpecialization() != null
                 && getRestrictedToCapabilitiesGroups().stream().anyMatch(characterPlayer.getCapabilitiesWithSpecialization().stream()
                 .map(Element::getGroup).toList()::contains)))
-                //Check capabilities
                 && (getRestrictedToCapabilities().isEmpty() || (characterPlayer.getCapabilitiesWithSpecialization() != null
                 && !Collections.disjoint(getRestrictedToCapabilities().stream().map(RestrictedCapability::getComparisonId).toList(),
                 (characterPlayer.getCapabilitiesWithSpecialization().stream().map(CapabilityWithSpecialization::getComparisonId)
@@ -487,14 +535,14 @@ public class Restrictions extends XmlData {
             return true;
         }
         try {
-            return isOpen()
+             return isOpen()
                     || isRaisedInSpace(characterPlayer)
                     || accomplishEachGroupCoreRestriction(characterPlayer);
-        } catch (InvalidXmlElementException e) {
-            MachineLog.errorMessage("Is restricted!", e);
-        }
-        return false;
-    }
+         } catch (InvalidXmlElementException e) {
+            MachineLog.errorMessage(RESTRICTION_ERROR_MESSAGE, e);
+         }
+         return false;
+     }
 
     private boolean accomplishAllRestriction(CharacterPlayer characterPlayer) {
         if (characterPlayer == null) {
@@ -506,104 +554,117 @@ public class Restrictions extends XmlData {
         try {
             return isOpen()
                     || isRaisedInSpace(characterPlayer)
-                    //Check Specie
-                    || (((getRestrictedToSpecies().isEmpty() || (characterPlayer.getSpecie() != null && getRestrictedToSpecies()
-                    .contains(characterPlayer.getSpecie().getId())))
-                    // Check Faction
-                    && (getRestrictedToFactions().isEmpty() || (characterPlayer.getFaction() != null && getRestrictedToFactions()
-                    .contains(characterPlayer.getFaction().getId())))
-                    // Check characteristics
-                    && !isRestrictedByAllCharacteristics(characterPlayer)
-                    // Check skills
-                    && !isRestrictedByAllSkills(characterPlayer)
-                    //Check level
-                    && !isRestrictedByLevel(characterPlayer)
-                    // Check upbringing. Only one can be present.
-                    && (getRestrictedToUpbringing().isEmpty() || (characterPlayer.getUpbringing() != null && getRestrictedToUpbringing()
-                    .contains(characterPlayer.getUpbringing().getId())))
-                    //Check Callings. Only one can be present.
-                    && (getRestrictedToCallings().isEmpty() || (characterPlayer.getCalling() != null && getRestrictedToCallings()
-                    .contains(characterPlayer.getCalling().getId())))
-                    //Check Planet
-                    && (getRestrictedPlanets().isEmpty() || (characterPlayer.getInfo().getPlanet() != null && getRestrictedPlanets()
-                    .contains(characterPlayer.getInfo().getPlanet())))
-                    // Check Perks
-                    && (getRestrictedPerks().isEmpty() || (characterPlayer.getPerks() != null
-                    && characterPlayer.getPerks().stream().map(Element::getId).collect(Collectors.toSet()).containsAll(getRestrictedPerks())))
-                    // Check perks Groups
-                    && (getRestrictedToPerksGroups().isEmpty() || (characterPlayer.getPerks() != null && new HashSet<>(characterPlayer.getPerks().stream()
-                    .map(Element::getGroup).toList()).containsAll(getRestrictedToPerksGroups())))
-                    // Check capabilities groups
-                    && (getRestrictedToCapabilitiesGroups().isEmpty() || (characterPlayer.getCapabilitiesWithSpecialization() != null
-                    && characterPlayer.getCapabilitiesWithSpecialization().stream().map(Element::getGroup).collect(Collectors.toSet())
-                    .containsAll(getRestrictedToCapabilitiesGroups())))
-                    //Check capabilities
-                    && (getRestrictedToCapabilities().isEmpty() || (characterPlayer.getCapabilitiesWithSpecialization() != null
-                    && characterPlayer.getCapabilitiesWithSpecialization().stream().map(CapabilityWithSpecialization::getComparisonId)
-                    .collect(Collectors.toSet())
-                    .containsAll(getRestrictedToCapabilities().stream().map(RestrictedCapability::getComparisonId).toList())))));
+                    || checkAllRestrictionMatches(characterPlayer);
         } catch (InvalidXmlElementException e) {
-            MachineLog.errorMessage("Is restricted!", e);
+            MachineLog.errorMessage(RESTRICTION_ERROR_MESSAGE, e);
         }
         return false;
     }
 
-    /**
-     * Must accomplish any restriction related to upbringing, calling, specie or faction AND any other restriction related to skills, perks, etc.
-     * @param characterPlayer
-     * @return
-     */
-    private boolean accomplishAnyCharacterDefinitionRestriction(CharacterPlayer characterPlayer) {
-        if (characterPlayer == null) {
-            return false;
-        }
-        if (!characterPlayer.getSettings().isRestrictionsChecked()) {
-            return true;
-        }
-        try {
-            return isOpen()
-                    || isRaisedInSpace(characterPlayer)
-                    //Must match specie or upbringing or calling or faction.
-                    || ((getRestrictedToSpecies().isEmpty() || (characterPlayer.getSpecie() != null && getRestrictedToSpecies()
-                    .contains(characterPlayer.getSpecie().getId()))
-                    // Check upbringing. Only one can be present.
-                    || (getRestrictedToUpbringing().isEmpty() || (characterPlayer.getUpbringing() != null && getRestrictedToUpbringing()
-                    .contains(characterPlayer.getUpbringing().getId())))
-                    //Check Callings. Only one can be present.
-                    || (getRestrictedToCallings().isEmpty() || (characterPlayer.getCalling() != null && getRestrictedToCallings()
-                    .contains(characterPlayer.getCalling().getId())))
-                    // Check Faction
-                    || (getRestrictedToFactions().isEmpty() || (characterPlayer.getFaction() != null && getRestrictedToFactions()
-                    .contains(characterPlayer.getFaction().getId()))))
-                    // Check characteristics
-                    && !isRestrictedByAllCharacteristics(characterPlayer)
-                    // Check skills
-                    && !isRestrictedByAllSkills(characterPlayer)
-                    // Check Planet
-                    && !isRestrictedToPlanet(characterPlayer)
-                    // Check Perks
-                    && (getRestrictedPerks().isEmpty() || (characterPlayer.getPerks() != null
-                    && characterPlayer.getPerks().stream().map(Element::getId).collect(Collectors.toSet()).containsAll(getRestrictedPerks())))
-                    // Check perks Groups
-                    && (getRestrictedToPerksGroups().isEmpty() || (characterPlayer.getPerks() != null && new HashSet<>(characterPlayer.getPerks().stream()
-                    .map(Element::getGroup).toList()).containsAll(getRestrictedToPerksGroups())))
-                    // Check capabilities groups
-                    && (getRestrictedToCapabilitiesGroups().isEmpty() || (characterPlayer.getCapabilitiesWithSpecialization() != null
-                    && characterPlayer.getCapabilitiesWithSpecialization().stream().map(Element::getGroup).collect(Collectors.toSet())
-                    .containsAll(getRestrictedToCapabilitiesGroups())))
-                    //Check capabilities
-                    && (getRestrictedToCapabilities().isEmpty() || (characterPlayer.getCapabilitiesWithSpecialization() != null
-                    && characterPlayer.getCapabilitiesWithSpecialization().stream().map(CapabilityWithSpecialization::getComparisonId)
-                    .collect(Collectors.toSet())
-                    .containsAll(getRestrictedToCapabilities().stream().map(RestrictedCapability::getComparisonId).toList()))));
-        } catch (InvalidXmlElementException e) {
-            MachineLog.errorMessage("Is restricted!", e);
-        }
-        return false;
+    private boolean checkAllRestrictionMatches(CharacterPlayer characterPlayer) {
+        return checkAllSpecieAndFaction(characterPlayer)
+                && !isRestrictedByAllCharacteristics(characterPlayer)
+                && !isRestrictedByAllSkills(characterPlayer)
+                && !isRestrictedByLevel(characterPlayer)
+                && checkAllUpbringingAndCalling(characterPlayer)
+                && checkAllPlanetAndPerks(characterPlayer)
+                && checkAllCapabilities(characterPlayer);
+    }
+
+    private boolean checkAllSpecieAndFaction(CharacterPlayer characterPlayer) {
+        return (getRestrictedToSpecies().isEmpty() || (characterPlayer.getSpecie() != null && getRestrictedToSpecies()
+                .contains(characterPlayer.getSpecie().getId())))
+                && (getRestrictedToFactions().isEmpty() || (characterPlayer.getFaction() != null && getRestrictedToFactions()
+                .contains(characterPlayer.getFaction().getId())));
+    }
+
+    private boolean checkAllUpbringingAndCalling(CharacterPlayer characterPlayer) {
+        return (getRestrictedToUpbringing().isEmpty() || (characterPlayer.getUpbringing() != null && getRestrictedToUpbringing()
+                .contains(characterPlayer.getUpbringing().getId())))
+                && (getRestrictedToCallings().isEmpty() || (characterPlayer.getCalling() != null && getRestrictedToCallings()
+                .contains(characterPlayer.getCalling().getId())));
+    }
+
+    private boolean checkAllPlanetAndPerks(CharacterPlayer characterPlayer) {
+        return (getRestrictedPlanets().isEmpty() || (characterPlayer.getInfo().getPlanet() != null && getRestrictedPlanets()
+                .contains(characterPlayer.getInfo().getPlanet())))
+                && (getRestrictedPerks().isEmpty() || (characterPlayer.getPerks() != null
+                && characterPlayer.getPerks().stream().map(Element::getId).collect(Collectors.toSet()).containsAll(getRestrictedPerks())))
+                && (getRestrictedToPerksGroups().isEmpty() || (characterPlayer.getPerks() != null && new HashSet<>(characterPlayer.getPerks().stream()
+                .map(Element::getGroup).toList()).containsAll(getRestrictedToPerksGroups())));
+    }
+
+    private boolean checkAllCapabilities(CharacterPlayer characterPlayer) {
+        return (getRestrictedToCapabilitiesGroups().isEmpty() || (characterPlayer.getCapabilitiesWithSpecialization() != null
+                && characterPlayer.getCapabilitiesWithSpecialization().stream().map(Element::getGroup).collect(Collectors.toSet())
+                .containsAll(getRestrictedToCapabilitiesGroups())))
+                && (getRestrictedToCapabilities().isEmpty() || (characterPlayer.getCapabilitiesWithSpecialization() != null
+                && characterPlayer.getCapabilitiesWithSpecialization().stream().map(CapabilityWithSpecialization::getComparisonId)
+                .collect(Collectors.toSet())
+                .containsAll(getRestrictedToCapabilities().stream().map(RestrictedCapability::getComparisonId).toList())));
+    }
+
+     /**
+      * Must accomplish any restriction related to upbringing, calling, specie or faction AND any other restriction related to skills, perks, etc.
+      * @param characterPlayer
+      * @return
+      */
+     private boolean accomplishAnyCharacterDefinitionRestriction(CharacterPlayer characterPlayer) {
+         if (characterPlayer == null) {
+             return false;
+         }
+         if (!characterPlayer.getSettings().isRestrictionsChecked()) {
+             return true;
+         }
+         try {
+             return isOpen()
+                     || isRaisedInSpace(characterPlayer)
+                     || checkAnyCharacterDefinitionMatches(characterPlayer);
+         } catch (InvalidXmlElementException e) {
+            MachineLog.errorMessage(RESTRICTION_ERROR_MESSAGE, e);
+         }
+         return false;
+     }
+
+    private boolean checkAnyCharacterDefinitionMatches(CharacterPlayer characterPlayer) {
+        return checkAnyCharacterDefinitionRestrictions(characterPlayer)
+                && !isRestrictedByAllCharacteristics(characterPlayer)
+                && !isRestrictedByAllSkills(characterPlayer)
+                && !isRestrictedToPlanet(characterPlayer)
+                && checkAnyDefinitionPerks(characterPlayer)
+                && checkAnyDefinitionCapabilities(characterPlayer);
+    }
+
+    private boolean checkAnyCharacterDefinitionRestrictions(CharacterPlayer characterPlayer) {
+        return getRestrictedToSpecies().isEmpty() || (characterPlayer.getSpecie() != null && getRestrictedToSpecies()
+                .contains(characterPlayer.getSpecie().getId()))
+                || (getRestrictedToUpbringing().isEmpty() || (characterPlayer.getUpbringing() != null && getRestrictedToUpbringing()
+                .contains(characterPlayer.getUpbringing().getId())))
+                || (getRestrictedToCallings().isEmpty() || (characterPlayer.getCalling() != null && getRestrictedToCallings()
+                .contains(characterPlayer.getCalling().getId())))
+                || (getRestrictedToFactions().isEmpty() || (characterPlayer.getFaction() != null && getRestrictedToFactions()
+                .contains(characterPlayer.getFaction().getId())));
+    }
+
+    private boolean checkAnyDefinitionPerks(CharacterPlayer characterPlayer) {
+        return (getRestrictedPerks().isEmpty() || (characterPlayer.getPerks() != null
+                && characterPlayer.getPerks().stream().map(Element::getId).collect(Collectors.toSet()).containsAll(getRestrictedPerks())))
+                && (getRestrictedToPerksGroups().isEmpty() || (characterPlayer.getPerks() != null && new HashSet<>(characterPlayer.getPerks().stream()
+                .map(Element::getGroup).toList()).containsAll(getRestrictedToPerksGroups())));
+    }
+
+    private boolean checkAnyDefinitionCapabilities(CharacterPlayer characterPlayer) {
+        return (getRestrictedToCapabilitiesGroups().isEmpty() || (characterPlayer.getCapabilitiesWithSpecialization() != null
+                && characterPlayer.getCapabilitiesWithSpecialization().stream().map(Element::getGroup).collect(Collectors.toSet())
+                .containsAll(getRestrictedToCapabilitiesGroups())))
+                && (getRestrictedToCapabilities().isEmpty() || (characterPlayer.getCapabilitiesWithSpecialization() != null
+                && characterPlayer.getCapabilitiesWithSpecialization().stream().map(CapabilityWithSpecialization::getComparisonId)
+                .collect(Collectors.toSet())
+                .containsAll(getRestrictedToCapabilities().stream().map(RestrictedCapability::getComparisonId).toList())));
     }
 
 
-    public RestrictionMode getMode() {
+     public RestrictionMode getMode() {
         return mode;
     }
 

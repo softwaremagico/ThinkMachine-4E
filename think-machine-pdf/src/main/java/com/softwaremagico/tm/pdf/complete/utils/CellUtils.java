@@ -26,12 +26,27 @@ package com.softwaremagico.tm.pdf.complete.utils;
 
 import com.lowagie.text.pdf.BaseFont;
 
+/**
+ * Utilities for measuring/trimming text in PDF cells.
+ */
 public final class CellUtils {
 
+    /**
+     * Utility class.
+     */
     private CellUtils() {
 
     }
 
+    /**
+     * Returns the largest substring that fits in the given width.
+     *
+     * @param originalText text to trim.
+     * @param font font used for measurement.
+     * @param fontSize font size.
+     * @param width available width.
+     * @return substring that fits.
+     */
     public static String getSubStringFitsIn(String originalText, BaseFont font, int fontSize, float width) {
         String text = originalText;
 
@@ -41,6 +56,15 @@ public final class CellUtils {
         return text;
     }
 
+    /**
+     * Checks whether a text fits in the given width.
+     *
+     * @param text text to test.
+     * @param font font used for measurement.
+     * @param fontSize font size.
+     * @param width available width.
+     * @return true if text fits.
+     */
     public static boolean fitsIn(String text, BaseFont font, int fontSize, float width) {
         return font.getWidthPoint(text, fontSize) < width;
     }

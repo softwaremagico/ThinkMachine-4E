@@ -14,6 +14,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <callings>
                 <calling>berserker</calling>
@@ -36,6 +37,7 @@
         </description>
         <source>calling</source>
         <type>ability</type>
+        <elementType>COMBAT</elementType>
         <restrictions>
             <callings>
                 <calling>berserker</calling>
@@ -56,6 +58,7 @@
         </description>
         <source>class</source>
         <type>ability</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>skald</calling>
@@ -80,6 +83,7 @@
         </description>
         <source>calling</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <restrictions>
             <callings>
                 <calling>berserker</calling>
@@ -99,17 +103,18 @@
             <es>Signo del Espíritu</es>
         </name>
         <description>
-            <en>Class • Privilege • Precondition: Vuldrok. You are believed to have been born under a lucky sign, or
+            <en>You are believed to have been born under a lucky sign, or
                 others know you have experienced an omen marking you as chosen by a particular god or spirit. You gain
                 +2 Spirit Resistance, and whenever you spend a wyrd point to make a roll favorable, you do not suffer a
                 critical miss even if both dice roll a 20.</en>
-            <es>Clase • Privilegio • Requisito: Vuldrok. Se cree que naciste bajo un signo afortunado, o se sabe que
+            <es>Se cree que naciste bajo un signo afortunado, o se sabe que
                 tuviste un presagio que te señala como elegido de un dios o espíritu concreto. Obtienes +2 de
                 Resistencia de Espíritu y, cuando gastas un punto de wyrd para hacer favorable una tirada, no sufres una
                 pifia aunque ambos dados saquen 20.</es>
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <resistances>
             <resistance>
                 <type>spirit</type>
@@ -136,14 +141,14 @@
             <es>Estima (Hombre Escudo)</es>
         </name>
         <description>
-            <en>Class • Privilege • Precondition: Vuldrok. Instead of the Professional Reputation perk, Vuldrok gain
+            <en>Instead of the Professional Reputation perk, Vuldrok gain
                 Regard, the measure of their renown among the Vuldrok nations. Its title depends on how many levels of
                 this hierarchical perk you possess; each successive level raises you in rank one title (Shieldman,
                 Armsman, Jarl, Thane, Great Thane, Warlord) and grants +2 Mind Resistance. A shaman uses the titles
                 Wayman, Apprentice, Wyrdworker, Seer, Godhi; skilled professionals use Noteworthy, Journeyman, Gifted,
                 Cunning, Adept, Master. (For women: Shieldwoman, Waywoman, Journeywoman.) Regard is awarded by consensus
                 at a person's local Althing.</en>
-            <es>Clase • Privilegio • Requisito: Vuldrok. En lugar del beneficio Reputación Profesional, los vuldrok
+            <es>En lugar del beneficio Reputación Profesional, los vuldrok
                 obtienen Estima, la medida de su renombre entre las naciones vuldrok. El título depende de cuántos
                 niveles de este beneficio jerárquico poseas; cada nivel sucesivo te sube un título (Hombre Escudo,
                 Hombre de Armas, Jarl, Thane, Gran Thane, Señor de la Guerra) y otorga +2 de Resistencia de Mente. Un
@@ -153,6 +158,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <group>regard</group>
         <resistances>
             <resistance>
@@ -185,6 +191,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <group>regard</group>
         <resistances>
             <resistance>
@@ -211,6 +218,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <group>regard</group>
         <resistances>
             <resistance>
@@ -239,6 +247,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <group>regard</group>
         <resistances>
             <resistance>
@@ -267,6 +276,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <group>regard</group>
         <resistances>
             <resistance>
@@ -295,6 +305,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SOCIAL</elementType>
         <group>regard</group>
         <resistances>
             <resistance>
@@ -331,6 +342,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <group>runelearnerRank</group>
         <restrictions>
             <callings>
@@ -350,6 +362,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <group>runelearnerRank</group>
         <restrictions>
             <perks>
@@ -369,6 +382,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <group>runelearnerRank</group>
         <restrictions>
             <perks>
@@ -388,6 +402,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <group>runelearnerRank</group>
         <restrictions>
             <perks>
@@ -407,6 +422,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <group>runelearnerRank</group>
         <restrictions>
             <perks>
@@ -426,6 +442,7 @@
         </description>
         <source>class</source>
         <type>privilege</type>
+        <elementType>SPIRITUAL</elementType>
         <group>runelearnerRank</group>
         <restrictions>
             <perks>

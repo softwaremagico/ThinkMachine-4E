@@ -15,6 +15,7 @@
                 <specie>nizdharim</specie>
             </species>
         </restrictions>
+        <elementType>COMBAT</elementType>
     </perk>
     <perk>
         <id>lwNizdharimAmbidextrous</id>
@@ -31,6 +32,7 @@
                 <specie>nizdharim</specie>
             </species>
         </restrictions>
+        <elementType>COMBAT</elementType>
     </perk>
     <perk>
         <id>lwNizdharimBeak</id>
@@ -47,6 +49,7 @@
                 <specie>nizdharim</specie>
             </species>
         </restrictions>
+        <elementType>COMBAT</elementType>
     </perk>
     <perk>
         <id>lwNizdharimCamouflage</id>
@@ -63,6 +66,7 @@
                 <specie>nizdharim</specie>
             </species>
         </restrictions>
+        <elementType>STEALTH</elementType>
     </perk>
     <perk>
         <id>lwNizdharimCantSpeakUrthish</id>
@@ -79,6 +83,7 @@
                 <specie>nizdharim</specie>
             </species>
         </restrictions>
+        <elementType>SOCIAL</elementType>
     </perk>
     <perk>
         <id>lwNizdharimCarapace</id>
@@ -95,6 +100,7 @@
                 <specie>nizdharim</specie>
             </species>
         </restrictions>
+        <elementType>COMBAT</elementType>
     </perk>
     <perk>
         <id>lwNizdharimHazardousBreath</id>
@@ -111,6 +117,7 @@
                 <specie>nizdharim</specie>
             </species>
         </restrictions>
+        <elementType>COMBAT</elementType>
     </perk>
     <perk>
         <id>lwNizdharimMolluskPhysique</id>
@@ -127,6 +134,7 @@
                 <specie>nizdharim</specie>
             </species>
         </restrictions>
+        <elementType>TECHNICAL</elementType>
     </perk>
     <perk>
         <id>lwNizdharimOstracized</id>
@@ -143,6 +151,7 @@
                 <specie>nizdharim</specie>
             </species>
         </restrictions>
+        <elementType>SOCIAL</elementType>
     </perk>
     <perk>
         <id>lwNizdharimReadSpeakKhunadNizdha</id>
@@ -159,6 +168,7 @@
                 <specie>nizdharim</specie>
             </species>
         </restrictions>
+        <elementType>SOCIAL</elementType>
     </perk>
     <perk>
         <id>lwNizdharimRegeneration</id>
@@ -175,6 +185,7 @@
                 <specie>nizdharim</specie>
             </species>
         </restrictions>
+        <elementType>TECHNICAL</elementType>
     </perk>
     <perk>
         <id>lwNizdharimRequiresMoisture</id>
@@ -191,6 +202,7 @@
                 <specie>nizdharim</specie>
             </species>
         </restrictions>
+        <elementType>TECHNICAL</elementType>
     </perk>
     <perk>
         <id>lwNizdharimSmall</id>
@@ -207,6 +219,7 @@
                 <specie>nizdharim</specie>
             </species>
         </restrictions>
+        <elementType>TECHNICAL</elementType>
     </perk>
     <perk>
         <id>lwNizdharimSwim</id>
@@ -223,6 +236,7 @@
                 <specie>nizdharim</specie>
             </species>
         </restrictions>
+        <elementType>TECHNICAL</elementType>
     </perk>
     <perk>
         <id>lwNizdharimTelepathy</id>
@@ -239,6 +253,7 @@
                 <specie>nizdharim</specie>
             </species>
         </restrictions>
+        <elementType>SPIRITUAL</elementType>
     </perk>
     <perk>
         <id>lwNizdharimWaterBreather</id>
@@ -255,6 +270,7 @@
                 <specie>nizdharim</specie>
             </species>
         </restrictions>
+        <elementType>TECHNICAL</elementType>
     </perk>
     <perk>
         <id>lwNizdharimAmphibious</id>
@@ -275,6 +291,7 @@
                 <specie>nizdharim</specie>
             </species>
         </restrictions>
+        <elementType>TECHNICAL</elementType>
     </perk>
     <perk>
         <id>lwNizdharimGaHij</id>
@@ -295,6 +312,7 @@
                 <specie>nizdharim</specie>
             </species>
         </restrictions>
+        <elementType>COMBAT</elementType>
     </perk>
     <perk>
         <id>lwNizdharimTikCeteki</id>
@@ -315,6 +333,7 @@
                 <specie>nizdharim</specie>
             </species>
         </restrictions>
+        <elementType>SOCIAL</elementType>
     </perk>
 
     <perk>
@@ -332,6 +351,7 @@
                 <specie>zgo</specie>
             </species>
         </restrictions>
+        <elementType>TECHNICAL</elementType>
     </perk>
     <perk>
         <id>lwZgoEnergySense</id>
@@ -348,6 +368,7 @@
                 <specie>zgo</specie>
             </species>
         </restrictions>
+        <elementType>TECHNICAL</elementType>
     </perk>
     <perk>
         <id>lwZgoFlight</id>
@@ -364,6 +385,7 @@
                 <specie>zgo</specie>
             </species>
         </restrictions>
+        <elementType>TECHNICAL</elementType>
     </perk>
     <perk>
         <id>lwZgoSpeakZgoish</id>
@@ -380,6 +402,7 @@
                 <specie>zgo</specie>
             </species>
         </restrictions>
+        <elementType>SPIRITUAL</elementType>
     </perk>
     <perk>
         <id>lwZgoUnskilled</id>
@@ -396,6 +419,7 @@
                 <specie>zgo</specie>
             </species>
         </restrictions>
+        <elementType>TECHNICAL</elementType>
     </perk>
     <perk>
         <id>lwZgoVoidborn</id>
@@ -412,5 +436,6 @@
                 <specie>zgo</specie>
             </species>
         </restrictions>
+        <elementType>SPIRITUAL</elementType>
     </perk>
 </perks>
