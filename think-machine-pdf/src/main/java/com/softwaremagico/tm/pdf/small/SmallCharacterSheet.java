@@ -1,4 +1,3 @@
-
 package com.softwaremagico.tm.pdf.small;
 
 /*-
@@ -42,188 +41,188 @@ import com.softwaremagico.tm.pdf.complete.events.SheetBackgroundEvent;
  * Generates compact character sheets in a dense one-page format.
  */
 public class SmallCharacterSheet extends PdfDocument {
-	private static final int HEADER_ROWS = 3;
-	private final CharacterPlayer character;
+    private static final int HEADER_ROWS = 3;
+    private final CharacterPlayer character;
 
-	/**
-	 * Creates a small character sheet for a character.
-	 *
-	 * @param character
-	 *            the character to generate sheet for.
-	 */
-	public SmallCharacterSheet(CharacterPlayer character) {
-		this.character = character;
-	}
+    /**
+     * Creates a small character sheet for a character.
+     *
+     * @param character
+     *            the character to generate sheet for.
+     */
+    public SmallCharacterSheet(CharacterPlayer character) {
+        this.character = character;
+    }
 
-	@Override
-	protected Rectangle getPageSize() {
-		return PageSize.A5;
-	}
+    @Override
+    protected Rectangle getPageSize() {
+        return PageSize.A5;
+    }
 
-	@Override
-	protected void createContent(Document document) throws InvalidXmlElementException, DocumentException {
-		if (this.getCharacterPlayer() != null) {
-			this.createCharacterPDF(document, this.getCharacterPlayer());
-		}
-	}
+    @Override
+    protected void createContent(Document document) throws InvalidXmlElementException, DocumentException {
+        if (this.getCharacterPlayer() != null) {
+            this.createCharacterPDF(document, this.getCharacterPlayer());
+        }
+    }
 
-	@Override
-	protected void addEvent(PdfWriter writer) {
-		super.addEvent(writer);
-		writer.setPageEvent(new SheetBackgroundEvent());
-	}
+    @Override
+    protected void addEvent(PdfWriter writer) {
+        super.addEvent(writer);
+        writer.setPageEvent(new SheetBackgroundEvent());
+    }
 
-	protected PdfPTable createCharacterContent(CharacterPlayer characterPlayer) throws InvalidXmlElementException {
-		final float[] widths = {2.2f, 1f};
-		final PdfPTable mainTable = new PdfPTable(widths);
-		BaseElement.setTableProperties(mainTable);
-		mainTable.getDefaultCell().setPadding(0);
+    protected PdfPTable createCharacterContent(CharacterPlayer characterPlayer) throws InvalidXmlElementException {
+        final float[] widths = {2.2f, 1f};
+        final PdfPTable mainTable = new PdfPTable(widths);
+        BaseElement.setTableProperties(mainTable);
+        mainTable.getDefaultCell().setPadding(0);
 
-		// final PdfPTable infoTable =
-		// CharacterBasicsReducedTableFactory.getCharacterBasicsTable(characterPlayer);
-		final PdfPTable infoTable = new PdfPTable(new float[]{1f, 1f});
-		final PdfPCell infoCell = new PdfPCell(infoTable);
-		infoCell.setBorderWidthTop(0);
-		infoCell.setBorderWidthLeft(0);
-		infoCell.setBorderWidthBottom(1);
-		mainTable.addCell(infoCell);
+        // final PdfPTable infoTable =
+        // CharacterBasicsReducedTableFactory.getCharacterBasicsTable(characterPlayer);
+        final PdfPTable infoTable = new PdfPTable(new float[]{1f, 1f});
+        final PdfPCell infoCell = new PdfPCell(infoTable);
+        infoCell.setBorderWidthTop(0);
+        infoCell.setBorderWidthLeft(0);
+        infoCell.setBorderWidthBottom(1);
+        mainTable.addCell(infoCell);
 
-		// final PdfPTable learnedSkillsTable =
-		// LearnedSkillsTable.getSkillsTable(characterPlayer);
-		final PdfPTable learnedSkillsTable = new PdfPTable(new float[]{1f, 1f});
-		final PdfPCell learnedSkillsCell = new PdfPCell(learnedSkillsTable);
-		learnedSkillsCell.setColspan(2);
-		learnedSkillsCell.setRowspan(HEADER_ROWS);
-		learnedSkillsCell.setBorderWidthTop(0);
-		learnedSkillsCell.setBorderWidthRight(0);
-		mainTable.addCell(learnedSkillsCell);
+        // final PdfPTable learnedSkillsTable =
+        // LearnedSkillsTable.getSkillsTable(characterPlayer);
+        final PdfPTable learnedSkillsTable = new PdfPTable(new float[]{1f, 1f});
+        final PdfPCell learnedSkillsCell = new PdfPCell(learnedSkillsTable);
+        learnedSkillsCell.setColspan(2);
+        learnedSkillsCell.setRowspan(HEADER_ROWS);
+        learnedSkillsCell.setBorderWidthTop(0);
+        learnedSkillsCell.setBorderWidthRight(0);
+        mainTable.addCell(learnedSkillsCell);
 
-		final PdfPTable basicTable = new PdfPTable(new float[]{5f, 4f});
-		BaseElement.setTableProperties(basicTable);
-		basicTable.getDefaultCell().setBorder(0);
+        final PdfPTable basicTable = new PdfPTable(new float[]{5f, 4f});
+        BaseElement.setTableProperties(basicTable);
+        basicTable.getDefaultCell().setBorder(0);
 
-		// final PdfPTable characteristicsTable = CharacteristicsTableFactory
-		// .getCharacteristicsBasicsTable(characterPlayer, getModuleName());
-		final PdfPTable characteristicsTable = new PdfPTable(new float[]{1f, 1f});
-		final PdfPCell characteristicCell = new PdfPCell(characteristicsTable);
-		characteristicCell.setBorderWidthLeft(0);
-		basicTable.addCell(characteristicCell);
+        // final PdfPTable characteristicsTable = CharacteristicsTableFactory
+        // .getCharacteristicsBasicsTable(characterPlayer, getModuleName());
+        final PdfPTable characteristicsTable = new PdfPTable(new float[]{1f, 1f});
+        final PdfPCell characteristicCell = new PdfPCell(characteristicsTable);
+        characteristicCell.setBorderWidthLeft(0);
+        basicTable.addCell(characteristicCell);
 
-		// final PdfPTable naturalSkillsTable =
-		// NaturalSkillsTable.getSkillsTable(characterPlayer, getLanguage(),
-		// getModuleName());
-		final PdfPTable naturalSkillsTable = new PdfPTable(new float[]{1f, 1f});
-		final PdfPCell naturalSkillsCell = new PdfPCell(naturalSkillsTable);
-		naturalSkillsCell.setBorderWidthRight(0);
-		basicTable.addCell(naturalSkillsCell);
+        // final PdfPTable naturalSkillsTable =
+        // NaturalSkillsTable.getSkillsTable(characterPlayer, getLanguage(),
+        // getModuleName());
+        final PdfPTable naturalSkillsTable = new PdfPTable(new float[]{1f, 1f});
+        final PdfPCell naturalSkillsCell = new PdfPCell(naturalSkillsTable);
+        naturalSkillsCell.setBorderWidthRight(0);
+        basicTable.addCell(naturalSkillsCell);
 
-		final PdfPCell basicComposedCell = new PdfPCell(basicTable);
-		basicComposedCell.setBorder(0);
-		mainTable.addCell(basicComposedCell);
+        final PdfPCell basicComposedCell = new PdfPCell(basicTable);
+        basicComposedCell.setBorder(0);
+        mainTable.addCell(basicComposedCell);
 
-		final PdfPTable composedTable = new PdfPTable(new float[]{5f, 2f});
+        final PdfPTable composedTable = new PdfPTable(new float[]{5f, 2f});
 
-		// final PdfPTable blessingsTable = new BlessingTable(characterPlayer);
-		final PdfPTable blessingsTable = new PdfPTable(new float[]{1f, 1f});
-		final PdfPCell blessingsCell = new PdfPCell(blessingsTable);
-		blessingsCell.setBorderWidthLeft(0);
-		blessingsCell.setBorderWidthBottom(1);
-		composedTable.addCell(blessingsCell);
+        // final PdfPTable blessingsTable = new BlessingTable(characterPlayer);
+        final PdfPTable blessingsTable = new PdfPTable(new float[]{1f, 1f});
+        final PdfPCell blessingsCell = new PdfPCell(blessingsTable);
+        blessingsCell.setBorderWidthLeft(0);
+        blessingsCell.setBorderWidthBottom(1);
+        composedTable.addCell(blessingsCell);
 
-		// final PdfPTable beneficesTable = new BeneficesTable(characterPlayer);
-		final PdfPTable beneficesTable = new PdfPTable(new float[]{1f, 1f});
-		final PdfPCell beneficesCell = new PdfPCell(beneficesTable);
-		beneficesCell.setBorderWidthBottom(1);
-		composedTable.addCell(beneficesCell);
+        // final PdfPTable beneficesTable = new BeneficesTable(characterPlayer);
+        final PdfPTable beneficesTable = new PdfPTable(new float[]{1f, 1f});
+        final PdfPCell beneficesCell = new PdfPCell(beneficesTable);
+        beneficesCell.setBorderWidthBottom(1);
+        composedTable.addCell(beneficesCell);
 
-		final PdfPCell composedCell = new PdfPCell(composedTable);
-		composedCell.setRowspan(2);
-		composedCell.setBorder(0);
-		mainTable.addCell(composedCell);
+        final PdfPCell composedCell = new PdfPCell(composedTable);
+        composedCell.setRowspan(2);
+        composedCell.setBorder(0);
+        mainTable.addCell(composedCell);
 
-		// final PdfPTable armourTable = new ArmourTable(characterPlayer);
-		final PdfPTable armourTable = new PdfPTable(new float[]{1f, 1f});
-		final PdfPCell armourCell = new PdfPCell(armourTable);
-		armourCell.setBorderWidthRight(0);
-		armourCell.setBorderWidthBottom(1);
-		mainTable.addCell(armourCell);
+        // final PdfPTable armourTable = new ArmourTable(characterPlayer);
+        final PdfPTable armourTable = new PdfPTable(new float[]{1f, 1f});
+        final PdfPCell armourCell = new PdfPCell(armourTable);
+        armourCell.setBorderWidthRight(0);
+        armourCell.setBorderWidthBottom(1);
+        mainTable.addCell(armourCell);
 
-		final PdfPTable fightTable = new PdfPTable(new float[]{3f, 5f, 1f});
+        final PdfPTable fightTable = new PdfPTable(new float[]{3f, 5f, 1f});
 
-		// Only weapons table.
-		if (characterPlayer != null
-				&& (characterPlayer.getSelectedPowers().isEmpty() && characterPlayer.getCyberdevices().isEmpty())) {
-			// final PdfPTable weaponsTable = new WeaponsTableLong(characterPlayer);
-			final PdfPTable weaponsTable = new PdfPTable(new float[]{1f, 1f});
-			final PdfPCell weaponsCell = new PdfPCell(weaponsTable);
-			weaponsCell.setBorderWidthLeft(0);
-			weaponsCell.setColspan(2);
-			fightTable.addCell(weaponsCell);
-		} else {
-			// Include cybernetics
-			if (characterPlayer != null && (characterPlayer.getSelectedPowers().isEmpty()
-					&& !characterPlayer.getCyberdevices().isEmpty())) {
-				// final PdfPTable cyberneticsTable = new CyberneticsTable(characterPlayer);
-				final PdfPTable cyberneticsTable = new PdfPTable(new float[]{1f, 1f});
-				final PdfPCell cyberneticsCell = new PdfPCell(cyberneticsTable);
-				cyberneticsCell.setBorderWidthLeft(0);
-				fightTable.addCell(cyberneticsCell);
-				// Include occultism
-			} else {
-				// final PdfPTable occultismTable = new OccultismTable(characterPlayer,
-				// getLanguage(), getModuleName());
-				final PdfPTable occultismTable = new PdfPTable(new float[]{1f, 1f});
-				final PdfPCell occultismCell = new PdfPCell(occultismTable);
-				occultismCell.setBorderWidthLeft(0);
-				fightTable.addCell(occultismCell);
-			}
+        // Only weapons table.
+        if (characterPlayer != null
+                && (characterPlayer.getSelectedPowers().size() == 0 && characterPlayer.getCyberdevices().size() == 0)) {
+            // final PdfPTable weaponsTable = new WeaponsTableLong(characterPlayer);
+            final PdfPTable weaponsTable = new PdfPTable(new float[]{1f, 1f});
+            final PdfPCell weaponsCell = new PdfPCell(weaponsTable);
+            weaponsCell.setBorderWidthLeft(0);
+            weaponsCell.setColspan(2);
+            fightTable.addCell(weaponsCell);
+        } else {
+            // Include cybernetics
+            if (characterPlayer != null && (characterPlayer.getSelectedPowers().size() == 0
+                    && characterPlayer.getCyberdevices().size() != 0)) {
+                // final PdfPTable cyberneticsTable = new CyberneticsTable(characterPlayer);
+                final PdfPTable cyberneticsTable = new PdfPTable(new float[]{1f, 1f});
+                final PdfPCell cyberneticsCell = new PdfPCell(cyberneticsTable);
+                cyberneticsCell.setBorderWidthLeft(0);
+                fightTable.addCell(cyberneticsCell);
+                // Include occultism
+            } else {
+                // final PdfPTable occultismTable = new OccultismTable(characterPlayer,
+                // getLanguage(), getModuleName());
+                final PdfPTable occultismTable = new PdfPTable(new float[]{1f, 1f});
+                final PdfPCell occultismCell = new PdfPCell(occultismTable);
+                occultismCell.setBorderWidthLeft(0);
+                fightTable.addCell(occultismCell);
+            }
 
-			// final PdfPTable weaponsTable = new WeaponsTable(characterPlayer);
-			final PdfPTable weaponsTable = new PdfPTable(new float[]{1f, 1f});
-			fightTable.addCell(weaponsTable);
-		}
+            // final PdfPTable weaponsTable = new WeaponsTable(characterPlayer);
+            final PdfPTable weaponsTable = new PdfPTable(new float[]{1f, 1f});
+            fightTable.addCell(weaponsTable);
+        }
 
-		// final PdfPCell victoryPointsCell = new PdfPCell(new
-		// VerticalVictoryPointsTable());
-		final PdfPCell victoryPointsCell = new PdfPCell();
-		victoryPointsCell.setPadding(0);
-		victoryPointsCell.setRowspan(HEADER_ROWS);
-		fightTable.addCell(victoryPointsCell);
+        // final PdfPCell victoryPointsCell = new PdfPCell(new
+        // VerticalVictoryPointsTable());
+        final PdfPCell victoryPointsCell = new PdfPCell();
+        victoryPointsCell.setPadding(0);
+        victoryPointsCell.setRowspan(HEADER_ROWS);
+        fightTable.addCell(victoryPointsCell);
 
-		// final PdfPTable vitalityTable = new VitalityTable(characterPlayer);
-		final PdfPTable vitalityTable = new PdfPTable(new float[]{1f, 1f});
-		final PdfPCell vitalityCell = new PdfPCell(vitalityTable);
-		vitalityCell.setColspan(2);
-		vitalityCell.setBorderWidth(1);
-		fightTable.addCell(vitalityCell);
+        // final PdfPTable vitalityTable = new VitalityTable(characterPlayer);
+        final PdfPTable vitalityTable = new PdfPTable(new float[]{1f, 1f});
+        final PdfPCell vitalityCell = new PdfPCell(vitalityTable);
+        vitalityCell.setColspan(2);
+        vitalityCell.setBorderWidth(1);
+        fightTable.addCell(vitalityCell);
 
-		// final PdfPTable wyrdTable = new WyrdTable(characterPlayer);
-		final PdfPTable wyrdTable = new PdfPTable(new float[]{1f, 1f});
-		final PdfPCell wyrdCell = new PdfPCell(wyrdTable);
-		wyrdCell.setBorderWidth(1);
-		wyrdCell.setColspan(2);
-		fightTable.addCell(wyrdCell);
+        // final PdfPTable wyrdTable = new WyrdTable(characterPlayer);
+        final PdfPTable wyrdTable = new PdfPTable(new float[]{1f, 1f});
+        final PdfPCell wyrdCell = new PdfPCell(wyrdTable);
+        wyrdCell.setBorderWidth(1);
+        wyrdCell.setColspan(2);
+        fightTable.addCell(wyrdCell);
 
-		final PdfPCell fightCell = new PdfPCell(fightTable);
-		fightCell.setBorder(0);
-		fightCell.setColspan(2);
+        final PdfPCell fightCell = new PdfPCell(fightTable);
+        fightCell.setBorder(0);
+        fightCell.setColspan(2);
 
-		mainTable.addCell(fightCell);
-		return mainTable;
-	}
+        mainTable.addCell(fightCell);
+        return mainTable;
+    }
 
-	@Override
-	protected void createCharacterPDF(Document document, CharacterPlayer characterPlayer)
-			throws DocumentException, InvalidXmlElementException {
-		document.add(this.createCharacterContent(characterPlayer));
-	}
+    @Override
+    protected void createCharacterPDF(Document document, CharacterPlayer characterPlayer)
+            throws DocumentException, InvalidXmlElementException {
+        document.add(this.createCharacterContent(characterPlayer));
+    }
 
-	@Override
-	protected void addDocumentWriterEvents(PdfWriter writer) {
-		writer.setPageEvent(new SheetBackgroundEvent());
-	}
+    @Override
+    protected void addDocumentWriterEvents(PdfWriter writer) {
+        writer.setPageEvent(new SheetBackgroundEvent());
+    }
 
-	private CharacterPlayer getCharacterPlayer() {
-		return this.character;
-	}
+    private CharacterPlayer getCharacterPlayer() {
+        return this.character;
+    }
 }
