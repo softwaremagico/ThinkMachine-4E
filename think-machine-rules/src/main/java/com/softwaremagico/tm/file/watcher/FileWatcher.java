@@ -63,11 +63,10 @@ public class FileWatcher {
     }
 
     /**
-     * Check some files in a specific path
+     * Check some files in a specific path.
      *
      * @param directoryToWatch directory where the files are stored.
-     * @param filesNames       the files to check
-     * @throws IOException
+     * @param filesNames       file names to track for changes.
      */
     public FileWatcher(String directoryToWatch, Set<String> filesNames) {
         if (directoryToWatch != null) {
@@ -95,20 +94,18 @@ public class FileWatcher {
     }
 
     /**
-     * Check some files in the resource directory.
+     * Check specific files in the default resource directory.
      *
-     * @param filesNames
-     * @throws IOException
+     * @param filesNames file names to track for changes.
      */
     public FileWatcher(Set<String> filesNames) {
         this(null, filesNames);
     }
 
     /**
-     * Only check for a directory. Watch if any file is added, updated or deleted.
+     * Watch a directory for file creations, updates and deletions.
      *
-     * @param directoryToWatch
-     * @throws IOException
+     * @param directoryToWatch directory path to watch.
      */
     public FileWatcher(String directoryToWatch) {
         this(directoryToWatch, null);
