@@ -35,7 +35,7 @@ public class OptionsList<E extends CharacterSelectedElement> extends SelectionLi
 
     public OptionsList(Collection<E> elements) {
         super(elements);
-        if (elements != null && !elements.isEmpty()) {
+        if (elements != null && elements.size() != 0) {
             elements.stream().filter(Objects::nonNull).forEach(element -> {
                 element.addSelectionUpdatedListeners(this::notifySelectionAddedListener);
                 notifySelectionAddedListener();

@@ -188,7 +188,7 @@ public class CharacterInfo {
 
     public String getNameRepresentation() {
         final StringBuilder stringBuilder = new StringBuilder();
-        if (getNames() != null && !getNames().isEmpty()) {
+        if (getNames() != null && getNames().size() != 0) {
             for (final Name name : getNames()) {
                 stringBuilder.append(name.getName());
                 stringBuilder.append(" ");
@@ -206,7 +206,7 @@ public class CharacterInfo {
     }
 
     public void setSurname(String surname) {
-        if (surname == null || surname.isEmpty()) {
+        if (surname == null || surname.length() == 0) {
             this.surname = null;
         } else {
             this.surname = new Surname(surname, null, null, null, null);

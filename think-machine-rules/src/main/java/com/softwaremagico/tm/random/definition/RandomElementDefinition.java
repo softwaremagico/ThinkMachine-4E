@@ -83,7 +83,7 @@ public class RandomElementDefinition extends XmlData {
     }
 
     private void updateSet(Set<String> sourceSet, Set<String> targetSet) {
-        if (sourceSet != null && !sourceSet.isEmpty()) {
+        if (sourceSet != null && sourceSet.size() != 0) {
             targetSet.clear();
             targetSet.addAll(sourceSet);
         }

@@ -50,7 +50,7 @@ public class FactionBookRandomNamesTest {
         final RandomName randomName = new RandomName(characterPlayer, null);
         randomName.assign();
 
-        Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
+        Assert.assertFalse(characterPlayer.getInfo().getNames().size() == 0);
         final Name selectedName = characterPlayer.getInfo().getNames().get(0);
         Assert.assertEquals(selectedName.getSpecie(), "oroym");
         Assert.assertTrue(SpecieFactory.getInstance().getAllNames("oroym").contains(selectedName));
@@ -88,7 +88,7 @@ public class FactionBookRandomNamesTest {
         final RandomSurname randomSurname = new RandomSurname(characterPlayer, null);
         randomSurname.assign();
 
-        Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
+        Assert.assertFalse(characterPlayer.getInfo().getNames().size() == 0);
         Assert.assertTrue(characterPlayer.getInfo().getNames().get(0).getSpecie() == null
                 || "human".equals(characterPlayer.getInfo().getNames().get(0).getSpecie()));
         Assert.assertNotNull(characterPlayer.getInfo().getSurname());

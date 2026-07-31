@@ -142,7 +142,7 @@ public final class FileManager {
         try (Scanner scanner = new Scanner(file, StandardCharsets.UTF_8)) {
             while (scanner.hasNextLine()) {
                 final String line = scanner.nextLine();
-                if (!line.isEmpty()) {
+                if (line.length() != 0) {
                     contents.add(line);
                 }
             }

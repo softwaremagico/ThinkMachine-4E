@@ -86,7 +86,7 @@ public class RandomizeCharacterDefinitionStep {
 
     private void assignCharacteristics() throws InvalidRandomElementSelectedException {
         final List<CharacteristicBonusOptions> characteristicBonusOptions = characterDefinitionStepSelection.getCharacteristicOptions();
-        if (characteristicBonusOptions != null && !characteristicBonusOptions.isEmpty()) {
+        if (characteristicBonusOptions != null && characteristicBonusOptions.size() != 0) {
             for (int i = 0; i < characteristicBonusOptions.size(); i++) {
                 try {
                     for (int j = characterDefinitionStepSelection.getSelectedCharacteristicOptions().get(i).getSelections().size();
@@ -109,7 +109,7 @@ public class RandomizeCharacterDefinitionStep {
 
     private void assignCapabilities() throws InvalidRandomElementSelectedException {
         final List<CapabilityOptions> capabilityOptions = characterDefinitionStepSelection.getNotRepeatedCapabilityOptions();
-        if (capabilityOptions != null && !capabilityOptions.isEmpty()) {
+        if (capabilityOptions != null && capabilityOptions.size() != 0) {
             for (int i = 0; i < capabilityOptions.size(); i++) {
                 for (int j = characterDefinitionStepSelection.getSelectedCapabilityOptions().get(i).getSelections().size();
                      j < capabilityOptions.get(i).getTotalOptions(); j++) {
@@ -141,7 +141,7 @@ public class RandomizeCharacterDefinitionStep {
 
     private void assignSkills() throws InvalidRandomElementSelectedException {
         final List<SkillBonusOptions> skillOptions = characterDefinitionStepSelection.getSkillOptions();
-        if (skillOptions != null && !skillOptions.isEmpty()) {
+        if (skillOptions != null && skillOptions.size() != 0) {
             for (int i = 0; i < skillOptions.size(); i++) {
                 try {
                     for (int j = characterDefinitionStepSelection.getSelectedSkillOptions().get(i).getSelections().size();
@@ -217,7 +217,7 @@ public class RandomizeCharacterDefinitionStep {
 
                     // Safety net for rare edge cases: keep option selection count aligned with XML totals.
                     while (characterDefinitionStepSelection.getSelectedSkillOptions().get(i).getSelections().size()
-                            < skillOptions.get(i).getTotalOptions() && !skillOptions.get(i).getOptions().isEmpty()) {
+                            < skillOptions.get(i).getTotalOptions() && skillOptions.get(i).getOptions().size() != 0) {
                         characterDefinitionStepSelection.getSelectedSkillOptions().get(i).getSelections()
                                 .add(new Selection(skillOptions.get(i).getOptions().iterator().next().getElement()));
                     }
@@ -232,7 +232,7 @@ public class RandomizeCharacterDefinitionStep {
 
     protected void assignPerks() throws InvalidRandomElementSelectedException {
         final List<CharacterPerkOptions> perkOptions = characterDefinitionStepSelection.getNotSelectedPerksOptions(true);
-        if (perkOptions != null && !perkOptions.isEmpty()) {
+        if (perkOptions != null && perkOptions.size() != 0) {
             for (int i = 0; i < perkOptions.size(); i++) {
                 try {
                     for (int j = characterDefinitionStepSelection.getSelectedPerksOptions().get(i).getSelections().size();
@@ -260,7 +260,7 @@ public class RandomizeCharacterDefinitionStep {
 
     private void assignMaterialAwards() throws InvalidRandomElementSelectedException {
         final List<EquipmentOptions> materialAwardsOptions = characterDefinitionStepSelection.getMaterialAwardsOptions();
-        if (materialAwardsOptions != null && !materialAwardsOptions.isEmpty()) {
+        if (materialAwardsOptions != null && materialAwardsOptions.size() != 0) {
             for (int i = 0; i < materialAwardsOptions.size(); i++) {
                 try {
                     for (int j = characterDefinitionStepSelection.getSelectedMaterialAwards().get(i).getSelections().size();
@@ -272,7 +272,7 @@ public class RandomizeCharacterDefinitionStep {
                                 .add(new Selection(randomMaterialAward.selectElementByWeight()));
                     }
                 } catch (InvalidXmlElementException e) {
-                    if (!materialAwardsOptions.get(i).getOptions().isEmpty()) {
+                    if (materialAwardsOptions.get(i).getOptions().size() != 0) {
                         characterDefinitionStepSelection.getSelectedMaterialAwards().get(i).getSelections()
                                 .add(new Selection(materialAwardsOptions.get(i).getOptions().iterator().next()));
                     } else {

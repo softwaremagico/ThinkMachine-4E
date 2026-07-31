@@ -103,7 +103,7 @@ public abstract class XmlFactory<T extends Element> {
         if (this.elements == null) {
             this.getElements();
         }
-        if (id == null || id.isEmpty()) {
+        if (id == null || id.length() == 0) {
             return null;
         }
         final T element = this.elements.get(id);
@@ -144,7 +144,7 @@ public abstract class XmlFactory<T extends Element> {
     }
 
     public List<T> getElementsByGroup(Collection<String> groups) throws InvalidXmlElementException {
-        if (groups == null || groups.isEmpty()) {
+        if (groups == null || groups.size() == 0) {
             return new ArrayList<>();
         }
         return this.getElements().stream().filter(t -> groups.contains(t.getGroup())).toList();
@@ -199,7 +199,7 @@ public abstract class XmlFactory<T extends Element> {
             boolean added = false;
             for (final T currentElement : currentElements) {
                 if (currentElement.getId().equals(newElement.getId()) && newElement.getSpecializations() != null
-                        && !newElement.getSpecializations().isEmpty()) {
+                        && newElement.getSpecializations().size() != 0) {
                     if (currentElement.getSpecializations() == null) {
                         currentElement.setSpecializations(new ArrayList<>());
                     }

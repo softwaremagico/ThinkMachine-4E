@@ -52,12 +52,12 @@ public class WeaponsFactoryTests extends FactoryTest {
 
     @Test
     public void readAmmunition() throws InvalidXmlElementException {
-        Assert.assertFalse(AmmunitionFactory.getInstance().getElements().isEmpty());
+        Assert.assertFalse(AmmunitionFactory.getInstance().getElements().size() == 0);
     }
 
     @Test
     public void readAccessory() throws InvalidXmlElementException {
-        Assert.assertFalse(AccessoryFactory.getInstance().getElements().isEmpty());
+        Assert.assertFalse(AccessoryFactory.getInstance().getElements().size() == 0);
     }
 
     @Test

@@ -81,7 +81,7 @@ public class CapabilityOptions extends OptionSelector<Capability, CapabilityOpti
 
     private boolean isEmptyOptions() {
         final LinkedHashSet<CapabilityOption> options = super.getOptions();
-        return options == null || options.isEmpty();
+        return options == null || options.size() == 0;
     }
 
     private void expandAllCapabilities() {
@@ -129,7 +129,7 @@ public class CapabilityOptions extends OptionSelector<Capability, CapabilityOpti
     }
 
     private boolean hasSpecializations(Capability capability) {
-        return capability.getSpecializations() != null && !capability.getSpecializations().isEmpty();
+        return capability.getSpecializations() != null && capability.getSpecializations().size() != 0;
     }
 
     private void addSpecializedCapabilities(List<CapabilityOption> capabilityOptions,

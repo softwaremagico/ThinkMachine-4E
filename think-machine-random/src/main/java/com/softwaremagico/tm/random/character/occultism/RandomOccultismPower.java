@@ -49,7 +49,7 @@ public class RandomOccultismPower extends RandomSelector<OccultismPower> impleme
 
     @Override
     public void assign() throws InvalidSpecieException, InvalidRandomElementSelectedException, UnofficialElementNotAllowedException {
-        while (!getAllElements().isEmpty()
+        while (getAllElements().size() != 0
                 && getCharacterPlayer().getOccultismPointsAvailable() > getCharacterPlayer().getOccultismPointsSpent()) {
             try {
                 getCharacterPlayer().addOccultismPower(selectElementByWeight());

@@ -84,7 +84,7 @@ public class RandomUpbringing extends RandomSelector<Upbringing> implements Assi
     @Override
     protected int getWeight(Upbringing upbringing) throws InvalidRandomElementSelectedException {
         // Humans only humans factions.
-        if (!upbringing.getRestrictions().getRestrictedToSpecies().isEmpty() && getCharacterPlayer().getSpecie() != null
+        if (upbringing.getRestrictions().getRestrictedToSpecies().size() != 0 && getCharacterPlayer().getSpecie() != null
                 && !upbringing.getRestrictions().getRestrictedToSpecies().contains(getCharacterPlayer().getSpecie().getId())) {
             throw new InvalidRandomElementSelectedException("Faction '" + upbringing + "' restricted for species '"
                     + upbringing.getRestrictions().getRestrictedToSpecies()

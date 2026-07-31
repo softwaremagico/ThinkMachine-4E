@@ -49,9 +49,9 @@ public class TranslatedText implements Comparable<TranslatedText> {
 
     public TranslatedText(TranslatedText translatedText, TranslatedText suffix) {
         spanish = (translatedText != null ? translatedText.getSpanish() : "")
-                + (suffix != null && !suffix.getSpanish().isEmpty() ? " (" + suffix.getSpanish() + ")" : "");
+                + (suffix != null && suffix.getSpanish().length() != 0 ? " (" + suffix.getSpanish() + ")" : "");
         english = (translatedText != null ? translatedText.getEnglish() : "")
-                + (suffix != null && !suffix.getEnglish().isEmpty() ? " (" + suffix.getEnglish() + ")" : "");
+                + (suffix != null && suffix.getEnglish().length() != 0 ? " (" + suffix.getEnglish() + ")" : "");
     }
 
     public TranslatedText(String value) {
@@ -89,10 +89,10 @@ public class TranslatedText implements Comparable<TranslatedText> {
     }
 
     public void validate() {
-        if (getEnglish() == null || getEnglish().isEmpty()) {
+        if (getEnglish() == null || getEnglish().length() == 0) {
             throw new InvalidXmlElementException("English text is empty.");
         }
-        if (getSpanish() == null || getSpanish().isEmpty()) {
+        if (getSpanish() == null || getSpanish().length() == 0) {
             throw new InvalidXmlElementException("Spanish text is empty.");
         }
     }

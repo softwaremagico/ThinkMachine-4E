@@ -119,7 +119,7 @@ public class Selection extends Element implements IComparable {
 
     public static Set<Selection> convert(PerkOption perkOption) {
         final Set<Selection> selections = new HashSet<>();
-        if (perkOption.getSpecializations() == null || perkOption.getSpecializations().isEmpty()) {
+        if (perkOption.getSpecializations() == null || perkOption.getSpecializations().size() == 0) {
             final Selection selection = new Selection(perkOption);
             selection.setRepeatable(perkOption.isRepeatable());
             selections.add(selection);

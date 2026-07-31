@@ -101,7 +101,7 @@ public class RandomCapabilityOption extends RandomSelector<CapabilityOption> {
         final List<CapabilityOption> capabilities = new ArrayList<>();
         if (capability.getSelectedSpecialization() == null) {
             final Capability sourceCapability = CapabilityFactory.getInstance().getElement(capability);
-            if (sourceCapability.getSpecializations() != null && !sourceCapability.getSpecializations().isEmpty()) {
+            if (sourceCapability.getSpecializations() != null && sourceCapability.getSpecializations().size() != 0) {
                 return extendCapabilitiesBySpecialization(sourceCapability);
             }
         }
@@ -111,7 +111,7 @@ public class RandomCapabilityOption extends RandomSelector<CapabilityOption> {
 
     private List<CapabilityOption> extendCapabilitiesBySpecialization(Capability capability) {
         final List<CapabilityOption> capabilities = new ArrayList<>();
-        if (capability.getSpecializations() != null && !capability.getSpecializations().isEmpty()) {
+        if (capability.getSpecializations() != null && capability.getSpecializations().size() != 0) {
             for (Specialization specialization : capability.getSpecializations()) {
                 capabilities.add(new CapabilityOption(capability, specialization));
             }

@@ -55,7 +55,7 @@ public class RandomizeCharacterLevelStep extends RandomizeCharacterDefinitionSte
     private void assignClassPerks() throws InvalidRandomElementSelectedException {
         final List<CharacterPerkOptions> perkOptions = levelSelector.getNotRepeatedClassPerksOptions();
 
-        if (perkOptions != null && !perkOptions.isEmpty()) {
+        if (perkOptions != null && perkOptions.size() != 0) {
             for (int i = 0; i < perkOptions.size(); i++) {
                 if (perkOptions.get(i).getTotalOptions() > 0) {
                     try {
@@ -83,7 +83,7 @@ public class RandomizeCharacterLevelStep extends RandomizeCharacterDefinitionSte
     private void assignCallingPerks() throws InvalidRandomElementSelectedException {
         final List<CharacterPerkOptions> perkOptions = levelSelector.getNotRepeatedCallingPerksOptions();
 
-        if (perkOptions != null && !perkOptions.isEmpty()) {
+        if (perkOptions != null && perkOptions.size() != 0) {
             for (int i = 0; i < perkOptions.size(); i++) {
                 if (perkOptions.get(i).getTotalOptions() > 0) {
                     try {

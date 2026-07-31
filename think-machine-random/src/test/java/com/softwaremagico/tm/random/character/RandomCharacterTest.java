@@ -138,7 +138,7 @@ public class RandomCharacterTest {
                 scenario + ": secondary characteristic must not be null");
         Assert.assertNotNull(characterPlayer.getFaction(), scenario + ": faction must not be null");
         Assert.assertNotNull(characterPlayer.getInfo().getPlanet(), scenario + ": planet must not be null");
-        Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty(), scenario + ": names must not be empty");
+        Assert.assertFalse(characterPlayer.getInfo().getNames().size() == 0, scenario + ": names must not be empty");
         Assert.assertNotNull(characterPlayer.getInfo().getSurname(), scenario + ": surname must not be null");
 
         if (assertCallingNotNull) {

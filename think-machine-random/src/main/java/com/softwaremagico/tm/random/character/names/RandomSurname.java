@@ -87,7 +87,7 @@ public class RandomSurname extends RandomSelector<Surname> implements Assignable
             }
         }
 
-        if (!fallbackSurnames.isEmpty()) {
+        if (fallbackSurnames.size() != 0) {
             getCharacterPlayer().getInfo().setSurname(fallbackSurnames.get(RANDOM.nextInt(fallbackSurnames.size())));
         } else {
             getCharacterPlayer().getInfo().setSurname(selectAnyElement());
@@ -142,7 +142,7 @@ public class RandomSurname extends RandomSelector<Surname> implements Assignable
             RandomGenerationLog.errorMessage(this.getClass().getName(), e);
         }
         // Name already set, use the same faction to avoid weird mix.
-        if (getCharacterPlayer().getInfo().getNames() != null && !getCharacterPlayer().getInfo().getNames().isEmpty()) {
+        if (getCharacterPlayer().getInfo().getNames() != null && getCharacterPlayer().getInfo().getNames().size() != 0) {
             final Name firstName = getCharacterPlayer().getInfo().getNames().get(0);
             if (firstName.getFaction() != null && surname.getFaction() != null
                     && !Objects.equals(firstName.getFaction(), surname.getFaction())) {
@@ -152,7 +152,7 @@ public class RandomSurname extends RandomSelector<Surname> implements Assignable
 
         // Not nobility and not name set, use surnames of the planet.
         if (getCharacterPlayer().getInfo().getPlanet() != null
-                && !PlanetFactory.getInstance().getElement(getCharacterPlayer().getInfo().getPlanet()).getSurnames().isEmpty()) {
+                && PlanetFactory.getInstance().getElement(getCharacterPlayer().getInfo().getPlanet()).getSurnames().size() != 0) {
             if (!PlanetFactory.getInstance().getElement(getCharacterPlayer().getInfo().getPlanet()).getHumanFactions().contains(surname.getFaction())) {
                 throw new InvalidRandomElementSelectedException("Surname '" + surname + "' not existing in planet '"
                         + getCharacterPlayer().getInfo().getPlanet() + "'.");
@@ -160,7 +160,7 @@ public class RandomSurname extends RandomSelector<Surname> implements Assignable
         }
         // Planet without factions. Then choose own faction names
         if (getCharacterPlayer().getFaction() != null
-                && !FactionFactory.getInstance().getAllSurnames(getCharacterPlayer().getFaction().getId()).isEmpty()
+                && FactionFactory.getInstance().getAllSurnames(getCharacterPlayer().getFaction().getId()).size() != 0
                 && !getCharacterPlayer().getFaction().getId().equals(surname.getFaction())) {
             throw new InvalidRandomElementSelectedException("Surname '" + surname + "' from an invalid faction '"
                     + getCharacterPlayer().getFaction() + "'.");

@@ -85,7 +85,7 @@ public class SupportClassesTests {
         selectionSet.add("alpha");
         selectionSet.remove("alpha");
 
-        Assert.assertTrue(selectionSet.isEmpty());
+        Assert.assertTrue(selectionSet.size() == 0);
         Assert.assertEquals(updatedNotifications.get(), 2);
     }
 

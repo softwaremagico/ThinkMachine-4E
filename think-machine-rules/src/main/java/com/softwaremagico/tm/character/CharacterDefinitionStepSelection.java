@@ -156,7 +156,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                                 capabilityOption.getSelectedSpecialization()))));
                     }
                 } else if (option.getSpecializations() == null
-                        || option.getSpecializations().isEmpty()) {
+                        || option.getSpecializations().size() == 0) {
                     selectedElements.get(i).setSelections(new ArrayList<>(List.of(new Selection(option, null))));
                 } else if (option.getSpecializations().size() == 1) {
                     selectedElements.get(i).setSelections(new ArrayList<>(List.of(new Selection(option,
@@ -181,7 +181,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                         selectedElements.get(i).setSelections(new ArrayList<>());
                     }
                 } else if (option.getSpecializations() == null
-                        || option.getSpecializations().isEmpty()) {
+                        || option.getSpecializations().size() == 0) {
                     selectedElements.get(i).setSelections(new ArrayList<>());
                 } else if (option.getSpecializations().size() == 1) {
                     selectedElements.get(i).setSelections(new ArrayList<>());
@@ -458,7 +458,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                                     phase, getId())).filter(o -> !o.getRestrictions().isRestricted(characterPlayer))
                     .collect(Collectors.toCollection(LinkedHashSet::new));
             //If no option is available. Must select between any not restricted to the character.
-            if (!options.isEmpty()) {
+            if (options.size() != 0) {
                 capabilityOptions.add(new CapabilityOptions(capabilityOption, options));
             } else {
                 final CapabilityOptions newCapabilityOptions = new CapabilityOptions(capabilityOption, CapabilityFactory.getInstance().getElements()
@@ -502,7 +502,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
             // We need to filter again by restriction, as some perks are restricted by character's current level.
             final Set<Selection> availableSelections = getAvailableSelections(originalSelections, getLevel());
             //If no option is available. Must select between any not restricted to the character.
-            if (!addStandardPerksIfEmpty || !availableSelections.isEmpty()) {
+            if (!addStandardPerksIfEmpty || availableSelections.size() != 0) {
                 //Only are the filtered selections available.
                 finalPerkOptions.add(new CharacterPerkOptions(availablePerkOptions, availableSelections));
             } else {

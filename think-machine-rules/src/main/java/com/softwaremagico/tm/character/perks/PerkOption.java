@@ -67,7 +67,7 @@ public class PerkOption extends Option<Perk> {
         final List<PerkOption> finalPerkOptions = this.expandGroup();
         final List<Selection> specializedPerks = new ArrayList<>();
         for (final PerkOption perkOption : finalPerkOptions) {
-            if (perkOption.getSpecializations() != null && !perkOption.getSpecializations().isEmpty()) {
+            if (perkOption.getSpecializations() != null && perkOption.getSpecializations().size() != 0) {
                 perkOption.getSpecializations().forEach(
                         specialization -> specializedPerks.add(new Selection(perkOption.getElement(), specialization)));
             } else {

@@ -69,7 +69,7 @@ public class CharacterSheet {
     }
 
     private void appendProfessionElement(StringBuilder profession, String value) {
-        if (!profession.isEmpty()) {
+        if (profession.length() != 0) {
             profession.append(ELEMENT_SEPARATOR);
         }
         profession.append(value);
@@ -175,7 +175,7 @@ public class CharacterSheet {
 
     private void setCapabilitiesText(StringBuilder stringBuilder) throws InvalidXmlElementException {
         final List<CapabilityWithSpecialization> characterCapabilities = new ArrayList<>(characterPlayer.getCapabilitiesWithSpecialization());
-        if (!characterCapabilities.isEmpty()) {
+        if (characterCapabilities.size() != 0) {
             stringBuilder.append(TextFactory.getInstance().getElement("capabilities").getNameRepresentation()).append(":");
             String separator = " ";
             Collections.sort(characterCapabilities);
@@ -191,7 +191,7 @@ public class CharacterSheet {
     private String getBlessingRepresentation(Blessing blessing) {
         final StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(blessing.getNameRepresentation());
-        if (!blessing.getDescriptionRepresentation().isEmpty()) {
+        if (blessing.getDescriptionRepresentation().length() != 0) {
             stringBuilder.append(" (");
             stringBuilder.append(blessing.getDescriptionRepresentation());
             stringBuilder.append(")");
@@ -201,7 +201,7 @@ public class CharacterSheet {
 
     private void setPerksText(StringBuilder stringBuilder) throws InvalidXmlElementException {
         final List<SpecializedPerk> perks = new ArrayList<>(characterPlayer.getPerks());
-        if (!perks.isEmpty()) {
+        if (perks.size() != 0) {
             stringBuilder.append(TextFactory.getInstance().getElement("perks").getNameRepresentation()).append(":");
             String separator = " ";
             Collections.sort(perks);
@@ -305,7 +305,7 @@ public class CharacterSheet {
 
     private void setOccultismPowers(StringBuilder stringBuilder) throws InvalidXmlElementException {
         String separator = "";
-        if (!getCharacterPlayer().getSelectedPowers().isEmpty()) {
+        if (getCharacterPlayer().getSelectedPowers().size() != 0) {
             stringBuilder.append(TextFactory.getInstance().getElement("occultismPowers").getNameRepresentation() + ": ");
             final List<String> paths = new ArrayList<>(getCharacterPlayer().getSelectedPowers().keySet());
             Collections.sort(paths);
@@ -334,7 +334,7 @@ public class CharacterSheet {
         for (final Weapon weapon : getCharacterPlayer().getWeapons()) {
             stringBuilder.append("\t- ").append(weapon.getName());
             stringBuilder.append(" (");
-            if (weapon.getWeaponDamages().get(0).getGoal() != null && !weapon.getWeaponDamages().get(0).getGoal().isEmpty()
+            if (weapon.getWeaponDamages().get(0).getGoal() != null && weapon.getWeaponDamages().get(0).getGoal().length() != 0
                     && !weapon.getWeaponDamages().get(0).getGoal().equals("0")) {
                 stringBuilder.append(weapon.getWeaponDamages().get(0).getGoal());
                 stringBuilder.append(TextFactory.getInstance().getElement("weaponGoal").getNameRepresentation());
@@ -347,11 +347,11 @@ public class CharacterSheet {
                 stringBuilder.append(weapon.getWeaponDamages().get(0).getAreaMeters());
             }
             stringBuilder.append(ELEMENT_SEPARATOR);
-            if (weapon.getWeaponDamages().get(0).getRange() != null && !weapon.getWeaponDamages().get(0).getRange().isEmpty()) {
+            if (weapon.getWeaponDamages().get(0).getRange() != null && weapon.getWeaponDamages().get(0).getRange().length() != 0) {
                 stringBuilder.append(weapon.getWeaponDamages().get(0).getRange());
                 stringBuilder.append(ELEMENT_SEPARATOR);
             }
-            if (weapon.getWeaponDamages().get(0).getRate() != null && !weapon.getWeaponDamages().get(0).getRate().isEmpty()) {
+            if (weapon.getWeaponDamages().get(0).getRate() != null && weapon.getWeaponDamages().get(0).getRate().length() != 0) {
                 stringBuilder.append(TextFactory.getInstance().getElement("weaponRate").getNameRepresentation());
                 stringBuilder.append(" ");
                 stringBuilder.append(weapon.getWeaponDamages().get(0).getRate());
@@ -439,7 +439,7 @@ public class CharacterSheet {
                 data.append(separator).append(TextFactory.getInstance().getElement("techCompulsion").getNameRepresentation()).append(" ")
                         .append(TechCompulsionFactory.getInstance().getElement(item.getTechCompulsion()).getNameRepresentation());
             }
-            if (!data.isEmpty()) {
+            if (data.length() != 0) {
                 stringBuilder.append(" (");
                 stringBuilder.append(data);
                 stringBuilder.append(")");
@@ -479,14 +479,14 @@ public class CharacterSheet {
     }
 
     private void setCyberdevices(StringBuilder stringBuilder) {
-        if (!getCharacterPlayer().getCyberdevices().isEmpty()) {
+        if (getCharacterPlayer().getCyberdevices().size() != 0) {
             stringBuilder.append("\n");
             stringBuilder.append(TextFactory.getInstance().getElement("cyberdevices").getNameRepresentation()).append(":\n");
 
             for (final Cyberdevice cyberdevice : getCharacterPlayer().getCyberdevices()) {
                 stringBuilder.append("\t- ").append(cyberdevice.getName());
                 final StringBuilder data = buildCyberdeviceData(cyberdevice);
-                if (!data.isEmpty()) {
+                if (data.length() != 0) {
                     stringBuilder.append(" (");
                     stringBuilder.append(data);
                     stringBuilder.append(")");
@@ -497,7 +497,7 @@ public class CharacterSheet {
     }
 
     private void setEquipment(StringBuilder stringBuilder) {
-        if (!getCharacterPlayer().getWeapons().isEmpty() || getCharacterPlayer().getBestShield() != null
+        if (getCharacterPlayer().getWeapons().size() != 0 || getCharacterPlayer().getBestShield() != null
                 || getCharacterPlayer().getBestArmor() != null || getCharacterPlayer().getItems() != null) {
             stringBuilder.append(TextFactory.getInstance().getElement("equipment").getNameRepresentation()).append(":\n");
             setWeapons(stringBuilder);

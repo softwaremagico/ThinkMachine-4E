@@ -198,7 +198,7 @@ public final class ThreatLevel {
      */
     private static int getThreatLevel(Weapon weapon) {
         try {
-            if (weapon == null || weapon.getWeaponDamages().isEmpty()) {
+            if (weapon == null || weapon.getWeaponDamages().size() == 0) {
                 return 1;
             }
 

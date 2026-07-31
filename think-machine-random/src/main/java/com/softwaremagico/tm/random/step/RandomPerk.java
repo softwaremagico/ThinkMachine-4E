@@ -68,7 +68,7 @@ public class RandomPerk extends RandomSelector<Selection> {
         }
         //Reduce the elements with multiple specializations.
         final Perk sourcePerk = PerkFactory.getInstance().getElement(element);
-        if (sourcePerk.getSpecializations() != null && !sourcePerk.getSpecializations().isEmpty()) {
+        if (sourcePerk.getSpecializations() != null && sourcePerk.getSpecializations().size() != 0) {
             return (int) Math.ceil((double) BASIC_PROBABILITY / sourcePerk.getSpecializations().size());
         }
         //Ensure occultists and theurgist has the needed perks.

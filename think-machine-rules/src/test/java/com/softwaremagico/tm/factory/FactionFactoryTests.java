@@ -96,7 +96,7 @@ public class FactionFactoryTests extends FactoryTest {
 	public void checkRestriction() throws InvalidXmlElementException {
 		final Faction brotherBattle = FactionFactory.getInstance().getElement("brotherBattle");
 		Assert.assertNotNull(brotherBattle);
-		Assert.assertFalse(brotherBattle.getRestrictions().getRestrictedToUpbringing().isEmpty());
+		Assert.assertFalse(brotherBattle.getRestrictions().getRestrictedToUpbringing().size() == 0);
 	}
 
 	@Test(dependsOnMethods = "checkTotalElementsOnlyOnFS4E")

@@ -60,7 +60,7 @@ public class SpecieCharacterDefinitionStepSelection extends CharacterDefinitionS
         //Vorox forces main characteristics.
         final Specie specie = SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId());
         if (specie != null && getCharacterPlayer().getPrimaryCharacteristic() != null && getCharacterPlayer().getSecondaryCharacteristic() != null) {
-            if (specie.getPrimaryCharacteristics() != null && !specie.getPrimaryCharacteristics().isEmpty()
+            if (specie.getPrimaryCharacteristics() != null && specie.getPrimaryCharacteristics().size() != 0
                     && Collections.disjoint(specie.getPrimaryCharacteristics(),
                     List.of(getCharacterPlayer().getPrimaryCharacteristic(), getCharacterPlayer().getSecondaryCharacteristic()))) {
                 throw new InvalidSpecieException("Primary or secondary characteristic must be any of '" + specie.getPrimaryCharacteristics() + "'.");

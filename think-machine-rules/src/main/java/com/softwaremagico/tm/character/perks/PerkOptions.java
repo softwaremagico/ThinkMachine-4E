@@ -72,7 +72,7 @@ public class PerkOptions extends OptionSelector<Perk, PerkOption> {
 
     @Override
     public LinkedHashSet<PerkOption> getOptions() {
-        if (this.finalPerks == null || this.finalPerks.isEmpty()) {
+        if (this.finalPerks == null || this.finalPerks.size() == 0) {
             this.initFinalPerks();
         }
         return new LinkedHashSet<>(this.finalPerks);
@@ -109,7 +109,7 @@ public class PerkOptions extends OptionSelector<Perk, PerkOption> {
                 if (option.getId() != null) {
                     PerkFactory.getInstance().getElement(option.getId());
                 } else if (option.getGroup() != null
-                        && PerkFactory.getInstance().getElementsByGroup(option.getGroup()).isEmpty()) {
+                        && PerkFactory.getInstance().getElementsByGroup(option.getGroup()).size() == 0) {
                     throw new InvalidXmlElementException("Invalid group '" + option.getGroup() + "' on perk. ");
                 }
             });

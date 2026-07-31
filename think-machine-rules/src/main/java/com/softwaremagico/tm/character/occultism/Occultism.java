@@ -123,7 +123,7 @@ public class Occultism {
         // Psi must have previous level.
         if (OccultismTypeFactory.getPsi() != null
                 && Objects.equals(path.getOccultismType(), OccultismTypeFactory.getPsi().getId())
-                && (!this.hasPreviousLevelPower(path, power) && !path.getPreviousLevelPowers(power).isEmpty())) {
+                && (!this.hasPreviousLevelPower(path, power) && path.getPreviousLevelPowers(power).size() != 0)) {
             throw new InvalidPowerLevelException(
                     "At least one power from '" + path.getPreviousLevelPowers(power) + "' must be selected.");
         }

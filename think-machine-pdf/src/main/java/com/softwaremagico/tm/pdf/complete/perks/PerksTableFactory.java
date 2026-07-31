@@ -75,7 +75,7 @@ public class PerksTableFactory extends BaseElement {
                 final Faction faction = FactionFactory.getInstance().getElement(characterPlayer.getFaction().getId());
                 perks.addAll(SpecializedPerk.create(faction.getPerks()));
             }
-            if (!perks.isEmpty()) {
+            if (perks.size() != 0) {
                 Collections.sort(perks);
                 for (Perk perk : perks) {
                     final String text = perk.getName().getTranslatedText();

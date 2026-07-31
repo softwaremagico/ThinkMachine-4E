@@ -57,7 +57,7 @@ public class FindFailingSeedTest {
                 Assert.assertNotNull(characterPlayer.getSecondaryCharacteristic());
                 Assert.assertNotNull(characterPlayer.getFaction());
                 Assert.assertNotNull(characterPlayer.getInfo().getPlanet());
-                Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
+                Assert.assertFalse(characterPlayer.getInfo().getNames().size() == 0);
                 Assert.assertNotNull(characterPlayer.getInfo().getSurname());
 
                 try {

@@ -50,6 +50,6 @@ public class RandomCyberdeviceTest {
 
         final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer);
         randomizeCharacter.createCharacter();
-        Assert.assertFalse(characterPlayer.getCyberdevices().isEmpty());
+        Assert.assertFalse(characterPlayer.getCyberdevices().size() == 0);
     }
 }

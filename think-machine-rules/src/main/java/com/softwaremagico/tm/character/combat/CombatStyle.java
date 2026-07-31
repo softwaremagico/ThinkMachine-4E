@@ -96,7 +96,7 @@ public class CombatStyle extends Element {
     }
 
     public boolean isAvailable(CharacterPlayer characterPlayer) {
-        return getRestrictions().getRestrictedToSpecies().isEmpty() || (characterPlayer.getSpecie() != null
+        return getRestrictions().getRestrictedToSpecies().size() == 0 || (characterPlayer.getSpecie() != null
                 && getRestrictions().getRestrictedToSpecies().contains(characterPlayer.getSpecie().getId()));
     }
 

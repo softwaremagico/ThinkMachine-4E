@@ -59,7 +59,7 @@ public class CapabilityFactoryTest extends FactoryTest {
 	@Test
 	public void checkSpecializations() throws InvalidXmlElementException {
 		Assert.assertEquals(CapabilityFactory.getInstance().getElement("beastLore").getSpecializations().size(), 2);
-		Assert.assertFalse(CapabilityFactory.getInstance().getElement("speak").getSpecializations().isEmpty());
+		Assert.assertFalse(CapabilityFactory.getInstance().getElement("speak").getSpecializations().size() == 0);
 	}
 
 	@Test

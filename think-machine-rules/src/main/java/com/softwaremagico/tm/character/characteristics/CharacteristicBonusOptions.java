@@ -44,7 +44,7 @@ public class CharacteristicBonusOptions extends OptionSelector<CharacteristicDef
         if (finalCharacteristics == null) {
             try {
                 finalCharacteristics = new LinkedHashSet<>();
-                if (super.getOptions() == null || super.getOptions().isEmpty()) {
+                if (super.getOptions() == null || super.getOptions().size() == 0) {
                     finalCharacteristics.addAll(CharacteristicsDefinitionFactory.getInstance().getSelectableElements().stream()
                             .map(CharacteristicBonusOption::new).toList());
                 } else {
@@ -82,7 +82,7 @@ public class CharacteristicBonusOptions extends OptionSelector<CharacteristicDef
     }
 
     public int getBonus() {
-        if (super.getOptions() != null && !super.getOptions().isEmpty()) {
+        if (super.getOptions() != null && super.getOptions().size() != 0) {
             return getOptions().iterator().next().getBonus();
         }
         return 1;

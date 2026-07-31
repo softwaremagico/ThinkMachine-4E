@@ -90,7 +90,7 @@ public class FileWatcher {
             }
         }
 
-        if (!filesNames.isEmpty()) {
+        if (filesNames.size() != 0) {
             startWatcher(filesNames);
         }
     }

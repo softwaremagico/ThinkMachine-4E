@@ -91,7 +91,7 @@ public class CyberdevicesFactoryTests extends FactoryTest {
         };
         characterPlayer.getSettings().setOnlyOfficialAllowed(true);
 
-        Assert.assertTrue(characterPlayer.getCyberdevices().isEmpty());
+        Assert.assertTrue(characterPlayer.getCyberdevices().size() == 0);
     }
 
     @Test

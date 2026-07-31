@@ -86,7 +86,7 @@ public class WeaponsTableFactory extends BaseElement {
         int addedWeapons = 0;
         if (characterPlayer != null) {
             for (final Weapon weapon : characterPlayer.getWeapons()) {
-                if (weapon.getWeaponDamages().isEmpty()) {
+                if (weapon.getWeaponDamages().size() == 0) {
                     continue;
                 }
                 setDamageLine(table, weapon, weapon.getWeaponDamages().get(0),

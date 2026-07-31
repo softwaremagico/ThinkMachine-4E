@@ -181,7 +181,7 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
         final List<String> primaryCharacteristics = specie != null ? specie.getPrimaryCharacteristics() : null;
 
         final boolean restrictToPrimaryList;
-        if (primaryCharacteristics == null || primaryCharacteristics.isEmpty()) {
+        if (primaryCharacteristics == null || primaryCharacteristics.size() == 0) {
             restrictToPrimaryList = false;
         } else if (primarySelection) {
             // Primary must always be in the list when the list is defined.

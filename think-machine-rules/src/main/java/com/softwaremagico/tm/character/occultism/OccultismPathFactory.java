@@ -98,7 +98,7 @@ public final class OccultismPathFactory extends XmlFactory<OccultismPath> {
     }
 
     public List<OccultismPath> getPsiPaths() {
-        if (this.psiPaths.isEmpty()) {
+        if (this.psiPaths.size() == 0) {
             try {
                 for (final OccultismPath path : this.getElements()) {
                     if (OccultismTypeFactory.getPsi() != null
@@ -115,7 +115,7 @@ public final class OccultismPathFactory extends XmlFactory<OccultismPath> {
     }
 
     public List<OccultismPower> getPsiPowers() {
-        if (this.psiPowers.isEmpty()) {
+        if (this.psiPowers.size() == 0) {
             try {
                 for (final OccultismPath path : this.getPsiPaths()) {
                     this.psiPowers.addAll(path.getOccultismPowersElements());
@@ -128,7 +128,7 @@ public final class OccultismPathFactory extends XmlFactory<OccultismPath> {
     }
 
     public List<OccultismPath> getTheurgyPaths() {
-        if (this.theurgyPaths.isEmpty()) {
+        if (this.theurgyPaths.size() == 0) {
             try {
                 for (final OccultismPath path : this.getElements()) {
                     if (OccultismTypeFactory.getTheurgy() != null
@@ -145,7 +145,7 @@ public final class OccultismPathFactory extends XmlFactory<OccultismPath> {
     }
 
     public List<OccultismPower> getTheurgyPowers() {
-        if (this.theurgyPowers.isEmpty()) {
+        if (this.theurgyPowers.size() == 0) {
             try {
                 for (final OccultismPath path : this.getTheurgyPaths()) {
                     this.theurgyPowers.addAll(path.getOccultismPowersElements());

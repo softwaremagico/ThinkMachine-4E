@@ -56,10 +56,10 @@ public class SkillBonusOptions extends OptionSelector<Skill, SkillBonusOption> {
     public LinkedHashSet<SkillBonusOption> getOptions() {
         if (this.finalSkills == null) {
             try {
-                if (super.getOptions() == null || super.getOptions().isEmpty()
-                        || (!super.getOptions().isEmpty() && super.getOptions().iterator().next().getId() == null)) {
+                if (super.getOptions() == null || super.getOptions().size() == 0
+                        || (super.getOptions().size() != 0 && super.getOptions().iterator().next().getId() == null)) {
                     this.finalSkills = new LinkedHashSet<>();
-                    if (super.getOptions() != null && !super.getOptions().isEmpty()) {
+                    if (super.getOptions() != null && super.getOptions().size() != 0) {
                         this.finalSkills.addAll(SkillFactory.getInstance().getElements().stream().map(
                                 skill -> new SkillBonusOption(skill, super.getOptions().iterator().next().getBonus()))
                                 .toList());
@@ -86,7 +86,7 @@ public class SkillBonusOptions extends OptionSelector<Skill, SkillBonusOption> {
     }
 
     public int getBonus() {
-        if (super.getOptions() != null && !super.getOptions().isEmpty()) {
+        if (super.getOptions() != null && super.getOptions().size() != 0) {
             return this.getOptions().iterator().next().getBonus();
         }
         return 1;
@@ -105,7 +105,7 @@ public class SkillBonusOptions extends OptionSelector<Skill, SkillBonusOption> {
                 if (option.getId() != null) {
                     SkillFactory.getInstance().getElement(option.getId());
                 } else if (option.getGroup() != null
-                        && SkillFactory.getInstance().getElementsByGroup(option.getGroup()).isEmpty()) {
+                        && SkillFactory.getInstance().getElementsByGroup(option.getGroup()).size() == 0) {
                     throw new InvalidXmlElementException("Invalid group '" + option.getGroup() + "' on skill. ");
                 }
             });

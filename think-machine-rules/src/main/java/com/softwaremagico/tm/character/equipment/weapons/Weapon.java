@@ -81,7 +81,7 @@ public class Weapon extends Equipment {
     }
 
     public boolean isAutomaticWeapon() {
-        if (!this.weaponDamages.isEmpty() && this.weaponDamages.get(0).getRate() != null) {
+        if (this.weaponDamages.size() != 0 && this.weaponDamages.get(0).getRate() != null) {
             return this.weaponDamages.get(0).getRate().toLowerCase().contains("a");
         }
         return false;
@@ -139,7 +139,7 @@ public class Weapon extends Equipment {
         // Damage types
         final StringBuilder stringBuilder = new StringBuilder();
         for (final String damageType : this.getDamageTypes()) {
-            if (stringBuilder.isEmpty()) {
+            if (stringBuilder.length() == 0) {
                 stringBuilder.append(", ");
             }
             try {
@@ -151,8 +151,8 @@ public class Weapon extends Equipment {
         }
 
         // Others
-        if (this.getSpecial() != null && !this.getSpecial().isEmpty()) {
-            if (stringBuilder.isEmpty()) {
+        if (this.getSpecial() != null && this.getSpecial().length() != 0) {
+            if (stringBuilder.length() == 0) {
                 stringBuilder.append(" / ");
             }
             stringBuilder.append(this.getSpecial());

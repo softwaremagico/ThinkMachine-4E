@@ -92,7 +92,7 @@ public class PerkFactory extends XmlFactory<Perk> {
         if (classPrivilegeSelections == null) {
             classPrivilegeSelections = new HashSet<>();
             getClassPrivilegePerks().forEach(perk -> {
-                if (perk.getSpecializations() != null && !perk.getSpecializations().isEmpty()) {
+                if (perk.getSpecializations() != null && perk.getSpecializations().size() != 0) {
                     for (Specialization specialization : perk.getSpecializations()) {
                         classPrivilegeSelections.add(new Selection(perk, specialization));
                     }

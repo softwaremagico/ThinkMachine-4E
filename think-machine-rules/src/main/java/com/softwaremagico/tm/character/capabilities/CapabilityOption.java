@@ -68,7 +68,7 @@ public class CapabilityOption extends Option<Capability> implements IComparable 
 
     public static Set<CapabilityOption> getCapabilityOptions(Capability capability) {
         final Set<CapabilityOption> capabilityOptions = new HashSet<>();
-        if (capability.getSpecializations() == null || capability.getSpecializations().isEmpty()) {
+        if (capability.getSpecializations() == null || capability.getSpecializations().size() == 0) {
             capabilityOptions.add(new CapabilityOption(capability));
         } else {
             capability.getSpecializations().forEach(specialization ->
@@ -132,7 +132,7 @@ public class CapabilityOption extends Option<Capability> implements IComparable 
         super.validate();
         if (getId() != null) {
             CapabilityFactory.getInstance().getElement(getId());
-        } else if (getGroup() != null && CapabilityFactory.getInstance().getElementsByGroup(getGroup()).isEmpty()) {
+        } else if (getGroup() != null && CapabilityFactory.getInstance().getElementsByGroup(getGroup()).size() == 0) {
             throw new InvalidXmlElementException("Invalid group '" + getGroup() + "' on capability. ");
         }
         if (selectedSpecialization != null && !CapabilityFactory.getInstance().getElement(getId()).getSpecializations().contains(selectedSpecialization)) {

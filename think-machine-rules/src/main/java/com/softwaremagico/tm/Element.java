@@ -233,7 +233,7 @@ public class Element extends XmlData implements Comparable<Element> {
 
     @Override
     public String toString() {
-        if (getSpecializations() == null || getSpecializations().isEmpty()) {
+        if (getSpecializations() == null || getSpecializations().size() == 0) {
             return getId();
         }
         return getId() + " " + getSpecializations();
@@ -339,7 +339,7 @@ public class Element extends XmlData implements Comparable<Element> {
                 throw new InvalidXmlElementException("Error on '" + getId() + "'.", e);
             }
         }
-        if (getName() == null && getId() != null && !getId().isEmpty()) {
+        if (getName() == null && getId() != null && getId().length() != 0) {
             throw new InvalidXmlElementException("Name not set on Element '" + getId() + "'.");
         }
         if (getName() != null) {

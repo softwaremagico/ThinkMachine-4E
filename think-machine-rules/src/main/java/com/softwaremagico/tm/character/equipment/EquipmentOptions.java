@@ -59,7 +59,7 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
     public LinkedHashSet<EquipmentOption> getOptions() {
         if (finalItems == null) {
             finalItems = new LinkedHashSet<>();
-            if (super.getOptions() != null && !super.getOptions().isEmpty()) {
+            if (super.getOptions() != null && super.getOptions().size() != 0) {
                 super.getOptions().forEach(item -> {
                     final List<EquipmentOption> optionItems = new ArrayList<>();
                     if (item.getId() != null) {
@@ -160,7 +160,7 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
                         .map(EquipmentOption::new).toList());
             }
             //Filter by required properties.
-            if (getRequiredProperty() != null && !getRequiredProperty().isEmpty()) {
+            if (getRequiredProperty() != null && getRequiredProperty().size() != 0) {
                 finalItems = finalItems.stream().filter(item2 -> item2.getExtras().containsAll(getRequiredProperty()))
                         .collect(Collectors.toCollection(LinkedHashSet::new));
             }
@@ -187,7 +187,7 @@ public class EquipmentOptions extends OptionSelector<Equipment, EquipmentOption>
         super.validate();
         if (getOptions() != null) {
             getOptions().forEach(option -> {
-                if (option.getId() != null && !option.getId().isEmpty() && option.getElement(option.getId()) == null) {
+                if (option.getId() != null && option.getId().length() != 0 && option.getElement(option.getId()) == null) {
                     throw new InvalidXmlElementException("Option with id '" + option.getId() + "' does not exist");
                 }
             });

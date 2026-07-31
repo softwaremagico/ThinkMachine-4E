@@ -78,7 +78,7 @@ public class RandomEquipmentTests {
         final CharacterPlayer characterPlayer = generateCharacterPlayerWithCash();
         RandomMeleeWeapon randomMeleeWeapon = new RandomMeleeWeapon(characterPlayer, convert(AttackPreferences.MELEE));
         randomMeleeWeapon.updateWeights();
-        Assert.assertFalse(randomMeleeWeapon.getWeightedElements().isEmpty());
+        Assert.assertFalse(randomMeleeWeapon.getWeightedElements().size() == 0);
     }
 
     @Test(expectedExceptions = InvalidXmlElementException.class)
@@ -93,7 +93,7 @@ public class RandomEquipmentTests {
         final CharacterPlayer characterPlayer = generateCharacterPlayerWithCash();
         RandomRangeWeapon randomRangeWeapon = new RandomRangeWeapon(characterPlayer, convert(AttackPreferences.RANGED));
         randomRangeWeapon.updateWeights();
-        Assert.assertFalse(randomRangeWeapon.getWeightedElements().isEmpty());
+        Assert.assertFalse(randomRangeWeapon.getWeightedElements().size() == 0);
     }
 
     @Test(expectedExceptions = InvalidXmlElementException.class)
@@ -108,7 +108,7 @@ public class RandomEquipmentTests {
         final CharacterPlayer characterPlayer = generateCharacterPlayerWithCash();
         RandomArmor randomArmor = new RandomArmor(characterPlayer, convert(DefensePreference.ARMOR));
         randomArmor.updateWeights();
-        Assert.assertFalse(randomArmor.getWeightedElements().isEmpty());
+        Assert.assertFalse(randomArmor.getWeightedElements().size() == 0);
     }
 
     @Test(expectedExceptions = InvalidXmlElementException.class)
@@ -124,7 +124,7 @@ public class RandomEquipmentTests {
         RandomShield randomShield = new RandomShield(characterPlayer, convert(DefensePreference.SHIELD));
         randomShield.updateWeights();
         //TODO(softwaremagico): Tech level is not correct yet!
-        Assert.assertFalse(randomShield.getWeightedElements().isEmpty());
+        Assert.assertFalse(randomShield.getWeightedElements().size() == 0);
     }
 
     @Test

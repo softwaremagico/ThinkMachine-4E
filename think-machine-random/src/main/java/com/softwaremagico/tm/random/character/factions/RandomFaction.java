@@ -79,7 +79,7 @@ public class RandomFaction extends RandomSelector<Faction> implements Assignable
     @Override
     protected int getWeight(Faction faction) throws InvalidRandomElementSelectedException {
         // Humans only humans factions.
-        if (!faction.getRestrictions().getRestrictedToSpecies().isEmpty() && getCharacterPlayer().getSpecie() != null
+        if (faction.getRestrictions().getRestrictedToSpecies().size() != 0 && getCharacterPlayer().getSpecie() != null
                 && !faction.getRestrictions().getRestrictedToSpecies().contains(getCharacterPlayer().getSpecie().getId())) {
             throw new InvalidRandomElementSelectedException("Faction '" + faction + "' restricted for species '"
                     + faction.getRestrictions().getRestrictedToSpecies()

@@ -508,7 +508,7 @@ public class CharacterPlayer {
 
     private void appendSkillBonusIfPresent(StringBuilder stringBuilder, String source, int bonus) {
         if (bonus > 0) {
-            if (!stringBuilder.isEmpty()) {
+            if (stringBuilder.length() != 0) {
                 stringBuilder.append(", ");
             }
             stringBuilder.append(source).append(": ").append(bonus);
@@ -729,7 +729,7 @@ public class CharacterPlayer {
 
     private void appendBonusIfPresent(StringBuilder stringBuilder, String label, int bonus) {
         if (bonus > 0) {
-            if (!stringBuilder.isEmpty()) {
+            if (stringBuilder.length() != 0) {
                 stringBuilder.append(", ");
             }
             stringBuilder.append(label).append(": ").append(bonus);
@@ -999,7 +999,7 @@ public class CharacterPlayer {
      */
     public boolean hasOption(PerkOption perk, Phase phase, Integer level) {
         final ArrayList<Selection> possibleSelections = new ArrayList<>();
-        if (perk.getSpecializations() == null || perk.getSpecializations().isEmpty()) {
+        if (perk.getSpecializations() == null || perk.getSpecializations().size() == 0) {
             possibleSelections.add(new Selection(perk));
         } else {
             for (final Specialization specialization : perk.getSpecializations()) {
@@ -1007,7 +1007,7 @@ public class CharacterPlayer {
             }
         }
         this.removePerkSelectionsFromPhases(possibleSelections, phase, level);
-        return !possibleSelections.isEmpty();
+        return possibleSelections.size() != 0;
     }
 
     public boolean hasSelection(Selection perkSelection, CharacterDefinitionStepSelection step) {
@@ -1063,7 +1063,7 @@ public class CharacterPlayer {
             String phaseName) {
         final Collection<Selection> nextPerks = new HashSet<>(phasePerks);
         phasePerks.retainAll(completePerkList);
-        if (!phasePerks.isEmpty()) {
+        if (phasePerks.size() != 0) {
             for (final Selection perk : phasePerks) {
                 if (!this.isRepeatablePerk(perk)) {
                     throw new InvalidXmlElementException("Duplicated perks '" + phasePerks + "' on " + phaseName + ".");
@@ -1078,7 +1078,7 @@ public class CharacterPlayer {
             final Collection<Selection> levelPerks = this.getPerks(levelSelector);
             final Collection<Selection> nextPerks = new ArrayList<>(levelPerks);
             levelPerks.retainAll(completePerkList);
-            if (!levelPerks.isEmpty()) {
+            if (levelPerks.size() != 0) {
                 for (final Selection perk : levelPerks) {
                     if (!this.isRepeatablePerk(perk)) {
                         throw new InvalidXmlElementException(
@@ -1120,7 +1120,7 @@ public class CharacterPlayer {
         Collection<String> nextCapabilities = new HashSet<>(upbringingCapabilities);
 
         upbringingCapabilities.retainAll(completeCapabilitiesList);
-        if (!upbringingCapabilities.isEmpty()) {
+        if (upbringingCapabilities.size() != 0) {
             throw new InvalidXmlElementException("Duplicated capability '" + upbringingCapabilities
                     + "' on upbringing '" + this.getUpbringing() + "'.");
         }
@@ -1128,7 +1128,7 @@ public class CharacterPlayer {
 
         nextCapabilities = new ArrayList<>(factionCapabilities);
         factionCapabilities.retainAll(completeCapabilitiesList);
-        if (!factionCapabilities.isEmpty()) {
+        if (factionCapabilities.size() != 0) {
             throw new InvalidXmlElementException(
                     "Duplicated capability '" + upbringingCapabilities + "' on faction '" + this.getFaction() + "'.");
         }
@@ -1136,7 +1136,7 @@ public class CharacterPlayer {
 
         nextCapabilities = new ArrayList<>(callingCapabilities);
         callingCapabilities.retainAll(completeCapabilitiesList);
-        if (!callingCapabilities.isEmpty()) {
+        if (callingCapabilities.size() != 0) {
             throw new InvalidXmlElementException(
                     "Duplicated capability '" + callingCapabilities + "' on calling '" + this.getCalling() + "'.");
         }
@@ -1146,7 +1146,7 @@ public class CharacterPlayer {
             final Collection<String> levelCapabilities = this.getCapabilities(levelSelector);
             nextCapabilities = new ArrayList<>(levelCapabilities);
             levelCapabilities.retainAll(completeCapabilitiesList);
-            if (!levelCapabilities.isEmpty()) {
+            if (levelCapabilities.size() != 0) {
                 throw new InvalidXmlElementException(
                         "Duplicated capability '" + levelCapabilities + "' on level '" + levelSelector + "'.");
             }
@@ -1353,7 +1353,7 @@ public class CharacterPlayer {
      */
     public Armor getBestArmor() {
         final List<Armor> armors = this.getEquipment(Armor.class);
-        if (armors.isEmpty()) {
+        if (armors.size() == 0) {
             return null;
         }
         return Collections.max(armors, Comparator.comparing(Armor::getCost));
@@ -1381,7 +1381,7 @@ public class CharacterPlayer {
      */
     public Shield getBestShield() {
         final List<Shield> shields = this.getEquipment(Shield.class);
-        if (shields.isEmpty()) {
+        if (shields.size() == 0) {
             return null;
         }
         return Collections.max(shields, Comparator.comparing(Shield::getCost));
@@ -1394,7 +1394,7 @@ public class CharacterPlayer {
      */
     public HandheldShield getBestHandHandledShield() {
         final List<HandheldShield> handheldShields = this.getEquipment(HandheldShield.class);
-        if (handheldShields.isEmpty()) {
+        if (handheldShields.size() == 0) {
             return null;
         }
         return Collections.max(handheldShields, Comparator.comparing(HandheldShield::getCost));
@@ -1740,10 +1740,10 @@ public class CharacterPlayer {
     }
 
     private OccultismType checkSelectedPowerOccultismType() throws InvalidXmlElementException {
-        if (!this.getOccultism().getSelectedPowers().isEmpty()) {
+        if (this.getOccultism().getSelectedPowers().size() != 0) {
             final Map.Entry<String, List<OccultismPower>> occultismPowers = this.getOccultism().getSelectedPowers()
                     .entrySet().iterator().next();
-            if (occultismPowers.getValue() != null && !occultismPowers.getValue().isEmpty()) {
+            if (occultismPowers.getValue() != null && occultismPowers.getValue().size() != 0) {
                 final OccultismPower occultismPower = occultismPowers.getValue().iterator().next();
                 if (OccultismPathFactory.getInstance().getOccultismPath(occultismPower) != null) {
                     return OccultismTypeFactory.getInstance().getElement(

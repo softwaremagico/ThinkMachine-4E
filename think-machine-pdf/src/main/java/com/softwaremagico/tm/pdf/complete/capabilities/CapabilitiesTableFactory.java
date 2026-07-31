@@ -78,7 +78,7 @@ public final class CapabilitiesTableFactory extends BaseElement {
         int totalElements = 0;
         if (characterPlayer != null) {
             final List<CapabilityWithSpecialization> capabilities = new ArrayList<>(characterPlayer.getCapabilitiesWithSpecialization());
-            if (!capabilities.isEmpty()) {
+            if (capabilities.size() != 0) {
                 Collections.sort(capabilities);
                 for (CapabilityWithSpecialization capability : capabilities) {
                     final PdfPCell cell = new PdfPCell(new Paragraph(BaseElement.getChunk(capability.getNameRepresentation(), NAME_COLUMN_WIDTH,

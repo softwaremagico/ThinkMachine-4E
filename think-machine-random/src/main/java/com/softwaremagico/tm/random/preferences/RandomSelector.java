@@ -99,7 +99,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
     public boolean updateWeights() throws InvalidXmlElementException {
         weightedElements = assignElementsWeight();
         totalWeight = assignTotalWeight();
-        return !weightedElements.isEmpty();
+        return weightedElements.size() != 0;
     }
 
     private Integer assignTotalWeight() {
@@ -149,7 +149,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             }
         }
         //Last element probability.
-        if (!calculatedWeight.isEmpty()) {
+        if (calculatedWeight.size() != 0) {
             calculatedWeight.put(count, null);
         }
         if (calculatedWeight.size() <= 1) {
@@ -233,12 +233,12 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
                     "Random definition multiplier is '{}'.", element.getRandomDefinition().getProbabilityMultiplier());
             multiplier *= element.getRandomDefinition().getProbabilityMultiplier().getValue();
             // Recommended to a perk
-        } else if (getCharacterPlayer() != null && getCharacterPlayer().getPerks() != null && !element.getRandomDefinition().getRecommendedPerks().isEmpty()
+        } else if (getCharacterPlayer() != null && getCharacterPlayer().getPerks() != null && element.getRandomDefinition().getRecommendedPerks().size() != 0
                 && getCharacterPlayer().getPerks().stream().anyMatch(p -> element.getRandomDefinition().getRecommendedPerks().contains(p.getId()))) {
             RandomValuesLog.debug(this.getClass().getName(), "Random definition recommened by perk.");
             multiplier *= HIGH_MULTIPLIER;
             // Recommended to a perk group
-        } else if (getCharacterPlayer() != null && getCharacterPlayer().getPerks() != null && !element.getRandomDefinition().getRecommendedPerks().isEmpty()
+        } else if (getCharacterPlayer() != null && getCharacterPlayer().getPerks() != null && element.getRandomDefinition().getRecommendedPerks().size() != 0
                 && getCharacterPlayer().getPerks().stream().anyMatch(p -> element.getRandomDefinition().getRecommendedPerksGroups().contains(p.getGroup()))) {
             RandomValuesLog.debug(this.getClass().getName(), "Random definition recommened by perk group.");
             multiplier *= HIGH_MULTIPLIER;
@@ -249,7 +249,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         }
 
         // Recommended by user preferences.
-        if (preferences != null && !preferences.isEmpty()) {
+        if (preferences != null && preferences.size() != 0) {
             final List<String> common = preferences.stream().map(IRandomPreference::name).collect(Collectors.toList());
             common.retainAll(element.getRandomDefinition().getRecommendedPreferences());
             RandomGenerationLog.debug(this.getClass().getName(),
@@ -258,12 +258,12 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         }
 
         // Inadvisable by user preferences.
-        if (preferences != null && !preferences.isEmpty()) {
+        if (preferences != null && preferences.size() != 0) {
             final List<String> common = preferences.stream().map(IRandomPreference::name).collect(Collectors.toList());
             common.retainAll(element.getRandomDefinition().getInadvisablePreferences());
             RandomGenerationLog.debug(this.getClass().getName(),
                     "Random definition divisor '{}'.", (USER_INADVISABLE_DIVISOR * common.size()));
-            if (!common.isEmpty()) {
+            if (common.size() != 0) {
                 multiplier /= (USER_INADVISABLE_DIVISOR * common.size());
             }
         }
@@ -286,7 +286,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
      * @return the adjusted multiplier with ElementType bonus applied
      */
     private double applyElementTypeBonus(Element element, double baseMultiplier) {
-        if (element == null || element.getElementType() == null || preferences == null || preferences.isEmpty()) {
+        if (element == null || element.getElementType() == null || preferences == null || preferences.size() == 0) {
             return baseMultiplier;
         }
 
@@ -374,8 +374,8 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         }
 
         // User preferences forbidden.
-        if (preferences != null && !preferences.isEmpty() && randomDefinition.getForbiddenPreferences() != null
-                && !randomDefinition.getForbiddenPreferences().isEmpty()
+        if (preferences != null && preferences.size() != 0 && randomDefinition.getForbiddenPreferences() != null
+                && randomDefinition.getForbiddenPreferences().size() != 0
                 && !Collections.disjoint(preferences.stream().map(IRandomPreference::name).collect(Collectors.toList()),
                 randomDefinition.getForbiddenPreferences())) {
             throw new InvalidRandomElementSelectedException(
@@ -383,8 +383,8 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         }
 
         // User must have these preferences restriction.
-        if (preferences != null && !preferences.isEmpty() && randomDefinition.getRestrictedPreferences() != null
-                && !randomDefinition.getRestrictedPreferences().isEmpty()
+        if (preferences != null && preferences.size() != 0 && randomDefinition.getRestrictedPreferences() != null
+                && randomDefinition.getRestrictedPreferences().size() != 0
                 && Collections.disjoint(preferences.stream().map(IRandomPreference::name).collect(Collectors.toList()),
                 randomDefinition.getRestrictedPreferences())) {
             throw new InvalidRandomElementSelectedException(
@@ -408,7 +408,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             return element.getRandomDefinition().getStaticProbability();
         }
         //Reduce the elements with multiple specializations.
-        if (element.getSpecializations() != null && !element.getSpecializations().isEmpty()) {
+        if (element.getSpecializations() != null && element.getSpecializations().size() != 0) {
             return (int) Math.ceil((double) BASIC_PROBABILITY / element.getSpecializations().size());
         }
         return BASIC_PROBABILITY;
@@ -420,7 +420,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
      * @throws InvalidRandomElementSelectedException
      */
     public Element selectElementByWeight() throws InvalidRandomElementSelectedException {
-        if ((weightedElements == null || weightedElements.isEmpty() || totalWeight == 0) && !updateWeights()) {
+        if ((weightedElements == null || weightedElements.size() == 0 || totalWeight == 0) && !updateWeights()) {
             throw new InvalidRandomElementSelectedException("No elements to select");
         }
 
@@ -451,7 +451,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
     public Element selectAnyElement() throws InvalidRandomElementSelectedException {
         try {
             final List<Element> availableElements = new ArrayList<>(getAllElements());
-            if (availableElements.isEmpty()) {
+            if (availableElements.size() == 0) {
                 throw new InvalidRandomElementSelectedException("No elements to select");
             }
             return availableElements.get(RANDOM.nextInt(availableElements.size()));

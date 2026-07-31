@@ -130,7 +130,7 @@ public abstract class ConfigurationReader {
             this.propertiesBySourceValues.computeIfAbsent(propertiesSource, k -> new HashMap<String, String>());
 
             if (this.propertiesBySourceValues.get(propertiesSource).get(propertyId) != null
-                    && !this.propertiesBySourceValues.get(propertiesSource).get(propertyId).isEmpty()
+                    && this.propertiesBySourceValues.get(propertiesSource).get(propertyId).length() != 0
                     && !this.propertiesBySourceValues.get(propertiesSource).get(propertyId).equals(value)) {
                 // Launch listeners.
                 for (final PropertyChangedListener propertyChangedListener : this.propertyChangedListeners) {
@@ -255,7 +255,7 @@ public abstract class ConfigurationReader {
         final String value = this.getProperty(propertyName);
         return Arrays.stream(value.split(","))
                 .map(String::trim)
-                .filter(s -> !s.isEmpty())
+                .filter(s -> s.length() != 0)
                 .toArray(String[]::new);
     }
 

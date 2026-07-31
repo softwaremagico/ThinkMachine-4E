@@ -51,7 +51,7 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
 
     @Override
     public void assign() throws InvalidSpecieException, InvalidRandomElementSelectedException {
-        if (getCharacterPlayer().getInfo().getNames() != null && !getCharacterPlayer().getInfo().getNames().isEmpty()) {
+        if (getCharacterPlayer().getInfo().getNames() != null && getCharacterPlayer().getInfo().getNames().size() != 0) {
             return;
         }
         if (getCharacterPlayer().getFaction() == null || getCharacterPlayer().getSpecie() == null
@@ -66,7 +66,7 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
             try {
                 final Name selectedName = selectElementByWeight();
                 if (!selectedNames.contains(selectedName)
-                        && (selectedNames.isEmpty()) || selectedNames.iterator().next().getFaction().equals(selectedName.getFaction())) {
+                        && (selectedNames.size() == 0) || selectedNames.iterator().next().getFaction().equals(selectedName.getFaction())) {
                     getCharacterPlayer().getInfo().addName(selectedName);
                     selectedNames.add(selectedName);
                 }
@@ -80,7 +80,7 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
 
     @Override
     public void assignAny() throws InvalidSpecieException, InvalidRandomElementSelectedException {
-        if (getCharacterPlayer().getInfo().getNames() != null && !getCharacterPlayer().getInfo().getNames().isEmpty()) {
+        if (getCharacterPlayer().getInfo().getNames() != null && getCharacterPlayer().getInfo().getNames().size() != 0) {
             return;
         }
         final String specieId = getCharacterPlayer().getSpecie() != null ? getCharacterPlayer().getSpecie().getId() : null;
@@ -98,7 +98,7 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
             }
         }
 
-        if (!fallbackNames.isEmpty()) {
+        if (fallbackNames.size() != 0) {
             getCharacterPlayer().getInfo().addName(fallbackNames.get(RANDOM.nextInt(fallbackNames.size())));
         } else {
             getCharacterPlayer().getInfo().addName(selectAnyElement());
@@ -137,8 +137,8 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
         }
         // If faction has names (nobility, vuldroks). Use them.
         if (getCharacterPlayer().getFaction() != null
-                && !FactionFactory.getInstance().getAllNames(getCharacterPlayer().getFaction().getId(), getCharacterPlayer().getInfo().getGender())
-                .isEmpty()) {
+                && FactionFactory.getInstance().getAllNames(getCharacterPlayer().getFaction().getId(), getCharacterPlayer().getInfo().getGender())
+                .size() != 0) {
             if (Objects.equals(getCharacterPlayer().getFaction().getId(), name.getFaction())) {
                 return super.getWeight(name);
             } else {
@@ -148,7 +148,7 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
         }
         // Not nobility, use names available on the planet.
         if (getCharacterPlayer().getInfo().getPlanet() != null
-                && !PlanetFactory.getInstance().getElement(getCharacterPlayer().getInfo().getPlanet()).getNames().isEmpty()) {
+                && PlanetFactory.getInstance().getElement(getCharacterPlayer().getInfo().getPlanet()).getNames().size() != 0) {
             //Only human names. Ignore xenos.
             if (new HashSet<>(PlanetFactory.getInstance().getElement(getCharacterPlayer().getInfo().getPlanet())
                     .getHumanFactions()).contains(name.getFaction())) {
@@ -160,7 +160,7 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
         }
         // Planet without factions. Then choose own faction names
         if (getCharacterPlayer().getFaction() != null
-                && !FactionFactory.getInstance().getAllNames(getCharacterPlayer().getFaction().getId()).isEmpty()
+                && FactionFactory.getInstance().getAllNames(getCharacterPlayer().getFaction().getId()).size() != 0
                 && !getCharacterPlayer().getFaction().getId().equals(name.getFaction())) {
             throw new InvalidRandomElementSelectedException("Name '" + name + "' from an invalid faction '"
                     + getCharacterPlayer().getFaction() + "'.");

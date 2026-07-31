@@ -197,7 +197,7 @@ public class Specie extends CharacterDefinitionStep {
     public int getSkillsTotalPoints() {
         // Species may define fixed skill bonuses/penalties (e.g. z'go unskilled -3 in some skills).
         return getSkillOptions().stream()
-                .filter(skillOptions -> skillOptions.getOptions() != null && !skillOptions.getOptions().isEmpty())
+                .filter(skillOptions -> skillOptions.getOptions() != null && skillOptions.getOptions().size() != 0)
                 .mapToInt(skillOptions -> skillOptions.getTotalOptions() * skillOptions.getOptions().iterator().next().getBonus())
                 .sum();
     }

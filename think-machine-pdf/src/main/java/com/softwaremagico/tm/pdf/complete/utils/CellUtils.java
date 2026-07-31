@@ -50,7 +50,7 @@ public final class CellUtils {
     public static String getSubStringFitsIn(String originalText, BaseFont font, int fontSize, float width) {
         String text = originalText;
 
-        while (!fitsIn(text, font, fontSize, width) && !text.isEmpty()) {
+        while (!fitsIn(text, font, fontSize, width) && text.length() != 0) {
             text = text.substring(0, text.length() - 1);
         }
         return text;

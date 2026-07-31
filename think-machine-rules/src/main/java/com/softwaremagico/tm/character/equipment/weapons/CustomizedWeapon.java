@@ -45,7 +45,7 @@ public class CustomizedWeapon extends Weapon {
         if (this.getQuality() != null && this.getQuality() != Quality.STANDARD) {
             stringBuilder.append(TextFactory.getInstance().getElement(this.getQuality().name().toLowerCase()));
         }
-        if (!stringBuilder.isEmpty()) {
+        if (stringBuilder.length() != 0) {
             stringBuilder.append(", ");
         }
         if (this.getStatus() != null) {
@@ -53,7 +53,7 @@ public class CustomizedWeapon extends Weapon {
         }
 
         final String standardOthers = super.getWeaponOthersText();
-        if (!stringBuilder.isEmpty() && !standardOthers.isEmpty()) {
+        if (stringBuilder.length() != 0 && standardOthers.length() != 0) {
             stringBuilder.append(", ");
             stringBuilder.append(standardOthers);
         }

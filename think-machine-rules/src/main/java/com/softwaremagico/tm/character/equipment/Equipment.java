@@ -316,7 +316,7 @@ public abstract class Equipment extends Element implements IElementWithTechnolog
             return true;
         }
         return !restrictions.isRestricted()
-                && restrictions.getRestrictedToSpecies().isEmpty()
-                && restrictions.getRestrictedToCallings().isEmpty();
+                && restrictions.getRestrictedToSpecies().size() == 0
+                && restrictions.getRestrictedToCallings().size() == 0;
     }
 }
