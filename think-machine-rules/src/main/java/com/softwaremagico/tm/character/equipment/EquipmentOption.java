@@ -75,38 +75,38 @@ public class EquipmentOption extends Option<Equipment> {
 
     public EquipmentOption(Option<Equipment> equipment) {
         this();
-        setId(equipment.getId());
-        setQuantity(equipment.getQuantity());
+        this.setId(equipment.getId());
+        this.setQuantity(equipment.getQuantity());
     }
 
     public EquipmentOption(Equipment equipment) {
         this();
-        setId(equipment.getId());
-        setQuantity(equipment.getQuantity());
-        setExtras(equipment.getOthers());
+        this.setId(equipment.getId());
+        this.setQuantity(equipment.getQuantity());
+        this.setExtras(equipment.getOthers());
     }
 
     public EquipmentOption(Equipment equipment, int quantity) {
         this();
-        setId(equipment.getId());
-        setQuantity(quantity);
+        this.setId(equipment.getId());
+        this.setQuantity(quantity);
     }
 
     public EquipmentOption(Equipment equipment, Quality quality, Status status, int quantity, WeaponType weaponType,
-                           WeaponClass weaponClass, String type, String... extras) {
+            WeaponClass weaponClass, String type, String... extras) {
         this();
-        setId(equipment.getId());
-        setQuantity(quantity);
-        setQuality(quality);
-        setStatus(status);
-        setWeaponType(weaponType);
-        setWeaponClass(weaponClass);
-        setType(type);
-        setExtras(new HashSet<>(List.of(extras)));
+        this.setId(equipment.getId());
+        this.setQuantity(quantity);
+        this.setQuality(quality);
+        this.setStatus(status);
+        this.setWeaponType(weaponType);
+        this.setWeaponClass(weaponClass);
+        this.setType(type);
+        this.setExtras(new HashSet<>(List.of(extras)));
     }
 
     public WeaponType getWeaponType() {
-        return weaponType;
+        return this.weaponType;
     }
 
     public void setWeaponType(WeaponType weaponType) {
@@ -114,7 +114,7 @@ public class EquipmentOption extends Option<Equipment> {
     }
 
     public WeaponClass getWeaponClass() {
-        return weaponClass;
+        return this.weaponClass;
     }
 
     public void setWeaponClass(WeaponClass weaponClass) {
@@ -122,7 +122,7 @@ public class EquipmentOption extends Option<Equipment> {
     }
 
     public String getType() {
-        return type;
+        return this.type;
     }
 
     public void setType(String type) {
@@ -131,11 +131,11 @@ public class EquipmentOption extends Option<Equipment> {
 
     @Override
     public Restrictions getRestrictions() {
-        if (getId() != null) {
+        if (this.getId() != null) {
             try {
-                return getElement(getId()).getRestrictions();
-            } catch (NullPointerException e) {
-                MachineLog.severe(this.getClass(), "Invalid element '{}'", getId());
+                return this.getElement(this.getId()).getRestrictions();
+            } catch (final NullPointerException e) {
+                MachineLog.severe(this.getClass(), "Invalid element '{}'", this.getId());
                 throw e;
             }
         }
@@ -144,11 +144,11 @@ public class EquipmentOption extends Option<Equipment> {
 
     @Override
     public Equipment getElement(String id) {
-        Equipment equipment = resolveEquipment(id);
+        final Equipment equipment = this.resolveEquipment(id);
         if (equipment != null) {
-            equipment.setQuantity(getQuantity());
-            equipment.setQuality(quality);
-            equipment.setStatus(status);
+            equipment.setQuantity(this.getQuantity());
+            equipment.setQuality(this.quality);
+            equipment.setStatus(this.status);
         }
         return equipment;
     }
@@ -160,12 +160,11 @@ public class EquipmentOption extends Option<Equipment> {
                 () -> new CustomizedShield(ShieldFactory.getInstance().getElement(id)),
                 () -> new CustomizedHandheldShield(HandheldShieldFactory.getInstance().getElement(id)),
                 () -> new CustomizedThinkMachine(ThinkMachineFactory.getInstance().getElement(id)),
-                () -> new CustomizedWeapon(WeaponFactory.getInstance().getElement(id))
-        );
+                () -> new CustomizedWeapon(WeaponFactory.getInstance().getElement(id)));
         for (final Supplier<Equipment> resolver : resolvers) {
             try {
                 return resolver.get();
-            } catch (Exception ignored) {
+            } catch (final Exception ignored) {
                 // Try next resolver.
             }
         }
@@ -173,7 +172,7 @@ public class EquipmentOption extends Option<Equipment> {
     }
 
     public Quality getQuality() {
-        return quality;
+        return this.quality;
     }
 
     public void setQuality(Quality quality) {
@@ -181,7 +180,7 @@ public class EquipmentOption extends Option<Equipment> {
     }
 
     public Status getStatus() {
-        return status;
+        return this.status;
     }
 
     public void setStatus(Status status) {
@@ -189,7 +188,7 @@ public class EquipmentOption extends Option<Equipment> {
     }
 
     public Set<String> getExtras() {
-        return extras;
+        return this.extras;
     }
 
     public void setExtras(Set<String> extras) {
@@ -198,32 +197,31 @@ public class EquipmentOption extends Option<Equipment> {
 
     @Override
     public String toString() {
-        return getId() + (getQuantity() > 1 ? " (" + getQuantity() + ")" : "");
+        return this.getId() + (this.getQuantity() > 1 ? " (" + this.getQuantity() + ")" : "");
     }
 
     @Override
     public final boolean equals(Object o) {
-        if (!(o instanceof EquipmentOption)) {
+        if (!(o instanceof EquipmentOption that)) {
             return false;
         }
         if (!super.equals(o)) {
             return false;
         }
 
-        final EquipmentOption that = (EquipmentOption) o;
-        return weaponType == that.weaponType && Objects.equals(type, that.type) && weaponClass == that.weaponClass
-                && quality == that.quality && status == that.status;
+        return this.weaponType == that.weaponType && Objects.equals(this.type, that.type)
+                && this.weaponClass == that.weaponClass && this.quality == that.quality && this.status == that.status;
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = super.hashCode();
-        result = prime * result + Objects.hashCode(weaponType);
-        result = prime * result + Objects.hashCode(type);
-        result = prime * result + Objects.hashCode(weaponClass);
-        result = prime * result + Objects.hashCode(quality);
-        result = prime * result + Objects.hashCode(status);
+        result = prime * result + Objects.hashCode(this.weaponType);
+        result = prime * result + Objects.hashCode(this.type);
+        result = prime * result + Objects.hashCode(this.weaponClass);
+        result = prime * result + Objects.hashCode(this.quality);
+        result = prime * result + Objects.hashCode(this.status);
         return result;
     }
 }

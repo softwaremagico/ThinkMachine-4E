@@ -81,7 +81,7 @@ public final class FileManager {
     private static List<String> readTextFileInLines(String filename, String mode) throws FileNotFoundException {
         final List<String> contents = new ArrayList<>();
 
-        try (final BufferedReader input = new BufferedReader(
+        try (BufferedReader input = new BufferedReader(
                 new InputStreamReader(new FileInputStream(new File(filename)), mode))) {
             String line;
             while ((line = input.readLine()) != null) {
@@ -104,7 +104,7 @@ public final class FileManager {
             throw new FileNotFoundException("File not found: " + file.getAbsolutePath());
         }
         final StringBuilder text = new StringBuilder();
-        try (final Scanner scanner = new Scanner(file, StandardCharsets.UTF_8)) {
+        try (Scanner scanner = new Scanner(file, StandardCharsets.UTF_8)) {
             while (scanner.hasNextLine()) {
                 text.append(scanner.nextLine()).append("\n");
             }
@@ -145,7 +145,7 @@ public final class FileManager {
         }
         final File file = new File(resource.getFile());
 
-        try (final Scanner scanner = new Scanner(file, StandardCharsets.UTF_8)) {
+        try (Scanner scanner = new Scanner(file, StandardCharsets.UTF_8)) {
             while (scanner.hasNextLine()) {
                 final String line = scanner.nextLine();
                 if (!line.isEmpty()) {
@@ -168,8 +168,8 @@ public final class FileManager {
             ConfigurationLog.warning(FileManager.class.getName(), INVALID_RESOURCE_PREFIX + file + "'.");
             return contents;
         }
-        try (final InputStream is = resourceStream;
-                 final BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
+        try (InputStream is = resourceStream;
+                 BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
             while ((thisLine = br.readLine()) != null) {
                 contents.add(thisLine);
             }
@@ -192,8 +192,8 @@ public final class FileManager {
             ConfigurationLog.warning(FileManager.class.getName(), INVALID_RESOURCE_PREFIX + file + "'.");
             return totalText.toString();
         }
-        try (final InputStream is = resourceStream;
-                 final BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
+        try (InputStream is = resourceStream;
+                 BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
             while ((thisLine = br.readLine()) != null) {
                 totalText.append(thisLine);
             }
@@ -231,7 +231,7 @@ public final class FileManager {
         if (is != null) {
             final Writer writer = new StringWriter();
             final char[] buffer = new char[KILOBYTE];
-            try (final Reader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
+            try (Reader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
                 int n;
                 while ((n = reader.read(buffer)) != -1) {
                     writer.write(buffer, 0, n);
@@ -305,10 +305,10 @@ public final class FileManager {
 
     private static File copyResourceFromJar(URL url, String fileName) {
         ConfigurationLog.info(FileManager.class.getName(), "Resource inside a jar. Copy to a temporal file.");
-        try (final InputStream inputStream = url.openStream()) {
+        try (InputStream inputStream = url.openStream()) {
             if (inputStream != null) {
                 final File tempFile = Files.createTempFile(fileName, "_jar").toFile();
-                try (final OutputStream os = Files.newOutputStream(tempFile.toPath())) {
+                try (OutputStream os = Files.newOutputStream(tempFile.toPath())) {
                     final byte[] buffer = new byte[KILOBYTE];
                     int bytesRead;
                     while ((bytesRead = inputStream.read(buffer)) != -1) {
