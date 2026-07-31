@@ -290,7 +290,7 @@ public final class FileManager {
         ConfigurationLog.info(FileManager.class.getName(), "Resource inside a jar. Copy to a temporal file.");
         try (InputStream inputStream = url.openStream()) {
             if (inputStream != null) {
-                final File tempFile = File.createTempFile(fileName, "_jar");
+                final File tempFile = Files.createTempFile(fileName, "_jar").toFile();
                 try (OutputStream os = Files.newOutputStream(tempFile.toPath())) {
                     final byte[] buffer = new byte[KILOBYTE];
                     int bytesRead;

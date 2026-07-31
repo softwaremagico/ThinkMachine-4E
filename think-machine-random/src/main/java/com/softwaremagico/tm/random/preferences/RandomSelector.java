@@ -45,6 +45,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Objects;
+import java.security.SecureRandom;
 import java.util.Random;
 import java.util.Set;
 import java.util.SortedMap;
@@ -65,7 +66,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
     public static final int USER_SELECTION_MULTIPLIER = (int) (ProbabilityMultiplier.NORMAL.getValue() * 1.5);
     public static final int USER_INADVISABLE_DIVISOR = 5;
 
-    public static final Random RANDOM = new Random();
+    public static final Random RANDOM = new SecureRandom();
 
     /**
      * Estableix una semilla fixa per a l'aleatoriedad (útil per tests reproducibles).
