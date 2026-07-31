@@ -80,7 +80,7 @@ public final class FileManager {
     private static List<String> readTextFileInLines(String filename, String mode) throws FileNotFoundException {
         final List<String> contents = new ArrayList<>();
 
-        try (BufferedReader input = new BufferedReader(
+        try (final BufferedReader input = new BufferedReader(
                 new InputStreamReader(new FileInputStream(new File(filename)), mode))) {
             String line;
             while ((line = input.readLine()) != null) {
@@ -103,7 +103,7 @@ public final class FileManager {
             throw new FileNotFoundException("File not found: " + file.getAbsolutePath());
         }
         final StringBuilder text = new StringBuilder();
-        try (Scanner scanner = new Scanner(file, StandardCharsets.UTF_8)) {
+        try (final Scanner scanner = new Scanner(file, StandardCharsets.UTF_8)) {
             while (scanner.hasNextLine()) {
                 text.append(scanner.nextLine()).append("\n");
             }
@@ -137,9 +137,14 @@ public final class FileManager {
 
         // Get file from resources folder
         final ClassLoader classLoader = FileManager.class.getClassLoader();
-        final File file = new File(classLoader.getResource(fileName).getFile());
+        final URL resource = classLoader.getResource(fileName);
+        if (resource == null) {
+            ConfigurationLog.warning(FileManager.class.getName(), "Invalid resource '" + fileName + "'.");
+            return contents;
+        }
+        final File file = new File(resource.getFile());
 
-        try (Scanner scanner = new Scanner(file, StandardCharsets.UTF_8)) {
+        try (final Scanner scanner = new Scanner(file, StandardCharsets.UTF_8)) {
             while (scanner.hasNextLine()) {
                 final String line = scanner.nextLine();
                 if (line.length() != 0) {
@@ -157,8 +162,13 @@ public final class FileManager {
     public static List<String> readTextFromJarInLines(String file) {
         final List<String> contents = new ArrayList<>();
         String thisLine;
-        try (InputStream is = FileManager.class.getResourceAsStream(file);
-                BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
+        final InputStream resourceStream = FileManager.class.getResourceAsStream(file);
+        if (resourceStream == null) {
+            ConfigurationLog.warning(FileManager.class.getName(), "Invalid resource '" + file + "'.");
+            return contents;
+        }
+        try (final InputStream is = resourceStream;
+                 final BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
             while ((thisLine = br.readLine()) != null) {
                 contents.add(thisLine);
             }
@@ -176,8 +186,13 @@ public final class FileManager {
     public static String readTextFromJar(String file) {
         final StringBuilder totalText = new StringBuilder();
         String thisLine;
-        try (InputStream is = FileManager.class.getResourceAsStream(file);
-                BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
+        final InputStream resourceStream = FileManager.class.getResourceAsStream(file);
+        if (resourceStream == null) {
+            ConfigurationLog.warning(FileManager.class.getName(), "Invalid resource '" + file + "'.");
+            return totalText.toString();
+        }
+        try (final InputStream is = resourceStream;
+                 final BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
             while ((thisLine = br.readLine()) != null) {
                 totalText.append(thisLine);
             }
@@ -215,7 +230,7 @@ public final class FileManager {
         if (is != null) {
             final Writer writer = new StringWriter();
             final char[] buffer = new char[KILOBYTE];
-            try (Reader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
+            try (final Reader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
                 int n;
                 while ((n = reader.read(buffer)) != -1) {
                     writer.write(buffer, 0, n);
@@ -242,15 +257,13 @@ public final class FileManager {
         return getResource(FileManager.class, fileName);
     }
 
-    @SuppressWarnings({"java:S2259"})
     public static File getResource(Class<?> classWithResources, String fileName) throws NullPointerException {
         final URL url = classWithResources.getClassLoader().getResource(fileName);
         logResourceSearch(url, fileName);
-        try {
-            return findResourceFile(url, fileName);
-        } catch (final NullPointerException npe) {
+        if (url == null) {
             throw new NullPointerException("File '" + fileName + "' does not exist.");
         }
+        return findResourceFile(url, fileName);
     }
 
     private static void logResourceSearch(URL url, String fileName) {
@@ -264,10 +277,13 @@ public final class FileManager {
 
     private static File findResourceFile(URL url, String fileName) {
         final String path = URLDecoder.decode(url.getPath(), StandardCharsets.UTF_8);
-        final File file = new File(convert2OsPath(url));
+        final String osPath = convert2OsPath(url);
+        if (osPath != null) {
+            final File file = new File(osPath);
 
-        if (file.exists()) {
-            return file;
+            if (file.exists()) {
+                return file;
+            }
         }
 
         final File fallbackFile = new File(path);
@@ -288,10 +304,10 @@ public final class FileManager {
 
     private static File copyResourceFromJar(URL url, String fileName) {
         ConfigurationLog.info(FileManager.class.getName(), "Resource inside a jar. Copy to a temporal file.");
-        try (InputStream inputStream = url.openStream()) {
+        try (final InputStream inputStream = url.openStream()) {
             if (inputStream != null) {
                 final File tempFile = Files.createTempFile(fileName, "_jar").toFile();
-                try (OutputStream os = Files.newOutputStream(tempFile.toPath())) {
+                try (final OutputStream os = Files.newOutputStream(tempFile.toPath())) {
                     final byte[] buffer = new byte[KILOBYTE];
                     int bytesRead;
                     while ((bytesRead = inputStream.read(buffer)) != -1) {
@@ -307,19 +323,16 @@ public final class FileManager {
     }
 
     public static String convert2OsPath(URL string) {
-        try {
-            if (System.getProperty("os.name").toLowerCase().indexOf("win") >= 0) {
-                if (string.getPath().startsWith("file:")) {
-                    return (string.getPath()).replace("file:", "").substring(1);
-                } else {
-                    return (string.getPath()).substring(1);
-                }
-            } else {
-                return (string.getPath());
-            }
-        } catch (final NullPointerException npe) {
+        if (string == null) {
             return null;
         }
+        if (System.getProperty("os.name").toLowerCase().contains("win")) {
+            if (string.getPath().startsWith("file:")) {
+                return string.getPath().replace("file:", "").substring(1);
+            }
+            return string.getPath().substring(1);
+        }
+        return string.getPath();
     }
 
     public static void makeFolderIfNotExist(String file) {

@@ -3862,7 +3862,7 @@
                 <goal>+1</goal>
                 <damage>8</damage>
                 <strength>4</strength>
-                <range>55/175</range>!weapon.getAgoraGroups().isEmpty()
+                <range>55/175</range>
                 <shots>5</shots>
                 <rate>1</rate>
             </weaponDamage>

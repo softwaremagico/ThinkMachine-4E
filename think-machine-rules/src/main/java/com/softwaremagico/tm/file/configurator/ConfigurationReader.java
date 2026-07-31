@@ -253,6 +253,9 @@ public abstract class ConfigurationReader {
 
     protected String[] getCommaSeparatedValues(String propertyName) throws PropertyNotFoundException {
         final String value = this.getProperty(propertyName);
+        if (value == null) {
+            return new String[0];
+        }
         return Arrays.stream(value.split(","))
                 .map(String::trim)
                 .filter(s -> s.length() != 0)
