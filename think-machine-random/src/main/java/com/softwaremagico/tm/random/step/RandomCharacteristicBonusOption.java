@@ -38,7 +38,6 @@ import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedExcep
 
 import java.util.Collection;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class RandomCharacteristicBonusOption extends RandomCharacteristics {
 
@@ -74,7 +73,8 @@ public class RandomCharacteristicBonusOption extends RandomCharacteristics {
     @Override
     public CharacteristicDefinition selectElementByWeight() throws InvalidRandomElementSelectedException {
         final CharacteristicDefinition characteristicDefinition = super.selectElementByWeight();
-        RandomSelectorLog.debug(RandomCharacteristicBonusOption.class, "Characteristic selected '" + characteristicDefinition.toString() + "' has current value '"
+        RandomSelectorLog.debug(RandomCharacteristicBonusOption.class,
+                "Characteristic selected '" + characteristicDefinition.toString() + "' has current value '"
                 + getCharacterPlayer().getCharacteristicValue(characteristicDefinition.getCharacteristicName()) + "'.");
         return characteristicDefinition;
     }

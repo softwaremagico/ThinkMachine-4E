@@ -167,10 +167,10 @@ public class MachineConfigurationReader extends ConfigurationReader {
         this.stopModulesFileWatcher();
         try {
             this.modulesFileWatcher = new FileWatcher(modulesFolderpath);
-        } catch (final IOException e) {
-            ConfigurationLog.errorMessage(ModuleManager.class.getName(), e);
         } catch (final NullPointerException npe) {
             ConfigurationLog.warning(ModuleManager.class.getName(), "Modules directory to watch not found!");
+        } catch (final Exception e) {
+            ConfigurationLog.errorMessage(ModuleManager.class.getName(), e);
         }
     }
 

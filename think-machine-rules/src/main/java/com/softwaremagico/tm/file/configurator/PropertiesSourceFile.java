@@ -33,7 +33,6 @@ import com.softwaremagico.tm.log.ConfigurationLog;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -119,14 +118,12 @@ public class PropertiesSourceFile extends SourceFile<Properties> implements IPro
                     }
                 }
             });
-        } catch (NoSuchFileException | NullPointerException e) {
+        } catch (NullPointerException e) {
             try {
                 ConfigurationLog.warning(PropertiesSourceFile.class.getName(), "Directory '" + getDirectoryToWatch() + "' to watch not found!");
             } catch (ResurceNotFoundException e1) {
                 ConfigurationLog.warning(PropertiesSourceFile.class.getName(), "Modules not found!");
             }
-        } catch (IOException e) {
-            ConfigurationLog.errorMessage(PropertiesSourceFile.class.getName(), e);
         } catch (ResurceNotFoundException e) {
             ConfigurationLog.warning(PropertiesSourceFile.class.getName(), "Modules not found!");
         } catch (Exception e) {
