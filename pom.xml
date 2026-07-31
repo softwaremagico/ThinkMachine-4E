@@ -87,6 +87,9 @@
         <maven-deploy.version>0.9.0</maven-deploy.version>
         <javadoc.version>3.11.3</javadoc.version>
         <maven-gpg.version>3.2.8</maven-gpg.version>
+        <sonar.issue.ignore.multicriteria>androidLengthCheck</sonar.issue.ignore.multicriteria>
+        <sonar.issue.ignore.multicriteria.androidLengthCheck.ruleKey>java:S1155</sonar.issue.ignore.multicriteria.androidLengthCheck.ruleKey>
+        <sonar.issue.ignore.multicriteria.androidLengthCheck.resourceKey>**/*.java</sonar.issue.ignore.multicriteria.androidLengthCheck.resourceKey>
     </properties>
 
     <build>
