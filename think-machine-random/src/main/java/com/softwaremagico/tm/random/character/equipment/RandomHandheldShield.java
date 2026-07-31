@@ -98,7 +98,7 @@ public class RandomHandheldShield extends RandomEquipment<HandheldShield> {
         if (getCharacterPlayer().getPurchasedShield() == null) {
             getCharacterPlayer().setPurchasedHandheldShield(selectElementByWeight(), true);
         } else {
-            RandomSelectorLog.warning(this.getClass(), "Handheld shield already assigned!.");
+            RandomSelectorLog.warning(RandomHandheldShield.class, "Handheld shield already assigned!.");
         }
     }
 }

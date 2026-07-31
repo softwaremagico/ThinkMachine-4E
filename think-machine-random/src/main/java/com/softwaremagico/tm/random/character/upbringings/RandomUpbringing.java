@@ -51,16 +51,16 @@ public class RandomUpbringing extends RandomSelector<Upbringing> implements Assi
         if (getCharacterPlayer().getUpbringing() == null || getCharacterPlayer().getUpbringing().getId() == null) {
             getCharacterPlayer().setUpbringing(selectElementByWeight().getId());
             if (getCharacterPlayer().getUpbringing() != null && getCharacterPlayer().getUpbringing().getId() != null) {
-                RandomSelectorLog.info(this.getClass(), "Upbringing selected is '{}'.", getCharacterPlayer().getUpbringing().getId());
+                RandomSelectorLog.info(RandomUpbringing.class, "Upbringing selected is '{}'.", getCharacterPlayer().getUpbringing().getId());
             } else {
-                RandomSelectorLog.warning(this.getClass(), "No upbringing selected!.");
+                RandomSelectorLog.warning(RandomUpbringing.class, "No upbringing selected!.");
             }
         }
 
         //Select Raised in space option.
         getCharacterPlayer().setRaisedInSpace(RandomRaiseInSpace.isRaisedInSpace(getPreferences()));
         if (getCharacterPlayer().isRaisedInSpace()) {
-            RandomSelectorLog.info(this.getClass(), "Selection of Raised in Space is '{}'.",
+            RandomSelectorLog.info(RandomUpbringing.class, "Selection of Raised in Space is '{}'.",
                     getCharacterPlayer().getUpbringing().getRestrictions().isRaisedInSpace());
         }
     }

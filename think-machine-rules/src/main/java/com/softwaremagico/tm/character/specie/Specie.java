@@ -86,7 +86,7 @@ public class Specie extends CharacterDefinitionStep {
         try {
             getSpecieCharacteristic(characteristicName).setMaximumValue(maxValue);
         } catch (NullPointerException | InvalidSpecieException npe) {
-            MachineLog.severe(this.getClass().getName(), "Invalid maximum parameter '{}'.", characteristicName);
+            MachineLog.severe(Specie.class.getName(), "Invalid maximum parameter '{}'.", characteristicName);
         }
     }
 
@@ -94,7 +94,7 @@ public class Specie extends CharacterDefinitionStep {
         try {
             getSpecieCharacteristic(characteristicName).setMaximumInitialValue(maxValue);
         } catch (NullPointerException | InvalidSpecieException npe) {
-            MachineLog.severe(this.getClass().getName(), "Invalid maximum initial parameter '{}'.", characteristicName);
+            MachineLog.severe(Specie.class.getName(), "Invalid maximum initial parameter '{}'.", characteristicName);
         }
     }
 
@@ -102,7 +102,7 @@ public class Specie extends CharacterDefinitionStep {
         try {
             getSpecieCharacteristic(characteristicName).setInitialValue(value);
         } catch (NullPointerException | InvalidSpecieException npe) {
-            MachineLog.severe(this.getClass().getName(), "Invalid value parameter '{}'.", characteristicName);
+            MachineLog.severe(Specie.class.getName(), "Invalid value parameter '{}'.", characteristicName);
         }
     }
 

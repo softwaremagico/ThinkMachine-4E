@@ -116,17 +116,11 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
 
         //Theurgy cannot have psi points and viceversa.
         final OccultismType occultismType = getCharacterPlayer().getOccultismType();
-        if (occultismType != null && CharacteristicName.get(element.getId()) == CharacteristicName.THEURGY
-                && CharacteristicName.get(occultismType.getId()) == CharacteristicName.PSI) {
-            return 0;
-        }
-        if (occultismType != null && CharacteristicName.get(element.getId()) == CharacteristicName.PSI
-                && CharacteristicName.get(occultismType.getId()) == CharacteristicName.THEURGY) {
+        if (hasConflictingOccultismType(element, occultismType)) {
             return 0;
         }
 
-        if (!getPreferences().contains(RankValueAssignationPreference.BALANCED) && Objects.equals(getCharacterPlayer().getPrimaryCharacteristic(),
-                element.getId()) || Objects.equals(getCharacterPlayer().getSecondaryCharacteristic(), element.getId())) {
+        if (isPreferredCharacteristic(element)) {
             return FAIR_PROBABILITY;
         }
 
@@ -136,17 +130,37 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
         }
 
         //Ensure at least 1 point on characteristic if selected by user preference.
-        if (getCharacterPlayer().hasPerk(PerkFactory.THEURGY_RITES_PERK)
-                && Objects.equals(element.getId(), OccultismTypeFactory.THEURGY_TAG)
-                && getCharacterPlayer().getCharacteristicValue(CharacteristicName.THEURGY) == 0) {
-            return FAIR_PROBABILITY;
-        } else if (getCharacterPlayer().hasPerk(PerkFactory.PSYCHIC_POWERS_PERK)
-                && Objects.equals(element.getId(), OccultismTypeFactory.PSI_TAG)
-                && getCharacterPlayer().getCharacteristicValue(CharacteristicName.PSI) == 0) {
+        if (isPreferredOccultismWithoutPoints(element)) {
             return FAIR_PROBABILITY;
         }
 
         return super.getWeight(element);
+    }
+
+    private boolean hasConflictingOccultismType(final CharacteristicDefinition element, final OccultismType occultismType) {
+        if (occultismType == null) {
+            return false;
+        }
+        final CharacteristicName elementName = CharacteristicName.get(element.getId());
+        final CharacteristicName selectedOccultism = CharacteristicName.get(occultismType.getId());
+        return (elementName == CharacteristicName.THEURGY && selectedOccultism == CharacteristicName.PSI)
+                || (elementName == CharacteristicName.PSI && selectedOccultism == CharacteristicName.THEURGY);
+    }
+
+    private boolean isPreferredCharacteristic(final CharacteristicDefinition element) {
+        final boolean isPrimary = Objects.equals(getCharacterPlayer().getPrimaryCharacteristic(), element.getId());
+        final boolean isSecondary = Objects.equals(getCharacterPlayer().getSecondaryCharacteristic(), element.getId());
+        return (!getPreferences().contains(RankValueAssignationPreference.BALANCED) && isPrimary) || isSecondary;
+    }
+
+    private boolean isPreferredOccultismWithoutPoints(final CharacteristicDefinition element) {
+        final boolean needsTheurgyPoint = getCharacterPlayer().hasPerk(PerkFactory.THEURGY_RITES_PERK)
+                && Objects.equals(element.getId(), OccultismTypeFactory.THEURGY_TAG)
+                && getCharacterPlayer().getCharacteristicValue(CharacteristicName.THEURGY) == 0;
+        final boolean needsPsiPoint = getCharacterPlayer().hasPerk(PerkFactory.PSYCHIC_POWERS_PERK)
+                && Objects.equals(element.getId(), OccultismTypeFactory.PSI_TAG)
+                && getCharacterPlayer().getCharacteristicValue(CharacteristicName.PSI) == 0;
+        return needsTheurgyPoint || needsPsiPoint;
     }
 
 
@@ -171,7 +185,7 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
             //Not valid, try again.
             selectPrimaryCharacteristics();
         }
-        RandomGenerationLog.debug(this.getClass(), "Primary characteristic is '{}' and secondary is '{}'.",
+        RandomGenerationLog.debug(RandomCharacteristics.class, "Primary characteristic is '{}' and secondary is '{}'.",
                 mainCharacteristic, secondaryCharacteristic);
     }
 

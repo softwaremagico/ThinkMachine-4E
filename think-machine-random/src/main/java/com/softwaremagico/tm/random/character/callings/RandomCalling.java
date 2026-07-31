@@ -55,9 +55,9 @@ public class RandomCalling extends RandomSelector<Calling> implements Assignable
         if (getCharacterPlayer().getCalling() == null || getCharacterPlayer().getCalling().getId() == null) {
             getCharacterPlayer().setCalling(selectElementByWeight().getId());
             if (getCharacterPlayer().getCalling() != null && getCharacterPlayer().getCalling().getId() != null) {
-                RandomSelectorLog.info(this.getClass(), "Calling selected is '{}'.", getCharacterPlayer().getCalling().getId());
+                RandomSelectorLog.info(RandomCalling.class, "Calling selected is '{}'.", getCharacterPlayer().getCalling().getId());
             } else {
-                RandomSelectorLog.warning(this.getClass(), "No calling selected!.");
+                RandomSelectorLog.warning(RandomCalling.class, "No calling selected!.");
             }
         }
     }

@@ -67,7 +67,7 @@ public abstract class ConfigurationReader {
 
             @Override
             public void propertyChanged(String propertyId, String oldValue, String newValue) {
-                ConfigurationLog.info(this.getClass().getName(), PROPERTY_LOG_PREFIX + propertyId
+                ConfigurationLog.info(ConfigurationReader.class.getName(), PROPERTY_LOG_PREFIX + propertyId
                         + "' has changed value from '" + oldValue + "' to '" + newValue + "'.");
             }
         });
@@ -137,13 +137,13 @@ public abstract class ConfigurationReader {
                     propertyChangedListener.propertyChanged(propertyId, this.propertiesFinalValue.get(propertyId),
                             value);
                 }
-                ConfigurationLog.info(this.getClass().getName(),
+                ConfigurationLog.info(ConfigurationReader.class.getName(),
                         PROPERTY_LOG_PREFIX + propertyId + "' updated as '" + value + "'.");
             }
             // Store value.
             this.propertiesBySourceValues.get(propertiesSource).put(propertyId, value);
             this.propertiesFinalValue.put(propertyId, value);
-            ConfigurationLog.debug(this.getClass().getName(),
+            ConfigurationLog.debug(ConfigurationReader.class.getName(),
                     PROPERTY_LOG_PREFIX + propertyId + "' set as value '" + value + "'.");
         }
     }
@@ -258,7 +258,7 @@ public abstract class ConfigurationReader {
         }
         return Arrays.stream(value.split(","))
                 .map(String::trim)
-                .filter(s -> s.length() != 0)
+                .filter(s -> !s.isEmpty())
                 .toArray(String[]::new);
     }
 

@@ -49,6 +49,7 @@ import java.util.Scanner;
 
 public final class FileManager {
     private static final int KILOBYTE = 1024;
+    private static final String INVALID_RESOURCE_PREFIX = "Invalid resource '";
 
     /**
      * Creates a new instance of MyFile
@@ -139,7 +140,7 @@ public final class FileManager {
         final ClassLoader classLoader = FileManager.class.getClassLoader();
         final URL resource = classLoader.getResource(fileName);
         if (resource == null) {
-            ConfigurationLog.warning(FileManager.class.getName(), "Invalid resource '" + fileName + "'.");
+            ConfigurationLog.warning(FileManager.class.getName(), INVALID_RESOURCE_PREFIX + fileName + "'.");
             return contents;
         }
         final File file = new File(resource.getFile());
@@ -147,7 +148,7 @@ public final class FileManager {
         try (final Scanner scanner = new Scanner(file, StandardCharsets.UTF_8)) {
             while (scanner.hasNextLine()) {
                 final String line = scanner.nextLine();
-                if (line.length() != 0) {
+                if (!line.isEmpty()) {
                     contents.add(line);
                 }
             }
@@ -164,7 +165,7 @@ public final class FileManager {
         String thisLine;
         final InputStream resourceStream = FileManager.class.getResourceAsStream(file);
         if (resourceStream == null) {
-            ConfigurationLog.warning(FileManager.class.getName(), "Invalid resource '" + file + "'.");
+            ConfigurationLog.warning(FileManager.class.getName(), INVALID_RESOURCE_PREFIX + file + "'.");
             return contents;
         }
         try (final InputStream is = resourceStream;
@@ -188,7 +189,7 @@ public final class FileManager {
         String thisLine;
         final InputStream resourceStream = FileManager.class.getResourceAsStream(file);
         if (resourceStream == null) {
-            ConfigurationLog.warning(FileManager.class.getName(), "Invalid resource '" + file + "'.");
+            ConfigurationLog.warning(FileManager.class.getName(), INVALID_RESOURCE_PREFIX + file + "'.");
             return totalText.toString();
         }
         try (final InputStream is = resourceStream;
@@ -271,7 +272,7 @@ public final class FileManager {
             ConfigurationLog.info(FileManager.class.getName(),
                     "Resource to read '" + fileName + "' found at url '" + url + "'.");
         } else {
-            ConfigurationLog.warning(FileManager.class.getName(), "Invalid resource '" + fileName + "'.");
+            ConfigurationLog.warning(FileManager.class.getName(), INVALID_RESOURCE_PREFIX + fileName + "'.");
         }
     }
 

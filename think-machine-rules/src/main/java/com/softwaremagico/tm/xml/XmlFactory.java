@@ -178,7 +178,7 @@ public abstract class XmlFactory<T extends Element> {
                     try {
                         this.combineElements(this.elementList, this.readXml(entityClass, module));
                     } catch (final ResourceNotFoundException e) {
-                        MachineLog.warning(this.getClass(), "Element '{}' not found on module '{}'.",
+                        MachineLog.warning(XmlFactory.class, "Element '{}' not found on module '{}'.",
                                 entityClass.getSimpleName(), module);
                     }
                 }

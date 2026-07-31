@@ -69,7 +69,7 @@ public class MachineConfigurationReader extends ConfigurationReader {
 
             @Override
             public void changeDetected(Path pathToFile) {
-                ConfigurationLog.info(this.getClass().getName(),
+                ConfigurationLog.info(MachineConfigurationReader.class.getName(),
                         "Application's settings file '" + pathToFile + "' change detected.");
                 MachineConfigurationReader.this.readConfigurations();
             }
@@ -83,7 +83,7 @@ public class MachineConfigurationReader extends ConfigurationReader {
 
             @Override
             public void propertyChanged(String propertyId, String oldValue, String newValue) {
-                ConfigurationLog.info(this.getClass().getName(), "Property '" + propertyId
+                ConfigurationLog.info(MachineConfigurationReader.class.getName(), "Property '" + propertyId
                         + "' has changed value from '" + oldValue + "' to '" + newValue + "'.");
             }
         });
@@ -95,13 +95,13 @@ public class MachineConfigurationReader extends ConfigurationReader {
         this.removePropertiesSource(this.userSourceFile);
         this.userSourceFile = new PropertiesSourceFile(file);
         this.userSourceFile.setFilePath(path);
-        ConfigurationLog.info(this.getClass().getName(),
+        ConfigurationLog.info(MachineConfigurationReader.class.getName(),
                 "User config file set to '" + this.userSourceFile.toString() + "'.");
         this.userSourceFile.addFileModifiedListeners(new FileModifiedListener() {
 
             @Override
             public void changeDetected(Path pathToFile) {
-                ConfigurationLog.info(this.getClass().getName(),
+                ConfigurationLog.info(MachineConfigurationReader.class.getName(),
                         "Application's settings file '" + pathToFile + "' change detected.");
                 MachineConfigurationReader.this.readConfigurations();
             }
@@ -138,7 +138,7 @@ public class MachineConfigurationReader extends ConfigurationReader {
         try {
             return this.getProperty(propertyId);
         } catch (final PropertyNotFoundException e) {
-            ConfigurationLog.errorMessage(this.getClass().getName(), e);
+            ConfigurationLog.errorMessage(MachineConfigurationReader.class.getName(), e);
             return null;
         }
     }

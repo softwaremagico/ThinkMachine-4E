@@ -108,7 +108,7 @@ public class RandomizeCharacter {
             reassignSkills();
             setLevels();
             setEquipment();
-            RandomGenerationLog.info(this.getClass(), "Character created: " + characterPlayer.toString());
+            RandomGenerationLog.info(RandomizeCharacter.class, "Character created: " + characterPlayer.toString());
         } catch (InvalidXmlElementException | MaxValueExceededException e) {
             throw new InvalidXmlElementException("Error on '" + characterPlayer + "'.", e);
         }
@@ -232,10 +232,10 @@ public class RandomizeCharacter {
                 randomRangedWeapon.assign();
             }
         } catch (InvalidRandomElementSelectedException e) {
-            RandomGenerationLog.warning(this.getClass().getName(), "No ranged weapons available for '{}'.", characterPlayer);
+            RandomGenerationLog.warning(RandomizeCharacter.class.getName(), "No ranged weapons available for '{}'.", characterPlayer);
         } catch (Exception e) {
             // Probably already has a shield.
-            RandomGenerationLog.warning(this.getClass().getName(), e.getMessage());
+            RandomGenerationLog.warning(RandomizeCharacter.class.getName(), e.getMessage());
         }
 
         try {
@@ -246,30 +246,30 @@ public class RandomizeCharacter {
                 randomRangedWeapon.assign();
             }
         } catch (InvalidRandomElementSelectedException e) {
-            RandomGenerationLog.warning(this.getClass().getName(), "No melee weapons available for '{}'.", characterPlayer);
+            RandomGenerationLog.warning(RandomizeCharacter.class.getName(), "No melee weapons available for '{}'.", characterPlayer);
         } catch (Exception e) {
             // Probably already has a shield.
-            RandomGenerationLog.warning(this.getClass().getName(), e.getMessage());
+            RandomGenerationLog.warning(RandomizeCharacter.class.getName(), e.getMessage());
         }
 
         try {
             randomShield.assign();
         } catch (InvalidRandomElementSelectedException e) {
             // Probably already has a shield.
-            RandomGenerationLog.warning(this.getClass().getName(), "No shields available for '{}'.", characterPlayer);
+            RandomGenerationLog.warning(RandomizeCharacter.class.getName(), "No shields available for '{}'.", characterPlayer);
         } catch (Exception e) {
             // Probably already has a shield.
-            RandomGenerationLog.warning(this.getClass().getName(), e.getMessage());
+            RandomGenerationLog.warning(RandomizeCharacter.class.getName(), e.getMessage());
         }
 
         // Set armours
         try {
             randomArmour.assign();
         } catch (InvalidRandomElementSelectedException e) {
-            RandomGenerationLog.warning(this.getClass().getName(), "No armours available for '{}'.", characterPlayer);
+            RandomGenerationLog.warning(RandomizeCharacter.class.getName(), "No armours available for '{}'.", characterPlayer);
         } catch (Exception e) {
             // Probably already has a shield.
-            RandomGenerationLog.warning(this.getClass().getName(), e.getMessage());
+            RandomGenerationLog.warning(RandomizeCharacter.class.getName(), e.getMessage());
         }
     }
 }

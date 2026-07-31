@@ -244,7 +244,7 @@ public class RandomizeCharacterDefinitionStep {
                                         characterDefinitionStepSelection instanceof LevelSelector
                                                 ? (characterDefinitionStepSelection).getLevel() : null);
                         final Selection selectedPerk = randomPerk.selectElementByWeight();
-                        RandomSelectorLog.debug(this.getClass(), "Selected perk '{}' on phase '{}' from options '{}'.",
+                        RandomSelectorLog.debug(RandomizeCharacterDefinitionStep.class, "Selected perk '{}' on phase '{}' from options '{}'.",
                                 selectedPerk, characterDefinitionStepSelection.getPhase(), perkOptions.get(i).getAvailableSelections());
                         characterDefinitionStepSelection.getSelectedPerksOptions().get(i).getSelections()
                                 .add(selectedPerk);

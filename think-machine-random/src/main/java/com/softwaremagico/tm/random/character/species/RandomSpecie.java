@@ -51,9 +51,9 @@ public class RandomSpecie extends RandomSelector<Specie> implements AssignableRa
         if (getCharacterPlayer().getSpecie() == null || getCharacterPlayer().getSpecie().getId() == null) {
             getCharacterPlayer().setSpecie(selectElementByWeight().getId());
             if (getCharacterPlayer().getSpecie() != null && getCharacterPlayer().getSpecie().getId() != null) {
-                RandomSelectorLog.info(this.getClass(), "Specie selected is '{}'.", getCharacterPlayer().getSpecie().getId());
+                RandomSelectorLog.info(RandomSpecie.class, "Specie selected is '{}'.", getCharacterPlayer().getSpecie().getId());
             } else {
-                RandomSelectorLog.warning(this.getClass(), "No specie selected!.");
+                RandomSelectorLog.warning(RandomSpecie.class, "No specie selected!.");
             }
         }
     }

@@ -63,7 +63,7 @@ public class RandomCharacteristicBonusOption extends RandomCharacteristics {
         try {
             final int charValue = getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName());
             getCharacterPlayer().checkMaxValueByLevel(element, charValue + characteristicBonusOptions.getBonus());
-            RandomStepLog.debug(this.getClass(), "Max level '" + element + "' value: " + charValue
+            RandomStepLog.debug(RandomCharacteristicBonusOption.class, "Max level '" + element + "' value: " + charValue
                     + " + " + characteristicBonusOptions.getBonus() + " from " + characteristicBonusOptions.getOptions());
         } catch (InvalidXmlElementException | MaxValueExceededException e) {
             return 0;
@@ -74,7 +74,7 @@ public class RandomCharacteristicBonusOption extends RandomCharacteristics {
     @Override
     public CharacteristicDefinition selectElementByWeight() throws InvalidRandomElementSelectedException {
         final CharacteristicDefinition characteristicDefinition = super.selectElementByWeight();
-        RandomSelectorLog.debug(this.getClass(), "Characteristic selected '" + characteristicDefinition.toString() + "' has current value '"
+        RandomSelectorLog.debug(RandomCharacteristicBonusOption.class, "Characteristic selected '" + characteristicDefinition.toString() + "' has current value '"
                 + getCharacterPlayer().getCharacteristicValue(characteristicDefinition.getCharacteristicName()) + "'.");
         return characteristicDefinition;
     }
@@ -82,6 +82,6 @@ public class RandomCharacteristicBonusOption extends RandomCharacteristics {
 
     @Override
     protected Collection<CharacteristicDefinition> getAllElements() throws InvalidXmlElementException {
-        return characteristicBonusOptions.getOptions().stream().map(Option::getElement).collect(Collectors.toList());
+        return characteristicBonusOptions.getOptions().stream().map(Option::getElement).toList();
     }
 }

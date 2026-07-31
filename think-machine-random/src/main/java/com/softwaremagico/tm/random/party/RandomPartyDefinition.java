@@ -134,10 +134,10 @@ public class RandomPartyDefinition {
 
             // Remove profile from selection if max is reached
             if (member.getMaxNumber() != null && getProfileAssigned(member) >= member.getMaxNumber()) {
-                MachineLog.debug(this.getClass().getName(), "Profile '{}' reached max assignments.", member.getName());
+                MachineLog.debug(RandomPartyDefinition.class.getName(), "Profile '{}' reached max assignments.", member.getName());
             }
         } catch (InvalidXmlElementException e) {
-            MachineLog.errorMessage(this.getClass().getName(), "Failed to assign profile: " + member, e);
+            MachineLog.errorMessage(RandomPartyDefinition.class.getName(), "Failed to assign profile: " + member, e);
             throw e;
         }
     }
@@ -232,7 +232,7 @@ public class RandomPartyDefinition {
                 try {
                     assignProfile(member);
                 } catch (InvalidXmlElementException e) {
-                    MachineLog.errorMessage(this.getClass().getName(),
+                    MachineLog.errorMessage(RandomPartyDefinition.class.getName(),
                             "Cannot generate mandatory member: " + member.getName(), e);
                     break;
                 }
@@ -251,12 +251,12 @@ public class RandomPartyDefinition {
                 assignProfile(selectedMember);
                 iterations++;
             } catch (InvalidXmlElementException e) {
-                MachineLog.errorMessage(this.getClass().getName(), "Failed to add member during generation", e);
+                MachineLog.errorMessage(RandomPartyDefinition.class.getName(), "Failed to add member during generation", e);
                 iterations++;
             }
         }
 
-        MachineLog.info(this.getClass().getName(),
+        MachineLog.info(RandomPartyDefinition.class.getName(),
                 "Party generation complete. Members: " + party.getMemberCount() + ", Threat: " + party.getThreatLevel());
     }
 

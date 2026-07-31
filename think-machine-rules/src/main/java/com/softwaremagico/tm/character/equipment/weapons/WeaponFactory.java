@@ -36,8 +36,8 @@ import java.util.Map;
 public final class WeaponFactory extends XmlFactory<Weapon> {
     private static final String XML_FILE = "weapons.xml";
 
-    private static Map<WeaponType, List<Weapon>> weaponsByType;
-    private static Map<WeaponClass, List<Weapon>> weaponsByClass;
+    private Map<WeaponType, List<Weapon>> weaponsByType;
+    private Map<WeaponClass, List<Weapon>> weaponsByClass;
 
     private static final class WeaponFactoryInit {
         public static final WeaponFactory INSTANCE = new WeaponFactory();

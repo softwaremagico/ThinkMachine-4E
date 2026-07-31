@@ -32,7 +32,7 @@ public class SelectionSet<E> extends HashSet<E> {
 
     private static final long serialVersionUID = -603427902508573343L;
 
-    private final Set<ISelectionUpdatedListener> selectionUpdatedListeners;
+    private final transient Set<ISelectionUpdatedListener> selectionUpdatedListeners;
 
     public interface ISelectionUpdatedListener {
         void updated();

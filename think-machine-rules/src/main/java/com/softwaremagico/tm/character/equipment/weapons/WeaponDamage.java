@@ -145,7 +145,7 @@ public class WeaponDamage {
                     // Special damage!
                     mainDamage = SPECIAL_DAMAGE_THREAT;
                 } else {
-                    MachineLog.severe(this.getClass().getName(), "Invalid main damage in '{}' for '{}'.", getDamage(), this);
+                    MachineLog.severe(WeaponDamage.class.getName(), "Invalid main damage in '{}' for '{}'.", getDamage(), this);
                 }
             }
         }
@@ -166,7 +166,7 @@ public class WeaponDamage {
                 // No area
                 areaDamage = 0;
             } catch (NumberFormatException e) {
-                MachineLog.severe(this.getClass().getName(), "Invalid area damage in '{}' for '{}'.", getDamage(), this);
+                MachineLog.severe(WeaponDamage.class.getName(), "Invalid area damage in '{}' for '{}'.", getDamage(), this);
             }
         }
         return areaDamage;

@@ -95,7 +95,7 @@ public class RandomArmor extends RandomEquipment<Armor> {
         if (getCharacterPlayer().getPurchasedArmor() == null) {
             getCharacterPlayer().setPurchasedArmor(selectElementByWeight(), true);
         } else {
-            RandomSelectorLog.warning(this.getClass(), "Armor already assigned!.");
+            RandomSelectorLog.warning(RandomArmor.class, "Armor already assigned!.");
         }
     }
 }

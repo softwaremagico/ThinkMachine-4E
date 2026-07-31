@@ -52,9 +52,9 @@ public class RandomFaction extends RandomSelector<Faction> implements Assignable
         if (getCharacterPlayer().getFaction() == null || getCharacterPlayer().getFaction().getId() == null) {
             getCharacterPlayer().setFaction(selectElementByWeight().getId());
             if (getCharacterPlayer().getFaction() != null && getCharacterPlayer().getFaction().getId() != null) {
-                RandomSelectorLog.info(this.getClass(), "Faction selected is '{}'.", getCharacterPlayer().getFaction().getId());
+                RandomSelectorLog.info(RandomFaction.class, "Faction selected is '{}'.", getCharacterPlayer().getFaction().getId());
             } else {
-                RandomSelectorLog.warning(this.getClass(), "No faction selected!.");
+                RandomSelectorLog.warning(RandomFaction.class, "No faction selected!.");
             }
         }
 

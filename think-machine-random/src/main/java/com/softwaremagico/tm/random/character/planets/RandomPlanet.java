@@ -52,9 +52,9 @@ public class RandomPlanet extends RandomSelector<Planet> implements AssignableRa
         if (getCharacterPlayer().getInfo().getPlanet() == null) {
             getCharacterPlayer().getInfo().setPlanet(selectElementByWeight());
             if (getCharacterPlayer().getInfo().getPlanet() != null) {
-                RandomSelectorLog.info(this.getClass(), "Planet selected is '{}'.", getCharacterPlayer().getInfo().getPlanet());
+                RandomSelectorLog.info(RandomPlanet.class, "Planet selected is '{}'.", getCharacterPlayer().getInfo().getPlanet());
             } else {
-                RandomSelectorLog.warning(this.getClass(), "No planet selected!.");
+                RandomSelectorLog.warning(RandomPlanet.class, "No planet selected!.");
             }
         }
     }

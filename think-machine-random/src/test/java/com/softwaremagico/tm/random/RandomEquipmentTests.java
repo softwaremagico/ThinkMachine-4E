@@ -129,6 +129,6 @@ public class RandomEquipmentTests {
 
     @Test
     public void checkFencingPerkHasAlwaysSword() {
-
+        // Pending test scenario for fencing perk and mandatory sword selection.
     }
 }

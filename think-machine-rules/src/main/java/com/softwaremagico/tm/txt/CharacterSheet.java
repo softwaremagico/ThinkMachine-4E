@@ -143,7 +143,7 @@ public class CharacterSheet {
         try {
             skillValue = characterPlayer.getSkillValue(skill);
         } catch (MaxValueExceededException e) {
-            MachineLog.warning(this.getClass(), e.getMessage());
+            MachineLog.warning(CharacterSheet.class, e.getMessage());
             skillValue = e.getMaxValue();
         }
 
@@ -538,7 +538,7 @@ public class CharacterSheet {
             setFirebirds(stringBuilder);
             stringBuilder.append("\n");
         } catch (InvalidXmlElementException e) {
-            MachineLog.errorMessage(this.getClass(), e);
+            MachineLog.errorMessage(CharacterSheet.class, e);
         }
         return stringBuilder.toString();
     }

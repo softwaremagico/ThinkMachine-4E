@@ -51,7 +51,6 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
-import java.util.stream.Collectors;
 
 public abstract class RandomSelector<Element extends com.softwaremagico.tm.Element> extends XmlData {
     public static final int EXOTIC_PROBABILITY = 1;
@@ -60,6 +59,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
     public static final int FAIR_PROBABILITY = 300;
     public static final int GOOD_PROBABILITY = 800;
     public static final int VERY_GOOD_PROBABILITY = 2100;
+    private static final String RECOMMENDED_LOG_MESSAGE = "Random definition as recommended for '{}'.";
 
     public static final int BASIC_MULTIPLIER = (int) ProbabilityMultiplier.NORMAL.getValue() / 2;
     public static final int HIGH_MULTIPLIER = (int) ProbabilityMultiplier.NORMAL.getValue();
@@ -197,83 +197,115 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             return multiplier;
         }
 
-        // Recommended to specie.
-        if (getCharacterPlayer() != null && getCharacterPlayer().getSpecie() != null
-                && element.getRandomDefinition().getRecommendedSpecies().contains(getCharacterPlayer().getSpecie().getId())) {
-            RandomGenerationLog.debug(this.getClass().getName(),
-                    "Random definition as recommended for '{}'.", getCharacterPlayer().getSpecie());
-            multiplier *= HIGH_MULTIPLIER;
-            // Recommended to my upbringing.
-        } else if (getCharacterPlayer() != null && getCharacterPlayer().getUpbringing() != null
-                && element.getRandomDefinition().getRecommendedUpbringings().contains(getCharacterPlayer().getUpbringing().getId())) {
-            RandomGenerationLog.debug(this.getClass().getName(),
-                    "Random definition as recommended for '{}'.", getCharacterPlayer().getUpbringing());
-            multiplier *= HIGH_MULTIPLIER;
-            // Recommended to my faction group.
-        } else if (getCharacterPlayer() != null && getCharacterPlayer().getFaction() != null
-                && element.getRandomDefinition()
-                .getRecommendedFactionsGroups().contains(getCharacterPlayer().getFaction().getGroup())) {
-            RandomGenerationLog.debug(this.getClass().getName(), "Random definition as recommended for '{}'.",
-                    getCharacterPlayer().getFaction().getGroup());
-            multiplier *= BASIC_MULTIPLIER;
-            // Recommended to my faction.
-        } else if (getCharacterPlayer() != null && getCharacterPlayer().getFaction() != null
-                && element.getRandomDefinition().getRecommendedFactions().contains(getCharacterPlayer().getFaction().getId())) {
-            RandomGenerationLog.debug(this.getClass().getName(),
-                    "Random definition as recommended for '{}'.", getCharacterPlayer().getFaction());
-            multiplier *= HIGH_MULTIPLIER;
-            // Recommended to my calling.
-        } else if (getCharacterPlayer() != null && getCharacterPlayer().getCalling() != null
-                && element.getRandomDefinition().getRecommendedCallings().contains(getCharacterPlayer().getCalling().getId())) {
-            RandomGenerationLog.debug(this.getClass().getName(),
-                    "Random definition as recommended for '{}'.", getCharacterPlayer().getCalling());
-            multiplier *= HIGH_MULTIPLIER;
-            // Recommended to my faction group.
-        } else if (element.getRandomDefinition().getProbabilityMultiplier() != null) {
-            RandomValuesLog.debug(this.getClass().getName(),
-                    "Random definition multiplier is '{}'.", element.getRandomDefinition().getProbabilityMultiplier());
-            multiplier *= element.getRandomDefinition().getProbabilityMultiplier().getValue();
-            // Recommended to a perk
-        } else if (getCharacterPlayer() != null && getCharacterPlayer().getPerks() != null && element.getRandomDefinition().getRecommendedPerks().size() != 0
-                && getCharacterPlayer().getPerks().stream().anyMatch(p -> element.getRandomDefinition().getRecommendedPerks().contains(p.getId()))) {
-            RandomValuesLog.debug(this.getClass().getName(), "Random definition recommened by perk.");
-            multiplier *= HIGH_MULTIPLIER;
-            // Recommended to a perk group
-        } else if (getCharacterPlayer() != null && getCharacterPlayer().getPerks() != null && element.getRandomDefinition().getRecommendedPerks().size() != 0
-                && getCharacterPlayer().getPerks().stream().anyMatch(p -> element.getRandomDefinition().getRecommendedPerksGroups().contains(p.getGroup()))) {
-            RandomValuesLog.debug(this.getClass().getName(), "Random definition recommened by perk group.");
-            multiplier *= HIGH_MULTIPLIER;
-        } else if (element.getRandomDefinition().getProbability() != null) {
-            RandomGenerationLog.debug(this.getClass().getName(), "Random definition defines with bonus probability of '"
-                    + element.getRandomDefinition().getProbability().getProbabilityMultiplier() + "'.");
-            multiplier *= element.getRandomDefinition().getProbability().getProbabilityMultiplier();
-        }
-
-        // Recommended by user preferences.
-        if (preferences != null && preferences.size() != 0) {
-            final List<String> common = preferences.stream().map(IRandomPreference::name).collect(Collectors.toList());
-            common.retainAll(element.getRandomDefinition().getRecommendedPreferences());
-            RandomGenerationLog.debug(this.getClass().getName(),
-                    "Random definition multiplier '{}'.", (USER_SELECTION_MULTIPLIER * common.size()));
-            multiplier += (USER_SELECTION_MULTIPLIER * common.size());
-        }
-
-        // Inadvisable by user preferences.
-        if (preferences != null && preferences.size() != 0) {
-            final List<String> common = preferences.stream().map(IRandomPreference::name).collect(Collectors.toList());
-            common.retainAll(element.getRandomDefinition().getInadvisablePreferences());
-            RandomGenerationLog.debug(this.getClass().getName(),
-                    "Random definition divisor '{}'.", (USER_INADVISABLE_DIVISOR * common.size()));
-            if (common.size() != 0) {
-                multiplier /= (USER_INADVISABLE_DIVISOR * common.size());
-            }
-        }
+        multiplier = applyDefinitionRecommendationBonus(element, multiplier);
+        multiplier = applyRecommendedPreferenceBonus(element, multiplier);
+        multiplier = applyInadvisablePreferencePenalty(element, multiplier);
 
         // Bonus by ElementType matching OperationalRolePreference.
         multiplier = applyElementTypeBonus(element, multiplier);
 
-        RandomValuesLog.debug(this.getClass().getName(),
+        RandomValuesLog.debug(RandomSelector.class.getName(),
                 "Random definitions bonus multiplier is '{}'.", multiplier);
+        return multiplier;
+    }
+
+    private double applyDefinitionRecommendationBonus(final Element element, double multiplier) {
+        // Recommended to specie.
+        if (getCharacterPlayer() != null && getCharacterPlayer().getSpecie() != null
+                && element.getRandomDefinition().getRecommendedSpecies().contains(getCharacterPlayer().getSpecie().getId())) {
+            RandomGenerationLog.debug(RandomSelector.class.getName(),
+                    RECOMMENDED_LOG_MESSAGE, getCharacterPlayer().getSpecie());
+            return multiplier * HIGH_MULTIPLIER;
+        }
+
+        // Recommended to my upbringing.
+        if (getCharacterPlayer() != null && getCharacterPlayer().getUpbringing() != null
+                && element.getRandomDefinition().getRecommendedUpbringings().contains(getCharacterPlayer().getUpbringing().getId())) {
+            RandomGenerationLog.debug(RandomSelector.class.getName(),
+                    RECOMMENDED_LOG_MESSAGE, getCharacterPlayer().getUpbringing());
+            return multiplier * HIGH_MULTIPLIER;
+        }
+
+        // Recommended to my faction group.
+        if (getCharacterPlayer() != null && getCharacterPlayer().getFaction() != null
+                && element.getRandomDefinition().getRecommendedFactionsGroups().contains(getCharacterPlayer().getFaction().getGroup())) {
+            RandomGenerationLog.debug(RandomSelector.class.getName(), RECOMMENDED_LOG_MESSAGE,
+                    getCharacterPlayer().getFaction().getGroup());
+            return multiplier * BASIC_MULTIPLIER;
+        }
+
+        // Recommended to my faction.
+        if (getCharacterPlayer() != null && getCharacterPlayer().getFaction() != null
+                && element.getRandomDefinition().getRecommendedFactions().contains(getCharacterPlayer().getFaction().getId())) {
+            RandomGenerationLog.debug(RandomSelector.class.getName(),
+                    RECOMMENDED_LOG_MESSAGE, getCharacterPlayer().getFaction());
+            return multiplier * HIGH_MULTIPLIER;
+        }
+
+        // Recommended to my calling.
+        if (getCharacterPlayer() != null && getCharacterPlayer().getCalling() != null
+                && element.getRandomDefinition().getRecommendedCallings().contains(getCharacterPlayer().getCalling().getId())) {
+            RandomGenerationLog.debug(RandomSelector.class.getName(),
+                    RECOMMENDED_LOG_MESSAGE, getCharacterPlayer().getCalling());
+            return multiplier * HIGH_MULTIPLIER;
+        }
+
+        return applyPerkAndProbabilityBonus(element, multiplier);
+    }
+
+    private double applyPerkAndProbabilityBonus(final Element element, double multiplier) {
+        if (element.getRandomDefinition().getProbabilityMultiplier() != null) {
+            RandomValuesLog.debug(RandomSelector.class.getName(),
+                    "Random definition multiplier is '{}'.", element.getRandomDefinition().getProbabilityMultiplier());
+            return multiplier * element.getRandomDefinition().getProbabilityMultiplier().getValue();
+        }
+
+        if (getCharacterPlayer() != null && getCharacterPlayer().getPerks() != null && !element.getRandomDefinition().getRecommendedPerks().isEmpty()
+                && getCharacterPlayer().getPerks().stream().anyMatch(p -> element.getRandomDefinition().getRecommendedPerks().contains(p.getId()))) {
+            RandomValuesLog.debug(RandomSelector.class.getName(), "Random definition recommened by perk.");
+            return multiplier * HIGH_MULTIPLIER;
+        }
+
+        if (getCharacterPlayer() != null && getCharacterPlayer().getPerks() != null && !element.getRandomDefinition().getRecommendedPerks().isEmpty()
+                && getCharacterPlayer().getPerks().stream().anyMatch(p -> element.getRandomDefinition().getRecommendedPerksGroups().contains(p.getGroup()))) {
+            RandomValuesLog.debug(RandomSelector.class.getName(), "Random definition recommened by perk group.");
+            return multiplier * HIGH_MULTIPLIER;
+        }
+
+        if (element.getRandomDefinition().getProbability() != null) {
+            RandomGenerationLog.debug(RandomSelector.class.getName(), "Random definition defines with bonus probability of '"
+                    + element.getRandomDefinition().getProbability().getProbabilityMultiplier() + "'.");
+            return multiplier * element.getRandomDefinition().getProbability().getProbabilityMultiplier();
+        }
+
+        return multiplier;
+    }
+
+    private double applyRecommendedPreferenceBonus(final Element element, double multiplier) {
+        // Recommended by user preferences.
+        if (preferences != null && !preferences.isEmpty()) {
+            final List<String> common = preferences.stream().map(IRandomPreference::name).toList();
+            final List<String> commonPreferences = new ArrayList<>(common);
+            commonPreferences.retainAll(element.getRandomDefinition().getRecommendedPreferences());
+            RandomGenerationLog.debug(RandomSelector.class.getName(),
+                    "Random definition multiplier '{}'.", (USER_SELECTION_MULTIPLIER * commonPreferences.size()));
+            multiplier += (USER_SELECTION_MULTIPLIER * commonPreferences.size());
+        }
+        return multiplier;
+    }
+
+    private double applyInadvisablePreferencePenalty(final Element element, double multiplier) {
+        // Inadvisable by user preferences.
+        if (preferences != null && !preferences.isEmpty()) {
+            final List<String> common = preferences.stream().map(IRandomPreference::name).toList();
+            final List<String> commonPreferences = new ArrayList<>(common);
+            commonPreferences.retainAll(element.getRandomDefinition().getInadvisablePreferences());
+            RandomGenerationLog.debug(RandomSelector.class.getName(),
+                    "Random definition divisor '{}'.", (USER_INADVISABLE_DIVISOR * commonPreferences.size()));
+            if (!commonPreferences.isEmpty()) {
+                multiplier /= (USER_INADVISABLE_DIVISOR * commonPreferences.size());
+            }
+        }
         return multiplier;
     }
 
@@ -293,7 +325,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
 
         // Look for OperationalRolePreference in user preferences
         final OperationalRolePreference rolePreference = preferences.stream()
-                .filter(p -> p instanceof OperationalRolePreference)
+                .filter(OperationalRolePreference.class::isInstance)
                 .map(p -> (OperationalRolePreference) p)
                 .findFirst()
                 .orElse(null);
@@ -306,7 +338,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         final ElementType targetElementType = mapRolePreferenceToElementType(rolePreference);
 
         if (targetElementType != null && element.getElementType() == targetElementType) {
-            RandomGenerationLog.debug(this.getClass().getName(),
+            RandomGenerationLog.debug(RandomSelector.class.getName(),
                     "ElementType bonus applied: {} matches operational role {}",
                     element.getElementType(), rolePreference);
             return baseMultiplier * HIGH_MULTIPLIER;
@@ -375,18 +407,18 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         }
 
         // User preferences forbidden.
-        if (preferences != null && preferences.size() != 0 && randomDefinition.getForbiddenPreferences() != null
-                && randomDefinition.getForbiddenPreferences().size() != 0
-                && !Collections.disjoint(preferences.stream().map(IRandomPreference::name).collect(Collectors.toList()),
+        if (preferences != null && !preferences.isEmpty() && randomDefinition.getForbiddenPreferences() != null
+                && !randomDefinition.getForbiddenPreferences().isEmpty()
+                && !Collections.disjoint(preferences.stream().map(IRandomPreference::name).toList(),
                 randomDefinition.getForbiddenPreferences())) {
             throw new InvalidRandomElementSelectedException(
                     "Element ignored due to preferences '" + randomDefinition.getForbiddenPreferences() + "'.");
         }
 
         // User must have these preferences restriction.
-        if (preferences != null && preferences.size() != 0 && randomDefinition.getRestrictedPreferences() != null
-                && randomDefinition.getRestrictedPreferences().size() != 0
-                && Collections.disjoint(preferences.stream().map(IRandomPreference::name).collect(Collectors.toList()),
+        if (preferences != null && !preferences.isEmpty() && randomDefinition.getRestrictedPreferences() != null
+                && !randomDefinition.getRestrictedPreferences().isEmpty()
+                && Collections.disjoint(preferences.stream().map(IRandomPreference::name).toList(),
                 randomDefinition.getRestrictedPreferences())) {
             throw new InvalidRandomElementSelectedException(
                     "Element ignored due as lacking mandatory preference '" + randomDefinition.getRestrictedPreferences() + "'.");
@@ -440,7 +472,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         if (selectedElement == null) {
             throw new InvalidRandomElementSelectedException("No elements to select");
         }
-        RandomSelectorLog.debug(this.getClass().getName(), "Selected element '" + selectedElement + "' from weighted elements '"
+        RandomSelectorLog.debug(RandomSelector.class.getName(), "Selected element '" + selectedElement + "' from weighted elements '"
                 + getWeightedElements() + "'.");
         return selectedElement;
     }

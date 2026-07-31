@@ -871,7 +871,7 @@ public class CharacterPlayer {
                 perks.add(new SpecializedPerk(PerkFactory.getInstance().getElement(selection),
                         selection.getSpecialization()));
             } catch (final Exception e) {
-                MachineLog.warning(this.getClass(), e.getMessage());
+                MachineLog.warning(CharacterPlayer.class, e.getMessage());
             }
         }));
         return perks;
@@ -1044,7 +1044,7 @@ public class CharacterPlayer {
         if (steps != null) {
             for (final CharacterDefinitionStepSelection step : steps) {
                 if (step.getSelectedPerks().contains(selection)) {
-                    MachineLog.debug(this.getClass().getName(), "Selection '{}' found on step '{}'.", selection, step);
+                    MachineLog.debug(CharacterPlayer.class.getName(), "Selection '{}' found on step '{}'.", selection, step);
                     return true;
                 }
             }
@@ -1804,7 +1804,7 @@ public class CharacterPlayer {
             }
             return this.checkCharacteristicOccultismType();
         } catch (final InvalidXmlElementException e) {
-            MachineLog.errorMessage(this.getClass().getName(), e);
+            MachineLog.errorMessage(CharacterPlayer.class.getName(), e);
         }
         return null;
     }

@@ -42,7 +42,6 @@ import java.util.Set;
  */
 
 public class FileWatcher {
-    private WatchQueueReader fileWatcher = null;
     private String directoryToWatch = null;
     private Set<FileModifiedListener> fileModifiedListeners;
     private Set<FileAddedListener> fileAddedListeners;
@@ -70,7 +69,7 @@ public class FileWatcher {
      * @param filesNames       the files to check
      * @throws IOException
      */
-    public FileWatcher(String directoryToWatch, Set<String> filesNames) throws IOException {
+    public FileWatcher(String directoryToWatch, Set<String> filesNames) {
         if (directoryToWatch != null) {
             setDirectoryToWatch(directoryToWatch);
         } else {
@@ -101,7 +100,7 @@ public class FileWatcher {
      * @param filesNames
      * @throws IOException
      */
-    public FileWatcher(Set<String> filesNames) throws IOException {
+    public FileWatcher(Set<String> filesNames) {
         this(null, filesNames);
     }
 
@@ -111,7 +110,7 @@ public class FileWatcher {
      * @param directoryToWatch
      * @throws IOException
      */
-    public FileWatcher(String directoryToWatch) throws IOException {
+    public FileWatcher(String directoryToWatch) {
         this(directoryToWatch, null);
     }
 
@@ -146,18 +145,19 @@ public class FileWatcher {
 
     private void startWatcher(final Set<String> filesNames) {
         try {
-            fileWatcher = new WatchQueueReader(getWatchService(), getDirectoryToWatch());
-            fileWatcher.setFilesNames(filesNames);
+            final WatchQueueReader watchQueueReader = new WatchQueueReader(getWatchService(), getDirectoryToWatch());
+            watchQueueReader.setFilesNames(filesNames);
             stopThread();
-            thread = new Thread(fileWatcher, "FileWatcher");
+            thread = new Thread(watchQueueReader, "FileWatcher");
             thread.start();
             pathToWatch.register(getWatchService(), StandardWatchEventKinds.ENTRY_CREATE, StandardWatchEventKinds.ENTRY_MODIFY,
                     StandardWatchEventKinds.ENTRY_DELETE);
             // Ensure to close the watcher.
             Runtime.getRuntime().addShutdownHook(new Thread() {
+                @Override
                 public void run() {
                     try {
-                        MachineLog.debug(this.getClass().getName(),
+                        MachineLog.debug(FileWatcher.class.getName(),
                                 "Closing filewatcher for directory '{}' and files '{}'.", directoryToWatch, filesNames);
                         if (watcher != null) {
                             watcher.close();
@@ -168,7 +168,7 @@ public class FileWatcher {
                 }
             });
         } catch (NoSuchFileException e) {
-            MachineLog.warning(this.getClass().getName(), "Folder '{}' not found!", getDirectoryToWatch());
+            MachineLog.warning(FileWatcher.class.getName(), "Folder '{}' not found!", getDirectoryToWatch());
         } catch (IOException e) {
             MachineLog.errorMessage(this.getClass().getName(), e);
         }
@@ -187,30 +187,10 @@ public class FileWatcher {
         @Override
         public void run() {
             try {
-                // Get the first event before looping
                 WatchKey key = watcher.take();
                 while (key != null) {
-                    // We have a polled event, now we traverse it and receive
-                    // all the states from it
                     for (final WatchEvent<?> event : key.pollEvents()) {
-                        // Event on a directory or a set of files.
-                        if (filesNames == null || (filesNames.contains(event.context().toString()))) {
-                            if (event.kind().equals(StandardWatchEventKinds.ENTRY_MODIFY)) {
-                                for (final FileModifiedListener fileModifiedListener : new HashSet<>(fileModifiedListeners)) {
-                                    fileModifiedListener.changeDetected(combine(pathToWatch, (Path) event.context()));
-                                }
-                            } else if (event.kind().equals(StandardWatchEventKinds.ENTRY_CREATE)) {
-                                for (final FileAddedListener fileCreationListener : new HashSet<>(fileAddedListeners)) {
-                                    fileCreationListener.fileCreated(combine(pathToWatch, (Path) event.context()));
-                                }
-                            } else if (event.kind().equals(StandardWatchEventKinds.ENTRY_DELETE)) {
-                                for (final FileRemovedListener fileDeletionListener : new HashSet<>(fileRemovedListeners)) {
-                                    fileDeletionListener.fileDeleted(combine(pathToWatch, (Path) event.context()));
-                                }
-                            } else if (event.kind().equals(StandardWatchEventKinds.OVERFLOW)) {
-                                MachineLog.severe(this.getClass().getName(), "File Watcher events vents may have been lost or discarded.");
-                            }
-                        }
+                        processEvent(event);
                     }
                     key.reset();
                     key = watcher.take();
@@ -220,7 +200,46 @@ public class FileWatcher {
                 Thread.currentThread().interrupt();
             } catch (ClosedWatchServiceException e) {
                 // watcher closed. Do nothing.
+            }
+        }
+
+        private void processEvent(final WatchEvent<?> event) {
+            if (!isTrackedEvent(event)) {
                 return;
+            }
+            if (event.kind().equals(StandardWatchEventKinds.OVERFLOW)) {
+                MachineLog.severe(FileWatcher.class.getName(), "File Watcher events vents may have been lost or discarded.");
+                return;
+            }
+            final Path changedPath = combine(pathToWatch, (Path) event.context());
+            if (event.kind().equals(StandardWatchEventKinds.ENTRY_MODIFY)) {
+                notifyModified(changedPath);
+            } else if (event.kind().equals(StandardWatchEventKinds.ENTRY_CREATE)) {
+                notifyCreated(changedPath);
+            } else if (event.kind().equals(StandardWatchEventKinds.ENTRY_DELETE)) {
+                notifyDeleted(changedPath);
+            }
+        }
+
+        private boolean isTrackedEvent(final WatchEvent<?> event) {
+            return filesNames == null || filesNames.contains(event.context().toString());
+        }
+
+        private void notifyModified(final Path changedPath) {
+            for (final FileModifiedListener fileModifiedListener : new HashSet<>(fileModifiedListeners)) {
+                fileModifiedListener.changeDetected(changedPath);
+            }
+        }
+
+        private void notifyCreated(final Path changedPath) {
+            for (final FileAddedListener fileCreationListener : new HashSet<>(fileAddedListeners)) {
+                fileCreationListener.fileCreated(changedPath);
+            }
+        }
+
+        private void notifyDeleted(final Path changedPath) {
+            for (final FileRemovedListener fileDeletionListener : new HashSet<>(fileRemovedListeners)) {
+                fileDeletionListener.fileDeleted(changedPath);
             }
         }
 

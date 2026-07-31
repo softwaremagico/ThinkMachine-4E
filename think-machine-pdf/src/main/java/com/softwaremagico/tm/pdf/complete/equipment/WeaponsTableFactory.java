@@ -86,37 +86,7 @@ public class WeaponsTableFactory extends BaseElement {
         int addedWeapons = 0;
         if (characterPlayer != null) {
             for (final Weapon weapon : characterPlayer.getWeapons()) {
-                if (weapon.getWeaponDamages().size() == 0) {
-                    continue;
-                }
-                setDamageLine(table, weapon, weapon.getWeaponDamages().get(0),
-                        weapon.getSize() != null ? weapon.getSize().toString() : "", weapon.getWeaponOthersText());
-                addedWeapons++;
-
-                //Secondary damages.
-                if (weapon.getWeaponDamages().size() > 1) {
-                    for (int i = 1; i < weapon.getWeaponDamages().size(); i++) {
-                        setDamageLine(table, weapon, weapon.getWeaponDamages().get(i), "", "");
-                        addedWeapons++;
-                    }
-                }
-
-                for (final Ammunition ammunition : AmmunitionFactory.getInstance().getElements(weapon.getAmmunition())) {
-                    table.addCell(createFirstElementLine(" - " + ammunition.getName(), NAME_COLUMN_WIDTH,
-                            FadingSunsTheme.WEAPONS_CONTENT_FONT_SIZE));
-                    table.addCell(createElementLine("", ROLL_COLUMN_WIDTH, FadingSunsTheme.WEAPONS_CONTENT_FONT_SIZE));
-                    table.addCell(createElementLine((ammunition.getGoal() != null ? weapon.getWeaponDamages().get(0).getGoal() : ""), GOAL_COLUMN_WIDTH,
-                            FadingSunsTheme.WEAPONS_CONTENT_FONT_SIZE));
-                    table.addCell(createElementLine(ammunition.getDamage(), DAMAGE_COLUMN_WIDTH, FadingSunsTheme.WEAPONS_CONTENT_FONT_SIZE));
-                    table.addCell(createElementLine(ammunition.getStrength(), STRENGTH_COLUMN_WIDTH, FadingSunsTheme.WEAPONS_CONTENT_FONT_SIZE));
-                    table.addCell(createElementLine(ammunition.getRange(), RANGE_COLUMN_WIDTH, FadingSunsTheme.WEAPONS_CONTENT_FONT_SIZE));
-                    table.addCell(createElementLine("", RANGE_COLUMN_WIDTH, FadingSunsTheme.WEAPONS_CONTENT_FONT_SIZE));
-                    table.addCell(createElementLine("", RATE_COLUMN_WIDTH, FadingSunsTheme.WEAPONS_CONTENT_FONT_SIZE));
-                    table.addCell(createElementLine(ammunition.getSize() != null ? ammunition.getSize().toString() : "",
-                            SIZE_COLUMN_WIDTH, FadingSunsTheme.WEAPONS_CONTENT_FONT_SIZE));
-                    table.addCell(createElementLine("", OTHERS_COLUMN_WIDTH, FadingSunsTheme.WEAPONS_CONTENT_FONT_SIZE));
-                    addedWeapons++;
-                }
+                addedWeapons += addWeaponRows(table, weapon);
             }
         }
 
@@ -134,6 +104,49 @@ public class WeaponsTableFactory extends BaseElement {
         }
 
         return table;
+    }
+
+    private static int addWeaponRows(final PdfPTable table, final Weapon weapon) {
+        if (weapon.getWeaponDamages().isEmpty()) {
+            return 0;
+        }
+        int rows = 0;
+        setDamageLine(table, weapon, weapon.getWeaponDamages().get(0),
+                weapon.getSize() != null ? weapon.getSize().toString() : "", weapon.getWeaponOthersText());
+        rows++;
+        rows += addSecondaryDamageRows(table, weapon);
+        rows += addAmmunitionRows(table, weapon);
+        return rows;
+    }
+
+    private static int addSecondaryDamageRows(final PdfPTable table, final Weapon weapon) {
+        int rows = 0;
+        for (int i = 1; i < weapon.getWeaponDamages().size(); i++) {
+            setDamageLine(table, weapon, weapon.getWeaponDamages().get(i), "", "");
+            rows++;
+        }
+        return rows;
+    }
+
+    private static int addAmmunitionRows(final PdfPTable table, final Weapon weapon) {
+        int rows = 0;
+        for (final Ammunition ammunition : AmmunitionFactory.getInstance().getElements(weapon.getAmmunition())) {
+            table.addCell(createFirstElementLine(" - " + ammunition.getName(), NAME_COLUMN_WIDTH,
+                    FadingSunsTheme.WEAPONS_CONTENT_FONT_SIZE));
+            table.addCell(createElementLine("", ROLL_COLUMN_WIDTH, FadingSunsTheme.WEAPONS_CONTENT_FONT_SIZE));
+            table.addCell(createElementLine(ammunition.getGoal() != null ? weapon.getWeaponDamages().get(0).getGoal() : "", GOAL_COLUMN_WIDTH,
+                    FadingSunsTheme.WEAPONS_CONTENT_FONT_SIZE));
+            table.addCell(createElementLine(ammunition.getDamage(), DAMAGE_COLUMN_WIDTH, FadingSunsTheme.WEAPONS_CONTENT_FONT_SIZE));
+            table.addCell(createElementLine(ammunition.getStrength(), STRENGTH_COLUMN_WIDTH, FadingSunsTheme.WEAPONS_CONTENT_FONT_SIZE));
+            table.addCell(createElementLine(ammunition.getRange(), RANGE_COLUMN_WIDTH, FadingSunsTheme.WEAPONS_CONTENT_FONT_SIZE));
+            table.addCell(createElementLine("", RANGE_COLUMN_WIDTH, FadingSunsTheme.WEAPONS_CONTENT_FONT_SIZE));
+            table.addCell(createElementLine("", RATE_COLUMN_WIDTH, FadingSunsTheme.WEAPONS_CONTENT_FONT_SIZE));
+            table.addCell(createElementLine(ammunition.getSize() != null ? ammunition.getSize().toString() : "",
+                    SIZE_COLUMN_WIDTH, FadingSunsTheme.WEAPONS_CONTENT_FONT_SIZE));
+            table.addCell(createElementLine("", OTHERS_COLUMN_WIDTH, FadingSunsTheme.WEAPONS_CONTENT_FONT_SIZE));
+            rows++;
+        }
+        return rows;
     }
 
     private static void setDamageLine(PdfPTable table, Weapon weapon, WeaponDamage weaponDamage, String size, String others) {

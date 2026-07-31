@@ -31,8 +31,8 @@ import com.softwaremagico.tm.character.skills.SkillBonusOptions;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import com.softwaremagico.tm.log.RandomStepLog;
-import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
+import com.softwaremagico.tm.random.preferences.IRandomPreference;
 
 import java.util.Collection;
 import java.util.Set;
@@ -40,36 +40,35 @@ import java.util.stream.Collectors;
 
 public class RandomSkillBonusOption extends RandomSkill {
 
-    private final SkillBonusOptions skillOptions;
+	private final SkillBonusOptions skillOptions;
 
-    public RandomSkillBonusOption(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences,
-                                  SkillBonusOptions skillOptions) throws InvalidXmlElementException {
-        super(characterPlayer, preferences, skillOptions.getBonus());
-        this.skillOptions = skillOptions;
-    }
+	public RandomSkillBonusOption(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences,
+			SkillBonusOptions skillOptions) throws InvalidXmlElementException {
+		super(characterPlayer, preferences, skillOptions.getBonus());
+		this.skillOptions = skillOptions;
+	}
 
-    @Override
-    protected Collection<Skill> getAllElements() throws InvalidXmlElementException {
-        return skillOptions.getOptions().stream().map(Option::getElement).collect(Collectors.toList());
-    }
+	@Override
+	protected Collection<Skill> getAllElements() throws InvalidXmlElementException {
+		return this.skillOptions.getOptions().stream().map(Option::getElement).toList();
+	}
 
-
-    @Override
-    protected int getWeight(Skill element) throws InvalidRandomElementSelectedException {
-        //Max skill at some levels.
-        try {
-            getCharacterPlayer().checkMaxValueByLevel(element, getCharacterPlayer().getSkillValue(element)
-                    + skillOptions.getBonus());
-            RandomStepLog.debug(this.getClass(), "Max level '" + element + "' value: "
-                    + getCharacterPlayer().getSkillValue(element)
-                    + " + " + skillOptions.getBonus() + " from " + skillOptions.getOptions());
-        } catch (InvalidXmlElementException | MaxValueExceededException e) {
-            return 0;
-        }
-        if (getCharacterPlayer().getSkillValue(element) + skillOptions.getBonus() >= Skill.SKILL_MAX_VALUE) {
-            return 0;
-        }
-        return super.getWeight(element);
-    }
+	@Override
+	protected int getWeight(Skill element) throws InvalidRandomElementSelectedException {
+		// Max skill at some levels.
+		try {
+			this.getCharacterPlayer().checkMaxValueByLevel(element,
+					this.getCharacterPlayer().getSkillValue(element) + this.skillOptions.getBonus());
+			RandomStepLog.debug(RandomSkillBonusOption.class,
+					"Max level '" + element + "' value: " + this.getCharacterPlayer().getSkillValue(element) + " + "
+							+ this.skillOptions.getBonus() + " from " + this.skillOptions.getOptions());
+		} catch (final InvalidXmlElementException | MaxValueExceededException e) {
+			return 0;
+		}
+		if (this.getCharacterPlayer().getSkillValue(element) + this.skillOptions.getBonus() >= Skill.SKILL_MAX_VALUE) {
+			return 0;
+		}
+		return super.getWeight(element);
+	}
 
 }

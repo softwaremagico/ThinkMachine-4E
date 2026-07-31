@@ -120,60 +120,81 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
         if (!name.getGender().equals(getCharacterPlayer().getInfo().getGender())) {
             return 0;
         }
-        //Xenos have different names.
-        if (getCharacterPlayer().getSpecie() != null
-                && !SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId()).usesHumanNames()) {
-            if (Objects.equals(name.getSpecie(), getCharacterPlayer().getSpecie().getId())) {
-                return super.getWeight(name);
-            } else {
-                throw new InvalidRandomElementSelectedException("Name '" + name + "' is restricted to specie.");
-            }
+        validateSpecieRestrictions(name);
+
+        if (isNobilityFactionNameConfigured()) {
+            return validateNobilityFactionName(name);
         }
-        if (getCharacterPlayer().getSpecie() != null
-                && SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId()).usesHumanNames()
-                && name.getSpecie() != null
-                && !"human".equals(name.getSpecie())) {
+
+        if (isPlanetNamesConfigured()) {
+            return validatePlanetName(name);
+        }
+
+        validateFactionNameForPlanetlessCase(name);
+
+        if (isIncompatibleWithExistingSurname(name)) {
+            return 0;
+        }
+
+        return BASIC_PROBABILITY;
+    }
+
+    private void validateSpecieRestrictions(final Name name) throws InvalidRandomElementSelectedException {
+        if (getCharacterPlayer().getSpecie() == null) {
+            return;
+        }
+        final String specieId = getCharacterPlayer().getSpecie().getId();
+        final boolean usesHumanNames = SpecieFactory.getInstance().getElement(specieId).usesHumanNames();
+        if (!usesHumanNames) {
+            if (Objects.equals(name.getSpecie(), specieId)) {
+                return;
+            }
+            throw new InvalidRandomElementSelectedException("Name '" + name + "' is restricted to specie.");
+        }
+        if (name.getSpecie() != null && !"human".equals(name.getSpecie())) {
             throw new InvalidRandomElementSelectedException("Name '" + name + "' is restricted to xeno species.");
         }
-        // If faction has names (nobility, vuldroks). Use them.
-        if (getCharacterPlayer().getFaction() != null
-                && FactionFactory.getInstance().getAllNames(getCharacterPlayer().getFaction().getId(), getCharacterPlayer().getInfo().getGender())
-                .size() != 0) {
-            if (Objects.equals(getCharacterPlayer().getFaction().getId(), name.getFaction())) {
-                return super.getWeight(name);
-            } else {
-                throw new InvalidRandomElementSelectedException("Name '" + name
-                        + "' not allowed for a nobility based character.");
-            }
+    }
+
+    private boolean isNobilityFactionNameConfigured() {
+        return getCharacterPlayer().getFaction() != null
+                && !FactionFactory.getInstance().getAllNames(getCharacterPlayer().getFaction().getId(), getCharacterPlayer().getInfo().getGender()).isEmpty();
+    }
+
+    private int validateNobilityFactionName(final Name name) throws InvalidRandomElementSelectedException {
+        if (Objects.equals(getCharacterPlayer().getFaction().getId(), name.getFaction())) {
+            return super.getWeight(name);
         }
-        // Not nobility, use names available on the planet.
-        if (getCharacterPlayer().getInfo().getPlanet() != null
-                && PlanetFactory.getInstance().getElement(getCharacterPlayer().getInfo().getPlanet()).getNames().size() != 0) {
-            //Only human names. Ignore xenos.
-            if (new HashSet<>(PlanetFactory.getInstance().getElement(getCharacterPlayer().getInfo().getPlanet())
-                    .getHumanFactions()).contains(name.getFaction())) {
-                return super.getWeight(name);
-            } else {
-                throw new InvalidRandomElementSelectedException("Name '" + name + "' not present in planet '"
-                        + getCharacterPlayer().getInfo().getPlanet() + "'.");
-            }
+        throw new InvalidRandomElementSelectedException("Name '" + name + "' not allowed for a nobility based character.");
+    }
+
+    private boolean isPlanetNamesConfigured() {
+        return getCharacterPlayer().getInfo().getPlanet() != null
+                && !PlanetFactory.getInstance().getElement(getCharacterPlayer().getInfo().getPlanet()).getNames().isEmpty();
+    }
+
+    private int validatePlanetName(final Name name) throws InvalidRandomElementSelectedException {
+        final boolean isFactionOnPlanet = new HashSet<>(PlanetFactory.getInstance().getElement(getCharacterPlayer().getInfo().getPlanet())
+                .getHumanFactions()).contains(name.getFaction());
+        if (isFactionOnPlanet) {
+            return super.getWeight(name);
         }
-        // Planet without factions. Then choose own faction names
+        throw new InvalidRandomElementSelectedException("Name '" + name + "' not present in planet '"
+                + getCharacterPlayer().getInfo().getPlanet() + "'.");
+    }
+
+    private void validateFactionNameForPlanetlessCase(final Name name) throws InvalidRandomElementSelectedException {
         if (getCharacterPlayer().getFaction() != null
-                && FactionFactory.getInstance().getAllNames(getCharacterPlayer().getFaction().getId()).size() != 0
+                && !FactionFactory.getInstance().getAllNames(getCharacterPlayer().getFaction().getId()).isEmpty()
                 && !getCharacterPlayer().getFaction().getId().equals(name.getFaction())) {
             throw new InvalidRandomElementSelectedException("Name '" + name + "' from an invalid faction '"
                     + getCharacterPlayer().getFaction() + "'.");
         }
+    }
 
-        // Surname already set, use same faction to avoid weird mix.
-        if (getCharacterPlayer().getInfo().getSurname() != null) {
-            if (getCharacterPlayer().getInfo().getSurname().getFaction() != null
-                    && !Objects.equals(name.getFaction(), getCharacterPlayer().getInfo().getSurname().getFaction())) {
-                return 0;
-            }
-        }
-
-        return BASIC_PROBABILITY;
+    private boolean isIncompatibleWithExistingSurname(final Name name) {
+        return getCharacterPlayer().getInfo().getSurname() != null
+                && getCharacterPlayer().getInfo().getSurname().getFaction() != null
+                && !Objects.equals(name.getFaction(), getCharacterPlayer().getInfo().getSurname().getFaction());
     }
 }

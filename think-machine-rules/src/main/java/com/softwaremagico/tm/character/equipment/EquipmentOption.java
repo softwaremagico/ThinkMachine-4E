@@ -49,6 +49,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.function.Supplier;
 
 public class EquipmentOption extends Option<Equipment> {
 
@@ -143,38 +144,32 @@ public class EquipmentOption extends Option<Equipment> {
 
     @Override
     public Equipment getElement(String id) {
-        Equipment equipment;
-        try {
-            equipment = new CustomizedArmor(ArmorFactory.getInstance().getElement(id));
-        } catch (Exception e1) {
-            try {
-                equipment = new CustomizedItem(ItemFactory.getInstance().getElement(id));
-            } catch (Exception e2) {
-                try {
-                    equipment = new CustomizedShield(ShieldFactory.getInstance().getElement(id));
-                } catch (Exception e3) {
-                    try {
-                        equipment = new CustomizedHandheldShield(HandheldShieldFactory.getInstance().getElement(id));
-                    } catch (Exception e4) {
-                        try {
-                            equipment = new CustomizedThinkMachine(ThinkMachineFactory.getInstance().getElement(id));
-                        } catch (Exception e5) {
-                            try {
-                                equipment = new CustomizedWeapon(WeaponFactory.getInstance().getElement(id));
-                            } catch (Exception e6) {
-                                equipment = null;
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        Equipment equipment = resolveEquipment(id);
         if (equipment != null) {
             equipment.setQuantity(getQuantity());
             equipment.setQuality(quality);
             equipment.setStatus(status);
         }
         return equipment;
+    }
+
+    private Equipment resolveEquipment(final String id) {
+        final List<Supplier<Equipment>> resolvers = List.of(
+                () -> new CustomizedArmor(ArmorFactory.getInstance().getElement(id)),
+                () -> new CustomizedItem(ItemFactory.getInstance().getElement(id)),
+                () -> new CustomizedShield(ShieldFactory.getInstance().getElement(id)),
+                () -> new CustomizedHandheldShield(HandheldShieldFactory.getInstance().getElement(id)),
+                () -> new CustomizedThinkMachine(ThinkMachineFactory.getInstance().getElement(id)),
+                () -> new CustomizedWeapon(WeaponFactory.getInstance().getElement(id))
+        );
+        for (final Supplier<Equipment> resolver : resolvers) {
+            try {
+                return resolver.get();
+            } catch (Exception ignored) {
+                // Try next resolver.
+            }
+        }
+        return null;
     }
 
     public Quality getQuality() {

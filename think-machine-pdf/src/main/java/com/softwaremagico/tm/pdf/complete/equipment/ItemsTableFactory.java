@@ -61,12 +61,7 @@ public class ItemsTableFactory extends BaseElement {
         items.addAll(characterPlayer != null ? new ArrayList<>(characterPlayer.getCyberdevices()) : new ArrayList<>());
         items.addAll(characterPlayer != null ? new ArrayList<>(characterPlayer.getItems()) : new ArrayList<>());
         final List<Element> itemsFirstColumn = items.subList(0, Math.min(items.size(), ROWS));
-        List<Element> itemsSecondColumn;
-        try {
-            itemsSecondColumn = items.subList(Math.min(items.size(), ROWS), items.size());
-        } catch (IndexOutOfBoundsException e) {
-            itemsSecondColumn = new ArrayList<>();
-        }
+        final List<Element> itemsSecondColumn = items.subList(Math.min(items.size(), ROWS), items.size());
         table.addCell(getItemsValueTable(itemsFirstColumn));
         table.addCell(getItemsValueTable(itemsSecondColumn));
 
@@ -86,17 +81,7 @@ public class ItemsTableFactory extends BaseElement {
         for (Element item : items) {
             table.addCell(createFirstElementLine(item.getName().getTranslatedText(), NAME_COLUMN_WIDTH,
                     FadingSunsTheme.ITEMS_CONTENT_FONT_SIZE));
-            if (item instanceof Item) {
-                table.addCell(createElementLine((((Item) item).getTechLevel() != null ? String.valueOf(((Item) item).getTechLevel()) : ""),
-                        TECH_LEVEL_COLUMN_WIDTH, FadingSunsTheme.ITEMS_CONTENT_FONT_SIZE));
-                table.addCell(createElementLine((((Item) item).getSize() != null ? ((Item) item).getSize().name() : ""),
-                        SIZE_COLUMN_WIDTH, FadingSunsTheme.ITEMS_CONTENT_FONT_SIZE));
-            } else if (item instanceof Cyberdevice) {
-                table.addCell(createElementLine((((Cyberdevice) item).getTechLevel() != null ? String.valueOf(((Cyberdevice) item).getTechLevel()) : ""),
-                        TECH_LEVEL_COLUMN_WIDTH, FadingSunsTheme.ITEMS_CONTENT_FONT_SIZE));
-                table.addCell(createElementLine((((Cyberdevice) item).getSize() != null ? ((Cyberdevice) item).getSize().name() : ""),
-                        SIZE_COLUMN_WIDTH, FadingSunsTheme.ITEMS_CONTENT_FONT_SIZE));
-            }
+            addTechAndSizeCells(table, item);
             addedItems++;
         }
 
@@ -107,6 +92,20 @@ public class ItemsTableFactory extends BaseElement {
         }
 
         return table;
+    }
+
+    private static void addTechAndSizeCells(final PdfPTable table, final Element item) {
+        if (item instanceof Item asItem) {
+            table.addCell(createElementLine(asItem.getTechLevel() != null ? String.valueOf(asItem.getTechLevel()) : "",
+                    TECH_LEVEL_COLUMN_WIDTH, FadingSunsTheme.ITEMS_CONTENT_FONT_SIZE));
+            table.addCell(createElementLine(asItem.getSize() != null ? asItem.getSize().name() : "",
+                    SIZE_COLUMN_WIDTH, FadingSunsTheme.ITEMS_CONTENT_FONT_SIZE));
+        } else if (item instanceof Cyberdevice asCyberdevice) {
+            table.addCell(createElementLine(asCyberdevice.getTechLevel() != null ? String.valueOf(asCyberdevice.getTechLevel()) : "",
+                    TECH_LEVEL_COLUMN_WIDTH, FadingSunsTheme.ITEMS_CONTENT_FONT_SIZE));
+            table.addCell(createElementLine(asCyberdevice.getSize() != null ? asCyberdevice.getSize().name() : "",
+                    SIZE_COLUMN_WIDTH, FadingSunsTheme.ITEMS_CONTENT_FONT_SIZE));
+        }
     }
 
 }
