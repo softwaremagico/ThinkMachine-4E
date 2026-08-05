@@ -61,9 +61,9 @@ public class SmallCharacterSheet extends PdfDocument {
 
     @Override
     protected void createContent(Document document) throws InvalidXmlElementException, DocumentException {
-        if (this.getCharacterPlayer() != null) {
-            this.createCharacterPDF(document, this.getCharacterPlayer());
-        }
+        // A null character generates an empty sheet. Skipping the content would create a document without
+        // pages and OpenPDF would fail when closing it.
+        this.createCharacterPDF(document, this.getCharacterPlayer());
     }
 
     @Override

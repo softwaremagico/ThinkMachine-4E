@@ -37,13 +37,26 @@ import com.softwaremagico.tm.random.character.names.RandomSurname;
 import com.softwaremagico.tm.random.character.planets.RandomPlanet;
 import com.softwaremagico.tm.random.character.upbringings.RandomUpbringing;
 import com.softwaremagico.tm.random.definition.ProbabilityMultiplier;
+import com.softwaremagico.tm.random.preferences.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.step.RandomCharacteristics;
+import com.softwaremagico.tm.language.Translator;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 @Test(groups = {"random"})
 public class RandomTests {
+
+    /**
+     * Language and random seed are global state and other test classes may change them. Both are forced here
+     * to make this class independent of the execution order of the suite.
+     */
+    @BeforeClass(alwaysRun = true)
+    public void setDefaultLanguage() {
+        Translator.setLanguage("EN");
+        RandomSelector.setRandomSeed(0);
+    }
 
     @Test
     public void readRandomPreferences() {

@@ -33,7 +33,13 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-@Test(groups = {"randomCharacterSeed"})
+/**
+ * Exploratory tool used to find random seeds generating invalid characters. It creates thousands of characters,
+ * so it takes several minutes and it is excluded from the standard build ('manual' group).
+ *
+ * <p>Execute it with: {@code mvn test -pl think-machine-random -Dgroups=manual}</p>
+ */
+@Test(groups = {"randomCharacterSeed", "manual"})
 public class FindFailingSeedTest {
     private static final int CHARACTERS_PER_SEED = 1;
     private static final long MAX_SEEDS_TO_TEST = 10000;

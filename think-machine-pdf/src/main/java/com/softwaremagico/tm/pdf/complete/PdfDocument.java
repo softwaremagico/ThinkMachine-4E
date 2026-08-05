@@ -35,6 +35,7 @@ import com.softwaremagico.tm.log.PdfExporterLog;
 import com.softwaremagico.tm.pdf.complete.events.FooterEvent;
 
 import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -128,8 +129,8 @@ public abstract class PdfDocument {
         final Document document = new Document(getPageSize(), RIGHT_MARGIN, LEFT_MARGIN, TOP_MARGIN, BOTTOM_MARGIN);
 
         // if (!MyFile.fileExist(path)) {
-        try {
-            final PdfWriter writer = PdfWriter.getInstance(document, Files.newOutputStream(Paths.get(path)));
+        try (OutputStream outputStream = Files.newOutputStream(Paths.get(path))) {
+            final PdfWriter writer = PdfWriter.getInstance(document, outputStream);
             addEvent(writer);
             generatePDF(document, writer);
             return writer.getPageNumber() - 1;
@@ -137,7 +138,10 @@ public abstract class PdfDocument {
             PdfExporterLog.errorMessage(this.getClass().getName(), e);
             return 0;
         } finally {
-            document.close();
+            // 'generatePDF' already closes the document. Closing it twice raises a NPE on OpenPDF internals.
+            if (document.isOpen()) {
+                document.close();
+            }
         }
         // }
     }
@@ -161,7 +165,12 @@ public abstract class PdfDocument {
     private void generatePDF(Document document, PdfWriter writer) throws EmptyPdfBodyException, InvalidXmlElementException, DocumentException {
         addMetaData(document);
         document.open();
-        createContent(document);
-        document.close();
+        try {
+            createContent(document);
+        } finally {
+            if (document.isOpen()) {
+                document.close();
+            }
+        }
     }
 }

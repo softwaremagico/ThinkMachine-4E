@@ -62,6 +62,15 @@ public class SpecieFactory extends XmlFactory<Specie> {
         return readXml(Specie.class);
     }
 
+    @Override
+    public void reset() {
+        super.reset();
+        // Both caches are derived from the loaded elements. They must be invalidated when the enabled
+        // modules change, otherwise names of disabled/enabled modules are kept forever.
+        namesByXeno = null;
+        surnamesByXeno = null;
+    }
+
     private void setNames() {
         if (namesByXeno == null) {
             namesByXeno = new HashMap<>();

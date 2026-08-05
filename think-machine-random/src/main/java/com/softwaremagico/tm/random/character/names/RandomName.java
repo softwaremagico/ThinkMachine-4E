@@ -122,6 +122,12 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
         }
         validateSpecieRestrictions(name);
 
+        // Xeno species have their own names, not linked to any human faction. Faction and planet filters
+        // (that only handle human factions) would discard all of them.
+        if (usesXenoNames()) {
+            return BASIC_PROBABILITY;
+        }
+
         if (isNobilityFactionNameConfigured()) {
             return validateNobilityFactionName(name);
         }
@@ -154,6 +160,11 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
         if (name.getSpecie() != null && !"human".equals(name.getSpecie())) {
             throw new InvalidRandomElementSelectedException("Name '" + name + "' is restricted to xeno species.");
         }
+    }
+
+    private boolean usesXenoNames() {
+        return getCharacterPlayer().getSpecie() != null
+                && !SpecieFactory.getInstance().getElement(getCharacterPlayer().getSpecie().getId()).usesHumanNames();
     }
 
     private boolean isNobilityFactionNameConfigured() {

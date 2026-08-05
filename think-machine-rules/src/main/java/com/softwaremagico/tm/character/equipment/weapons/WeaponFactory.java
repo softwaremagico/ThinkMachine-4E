@@ -71,6 +71,15 @@ public final class WeaponFactory extends XmlFactory<Weapon> {
         return weaponsByClass.get(weaponClass);
     }
 
+    @Override
+    public void reset() {
+        super.reset();
+        // Both caches are derived from the loaded elements. They must be invalidated when the enabled
+        // modules change, otherwise weapons of disabled/enabled modules are kept forever.
+        weaponsByType = null;
+        weaponsByClass = null;
+    }
+
 
     @Override
     public String getXmlFile() {

@@ -32,6 +32,7 @@ import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.file.modules.ModuleManager;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 import java.util.Set;
@@ -166,6 +167,19 @@ public class CallingFactoryTests extends FactoryTest {
         ModuleManager.disableModule(ModuleManager.IMPERIAL_DOSSIER_HOUSE_HAWKWOOD_MODULE);
         ModuleManager.disableModule(ModuleManager.IMPERIAL_DOSSIER_REEVES_GUILD_MODULE);
         ModuleManager.disableModule(ModuleManager.VULDROK_SPACE_MODULE);
+        ModuleManager.resetModules();
+        ItemFactory.getInstance().reset();
+    }
+
+    /**
+     * Enabled modules are global static state. This class disables several modules, so they must be restored
+     * to avoid breaking any test class executed later on the same suite.
+     */
+    @AfterClass(alwaysRun = true)
+    public void restoreModules() {
+        for (String module : ModuleManager.getAllModules()) {
+            ModuleManager.enableModule(module);
+        }
         ModuleManager.resetModules();
         ItemFactory.getInstance().reset();
     }

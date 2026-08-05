@@ -63,6 +63,15 @@ public final class FactionFactory extends XmlFactory<Faction> {
         return this.readXml(Faction.class);
     }
 
+    @Override
+    public void reset() {
+        super.reset();
+        // Both caches are derived from the loaded elements. They must be invalidated when the enabled
+        // modules change, otherwise names of disabled/enabled modules are kept forever.
+        this.namesByFaction = null;
+        this.surnamesByFaction = null;
+    }
+
     private void setNames() {
         if (this.namesByFaction == null) {
           this.namesByFaction = new HashMap<>();

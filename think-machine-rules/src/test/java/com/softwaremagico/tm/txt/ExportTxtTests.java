@@ -30,6 +30,7 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.file.modules.ModuleManager;
 import com.softwaremagico.tm.language.Translator;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -41,6 +42,11 @@ import java.nio.file.Paths;
 public class ExportTxtTests {
     private static final String LANGUAGE = "es";
 
+    /**
+     * Expected texts were generated with this specific set of modules, so it must be forced before the tests
+     * are executed. Otherwise the result depends on the execution order of the suite.
+     */
+    @BeforeClass(alwaysRun = true)
     public void enableBasicModule() {
         ModuleManager.disableModule(ModuleManager.FACTION_BOOK_MODULE);
         ModuleManager.enableModule(ModuleManager.LOST_WORLDS_BOOK_MODULE);
