@@ -26,15 +26,20 @@ package com.softwaremagico.tm;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.language.Translator;
 
 import java.util.Objects;
 
+@JacksonXmlRootElement(localName = "name")
 public class TranslatedText implements Comparable<TranslatedText> {
     @JsonProperty("es")
+    @JacksonXmlProperty(localName = "es")
     private String spanish;
     @JsonProperty("en")
+    @JacksonXmlProperty(localName = "en")
     private String english;
 
     public TranslatedText() {

@@ -24,6 +24,8 @@ package com.softwaremagico.tm.file.modules;
  * #L%
  */
 
+import com.softwaremagico.tm.ObjectMapperFactory;
+import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.TimeFactory;
 import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
@@ -54,19 +56,10 @@ import com.softwaremagico.tm.character.values.SpecialValueFactory;
 import com.softwaremagico.tm.file.PathManager;
 import com.softwaremagico.tm.log.MachineLog;
 import com.softwaremagico.tm.txt.TextFactory;
-import com.softwaremagico.tm.TranslatedText;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
-
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -85,8 +78,8 @@ public final class ModuleManager {
     public static final String IMPERIAL_DOSSIER_REEVES_GUILD_MODULE = "Imperial Dossier - Reeves Guild";
     public static final String VULDROK_SPACE_MODULE = "Vuldrok Space";
     private static final String[] TOTAL_MODULES = {FADING_SUNS_PLAYER_GUIDE_MODULE, FADING_SUNS_REVISED_EDITION_MODULE,
-            FACTION_BOOK_MODULE, LOST_WORLDS_BOOK_MODULE,
-            IMPERIAL_DOSSIER_BROTHER_BATTLE_MODULE, IMPERIAL_DOSSIER_CHARIOTEERS_GUILD_MODULE, IMPERIAL_DOSSIER_HOUSE_HAWKWOOD_MODULE,
+            FACTION_BOOK_MODULE, LOST_WORLDS_BOOK_MODULE, IMPERIAL_DOSSIER_BROTHER_BATTLE_MODULE,
+            IMPERIAL_DOSSIER_CHARIOTEERS_GUILD_MODULE, IMPERIAL_DOSSIER_HOUSE_HAWKWOOD_MODULE,
             IMPERIAL_DOSSIER_REEVES_GUILD_MODULE, VULDROK_SPACE_MODULE};
     private static final Set<String> ENABLED_MODULES = new HashSet<>(Arrays.asList(TOTAL_MODULES));
     private static Map<String, String> moduleIds;
@@ -143,33 +136,26 @@ public final class ModuleManager {
         moduleNames = new HashMap<>();
         try (InputStream inputStream = getModulesDefinitionStream()) {
             if (inputStream == null) {
-                throw new IllegalStateException("Module definition file not found at '" + MODULES_DEFINITION_FILE + "'.");
+                throw new IllegalStateException(
+                        "Module definition file not found at '" + MODULES_DEFINITION_FILE + "'.");
             }
-
-            final DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-            documentBuilderFactory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
-            documentBuilderFactory.setFeature("http://xml.org/sax/features/external-general-entities", false);
-            documentBuilderFactory.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
-            documentBuilderFactory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
-            documentBuilderFactory.setXIncludeAware(false);
-            documentBuilderFactory.setExpandEntityReferences(false);
-
-            final Document document = documentBuilderFactory.newDocumentBuilder().parse(inputStream);
-            final NodeList modules = document.getElementsByTagName("module");
-            for (int i = 0; i < modules.getLength(); i++) {
-                final Element module = (Element) modules.item(i);
-                final String id = getChildText(module, "id");
-                final String folder = getChildText(module, "folder");
-                final Element nameElement = getFirstChildElement(module, "name");
-                final String moduleNameEn = getChildText(nameElement, "en");
-                final String moduleNameEs = getChildText(nameElement, "es");
+            final ModulesDefinition modulesDefinition = ObjectMapperFactory.getXmlObjectMapper().readValue(inputStream,
+                    ModulesDefinition.class);
+            if (modulesDefinition == null || modulesDefinition.getModules() == null) {
+                return;
+            }
+            for (final ModuleDefinition module : modulesDefinition.getModules()) {
+                if (module == null) {
+                    continue;
+                }
+                final String id = module.getId();
+                final String folder = module.getFolder();
                 if (id != null && !id.isBlank() && folder != null && !folder.isBlank()) {
                     moduleIds.put(folder, id);
-                    moduleNames.put(id, new TranslatedText(moduleNameEs != null ? moduleNameEs : "",
-                            moduleNameEn != null ? moduleNameEn : ""));
+                    moduleNames.put(id, module.getName() != null ? module.getName() : new TranslatedText());
                 }
             }
-        } catch (IOException | ParserConfigurationException | SAXException e) {
+        } catch (final IOException e) {
             MachineLog.errorMessage(ModuleManager.class, e);
             throw new IllegalStateException("Cannot load module ids from '" + MODULES_DEFINITION_FILE + "'.", e);
         }
@@ -177,7 +163,7 @@ public final class ModuleManager {
 
     private static InputStream getModulesDefinitionStream() throws IOException {
         final ClassLoader classLoader = ModuleManager.class.getClassLoader();
-        InputStream inputStream = classLoader.getResourceAsStream(MODULES_DEFINITION_FILE);
+        final InputStream inputStream = classLoader.getResourceAsStream(MODULES_DEFINITION_FILE);
         if (inputStream != null) {
             return inputStream;
         }
@@ -187,34 +173,9 @@ public final class ModuleManager {
             return file.toURI().toURL().openStream();
         }
 
-        inputStream = ClassLoader.getSystemResourceAsStream(MODULES_DEFINITION_FILE);
-        if (inputStream != null) {
-            return inputStream;
-        }
-        return null;
+        return ClassLoader.getSystemResourceAsStream(MODULES_DEFINITION_FILE);
     }
 
-    private static String getChildText(Element parent, String tagName) {
-        if (parent == null) {
-            return null;
-        }
-        final NodeList nodes = parent.getElementsByTagName(tagName);
-        if (nodes.getLength() == 0 || nodes.item(0) == null) {
-            return null;
-        }
-        return nodes.item(0).getTextContent();
-    }
-
-    private static Element getFirstChildElement(Element parent, String tagName) {
-        if (parent == null) {
-            return null;
-        }
-        final NodeList nodes = parent.getElementsByTagName(tagName);
-        if (nodes.getLength() == 0 || nodes.item(0) == null) {
-            return null;
-        }
-        return (Element) nodes.item(0);
-    }
 
     public static void enableModule(String module) {
         ENABLED_MODULES.add(module);
@@ -262,4 +223,5 @@ public final class ModuleManager {
     public static void disableModule(String module) {
         ENABLED_MODULES.remove(module);
     }
+
 }

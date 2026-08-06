@@ -268,6 +268,9 @@ public abstract class XmlFactory<T extends Element> {
         }
 
         for (Class<?> currentClass = valueClass; currentClass != null && currentClass != Object.class; currentClass = currentClass.getSuperclass()) {
+            if (!currentClass.getPackageName().startsWith("com.softwaremagico.tm")) {
+                break;
+            }
             for (final Field field : currentClass.getDeclaredFields()) {
                 this.visitField(value, moduleName, moduleId, visited, valueClass, field);
             }
@@ -306,12 +309,12 @@ public abstract class XmlFactory<T extends Element> {
             return;
         }
         try {
-            if (!field.canAccess(value) && !field.trySetAccessible()) {
-                return;
-            }
+            field.setAccessible(true);
             this.assignModuleMetadata(field.get(value), moduleName, moduleId, visited);
         } catch (final IllegalAccessException e) {
             throw new IllegalStateException("Cannot assign module metadata to '" + valueClass.getName() + "'.", e);
+        } catch (final RuntimeException e) {
+            return;
         }
     }
 

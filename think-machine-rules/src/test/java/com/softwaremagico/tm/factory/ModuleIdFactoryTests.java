@@ -205,7 +205,7 @@ public class ModuleIdFactoryTests extends FactoryTest {
                     continue;
                 }
                 try {
-                    if (!field.canAccess(value) && !field.trySetAccessible()) {
+                    if (!field.trySetAccessible()) {
                         continue;
                     }
                     assertElementTreeObject(field.get(value), expectedModuleName, source, visited);
