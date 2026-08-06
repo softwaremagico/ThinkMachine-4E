@@ -7,6 +7,7 @@ import com.softwaremagico.tm.character.resistances.ResistanceType;
 import com.softwaremagico.tm.character.skills.Specialization;
 import com.softwaremagico.tm.exceptions.InvalidSpecializationException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.file.modules.ModuleManager;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 import com.softwaremagico.tm.restrictions.Restrictions;
 
@@ -54,6 +55,8 @@ public class Element extends XmlData implements Comparable<Element> {
 
     private String moduleName;
 
+    private String moduleId;
+
     private String language;
 
     @JsonProperty(value = "random")
@@ -92,6 +95,7 @@ public class Element extends XmlData implements Comparable<Element> {
         this.name = new TranslatedText();
         this.description = new TranslatedText();
         this.moduleName = "";
+        this.moduleId = "";
         this.language = "";
         this.randomDefinition = new RandomElementDefinition();
     }
@@ -102,17 +106,23 @@ public class Element extends XmlData implements Comparable<Element> {
     }
 
     public Element(String id, TranslatedText name, TranslatedText description, String language, String moduleName) {
-        this(id, name, description, language, new RandomElementDefinition(), moduleName);
+        this(id, name, description, language, new RandomElementDefinition(), moduleName, ModuleManager.getModuleId(moduleName));
     }
 
     public Element(String id, TranslatedText name, TranslatedText description, String language, RandomElementDefinition randomDefinition,
                    String moduleName) {
+        this(id, name, description, language, randomDefinition, moduleName, ModuleManager.getModuleId(moduleName));
+    }
+
+    public Element(String id, TranslatedText name, TranslatedText description, String language, RandomElementDefinition randomDefinition,
+                   String moduleName, String moduleId) {
         this.id = id != null ? id.trim() : null;
         this.name = name;
         this.description = description;
         this.language = language;
         this.randomDefinition = randomDefinition;
         this.moduleName = moduleName;
+        this.moduleId = moduleId;
     }
 
     @JsonIgnore
@@ -158,6 +168,11 @@ public class Element extends XmlData implements Comparable<Element> {
 
     public void setModuleName(String moduleName) {
         this.moduleName = moduleName;
+        this.moduleId = ModuleManager.getModuleId(moduleName);
+    }
+
+    public void setModuleId(String moduleId) {
+        this.moduleId = moduleId;
     }
 
     public void setLanguage(String language) {
@@ -270,6 +285,10 @@ public class Element extends XmlData implements Comparable<Element> {
         return moduleName;
     }
 
+    public String getModuleId() {
+        return moduleId;
+    }
+
     public Restrictions getRestrictions() {
         if (restrictions == null) {
             restrictions = new Restrictions();
@@ -297,6 +316,7 @@ public class Element extends XmlData implements Comparable<Element> {
         setName(element.getName());
         setDescription(element.getDescription());
         setModuleName(element.getModuleName());
+        setModuleId(element.getModuleId());
         setRandomDefinition(element.getRandomDefinition());
         setRestrictions(element.getRestrictions());
         if (element.getSpecializations() != null) {
@@ -339,7 +359,7 @@ public class Element extends XmlData implements Comparable<Element> {
                 throw new InvalidXmlElementException("Error on '" + getId() + "'.", e);
             }
         }
-        if (getName() == null && getId() != null && getId().length() != 0) {
+        if (getName() == null && getId() != null && !getId().isEmpty()) {
             throw new InvalidXmlElementException("Name not set on Element '" + getId() + "'.");
         }
         if (getName() != null) {

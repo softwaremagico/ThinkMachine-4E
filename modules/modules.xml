@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<modules>
+    <module>
+        <id>fadingSuns4E</id>
+        <folder>Fading Suns 4E</folder>
+        <name>
+            <en>Fading Suns 4E</en>
+            <es>Fading Suns 4E</es>
+        </name>
+        <description>
+            <en>Core module for Fading Suns 4th Edition content.</en>
+            <es>Modulo base con contenido de Fading Suns 4a Edicion.</es>
+        </description>
+    </module>
+    <module>
+        <id>factionBook</id>
+        <folder>Faction Book</folder>
+        <name>
+            <en>Faction Book</en>
+            <es>Libro de Facciones</es>
+        </name>
+        <description>
+            <en>Expansion focused on factions, organizations, and social content.</en>
+            <es>Expansion centrada en facciones, organizaciones y contenido social.</es>
+        </description>
+    </module>
+    <module>
+        <id>fadingSunsRevisedEdition</id>
+        <folder>Fading Suns Revised Edition</folder>
+        <name>
+            <en>Fading Suns Revised Edition</en>
+            <es>Fading Suns Edicion Revisada</es>
+        </name>
+        <description>
+            <en>Compatibility and legacy content from the Revised Edition line.</en>
+            <es>Contenido heredado y de compatibilidad de la linea Edicion Revisada.</es>
+        </description>
+    </module>
+    <module>
+        <id>imperialDossierBrotherBattle</id>
+        <folder>Imperial Dossier - Brother Battle</folder>
+        <name>
+            <en>Imperial Dossier - Brother Battle</en>
+            <es>Dossier Imperial - Hermano de Batalla</es>
+        </name>
+        <description>
+            <en>Dossier expansion with Brother Battle lore, rites, and rules.</en>
+            <es>Expansion de dossier con trasfondo, ritos y reglas de Hermano de Batalla.</es>
+        </description>
+    </module>
+    <module>
+        <id>imperialDossierCharioteersGuild</id>
+        <folder>Imperial Dossier - Charioteers Guild</folder>
+        <name>
+            <en>Imperial Dossier - Charioteers Guild</en>
+            <es>Dossier Imperial - Gremio de Aurigas</es>
+        </name>
+        <description>
+            <en>Dossier expansion with Charioteers Guild lore and rules.</en>
+            <es>Expansion de dossier con trasfondo y reglas del Gremio de Aurigas.</es>
+        </description>
+    </module>
+    <module>
+        <id>imperialDossierHouseHawkwood</id>
+        <folder>Imperial Dossier - House Hawkwood</folder>
+        <name>
+            <en>Imperial Dossier - House Hawkwood</en>
+            <es>Dossier Imperial - Casa Hawkwood</es>
+        </name>
+        <description>
+            <en>Dossier expansion with House Hawkwood lore and rules.</en>
+            <es>Expansion de dossier con trasfondo y reglas de la Casa Hawkwood.</es>
+        </description>
+    </module>
+    <module>
+        <id>imperialDossierReevesGuild</id>
+        <folder>Imperial Dossier - Reeves Guild</folder>
+        <name>
+            <en>Imperial Dossier - Reeves Guild</en>
+            <es>Dossier Imperial - Gremio Reeves</es>
+        </name>
+        <description>
+            <en>Dossier expansion with Reeves Guild lore and rules.</en>
+            <es>Expansion de dossier con trasfondo y reglas del Gremio Reeves.</es>
+        </description>
+    </module>
+    <module>
+        <id>lostWorlds</id>
+        <folder>Lost Worlds</folder>
+        <name>
+            <en>Lost Worlds</en>
+            <es>Mundos Perdidos</es>
+        </name>
+        <description>
+            <en>Exploration expansion with settings, places, and related game content.</en>
+            <es>Expansion de exploración con ambientaciones, lugares y contenido relacionado.</es>
+        </description>
+    </module>
+    <module>
+        <id>vuldrokSpace</id>
+        <folder>Vuldrok Space</folder>
+        <name>
+            <en>Vuldrok Space</en>
+            <es>Espacio Vuldrok</es>
+        </name>
+        <description>
+            <en>Expansion with Vuldrok culture, runes, and star-nation content.</en>
+            <es>Expansion con cultura vuldrok, runas y contenido de naciones estelares.</es>
+        </description>
+    </module>
+</modules>
+

@@ -39,20 +39,24 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 public abstract class XmlFactory<T extends Element> {
     // Id -> Element
@@ -103,7 +107,7 @@ public abstract class XmlFactory<T extends Element> {
         if (this.elements == null) {
             this.getElements();
         }
-        if (id == null || id.length() == 0) {
+        if (id == null || id.isEmpty()) {
             return null;
         }
         final T element = this.elements.get(id);
@@ -122,7 +126,7 @@ public abstract class XmlFactory<T extends Element> {
             return new ArrayList<>();
         }
         // Some sorts exists, that needs that this elements are in a mutable collection.
-        return this.getElements().stream().filter(t -> ids.contains(t.getId())).collect(Collectors.toList());
+        return new ArrayList<>(this.getElements().stream().filter(t -> ids.contains(t.getId())).toList());
     }
 
     public Collection<T> getElements(Element e) throws InvalidXmlElementException {
@@ -144,7 +148,7 @@ public abstract class XmlFactory<T extends Element> {
     }
 
     public List<T> getElementsByGroup(Collection<String> groups) throws InvalidXmlElementException {
-        if (groups == null || groups.size() == 0) {
+        if (groups == null || groups.isEmpty()) {
             return new ArrayList<>();
         }
         return this.getElements().stream().filter(t -> groups.contains(t.getGroup())).toList();
@@ -199,7 +203,7 @@ public abstract class XmlFactory<T extends Element> {
             boolean added = false;
             for (final T currentElement : currentElements) {
                 if (currentElement.getId().equals(newElement.getId()) && newElement.getSpecializations() != null
-                        && newElement.getSpecializations().size() != 0) {
+                        && !newElement.getSpecializations().isEmpty()) {
                     if (currentElement.getSpecializations() == null) {
                         currentElement.setSpecializations(new ArrayList<>());
                     }
@@ -217,14 +221,98 @@ public abstract class XmlFactory<T extends Element> {
 
     public List<T> readXml(Class<T> entityClass, String moduleName) throws IOException {
         final Path filePath = Paths.get(PathManager.getModulePath(moduleName) + this.getXmlFile());
-        return this.readXml(readFile(filePath.toString()), entityClass);
+        return this.readXml(readFile(filePath.toString()), entityClass, moduleName);
     }
 
     public List<T> readXml(String xmlContent, Class<T> entityClass) throws JsonProcessingException {
+        return this.readXml(xmlContent, entityClass, null);
+    }
+
+    public List<T> readXml(String xmlContent, Class<T> entityClass, String moduleName) throws JsonProcessingException {
         final List<T> fileElements = getObjectMapper().readerForListOf(entityClass).readValue(xmlContent);
         final AtomicInteger order = new AtomicInteger();
-        fileElements.forEach(element -> element.setOrder(order.getAndIncrement()));
+        final String moduleId = ModuleManager.getModuleId(moduleName);
+        final Set<Object> visited = Collections.newSetFromMap(new IdentityHashMap<>());
+        fileElements.forEach(element -> {
+            element.setOrder(order.getAndIncrement());
+            this.assignModuleMetadata(element, moduleName, moduleId, visited);
+        });
         return fileElements;
+    }
+
+    private void assignModuleMetadata(Object value, String moduleName, String moduleId, Set<Object> visited) {
+        if (value == null || !visited.add(value)) {
+            return;
+        }
+
+        if (value instanceof Element element) {
+            element.setModuleName(moduleName);
+            element.setModuleId(moduleId);
+        }
+
+        if (this.visitMap(value, moduleName, moduleId, visited)) {
+            return;
+        }
+
+        if (this.visitCollection(value, moduleName, moduleId, visited)) {
+            return;
+        }
+
+        final Class<?> valueClass = value.getClass();
+        if (this.visitArray(value, moduleName, moduleId, visited, valueClass)) {
+            return;
+        }
+
+        if (!valueClass.getPackageName().startsWith("com.softwaremagico.tm")) {
+            return;
+        }
+
+        for (Class<?> currentClass = valueClass; currentClass != null && currentClass != Object.class; currentClass = currentClass.getSuperclass()) {
+            for (final Field field : currentClass.getDeclaredFields()) {
+                this.visitField(value, moduleName, moduleId, visited, valueClass, field);
+            }
+        }
+    }
+
+    private boolean visitMap(Object value, String moduleName, String moduleId, Set<Object> visited) {
+        if (!(value instanceof Map<?, ?> map)) {
+            return false;
+        }
+        map.values().forEach(mapValue -> this.assignModuleMetadata(mapValue, moduleName, moduleId, visited));
+        return true;
+    }
+
+    private boolean visitCollection(Object value, String moduleName, String moduleId, Set<Object> visited) {
+        if (!(value instanceof Collection<?> collection)) {
+            return false;
+        }
+        collection.forEach(item -> this.assignModuleMetadata(item, moduleName, moduleId, visited));
+        return true;
+    }
+
+    private boolean visitArray(Object value, String moduleName, String moduleId, Set<Object> visited, Class<?> valueClass) {
+        if (!valueClass.isArray()) {
+            return false;
+        }
+        final int length = Array.getLength(value);
+        for (int i = 0; i < length; i++) {
+            this.assignModuleMetadata(Array.get(value, i), moduleName, moduleId, visited);
+        }
+        return true;
+    }
+
+    private void visitField(Object value, String moduleName, String moduleId, Set<Object> visited, Class<?> valueClass, Field field) {
+        if (Modifier.isStatic(field.getModifiers()) || field.getType().isPrimitive() || field.getType().isEnum()) {
+            return;
+        }
+        try {
+            if (!field.canAccess(value) && !field.trySetAccessible()) {
+                return;
+            }
+            this.assignModuleMetadata(field.get(value), moduleName, moduleId, visited);
+        } catch (final IllegalAccessException e) {
+            throw new IllegalStateException("Cannot assign module metadata to '" + valueClass.getName() + "'.", e);
+        }
     }
 
     public void validate() throws InvalidXmlElementException {
