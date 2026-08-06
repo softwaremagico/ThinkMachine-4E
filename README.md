@@ -1,4 +1,4 @@
-<img src="./images/ThinkMachine_logo_fenix.svg" width="800" alt="Think Machine" align="middle"> 
+<img src="./images/ThinkMachine_logo_fenix.svg" width="800" alt="Think Machine" align="middle">
 
 # Think Machine (4E)
 
@@ -16,64 +16,85 @@
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=softwaremagico_ThinkMachine-4E&metric=bugs)](https://sonarcloud.io/summary/new_code?id=softwaremagico_ThinkMachine-4E)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=softwaremagico_ThinkMachine-4E&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=softwaremagico_ThinkMachine-4E)
 
-This software is developed for the role-playing game **Fading Suns 4E** (4th Edition).
-If you are seeking the Fading Suns 3E (Revised Edition), please visit this [link](https://github.com/softwaremagico/ThinkMachine).
+Think Machine 4E is a Java library for the **Fading Suns 4th Edition** character system.
+It provides the full rules engine, random generation utilities, and printable sheet export components as reusable modules.
 
-The default character sheet provided in the Player's Guide book is not favored by the developer, who has created a new version inspired by older sheets from
-previous editions of the game.
-Additionally, custom rules for random character generation have been incorporated, suitable for both player characters (PC) and non-player characters (NPC).
+If you are looking for Fading Suns 3E (Revised Edition), visit [ThinkMachine](https://github.com/softwaremagico/ThinkMachine).
 
-This software contains only the game rules and is intended to be used as a dependency within other applications; it cannot function as a standalone program.
-For a complete character generation tool, consider using **[Think Machine 4E: Advisor](https://github.com/softwaremagico/ThinkMachine-4E-Advisor)**, an Android
-mobile application that offers comprehensive character creation features.
+## Feature Overview
 
-Below is a preview of the final character sheet design:
+### Core rules and validation
 
-<img src="./images/englishSheetPreview.png" width="600" alt="Fading Suns Character Sheet" align="middle"> 
+- Full character creation model based on Fading Suns 4E victory point rules.
+- Rule-aware selection flow with restrictions and validation across steps.
+- Support for official character structures, including options, bonuses, ranks, and level progression.
+- Rich exception model for invalid selections, restricted combinations, and inconsistent builds.
 
-If you prefer this design and wish to use it, only the final PDF document is necessary. To avoid the complexity of compiling source code or using programming
-languages, you can directly download the PDF from these links:
+### Character domain coverage
 
-- [Character Sheet (English)](https://github.com/softwaremagico/ThinkMachine-4E/blob/master/sheets/FadingSuns_EN.pdf)
-- [Character Sheet (Spanish)](https://github.com/softwaremagico/ThinkMachine-4E/blob/master/sheets/FadingSuns_ES.pdf)
+- Character foundations: species, upbringing, calling, faction, name/surname, rank, and threat level.
+- Traits and mechanics: characteristics, skills and specializations, capabilities, perks, and afflictions.
+- Combat and survivability: combat styles, resistances, vitality/revivals, and protections.
+- Advanced systems: occultism (paths, powers, components), cyberdevices, planets/origins, and equipment economy.
 
-The fonts required to properly view these PDFs
-are: [ArchitectsDaughter](https://fonts.google.com/specimen/Architects+Daughter), [DejaVuSans](https://dejavu-fonts.github.io/),
-and [Roman Antique](http://www.steffmann.de/wordpress/).
-All of these fonts are available for free use in non-commercial contexts. You may need to download and install them to display the PDFs correctly.
+### Random generation engine
 
-If you prefer not to install the fonts, you can also download these sheets as PNG images by clicking any of the provided links to obtain a fully updated copy.
+- Automated random character generation for both PCs and NPCs.
+- Preference-driven randomization (for example: power level, occultism, role, legal status, wealth, and affiliation).
+- Random equipment, weapons, shields, armor, names, planets, and faction/career-oriented outcomes.
+- Random party generation, including party composition and naming utilities.
 
-- [Character Sheet (English)](https://github.com/softwaremagico/ThinkMachine-4E/blob/master/sheets/FadingSuns_EN-0.png)
-- [Character Sheet Reverse (English)](https://github.com/softwaremagico/ThinkMachine-4E/blob/master/sheets/FadingSuns_EN-1.png)
-- [Character Sheet (Spanish)](https://github.com/softwaremagico/ThinkMachine-4E/blob/master/sheets/FadingSuns_ES-0.png)
-- [Character Sheet Reverse (Spanish)](https://github.com/softwaremagico/ThinkMachine-4E/blob/master/sheets/FadingSuns_ES-1.png)
+### PDF and sheet output
 
-Click any of these links to get a complete updated copy of the sheet.
+- Complete printable character sheet generation in PDF format.
+- Multi-language sheet assets in **English** and **Spanish**.
+- Additional compact/small sheet support in the PDF module.
+- Optional release pipeline conversion from PDF to PNG images (ImageMagick-based workflow).
 
-## Random character generation
+### Modular data and content packs
 
-This tool allows you to generate random character sheets, which is particularly useful for creating non-player characters (NPCs). You can specify basic options
-such as nobility status, psi abilities, combat preferences, equipment, and more. The software will then produce a complete character sheet within seconds. Each
-generated character strictly adheres to the rules outlined in the Fading Suns core rulebook and can be used as a standard playable character. This feature aims
-to enhance your campaigns by adding variety and depth.
+- XML-based modular content loading system.
+- Built-in support for multiple content books under `modules/`, including:
+  - Fading Suns 4E core
+  - Faction Book
+  - Imperial Dossier modules (Brother Battle, Charioteers Guild, House Hawkwood, Reeves Guild)
+  - Lost Worlds
+  - Vuldrok Space
+  - Revised Edition compatibility module
 
-### Final Thoughts
+### Localization and integration
 
-This application contains the logic for defining characters and NPCs using the Fading Suns victory point rule system.
-It does not include a user interface and, therefore, cannot be used as a standalone application.
-In the near future, new applications with user interfaces for different platforms will be released.
-These applications will be listed here:
+- Translation framework for multilingual element names and texts.
+- Library-first architecture: no UI dependency, designed for integration into external apps/services.
+- Separate Maven artifacts by capability:
+  - `think-machine-4e-rules`
+  - `think-machine-4e-random`
+  - `think-machine-4e-pdf`
+- Published using a multi-module Maven build with Java 17.
 
-- [Think Machine 4E: Advisor](https://github.com/softwaremagico/ThinkMachine-4E-Advisor) is an Android application based on Java that integrates this library to create
-  Player and Non-Player Characters (currently under development).
+## Character Sheet Preview
+
+<img src="./images/englishSheetPreview.png" width="600" alt="Fading Suns Character Sheet" align="middle">
+
+Direct download:
+
+- [Character Sheet (English PDF)](https://github.com/softwaremagico/ThinkMachine-4E/blob/master/sheets/FadingSuns_EN.pdf)
+- [Character Sheet (Spanish PDF)](https://github.com/softwaremagico/ThinkMachine-4E/blob/master/sheets/FadingSuns_ES.pdf)
+- [Character Sheet Front (English PNG)](https://github.com/softwaremagico/ThinkMachine-4E/blob/master/sheets/FadingSuns_EN-0.png)
+- [Character Sheet Back (English PNG)](https://github.com/softwaremagico/ThinkMachine-4E/blob/master/sheets/FadingSuns_EN-1.png)
+- [Character Sheet Front (Spanish PNG)](https://github.com/softwaremagico/ThinkMachine-4E/blob/master/sheets/FadingSuns_ES-0.png)
+- [Character Sheet Back (Spanish PNG)](https://github.com/softwaremagico/ThinkMachine-4E/blob/master/sheets/FadingSuns_ES-1.png)
+
+## Scope
+
+This repository contains the core logic and export modules.
+It is **not** a standalone end-user application.
+
+For a mobile UI built on top of this library, see **[Think Machine 4E: Advisor](https://github.com/softwaremagico/ThinkMachine-4E-Advisor)**.
 
 ## Notes
 
-This software has been developed using the [Librepdf library](https://github.com/LibrePDF) for generating PDFs.
-
-Fading Suns is a trademark owned by Holistic Design.
-
-The fonts used in this project are DejaVuSans, ArchitectsDaughter, and Roman Antique.
-
-[ImageMagick](https://www.imagemagick.org/script/index.php) is free software for image manipulation.
+- PDF generation is built with [LibrePDF / OpenPDF](https://github.com/LibrePDF).
+- PNG conversion in release workflows uses [ImageMagick](https://www.imagemagick.org/script/index.php).
+- Main sheet fonts: [ArchitectsDaughter](https://fonts.google.com/specimen/Architects+Daughter), [DejaVuSans](https://dejavu-fonts.github.io/), and [Roman Antique](http://www.steffmann.de/wordpress/).
+- Fading Suns is a trademark owned by Holistic Design.
