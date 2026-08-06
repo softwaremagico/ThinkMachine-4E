@@ -6,6 +6,10 @@
             <en>Brother Battle Rites</en>
             <es>Ritos de Hermano de Batalla</es>
         </name>
+        <description>
+            <en>Brother Battle Rites are militant theurgic prayers that sharpen vigilance and consecrate defenses against occult and supernatural threats.</en>
+            <es>Los Ritos de Hermano de Batalla son plegarias teúrgicas de carácter militar que aguzan la vigilancia y consagran defensas contra amenazas ocultas y sobrenaturales.</es>
+        </description>
         <occultismType>theurgy</occultismType>
         <elementType>COMBAT</elementType>
         <powers>

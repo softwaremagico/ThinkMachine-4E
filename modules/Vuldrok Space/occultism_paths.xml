@@ -6,6 +6,10 @@
             <en>Concealing</en>
             <es>Ocultación</es>
         </name>
+        <description>
+            <en>Concealing is the rune path of misdirection and stealth, hiding presence, masking identity, and dulling hostile awareness.</en>
+            <es>Ocultación es el camino rúnico del sigilo y la distracción, que oculta la presencia, enmascara la identidad y embota la atención hostil.</es>
+        </description>
         <occultismType>runemastery</occultismType>
         <elementType>STEALTH</elementType>
         <powers>
@@ -153,6 +157,10 @@
             <en>Knowing</en>
             <es>Conocimiento</es>
         </name>
+        <description>
+            <en>Knowing is the rune path of insight and understanding, crossing language barriers and revealing truths in people, objects, and events.</en>
+            <es>Conocimiento es el camino rúnico de la comprensión y la perspicacia, que supera barreras idiomáticas y revela verdades en personas, objetos y sucesos.</es>
+        </description>
         <occultismType>runemastery</occultismType>
         <elementType>SPIRITUAL</elementType>
         <powers>
@@ -293,6 +301,10 @@
             <en>Making</en>
             <es>Creación</es>
         </name>
+        <description>
+            <en>Making is the rune path of generation and increase, enlarging, restoring, and conjuring matter through shaping forces.</en>
+            <es>Creación es el camino rúnico de la generación y el aumento, que agranda, restaura y conjura materia mediante fuerzas de modelado.</es>
+        </description>
         <occultismType>runemastery</occultismType>
         <elementType>TECHNICAL</elementType>
         <powers>
@@ -439,6 +451,10 @@
             <en>Revealing</en>
             <es>Revelación</es>
         </name>
+        <description>
+            <en>Revealing is the rune path of perception, unveiling what is hidden through sharpened senses and supernatural clarity.</en>
+            <es>Revelación es el camino rúnico de la percepción, que desvela lo oculto mediante sentidos aguzados y claridad sobrenatural.</es>
+        </description>
         <occultismType>runemastery</occultismType>
         <elementType>SPIRITUAL</elementType>
         <powers>
@@ -574,6 +590,10 @@
             <en>Shaping</en>
             <es>Modelado</es>
         </name>
+        <description>
+            <en>Shaping is the rune path of transformation, bending and reforming materials into new forms, structures, and crafted works.</en>
+            <es>Modelado es el camino rúnico de la transformación, que dobla y reforma materiales en nuevas formas, estructuras y obras artesanales.</es>
+        </description>
         <occultismType>runemastery</occultismType>
         <elementType>TECHNICAL</elementType>
         <powers>
@@ -710,6 +730,10 @@
             <en>Shielding</en>
             <es>Protección</es>
         </name>
+        <description>
+            <en>Shielding is the rune path of defense, hardening bodies and objects while raising barriers against harm.</en>
+            <es>Protección es el camino rúnico de la defensa, que endurece cuerpos y objetos mientras alza barreras contra el daño.</es>
+        </description>
         <occultismType>runemastery</occultismType>
         <elementType>TECHNICAL</elementType>
         <powers>
@@ -849,6 +873,10 @@
             <en>Traveling</en>
             <es>Viaje</es>
         </name>
+        <description>
+            <en>Traveling is the rune path of motion and direction, guiding movement, altering speed, and mastering trajectories.</en>
+            <es>Viaje es el camino rúnico del movimiento y la orientación, que guía el desplazamiento, altera la velocidad y domina trayectorias.</es>
+        </description>
         <occultismType>runemastery</occultismType>
         <elementType>TECHNICAL</elementType>
         <powers>
@@ -989,6 +1017,10 @@
             <en>Unmaking</en>
             <es>Destrucción</es>
         </name>
+        <description>
+            <en>Unmaking is the rune path of reduction and ruin, shrinking, weakening, and dismantling living beings and crafted things.</en>
+            <es>Destrucción es el camino rúnico de la reducción y la ruina, que encoge, debilita y desmantela seres vivos y cosas fabricadas.</es>
+        </description>
         <occultismType>runemastery</occultismType>
         <elementType>COMBAT</elementType>
         <powers>
@@ -1125,6 +1157,10 @@
             <en>Beast Bond</en>
             <es>Vínculo Bestial</es>
         </name>
+        <description>
+            <en>Beast Bond is the sympathy path of kinship with animal life, sensing living creatures and forging enduring bonds with beasts.</en>
+            <es>Vínculo Bestial es el camino de simpatía y parentesco con la vida animal, que permite sentir criaturas vivas y forjar lazos duraderos con bestias.</es>
+        </description>
         <occultismType>sympathy</occultismType>
         <elementType>SPIRITUAL</elementType>
         <powers>

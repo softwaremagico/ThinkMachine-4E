@@ -6,6 +6,10 @@
             <en>Far Hand</en>
             <es>Mano Lejana</es>
         </name>
+        <description>
+            <en>Far Hand is the psi path of psychokinetic force, used to move, hurl, and shield with directed fields of will.</en>
+            <es>Mano Lejana es el camino psi de la fuerza psicoquinética, usado para mover, lanzar y proteger con campos direccionales de voluntad.</es>
+        </description>
         <occultismType>psi</occultismType>
         <elementType>COMBAT</elementType>
         <powers>
@@ -557,6 +561,10 @@
             <en>Omen</en>
             <es>Augurio</es>
         </name>
+        <description>
+            <en>Omen is the psi path of divination, unveiling echoes of the past and possibilities of the future through visions and prophetic insight.</en>
+            <es>Augurio es el camino psi de la adivinación, que revela ecos del pasado y posibilidades del futuro mediante visiones e intuición profética.</es>
+        </description>
         <occultismType>psi</occultismType>
         <elementType>SPIRITUAL</elementType>
         <powers>
@@ -774,6 +782,10 @@
             <en>Psyche</en>
             <es>Psique</es>
         </name>
+        <description>
+            <en>Psyche is the psi path of telepathy and mental influence, allowing thought projection, mind reading, and control over perception or intent.</en>
+            <es>Psique es el camino psi de la telepatía y la influencia mental, que permite proyectar pensamientos, leer mentes y controlar percepción o intención.</es>
+        </description>
         <occultismType>psi</occultismType>
         <elementType>SPIRITUAL</elementType>
         <powers>
@@ -1353,6 +1365,10 @@
             <en>Sixth Sense</en>
             <es>Sexto Sentido</es>
         </name>
+        <description>
+            <en>Sixth Sense is the psi path of heightened perception, refining normal senses and granting extrasensory awareness beyond ordinary limits.</en>
+            <es>Sexto Sentido es el camino psi de la percepción aumentada, que refina los sentidos normales y otorga conciencia extrasensorial más allá de los límites comunes.</es>
+        </description>
         <occultismType>psi</occultismType>
         <elementType>TECHNICAL</elementType>
         <powers>
@@ -1942,6 +1958,10 @@
             <en>Soma (Body Control)</en>
             <es>Soma (Control Corporal)</es>
         </name>
+        <description>
+            <en>Soma is the psi path of bodily mastery, using mind over matter to reinforce endurance, strength, speed, and physical resilience.</en>
+            <es>Soma es el camino psi del dominio corporal, que usa la mente sobre la materia para reforzar constitución, fuerza, velocidad y resistencia física.</es>
+        </description>
         <occultismType>psi</occultismType>
         <elementType>TECHNICAL</elementType>
         <powers>
@@ -2410,6 +2430,10 @@
             <en>Vis Craft (Energy Control)</en>
             <es>Arte Vis (Control de Energía)</es>
         </name>
+        <description>
+            <en>Vis Craft is the psi path of energy manipulation, sensing, shaping, and releasing vis and other force patterns in the environment.</en>
+            <es>Arte Vis es el camino psi de manipulación de energía, para percibir, moldear y liberar vis y otros patrones de fuerza del entorno.</es>
+        </description>
         <occultismType>psi</occultismType>
         <elementType>COMBAT</elementType>
         <powers>
