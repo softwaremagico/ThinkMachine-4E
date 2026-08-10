@@ -28,6 +28,7 @@ import com.softwaremagico.tm.character.CharacterExamples;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.perks.CharacterPerkOptions;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.file.modules.ModuleManager;
 import com.softwaremagico.tm.random.character.equipment.RandomArmor;
 import com.softwaremagico.tm.random.character.equipment.RandomMeleeWeapon;
 import com.softwaremagico.tm.random.character.equipment.RandomRangeWeapon;
@@ -36,6 +37,8 @@ import com.softwaremagico.tm.random.preferences.AttackPreferences;
 import com.softwaremagico.tm.random.preferences.DefensePreference;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
@@ -43,16 +46,46 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.IntStream;
 
 @Test(groups = {"equipment"})
 public class RandomEquipmentTests {
 
+    @BeforeClass(alwaysRun = true)
+    public void enableDefaultModules() {
+        ModuleManager.enableModule(ModuleManager.FACTION_BOOK_MODULE);
+        ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
+        ModuleManager.enableModule(ModuleManager.FADING_SUNS_REVISED_EDITION_MODULE);
+        ModuleManager.enableModule(ModuleManager.LOST_WORLDS_BOOK_MODULE);
+        ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_BROTHER_BATTLE_MODULE);
+        ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_CHARIOTEERS_GUILD_MODULE);
+        ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_HOUSE_HAWKWOOD_MODULE);
+        ModuleManager.enableModule(ModuleManager.IMPERIAL_DOSSIER_REEVES_GUILD_MODULE);
+        ModuleManager.enableModule(ModuleManager.VULDROK_SPACE_MODULE);
+        ModuleManager.resetModules();
+    }
+
+    @AfterClass(alwaysRun = true)
+    public void restoreDefaultModules() {
+        enableDefaultModules();
+    }
+
     private CharacterPlayer generateCharacterPlayerWithCash() {
         final CharacterPlayer characterPlayer = CharacterExamples.generateHumanNobleHawkwoodCommander();
-        final CharacterPerkOptions selectedElement = characterPlayer.getUpbringing().getNotSelectedPerksOptions(true).get(1);
-        characterPlayer.getUpbringing().getSelectedPerksOptions().get(1).getSelections().clear();
-        characterPlayer.getUpbringing().getSelectedPerksOptions().get(1).getSelections().add(
-                selectedElement.getAvailableSelections().stream().filter(s -> Objects.equals(s.getId(), "cash1000")).findFirst().orElse(null));
+        final List<CharacterPerkOptions> availablePerkOptions = characterPlayer.getUpbringing().getNotSelectedPerksOptions(true);
+        final int cashOptionIndex = IntStream.range(0, availablePerkOptions.size())
+                .filter(index -> availablePerkOptions.get(index).getAvailableSelections().stream()
+                        .anyMatch(selection -> Objects.equals(selection.getId(), "cash1000")))
+                .findFirst()
+                .orElseThrow();
+        final CharacterPerkOptions selectedElement = availablePerkOptions.get(cashOptionIndex);
+        characterPlayer.getUpbringing().getSelectedPerksOptions().get(cashOptionIndex).getSelections().clear();
+        characterPlayer.getUpbringing().getSelectedPerksOptions().get(cashOptionIndex).getSelections().add(
+                selectedElement.getAvailableSelections().stream()
+                        .filter(selection -> Objects.equals(selection.getId(), "cash1000"))
+                        .findFirst()
+                        .orElseThrow());
+        characterPlayer.getCacheManager().reset();
         return characterPlayer;
     }
 
@@ -106,6 +139,8 @@ public class RandomEquipmentTests {
     @Test
     public void checkArmorAllowedWithArmorPreference() {
         final CharacterPlayer characterPlayer = generateCharacterPlayerWithCash();
+        characterPlayer.setCalling("duelist");
+        characterPlayer.getCacheManager().reset();
         RandomArmor randomArmor = new RandomArmor(characterPlayer, convert(DefensePreference.ARMOR));
         randomArmor.updateWeights();
         Assert.assertFalse(randomArmor.getWeightedElements().size() == 0);
