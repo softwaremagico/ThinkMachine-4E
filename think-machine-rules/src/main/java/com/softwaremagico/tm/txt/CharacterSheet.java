@@ -35,6 +35,7 @@ import com.softwaremagico.tm.character.equipment.armors.Armor;
 import com.softwaremagico.tm.character.equipment.item.Item;
 import com.softwaremagico.tm.character.equipment.shields.Shield;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
+import com.softwaremagico.tm.character.equipment.weapons.WeaponDamage;
 import com.softwaremagico.tm.character.factions.Blessing;
 import com.softwaremagico.tm.character.occultism.OccultismPath;
 import com.softwaremagico.tm.character.occultism.OccultismPathFactory;
@@ -332,29 +333,36 @@ public class CharacterSheet {
 
     private void setWeapons(StringBuilder stringBuilder) {
         for (final Weapon weapon : getCharacterPlayer().getWeapons()) {
+            if (weapon.getWeaponDamages() == null || weapon.getWeaponDamages().isEmpty()
+                    || weapon.getWeaponDamages().get(0) == null) {
+                MachineLog.warning(CharacterSheet.class,
+                        "Skipping weapon '{}' without damage definition in character sheet export.", weapon.getId());
+                continue;
+            }
+            final WeaponDamage weaponDamage = weapon.getWeaponDamages().get(0);
             stringBuilder.append("\t- ").append(weapon.getName());
             stringBuilder.append(" (");
-            if (weapon.getWeaponDamages().get(0).getGoal() != null && weapon.getWeaponDamages().get(0).getGoal().length() != 0
-                    && !weapon.getWeaponDamages().get(0).getGoal().equals("0")) {
-                stringBuilder.append(weapon.getWeaponDamages().get(0).getGoal());
+            if (weaponDamage.getGoal() != null && weaponDamage.getGoal().length() != 0
+                    && !weaponDamage.getGoal().equals("0")) {
+                stringBuilder.append(weaponDamage.getGoal());
                 stringBuilder.append(TextFactory.getInstance().getElement("weaponGoal").getNameRepresentation());
                 stringBuilder.append(ELEMENT_SEPARATOR);
             }
             stringBuilder.append(TextFactory.getInstance().getElement("weaponDamage").getNameRepresentation()).append(" ");
-            stringBuilder.append(weapon.getWeaponDamages().get(0).getDamageWithoutArea());
-            if (weapon.getWeaponDamages().get(0).getAreaMeters() > 0) {
+            stringBuilder.append(weaponDamage.getDamageWithoutArea());
+            if (weaponDamage.getAreaMeters() > 0) {
                 stringBuilder.append(" ");
-                stringBuilder.append(weapon.getWeaponDamages().get(0).getAreaMeters());
+                stringBuilder.append(weaponDamage.getAreaMeters());
             }
             stringBuilder.append(ELEMENT_SEPARATOR);
-            if (weapon.getWeaponDamages().get(0).getRange() != null && weapon.getWeaponDamages().get(0).getRange().length() != 0) {
-                stringBuilder.append(weapon.getWeaponDamages().get(0).getRange());
+            if (weaponDamage.getRange() != null && weaponDamage.getRange().length() != 0) {
+                stringBuilder.append(weaponDamage.getRange());
                 stringBuilder.append(ELEMENT_SEPARATOR);
             }
-            if (weapon.getWeaponDamages().get(0).getRate() != null && weapon.getWeaponDamages().get(0).getRate().length() != 0) {
+            if (weaponDamage.getRate() != null && weaponDamage.getRate().length() != 0) {
                 stringBuilder.append(TextFactory.getInstance().getElement("weaponRate").getNameRepresentation());
                 stringBuilder.append(" ");
-                stringBuilder.append(weapon.getWeaponDamages().get(0).getRate());
+                stringBuilder.append(weaponDamage.getRate());
                 stringBuilder.append(ELEMENT_SEPARATOR);
             }
             for (final String damageTypeName : weapon.getDamageTypes()) {

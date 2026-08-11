@@ -27,8 +27,10 @@ package com.softwaremagico.tm.random;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.Gender;
 import com.softwaremagico.tm.character.Name;
+import com.softwaremagico.tm.character.Rank;
 import com.softwaremagico.tm.character.Surname;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
+import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.random.character.names.RandomName;
 import com.softwaremagico.tm.random.character.names.RandomSurname;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
@@ -95,6 +97,26 @@ public class FactionBookRandomNamesTest {
         Assert.assertTrue(characterPlayer.getInfo().getSurname().getSpecie() == null
                 || "human".equals(characterPlayer.getInfo().getSurname().getSpecie()));
     }
-}
 
+    @Test
+    public void randomOroymNamesWithHighRankAvoidFactionNullPointer() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer() {
+            @Override
+            public Rank getRank() {
+                return new Rank(new TranslatedText("high"), 3);
+            }
+        };
+        characterPlayer.setSpecie("oroym");
+        characterPlayer.setUpbringing("yeoman");
+        characterPlayer.setFaction("vagabonds");
+        characterPlayer.getInfo().setPlanet("madoc");
+        characterPlayer.getInfo().setGender(Gender.MALE);
+
+        final RandomName randomName = new RandomName(characterPlayer, null);
+        randomName.assign();
+
+        Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
+        Assert.assertEquals(characterPlayer.getInfo().getNames().get(0).getSpecie(), "oroym");
+    }
+}
 

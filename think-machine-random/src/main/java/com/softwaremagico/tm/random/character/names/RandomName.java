@@ -66,7 +66,8 @@ public class RandomName extends RandomSelector<Name> implements AssignableRandom
             try {
                 final Name selectedName = selectElementByWeight();
                 if (!selectedNames.contains(selectedName)
-                        && (selectedNames.size() == 0) || selectedNames.iterator().next().getFaction().equals(selectedName.getFaction())) {
+                        && (selectedNames.size() == 0
+                        || Objects.equals(selectedNames.iterator().next().getFaction(), selectedName.getFaction()))) {
                     getCharacterPlayer().getInfo().addName(selectedName);
                     selectedNames.add(selectedName);
                 }

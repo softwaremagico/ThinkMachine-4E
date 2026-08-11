@@ -25,8 +25,10 @@ package com.softwaremagico.tm.txt;
  */
 
 
+import com.softwaremagico.tm.TranslatedText;
 import com.softwaremagico.tm.character.CharacterExamples;
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.file.modules.ModuleManager;
 import com.softwaremagico.tm.language.Translator;
 import org.testng.Assert;
@@ -99,5 +101,19 @@ public class ExportTxtTests {
 
         final CharacterSheet characterSheet = new CharacterSheet(player);
         Assert.assertTrue(characterSheet.toString().contains("Commander / Conspiracist"));
+    }
+
+    @Test
+    public void ignoresWeaponWithoutDamageDefinitionOnTxtSheet() {
+        Translator.setLanguage("EN");
+        final CharacterPlayer player = CharacterExamples.generateHumanNobleDecadosCommander();
+        final Weapon invalidWeapon = new Weapon();
+        invalidWeapon.setId("invalidWeapon");
+        invalidWeapon.setName(new TranslatedText("Invalid Weapon"));
+        player.addEquipmentPurchased(invalidWeapon);
+
+        final CharacterSheet characterSheet = new CharacterSheet(player);
+        Assert.assertNotNull(characterSheet.toString());
+        Assert.assertTrue(characterSheet.toString().contains(player.getCompleteNameRepresentation()));
     }
 }
