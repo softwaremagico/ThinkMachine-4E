@@ -9,7 +9,7 @@
     <parent>
         <groupId>com.softwaremagico</groupId>
         <artifactId>think-machine-4e</artifactId>
-        <version>4.4.1-SNAPSHOT</version>
+        <version>4.5.1-SNAPSHOT</version>
     </parent>
 
     <properties>
@@ -44,16 +44,6 @@
         <dependency>
             <groupId>com.google.zxing</groupId>
             <artifactId>core</artifactId>
-            <version>${zxing.version}</version>
-        </dependency>
-        <!--
-          ZXing javase: desktop-only (uses java.awt / javax.imageio).
-          Required by CharacterQrImageWriter to save QR codes as PNG/JPEG files.
-          DO NOT use this artifact on Android — use CharacterQrMatrix + platform canvas instead.
-        -->
-        <dependency>
-            <groupId>com.google.zxing</groupId>
-            <artifactId>javase</artifactId>
             <version>${zxing.version}</version>
         </dependency>
         <dependency>
