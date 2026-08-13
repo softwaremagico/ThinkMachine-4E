@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>think-machine-4e-qr</artifactId>
+    <packaging>jar</packaging>
+    <name>Think Machine 4E (QR)</name>
+    <description>Think Machine 4E - QR code encoding/decoding for character data (Android-compatible)</description>
+
+    <parent>
+        <groupId>com.softwaremagico</groupId>
+        <artifactId>think-machine-4e</artifactId>
+        <version>4.4.1-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <files.basedir>${project.basedir}/..</files.basedir>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire.version}</version>
+                <configuration>
+                    <useFile>false</useFile>
+                    <trimStackTrace>false</trimStackTrace>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <useSystemClassLoader>false</useSystemClassLoader>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>think-machine-4e-rules</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- ZXing core: pure Java, Android-compatible (no java.awt). -->
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>${zxing.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${org.testng.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
