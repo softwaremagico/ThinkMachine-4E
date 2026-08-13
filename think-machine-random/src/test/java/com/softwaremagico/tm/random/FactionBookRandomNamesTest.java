@@ -37,6 +37,9 @@ import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedExcep
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Collection;
+import java.util.Collections;
+
 @Test(groups = {"random"})
 public class FactionBookRandomNamesTest {
 
@@ -118,5 +121,26 @@ public class FactionBookRandomNamesTest {
         Assert.assertFalse(characterPlayer.getInfo().getNames().isEmpty());
         Assert.assertEquals(characterPlayer.getInfo().getNames().get(0).getSpecie(), "oroym");
     }
-}
 
+    @Test(expectedExceptions = InvalidRandomElementSelectedException.class)
+    public void randomSurnameFailsGracefullyWhenNoSurnamesExist() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("noble");
+        characterPlayer.setFaction("alMalik");
+        characterPlayer.getInfo().setPlanet("sutek");
+
+        final RandomSurname randomSurname = new RandomSurname(characterPlayer, null) {
+            @Override
+            public Surname selectElementByWeight() throws InvalidRandomElementSelectedException {
+                throw new InvalidRandomElementSelectedException("force weighted fallback");
+            }
+
+            @Override
+            protected Collection<Surname> getAllElements() {
+                return Collections.emptySet();
+            }
+        };
+        randomSurname.assign();
+    }
+}

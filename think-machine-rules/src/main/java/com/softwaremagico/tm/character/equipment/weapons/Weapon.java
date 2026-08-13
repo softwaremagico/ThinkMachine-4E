@@ -9,6 +9,7 @@ import com.softwaremagico.tm.log.MachineXmlReaderLog;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 /*-
@@ -104,7 +105,7 @@ public class Weapon extends Equipment {
     }
 
     public void setWeaponDamages(List<WeaponDamage> weaponDamages) {
-        this.weaponDamages = weaponDamages;
+        this.weaponDamages = Objects.requireNonNullElseGet(weaponDamages, ArrayList::new);
     }
 
     public void setTechLevelSpecial(boolean techLevelSpecial) {
@@ -161,6 +162,9 @@ public class Weapon extends Equipment {
     }
 
     public List<WeaponDamage> getWeaponDamages() {
+        if (this.weaponDamages == null) {
+            this.weaponDamages = new ArrayList<>();
+        }
         return this.weaponDamages;
     }
 

@@ -64,9 +64,12 @@ public class RandomSurname extends RandomSelector<Surname> implements Assignable
         try {
             getCharacterPlayer().getInfo().setSurname(selectElementByWeight());
         } catch (InvalidRandomElementSelectedException | InvalidXmlElementException e) {
-            //If no surnames available choose any.
-            getCharacterPlayer().getInfo().setSurname(FactionFactory.getInstance().getAllSurnames().stream()
-                    .skip(RANDOM.nextInt(FactionFactory.getInstance().getAllSurnames().size())).findFirst().orElse(null));
+            // If no weighted surname is available, choose any loaded surname as fallback.
+            final List<Surname> fallbackSurnames = new ArrayList<>(getAllElements());
+            if (fallbackSurnames.isEmpty()) {
+                throw new InvalidRandomElementSelectedException("No surnames available.", e);
+            }
+            getCharacterPlayer().getInfo().setSurname(fallbackSurnames.get(RANDOM.nextInt(fallbackSurnames.size())));
         }
     }
 

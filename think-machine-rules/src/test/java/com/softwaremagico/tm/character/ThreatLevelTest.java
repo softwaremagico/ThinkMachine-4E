@@ -25,6 +25,7 @@ package com.softwaremagico.tm.character;
  */
 
 import com.softwaremagico.tm.language.Translator;
+import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -185,5 +186,16 @@ public class ThreatLevelTest {
 
 		Assert.assertTrue(veteranThreat > noviceThreat,
 				"Veteran character should have higher threat than novice");
+	}
+
+	@Test
+	public void threatLevelWithWeaponWithoutDamageDoesNotFail() throws Exception {
+		final CharacterPlayer character = new CharacterPlayer();
+		final Weapon weapon = new Weapon();
+		weapon.setWeaponDamages(null);
+		character.addEquipmentPurchased(weapon);
+
+		final int threat = ThreatLevel.getThreatLevel(character);
+		Assert.assertTrue(threat >= 0, "Threat level should be calculated even with malformed weapon damage data");
 	}
 }
