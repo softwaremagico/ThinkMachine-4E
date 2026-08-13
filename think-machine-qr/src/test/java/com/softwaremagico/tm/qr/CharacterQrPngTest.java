@@ -27,7 +27,12 @@ package com.softwaremagico.tm.qr;
 import com.google.zxing.WriterException;
 import com.softwaremagico.tm.character.CharacterExamples;
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.capabilities.CapabilityWithSpecialization;
+import com.softwaremagico.tm.character.characteristics.CharacteristicName;
+import com.softwaremagico.tm.character.perks.SpecializedPerk;
+import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import com.softwaremagico.tm.file.modules.ModuleManager;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -38,12 +43,19 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Test(groups = {"characterQrPng"})
-public class CharacterQrPngTest {
+public class CharacterQrPngTest extends QrGeneration {
+
+    private static final int SIZE_256 = 256;
+    private static final int SIZE_1024 = 1024;
 
     @BeforeClass(alwaysRun = true)
-    public void enableBasicModule() {
+    public void enableBasicModule() throws IOException {
+        Files.createDirectories(Paths.get(OUTPUT_FOLDER));
         ModuleManager.disableModule(ModuleManager.FACTION_BOOK_MODULE);
         ModuleManager.enableModule(ModuleManager.LOST_WORLDS_BOOK_MODULE);
         ModuleManager.enableModule(ModuleManager.FADING_SUNS_PLAYER_GUIDE_MODULE);
@@ -53,33 +65,22 @@ public class CharacterQrPngTest {
     @Test
     public void writesPngFileToPath() throws IOException, WriterException {
         final CharacterPlayer player = CharacterExamples.generateHumanNobleDecadosCommander();
-        final Path output = Files.createTempFile("character_qr_", ".png");
-        try {
-            CharacterQrPngWriter.writePng(player, output);
-            Assert.assertTrue(Files.exists(output), "PNG file should exist");
-            Assert.assertTrue(Files.size(output) > 0, "PNG file should not be empty");
-            assertIsPng(Files.readAllBytes(output));
-        } finally {
-            Files.deleteIfExists(output);
-        }
+        final Path output = getOutputPath("CharacterQr_Default.png");
+        CharacterQrPngWriter.writePng(player, output);
+        Assert.assertTrue(Files.exists(output), "PNG file should exist");
+        Assert.assertTrue(Files.size(output) > 0, "PNG file should not be empty");
+        assertIsPng(Files.readAllBytes(output));
     }
 
     @Test
     public void writesPngFileWithCustomSize() throws IOException, WriterException {
         final CharacterPlayer player = CharacterExamples.generateHumanNobleDecadosCommander();
-        final Path output256 = Files.createTempFile("character_qr_256_", ".png");
-        final Path output1024 = Files.createTempFile("character_qr_1024_", ".png");
-        final int size256 = 256;
-        final int size1024 = 1024;
-        try {
-            CharacterQrPngWriter.writePng(player, output256, size256);
-            CharacterQrPngWriter.writePng(player, output1024, size1024);
-            Assert.assertTrue(Files.size(output1024) > Files.size(output256),
-                    "Larger QR should produce a larger PNG file");
-        } finally {
-            Files.deleteIfExists(output256);
-            Files.deleteIfExists(output1024);
-        }
+        final Path output256 = getOutputPath("CharacterQr_Size_256.png");
+        final Path output1024 = getOutputPath("CharacterQr_Size_1024.png");
+        CharacterQrPngWriter.writePng(player, output256, SIZE_256);
+        CharacterQrPngWriter.writePng(player, output1024, SIZE_1024);
+        Assert.assertTrue(Files.size(output1024) > Files.size(output256),
+                "Larger QR should produce a larger PNG file");
     }
 
     @Test
@@ -94,29 +95,19 @@ public class CharacterQrPngTest {
 
     @Test
     public void roundTripThroughPngFile() throws IOException, WriterException,
-            com.google.zxing.NotFoundException, InvalidXmlElementException {
+            com.google.zxing.NotFoundException, InvalidXmlElementException, MaxValueExceededException {
         final CharacterPlayer original = CharacterExamples.generateHumanNobleDecadosCommander();
-        final Path output = Files.createTempFile("character_qr_roundtrip_", ".png");
-        try {
-            CharacterQrPngWriter.writePng(original, output);
-            final CharacterPlayer decoded = CharacterQrPngReader.readPng(output);
+        final Path output = getOutputPath("CharacterQr_RoundTrip.png");
+        CharacterQrPngWriter.writePng(original, output);
+        final CharacterPlayer decoded = CharacterQrPngReader.readPng(output);
 
-            Assert.assertEquals(decoded.getInfo().getNameRepresentation(),
-                    original.getInfo().getNameRepresentation(),
-                    "Character name must survive PNG round-trip");
-            Assert.assertEquals(decoded.getSpecie().getId(), original.getSpecie().getId(),
-                    "Specie must survive PNG round-trip");
-            Assert.assertEquals(decoded.getFaction().getId(), original.getFaction().getId(),
-                    "Faction must survive PNG round-trip");
-        } finally {
-            Files.deleteIfExists(output);
-        }
+        assertCharactersEqual(original, decoded);
     }
 
     @Test
     public void roundTripThroughOutputStream() throws IOException, WriterException,
-            com.google.zxing.NotFoundException, InvalidXmlElementException {
-        final CharacterPlayer original = CharacterExamples.generateHumanNobleDecadosCommander();
+            com.google.zxing.NotFoundException, InvalidXmlElementException, MaxValueExceededException {
+        final CharacterPlayer original = CharacterExamples.generateHumanNobleHawkwoodCommander();
 
         // Write to ByteArrayOutputStream
         final ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -126,12 +117,101 @@ public class CharacterQrPngTest {
         final CharacterPlayer decoded = CharacterQrPngReader.readPng(
                 new ByteArrayInputStream(bos.toByteArray()));
 
-        Assert.assertEquals(decoded.getInfo().getNameRepresentation(),
-                original.getInfo().getNameRepresentation(),
-                "Character name must survive OutputStream round-trip");
+        assertCharactersEqual(original, decoded);
     }
 
     // ── helpers ───────────────────────────────────────────────────────────────
+
+    private void assertCharactersEqual(CharacterPlayer original, CharacterPlayer decoded)
+            throws MaxValueExceededException {
+        Assert.assertNotNull(decoded);
+
+        Assert.assertEquals(decoded.getInfo().getNameRepresentation(),
+                original.getInfo().getNameRepresentation(), "Name");
+        Assert.assertEquals(decoded.getInfo().getSurname().getNameRepresentation(),
+                original.getInfo().getSurname().getNameRepresentation(), "Surname");
+        Assert.assertEquals(decoded.getInfo().getPlayer(), original.getInfo().getPlayer(), "Player");
+        Assert.assertEquals(decoded.getInfo().getGender(), original.getInfo().getGender(), "Gender");
+        Assert.assertEquals(decoded.getInfo().getAge(), original.getInfo().getAge(), "Age");
+        Assert.assertEquals(decoded.getInfo().getPlanet(), original.getInfo().getPlanet(), "Planet");
+
+        Assert.assertEquals(decoded.getSpecie().getId(), original.getSpecie().getId(), "Specie");
+        Assert.assertEquals(decoded.getUpbringing().getId(), original.getUpbringing().getId(), "Upbringing");
+        Assert.assertEquals(decoded.getFaction().getId(), original.getFaction().getId(), "Faction");
+        Assert.assertEquals(decoded.getCalling().getId(), original.getCalling().getId(), "Calling");
+
+        Assert.assertEquals(decoded.getPrimaryCharacteristic(), original.getPrimaryCharacteristic(),
+                "Primary characteristic");
+        Assert.assertEquals(decoded.getSecondaryCharacteristic(), original.getSecondaryCharacteristic(),
+                "Secondary characteristic");
+
+        for (final CharacteristicName name : CharacteristicName.values()) {
+            Assert.assertEquals(decoded.getCharacteristicValue(name),
+                    original.getCharacteristicValue(name),
+                    "Characteristic " + name);
+        }
+
+        for (final com.softwaremagico.tm.character.skills.Skill skill : SkillFactory.getInstance().getElements()) {
+            Assert.assertEquals(decoded.getSkillValue(skill), original.getSkillValue(skill),
+                    "Skill " + skill.getId());
+        }
+
+        final Set<String> originalCapabilities = original.getCapabilitiesWithSpecialization().stream()
+                .map(CapabilityWithSpecialization::getComparisonId)
+                .collect(Collectors.toSet());
+        final Set<String> decodedCapabilities = decoded.getCapabilitiesWithSpecialization().stream()
+                .map(CapabilityWithSpecialization::getComparisonId)
+                .collect(Collectors.toSet());
+        Assert.assertEquals(decodedCapabilities, originalCapabilities, "Capabilities");
+
+        final Set<String> originalPerks = original.getPerks().stream()
+                .map(SpecializedPerk::toString)
+                .collect(Collectors.toSet());
+        final Set<String> decodedPerks = decoded.getPerks().stream()
+                .map(SpecializedPerk::toString)
+                .collect(Collectors.toSet());
+        Assert.assertEquals(decodedPerks, originalPerks, "Perks");
+
+        final Set<String> originalEquipment = original.getEquipmentPurchased().stream()
+                .map(com.softwaremagico.tm.Element::getId)
+                .collect(Collectors.toSet());
+        final Set<String> decodedEquipment = decoded.getEquipmentPurchased().stream()
+                .map(com.softwaremagico.tm.Element::getId)
+                .collect(Collectors.toSet());
+        Assert.assertEquals(decodedEquipment, originalEquipment, "Equipment");
+
+        final Set<String> originalAwards = original.getMaterialAwardsSelected(false).stream()
+                .map(eo -> eo.getElement().getId())
+                .collect(Collectors.toSet());
+        final Set<String> decodedAwards = decoded.getMaterialAwardsSelected(false).stream()
+                .map(eo -> eo.getElement().getId())
+                .collect(Collectors.toSet());
+        Assert.assertEquals(decodedAwards, originalAwards, "Material awards");
+
+        Assert.assertEquals(decoded.getCharacteristicReassigns().size(),
+                original.getCharacteristicReassigns().size(), "Characteristic reassign count");
+        for (int i = 0; i < original.getCharacteristicReassigns().size(); i++) {
+            Assert.assertEquals(decoded.getCharacteristicReassigns().get(i).getFrom(),
+                    original.getCharacteristicReassigns().get(i).getFrom(),
+                    "Characteristic reassign source " + i);
+            Assert.assertEquals(decoded.getCharacteristicReassigns().get(i).getTo(),
+                    original.getCharacteristicReassigns().get(i).getTo(),
+                    "Characteristic reassign target " + i);
+        }
+
+        Assert.assertEquals(decoded.getSkillsReassigns().size(),
+                original.getSkillsReassigns().size(), "Skill reassign count");
+        for (int i = 0; i < original.getSkillsReassigns().size(); i++) {
+            Assert.assertEquals(decoded.getSkillsReassigns().get(i).getFrom(),
+                    original.getSkillsReassigns().get(i).getFrom(),
+                    "Skill reassign source " + i);
+            Assert.assertEquals(decoded.getSkillsReassigns().get(i).getTo(),
+                    original.getSkillsReassigns().get(i).getTo(),
+                    "Skill reassign target " + i);
+        }
+
+        Assert.assertEquals(decoded.getLevel(), original.getLevel(), "Level");
+    }
 
     private static void assertIsPng(byte[] data) {
         Assert.assertTrue(data.length >= CharacterQrPngWriter.PNG_SIGNATURE.length,
