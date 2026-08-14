@@ -33,6 +33,7 @@ import com.softwaremagico.tm.character.perks.SpecializedPerk;
 import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import com.softwaremagico.tm.file.modules.ModuleManager;
+import com.softwaremagico.tm.txt.CharacterSheet;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -286,6 +287,11 @@ public class CharacterQrCodecTest {
     private void assertCharactersEqual(CharacterPlayer original, CharacterPlayer decoded)
             throws MaxValueExceededException {
         Assert.assertNotNull(decoded);
+        Assert.assertEquals(
+                new CharacterSheet(decoded).toString().trim(),
+                new CharacterSheet(original).toString().trim(),
+                "Character sheet TXT"
+        );
 
         // Specie / upbringing / faction / calling
         Assert.assertEquals(decoded.getSpecie().getId(), original.getSpecie().getId(), "Specie");

@@ -23,6 +23,9 @@
   -->
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="1" verbose="1" name="ThinkingMachineQr" parallel="false">
+    <listeners>
+        <listener class-name="com.softwaremagico.tm.TestListener"/>
+    </listeners>
     <test name="AllQrTests" enabled="true" preserve-order="true">
         <groups>
             <run>
