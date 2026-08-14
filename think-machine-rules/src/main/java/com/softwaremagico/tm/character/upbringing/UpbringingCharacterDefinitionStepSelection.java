@@ -44,6 +44,10 @@ public class UpbringingCharacterDefinitionStepSelection extends CharacterDefinit
 
     private boolean raisedInSpace = false;
 
+    public UpbringingCharacterDefinitionStepSelection() {
+        super();
+    }
+
     public UpbringingCharacterDefinitionStepSelection(CharacterPlayer characterPlayer, String upbringing) throws InvalidGeneratedCharacter {
         super(characterPlayer, UpbringingFactory.getInstance().getElement(upbringing), Phase.UPBRINGING);
         setId(upbringing);

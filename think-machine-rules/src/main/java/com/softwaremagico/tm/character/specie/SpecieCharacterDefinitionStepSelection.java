@@ -38,6 +38,10 @@ import java.util.List;
 
 public class SpecieCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection {
 
+    public SpecieCharacterDefinitionStepSelection() {
+        super();
+    }
+
     public SpecieCharacterDefinitionStepSelection(CharacterPlayer characterPlayer, String specie) throws InvalidGeneratedCharacter {
         super(characterPlayer, SpecieFactory.getInstance().getElement(specie), Phase.SPECIE);
         setId(specie);

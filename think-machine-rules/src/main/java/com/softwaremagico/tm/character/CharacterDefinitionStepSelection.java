@@ -66,19 +66,25 @@ public abstract class CharacterDefinitionStepSelection extends Element {
     @JsonIgnore
     private final CharacterDefinitionStep characterDefinitionStep;
 
-    @JsonProperty(value = "capabilities")
     private OptionsList<CharacterSelectedElement> selectedCapabilityOptions;
-    @JsonProperty(value = "characteristics")
     private OptionsList<CharacterSelectedElement> selectedCharacteristicOptions;
-    @JsonProperty(value = "skills")
     private OptionsList<CharacterSelectedElement> selectedSkillOptions;
-    @JsonProperty(value = "perks")
     private OptionsList<CharacterSelectedElement> selectedPerksOptions;
-    @JsonProperty(value = "materialAwards")
     private OptionsList<CharacterSelectedEquipment> selectedMaterialAwards;
 
     @JsonIgnore
     private final Phase phase;
+
+    protected CharacterDefinitionStepSelection() {
+        this.characterPlayer = null;
+        this.characterDefinitionStep = null;
+        this.phase = null;
+        this.selectedCapabilityOptions = new OptionsList<>(new ArrayList<>());
+        this.selectedCharacteristicOptions = new OptionsList<>(new ArrayList<>());
+        this.selectedSkillOptions = new OptionsList<>(new ArrayList<>());
+        this.selectedPerksOptions = new OptionsList<>(new ArrayList<>());
+        this.selectedMaterialAwards = new OptionsList<>(new ArrayList<>());
+    }
 
     public CharacterDefinitionStepSelection(CharacterPlayer characterPlayer, CharacterDefinitionStep characterDefinitionStep, Phase phase)
             throws InvalidGeneratedCharacter {
@@ -199,34 +205,42 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         return characterPlayer;
     }
 
+    @JsonProperty("capabilities")
     public List<CharacterSelectedElement> getSelectedCapabilityOptions() {
         return selectedCapabilityOptions;
     }
 
+    @JsonProperty("capabilities")
     public void setSelectedCapabilityOptions(List<CharacterSelectedElement> selectedCapabilityOptions) {
         this.selectedCapabilityOptions = new OptionsList<>(selectedCapabilityOptions);
     }
 
+    @JsonProperty("characteristics")
     public List<CharacterSelectedElement> getSelectedCharacteristicOptions() {
         return selectedCharacteristicOptions;
     }
 
+    @JsonProperty("characteristics")
     public void setSelectedCharacteristicOptions(List<CharacterSelectedElement> selectedCharacteristicOptions) {
         this.selectedCharacteristicOptions = new OptionsList<>(selectedCharacteristicOptions);
     }
 
+    @JsonProperty("skills")
     public List<CharacterSelectedElement> getSelectedSkillOptions() {
         return selectedSkillOptions;
     }
 
+    @JsonProperty("skills")
     public void setSelectedSkillOptions(List<CharacterSelectedElement> selectedSkillOptions) {
         this.selectedSkillOptions = new OptionsList<>(selectedSkillOptions);
     }
 
+    @JsonProperty("perks")
     public List<CharacterSelectedElement> getSelectedPerksOptions() {
         return selectedPerksOptions;
     }
 
+    @JsonProperty("perks")
     public void setSelectedPerksOptions(List<CharacterSelectedElement> selectedPerksOptions) {
         this.selectedPerksOptions = new OptionsList<>(selectedPerksOptions);
     }
@@ -271,6 +285,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         return result;
     }
 
+    @JsonProperty("materialAwards")
     public List<CharacterSelectedEquipment> getSelectedMaterialAwards() {
         if (selectedMaterialAwards == null) {
             return new ArrayList<>();
@@ -278,6 +293,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         return selectedMaterialAwards;
     }
 
+    @JsonProperty("materialAwards")
     public void setSelectedMaterialAwards(List<CharacterSelectedEquipment> selectedMaterialAwards) {
         this.selectedMaterialAwards = new OptionsList<>(selectedMaterialAwards);
     }
@@ -426,6 +442,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
      *
      * @return
      */
+    @JsonIgnore
     public List<CapabilityOptions> getCapabilityOptions() {
         return getCharacterDefinitionStep().getCapabilityOptions();
     }
@@ -439,6 +456,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
      *
      * @return
      */
+    @JsonIgnore
     public List<CapabilityOptions> getNotRepeatedCapabilityOptions() {
         return getNotRepeatedCapabilityOptions(getPhase());
     }
@@ -448,6 +466,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
      *
      * @return
      */
+    @JsonIgnore
     public List<CapabilityOptions> getNotRepeatedCapabilityOptions(Phase phase) {
         final List<CapabilityOptions> capabilityOptions = new ArrayList<>();
         for (CapabilityOptions capabilityOption : getCharacterDefinitionStep().getCapabilityOptions()) {
@@ -475,18 +494,22 @@ public abstract class CharacterDefinitionStepSelection extends Element {
         return capabilityOptions;
     }
 
+    @JsonIgnore
     public List<CharacteristicBonusOptions> getCharacteristicOptions() {
         return getCharacterDefinitionStep().getCharacteristicOptions();
     }
 
+    @JsonIgnore
     public List<PerkOptions> getSourcePerks() {
         return getCharacterDefinitionStep().getSourcePerks();
     }
 
+    @JsonIgnore
     public List<SkillBonusOptions> getSkillOptions() {
         return getCharacterDefinitionStep().getSkillOptions();
     }
 
+    @JsonIgnore
     public List<CharacterPerkOptions> getCharacterAvailablePerksOptions() {
         return getCharacterDefinitionStep().getCharacterAvailablePerksOptions();
     }
@@ -534,6 +557,7 @@ public abstract class CharacterDefinitionStepSelection extends Element {
                         || PerkFactory.getInstance().getElement(o).isRepeatable()).collect(Collectors.toSet());
     }
 
+    @JsonIgnore
     public List<EquipmentOptions> getMaterialAwardsOptions() {
         return getCharacterDefinitionStep().getMaterialAwards();
     }

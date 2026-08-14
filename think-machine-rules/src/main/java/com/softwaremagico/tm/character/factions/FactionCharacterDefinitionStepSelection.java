@@ -33,6 +33,10 @@ import com.softwaremagico.tm.exceptions.InvalidSelectionException;
 
 public class FactionCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection {
 
+    public FactionCharacterDefinitionStepSelection() {
+        super();
+    }
+
     public FactionCharacterDefinitionStepSelection(CharacterPlayer characterPlayer, String faction) throws InvalidGeneratedCharacter {
         super(characterPlayer, FactionFactory.getInstance().getElement(faction), Phase.FACTION);
         setId(faction);

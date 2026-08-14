@@ -25,6 +25,8 @@ package com.softwaremagico.tm.character;
  */
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.character.planets.Planet;
 
 import java.util.ArrayList;
@@ -67,10 +69,12 @@ public class CharacterInfo {
         return names;
     }
 
+    @JsonProperty("names")
     public void setNames(List<Name> names) {
         this.names = names;
     }
 
+    @JsonIgnore
     public void setNames(String names) {
         if (names == null) {
             return;
@@ -201,10 +205,12 @@ public class CharacterInfo {
         return surname;
     }
 
+    @JsonProperty("surname")
     public void setSurname(Surname surname) {
         this.surname = surname;
     }
 
+    @JsonIgnore
     public void setSurname(String surname) {
         if (surname == null || surname.length() == 0) {
             this.surname = null;

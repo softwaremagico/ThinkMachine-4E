@@ -25,6 +25,8 @@ package com.softwaremagico.tm.character;
  */
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.perks.PerkOption;
 import com.softwaremagico.tm.character.perks.SpecializedPerk;
@@ -56,7 +58,8 @@ public class Selection extends Element implements IComparable {
         setRestrictions(element.getRestrictions());
     }
 
-    private Selection(String id, Specialization specialization) {
+    @JsonCreator
+    private Selection(@JsonProperty("id") String id, @JsonProperty("specialization") Specialization specialization) {
         super(id);
         this.specialization = specialization;
     }

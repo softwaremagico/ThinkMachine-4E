@@ -24,6 +24,8 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.TranslatedText;
@@ -42,7 +44,10 @@ public class Surname extends Element {
         this.specie = specie;
     }
 
-    public Surname(String surname, String faction, String specie) {
+    @JsonCreator
+    public Surname(@JsonProperty("surname") String surname,
+            @JsonProperty("faction") String faction,
+            @JsonProperty("specie") String specie) {
         super(getId(surname, faction, specie, null), new TranslatedText(surname), null, null, null);
         this.faction = faction;
         this.specie = specie;

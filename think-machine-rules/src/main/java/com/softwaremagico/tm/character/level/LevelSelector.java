@@ -49,16 +49,20 @@ import java.util.stream.Collectors;
 
 public class LevelSelector extends CharacterDefinitionStepSelection {
 
-    @JsonProperty("classPerks")
     private OptionsList<CharacterSelectedElement> selectedClassPerksOptions;
 
-    @JsonProperty("callingPerks")
     private OptionsList<CharacterSelectedElement> selectedCallingPerksOptions;
 
-    @JsonProperty("calling")
     private String callingId;
 
-    private final int level;
+    private int level;
+
+    public LevelSelector() {
+        super();
+        this.level = 0;
+        this.selectedClassPerksOptions = new OptionsList<>(new ArrayList<>());
+        this.selectedCallingPerksOptions = new OptionsList<>(new ArrayList<>());
+    }
 
     public LevelSelector(CharacterPlayer characterPlayer, int level) {
         super(characterPlayer, LevelFactory.getInstance().getElement(characterPlayer, level), Phase.LEVEL);
@@ -79,10 +83,12 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
         setListeners();
     }
 
+    @JsonProperty("calling")
     public String getCallingId() {
         return callingId;
     }
 
+    @JsonIgnore
     public CallingCharacterDefinitionStepSelection getCalling() {
         if (callingId == null) {
             return null;
@@ -90,6 +96,7 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
         return new CallingCharacterDefinitionStepSelection(getCharacterPlayer(), callingId);
     }
 
+    @JsonIgnore
     public void setCalling(String callingId) {
         if (callingId == null || callingId.isBlank()) {
             this.callingId = null;
@@ -105,23 +112,39 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
         getCharacterPlayer().getCacheManager().perksChanged();
     }
 
+    @JsonProperty("calling")
+    public void setCallingId(String callingId) {
+        if (callingId == null || callingId.isBlank()) {
+            this.callingId = null;
+        } else {
+            this.callingId = callingId;
+        }
+        if (getCharacterPlayer() != null) {
+            getCharacterPlayer().getCacheManager().perksChanged();
+        }
+    }
+
     @Override
     public String getId() {
         return "Level" + level;
     }
 
+    @JsonProperty("classPerks")
     public List<CharacterSelectedElement> getSelectedClassPerksOptions() {
         return selectedClassPerksOptions;
     }
 
+    @JsonProperty("classPerks")
     public void setSelectedClassPerksOptions(List<CharacterSelectedElement> selectedClassPerksOptions) {
         this.selectedClassPerksOptions = new OptionsList<>(selectedClassPerksOptions);
     }
 
+    @JsonProperty("callingPerks")
     public List<CharacterSelectedElement> getSelectedCallingPerksOptions() {
         return selectedCallingPerksOptions;
     }
 
+    @JsonProperty("callingPerks")
     public void setSelectedCallingPerksOptions(List<CharacterSelectedElement> selectedCallingPerksOptions) {
         this.selectedCallingPerksOptions = new OptionsList<>(selectedCallingPerksOptions);
     }
@@ -150,6 +173,10 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
     @Override
     public int getLevel() {
         return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     @JsonIgnore
@@ -278,6 +305,7 @@ public class LevelSelector extends CharacterDefinitionStepSelection {
         callingPerksOptions.add(characterPerkOptions);
         return callingPerksOptions;
     }
+
 
     protected void validateClassPerks() {
         validatePerks(selectedClassPerksOptions, getNotRepeatedClassPerksOptions(), getFinalClassPerksOptions());

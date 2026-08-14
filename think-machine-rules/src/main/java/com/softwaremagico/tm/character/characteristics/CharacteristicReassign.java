@@ -24,6 +24,8 @@ package com.softwaremagico.tm.character.characteristics;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.exceptions.InvalidCharacteristicException;
 
 import java.util.Objects;
@@ -33,7 +35,8 @@ public class CharacteristicReassign {
     private final String to;
 
 
-    public CharacteristicReassign(String from, String to) {
+    @JsonCreator
+    public CharacteristicReassign(@JsonProperty("from") String from, @JsonProperty("to") String to) {
         this.from = from;
         this.to = to;
         if (from == null || to == null || Objects.equals(from, to)) {

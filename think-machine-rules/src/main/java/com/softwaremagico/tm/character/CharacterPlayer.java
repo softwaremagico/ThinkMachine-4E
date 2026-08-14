@@ -24,6 +24,8 @@ package com.softwaremagico.tm.character;
  * #L%
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.cache.CacheManager;
 import com.softwaremagico.tm.character.callings.Calling;
@@ -122,7 +124,6 @@ public class CharacterPlayer {
     private static final String BROTHER_BATTLE_CALLING = "brotherBattle";
     private static final Set<String> BROTHER_BATTLE_ALLOWED_ALTERNATIVE_CALLINGS = Set.of(BROTHER_BATTLE_CALLING,
             "healer", "imperialCohortPriest", "occultist", "theurgist");
-
     // Basic description of the character.
     private CharacterInfo info;
 
@@ -132,7 +133,10 @@ public class CharacterPlayer {
     private SpecieCharacterDefinitionStepSelection specie;
     private UpbringingCharacterDefinitionStepSelection upbringing;
     private FactionCharacterDefinitionStepSelection faction;
+    @JsonIgnore
     private CallingCharacterDefinitionStepSelection calling;
+
+    private String callingId;
 
     // All Psi/Theurgy powers
     private Occultism occultism;
@@ -155,7 +159,6 @@ public class CharacterPlayer {
         this.cacheManager = new CacheManager();
         this.reset();
     }
-
     private void reset() {
         this.info = new CharacterInfo();
         this.occultism = new Occultism();
@@ -166,9 +169,20 @@ public class CharacterPlayer {
         this.equipmentPurchased = new SelectionSet<>();
         this.cacheManager.reset();
     }
-
+    @JsonProperty("specie")
     public SpecieCharacterDefinitionStepSelection getSpecie() {
         return this.specie;
+    }
+
+    @JsonProperty("specie")
+    public void setSpecie(SpecieCharacterDefinitionStepSelection specie) {
+        if (specie == null || specie.getId() == null) {
+            this.specie = null;
+            return;
+        }
+        this.specie = new SpecieCharacterDefinitionStepSelection(this, specie.getId());
+        this.specie.selectDefaultOptions();
+        copySelectionState(specie, this.specie);
     }
 
     private void validateSelections() throws InvalidSelectionException {
@@ -290,67 +304,64 @@ public class CharacterPlayer {
         }
     }
 
+    @JsonIgnore
     public void setSpecie(String specie) {
         if (specie != null) {
             this.specie = new SpecieCharacterDefinitionStepSelection(this, specie);
-            try {
-                this.specie.validate();
-            } catch (final InvalidSelectionException e) {
-                this.specie = null;
-                throw e;
-            }
             this.specie.selectDefaultOptions();
         } else {
             this.specie = null;
         }
-        try {
-            if (this.upbringing != null) {
-                this.upbringing.validate();
-            }
-        } catch (final InvalidSelectionException e) {
-            this.setUpbringing((String) null);
-        }
     }
 
+    @JsonProperty("faction")
     public FactionCharacterDefinitionStepSelection getFaction() {
         return this.faction;
     }
 
+    @JsonProperty("upbringing")
     public UpbringingCharacterDefinitionStepSelection getUpbringing() {
         return this.upbringing;
     }
 
+    @JsonProperty("upbringing")
     public void setUpbringing(UpbringingCharacterDefinitionStepSelection upbringing) {
-        this.upbringing = upbringing;
+        if (upbringing == null || upbringing.getId() == null) {
+            this.upbringing = null;
+            return;
+        }
+        this.upbringing = new UpbringingCharacterDefinitionStepSelection(this, upbringing.getId());
+        this.upbringing.selectDefaultOptions();
+        this.upbringing.setRaisedInSpace(upbringing.isRaisedInSpace());
+        copySelectionState(upbringing, this.upbringing);
     }
 
+    @JsonIgnore
     public void setUpbringing(String upbringing) {
         if (upbringing != null) {
             this.upbringing = new UpbringingCharacterDefinitionStepSelection(this, upbringing);
-            if (UpbringingFactory.getInstance().getElement(this.upbringing.getId()).getRestrictions()
-                    .isRestricted(this)) {
+            if (UpbringingFactory.getInstance().getElement(this.upbringing.getId()).getRestrictions().isRestricted(this)) {
                 this.upbringing = null;
-                throw new InvalidUpbringingException("Upbrinfing '" + upbringing + "' is restricted to the character.");
+                throw new InvalidUpbringingException("Upbringing '" + upbringing + "' is restricted to the character.");
             }
             this.upbringing.selectDefaultOptions();
         } else {
             this.upbringing = null;
         }
-        if (this.faction != null
-                && FactionFactory.getInstance().getElement(this.faction.getId()).getRestrictions().isRestricted(this)) {
-            this.setFaction((String) null);
-        }
-
-        if (this.calling != null
-                && CallingFactory.getInstance().getElement(this.calling.getId()).getRestrictions().isRestricted(this)) {
-            this.setCalling((String) null);
-        }
     }
 
+    @JsonProperty("faction")
     public void setFaction(FactionCharacterDefinitionStepSelection faction) {
-        this.faction = faction;
+        if (faction == null || faction.getId() == null) {
+            this.faction = null;
+            return;
+        }
+        this.faction = new FactionCharacterDefinitionStepSelection(this, faction.getId());
+        this.faction.selectDefaultOptions();
+        copySelectionState(faction, this.faction);
     }
 
+    @JsonIgnore
     public void setFaction(String faction) {
         if (faction != null) {
             this.faction = new FactionCharacterDefinitionStepSelection(this, faction);
@@ -362,18 +373,29 @@ public class CharacterPlayer {
         } else {
             this.faction = null;
         }
-        try {
-            if (this.calling != null && CallingFactory.getInstance().getElement(this.calling.getId()).getRestrictions()
-                    .isRestricted(this)) {
-                this.setCalling((String) null);
-            }
-        } catch (final InvalidSelectionException e) {
-            this.setCalling((String) null);
-        }
     }
 
+    @JsonProperty("calling")
     public CallingCharacterDefinitionStepSelection getCalling() {
         return this.calling;
+    }
+
+    @JsonProperty("calling")
+    public void setCalling(CallingCharacterDefinitionStepSelection calling) {
+        if (calling == null || calling.getId() == null) {
+            this.calling = null;
+            this.callingId = null;
+            return;
+        }
+        this.calling = new CallingCharacterDefinitionStepSelection(this, calling.getId());
+        this.calling.selectDefaultOptions();
+        this.callingId = this.calling.getId();
+        copySelectionState(calling, this.calling);
+    }
+
+    @JsonIgnore
+    public String getCallingId() {
+        return this.calling != null ? this.calling.getId() : null;
     }
 
     public CallingCharacterDefinitionStepSelection getCallingAtLevel(int level) {
@@ -393,6 +415,7 @@ public class CharacterPlayer {
         return selectedCalling;
     }
 
+    @JsonIgnore
     public List<String> getCallingCombinationIds() {
         final List<String> callingIds = new ArrayList<>();
         String previousId = null;
@@ -415,10 +438,7 @@ public class CharacterPlayer {
                 .collect(Collectors.joining(separator));
     }
 
-    public void setCalling(CallingCharacterDefinitionStepSelection calling) {
-        this.calling = calling;
-    }
-
+    @JsonIgnore
     public void setCalling(String calling) {
         if (calling != null) {
             this.calling = new CallingCharacterDefinitionStepSelection(this, calling);
@@ -427,8 +447,10 @@ public class CharacterPlayer {
                 throw new InvalidCallingException("Calling '" + calling + "' is restricted to the character.");
             }
             this.calling.selectDefaultOptions();
+            this.callingId = this.calling.getId();
         } else {
             this.calling = null;
+            this.callingId = null;
         }
     }
 
@@ -442,6 +464,7 @@ public class CharacterPlayer {
                 .getElement(this.getFaction()).getFavoredCallings().contains(levelCalling.getId()));
     }
 
+    @JsonIgnore
     public Settings getSettings() {
         return this.settings;
     }
@@ -829,6 +852,7 @@ public class CharacterPlayer {
         return null;
     }
 
+    @JsonIgnore
     public Set<SpecializedPerk> getPerks() {
         if (this.cacheManager.getPerksWithSpecializations() == null) {
             this.cacheManager.setPerksWithSpecializations(this.getPerks((Integer) null));
@@ -891,6 +915,7 @@ public class CharacterPlayer {
         return vitality.get();
     }
 
+    @JsonIgnore
     public Set<CapabilityWithSpecialization> getCapabilitiesWithSpecialization() {
         if (this.cacheManager.getCapabilityWithSpecializations() == null) {
             final Set<CapabilityWithSpecialization> capabilities = new HashSet<>();
@@ -1200,12 +1225,45 @@ public class CharacterPlayer {
         return this.levels.get(index - 1);
     }
 
+    @JsonIgnore
     public LevelSelector getLatestLevel() {
         return this.levels.get(this.levels.size() - 1);
     }
 
     public Stack<LevelSelector> getLevels() {
         return this.levels;
+    }
+
+    @JsonProperty("levels")
+    public void setLevels(List<LevelSelector> levels) {
+        this.levels.clear();
+        if (levels == null) {
+            this.cacheManager.reset();
+            return;
+        }
+
+        for (LevelSelector level : levels) {
+            final LevelSelector loadedLevel = new LevelSelector(this, level.getLevel());
+            if (level.getCallingId() != null) {
+                loadedLevel.setCallingId(level.getCallingId());
+            }
+            copySelectionState(level, loadedLevel);
+            loadedLevel.setSelectedClassPerksOptions(level.getSelectedClassPerksOptions());
+            loadedLevel.setSelectedCallingPerksOptions(level.getSelectedCallingPerksOptions());
+            this.levels.add(loadedLevel);
+        }
+        this.cacheManager.reset();
+    }
+
+    private void copySelectionState(CharacterDefinitionStepSelection source, CharacterDefinitionStepSelection target) {
+        if (source == null || target == null) {
+            return;
+        }
+        target.setSelectedCapabilityOptions(source.getSelectedCapabilityOptions());
+        target.setSelectedCharacteristicOptions(source.getSelectedCharacteristicOptions());
+        target.setSelectedSkillOptions(source.getSelectedSkillOptions());
+        target.setSelectedPerksOptions(source.getSelectedPerksOptions());
+        target.setSelectedMaterialAwards(source.getSelectedMaterialAwards());
     }
 
     public LevelSelector addLevel() {
@@ -1276,6 +1334,7 @@ public class CharacterPlayer {
      *
      * @return all weapons of the character.
      */
+    @JsonIgnore
     public List<Weapon> getWeapons() {
         return this.getEquipment(Weapon.class);
     }
@@ -1285,6 +1344,7 @@ public class CharacterPlayer {
      *
      * @return all weapons of the character.
      */
+    @JsonIgnore
     public List<Item> getItems() {
         return this.getEquipment(Item.class);
     }
@@ -1308,6 +1368,7 @@ public class CharacterPlayer {
                 .getMaterialAwards(selected);
     }
 
+    @JsonIgnore
     public List<EquipmentOption> getMaterialAwardsSelected() {
         return this.getMaterialAwardsSelected(false);
     }
@@ -1445,6 +1506,7 @@ public class CharacterPlayer {
         return this.cacheManager.getAllowedShields();
     }
 
+    @JsonIgnore
     public List<Weapon> getPurchasedMeleeWeapons() {
         return this.getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isMeleeWeapon).toList();
     }
@@ -1466,6 +1528,7 @@ public class CharacterPlayer {
         this.getEquipmentPurchased().addAll(weapons);
     }
 
+    @JsonIgnore
     public List<Weapon> getPurchasedRangedWeapons() {
         return this.getEquipmentPurchased(Weapon.class).stream().filter(Weapon::isRangedWeapon).toList();
     }
@@ -1491,6 +1554,7 @@ public class CharacterPlayer {
         return this.getEquipmentPurchased(Weapon.class).stream().anyMatch(w -> Objects.equals(w, weapon));
     }
 
+    @JsonIgnore
     public List<Equipment> getEquipment() {
         final List<Equipment> totalEquipment = new ArrayList<>();
         totalEquipment.addAll(
@@ -1499,6 +1563,7 @@ public class CharacterPlayer {
         return totalEquipment;
     }
 
+    @JsonIgnore
     public <T extends Equipment> List<T> getEquipment(Class<T> equipmentClass) {
         return this.getEquipment().stream().filter(equipmentClass::isInstance).map(equipmentClass::cast).toList();
     }
@@ -1661,6 +1726,7 @@ public class CharacterPlayer {
         return this.getTotalSelectedPaths();
     }
 
+    @JsonIgnore
     public int getOccultismLevel(OccultismType occultismType) {
         if (occultismType == null) {
             return 0;
@@ -1668,6 +1734,7 @@ public class CharacterPlayer {
         return this.getCharacteristicValue(occultismType.getId());
     }
 
+    @JsonIgnore
     public int setOccultismLevel(OccultismType occultismType) {
         return this.getCharacteristicValue(occultismType.getId());
     }
@@ -1696,6 +1763,7 @@ public class CharacterPlayer {
         this.getOccultism().setDarkSideLevel(occultismType, darkSideValue);
     }
 
+    @JsonIgnore
     public Map<String, List<OccultismPower>> getSelectedPowers() {
         return this.getOccultism().getSelectedPowers();
     }
@@ -1858,6 +1926,7 @@ public class CharacterPlayer {
         return this.getOccultism().hasPath(path);
     }
 
+    @JsonIgnore
     public List<OccultismPower> getAllSelectedPowers() {
         return this.getOccultism().getSelectedPowers().values().stream().flatMap(Collection::stream).toList();
     }
@@ -1900,6 +1969,7 @@ public class CharacterPlayer {
         return this.cacheManager.getMilitaryWeapons();
     }
 
+    @JsonIgnore
     public CacheManager getCacheManager() {
         return this.cacheManager;
     }

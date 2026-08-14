@@ -45,6 +45,10 @@ import java.util.Set;
 public class CallingCharacterDefinitionStepSelection extends CharacterDefinitionStepSelection {
     private static final int CALLING_SKILL_POINTS = 10;
 
+    public CallingCharacterDefinitionStepSelection() {
+        super();
+    }
+
     public CallingCharacterDefinitionStepSelection(CharacterPlayer characterPlayer, String calling) throws InvalidGeneratedCharacter {
         super(characterPlayer, CallingFactory.getInstance().getElement(calling), Phase.CALLING);
         setId(calling);
@@ -71,6 +75,7 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
     }
 
     @Override
+    @JsonIgnore
     public List<CharacterPerkOptions> getCharacterAvailablePerksOptions() {
         final List<CharacterPerkOptions> callingPerks = getCharacterDefinitionStep().getCharacterAvailablePerksOptions();
         addSpeciePerks(callingPerks);
@@ -108,4 +113,3 @@ public class CallingCharacterDefinitionStepSelection extends CharacterDefinition
         }
     }
 }
-

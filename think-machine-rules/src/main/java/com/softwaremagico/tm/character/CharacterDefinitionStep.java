@@ -88,6 +88,7 @@ public class CharacterDefinitionStep extends Element {
         this.skillBonusOptions = skillBonusOptions;
     }
 
+    @JsonIgnore
     public List<PerkOptions> getSourcePerks() {
         return perksOptions;
     }
