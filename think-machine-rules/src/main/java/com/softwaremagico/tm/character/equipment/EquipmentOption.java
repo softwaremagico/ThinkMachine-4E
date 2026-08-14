@@ -132,12 +132,12 @@ public class EquipmentOption extends Option<Equipment> {
     @Override
     public Restrictions getRestrictions() {
         if (this.getId() != null) {
-            try {
-                return this.getElement(this.getId()).getRestrictions();
-            } catch (final NullPointerException e) {
+            final Equipment equipment = this.getElement(this.getId());
+            if (equipment == null) {
                 MachineLog.severe(this.getClass(), "Invalid element '{}'", this.getId());
-                throw e;
+                throw new NullPointerException("Invalid element '" + this.getId() + "'.");
             }
+            return equipment.getRestrictions();
         }
         return super.getRestrictions();
     }
