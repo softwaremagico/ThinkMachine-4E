@@ -40,6 +40,12 @@
             <artifactId>think-machine-4e-rules</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>think-machine-4e-random</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+        </dependency>
         <!-- ZXing core: pure Java, Android-compatible (no java.awt). -->
         <dependency>
             <groupId>com.google.zxing</groupId>

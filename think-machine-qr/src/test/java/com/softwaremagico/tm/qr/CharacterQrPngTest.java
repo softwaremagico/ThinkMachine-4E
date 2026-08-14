@@ -34,6 +34,8 @@ import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.MaxValueExceededException;
 import com.softwaremagico.tm.file.modules.ModuleManager;
+import com.softwaremagico.tm.random.character.RandomizeCharacter;
+import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -117,6 +119,28 @@ public class CharacterQrPngTest extends QrGeneration {
         final CharacterPlayer decoded = CharacterQrPngReader.readPng(
                 new ByteArrayInputStream(bos.toByteArray()));
 
+        assertCharactersEqual(original, decoded);
+    }
+
+    @Test
+    public void writesRandomCharacterToOutputStream() throws IOException, WriterException,
+            InvalidRandomElementSelectedException {
+        final CharacterPlayer player = generateRandomCharacter();
+        final ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        CharacterQrPngWriter.writePng(player, bos);
+        final byte[] imageBytes = bos.toByteArray();
+        Assert.assertTrue(imageBytes.length > 0, "Random character PNG should not be empty");
+        assertIsPng(imageBytes);
+    }
+
+    @Test
+    public void roundTripRandomCharacterThroughPngFile() throws IOException, WriterException,
+            com.google.zxing.NotFoundException, InvalidXmlElementException, MaxValueExceededException,
+            InvalidRandomElementSelectedException {
+        final CharacterPlayer original = generateRandomCharacter();
+        final Path output = getOutputPath("CharacterQr_RandomRoundTrip.png");
+        CharacterQrPngWriter.writePng(original, output);
+        final CharacterPlayer decoded = CharacterQrPngReader.readPng(output);
         assertCharactersEqual(original, decoded);
     }
 
@@ -220,5 +244,14 @@ public class CharacterQrPngTest extends QrGeneration {
             Assert.assertEquals(data[i], CharacterQrPngWriter.PNG_SIGNATURE[i],
                     "Byte " + i + " does not match PNG signature");
         }
+    }
+
+    private static CharacterPlayer generateRandomCharacter() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("noble");
+        characterPlayer.setFaction("decados");
+        new RandomizeCharacter(characterPlayer).createCharacter();
+        return characterPlayer;
     }
 }
