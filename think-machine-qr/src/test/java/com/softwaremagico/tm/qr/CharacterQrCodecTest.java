@@ -129,6 +129,41 @@ public class CharacterQrCodecTest {
         assertCharactersEqual(original, decoded);
     }
 
+    // ── Logo-safe ECC-Q matrix ────────────────────────────────────────────────
+
+    @Test
+    public void encodeForLogoProducesValidMatrix() throws IOException, WriterException {
+        final CharacterPlayer player = CharacterExamples.generateHumanNobleDecadosCommander();
+        final String payload = CharacterQrCodec.encode(player);
+
+        final BitMatrix matrix = CharacterQrMatrix.encodeForLogo(payload);
+        Assert.assertNotNull(matrix);
+        Assert.assertTrue(matrix.getWidth() > 0, "Matrix must have positive width");
+    }
+
+    @Test
+    public void encodeForLogoRoundTrip() throws IOException, WriterException, com.google.zxing.NotFoundException, MaxValueExceededException {
+        final CharacterPlayer original = CharacterExamples.generateHumanNobleDecadosCommander();
+        final String payload = CharacterQrCodec.encode(original);
+
+        // ECC-Q matrix must still decode cleanly
+        final BitMatrix matrix = CharacterQrMatrix.encodeForLogo(payload);
+        final String decodedPayload = CharacterQrMatrix.decode(matrix);
+        final CharacterPlayer decoded = CharacterQrCodec.decode(decodedPayload);
+
+        assertCharactersEqual(original, decoded);
+    }
+
+    @Test
+    public void payloadFitsInEccQForLogoOverlay() throws IOException {
+        // ECC-Q v40 capacity: 1663 bytes. Our max observed payload is ~1420 B → fits.
+        final int eccQCapacity = 1663;
+        final CharacterPlayer player = CharacterExamples.generateHumanNobleDecadosCommander();
+        final String payload = CharacterQrCodec.encode(player);
+        Assert.assertTrue(payload.length() <= eccQCapacity,
+                "Payload length " + payload.length() + " exceeds ECC-Q capacity of " + eccQCapacity + " bytes");
+    }
+
     // ── Payload is compact enough for a QR code ──────────────────────────────
 
     @Test
