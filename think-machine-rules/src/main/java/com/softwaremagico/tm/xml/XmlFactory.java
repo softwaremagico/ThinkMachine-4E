@@ -65,9 +65,14 @@ public abstract class XmlFactory<T extends Element> {
     private List<String> elementIdList = null;
     private List<T> selectableElementList = null;
     private Set<String> elementGroups;
+    private Set<ElementsLoadedListener> elementsLoadedListeners;
+
+    public interface ElementsLoadedListener {
+        void elementsLoaded(XmlFactory<?> factory, List<? extends Element> elements);
+    }
 
     protected XmlFactory() {
-
+        this.elementsLoadedListeners = new HashSet<>();
     }
 
     public abstract String getXmlFile();
@@ -82,6 +87,16 @@ public abstract class XmlFactory<T extends Element> {
         this.elementIdList = null;
         this.selectableElementList = null;
         this.elementGroups = null;
+    }
+
+    public void addElementsLoadedListener(ElementsLoadedListener listener) {
+        this.elementsLoadedListeners.add(listener);
+    }
+
+    public void removeElementsLoadedListener(ElementsLoadedListener listener) {
+        if (listener != null) {
+            this.elementsLoadedListeners.remove(listener);
+        }
     }
 
     public T getElement(Selection selection) throws InvalidXmlElementException {
@@ -176,6 +191,7 @@ public abstract class XmlFactory<T extends Element> {
 
     public List<T> readXml(Class<T> entityClass) throws InvalidXmlElementException {
         try {
+            boolean loadedElements = false;
             if (this.elementList == null) {
                 this.elementList = new ArrayList<>();
                 for (final String module : ModuleManager.getEnabledModules()) {
@@ -186,9 +202,13 @@ public abstract class XmlFactory<T extends Element> {
                                 entityClass.getSimpleName(), module);
                     }
                 }
+                loadedElements = true;
             }
             this.elements = new HashMap<>();
             this.elementList.forEach(element -> this.elements.put(element.getId(), element));
+            if (loadedElements) {
+                this.notifyElementsLoaded();
+            }
             return new ArrayList<>(this.elementList);
         } catch (final IOException e) {
             MachineLog.errorMessage(this.getClass(), e);
@@ -217,6 +237,13 @@ public abstract class XmlFactory<T extends Element> {
             }
         }
         currentElements.addAll(elementsToAdd);
+    }
+
+    private void notifyElementsLoaded() {
+        final List<T> loadedElements = new ArrayList<>(this.elementList);
+        for (final ElementsLoadedListener listener : new HashSet<>(this.elementsLoadedListeners)) {
+            listener.elementsLoaded(this, loadedElements);
+        }
     }
 
     public List<T> readXml(Class<T> entityClass, String moduleName) throws IOException {
