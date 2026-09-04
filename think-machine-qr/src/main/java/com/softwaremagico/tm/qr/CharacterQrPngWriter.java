@@ -26,6 +26,7 @@ package com.softwaremagico.tm.qr;
 
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import com.softwaremagico.tm.character.CharacterPlayer;
 
 import java.io.ByteArrayOutputStream;
@@ -87,7 +88,15 @@ public final class CharacterQrPngWriter {
      */
     public static void writePng(CharacterPlayer player, Path outputPath)
             throws IOException, WriterException {
-        writePng(player, outputPath, CharacterQrMatrix.DEFAULT_SIZE);
+        writePng(player, outputPath, CharacterQrMatrix.DEFAULT_SIZE, ErrorCorrectionLevel.L);
+    }
+
+    /**
+     * Encodes the character using ECC-Q logo-safe capacity limits and writes a PNG QR image.
+     */
+    public static void writePngForLogo(CharacterPlayer player, Path outputPath)
+            throws IOException, WriterException {
+        writePng(player, outputPath, CharacterQrMatrix.DEFAULT_SIZE, CharacterQrMatrix.LOGO_ECC);
     }
 
     /**
@@ -101,10 +110,32 @@ public final class CharacterQrPngWriter {
      */
     public static void writePng(CharacterPlayer player, Path outputPath, int size)
             throws IOException, WriterException {
-        final String payload = CharacterQrCodec.encode(player);
-        final BitMatrix matrix = CharacterQrMatrix.encode(payload, size);
+        writePng(player, outputPath, size, ErrorCorrectionLevel.L);
+    }
+
+    /**
+     * Encodes the character using ECC-Q logo-safe capacity limits and writes a PNG QR image.
+     */
+    public static void writePngForLogo(CharacterPlayer player, Path outputPath, int size)
+            throws IOException, WriterException {
+        writePng(player, outputPath, size, CharacterQrMatrix.LOGO_ECC);
+    }
+
+    /**
+     * Encodes the character and writes a PNG QR code image using the given ECC level.
+     */
+    public static void writePng(CharacterPlayer player, Path outputPath, ErrorCorrectionLevel ecc)
+            throws IOException, WriterException {
+        writePng(player, outputPath, CharacterQrMatrix.DEFAULT_SIZE, ecc);
+    }
+
+    /**
+     * Encodes the character and writes a PNG QR code image using the given size and ECC level.
+     */
+    public static void writePng(CharacterPlayer player, Path outputPath, int size, ErrorCorrectionLevel ecc)
+            throws IOException, WriterException {
         try (OutputStream os = Files.newOutputStream(outputPath)) {
-            writePngToStream(matrix, os);
+            writePng(player, os, size, ecc);
         }
     }
 
@@ -119,7 +150,15 @@ public final class CharacterQrPngWriter {
      */
     public static void writePng(CharacterPlayer player, OutputStream out)
             throws IOException, WriterException {
-        writePng(player, out, CharacterQrMatrix.DEFAULT_SIZE);
+        writePng(player, out, CharacterQrMatrix.DEFAULT_SIZE, ErrorCorrectionLevel.L);
+    }
+
+    /**
+     * Encodes the character using ECC-Q logo-safe capacity limits and writes a PNG QR image.
+     */
+    public static void writePngForLogo(CharacterPlayer player, OutputStream out)
+            throws IOException, WriterException {
+        writePng(player, out, CharacterQrMatrix.DEFAULT_SIZE, CharacterQrMatrix.LOGO_ECC);
     }
 
     /**
@@ -134,8 +173,32 @@ public final class CharacterQrPngWriter {
      */
     public static void writePng(CharacterPlayer player, OutputStream out, int size)
             throws IOException, WriterException {
-        final String payload = CharacterQrCodec.encode(player);
-        final BitMatrix matrix = CharacterQrMatrix.encode(payload, size);
+        writePng(player, out, size, ErrorCorrectionLevel.L);
+    }
+
+    /**
+     * Encodes the character using ECC-Q logo-safe capacity limits and writes a PNG QR image.
+     */
+    public static void writePngForLogo(CharacterPlayer player, OutputStream out, int size)
+            throws IOException, WriterException {
+        writePng(player, out, size, CharacterQrMatrix.LOGO_ECC);
+    }
+
+    /**
+     * Encodes the character and writes a PNG QR code using the given ECC level.
+     */
+    public static void writePng(CharacterPlayer player, OutputStream out, ErrorCorrectionLevel ecc)
+            throws IOException, WriterException {
+        writePng(player, out, CharacterQrMatrix.DEFAULT_SIZE, ecc);
+    }
+
+    /**
+     * Encodes the character and writes a PNG QR code using the given size and ECC level.
+     */
+    public static void writePng(CharacterPlayer player, OutputStream out, int size, ErrorCorrectionLevel ecc)
+            throws IOException, WriterException {
+        final String payload = CharacterQrCodec.encode(player, ecc);
+        final BitMatrix matrix = CharacterQrMatrix.encode(payload, size, ecc);
         writePngToStream(matrix, out);
     }
 

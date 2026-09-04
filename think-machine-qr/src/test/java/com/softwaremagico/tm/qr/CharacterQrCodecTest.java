@@ -25,6 +25,9 @@ package com.softwaremagico.tm.qr;
  */
 
 import com.google.zxing.WriterException;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import com.softwaremagico.tm.character.Gender;
+import com.softwaremagico.tm.character.Name;
 import com.google.zxing.common.BitMatrix;
 import com.softwaremagico.tm.character.CharacterExamples;
 import com.softwaremagico.tm.character.CharacterPlayer;
@@ -39,6 +42,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -64,6 +68,16 @@ public class CharacterQrCodecTest {
 
         final CharacterPlayer decoded = CharacterQrCodec.decode(payload);
         assertCharactersEqual(original, decoded);
+    }
+
+    @Test
+    public void unifiedEncodeMatchesConvenienceMethods() throws IOException {
+        final CharacterPlayer original = CharacterExamples.generateHumanNobleDecadosCommander();
+
+        Assert.assertEquals(CharacterQrCodec.encode(original),
+                CharacterQrCodec.encode(original, ErrorCorrectionLevel.L), "ECC-L payload");
+        Assert.assertEquals(CharacterQrCodec.encodeForLogo(original),
+                CharacterQrCodec.encode(original, CharacterQrMatrix.LOGO_ECC), "ECC-Q payload");
     }
 
     @Test
@@ -134,7 +148,7 @@ public class CharacterQrCodecTest {
     @Test
     public void encodeForLogoProducesValidMatrix() throws IOException, WriterException {
         final CharacterPlayer player = CharacterExamples.generateHumanNobleDecadosCommander();
-        final String payload = CharacterQrCodec.encode(player);
+        final String payload = CharacterQrCodec.encodeForLogo(player);
 
         final BitMatrix matrix = CharacterQrMatrix.encodeForLogo(payload);
         Assert.assertNotNull(matrix);
@@ -144,7 +158,7 @@ public class CharacterQrCodecTest {
     @Test
     public void encodeForLogoRoundTrip() throws IOException, WriterException, com.google.zxing.NotFoundException, MaxValueExceededException {
         final CharacterPlayer original = CharacterExamples.generateHumanNobleDecadosCommander();
-        final String payload = CharacterQrCodec.encode(original);
+        final String payload = CharacterQrCodec.encodeForLogo(original);
 
         // ECC-Q matrix must still decode cleanly
         final BitMatrix matrix = CharacterQrMatrix.encodeForLogo(payload);
@@ -156,12 +170,102 @@ public class CharacterQrCodecTest {
 
     @Test
     public void payloadFitsInEccQForLogoOverlay() throws IOException {
-        // ECC-Q v40 capacity: 1663 bytes. Our max observed payload is ~1420 B → fits.
-        final int eccQCapacity = 1663;
+        final int eccQCapacity = CharacterQrMatrix.MAX_LOGO_QR_PAYLOAD_BYTES;
         final CharacterPlayer player = CharacterExamples.generateHumanNobleDecadosCommander();
-        final String payload = CharacterQrCodec.encode(player);
+        final String payload = CharacterQrCodec.encodeForLogo(player);
         Assert.assertTrue(payload.length() <= eccQCapacity,
                 "Payload length " + payload.length() + " exceeds ECC-Q capacity of " + eccQCapacity + " bytes");
+    }
+
+    @Test
+    public void descriptionsAreTrimmedForLogoQrWhenNeeded() throws IOException {
+        final CharacterPlayer original = CharacterExamples.generateHumanNobleDecadosCommander();
+        original.getInfo().setCharacterDescription(buildUniqueText("character", 900));
+        original.getInfo().setBackgroundDescription(buildUniqueText("background", 900));
+
+        final String payload = CharacterQrCodec.encodeForLogo(original);
+        Assert.assertTrue(payload.length() <= CharacterQrMatrix.MAX_LOGO_QR_PAYLOAD_BYTES,
+                "Payload length " + payload.length() + " exceeds ECC-Q capacity");
+
+        final CharacterPlayer decoded = CharacterQrCodec.decode(payload);
+        Assert.assertEquals(decoded.getInfo().getPlayer(), original.getInfo().getPlayer(),
+                "Player should be preserved when trimming descriptions is enough for logo QR");
+        Assert.assertTrue(decoded.getInfo().getCharacterDescription().length()
+                        < original.getInfo().getCharacterDescription().length()
+                        || decoded.getInfo().getBackgroundDescription().length()
+                        < original.getInfo().getBackgroundDescription().length(),
+                "At least one description should have been trimmed for logo QR");
+    }
+
+    @Test
+    public void remainingCharacterInfoIsDroppedForLogoQrIfNeeded() throws IOException {
+        final CharacterPlayer original = CharacterExamples.generateHumanNobleDecadosCommander();
+        original.getInfo().setCharacterDescription(null);
+        original.getInfo().setBackgroundDescription(null);
+        original.getInfo().setNames(List.of(new Name(buildUniqueText("name", 600), Gender.MALE, null, null)));
+        original.getInfo().setSurname(buildUniqueText("surname", 600));
+        original.getInfo().setPlayer(buildUniqueText("player", 600));
+        original.getInfo().setHair(buildUniqueText("hair", 600));
+        original.getInfo().setEyes(buildUniqueText("eyes", 600));
+        original.getInfo().setComplexion(buildUniqueText("complexion", 600));
+        original.getInfo().setHeight(buildUniqueText("height", 600));
+        original.getInfo().setWeight(buildUniqueText("weight", 600));
+
+        final String payload = CharacterQrCodec.encodeForLogo(original);
+        Assert.assertTrue(payload.length() <= CharacterQrMatrix.MAX_LOGO_QR_PAYLOAD_BYTES,
+                "Payload length " + payload.length() + " exceeds ECC-Q capacity");
+
+        final CharacterPlayer decoded = CharacterQrCodec.decode(payload);
+        Assert.assertTrue(decoded.getInfo().getNameRepresentation().isEmpty(), "Name should be dropped");
+        Assert.assertNull(decoded.getInfo().getSurname(), "Surname should be dropped");
+        Assert.assertNull(decoded.getInfo().getPlayer(), "Player should be dropped");
+        Assert.assertNull(decoded.getInfo().getHair(), "Hair should be dropped");
+        Assert.assertNull(decoded.getInfo().getEyes(), "Eyes should be dropped");
+        Assert.assertNull(decoded.getInfo().getComplexion(), "Complexion should be dropped");
+        Assert.assertNull(decoded.getInfo().getHeight(), "Height should be dropped");
+        Assert.assertNull(decoded.getInfo().getWeight(), "Weight should be dropped");
+    }
+
+    @Test
+    public void throwsSpecificExceptionWhenLogoPayloadStillDoesNotFit() {
+        final CharacterPlayer player = new CharacterPlayer();
+        player.getInfo().setCharacterDescription(buildUniqueText("character", 900));
+        player.getInfo().setBackgroundDescription(buildUniqueText("background", 900));
+        player.getInfo().setPlayer(buildUniqueText("player", 900));
+        player.setPrimaryCharacteristic(buildUniqueText("primary", 2000));
+        player.setSecondaryCharacteristic(buildUniqueText("secondary", 2000));
+
+        final CharacterQrPayloadTooLargeException exception = Assert.expectThrows(
+                CharacterQrPayloadTooLargeException.class,
+                () -> CharacterQrCodec.encodeForLogo(player)
+        );
+
+        Assert.assertTrue(exception.getActualBytes() > exception.getMaxBytes(), "Payload should exceed max bytes");
+        Assert.assertEquals(exception.getMaxBytes(), CharacterQrMatrix.MAX_LOGO_QR_PAYLOAD_BYTES,
+                "Max ECC-Q QR bytes");
+    }
+
+    @Test
+    public void encodeForLogoRejectsOversizedPayloadString() {
+        final String payload = "a".repeat(CharacterQrMatrix.MAX_LOGO_QR_PAYLOAD_BYTES + 1);
+
+        final IllegalArgumentException exception = Assert.expectThrows(
+                IllegalArgumentException.class,
+                () -> CharacterQrMatrix.encodeForLogo(payload)
+        );
+
+        Assert.assertTrue(exception.getMessage().contains(String.valueOf(payload.length())));
+        Assert.assertTrue(exception.getMessage().contains(String.valueOf(CharacterQrMatrix.MAX_LOGO_QR_PAYLOAD_BYTES)));
+    }
+
+    @Test
+    public void matrixCapacityIsResolvedByEcc() {
+        Assert.assertEquals(CharacterQrMatrix.getMaxPayloadBytes(ErrorCorrectionLevel.L),
+                CharacterQrCodec.MAX_QR_PAYLOAD_BYTES, "ECC-L capacity");
+        Assert.assertEquals(CharacterQrMatrix.getMaxPayloadBytes(ErrorCorrectionLevel.Q),
+                CharacterQrMatrix.MAX_LOGO_QR_PAYLOAD_BYTES, "ECC-Q capacity");
+        Assert.assertEquals(CharacterQrMatrix.getMaxPayloadBytes(ErrorCorrectionLevel.M), 2331, "ECC-M capacity");
+        Assert.assertEquals(CharacterQrMatrix.getMaxPayloadBytes(ErrorCorrectionLevel.H), 1273, "ECC-H capacity");
     }
 
     // ── Payload is compact enough for a QR code ──────────────────────────────
@@ -170,9 +274,10 @@ public class CharacterQrCodecTest {
     public void payloadFitsInQrCode() throws IOException {
         final CharacterPlayer player = CharacterExamples.generateHumanNobleDecadosCommander();
         final String payload = CharacterQrCodec.encode(player);
-        // QR version 40 ECC-L supports up to 4296 alphanumeric chars / 2953 bytes.
-        Assert.assertTrue(payload.length() <= 2953,
-                "Payload length " + payload.length() + " exceeds QR capacity of 2953 bytes");
+        // QR version 40 ECC-L supports up to 2953 bytes in byte mode.
+        Assert.assertTrue(payload.length() <= CharacterQrCodec.MAX_QR_PAYLOAD_BYTES,
+                "Payload length " + payload.length() + " exceeds QR capacity of "
+                        + CharacterQrCodec.MAX_QR_PAYLOAD_BYTES + " bytes");
     }
 
     @Test
@@ -181,8 +286,93 @@ public class CharacterQrCodecTest {
         player.addLevel().setCalling("conspiracist");
         CharacterExamples.populateLevel(player);
         final String payload = CharacterQrCodec.encode(player);
-        Assert.assertTrue(payload.length() <= 2953,
+        Assert.assertTrue(payload.length() <= CharacterQrCodec.MAX_QR_PAYLOAD_BYTES,
                 "Level-2 payload length " + payload.length() + " exceeds QR capacity");
+    }
+
+    @Test
+    public void descriptionsArePreservedWhenTheyFit() throws IOException {
+        final CharacterPlayer original = CharacterExamples.generateHumanNobleDecadosCommander();
+        original.getInfo().setCharacterDescription("Short character note");
+        original.getInfo().setBackgroundDescription("Short background note");
+
+        final CharacterPlayer decoded = CharacterQrCodec.decode(CharacterQrCodec.encode(original));
+
+        Assert.assertEquals(decoded.getInfo().getCharacterDescription(),
+                original.getInfo().getCharacterDescription(), "Character description");
+        Assert.assertEquals(decoded.getInfo().getBackgroundDescription(),
+                original.getInfo().getBackgroundDescription(), "Background description");
+    }
+
+    @Test
+    public void descriptionsAreTrimmedBeforeDroppingOtherCharacterInfo() throws IOException {
+        final CharacterPlayer original = CharacterExamples.generateHumanNobleDecadosCommander();
+        original.getInfo().setCharacterDescription(buildUniqueText("character", 900));
+        original.getInfo().setBackgroundDescription(buildUniqueText("background", 900));
+
+        final String payload = CharacterQrCodec.encode(original);
+        Assert.assertTrue(payload.length() <= CharacterQrCodec.MAX_QR_PAYLOAD_BYTES,
+                "Payload length " + payload.length() + " exceeds QR capacity");
+
+        final CharacterPlayer decoded = CharacterQrCodec.decode(payload);
+        Assert.assertEquals(decoded.getInfo().getPlayer(), original.getInfo().getPlayer(),
+                "Player should be preserved when trimming descriptions is enough");
+        Assert.assertTrue(decoded.getInfo().getCharacterDescription().length()
+                        < original.getInfo().getCharacterDescription().length()
+                        || decoded.getInfo().getBackgroundDescription().length()
+                        < original.getInfo().getBackgroundDescription().length(),
+                "At least one description should have been trimmed");
+    }
+
+    @Test
+    public void remainingCharacterInfoIsDroppedIfDescriptionsAreNotEnough() throws IOException {
+        final CharacterPlayer original = CharacterExamples.generateHumanNobleDecadosCommander();
+        original.getInfo().setCharacterDescription(null);
+        original.getInfo().setBackgroundDescription(null);
+        original.getInfo().setNames(List.of(new Name(buildUniqueText("name", 600), Gender.MALE, null, null)));
+        original.getInfo().setSurname(buildUniqueText("surname", 600));
+        original.getInfo().setPlayer(buildUniqueText("player", 600));
+        original.getInfo().setHair(buildUniqueText("hair", 600));
+        original.getInfo().setEyes(buildUniqueText("eyes", 600));
+        original.getInfo().setComplexion(buildUniqueText("complexion", 600));
+        original.getInfo().setHeight(buildUniqueText("height", 600));
+        original.getInfo().setWeight(buildUniqueText("weight", 600));
+
+        final String payload = CharacterQrCodec.encode(original);
+        Assert.assertTrue(payload.length() <= CharacterQrCodec.MAX_QR_PAYLOAD_BYTES,
+                "Payload length " + payload.length() + " exceeds QR capacity");
+
+        final CharacterPlayer decoded = CharacterQrCodec.decode(payload);
+        Assert.assertTrue(decoded.getInfo().getNameRepresentation().isEmpty(), "Name should be dropped");
+        Assert.assertNull(decoded.getInfo().getSurname(), "Surname should be dropped");
+        Assert.assertNull(decoded.getInfo().getPlayer(), "Player should be dropped");
+        Assert.assertNull(decoded.getInfo().getHair(), "Hair should be dropped");
+        Assert.assertNull(decoded.getInfo().getEyes(), "Eyes should be dropped");
+        Assert.assertNull(decoded.getInfo().getComplexion(), "Complexion should be dropped");
+        Assert.assertNull(decoded.getInfo().getHeight(), "Height should be dropped");
+        Assert.assertNull(decoded.getInfo().getWeight(), "Weight should be dropped");
+        Assert.assertEquals(decoded.getFaction().getId(), original.getFaction().getId(), "Faction");
+        Assert.assertEquals(decoded.getCalling().getId(), original.getCalling().getId(), "Calling");
+    }
+
+    @Test
+    public void throwsSpecificExceptionWhenPayloadStillDoesNotFit() {
+        final CharacterPlayer player = new CharacterPlayer();
+        player.getInfo().setCharacterDescription(buildUniqueText("character", 900));
+        player.getInfo().setBackgroundDescription(buildUniqueText("background", 900));
+        player.getInfo().setPlayer(buildUniqueText("player", 900));
+        player.setPrimaryCharacteristic(buildUniqueText("primary", 2000));
+        player.setSecondaryCharacteristic(buildUniqueText("secondary", 2000));
+
+        final CharacterQrPayloadTooLargeException exception = Assert.expectThrows(
+                CharacterQrPayloadTooLargeException.class,
+                () -> CharacterQrCodec.encode(player)
+        );
+
+        Assert.assertTrue(exception.getActualBytes() > exception.getMaxBytes(), "Payload should exceed max bytes");
+        Assert.assertEquals(exception.getMaxBytes(), CharacterQrCodec.MAX_QR_PAYLOAD_BYTES, "Max QR bytes");
+        Assert.assertTrue(exception.getMessage().contains(String.valueOf(exception.getActualBytes())));
+        Assert.assertTrue(exception.getMessage().contains(String.valueOf(exception.getMaxBytes())));
     }
 
     // ── Info preservation ────────────────────────────────────────────────────
@@ -362,5 +552,20 @@ public class CharacterQrCodecTest {
 
         // Level
         Assert.assertEquals(decoded.getLevel(), original.getLevel(), "Level");
+    }
+
+    private static String buildUniqueText(String prefix, int size) {
+        final StringBuilder text = new StringBuilder(size * 12);
+        for (int i = 0; i < size; i++) {
+            if (!text.isEmpty()) {
+                text.append(' ');
+            }
+            text.append(prefix)
+                    .append('_')
+                    .append(Integer.toString(i, 36))
+                    .append('_')
+                    .append(Integer.toHexString((i * 31) + 17));
+        }
+        return text.toString();
     }
 }

@@ -59,6 +59,7 @@ import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.skills.SkillsReassign;
 import com.softwaremagico.tm.character.skills.Specialization;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -80,12 +81,13 @@ import java.util.zip.GZIPOutputStream;
  * <p>The codec only stores IDs (never positional indices), so adding new game elements
  * to any module will not invalidate existing QR codes.
  *
- * <p>Free-text description fields are intentionally excluded from the payload to keep
- * the payload within QR-code size limits.
+ * <p>Free-text description fields are included when possible and truncated if needed
+ * to keep the payload within the target QR-code size limits.
  */
 public final class CharacterQrCodec {
 
     private static final String SPECIALIZATION_SEPARATOR = ":";
+    public static final int MAX_QR_PAYLOAD_BYTES = 2953;
 
     private static ObjectMapper objectMapper;
 
@@ -99,10 +101,22 @@ public final class CharacterQrCodec {
      * The string can be passed directly to a QR writer.
      */
     public static String encode(CharacterPlayer player) throws IOException {
+        return encode(player, ErrorCorrectionLevel.L);
+    }
+
+    /**
+     * Encodes the character for a logo-safe QR using ECC-Q capacity limits.
+     */
+    public static String encodeForLogo(CharacterPlayer player) throws IOException {
+        return encode(player, CharacterQrMatrix.LOGO_ECC);
+    }
+
+    /**
+     * Encodes the character using the payload capacity of the provided QR error-correction level.
+     */
+    public static String encode(CharacterPlayer player, ErrorCorrectionLevel ecc) throws IOException {
         final CharacterQrData data = toData(player);
-        final String json = getMapper().writeValueAsString(data);
-        final byte[] compressed = gzip(json.getBytes(StandardCharsets.UTF_8));
-        return Base64.getUrlEncoder().withoutPadding().encodeToString(compressed);
+        return encodeWithinCapacity(data, CharacterQrMatrix.getMaxPayloadBytes(ecc));
     }
 
     /**
@@ -161,6 +175,8 @@ public final class CharacterQrCodec {
         data.setComplexion(player.getInfo().getComplexion());
         data.setHeight(player.getInfo().getHeight());
         data.setWeight(player.getInfo().getWeight());
+        data.setCharacterDescription(player.getInfo().getCharacterDescription());
+        data.setBackgroundDescription(player.getInfo().getBackgroundDescription());
     }
 
     private static void encodeCore(CharacterPlayer player, CharacterQrData data) {
@@ -375,6 +391,12 @@ public final class CharacterQrCodec {
         player.getInfo().setComplexion(data.getComplexion());
         player.getInfo().setHeight(data.getHeight());
         player.getInfo().setWeight(data.getWeight());
+        if (data.getCharacterDescription() != null) {
+            player.getInfo().setCharacterDescription(data.getCharacterDescription());
+        }
+        if (data.getBackgroundDescription() != null) {
+            player.getInfo().setBackgroundDescription(data.getBackgroundDescription());
+        }
     }
 
     private static void decodeCore(CharacterQrData data, CharacterPlayer player) {
@@ -667,6 +689,128 @@ public final class CharacterQrCodec {
     private static final int BUFFER_SIZE = 4096;
 
     // ── Compression ───────────────────────────────────────────────────────────
+
+    private static String encodeWithinCapacity(CharacterQrData data, int maxBytes) throws IOException {
+        String payload = encodeData(data);
+        if (payload.length() <= maxBytes) {
+            return payload;
+        }
+
+        trimDescriptionsUntilFits(data, maxBytes);
+        payload = encodeData(data);
+        if (payload.length() <= maxBytes) {
+            return payload;
+        }
+
+        clearRemainingCharacterInfo(data);
+        payload = encodeData(data);
+        if (payload.length() <= maxBytes) {
+            return payload;
+        }
+
+        throw new CharacterQrPayloadTooLargeException(payload.length(), maxBytes);
+    }
+
+    private static String encodeData(CharacterQrData data) throws IOException {
+        final String json = getMapper().writeValueAsString(data);
+        final byte[] compressed = gzip(json.getBytes(StandardCharsets.UTF_8));
+        return Base64.getUrlEncoder().withoutPadding().encodeToString(compressed);
+    }
+
+    private static void trimDescriptionsUntilFits(CharacterQrData data, int maxBytes) throws IOException {
+        if (payloadFits(data, maxBytes)) {
+            return;
+        }
+
+        final boolean trimCharacterDescriptionFirst = length(data.getCharacterDescription())
+                >= length(data.getBackgroundDescription());
+        if (trimSingleDescriptionUntilFits(data, maxBytes, trimCharacterDescriptionFirst)) {
+            return;
+        }
+        trimSingleDescriptionUntilFits(data, maxBytes, !trimCharacterDescriptionFirst);
+    }
+
+    private static boolean trimSingleDescriptionUntilFits(CharacterQrData data, int maxBytes,
+                                                          boolean characterDescription) throws IOException {
+        final String original = getDescription(data, characterDescription);
+        if (original == null || original.isEmpty()) {
+            return payloadFits(data, maxBytes);
+        }
+
+        final int bestLength = findLongestFittingPrefix(data, maxBytes, original, characterDescription);
+        if (bestLength >= 0) {
+            setDescription(data, characterDescription, prefixOrNull(original, bestLength));
+            return true;
+        }
+
+        setDescription(data, characterDescription, null);
+        return payloadFits(data, maxBytes);
+    }
+
+    private static int findLongestFittingPrefix(CharacterQrData data, int maxBytes, String original,
+                                                boolean characterDescription) throws IOException {
+        int low = 0;
+        int high = original.length();
+        int bestLength = -1;
+        while (low <= high) {
+            final int mid = (low + high) >>> 1;
+            setDescription(data, characterDescription, prefixOrNull(original, mid));
+            if (payloadFits(data, maxBytes)) {
+                bestLength = mid;
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        setDescription(data, characterDescription, original);
+        return bestLength;
+    }
+
+    private static boolean payloadFits(CharacterQrData data, int maxBytes) throws IOException {
+        return encodeData(data).length() <= maxBytes;
+    }
+
+    private static void clearRemainingCharacterInfo(CharacterQrData data) {
+        data.setName(null);
+        data.setSurname(null);
+        data.setPlayer(null);
+        data.setGender(null);
+        data.setAge(null);
+        data.setPlanet(null);
+        data.setHair(null);
+        data.setEyes(null);
+        data.setComplexion(null);
+        data.setHeight(null);
+        data.setWeight(null);
+        data.setCharacterDescription(null);
+        data.setBackgroundDescription(null);
+    }
+
+    private static String getDescription(CharacterQrData data, boolean characterDescription) {
+        return characterDescription ? data.getCharacterDescription() : data.getBackgroundDescription();
+    }
+
+    private static void setDescription(CharacterQrData data, boolean characterDescription, String value) {
+        if (characterDescription) {
+            data.setCharacterDescription(value);
+        } else {
+            data.setBackgroundDescription(value);
+        }
+    }
+
+    private static String prefixOrNull(String value, int length) {
+        if (value == null || length <= 0) {
+            return null;
+        }
+        if (length >= value.length()) {
+            return value;
+        }
+        return value.substring(0, length);
+    }
+
+    private static int length(String value) {
+        return value != null ? value.length() : 0;
+    }
 
     private static byte[] gzip(byte[] data) throws IOException {
         final ByteArrayOutputStream bos = new ByteArrayOutputStream();

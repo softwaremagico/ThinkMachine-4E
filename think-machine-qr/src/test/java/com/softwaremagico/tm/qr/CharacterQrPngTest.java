@@ -25,6 +25,7 @@ package com.softwaremagico.tm.qr;
  */
 
 import com.google.zxing.WriterException;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import com.softwaremagico.tm.character.CharacterExamples;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.capabilities.CapabilityWithSpecialization;
@@ -86,6 +87,29 @@ public class CharacterQrPngTest extends QrGeneration {
     }
 
     @Test
+    public void writesLogoSafePngFileToPath() throws IOException, WriterException {
+        final CharacterPlayer player = CharacterExamples.generateHumanNobleDecadosCommander();
+        final Path output = getOutputPath("CharacterQr_Logo.png");
+        CharacterQrPngWriter.writePngForLogo(player, output);
+        Assert.assertTrue(Files.exists(output), "PNG file should exist");
+        Assert.assertTrue(Files.size(output) > 0, "PNG file should not be empty");
+        assertIsPng(Files.readAllBytes(output));
+    }
+
+    @Test
+    public void unifiedWriterSupportsExplicitEcc() throws IOException, WriterException {
+        final CharacterPlayer player = CharacterExamples.generateHumanNobleDecadosCommander();
+        final ByteArrayOutputStream standard = new ByteArrayOutputStream();
+        final ByteArrayOutputStream logoSafe = new ByteArrayOutputStream();
+
+        CharacterQrPngWriter.writePng(player, standard, ErrorCorrectionLevel.L);
+        CharacterQrPngWriter.writePng(player, logoSafe, CharacterQrMatrix.LOGO_ECC);
+
+        assertIsPng(standard.toByteArray());
+        assertIsPng(logoSafe.toByteArray());
+    }
+
+    @Test
     public void writesToOutputStream() throws IOException, WriterException {
         final CharacterPlayer player = CharacterExamples.generateHumanNobleDecadosCommander();
         final ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -118,6 +142,19 @@ public class CharacterQrPngTest extends QrGeneration {
         // Read from the same bytes via InputStream
         final CharacterPlayer decoded = CharacterQrPngReader.readPng(
                 new ByteArrayInputStream(bos.toByteArray()));
+
+        assertCharactersEqual(original, decoded);
+    }
+
+    @Test
+    public void roundTripThroughLogoSafePngFile() throws IOException, WriterException,
+            com.google.zxing.NotFoundException, InvalidXmlElementException, MaxValueExceededException {
+        final CharacterPlayer original = CharacterExamples.generateHumanNobleDecadosCommander();
+        original.getInfo().setCharacterDescription("Short character note");
+        original.getInfo().setBackgroundDescription("Short background note");
+        final Path output = getOutputPath("CharacterQr_LogoRoundTrip.png");
+        CharacterQrPngWriter.writePngForLogo(original, output);
+        final CharacterPlayer decoded = CharacterQrPngReader.readPng(output);
 
         assertCharactersEqual(original, decoded);
     }

@@ -37,9 +37,8 @@ import java.util.Map;
  * All IDs are stable string identifiers (never positional indices), ensuring
  * backward compatibility when new elements are added to factions, callings, etc.
  *
- * <p>Long free-text descriptions ({@code characterDescription} and
- * {@code backgroundDescription}) are deliberately excluded because they would
- * make the payload too large for a QR code.
+ * <p>Free-text descriptions are included when possible, but may be truncated or
+ * omitted during encoding to keep the payload within QR-code capacity.
  */
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class CharacterQrData {
@@ -82,6 +81,12 @@ public class CharacterQrData {
 
     @JsonProperty("wt")
     private String weight;
+
+    @JsonProperty("cd")
+    private String characterDescription;
+
+    @JsonProperty("bd")
+    private String backgroundDescription;
 
     // ── Core selections ─────────────────────────────────────────────────────
 
@@ -248,6 +253,22 @@ public class CharacterQrData {
 
     public void setWeight(String weight) {
         this.weight = weight;
+    }
+
+    public String getCharacterDescription() {
+        return characterDescription;
+    }
+
+    public void setCharacterDescription(String characterDescription) {
+        this.characterDescription = characterDescription;
+    }
+
+    public String getBackgroundDescription() {
+        return backgroundDescription;
+    }
+
+    public void setBackgroundDescription(String backgroundDescription) {
+        this.backgroundDescription = backgroundDescription;
     }
 
     public String getPrimaryCharacteristic() {

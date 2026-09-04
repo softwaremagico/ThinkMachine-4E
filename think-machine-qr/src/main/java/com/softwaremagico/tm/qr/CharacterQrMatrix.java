@@ -88,6 +88,15 @@ public final class CharacterQrMatrix {
      */
     public static final ErrorCorrectionLevel LOGO_ECC = ErrorCorrectionLevel.Q;
 
+    /** QR version 40 byte capacity when using ECC-Q for logo-safe payloads. */
+    public static final int MAX_LOGO_QR_PAYLOAD_BYTES = 1663;
+
+    /** QR version 40 byte capacity when using ECC-M. */
+    public static final int MAX_MEDIUM_QR_PAYLOAD_BYTES = 2331;
+
+    /** QR version 40 byte capacity when using ECC-H. */
+    public static final int MAX_HIGH_QR_PAYLOAD_BYTES = 1273;
+
     /**
      * Maximum logo side as a percentage of the QR side length when using
      * {@link #LOGO_ECC}. Staying within this limit guarantees that the logo
@@ -151,6 +160,18 @@ public final class CharacterQrMatrix {
         return encode(payload, size, LOGO_ECC);
     }
 
+    public static int getMaxPayloadBytes(ErrorCorrectionLevel ecc) {
+        if (ecc == null) {
+            throw new IllegalArgumentException("Error correction level cannot be null.");
+        }
+        return switch (ecc) {
+            case L -> CharacterQrCodec.MAX_QR_PAYLOAD_BYTES;
+            case M -> MAX_MEDIUM_QR_PAYLOAD_BYTES;
+            case Q -> MAX_LOGO_QR_PAYLOAD_BYTES;
+            case H -> MAX_HIGH_QR_PAYLOAD_BYTES;
+        };
+    }
+
     /**
      * Encodes a payload string as a QR code {@link BitMatrix} with an explicit
      * {@link ErrorCorrectionLevel}.
@@ -162,11 +183,23 @@ public final class CharacterQrMatrix {
      * @throws WriterException if QR encoding fails
      */
     public static BitMatrix encode(String payload, int size, ErrorCorrectionLevel ecc) throws WriterException {
+        validatePayload(payload, ecc);
         final Map<EncodeHintType, Object> hints = new EnumMap<>(EncodeHintType.class);
         hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");
         hints.put(EncodeHintType.MARGIN, 1);
         hints.put(EncodeHintType.ERROR_CORRECTION, ecc);
         return new QRCodeWriter().encode(payload, BarcodeFormat.QR_CODE, size, size, hints);
+    }
+
+    private static void validatePayload(String payload, ErrorCorrectionLevel ecc) {
+        if (payload == null) {
+            return;
+        }
+        final int maxBytes = getMaxPayloadBytes(ecc);
+        if (payload.length() > maxBytes) {
+            throw new IllegalArgumentException("Character QR payload size " + payload.length()
+                    + " bytes exceeds maximum " + maxBytes + " bytes for ECC-" + ecc + " QR.");
+        }
     }
 
     /**
