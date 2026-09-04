@@ -202,6 +202,10 @@ public final class CharacterQrMatrix {
         }
     }
 
+    private static byte toLuminance(boolean darkModule) {
+        return darkModule ? LUMINANCE_DARK : LUMINANCE_LIGHT;
+    }
+
     /**
      * Decodes a {@link BitMatrix} back to the payload string.
      *
@@ -242,7 +246,7 @@ public final class CharacterQrMatrix {
                 row = new byte[width];
             }
             for (int x = 0; x < width; x++) {
-                row[x] = matrix.get(x, y) ? LUMINANCE_DARK : LUMINANCE_LIGHT;
+                row[x] = toLuminance(matrix.get(x, y));
             }
             return row;
         }
@@ -254,7 +258,7 @@ public final class CharacterQrMatrix {
             final byte[] data = new byte[width * height];
             for (int y = 0; y < height; y++) {
                 for (int x = 0; x < width; x++) {
-                    data[y * width + x] = matrix.get(x, y) ? LUMINANCE_DARK : LUMINANCE_LIGHT;
+                    data[y * width + x] = toLuminance(matrix.get(x, y));
                 }
             }
             return data;

@@ -71,6 +71,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
@@ -189,18 +192,10 @@ public final class CharacterQrCodec {
     }
 
     private static void encodeStepSelections(CharacterPlayer player, CharacterQrData data) {
-        if (player.getSpecie() != null) {
-            data.setSpecieSelections(extractStepSelections(player.getSpecie()));
-        }
-        if (player.getUpbringing() != null) {
-            data.setUpbringingSelections(extractStepSelections(player.getUpbringing()));
-        }
-        if (player.getFaction() != null) {
-            data.setFactionSelections(extractStepSelections(player.getFaction()));
-        }
-        if (player.getCalling() != null) {
-            data.setCallingSelections(extractStepSelections(player.getCalling()));
-        }
+        encodeStepSelections(player.getSpecie(), data::setSpecieSelections);
+        encodeStepSelections(player.getUpbringing(), data::setUpbringingSelections);
+        encodeStepSelections(player.getFaction(), data::setFactionSelections);
+        encodeStepSelections(player.getCalling(), data::setCallingSelections);
     }
 
     private static void encodeLevels(CharacterPlayer player, CharacterQrData data) {
@@ -266,18 +261,10 @@ public final class CharacterQrCodec {
     }
 
     private static void encodeReassigns(CharacterPlayer player, CharacterQrData data) {
-        if (!player.getCharacteristicReassigns().isEmpty()) {
-            final List<String[]> list = player.getCharacteristicReassigns().stream()
-                    .map(r -> new String[]{r.getFrom(), r.getTo()})
-                    .toList();
-            data.setCharacteristicReassigns(list);
-        }
-        if (!player.getSkillsReassigns().isEmpty()) {
-            final List<String[]> list = player.getSkillsReassigns().stream()
-                    .map(r -> new String[]{r.getFrom(), r.getTo()})
-                    .toList();
-            data.setSkillsReassigns(list);
-        }
+        encodeReassignPairs(player.getCharacteristicReassigns(), data::setCharacteristicReassigns,
+                CharacteristicReassign::getFrom, CharacteristicReassign::getTo);
+        encodeReassignPairs(player.getSkillsReassigns(), data::setSkillsReassigns,
+                SkillsReassign::getFrom, SkillsReassign::getTo);
     }
 
     private static void encodeAffliction(CharacterPlayer player, CharacterQrData data) {
@@ -296,6 +283,24 @@ public final class CharacterQrCodec {
         sd.setPerks(extractOptionSlots(step.getSelectedPerksOptions()));
         sd.setMaterialAwards(extractEquipmentSlots(step.getSelectedMaterialAwards()));
         return sd;
+    }
+
+    private static void encodeStepSelections(CharacterDefinitionStepSelection step,
+                                             Consumer<StepSelectionData> setter) {
+        if (step != null) {
+            setter.accept(extractStepSelections(step));
+        }
+    }
+
+    private static <T> void encodeReassignPairs(List<T> reassigns,
+                                                Consumer<List<String[]>> setter,
+                                                Function<T, String> fromGetter,
+                                                Function<T, String> toGetter) {
+        if (!reassigns.isEmpty()) {
+            setter.accept(reassigns.stream()
+                    .map(reassign -> new String[]{fromGetter.apply(reassign), toGetter.apply(reassign)})
+                    .toList());
+        }
     }
 
     private static List<List<String>> extractOptionSlots(List<CharacterSelectedElement> slots) {
@@ -417,18 +422,10 @@ public final class CharacterQrCodec {
     }
 
     private static void decodeStepSelections(CharacterQrData data, CharacterPlayer player) {
-        if (data.getSpecieSelections() != null && player.getSpecie() != null) {
-            applyStepSelections(player.getSpecie(), data.getSpecieSelections());
-        }
-        if (data.getUpbringingSelections() != null && player.getUpbringing() != null) {
-            applyStepSelections(player.getUpbringing(), data.getUpbringingSelections());
-        }
-        if (data.getFactionSelections() != null && player.getFaction() != null) {
-            applyStepSelections(player.getFaction(), data.getFactionSelections());
-        }
-        if (data.getCallingSelections() != null && player.getCalling() != null) {
-            applyStepSelections(player.getCalling(), data.getCallingSelections());
-        }
+        decodeStepSelections(player.getSpecie(), data.getSpecieSelections());
+        decodeStepSelections(player.getUpbringing(), data.getUpbringingSelections());
+        decodeStepSelections(player.getFaction(), data.getFactionSelections());
+        decodeStepSelections(player.getCalling(), data.getCallingSelections());
     }
 
     private static void decodeLevels(CharacterQrData data, CharacterPlayer player) {
@@ -500,20 +497,10 @@ public final class CharacterQrCodec {
     }
 
     private static void decodeReassigns(CharacterQrData data, CharacterPlayer player) {
-        if (data.getCharacteristicReassigns() != null) {
-            data.getCharacteristicReassigns().forEach(pair -> {
-                if (pair != null && pair.length == 2) {
-                    player.getCharacteristicReassigns().add(new CharacteristicReassign(pair[0], pair[1]));
-                }
-            });
-        }
-        if (data.getSkillsReassigns() != null) {
-            data.getSkillsReassigns().forEach(pair -> {
-                if (pair != null && pair.length == 2) {
-                    player.getSkillsReassigns().add(new SkillsReassign(pair[0], pair[1]));
-                }
-            });
-        }
+        decodeReassignPairs(data.getCharacteristicReassigns(),
+                (from, to) -> player.getCharacteristicReassigns().add(new CharacteristicReassign(from, to)));
+        decodeReassignPairs(data.getSkillsReassigns(),
+                (from, to) -> player.getSkillsReassigns().add(new SkillsReassign(from, to)));
     }
 
     private static void decodeAffliction(CharacterQrData data, CharacterPlayer player) {
@@ -538,6 +525,23 @@ public final class CharacterQrCodec {
         applyOptionSlots(step.getSelectedPerksOptions(), sd.getPerks(),
                 CharacterQrCodec::lookupPerk);
         applyEquipmentSlots(step.getSelectedMaterialAwards(), sd.getMaterialAwards());
+    }
+
+    private static void decodeStepSelections(CharacterDefinitionStepSelection step, StepSelectionData selections) {
+        if (step != null && selections != null) {
+            applyStepSelections(step, selections);
+        }
+    }
+
+    private static void decodeReassignPairs(List<String[]> encoded,
+                                            BiConsumer<String, String> reassignConsumer) {
+        if (encoded != null) {
+            encoded.forEach(pair -> {
+                if (pair != null && pair.length == 2) {
+                    reassignConsumer.accept(pair[0], pair[1]);
+                }
+            });
+        }
     }
 
     @FunctionalInterface
