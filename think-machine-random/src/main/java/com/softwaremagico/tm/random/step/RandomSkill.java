@@ -65,6 +65,12 @@ public class RandomSkill extends RandomSelector<Skill> {
     @Override
     protected double getUserPreferenceBonus(Skill element) {
         double multiplier = super.getUserPreferenceBonus(element);
+        if (getProfiles().stream().anyMatch(profile -> profile.getMandatorySkills().contains(element.getId()))) {
+            return multiplier * VERY_GOOD_PROBABILITY * VERY_GOOD_PROBABILITY;
+        }
+        if (getProfiles().stream().anyMatch(profile -> profile.getSuggestedSkills().contains(element.getId()))) {
+            return multiplier * VERY_GOOD_PROBABILITY;
+        }
         if (getPreferences().contains(RankValueAssignationPreference.VERY_SPECIALIZED)) {
             multiplier += Math.pow(getCharacterPlayer().getSkillValue(element), VERY_SPECIALIZED_VALUE);
         } else if (getPreferences().contains(RankValueAssignationPreference.SPECIALIZED)) {
@@ -79,6 +85,15 @@ public class RandomSkill extends RandomSelector<Skill> {
 
     @Override
     protected int getWeight(Skill element) throws InvalidRandomElementSelectedException {
+        final Set<String> mandatorySkills = getProfiles().stream().flatMap(profile -> profile.getMandatorySkills().stream())
+                .collect(java.util.stream.Collectors.toSet());
+        if (!mandatorySkills.isEmpty() && !mandatorySkills.contains(element.getId())) {
+            final int maximumMandatorySkillValue = mandatorySkills.stream()
+                    .mapToInt(skillId -> getCharacterPlayer().getSkillValue(skillId)).max().orElse(0);
+            if (getCharacterPlayer().getSkillValue(element) + bonus > maximumMandatorySkillValue) {
+                return 0;
+            }
+        }
         //Max skill at some levels.
         try {
             getCharacterPlayer().checkMaxValueByLevel(element, getCharacterPlayer().getSkillValue(element) + bonus);

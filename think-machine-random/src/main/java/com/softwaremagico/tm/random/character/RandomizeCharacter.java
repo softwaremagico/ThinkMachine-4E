@@ -77,7 +77,20 @@ public class RandomizeCharacter {
     }
 
     public RandomizeCharacter(CharacterPlayer characterPlayer, RandomProfile profile) {
-        this(characterPlayer, profile.getPreferences().toArray(new IRandomPreference[0]));
+        this(characterPlayer, new RandomProfile[]{profile});
+    }
+
+    public RandomizeCharacter(CharacterPlayer characterPlayer, RandomProfile... profiles) {
+        this(characterPlayer, getProfilePreferences(profiles));
+    }
+
+    private static IRandomPreference[] getProfilePreferences(RandomProfile... profiles) {
+        final Set<IRandomPreference> preferences = new HashSet<>();
+        for (final RandomProfile profile : profiles) {
+            preferences.addAll(profile.getPreferences());
+            preferences.add(profile);
+        }
+        return preferences.toArray(new IRandomPreference[0]);
     }
 
     public RandomizeCharacter(CharacterPlayer characterPlayer, int level, IRandomPreference... preferences) {

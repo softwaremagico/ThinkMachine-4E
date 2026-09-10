@@ -13,6 +13,8 @@
                 <preference>RANGED</preference>
             </recommendedPreferences>
         </random>
+        <mandatorySkills>fight</mandatorySkills>
+        <suggestedSkills>vigor, melee</suggestedSkills>
     </profile>
     <profile>
         <id>hiTechSoldier</id>
@@ -190,6 +192,7 @@
                 <preference>HI_TECH</preference>
             </recommendedPreferences>
         </random>
+        <suggestedCapabilities>medicine</suggestedCapabilities>
     </profile>
     <profile>
         <id>nonCommissionedOfficer</id>

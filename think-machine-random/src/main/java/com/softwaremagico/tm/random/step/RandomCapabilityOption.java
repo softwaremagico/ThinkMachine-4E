@@ -56,6 +56,9 @@ public class RandomCapabilityOption extends RandomSelector<CapabilityOption> {
 
     @Override
     protected int getWeight(CapabilityOption element) throws InvalidRandomElementSelectedException {
+        if (getProfiles().stream().anyMatch(profile -> profile.getSuggestedCapabilities().contains(element.getId()))) {
+            return VERY_GOOD_PROBABILITY;
+        }
         if (getCharacterPlayer().hasCapability(element.getId(), element.getSelectedSpecialization() != null
                 ? element.getSelectedSpecialization().getId() : null, phase, null)) {
             return 0;
@@ -79,6 +82,21 @@ public class RandomCapabilityOption extends RandomSelector<CapabilityOption> {
             }
         }
         return super.getWeight(element);
+    }
+
+    @Override
+    public CapabilityOption selectElementByWeight() throws InvalidRandomElementSelectedException {
+        final List<CapabilityOption> mandatoryCapabilities = new ArrayList<>();
+        for (final CapabilityOption capability : getAllElements()) {
+            if (getProfiles().stream().anyMatch(profile -> profile.getMandatoryCapabilities().contains(capability.getId()))
+                    && getWeight(capability) > 0) {
+                mandatoryCapabilities.add(capability);
+            }
+        }
+        if (!mandatoryCapabilities.isEmpty()) {
+            return mandatoryCapabilities.get(RANDOM.nextInt(mandatoryCapabilities.size()));
+        }
+        return super.selectElementByWeight();
     }
 
     @Override

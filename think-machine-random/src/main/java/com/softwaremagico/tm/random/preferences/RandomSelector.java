@@ -35,6 +35,7 @@ import com.softwaremagico.tm.log.RandomValuesLog;
 import com.softwaremagico.tm.random.definition.ProbabilityMultiplier;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
+import com.softwaremagico.tm.random.profile.RandomProfile;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -120,6 +121,16 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             return new HashSet<>();
         }
         return preferences;
+    }
+
+    protected RandomProfile getProfile() {
+        return getPreferences().stream().filter(RandomProfile.class::isInstance).map(RandomProfile.class::cast)
+                .findFirst().orElse(null);
+    }
+
+    protected Set<RandomProfile> getProfiles() {
+        return getPreferences().stream().filter(RandomProfile.class::isInstance).map(RandomProfile.class::cast)
+                .collect(java.util.stream.Collectors.toSet());
     }
 
     public void setPreferences(String preferencesContent) {

@@ -79,9 +79,7 @@ public class PreferencesTests {
                 {"hiTechSoldier", Set.of(OperationalRolePreference.COMBAT, AttackPreferences.RANGED, TechPreference.HI_TECH)},
                 {"heavySoldier", Set.of(OperationalRolePreference.COMBAT, AttackPreferences.RANGED)},
                 {"general", Set.of(OperationalRolePreference.MILITARY, OperationalRolePreference.SOCIAL)},
-                {"thug", Set.of(OperationalRolePreference.COMBAT, AttackPreferences.MELEE, WealthPreference.POOR)},
-                {"burglar", Set.of(OperationalRolePreference.STEALTH, WealthPreference.POOR)},
-                {"martialArtist", Set.of(OperationalRolePreference.COMBAT, AttackPreferences.MELEE)}
+                {"thug", Set.of(OperationalRolePreference.COMBAT, AttackPreferences.MELEE, WealthPreference.POOR)}
         };
     }
 
@@ -96,11 +94,9 @@ public class PreferencesTests {
     @DataProvider(name = "npcProfiles")
     public Object[][] npcProfiles() {
         return new Object[][]{
-                {"serf"}, {"peasant"}, {"militia"}, {"infantry"}, {"tracker"}, {"cavalryRaider"},
-                {"tankDriver"}, {"artillerist"}, {"combatEngineer"}, {"combatMedic"}, {"militaryPolice"},
-                {"nonCommissionedOfficer"}, {"ranger"}, {"cybercop"}, {"freedomFighter"}, {"pilot"},
-                {"aircraftMechanic"}, {"radarSpecialist"}, {"marine"}, {"sailor"}, {"fighterPilot"},
-                {"spy"}, {"slayer"}, {"marauder"}
+                {"serf"}, {"rural"}, {"infantry"}, {"cavalryRaider"}, {"tankDriver"}, {"artillerist"},
+                {"engineer"}, {"medic"}, {"nonCommissionedOfficer"}, {"cybercop"}, {"freedomFighter"},
+                {"pilot"}, {"mechanic"}, {"marine"}, {"sailor"}, {"fighterPilot"}
         };
     }
 
@@ -109,6 +105,14 @@ public class PreferencesTests {
         final RandomProfile profile = RandomProfileFactory.getInstance().getElement(profileId);
 
         Assert.assertFalse(profile.getPreferences().isEmpty());
+    }
+
+    @Test
+    public void loadProfileElementPriorities() {
+        final RandomProfile profile = RandomProfileFactory.getInstance().getElement("soldier");
+
+        Assert.assertEquals(profile.getMandatorySkills(), Set.of("fight"));
+        Assert.assertEquals(profile.getSuggestedSkills(), Set.of("vigor", "melee"));
     }
 
     @Test

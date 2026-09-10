@@ -37,6 +37,7 @@ import com.softwaremagico.tm.random.preferences.OccultismPreference;
 import com.softwaremagico.tm.random.preferences.RandomSelector;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -62,6 +63,9 @@ public class RandomPerk extends RandomSelector<Selection> {
 
     @Override
     protected int getWeight(Selection element) throws InvalidRandomElementSelectedException {
+        if (getProfiles().stream().anyMatch(profile -> profile.getSuggestedPerks().contains(element.getId()))) {
+            return VERY_GOOD_PROBABILITY;
+        }
         // Already has a perk.
         if (!element.isRepeatable() && getCharacterPlayer().hasSelection(element, phase, null)) {
             return 0;
@@ -81,5 +85,20 @@ public class RandomPerk extends RandomSelector<Selection> {
             return GOOD_PROBABILITY;
         }
         return super.getWeight(element);
+    }
+
+    @Override
+    public Selection selectElementByWeight() throws InvalidRandomElementSelectedException {
+        final List<Selection> mandatoryPerks = new java.util.ArrayList<>();
+        for (final Selection perk : getAllElements()) {
+            if (getProfiles().stream().anyMatch(profile -> profile.getMandatoryPerks().contains(perk.getId()))
+                    && getWeight(perk) > 0) {
+                mandatoryPerks.add(perk);
+            }
+        }
+        if (!mandatoryPerks.isEmpty()) {
+            return mandatoryPerks.get(RANDOM.nextInt(mandatoryPerks.size()));
+        }
+        return super.selectElementByWeight();
     }
 }
