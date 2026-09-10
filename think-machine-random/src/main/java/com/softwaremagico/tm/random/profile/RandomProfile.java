@@ -25,19 +25,22 @@ package com.softwaremagico.tm.random.profile;
  */
 
 import com.softwaremagico.tm.Element;
+import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
+import com.softwaremagico.tm.character.perks.PerkFactory;
+import com.softwaremagico.tm.character.skills.SkillFactory;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
 
-import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public class RandomProfile extends Element implements IRandomPreference {
-    private String mandatoryPerks;
-    private String suggestedPerks;
-    private String mandatoryCapabilities;
-    private String suggestedCapabilities;
-    private String mandatorySkills;
-    private String suggestedSkills;
+    private Set<String> mandatoryPerks = Set.of();
+    private Set<String> suggestedPerks = Set.of();
+    private Set<String> mandatoryCapabilities = Set.of();
+    private Set<String> suggestedCapabilities = Set.of();
+    private Set<String> mandatorySkills = Set.of();
+    private Set<String> suggestedSkills = Set.of();
 
     @Override
     public String name() {
@@ -50,56 +53,73 @@ public class RandomProfile extends Element implements IRandomPreference {
     }
 
     public Set<String> getMandatoryPerks() {
-        return getValues(mandatoryPerks);
+        return mandatoryPerks;
     }
 
-    public void setMandatoryPerks(String mandatoryPerks) {
+    public void setMandatoryPerks(Set<String> mandatoryPerks) {
         this.mandatoryPerks = mandatoryPerks;
     }
 
     public Set<String> getSuggestedPerks() {
-        return getValues(suggestedPerks);
+        return suggestedPerks;
     }
 
-    public void setSuggestedPerks(String suggestedPerks) {
+    public void setSuggestedPerks(Set<String> suggestedPerks) {
         this.suggestedPerks = suggestedPerks;
     }
 
     public Set<String> getMandatoryCapabilities() {
-        return getValues(mandatoryCapabilities);
+        return mandatoryCapabilities;
     }
 
-    public void setMandatoryCapabilities(String mandatoryCapabilities) {
+    public void setMandatoryCapabilities(Set<String> mandatoryCapabilities) {
         this.mandatoryCapabilities = mandatoryCapabilities;
     }
 
     public Set<String> getSuggestedCapabilities() {
-        return getValues(suggestedCapabilities);
+        return suggestedCapabilities;
     }
 
-    public void setSuggestedCapabilities(String suggestedCapabilities) {
+    public void setSuggestedCapabilities(Set<String> suggestedCapabilities) {
         this.suggestedCapabilities = suggestedCapabilities;
     }
 
     public Set<String> getMandatorySkills() {
-        return getValues(mandatorySkills);
+        return mandatorySkills;
     }
 
-    public void setMandatorySkills(String mandatorySkills) {
+    public void setMandatorySkills(Set<String> mandatorySkills) {
         this.mandatorySkills = mandatorySkills;
     }
 
     public Set<String> getSuggestedSkills() {
-        return getValues(suggestedSkills);
+        return suggestedSkills;
     }
 
-    public void setSuggestedSkills(String suggestedSkills) {
+    public void setSuggestedSkills(Set<String> suggestedSkills) {
         this.suggestedSkills = suggestedSkills;
     }
 
-    private Set<String> getValues(String values) {
-        final Set<String> result = new HashSet<>();
-        readCommaSeparatedTokens(result, values);
-        return result;
+    @Override
+    public void validate() throws InvalidXmlElementException {
+        super.validate();
+        validateElements(mandatoryPerks, PerkFactory.getInstance(), "mandatory perk");
+        validateElements(suggestedPerks, PerkFactory.getInstance(), "suggested perk");
+        validateElements(mandatoryCapabilities, CapabilityFactory.getInstance(), "mandatory capability");
+        validateElements(suggestedCapabilities, CapabilityFactory.getInstance(), "suggested capability");
+        validateElements(mandatorySkills, SkillFactory.getInstance(), "mandatory skill");
+        validateElements(suggestedSkills, SkillFactory.getInstance(), "suggested skill");
+    }
+
+    private void validateElements(Set<String> elementIds, com.softwaremagico.tm.xml.XmlFactory<?> factory,
+                                  String elementType) throws InvalidXmlElementException {
+        for (final String elementId : elementIds) {
+            try {
+                factory.getElement(elementId);
+            } catch (InvalidXmlElementException e) {
+                throw new InvalidXmlElementException("Unknown " + elementType + " '" + elementId
+                        + "' in profile '" + getId() + "'.", e);
+            }
+        }
     }
 }

@@ -29,6 +29,7 @@ import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinition
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
+import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.factions.RandomFaction;
 import com.softwaremagico.tm.random.definition.ProbabilityMultiplier;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
@@ -96,7 +97,8 @@ public class PreferencesTests {
         return new Object[][]{
                 {"serf"}, {"rural"}, {"infantry"}, {"cavalryRaider"}, {"tankDriver"}, {"artillerist"},
                 {"engineer"}, {"medic"}, {"nonCommissionedOfficer"}, {"cybercop"}, {"freedomFighter"},
-                {"pilot"}, {"mechanic"}, {"marine"}, {"sailor"}, {"fighterPilot"}
+                {"pilot"}, {"mechanic"}, {"marine"}, {"sailor"}, {"spaceFighterPilot"},
+                {"combatAircraftPilot"}
         };
     }
 
@@ -113,6 +115,11 @@ public class PreferencesTests {
 
         Assert.assertEquals(profile.getMandatorySkills(), Set.of("fight"));
         Assert.assertEquals(profile.getSuggestedSkills(), Set.of("vigor", "melee"));
+    }
+
+    @Test
+    public void validateProfileReferences() throws InvalidXmlElementException {
+        RandomProfileFactory.getInstance().validate();
     }
 
     @Test

@@ -49,4 +49,5 @@ public class RandomProfileFactory extends XmlFactory<RandomProfile> {
     public List<RandomProfile> getElements() throws InvalidXmlElementException {
         return readXml(RandomProfile.class);
     }
+
 }
