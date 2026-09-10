@@ -24,6 +24,8 @@ package com.softwaremagico.tm.random.preferences;
  * #L%
  */
 
+import java.util.Set;
+
 public enum PowerLevelPreference implements IRandomPreference, IGaussianDistribution {
     LOW(1, 3, 1, 2),
     STANDARD(2, 5, 3, 2),
@@ -69,5 +71,16 @@ public enum PowerLevelPreference implements IRandomPreference, IGaussianDistribu
     @Override
     public int minimum() {
         return minimum;
+    }
+
+    public static PowerLevelPreference getSelected(Set<IRandomPreference> preferences) {
+        if (preferences != null) {
+            for (final IRandomPreference preference : preferences) {
+                if (preference instanceof PowerLevelPreference) {
+                    return (PowerLevelPreference) preference;
+                }
+            }
+        }
+        return null;
     }
 }

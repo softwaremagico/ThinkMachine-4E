@@ -51,6 +51,7 @@ import com.softwaremagico.tm.random.character.upbringings.RandomUpbringing;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.preferences.AttackPreferences;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
+import com.softwaremagico.tm.random.preferences.PowerLevelPreference;
 import com.softwaremagico.tm.random.step.RandomCharacteristics;
 import com.softwaremagico.tm.random.step.RandomSkill;
 
@@ -71,7 +72,7 @@ public class RandomizeCharacter {
     private final RandomUpbringing randomUpbringing;
 
     public RandomizeCharacter(CharacterPlayer characterPlayer, IRandomPreference... preferences) {
-        this(characterPlayer, 1, preferences);
+        this(characterPlayer, getDesiredLevel(preferences), preferences);
     }
 
     public RandomizeCharacter(CharacterPlayer characterPlayer, int level, IRandomPreference... preferences) {
@@ -88,6 +89,12 @@ public class RandomizeCharacter {
         randomUpbringing = new RandomUpbringing(characterPlayer, this.preferences);
         randomFaction = new RandomFaction(characterPlayer, this.preferences);
         randomCalling = new RandomCalling(characterPlayer, this.preferences);
+    }
+
+    private static int getDesiredLevel(IRandomPreference... preferences) {
+        final PowerLevelPreference powerLevelPreference = PowerLevelPreference.getSelected(
+                preferences == null ? null : new HashSet<>(Arrays.asList(preferences)));
+        return powerLevelPreference == null ? 1 : powerLevelPreference.randomGaussian();
     }
 
     public void createCharacter() throws InvalidRandomElementSelectedException {

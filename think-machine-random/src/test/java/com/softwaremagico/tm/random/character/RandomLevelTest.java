@@ -32,6 +32,7 @@ import com.softwaremagico.tm.character.perks.Perk;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.random.character.level.RandomLevel;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
+import com.softwaremagico.tm.random.preferences.PowerLevelPreference;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -65,6 +66,27 @@ public class RandomLevelTest {
             Assert.assertEquals(characterPlayer.getLevel(), LEVEL_TEST);
             characterPlayer.validate();
         }
+    }
+
+    @Test
+    public void createCharacterUsesPowerLevelPreference() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer, PowerLevelPreference.VETERAN);
+
+        randomizeCharacter.createCharacter();
+
+        Assert.assertTrue(characterPlayer.getLevel() >= PowerLevelPreference.VETERAN.minimum());
+        Assert.assertTrue(characterPlayer.getLevel() <= PowerLevelPreference.VETERAN.maximum());
+    }
+
+    @Test
+    public void createCharacterWithExplicitLevelIgnoresPowerLevelPreference() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        final RandomizeCharacter randomizeCharacter = new RandomizeCharacter(characterPlayer, 2, PowerLevelPreference.ELITE);
+
+        randomizeCharacter.createCharacter();
+
+        Assert.assertEquals(characterPlayer.getLevel(), 2);
     }
 
     @Test
