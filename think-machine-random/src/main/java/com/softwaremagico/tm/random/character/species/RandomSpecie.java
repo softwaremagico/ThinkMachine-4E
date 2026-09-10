@@ -35,9 +35,11 @@ import com.softwaremagico.tm.random.character.selectors.RandomInnerStepsSelector
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.preferences.RandomSelector;
+import com.softwaremagico.tm.random.preferences.SpeciePreference;
 import com.softwaremagico.tm.random.step.RandomizeCharacterDefinitionStep;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 public class RandomSpecie extends RandomSelector<Specie> implements AssignableRandomSelector, RandomInnerStepsSelector {
@@ -49,13 +51,28 @@ public class RandomSpecie extends RandomSelector<Specie> implements AssignableRa
     @Override
     public void assign() throws InvalidSpecieException, InvalidRandomElementSelectedException {
         if (getCharacterPlayer().getSpecie() == null || getCharacterPlayer().getSpecie().getId() == null) {
-            getCharacterPlayer().setSpecie(selectElementByWeight().getId());
+            getCharacterPlayer().setSpecie(getPreferredSpecieId());
             if (getCharacterPlayer().getSpecie() != null && getCharacterPlayer().getSpecie().getId() != null) {
                 RandomSelectorLog.info(RandomSpecie.class, "Specie selected is '{}'.", getCharacterPlayer().getSpecie().getId());
             } else {
                 RandomSelectorLog.warning(RandomSpecie.class, "No specie selected!.");
             }
         }
+    }
+
+    private String getPreferredSpecieId() throws InvalidRandomElementSelectedException {
+        for (final IRandomPreference preference : getPreferences()) {
+            if (SpeciePreference.XENO.name().equals(preference.name())
+                    || SpeciePreference.HUMAN.name().equals(preference.name())) {
+                final boolean xeno = SpeciePreference.XENO.name().equals(preference.name());
+                final List<Specie> species = getAllElements().stream().filter(specie -> specie.isXeno() == xeno).toList();
+                if (species.isEmpty()) {
+                    throw new InvalidRandomElementSelectedException("No species available for preference '" + preference + "'.");
+                }
+                return species.get(RANDOM.nextInt(species.size())).getId();
+            }
+        }
+        return selectElementByWeight().getId();
     }
 
     @Override

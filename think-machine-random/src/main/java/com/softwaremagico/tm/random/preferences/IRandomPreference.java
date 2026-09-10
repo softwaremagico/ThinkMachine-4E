@@ -90,6 +90,11 @@ public interface IRandomPreference {
             // Not this value. Continue.
         }
         try {
+            return SpeciePreference.valueOf(name);
+        } catch (final IllegalArgumentException ignore) {
+            // Not this value. Continue.
+        }
+        try {
             return TechPreference.valueOf(name);
         } catch (final IllegalArgumentException ignore) {
             // Not this value. Continue.

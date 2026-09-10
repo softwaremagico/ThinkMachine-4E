@@ -52,6 +52,7 @@ import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedExcep
 import com.softwaremagico.tm.random.preferences.AttackPreferences;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.preferences.PowerLevelPreference;
+import com.softwaremagico.tm.random.profile.RandomProfile;
 import com.softwaremagico.tm.random.step.RandomCharacteristics;
 import com.softwaremagico.tm.random.step.RandomSkill;
 
@@ -73,6 +74,10 @@ public class RandomizeCharacter {
 
     public RandomizeCharacter(CharacterPlayer characterPlayer, IRandomPreference... preferences) {
         this(characterPlayer, getDesiredLevel(preferences), preferences);
+    }
+
+    public RandomizeCharacter(CharacterPlayer characterPlayer, RandomProfile profile) {
+        this(characterPlayer, profile.getPreferences().toArray(new IRandomPreference[0]));
     }
 
     public RandomizeCharacter(CharacterPlayer characterPlayer, int level, IRandomPreference... preferences) {

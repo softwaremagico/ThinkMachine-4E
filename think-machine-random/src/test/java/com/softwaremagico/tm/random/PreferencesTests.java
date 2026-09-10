@@ -30,15 +30,25 @@ import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.random.character.factions.RandomFaction;
+import com.softwaremagico.tm.random.character.species.RandomSpecie;
 import com.softwaremagico.tm.random.definition.ProbabilityMultiplier;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.preferences.AlignmentPreference;
+import com.softwaremagico.tm.random.preferences.AttackPreferences;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
+import com.softwaremagico.tm.random.preferences.OccultismPreference;
+import com.softwaremagico.tm.random.preferences.OperationalRolePreference;
 import com.softwaremagico.tm.random.preferences.RandomSelector;
+import com.softwaremagico.tm.random.preferences.SpeciePreference;
+import com.softwaremagico.tm.random.preferences.TechPreference;
+import com.softwaremagico.tm.random.preferences.WealthPreference;
+import com.softwaremagico.tm.random.profile.RandomProfile;
+import com.softwaremagico.tm.random.profile.RandomProfileFactory;
 import com.softwaremagico.tm.random.preferences.TechPreference;
 import com.softwaremagico.tm.random.step.RandomCharacteristicBonusOption;
 import com.softwaremagico.tm.random.step.RandomCharacteristics;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
@@ -63,6 +73,47 @@ public class PreferencesTests {
     @Test
     public void checkObunPreferences() {
         Assert.assertEquals(SpecieFactory.getInstance().getElement("obun").getRandomDefinition().getRecommendedPreferences().size(), 2);
+    }
+
+    @Test
+    public void selectProfilePreferredSpecie() throws InvalidRandomElementSelectedException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        final RandomProfile profile = RandomProfileFactory.getInstance().getElement("xeno");
+        final RandomSpecie randomSpecie = new RandomSpecie(characterPlayer, profile.getPreferences());
+
+        Assert.assertEquals(profile.getPreferences().iterator().next().name(), SpeciePreference.XENO.name());
+
+        randomSpecie.assign();
+
+        Assert.assertTrue(SpecieFactory.getInstance().getElement(characterPlayer.getSpecie().getId()).isXeno());
+    }
+
+    @Test
+    public void profileDefinesRandomPreferences() {
+        final RandomProfile profile = RandomProfileFactory.getInstance().getElement("occultist");
+
+        Assert.assertTrue(profile.getPreferences().contains(OccultismPreference.OCCULTIST));
+    }
+
+    @DataProvider(name = "occupationProfiles")
+    public Object[][] occupationProfiles() {
+        return new Object[][]{
+                {"soldier", Set.of(OperationalRolePreference.COMBAT, AttackPreferences.RANGED)},
+                {"hiTechSoldier", Set.of(OperationalRolePreference.COMBAT, AttackPreferences.RANGED, TechPreference.HI_TECH)},
+                {"heavySoldier", Set.of(OperationalRolePreference.COMBAT, AttackPreferences.RANGED)},
+                {"general", Set.of(OperationalRolePreference.MILITARY, OperationalRolePreference.SOCIAL)},
+                {"thug", Set.of(OperationalRolePreference.COMBAT, AttackPreferences.MELEE, WealthPreference.POOR)},
+                {"burglar", Set.of(OperationalRolePreference.STEALTH, WealthPreference.POOR)},
+                {"martialArtist", Set.of(OperationalRolePreference.COMBAT, AttackPreferences.MELEE)}
+        };
+    }
+
+    @Test(dataProvider = "occupationProfiles")
+    public void loadOccupationProfilePreferences(String profileId, Set<IRandomPreference> expectedPreferences) {
+        final RandomProfile profile = RandomProfileFactory.getInstance().getElement(profileId);
+
+        Assert.assertEquals(profile.getGroup(), "occupation");
+        Assert.assertEquals(profile.getPreferences(), expectedPreferences);
     }
 
     @Test
