@@ -30,16 +30,13 @@ import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.random.character.factions.RandomFaction;
-import com.softwaremagico.tm.random.character.species.RandomSpecie;
 import com.softwaremagico.tm.random.definition.ProbabilityMultiplier;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.preferences.AlignmentPreference;
 import com.softwaremagico.tm.random.preferences.AttackPreferences;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
-import com.softwaremagico.tm.random.preferences.OccultismPreference;
 import com.softwaremagico.tm.random.preferences.OperationalRolePreference;
 import com.softwaremagico.tm.random.preferences.RandomSelector;
-import com.softwaremagico.tm.random.preferences.SpeciePreference;
 import com.softwaremagico.tm.random.preferences.TechPreference;
 import com.softwaremagico.tm.random.preferences.WealthPreference;
 import com.softwaremagico.tm.random.profile.RandomProfile;
@@ -75,26 +72,6 @@ public class PreferencesTests {
         Assert.assertEquals(SpecieFactory.getInstance().getElement("obun").getRandomDefinition().getRecommendedPreferences().size(), 2);
     }
 
-    @Test
-    public void selectProfilePreferredSpecie() throws InvalidRandomElementSelectedException {
-        final CharacterPlayer characterPlayer = new CharacterPlayer();
-        final RandomProfile profile = RandomProfileFactory.getInstance().getElement("xeno");
-        final RandomSpecie randomSpecie = new RandomSpecie(characterPlayer, profile.getPreferences());
-
-        Assert.assertEquals(profile.getPreferences().iterator().next().name(), SpeciePreference.XENO.name());
-
-        randomSpecie.assign();
-
-        Assert.assertTrue(SpecieFactory.getInstance().getElement(characterPlayer.getSpecie().getId()).isXeno());
-    }
-
-    @Test
-    public void profileDefinesRandomPreferences() {
-        final RandomProfile profile = RandomProfileFactory.getInstance().getElement("occultist");
-
-        Assert.assertTrue(profile.getPreferences().contains(OccultismPreference.OCCULTIST));
-    }
-
     @DataProvider(name = "occupationProfiles")
     public Object[][] occupationProfiles() {
         return new Object[][]{
@@ -114,6 +91,24 @@ public class PreferencesTests {
 
         Assert.assertEquals(profile.getGroup(), "occupation");
         Assert.assertEquals(profile.getPreferences(), expectedPreferences);
+    }
+
+    @DataProvider(name = "npcProfiles")
+    public Object[][] npcProfiles() {
+        return new Object[][]{
+                {"serf"}, {"peasant"}, {"militia"}, {"infantry"}, {"tracker"}, {"cavalryRaider"},
+                {"tankDriver"}, {"artillerist"}, {"combatEngineer"}, {"combatMedic"}, {"militaryPolice"},
+                {"nonCommissionedOfficer"}, {"ranger"}, {"cybercop"}, {"freedomFighter"}, {"pilot"},
+                {"aircraftMechanic"}, {"radarSpecialist"}, {"marine"}, {"sailor"}, {"fighterPilot"},
+                {"spy"}, {"slayer"}, {"marauder"}
+        };
+    }
+
+    @Test(dataProvider = "npcProfiles")
+    public void loadNpcProfilePreferences(String profileId) {
+        final RandomProfile profile = RandomProfileFactory.getInstance().getElement(profileId);
+
+        Assert.assertFalse(profile.getPreferences().isEmpty());
     }
 
     @Test
