@@ -70,11 +70,6 @@ public interface IRandomPreference {
             // Not this value. Continue.
         }
         try {
-            return OperationalRolePreference.valueOf(name);
-        } catch (final IllegalArgumentException ignore) {
-            // Not this value. Continue.
-        }
-        try {
             return PowerLevelPreference.valueOf(name);
         } catch (final IllegalArgumentException ignore) {
             // Not this value. Continue.

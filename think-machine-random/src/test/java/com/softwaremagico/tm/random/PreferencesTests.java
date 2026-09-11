@@ -25,6 +25,7 @@ package com.softwaremagico.tm.random;
  */
 
 import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.ElementType;
 import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
@@ -36,7 +37,6 @@ import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedExcep
 import com.softwaremagico.tm.random.preferences.AlignmentPreference;
 import com.softwaremagico.tm.random.preferences.AttackPreferences;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
-import com.softwaremagico.tm.random.preferences.OperationalRolePreference;
 import com.softwaremagico.tm.random.preferences.RandomSelector;
 import com.softwaremagico.tm.random.preferences.TechPreference;
 import com.softwaremagico.tm.random.preferences.WealthPreference;
@@ -73,31 +73,29 @@ public class PreferencesTests {
         Assert.assertEquals(SpecieFactory.getInstance().getElement("obun").getRandomDefinition().getRecommendedPreferences().size(), 2);
     }
 
-    @DataProvider(name = "occupationProfiles")
-    public Object[][] occupationProfiles() {
+    @DataProvider(name = "profilePreferences")
+    public Object[][] profilePreferences() {
         return new Object[][]{
-                {"soldier", Set.of(OperationalRolePreference.COMBAT, AttackPreferences.RANGED)},
-                {"hiTechSoldier", Set.of(OperationalRolePreference.COMBAT, AttackPreferences.RANGED, TechPreference.HI_TECH)},
-                {"heavySoldier", Set.of(OperationalRolePreference.COMBAT, AttackPreferences.RANGED)},
-                {"general", Set.of(OperationalRolePreference.MILITARY, OperationalRolePreference.SOCIAL)},
-                {"thug", Set.of(OperationalRolePreference.COMBAT, AttackPreferences.MELEE, WealthPreference.POOR)}
+                {"thug", "occupation", Set.of(AttackPreferences.MELEE, WealthPreference.POOR)},
+                {"highTechnology", "specialization", Set.of(AttackPreferences.RANGED, TechPreference.HI_TECH)},
+                {"heavyWeapons", "specialization", Set.of(AttackPreferences.RANGED)},
+                {"command", "specialization", Set.of()}
         };
     }
 
-    @Test(dataProvider = "occupationProfiles")
-    public void loadOccupationProfilePreferences(String profileId, Set<IRandomPreference> expectedPreferences) {
+    @Test(dataProvider = "profilePreferences")
+    public void loadProfilePreferences(String profileId, String expectedGroup, Set<IRandomPreference> expectedPreferences) {
         final RandomProfile profile = RandomProfileFactory.getInstance().getElement(profileId);
 
-        Assert.assertEquals(profile.getGroup(), "occupation");
+        Assert.assertEquals(profile.getGroup(), expectedGroup);
         Assert.assertEquals(profile.getPreferences(), expectedPreferences);
     }
 
     @DataProvider(name = "npcProfiles")
     public Object[][] npcProfiles() {
         return new Object[][]{
-                {"serf"}, {"rural"}, {"infantry"}, {"cavalryRaider"}, {"tankDriver"}, {"artillerist"},
-                {"engineer"}, {"medic"}, {"nonCommissionedOfficer"}, {"cybercop"}, {"freedomFighter"},
-                {"pilot"}, {"mechanic"}, {"marine"}, {"sailor"}, {"spaceFighterPilot"},
+                {"serf"}, {"cavalryRaider"}, {"tankDriver"}, {"medic"},
+                {"intermediateCommand"}, {"cybernetic"}, {"freedomFighter"}, {"sailor"}, {"spaceFighterPilot"},
                 {"combatAircraftPilot"}
         };
     }
@@ -106,15 +104,35 @@ public class PreferencesTests {
     public void loadNpcProfilePreferences(String profileId) {
         final RandomProfile profile = RandomProfileFactory.getInstance().getElement(profileId);
 
-        Assert.assertFalse(profile.getPreferences().isEmpty());
+        Assert.assertNotNull(profile);
+    }
+
+    @DataProvider(name = "operationalRoleProfiles")
+    public Object[][] operationalRoleProfiles() {
+        return new Object[][]{
+                {"combat", ElementType.COMBAT}, {"social", ElementType.SOCIAL}, {"stealth", ElementType.STEALTH},
+                {"knowledge", ElementType.TECHNICAL}, {"searcher", ElementType.TECHNICAL},
+                {"faith", ElementType.SPIRITUAL}, {"trade", ElementType.COMMERCE},
+                {"technical", ElementType.TECHNICAL}, {"artist", ElementType.SOCIAL},
+                {"military", ElementType.LEADERSHIP}
+        };
+    }
+
+    @Test(dataProvider = "operationalRoleProfiles")
+    public void loadOperationalRoleProfile(String profileId, ElementType expectedElementType) {
+        final RandomProfile profile = RandomProfileFactory.getInstance().getElement(profileId);
+
+        Assert.assertEquals(profile.getGroup(), "operationalRole");
+        Assert.assertEquals(profile.getElementType(), expectedElementType);
     }
 
     @Test
     public void loadProfileElementPriorities() {
-        final RandomProfile profile = RandomProfileFactory.getInstance().getElement("soldier");
+        final RandomProfile profile = RandomProfileFactory.getInstance().getElement("heavyWeapons");
 
-        Assert.assertEquals(profile.getMandatorySkills(), Set.of("fight"));
-        Assert.assertEquals(profile.getSuggestedSkills(), Set.of("vigor", "melee"));
+        Assert.assertEquals(profile.getMandatorySkills(), Set.of("shoot"));
+        Assert.assertEquals(profile.getSuggestedCapabilities(), Set.of("gunnery", "artillery", "slugGuns",
+                "militaryWeapons", "combatArmor"));
     }
 
     @Test

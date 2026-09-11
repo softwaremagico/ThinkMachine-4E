@@ -1,43 +1,104 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <profiles>
     <profile>
-        <id>soldier</id>
+        <id>combat</id>
         <name>
-            <en>Soldier</en>
-            <es>Soldado</es>
+            <en>Combat</en>
+            <es>Combate</es>
         </name>
-        <group>occupation</group>
-        <random>
-            <recommendedPreferences>
-                <preference>COMBAT</preference>
-                <preference>RANGED</preference>
-            </recommendedPreferences>
-        </random>
-        <mandatorySkills>
-            <skill>fight</skill>
-        </mandatorySkills>
-        <suggestedSkills>
-            <skill>vigor</skill>
-            <skill>melee</skill>
-        </suggestedSkills>
-        <suggestedCapabilities>
-            <capability>slugGuns</capability>
-            <capability>energyGuns</capability>
-        </suggestedCapabilities>
-        <suggestedPerks>
-            <perk>veteran</perk>
-        </suggestedPerks>
+        <group>operationalRole</group>
+        <elementType>COMBAT</elementType>
     </profile>
     <profile>
-        <id>hiTechSoldier</id>
+        <id>social</id>
         <name>
-            <en>Hi Tech Soldier</en>
-            <es>Soldado Alta Tecnologia</es>
+            <en>Social</en>
+            <es>Social</es>
         </name>
-        <group>occupation</group>
+        <group>operationalRole</group>
+        <elementType>SOCIAL</elementType>
+    </profile>
+    <profile>
+        <id>stealth</id>
+        <name>
+            <en>Stealth</en>
+            <es>Sigilo</es>
+        </name>
+        <group>operationalRole</group>
+        <elementType>STEALTH</elementType>
+    </profile>
+    <profile>
+        <id>knowledge</id>
+        <name>
+            <en>Knowledge</en>
+            <es>Conocimiento</es>
+        </name>
+        <group>operationalRole</group>
+        <elementType>TECHNICAL</elementType>
+    </profile>
+    <profile>
+        <id>searcher</id>
+        <name>
+            <en>Searcher</en>
+            <es>Buscador</es>
+        </name>
+        <group>operationalRole</group>
+        <elementType>TECHNICAL</elementType>
+    </profile>
+    <profile>
+        <id>faith</id>
+        <name>
+            <en>Faith</en>
+            <es>Fe</es>
+        </name>
+        <group>operationalRole</group>
+        <elementType>SPIRITUAL</elementType>
+    </profile>
+    <profile>
+        <id>trade</id>
+        <name>
+            <en>Trade</en>
+            <es>Comercio</es>
+        </name>
+        <group>operationalRole</group>
+        <elementType>COMMERCE</elementType>
+    </profile>
+    <profile>
+        <id>technical</id>
+        <name>
+            <en>Technical</en>
+            <es>Tecnico</es>
+        </name>
+        <group>operationalRole</group>
+        <elementType>TECHNICAL</elementType>
+    </profile>
+    <profile>
+        <id>artist</id>
+        <name>
+            <en>Artist</en>
+            <es>Artista</es>
+        </name>
+        <group>operationalRole</group>
+        <elementType>SOCIAL</elementType>
+    </profile>
+    <profile>
+        <id>military</id>
+        <name>
+            <en>Military</en>
+            <es>Militar</es>
+        </name>
+        <group>operationalRole</group>
+        <elementType>LEADERSHIP</elementType>
+    </profile>
+    <profile>
+        <id>highTechnology</id>
+        <name>
+            <en>High Technology</en>
+            <es>Alta Tecnologia</es>
+        </name>
+        <group>specialization</group>
         <random>
             <recommendedPreferences>
-                <preference>COMBAT</preference>
                 <preference>RANGED</preference>
                 <preference>HI_TECH</preference>
             </recommendedPreferences>
@@ -52,21 +113,23 @@
         <suggestedCapabilities>
             <capability>energyGuns</capability>
             <capability>slugGuns</capability>
+            <capability>thinkMachines</capability>
         </suggestedCapabilities>
         <suggestedPerks>
             <perk>veteran</perk>
+            <perk>techSavvy</perk>
+            <perk>mechanic</perk>
         </suggestedPerks>
     </profile>
     <profile>
-        <id>heavySoldier</id>
+        <id>heavyWeapons</id>
         <name>
-            <en>Heavy Soldier</en>
-            <es>Soldado Pesado</es>
+            <en>Heavy Weapons</en>
+            <es>Armas Pesadas</es>
         </name>
-        <group>occupation</group>
+        <group>specialization</group>
         <random>
             <recommendedPreferences>
-                <preference>COMBAT</preference>
                 <preference>RANGED</preference>
             </recommendedPreferences>
         </random>
@@ -81,22 +144,24 @@
             <capability>gunnery</capability>
             <capability>artillery</capability>
             <capability>slugGuns</capability>
+            <capability>militaryWeapons</capability>
+            <capability>combatArmor</capability>
         </suggestedCapabilities>
         <suggestedPerks>
             <perk>veteran</perk>
+            <perk>armedToTheTeeth</perk>
+            <perk>battlesense</perk>
         </suggestedPerks>
     </profile>
     <profile>
-        <id>general</id>
+        <id>command</id>
         <name>
-            <en>Marshal</en>
-            <es>Mariscal</es>
+            <en>Command</en>
+            <es>Mando</es>
         </name>
-        <group>occupation</group>
+        <group>specialization</group>
         <random>
             <recommendedPreferences>
-                <preference>MILITARY</preference>
-                <preference>SOCIAL</preference>
             </recommendedPreferences>
         </random>
         <mandatorySkills>
@@ -105,9 +170,16 @@
         <suggestedSkills>
             <skill>impress</skill>
             <skill>observe</skill>
+            <skill>charm</skill>
         </suggestedSkills>
+        <suggestedCapabilities>
+            <capability>courtCustoms</capability>
+            <capability>factionLore</capability>
+        </suggestedCapabilities>
         <suggestedPerks>
             <perk>veteran</perk>
+            <perk>councilMember</perk>
+            <perk>entourage</perk>
         </suggestedPerks>
     </profile>
     <profile>
@@ -119,7 +191,6 @@
         <group>occupation</group>
         <random>
             <recommendedPreferences>
-                <preference>COMBAT</preference>
                 <preference>MELEE</preference>
                 <preference>POOR</preference>
             </recommendedPreferences>
@@ -157,61 +228,6 @@
         </suggestedCapabilities>
     </profile>
     <profile>
-        <id>rural</id>
-        <name>
-            <en>Rural</en>
-            <es>Rural</es>
-        </name>
-        <group>servitude</group>
-        <random>
-            <recommendedPreferences>
-                <preference>RURAL</preference>
-                <preference>POOR</preference>
-            </recommendedPreferences>
-        </random>
-        <mandatorySkills>
-            <skill>survival</skill>
-        </mandatorySkills>
-        <suggestedSkills>
-            <skill>drive</skill>
-            <skill>observe</skill>
-        </suggestedSkills>
-        <suggestedCapabilities>
-            <capability>beastback</capability>
-            <capability>beastcraft</capability>
-        </suggestedCapabilities>
-    </profile>
-    <profile>
-        <id>infantry</id>
-        <name>
-            <en>Infantry</en>
-            <es>Infanteria</es>
-        </name>
-        <group>army</group>
-        <random>
-            <recommendedPreferences>
-                <preference>COMBAT</preference>
-                <preference>RANGED</preference>
-                <preference>MILITARY</preference>
-            </recommendedPreferences>
-        </random>
-        <mandatorySkills>
-            <skill>shoot</skill>
-        </mandatorySkills>
-        <suggestedSkills>
-            <skill>fight</skill>
-            <skill>vigor</skill>
-            <skill>observe</skill>
-        </suggestedSkills>
-        <suggestedCapabilities>
-            <capability>slugGuns</capability>
-            <capability>energyGuns</capability>
-        </suggestedCapabilities>
-        <suggestedPerks>
-            <perk>veteran</perk>
-        </suggestedPerks>
-    </profile>
-    <profile>
         <id>cavalryRaider</id>
         <name>
             <en>Cavalry Raider</en>
@@ -220,10 +236,8 @@
         <group>army</group>
         <random>
             <recommendedPreferences>
-                <preference>COMBAT</preference>
                 <preference>MELEE</preference>
                 <preference>RURAL</preference>
-                <preference>MILITARY</preference>
             </recommendedPreferences>
         </random>
         <mandatorySkills>
@@ -249,10 +263,7 @@
         <group>army</group>
         <random>
             <recommendedPreferences>
-                <preference>COMBAT</preference>
-                <preference>TECHNICAL</preference>
                 <preference>HI_TECH</preference>
-                <preference>MILITARY</preference>
             </recommendedPreferences>
         </random>
         <mandatorySkills>
@@ -273,67 +284,6 @@
         </suggestedPerks>
     </profile>
     <profile>
-        <id>artillerist</id>
-        <name>
-            <en>Artillerist</en>
-            <es>Artillero</es>
-        </name>
-        <group>army</group>
-        <random>
-            <recommendedPreferences>
-                <preference>RANGED</preference>
-                <preference>TECHNICAL</preference>
-                <preference>HI_TECH</preference>
-                <preference>MILITARY</preference>
-            </recommendedPreferences>
-        </random>
-        <mandatorySkills>
-            <skill>shoot</skill>
-        </mandatorySkills>
-        <suggestedSkills>
-            <skill>interface</skill>
-            <skill>observe</skill>
-        </suggestedSkills>
-        <mandatoryCapabilities>
-            <capability>artillery</capability>
-        </mandatoryCapabilities>
-        <suggestedCapabilities>
-            <capability>gunnery</capability>
-        </suggestedCapabilities>
-        <suggestedPerks>
-            <perk>veteran</perk>
-        </suggestedPerks>
-    </profile>
-    <profile>
-        <id>engineer</id>
-        <name>
-            <en>Engineer</en>
-            <es>Ingeniero</es>
-        </name>
-        <group>army</group>
-        <random>
-            <recommendedPreferences>
-                <preference>TECHNICAL</preference>
-                <preference>HI_TECH</preference>
-            </recommendedPreferences>
-        </random>
-        <mandatorySkills>
-            <skill>techRedemption</skill>
-        </mandatorySkills>
-        <suggestedSkills>
-            <skill>interface</skill>
-            <skill>crafts</skill>
-        </suggestedSkills>
-        <suggestedCapabilities>
-            <capability>thinkMachines</capability>
-            <capability>landcraft</capability>
-        </suggestedCapabilities>
-        <suggestedPerks>
-            <perk>mechanic</perk>
-            <perk>techSavvy</perk>
-        </suggestedPerks>
-    </profile>
-    <profile>
         <id>medic</id>
         <name>
             <en>Medic</en>
@@ -342,7 +292,6 @@
         <group>army</group>
         <random>
             <recommendedPreferences>
-                <preference>KNOWLEDGE</preference>
                 <preference>HI_TECH</preference>
             </recommendedPreferences>
         </random>
@@ -358,17 +307,14 @@
         </suggestedSkills>
     </profile>
     <profile>
-        <id>nonCommissionedOfficer</id>
+        <id>intermediateCommand</id>
         <name>
-            <en>Non-Commissioned Officer</en>
-            <es>Suboficial</es>
+            <en>Intermediate Command</en>
+            <es>Mando Intermedio</es>
         </name>
-        <group>army</group>
+        <group>specialization</group>
         <random>
             <recommendedPreferences>
-                <preference>COMBAT</preference>
-                <preference>MILITARY</preference>
-                <preference>SOCIAL</preference>
             </recommendedPreferences>
         </random>
         <mandatorySkills>
@@ -377,22 +323,27 @@
         <suggestedSkills>
             <skill>fight</skill>
             <skill>impress</skill>
+            <skill>shoot</skill>
         </suggestedSkills>
+        <suggestedCapabilities>
+            <capability>militaryWeapons</capability>
+            <capability>combatArmor</capability>
+        </suggestedCapabilities>
         <suggestedPerks>
             <perk>veteran</perk>
+            <perk>badgeOfMerit</perk>
+            <perk>battlesense</perk>
         </suggestedPerks>
     </profile>
     <profile>
-        <id>cybercop</id>
+        <id>cybernetic</id>
         <name>
-            <en>Cybercop</en>
-            <es>Cybercuerpo</es>
+            <en>Cybernetic</en>
+            <es>Cibernetico</es>
         </name>
-        <group>specialForces</group>
+        <group>specialization</group>
         <random>
             <recommendedPreferences>
-                <preference>COMBAT</preference>
-                <preference>TECHNICAL</preference>
                 <preference>HI_TECH</preference>
                 <preference>LEGAL</preference>
             </recommendedPreferences>
@@ -403,6 +354,8 @@
         <suggestedSkills>
             <skill>shoot</skill>
             <skill>observe</skill>
+            <skill>intrusion</skill>
+            <skill>techRedemption</skill>
         </suggestedSkills>
         <suggestedCapabilities>
             <capability>thinkMachines</capability>
@@ -410,6 +363,8 @@
         </suggestedCapabilities>
         <suggestedPerks>
             <perk>veteran</perk>
+            <perk>techSavvy</perk>
+            <perk>backdoorKey</perk>
         </suggestedPerks>
     </profile>
     <profile>
@@ -421,8 +376,6 @@
         <group>guerrilla</group>
         <random>
             <recommendedPreferences>
-                <preference>COMBAT</preference>
-                <preference>STEALTH</preference>
                 <preference>FRONTIER</preference>
                 <preference>WANTED</preference>
             </recommendedPreferences>
@@ -441,93 +394,6 @@
         </suggestedCapabilities>
     </profile>
     <profile>
-        <id>pilot</id>
-        <name>
-            <en>Pilot</en>
-            <es>Piloto</es>
-        </name>
-        <random>
-            <recommendedPreferences>
-                <preference>TECHNICAL</preference>
-                <preference>SEARCHER</preference>
-                <preference>HI_TECH</preference>
-            </recommendedPreferences>
-        </random>
-        <mandatorySkills>
-            <skill>pilot</skill>
-        </mandatorySkills>
-        <suggestedSkills>
-            <skill>interface</skill>
-            <skill>observe</skill>
-        </suggestedSkills>
-        <mandatoryCapabilities>
-            <capability>spacecraft</capability>
-        </mandatoryCapabilities>
-        <suggestedPerks>
-            <perk>mechanic</perk>
-        </suggestedPerks>
-    </profile>
-    <profile>
-        <id>mechanic</id>
-        <name>
-            <en>Mechanic</en>
-            <es>Mecanico</es>
-        </name>
-        <random>
-            <recommendedPreferences>
-                <preference>TECHNICAL</preference>
-                <preference>HI_TECH</preference>
-            </recommendedPreferences>
-        </random>
-        <mandatorySkills>
-            <skill>techRedemption</skill>
-        </mandatorySkills>
-        <suggestedSkills>
-            <skill>crafts</skill>
-            <skill>interface</skill>
-        </suggestedSkills>
-        <suggestedCapabilities>
-            <capability>thinkMachines</capability>
-            <capability>landcraft</capability>
-            <capability>spacecraft</capability>
-        </suggestedCapabilities>
-        <suggestedPerks>
-            <perk>mechanic</perk>
-            <perk>techSavvy</perk>
-        </suggestedPerks>
-    </profile>
-    <profile>
-        <id>marine</id>
-        <name>
-            <en>Marine</en>
-            <es>Infante de Marina</es>
-        </name>
-        <group>navy</group>
-        <random>
-            <recommendedPreferences>
-                <preference>COMBAT</preference>
-                <preference>RANGED</preference>
-                <preference>MILITARY</preference>
-            </recommendedPreferences>
-        </random>
-        <mandatorySkills>
-            <skill>shoot</skill>
-        </mandatorySkills>
-        <suggestedSkills>
-            <skill>fight</skill>
-            <skill>vigor</skill>
-            <skill>survival</skill>
-        </suggestedSkills>
-        <suggestedCapabilities>
-            <capability>slugGuns</capability>
-            <capability>energyGuns</capability>
-            <capability>gunnery</capability>
-        </suggestedCapabilities>
-        <suggestedPerks>
-            <perk>veteran</perk>
-        </suggestedPerks>
-    </profile>
-    <profile>
         <id>sailor</id>
         <name>
             <en>Sailor</en>
@@ -536,7 +402,6 @@
         <group>army</group>
         <random>
             <recommendedPreferences>
-                <preference>TECHNICAL</preference>
             </recommendedPreferences>
         </random>
         <mandatorySkills>
@@ -562,8 +427,6 @@
         <group>army</group>
         <random>
             <recommendedPreferences>
-                <preference>COMBAT</preference>
-                <preference>TECHNICAL</preference>
                 <preference>HI_TECH</preference>
             </recommendedPreferences>
         </random>
@@ -595,10 +458,7 @@
         <group>airForce</group>
         <random>
             <recommendedPreferences>
-                <preference>COMBAT</preference>
-                <preference>TECHNICAL</preference>
                 <preference>HI_TECH</preference>
-                <preference>MILITARY</preference>
             </recommendedPreferences>
         </random>
         <mandatorySkills>

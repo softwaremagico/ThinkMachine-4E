@@ -28,6 +28,7 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.equipment.weapons.Weapon;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponClass;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponType;
+import com.softwaremagico.tm.ElementType;
 import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.exceptions.UnofficialElementNotAllowedException;
@@ -35,7 +36,6 @@ import com.softwaremagico.tm.random.character.RandomModifier;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.preferences.AttackPreferences;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
-import com.softwaremagico.tm.random.preferences.OperationalRolePreference;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -96,7 +96,8 @@ public class RandomRangeWeapon extends RandomWeapon {
 
     @Override
     public void assign() throws InvalidSpecieException, InvalidRandomElementSelectedException, UnofficialElementNotAllowedException {
-        final boolean removeOld = !getPreferences().contains(OperationalRolePreference.COMBAT);
+        final boolean removeOld = getProfiles().stream()
+                .noneMatch(profile -> profile.getElementType() == ElementType.COMBAT);
         getCharacterPlayer().setPurchasedRangedWeapons(Collections.singletonList(selectElementByWeight()), removeOld);
     }
 }

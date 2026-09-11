@@ -24,7 +24,6 @@ package com.softwaremagico.tm.random.preferences;
  * #L%
  */
 
-import com.softwaremagico.tm.ElementType;
 import com.softwaremagico.tm.XmlData;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
@@ -212,7 +211,6 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         multiplier = applyRecommendedPreferenceBonus(element, multiplier);
         multiplier = applyInadvisablePreferencePenalty(element, multiplier);
 
-        // Bonus by ElementType matching OperationalRolePreference.
         multiplier = applyElementTypeBonus(element, multiplier);
 
         RandomValuesLog.debug(RandomSelector.class.getName(),
@@ -320,69 +318,18 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         return multiplier;
     }
 
-    /**
-     * Applies a bonus multiplier if the element's ElementType matches the user's
-     * OperationalRolePreference. This encourages random generation to select elements
-     * thematically aligned with the character's operational role.
-     *
-     * @param element the element being evaluated
-     * @param baseMultiplier the current multiplier before ElementType adjustment
-     * @return the adjusted multiplier with ElementType bonus applied
-     */
     private double applyElementTypeBonus(Element element, double baseMultiplier) {
-        if (element == null || element.getElementType() == null || preferences == null || preferences.size() == 0) {
+        if (element == null || element.getElementType() == null) {
             return baseMultiplier;
         }
 
-        // Look for OperationalRolePreference in user preferences
-        final OperationalRolePreference rolePreference = preferences.stream()
-                .filter(OperationalRolePreference.class::isInstance)
-                .map(p -> (OperationalRolePreference) p)
-                .findFirst()
-                .orElse(null);
-
-        if (rolePreference == null) {
-            return baseMultiplier;
-        }
-
-        // Map OperationalRolePreference to ElementType
-        final ElementType targetElementType = mapRolePreferenceToElementType(rolePreference);
-
-        if (targetElementType != null && element.getElementType() == targetElementType) {
+        if (getProfiles().stream().anyMatch(profile -> element.getElementType() == profile.getElementType())) {
             RandomGenerationLog.debug(RandomSelector.class.getName(),
-                    "ElementType bonus applied: {} matches operational role {}",
-                    element.getElementType(), rolePreference);
+                    "ElementType bonus applied: {} matches selected profile.", element.getElementType());
             return baseMultiplier * HIGH_MULTIPLIER;
         }
 
         return baseMultiplier;
-    }
-
-    /**
-     * Maps an OperationalRolePreference to one or more corresponding ElementTypes.
-     * Some operational roles map directly to element types, while others may have
-     * thematic connections.
-     *
-     * @param preference the operational role preference
-     * @return the corresponding ElementType, or null if no direct mapping exists
-     */
-    private ElementType mapRolePreferenceToElementType(OperationalRolePreference preference) {
-        if (preference == null) {
-            return null;
-        }
-
-        return switch (preference) {
-            case COMBAT -> ElementType.COMBAT;
-            case SOCIAL -> ElementType.SOCIAL;
-            case STEALTH -> ElementType.STEALTH;
-            case TECHNICAL -> ElementType.TECHNICAL;
-            case KNOWLEDGE -> ElementType.TECHNICAL;
-            case FAITH -> ElementType.SPIRITUAL;
-            case TRADE -> ElementType.COMMERCE;
-            case ARTIST -> ElementType.SOCIAL;
-            case MILITARY -> ElementType.LEADERSHIP;
-            case SEARCHER -> ElementType.TECHNICAL; // Searchers use technical skills
-        };
     }
 
     public void validateElement(Element element) throws InvalidRandomElementSelectedException {

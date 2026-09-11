@@ -27,12 +27,12 @@ package com.softwaremagico.tm.random.character.equipment;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.equipment.AgoraGroup;
 import com.softwaremagico.tm.character.equipment.Equipment;
+import com.softwaremagico.tm.ElementType;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.random.character.RandomModifier;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
-import com.softwaremagico.tm.random.preferences.OperationalRolePreference;
 import com.softwaremagico.tm.random.preferences.RandomSelector;
 
 import java.util.HashSet;
@@ -87,7 +87,7 @@ public abstract class RandomEquipment<E extends Equipment> extends RandomSelecto
      */
     protected int getWeightCostModifier(E equipment) throws InvalidRandomElementSelectedException {
         final double remainingCash = getCharacterPlayer().getRemainingCash();
-        if (getPreferences().contains(OperationalRolePreference.COMBAT)) {
+        if (getProfiles().stream().anyMatch(profile -> profile.getElementType() == ElementType.COMBAT)) {
             //Combat people can purchase more expensive weapons.
             return 0;
         }
