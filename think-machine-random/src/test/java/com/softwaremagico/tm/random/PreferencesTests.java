@@ -38,6 +38,7 @@ import com.softwaremagico.tm.random.preferences.AlignmentPreference;
 import com.softwaremagico.tm.random.preferences.AttackPreferences;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.preferences.RandomSelector;
+import com.softwaremagico.tm.random.profile.RandomPreferences;
 import com.softwaremagico.tm.random.preferences.TechPreference;
 import com.softwaremagico.tm.random.preferences.WealthPreference;
 import com.softwaremagico.tm.random.profile.RandomProfile;
@@ -76,19 +77,18 @@ public class PreferencesTests {
     @DataProvider(name = "profilePreferences")
     public Object[][] profilePreferences() {
         return new Object[][]{
-                {"thug", "occupation", Set.of(AttackPreferences.MELEE, WealthPreference.POOR)},
-                {"highTechnology", "specialization", Set.of(AttackPreferences.RANGED, TechPreference.HI_TECH)},
-                {"heavyWeapons", "specialization", Set.of(AttackPreferences.RANGED)},
-                {"command", "specialization", Set.of()}
+                {"thug", "occupation"},
+                {"highTechnology", "specialization"},
+                {"heavyWeapons", "specialization"},
+                {"command", "specialization"}
         };
     }
 
     @Test(dataProvider = "profilePreferences")
-    public void loadProfilePreferences(String profileId, String expectedGroup, Set<IRandomPreference> expectedPreferences) {
+    public void loadProfilePreferences(String profileId, String expectedGroup) {
         final RandomProfile profile = RandomProfileFactory.getInstance().getElement(profileId);
 
         Assert.assertEquals(profile.getGroup(), expectedGroup);
-        Assert.assertEquals(profile.getPreferences(), expectedPreferences);
     }
 
     @DataProvider(name = "npcProfiles")
@@ -133,6 +133,34 @@ public class PreferencesTests {
         Assert.assertEquals(profile.getMandatorySkills(), Set.of("shoot"));
         Assert.assertEquals(profile.getSuggestedCapabilities(), Set.of("gunnery", "artillery", "slugGuns",
                 "militaryWeapons", "combatArmor"));
+    }
+
+    @Test
+    public void profilesAreKeptOutsideRandomPreferences() throws InvalidXmlElementException {
+        final RandomProfile profile = RandomProfileFactory.getInstance().getElement("heavyWeapons");
+        final RandomPreferences preferences = new RandomPreferences(Set.of(AttackPreferences.RANGED), Set.of(profile));
+
+        Assert.assertEquals(preferences, Set.of(AttackPreferences.RANGED));
+        Assert.assertEquals(preferences.getProfiles(), Set.of(profile));
+    }
+
+    @Test
+    public void profileRecommendationIncreasesElementWeight() throws InvalidRandomElementSelectedException, InvalidXmlElementException {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("merchant");
+        final Faction faction = FactionFactory.getInstance().getElement("musters");
+        final RandomProfile profile = RandomProfileFactory.getInstance().getElement("heavyWeapons");
+        final RandomFaction baseSelector = new RandomFaction(characterPlayer, new RandomPreferences(Set.of(), Set.of()));
+        final RandomFaction selector = new RandomFaction(characterPlayer, new RandomPreferences(Set.of(), Set.of(profile)));
+
+        faction.getRandomDefinition().getRecommendedPreferences().add(profile.getId());
+        try {
+            Assert.assertEquals(selector.getElementWeight(faction), baseSelector.getElementWeight(faction)
+                    + RandomSelector.USER_SELECTION_MULTIPLIER * RandomSelector.BASIC_PROBABILITY);
+        } finally {
+            faction.getRandomDefinition().getRecommendedPreferences().remove(profile.getId());
+        }
     }
 
     @Test

@@ -53,13 +53,12 @@ import com.softwaremagico.tm.random.preferences.AttackPreferences;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.preferences.PowerLevelPreference;
 import com.softwaremagico.tm.random.profile.RandomProfile;
+import com.softwaremagico.tm.random.profile.RandomPreferences;
 import com.softwaremagico.tm.random.step.RandomCharacteristics;
 import com.softwaremagico.tm.random.step.RandomSkill;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
 public class RandomizeCharacter {
@@ -72,8 +71,12 @@ public class RandomizeCharacter {
     private final RandomFaction randomFaction;
     private final RandomUpbringing randomUpbringing;
 
+    public RandomizeCharacter(CharacterPlayer characterPlayer) {
+        this(characterPlayer, 1, new RandomPreferences(Set.of(), Set.of()));
+    }
+
     public RandomizeCharacter(CharacterPlayer characterPlayer, IRandomPreference... preferences) {
-        this(characterPlayer, getDesiredLevel(preferences), preferences);
+        this(characterPlayer, getDesiredLevel(preferences), new RandomPreferences(Arrays.asList(preferences), Set.of()));
     }
 
     public RandomizeCharacter(CharacterPlayer characterPlayer, RandomProfile profile) {
@@ -81,28 +84,17 @@ public class RandomizeCharacter {
     }
 
     public RandomizeCharacter(CharacterPlayer characterPlayer, RandomProfile... profiles) {
-        this(characterPlayer, getProfilePreferences(profiles));
-    }
-
-    private static IRandomPreference[] getProfilePreferences(RandomProfile... profiles) {
-        final Set<IRandomPreference> preferences = new HashSet<>();
-        for (final RandomProfile profile : profiles) {
-            preferences.addAll(profile.getPreferences());
-            preferences.add(profile);
-        }
-        return preferences.toArray(new IRandomPreference[0]);
+        this(characterPlayer, 1, new RandomPreferences(Set.of(), Arrays.asList(profiles)));
     }
 
     public RandomizeCharacter(CharacterPlayer characterPlayer, int level, IRandomPreference... preferences) {
+        this(characterPlayer, level, new RandomPreferences(Arrays.asList(preferences), Set.of()));
+    }
+
+    private RandomizeCharacter(CharacterPlayer characterPlayer, int level, RandomPreferences preferences) {
         this.characterPlayer = characterPlayer;
         this.desiredLevel = level;
-        if (preferences != null) {
-            final List<IRandomPreference> customPreferences = Arrays.asList(preferences);
-            customPreferences.removeIf(Objects::isNull);
-            this.preferences = new HashSet<>(customPreferences);
-        } else {
-            this.preferences = new HashSet<>();
-        }
+        this.preferences = preferences;
         randomSpecie = new RandomSpecie(characterPlayer, this.preferences);
         randomUpbringing = new RandomUpbringing(characterPlayer, this.preferences);
         randomFaction = new RandomFaction(characterPlayer, this.preferences);

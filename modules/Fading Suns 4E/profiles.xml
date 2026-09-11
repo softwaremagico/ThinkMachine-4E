@@ -8,6 +8,17 @@
         </name>
         <group>operationalRole</group>
         <elementType>COMBAT</elementType>
+        <suggestedSkills>
+            <skill>fight</skill>
+            <skill>vigor</skill>
+        </suggestedSkills>
+        <suggestedCapabilities>
+            <capability>combatArmor</capability>
+        </suggestedCapabilities>
+        <suggestedPerks>
+            <perk>dangerSense</perk>
+            <perk>battlesense</perk>
+        </suggestedPerks>
     </profile>
     <profile>
         <id>social</id>
@@ -17,6 +28,17 @@
         </name>
         <group>operationalRole</group>
         <elementType>SOCIAL</elementType>
+        <suggestedSkills>
+            <skill>charm</skill>
+            <skill>empathy</skill>
+        </suggestedSkills>
+        <suggestedCapabilities>
+            <capability>courtCustoms</capability>
+        </suggestedCapabilities>
+        <suggestedPerks>
+            <perk>analyzePersonality</perk>
+            <perk>contact</perk>
+        </suggestedPerks>
     </profile>
     <profile>
         <id>stealth</id>
@@ -26,6 +48,19 @@
         </name>
         <group>operationalRole</group>
         <elementType>STEALTH</elementType>
+        <suggestedSkills>
+            <skill>sneak</skill>
+            <skill>disguise</skill>
+            <skill>intrusion</skill>
+        </suggestedSkills>
+        <suggestedCapabilities>
+            <capability>locksmithing</capability>
+            <capability>streetwise</capability>
+        </suggestedCapabilities>
+        <suggestedPerks>
+            <perk>chameleon</perk>
+            <perk>catBurglarsEye</perk>
+        </suggestedPerks>
     </profile>
     <profile>
         <id>knowledge</id>
@@ -35,6 +70,18 @@
         </name>
         <group>operationalRole</group>
         <elementType>TECHNICAL</elementType>
+        <suggestedSkills>
+            <skill>academia</skill>
+            <skill>observe</skill>
+        </suggestedSkills>
+        <suggestedCapabilities>
+            <capability>historyLore</capability>
+            <capability>planetLore</capability>
+        </suggestedCapabilities>
+        <suggestedPerks>
+            <perk>deduce</perk>
+            <perk>anthropologist</perk>
+        </suggestedPerks>
     </profile>
     <profile>
         <id>searcher</id>
@@ -44,6 +91,18 @@
         </name>
         <group>operationalRole</group>
         <elementType>TECHNICAL</elementType>
+        <suggestedSkills>
+            <skill>survival</skill>
+            <skill>observe</skill>
+        </suggestedSkills>
+        <suggestedCapabilities>
+            <capability>cartography</capability>
+            <capability>beastLore</capability>
+        </suggestedCapabilities>
+        <suggestedPerks>
+            <perk>cartographer</perk>
+            <perk>alienFriend</perk>
+        </suggestedPerks>
     </profile>
     <profile>
         <id>faith</id>
@@ -53,6 +112,18 @@
         </name>
         <group>operationalRole</group>
         <elementType>SPIRITUAL</elementType>
+        <suggestedSkills>
+            <skill>focus</skill>
+            <skill>empathy</skill>
+        </suggestedSkills>
+        <suggestedCapabilities>
+            <capability>cathedralCustoms</capability>
+            <capability>occultLore</capability>
+        </suggestedCapabilities>
+        <suggestedPerks>
+            <perk>enlightened</perk>
+            <perk>absolution</perk>
+        </suggestedPerks>
     </profile>
     <profile>
         <id>trade</id>
@@ -62,6 +133,18 @@
         </name>
         <group>operationalRole</group>
         <elementType>COMMERCE</elementType>
+        <suggestedSkills>
+            <skill>charm</skill>
+            <skill>knavery</skill>
+        </suggestedSkills>
+        <suggestedCapabilities>
+            <capability>streetwise</capability>
+        </suggestedCapabilities>
+        <suggestedPerks>
+            <perk>bankster</perk>
+            <perk>creditWorthy</perk>
+            <perk>counterfeit</perk>
+        </suggestedPerks>
     </profile>
     <profile>
         <id>technical</id>
@@ -71,6 +154,19 @@
         </name>
         <group>operationalRole</group>
         <elementType>TECHNICAL</elementType>
+        <suggestedSkills>
+            <skill>techRedemption</skill>
+            <skill>interface</skill>
+            <skill>crafts</skill>
+        </suggestedSkills>
+        <suggestedCapabilities>
+            <capability>thinkMachines</capability>
+            <capability>architecture</capability>
+        </suggestedCapabilities>
+        <suggestedPerks>
+            <perk>techSavvy</perk>
+            <perk>mechanic</perk>
+        </suggestedPerks>
     </profile>
     <profile>
         <id>artist</id>
@@ -80,6 +176,18 @@
         </name>
         <group>operationalRole</group>
         <elementType>SOCIAL</elementType>
+        <suggestedSkills>
+            <skill>perform</skill>
+            <skill>arts</skill>
+        </suggestedSkills>
+        <suggestedCapabilities>
+            <capability>musicalInstrument</capability>
+            <capability>writing</capability>
+        </suggestedCapabilities>
+        <suggestedPerks>
+            <perk>danceOfDestruction</perk>
+            <perk>comeliness</perk>
+        </suggestedPerks>
     </profile>
     <profile>
         <id>military</id>
@@ -89,6 +197,18 @@
         </name>
         <group>operationalRole</group>
         <elementType>LEADERSHIP</elementType>
+        <suggestedSkills>
+            <skill>impress</skill>
+            <skill>observe</skill>
+        </suggestedSkills>
+        <suggestedCapabilities>
+            <capability>factionLore</capability>
+            <capability>militaryWeapons</capability>
+        </suggestedCapabilities>
+        <suggestedPerks>
+            <perk>badgeOfMerit</perk>
+            <perk>councilMember</perk>
+        </suggestedPerks>
     </profile>
     <profile>
         <id>highTechnology</id>

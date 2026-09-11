@@ -35,6 +35,7 @@ import com.softwaremagico.tm.random.definition.ProbabilityMultiplier;
 import com.softwaremagico.tm.random.definition.RandomElementDefinition;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.profile.RandomProfile;
+import com.softwaremagico.tm.random.profile.RandomPreferences;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -79,6 +80,7 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
 
     private final CharacterPlayer characterPlayer;
     private final Set<IRandomPreference> preferences;
+    private final Set<RandomProfile> profiles;
 
     private final Set<Element> suggestedElements;
 
@@ -94,6 +96,8 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
     protected RandomSelector(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences, Set<Element> suggestedElements) {
         this.characterPlayer = characterPlayer;
         this.preferences = preferences;
+        this.profiles = preferences instanceof RandomPreferences
+                ? ((RandomPreferences) preferences).getProfiles() : Collections.emptySet();
         this.suggestedElements = suggestedElements;
     }
 
@@ -123,13 +127,11 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
     }
 
     protected RandomProfile getProfile() {
-        return getPreferences().stream().filter(RandomProfile.class::isInstance).map(RandomProfile.class::cast)
-                .findFirst().orElse(null);
+        return profiles.stream().findFirst().orElse(null);
     }
 
     protected Set<RandomProfile> getProfiles() {
-        return getPreferences().stream().filter(RandomProfile.class::isInstance).map(RandomProfile.class::cast)
-                .collect(java.util.stream.Collectors.toSet());
+        return profiles;
     }
 
     public void setPreferences(String preferencesContent) {
@@ -291,9 +293,8 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
     }
 
     private double applyRecommendedPreferenceBonus(final Element element, double multiplier) {
-        // Recommended by user preferences.
-        if (preferences != null && !preferences.isEmpty()) {
-            final List<String> common = preferences.stream().map(IRandomPreference::name).toList();
+        if (!getPreferenceNames().isEmpty()) {
+            final List<String> common = getPreferenceNames();
             final List<String> commonPreferences = new ArrayList<>(common);
             commonPreferences.retainAll(element.getRandomDefinition().getRecommendedPreferences());
             RandomGenerationLog.debug(RandomSelector.class.getName(),
@@ -304,9 +305,8 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
     }
 
     private double applyInadvisablePreferencePenalty(final Element element, double multiplier) {
-        // Inadvisable by user preferences.
-        if (preferences != null && !preferences.isEmpty()) {
-            final List<String> common = preferences.stream().map(IRandomPreference::name).toList();
+        if (!getPreferenceNames().isEmpty()) {
+            final List<String> common = getPreferenceNames();
             final List<String> commonPreferences = new ArrayList<>(common);
             commonPreferences.retainAll(element.getRandomDefinition().getInadvisablePreferences());
             RandomGenerationLog.debug(RandomSelector.class.getName(),
@@ -330,6 +330,12 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         }
 
         return baseMultiplier;
+    }
+
+    private List<String> getPreferenceNames() {
+        final List<String> names = new ArrayList<>(getPreferences().stream().map(IRandomPreference::name).toList());
+        names.addAll(getProfiles().stream().map(RandomProfile::getId).toList());
+        return names;
     }
 
     public void validateElement(Element element) throws InvalidRandomElementSelectedException {
@@ -365,18 +371,18 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
         }
 
         // User preferences forbidden.
-        if (preferences != null && !preferences.isEmpty() && randomDefinition.getForbiddenPreferences() != null
+        if (!getPreferenceNames().isEmpty() && randomDefinition.getForbiddenPreferences() != null
                 && !randomDefinition.getForbiddenPreferences().isEmpty()
-                && !Collections.disjoint(preferences.stream().map(IRandomPreference::name).toList(),
+                && !Collections.disjoint(getPreferenceNames(),
                 randomDefinition.getForbiddenPreferences())) {
             throw new InvalidRandomElementSelectedException(
                     "Element ignored due to preferences '" + randomDefinition.getForbiddenPreferences() + "'.");
         }
 
         // User must have these preferences restriction.
-        if (preferences != null && !preferences.isEmpty() && randomDefinition.getRestrictedPreferences() != null
+        if (!getPreferenceNames().isEmpty() && randomDefinition.getRestrictedPreferences() != null
                 && !randomDefinition.getRestrictedPreferences().isEmpty()
-                && Collections.disjoint(preferences.stream().map(IRandomPreference::name).toList(),
+                && Collections.disjoint(getPreferenceNames(),
                 randomDefinition.getRestrictedPreferences())) {
             throw new InvalidRandomElementSelectedException(
                     "Element ignored due as lacking mandatory preference '" + randomDefinition.getRestrictedPreferences() + "'.");

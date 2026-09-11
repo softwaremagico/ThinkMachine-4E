@@ -29,28 +29,16 @@ import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
-import com.softwaremagico.tm.random.preferences.IRandomPreference;
 
 import java.util.Set;
-import java.util.stream.Collectors;
 
-public class RandomProfile extends Element implements IRandomPreference {
+public class RandomProfile extends Element {
     private Set<String> mandatoryPerks = Set.of();
     private Set<String> suggestedPerks = Set.of();
     private Set<String> mandatoryCapabilities = Set.of();
     private Set<String> suggestedCapabilities = Set.of();
     private Set<String> mandatorySkills = Set.of();
     private Set<String> suggestedSkills = Set.of();
-
-    @Override
-    public String name() {
-        return getId();
-    }
-
-    public Set<IRandomPreference> getPreferences() {
-        return getRandomDefinition().getRecommendedPreferences().stream().map(IRandomPreference::valueOf)
-                .collect(Collectors.toSet());
-    }
 
     public Set<String> getMandatoryPerks() {
         return mandatoryPerks;
