@@ -57,7 +57,7 @@ public class RandomUpbringing extends RandomSelector<Upbringing> implements Assi
             }
         }
 
-        //Select Raised in space option.
+        // Select Raised in Space option.
         getCharacterPlayer().setRaisedInSpace(RandomRaiseInSpace.isRaisedInSpace(getPreferences()));
         if (getCharacterPlayer().isRaisedInSpace()) {
             RandomSelectorLog.info(RandomUpbringing.class, "Selection of Raised in Space is '{}'.",
@@ -91,6 +91,10 @@ public class RandomUpbringing extends RandomSelector<Upbringing> implements Assi
                     + "'. Character is '" + getCharacterPlayer().getSpecie() + "'.");
         }
 
-        return super.getWeight(upbringing);
+        int weight = super.getWeight(upbringing);
+        if (getProfiles().stream().anyMatch(profile -> profile.getRecommendedUpbringings().contains(upbringing.getId()))) {
+            weight *= HIGH_MULTIPLIER;
+        }
+        return weight;
     }
 }

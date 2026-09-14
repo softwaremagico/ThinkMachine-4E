@@ -31,10 +31,10 @@ import com.softwaremagico.tm.exceptions.InvalidSpecieException;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.RandomSelectorLog;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
-import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.character.selectors.RandomInnerStepsSelector;
-import com.softwaremagico.tm.random.preferences.RandomSelector;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
+import com.softwaremagico.tm.random.preferences.IRandomPreference;
+import com.softwaremagico.tm.random.preferences.RandomSelector;
 import com.softwaremagico.tm.random.step.RandomizeCharacterDefinitionStep;
 
 import java.util.Collection;
@@ -95,12 +95,17 @@ public class RandomFaction extends RandomSelector<Faction> implements Assignable
             }
         }
 
+        int weight = super.getWeight(faction);
+        if (getProfiles().stream().anyMatch(profile -> profile.getRecommendedFactions().contains(faction.getId()))) {
+            weight *= HIGH_MULTIPLIER;
+        }
+
         // Favored callings can define the faction.
         if (getCharacterPlayer().getCalling() != null
                 && faction.getFavoredCallings().contains(getCharacterPlayer().getCalling().getId())) {
-            return VERY_GOOD_PROBABILITY;
+            return Math.max(VERY_GOOD_PROBABILITY, weight);
         }
 
-        return super.getWeight(faction);
+        return weight;
     }
 }

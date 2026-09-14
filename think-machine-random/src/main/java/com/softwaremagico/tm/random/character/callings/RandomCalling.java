@@ -35,9 +35,9 @@ import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 import com.softwaremagico.tm.log.RandomSelectorLog;
 import com.softwaremagico.tm.random.character.selectors.AssignableRandomSelector;
 import com.softwaremagico.tm.random.character.selectors.RandomInnerStepsSelector;
+import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.preferences.RandomSelector;
-import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.step.RandomizeCharacterDefinitionStep;
 
 import java.util.Collection;
@@ -80,7 +80,7 @@ public class RandomCalling extends RandomSelector<Calling> implements Assignable
 
     @Override
     protected int getWeight(Calling calling) throws InvalidRandomElementSelectedException {
-        //Avoid missing theurgy factions with psi and viceversa.
+        // Avoid missing theurgy factions with psi and vice versa.
         if (calling.getGroup() != null && CallingGroup.get(calling.getGroup()) == CallingGroup.PSI
                 && getCharacterPlayer().getOccultismType() == OccultismTypeFactory.getTheurgy()) {
             return 0;
@@ -99,9 +99,14 @@ public class RandomCalling extends RandomSelector<Calling> implements Assignable
             }
         }
 
-        if (FactionFactory.getInstance().getElement(getCharacterPlayer().getFaction()).getFavoredCallings().contains(calling.getId())) {
-            return VERY_GOOD_PROBABILITY;
+        int weight = super.getWeight(calling);
+        if (getProfiles().stream().anyMatch(profile -> profile.getRecommendedCallings().contains(calling.getId()))) {
+            weight *= HIGH_MULTIPLIER;
         }
-        return super.getWeight(calling);
+
+        if (FactionFactory.getInstance().getElement(getCharacterPlayer().getFaction()).getFavoredCallings().contains(calling.getId())) {
+            return Math.max(VERY_GOOD_PROBABILITY, weight);
+        }
+        return weight;
     }
 }

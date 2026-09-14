@@ -24,28 +24,33 @@ package com.softwaremagico.tm.random;
  * #L%
  */
 
-import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.ElementType;
+import com.softwaremagico.tm.character.CharacterPlayer;
+import com.softwaremagico.tm.character.callings.Calling;
+import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
 import com.softwaremagico.tm.character.factions.Faction;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
+import com.softwaremagico.tm.character.upbringing.Upbringing;
+import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.random.character.callings.RandomCalling;
 import com.softwaremagico.tm.random.character.factions.RandomFaction;
+import com.softwaremagico.tm.random.character.upbringings.RandomUpbringing;
 import com.softwaremagico.tm.random.definition.ProbabilityMultiplier;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.preferences.AlignmentPreference;
 import com.softwaremagico.tm.random.preferences.AttackPreferences;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.preferences.RandomSelector;
-import com.softwaremagico.tm.random.profile.RandomPreferences;
 import com.softwaremagico.tm.random.preferences.TechPreference;
-import com.softwaremagico.tm.random.preferences.WealthPreference;
+import com.softwaremagico.tm.random.profile.RandomPreferences;
 import com.softwaremagico.tm.random.profile.RandomProfile;
 import com.softwaremagico.tm.random.profile.RandomProfileFactory;
-import com.softwaremagico.tm.random.preferences.TechPreference;
 import com.softwaremagico.tm.random.step.RandomCharacteristicBonusOption;
 import com.softwaremagico.tm.random.step.RandomCharacteristics;
+import com.softwaremagico.tm.xml.XmlFactory;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -59,186 +64,268 @@ import java.util.Set;
 @Test(groups = {"preferences"})
 public class PreferencesTests {
 
-    private Set<IRandomPreference> convert(IRandomPreference... preferences) {
-        if (preferences != null) {
-            final List<IRandomPreference> customPreferences = Arrays.asList(preferences);
-            customPreferences.removeIf(Objects::isNull);
-            return new HashSet<>(customPreferences);
-        } else {
-            return new HashSet<>();
-        }
-    }
+	private Set<IRandomPreference> convert(IRandomPreference... preferences) {
+		if (preferences != null) {
+			final List<IRandomPreference> customPreferences = Arrays.asList(preferences);
+			customPreferences.removeIf(Objects::isNull);
+			return new HashSet<>(customPreferences);
+		} else {
+			return new HashSet<>();
+		}
+	}
 
-    @Test
-    public void checkObunPreferences() {
-        Assert.assertEquals(SpecieFactory.getInstance().getElement("obun").getRandomDefinition().getRecommendedPreferences().size(), 2);
-    }
+	private RandomProfile createRecommendedProfile() {
+		final RandomProfile profile = new RandomProfile();
+		profile.setId("testProfile");
+		profile.setRecommendedUpbringings(Set.of("merchant"));
+		profile.setRecommendedFactions(Set.of("reeves", "musters"));
+		profile.setRecommendedCallings(Set.of("trader"));
+		return profile;
+	}
 
-    @DataProvider(name = "profilePreferences")
-    public Object[][] profilePreferences() {
-        return new Object[][]{
-                {"thug", "occupation"},
-                {"highTechnology", "specialization"},
-                {"heavyWeapons", "specialization"},
-                {"command", "specialization"}
-        };
-    }
+	@Test
+	public void checkObunPreferences() {
+		Assert.assertEquals(
+				SpecieFactory.getInstance().getElement("obun").getRandomDefinition().getRecommendedPreferences().size(),
+				2);
+	}
 
-    @Test(dataProvider = "profilePreferences")
-    public void loadProfilePreferences(String profileId, String expectedGroup) {
-        final RandomProfile profile = RandomProfileFactory.getInstance().getElement(profileId);
+	@DataProvider(name = "profilePreferences")
+	public Object[][] profilePreferences() {
+		return new Object[][]{{"thug", "occupation"}, {"highTechnology", "specialization"},
+				{"heavyWeapons", "specialization"}, {"command", "specialization"}};
+	}
 
-        Assert.assertEquals(profile.getGroup(), expectedGroup);
-    }
+	@Test(dataProvider = "profilePreferences")
+	public void loadProfilePreferences(String profileId, String expectedGroup) {
+		final RandomProfile profile = RandomProfileFactory.getInstance().getElement(profileId);
 
-    @DataProvider(name = "npcProfiles")
-    public Object[][] npcProfiles() {
-        return new Object[][]{
-                {"serf"}, {"cavalryRaider"}, {"tankDriver"}, {"medic"},
-                {"intermediateCommand"}, {"cybernetic"}, {"freedomFighter"}, {"sailor"}, {"spaceFighterPilot"},
-                {"combatAircraftPilot"}
-        };
-    }
+		Assert.assertEquals(profile.getGroup(), expectedGroup);
+	}
 
-    @Test(dataProvider = "npcProfiles")
-    public void loadNpcProfilePreferences(String profileId) {
-        final RandomProfile profile = RandomProfileFactory.getInstance().getElement(profileId);
+	@DataProvider(name = "npcProfiles")
+	public Object[][] npcProfiles() {
+		return new Object[][]{{"serf"}, {"cavalryRaider"}, {"tankDriver"}, {"medic"}, {"intermediateCommand"},
+				{"cybernetic"}, {"freedomFighter"}, {"sailor"}, {"spaceFighterPilot"}, {"combatAircraftPilot"}};
+	}
 
-        Assert.assertNotNull(profile);
-    }
+	@Test(dataProvider = "npcProfiles")
+	public void loadNpcProfilePreferences(String profileId) {
+		final RandomProfile profile = RandomProfileFactory.getInstance().getElement(profileId);
 
-    @DataProvider(name = "operationalRoleProfiles")
-    public Object[][] operationalRoleProfiles() {
-        return new Object[][]{
-                {"combat", ElementType.COMBAT}, {"social", ElementType.SOCIAL}, {"stealth", ElementType.STEALTH},
-                {"knowledge", ElementType.TECHNICAL}, {"searcher", ElementType.TECHNICAL},
-                {"faith", ElementType.SPIRITUAL}, {"trade", ElementType.COMMERCE},
-                {"technical", ElementType.TECHNICAL}, {"artist", ElementType.SOCIAL},
-                {"military", ElementType.LEADERSHIP}
-        };
-    }
+		Assert.assertNotNull(profile);
+	}
 
-    @Test(dataProvider = "operationalRoleProfiles")
-    public void loadOperationalRoleProfile(String profileId, ElementType expectedElementType) {
-        final RandomProfile profile = RandomProfileFactory.getInstance().getElement(profileId);
+	@DataProvider(name = "operationalRoleProfiles")
+	public Object[][] operationalRoleProfiles() {
+		return new Object[][]{{"combat", ElementType.COMBAT}, {"social", ElementType.SOCIAL},
+				{"stealth", ElementType.STEALTH}, {"knowledge", ElementType.TECHNICAL},
+				{"searcher", ElementType.TECHNICAL}, {"faith", ElementType.SPIRITUAL}, {"trade", ElementType.COMMERCE},
+				{"technical", ElementType.TECHNICAL}, {"artist", ElementType.SOCIAL},
+				{"military", ElementType.LEADERSHIP}};
+	}
 
-        Assert.assertEquals(profile.getGroup(), "operationalRole");
-        Assert.assertEquals(profile.getElementType(), expectedElementType);
-    }
+	@Test(dataProvider = "operationalRoleProfiles")
+	public void loadOperationalRoleProfile(String profileId, ElementType expectedElementType) {
+		final RandomProfile profile = RandomProfileFactory.getInstance().getElement(profileId);
 
-    @Test
-    public void loadProfileElementPriorities() {
-        final RandomProfile profile = RandomProfileFactory.getInstance().getElement("heavyWeapons");
+		Assert.assertEquals(profile.getGroup(), "operationalRole");
+		Assert.assertEquals(profile.getElementType(), expectedElementType);
+	}
 
-        Assert.assertEquals(profile.getMandatorySkills(), Set.of("shoot"));
-        Assert.assertEquals(profile.getSuggestedCapabilities(), Set.of("gunnery", "artillery", "slugGuns",
-                "militaryWeapons", "combatArmor"));
-    }
+	@Test
+	public void loadProfileElementPriorities() {
+		final RandomProfile profile = RandomProfileFactory.getInstance().getElement("heavyWeapons");
 
-    @Test
-    public void profilesAreKeptOutsideRandomPreferences() throws InvalidXmlElementException {
-        final RandomProfile profile = RandomProfileFactory.getInstance().getElement("heavyWeapons");
-        final RandomPreferences preferences = new RandomPreferences(Set.of(AttackPreferences.RANGED), Set.of(profile));
+		Assert.assertEquals(profile.getMandatorySkills(), Set.of("shoot"));
+		Assert.assertEquals(profile.getSuggestedCapabilities(),
+				Set.of("gunnery", "artillery", "slugGuns", "militaryWeapons", "combatArmor"));
+	}
 
-        Assert.assertEquals(preferences, Set.of(AttackPreferences.RANGED));
-        Assert.assertEquals(preferences.getProfiles(), Set.of(profile));
-    }
+	@Test
+	public void profilesAreKeptOutsideRandomPreferences() throws InvalidXmlElementException {
+		final RandomProfile profile = RandomProfileFactory.getInstance().getElement("heavyWeapons");
+		final RandomPreferences preferences = new RandomPreferences(Set.of(AttackPreferences.RANGED), Set.of(profile));
 
-    @Test
-    public void profileRecommendationIncreasesElementWeight() throws InvalidRandomElementSelectedException, InvalidXmlElementException {
-        final CharacterPlayer characterPlayer = new CharacterPlayer();
-        characterPlayer.setSpecie("human");
-        characterPlayer.setUpbringing("merchant");
-        final Faction faction = FactionFactory.getInstance().getElement("musters");
-        final RandomProfile profile = RandomProfileFactory.getInstance().getElement("heavyWeapons");
-        final RandomFaction baseSelector = new RandomFaction(characterPlayer, new RandomPreferences(Set.of(), Set.of()));
-        final RandomFaction selector = new RandomFaction(characterPlayer, new RandomPreferences(Set.of(), Set.of(profile)));
+		Assert.assertEquals(preferences, Set.of(AttackPreferences.RANGED));
+		Assert.assertEquals(preferences.getProfiles(), Set.of(profile));
+	}
 
-        faction.getRandomDefinition().getRecommendedPreferences().add(profile.getId());
-        try {
-            Assert.assertEquals(selector.getElementWeight(faction), baseSelector.getElementWeight(faction)
-                    + RandomSelector.USER_SELECTION_MULTIPLIER * RandomSelector.BASIC_PROBABILITY);
-        } finally {
-            faction.getRandomDefinition().getRecommendedPreferences().remove(profile.getId());
-        }
-    }
+	@Test
+	public void loadDirectProfileRecommendations() throws Exception {
+		final String xml = """
+				<profiles>
+				    <profile>
+				        <id>xmlProfile</id>
+				        <group>operationalRole</group>
+				        <recommendedUpbringings>
+				            <id>merchant</id>
+				            <id>noble</id>
+				        </recommendedUpbringings>
+				        <recommendedFactions>
+				            <faction>reeves</faction>
+				            <faction>musters</faction>
+				        </recommendedFactions>
+				        <recommendedCallings>
+				            <calling>trader</calling>
+				            <calling>banker</calling>
+				        </recommendedCallings>
+				    </profile>
+				</profiles>
+				""";
 
-    @Test
-    public void validateProfileReferences() throws InvalidXmlElementException {
-        RandomProfileFactory.getInstance().validate();
-    }
+		final List<RandomProfile> profiles = XmlFactory.getObjectMapper().readerForListOf(RandomProfile.class)
+				.readValue(xml);
+		final RandomProfile profile = profiles.get(0);
 
-    @Test
-    public void checkCharacteristicsPreferencesWeightsForPrimitive() {
-        final CharacterPlayer characterPlayer = new CharacterPlayer();
-        characterPlayer.setSpecie("human");
-        characterPlayer.setUpbringing("noble");
+		Assert.assertEquals(profile.getRecommendedUpbringings(), Set.of("merchant", "noble"));
+		Assert.assertEquals(profile.getRecommendedFactions(), Set.of("reeves", "musters"));
+		Assert.assertEquals(profile.getRecommendedCallings(), Set.of("trader", "banker"));
+	}
 
-        final RandomCharacteristicBonusOption randomCharacteristicBonusOption =
-                new RandomCharacteristicBonusOption(characterPlayer, convert(TechPreference.PRIMITIVE),
-                        characterPlayer.getUpbringing().getCharacteristicOptions().get(0));
+	@Test
+	public void profileRecommendationIncreasesUpbringingWeight()
+			throws InvalidRandomElementSelectedException, InvalidXmlElementException {
+		final CharacterPlayer characterPlayer = new CharacterPlayer();
+		characterPlayer.setSpecie("human");
+		final Upbringing upbringing = UpbringingFactory.getInstance().getElement("merchant");
+		final RandomProfile profile = this.createRecommendedProfile();
+		final RandomUpbringing baseSelector = new RandomUpbringing(characterPlayer,
+				new RandomPreferences(Set.of(), Set.of()));
+		final RandomUpbringing selector = new RandomUpbringing(characterPlayer,
+				new RandomPreferences(Set.of(), Set.of(profile)));
 
-        randomCharacteristicBonusOption.updateWeights();
-        //3 characteristics plus the latest null value for selection.
-        Assert.assertEquals(randomCharacteristicBonusOption.getWeightedElements().size(), 4);
-        //Dexterity is recommended to faction.
-        Assert.assertEquals(randomCharacteristicBonusOption.getAssignedWeight(0).intValue(), (int) ProbabilityMultiplier.NORMAL.getValue() * RandomSelector.BASIC_PROBABILITY);
-        //Endurance is a preferred characteristic for primitive.
-        Assert.assertEquals(randomCharacteristicBonusOption.getAssignedWeight(1).intValue(), (int) (ProbabilityMultiplier.NORMAL.getValue() + RandomSelector.USER_SELECTION_MULTIPLIER) * RandomSelector.BASIC_PROBABILITY);
-        //Strength is a preferred characteristic for primitive.
-        Assert.assertEquals(randomCharacteristicBonusOption.getAssignedWeight(2).intValue(), (int) (ProbabilityMultiplier.NORMAL.getValue() + RandomSelector.USER_SELECTION_MULTIPLIER) * RandomSelector.BASIC_PROBABILITY);
-    }
+		Assert.assertEquals(selector.getElementWeight(upbringing),
+				baseSelector.getElementWeight(upbringing) * RandomSelector.HIGH_MULTIPLIER);
+	}
 
-    @Test
-    public void checkCharacteristicsPreferencesWeightsForVorox() {
-        final CharacterPlayer characterPlayer = new CharacterPlayer();
-        characterPlayer.setSpecie("vorox");
-        characterPlayer.setUpbringing("noble");
+	@Test
+	public void profileRecommendationIncreasesFactionWeight()
+			throws InvalidRandomElementSelectedException, InvalidXmlElementException {
+		final CharacterPlayer characterPlayer = new CharacterPlayer();
+		characterPlayer.setSpecie("human");
+		characterPlayer.setUpbringing("merchant");
+		final Faction faction = FactionFactory.getInstance().getElement("reeves");
+		final RandomProfile profile = this.createRecommendedProfile();
+		final RandomFaction baseSelector = new RandomFaction(characterPlayer,
+				new RandomPreferences(Set.of(), Set.of()));
+		final RandomFaction selector = new RandomFaction(characterPlayer,
+				new RandomPreferences(Set.of(), Set.of(profile)));
 
-        final RandomCharacteristicBonusOption randomCharacteristicBonusOption =
-                new RandomCharacteristicBonusOption(characterPlayer, convert(TechPreference.PRIMITIVE),
-                        characterPlayer.getUpbringing().getCharacteristicOptions().get(0));
+		Assert.assertEquals(selector.getElementWeight(faction),
+				baseSelector.getElementWeight(faction) * RandomSelector.HIGH_MULTIPLIER);
+	}
 
-        randomCharacteristicBonusOption.updateWeights();
-        //3 characteristics plus the latest null value for selection.
-        Assert.assertEquals(randomCharacteristicBonusOption.getWeightedElements().size(), 4);
-        //Dexterity is recommended to faction.
-        Assert.assertEquals(randomCharacteristicBonusOption.getAssignedWeight(0).intValue(), (int) ProbabilityMultiplier.NORMAL.getValue() * RandomSelector.BASIC_PROBABILITY);
-        //Endurance is a preferred characteristic for primitive.
-        Assert.assertEquals(randomCharacteristicBonusOption.getAssignedWeight(1).intValue(), (RandomSelector.USER_SELECTION_MULTIPLIER + RandomSelector.HIGH_MULTIPLIER) * RandomSelector.BASIC_PROBABILITY);
-        //Strength is a preferred characteristic for primitive.
-        Assert.assertEquals(randomCharacteristicBonusOption.getAssignedWeight(2).intValue(), (RandomSelector.USER_SELECTION_MULTIPLIER + RandomSelector.HIGH_MULTIPLIER) * RandomSelector.BASIC_PROBABILITY);
-    }
+	@Test
+	public void profileRecommendationIncreasesCallingWeight()
+			throws InvalidRandomElementSelectedException, InvalidXmlElementException {
+		final CharacterPlayer characterPlayer = new CharacterPlayer();
+		characterPlayer.setSpecie("human");
+		characterPlayer.setUpbringing("merchant");
+		characterPlayer.setFaction("musters");
+		final Calling calling = CallingFactory.getInstance().getElement("trader");
+		final RandomProfile profile = this.createRecommendedProfile();
+		final RandomCalling baseSelector = new RandomCalling(characterPlayer,
+				new RandomPreferences(Set.of(), Set.of()));
+		final RandomCalling selector = new RandomCalling(characterPlayer,
+				new RandomPreferences(Set.of(), Set.of(profile)));
 
-    @Test
-    public void checkFactionPreferencesWeightsForEvil() throws InvalidRandomElementSelectedException {
-        final CharacterPlayer characterPlayer = new CharacterPlayer();
-        characterPlayer.setSpecie("human");
-        characterPlayer.setUpbringing("merchant");
-        characterPlayer.setFaction("musters");
-        final RandomFaction randomFaction = new RandomFaction(characterPlayer, convert(AlignmentPreference.EVIL));
-        randomFaction.updateWeights();
-        //Musters has a plus for evil preference.
-        final Faction musters = FactionFactory.getInstance().getElement("musters");
-        Assert.assertEquals(randomFaction.getElementWeight(musters),
-                (int) (musters.getRandomDefinition().getProbabilityMultiplier().getValue() + RandomSelector.USER_SELECTION_MULTIPLIER) * RandomSelector.BASIC_PROBABILITY);
+		Assert.assertTrue(selector.getElementWeight(calling) > baseSelector.getElementWeight(calling));
+	}
 
-        final Faction reeves = FactionFactory.getInstance().getElement("reeves");
-        Assert.assertEquals(randomFaction.getElementWeight(reeves),
-                (int) (musters.getRandomDefinition().getProbabilityMultiplier().getValue()) * RandomSelector.BASIC_PROBABILITY);
-    }
+	@Test
+	public void validateProfileReferences() throws InvalidXmlElementException {
+		RandomProfileFactory.getInstance().validate();
+	}
 
-    @Test
-    public void checkCharacteristicsWeightsForPrimitive() throws InvalidRandomElementSelectedException {
-        final CharacterPlayer characterPlayer = new CharacterPlayer();
-        characterPlayer.setSpecie("human");
-        characterPlayer.setUpbringing("merchant");
-        characterPlayer.setFaction("musters");
-        final RandomCharacteristics randomCharacteristics = new RandomCharacteristics(characterPlayer, convert(TechPreference.PRIMITIVE));
-        randomCharacteristics.updateWeights();
-        Assert.assertEquals(randomCharacteristics.getElementWeight(CharacteristicsDefinitionFactory.getInstance().getElement("strength")), 25000);
-        Assert.assertEquals(randomCharacteristics.getElementWeight(CharacteristicsDefinitionFactory.getInstance().getElement("dexterity")), 10000);
-        Assert.assertEquals(randomCharacteristics.getElementWeight(CharacteristicsDefinitionFactory.getInstance().getElement("endurance")), 25000);
-        Assert.assertEquals(randomCharacteristics.getElementWeight(CharacteristicsDefinitionFactory.getInstance().getElement("wits")), 2000);
-    }
+	@Test
+	public void checkCharacteristicsPreferencesWeightsForPrimitive() {
+		final CharacterPlayer characterPlayer = new CharacterPlayer();
+		characterPlayer.setSpecie("human");
+		characterPlayer.setUpbringing("noble");
+
+		final RandomCharacteristicBonusOption randomCharacteristicBonusOption = new RandomCharacteristicBonusOption(
+				characterPlayer, this.convert(TechPreference.PRIMITIVE),
+				characterPlayer.getUpbringing().getCharacteristicOptions().get(0));
+
+		randomCharacteristicBonusOption.updateWeights();
+		// 3 characteristics plus the latest null value for selection.
+		Assert.assertEquals(randomCharacteristicBonusOption.getWeightedElements().size(), 4);
+		// Dexterity is recommended to faction.
+		Assert.assertEquals(randomCharacteristicBonusOption.getAssignedWeight(0).intValue(),
+				(int) ProbabilityMultiplier.NORMAL.getValue() * RandomSelector.BASIC_PROBABILITY);
+		// Endurance is a preferred characteristic for primitive.
+		Assert.assertEquals(randomCharacteristicBonusOption.getAssignedWeight(1).intValue(),
+				(int) (ProbabilityMultiplier.NORMAL.getValue() + RandomSelector.USER_SELECTION_MULTIPLIER)
+						* RandomSelector.BASIC_PROBABILITY);
+		// Strength is a preferred characteristic for primitive.
+		Assert.assertEquals(randomCharacteristicBonusOption.getAssignedWeight(2).intValue(),
+				(int) (ProbabilityMultiplier.NORMAL.getValue() + RandomSelector.USER_SELECTION_MULTIPLIER)
+						* RandomSelector.BASIC_PROBABILITY);
+	}
+
+	@Test
+	public void checkCharacteristicsPreferencesWeightsForVorox() {
+		final CharacterPlayer characterPlayer = new CharacterPlayer();
+		characterPlayer.setSpecie("vorox");
+		characterPlayer.setUpbringing("noble");
+
+		final RandomCharacteristicBonusOption randomCharacteristicBonusOption = new RandomCharacteristicBonusOption(
+				characterPlayer, this.convert(TechPreference.PRIMITIVE),
+				characterPlayer.getUpbringing().getCharacteristicOptions().get(0));
+
+		randomCharacteristicBonusOption.updateWeights();
+		// 3 characteristics plus the latest null value for selection.
+		Assert.assertEquals(randomCharacteristicBonusOption.getWeightedElements().size(), 4);
+		// Dexterity is recommended to faction.
+		Assert.assertEquals(randomCharacteristicBonusOption.getAssignedWeight(0).intValue(),
+				(int) ProbabilityMultiplier.NORMAL.getValue() * RandomSelector.BASIC_PROBABILITY);
+		// Endurance is a preferred characteristic for primitive.
+		Assert.assertEquals(randomCharacteristicBonusOption.getAssignedWeight(1).intValue(),
+				(RandomSelector.USER_SELECTION_MULTIPLIER + RandomSelector.HIGH_MULTIPLIER)
+						* RandomSelector.BASIC_PROBABILITY);
+		// Strength is a preferred characteristic for primitive.
+		Assert.assertEquals(randomCharacteristicBonusOption.getAssignedWeight(2).intValue(),
+				(RandomSelector.USER_SELECTION_MULTIPLIER + RandomSelector.HIGH_MULTIPLIER)
+						* RandomSelector.BASIC_PROBABILITY);
+	}
+
+	@Test
+	public void checkFactionPreferencesWeightsForEvil() throws InvalidRandomElementSelectedException {
+		final CharacterPlayer characterPlayer = new CharacterPlayer();
+		characterPlayer.setSpecie("human");
+		characterPlayer.setUpbringing("merchant");
+		characterPlayer.setFaction("musters");
+		final RandomFaction randomFaction = new RandomFaction(characterPlayer, this.convert(AlignmentPreference.EVIL));
+		randomFaction.updateWeights();
+		// Musters has a plus for evil preference.
+		final Faction musters = FactionFactory.getInstance().getElement("musters");
+		Assert.assertEquals(randomFaction.getElementWeight(musters),
+				(int) (musters.getRandomDefinition().getProbabilityMultiplier().getValue()
+						+ RandomSelector.USER_SELECTION_MULTIPLIER) * RandomSelector.BASIC_PROBABILITY);
+
+		final Faction reeves = FactionFactory.getInstance().getElement("reeves");
+		Assert.assertEquals(randomFaction.getElementWeight(reeves),
+				(int) (musters.getRandomDefinition().getProbabilityMultiplier().getValue())
+						* RandomSelector.BASIC_PROBABILITY);
+	}
+
+	@Test
+	public void checkCharacteristicsWeightsForPrimitive() throws InvalidRandomElementSelectedException {
+		final CharacterPlayer characterPlayer = new CharacterPlayer();
+		characterPlayer.setSpecie("human");
+		characterPlayer.setUpbringing("merchant");
+		characterPlayer.setFaction("musters");
+		final RandomCharacteristics randomCharacteristics = new RandomCharacteristics(characterPlayer,
+            this.convert(TechPreference.PRIMITIVE));
+		randomCharacteristics.updateWeights();
+		Assert.assertEquals(randomCharacteristics
+				.getElementWeight(CharacteristicsDefinitionFactory.getInstance().getElement("strength")), 25000);
+		Assert.assertEquals(randomCharacteristics
+				.getElementWeight(CharacteristicsDefinitionFactory.getInstance().getElement("dexterity")), 10000);
+		Assert.assertEquals(randomCharacteristics
+				.getElementWeight(CharacteristicsDefinitionFactory.getInstance().getElement("endurance")), 25000);
+		Assert.assertEquals(randomCharacteristics
+				.getElementWeight(CharacteristicsDefinitionFactory.getInstance().getElement("wits")), 2000);
+	}
 }

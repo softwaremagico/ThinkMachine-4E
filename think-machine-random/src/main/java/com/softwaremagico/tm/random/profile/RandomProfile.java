@@ -25,9 +25,12 @@ package com.softwaremagico.tm.random.profile;
  */
 
 import com.softwaremagico.tm.Element;
+import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
+import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.skills.SkillFactory;
+import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
 import java.util.Set;
@@ -39,6 +42,9 @@ public class RandomProfile extends Element {
     private Set<String> suggestedCapabilities = Set.of();
     private Set<String> mandatorySkills = Set.of();
     private Set<String> suggestedSkills = Set.of();
+    private Set<String> recommendedUpbringings = Set.of();
+    private Set<String> recommendedFactions = Set.of();
+    private Set<String> recommendedCallings = Set.of();
 
     public Set<String> getMandatoryPerks() {
         return mandatoryPerks;
@@ -88,6 +94,31 @@ public class RandomProfile extends Element {
         this.suggestedSkills = suggestedSkills;
     }
 
+    public Set<String> getRecommendedUpbringings() {
+        return recommendedUpbringings;
+    }
+
+    public void setRecommendedUpbringings(Set<String> recommendedUpbringings) {
+        this.recommendedUpbringings = recommendedUpbringings;
+    }
+
+    public Set<String> getRecommendedFactions() {
+        return recommendedFactions;
+    }
+
+    public void setRecommendedFactions(Set<String> recommendedFactions) {
+        this.recommendedFactions = recommendedFactions;
+    }
+
+    public Set<String> getRecommendedCallings() {
+        return recommendedCallings;
+    }
+
+    public void setRecommendedCallings(Set<String> recommendedCallings) {
+        this.recommendedCallings = recommendedCallings;
+    }
+
+
     @Override
     public void validate() throws InvalidXmlElementException {
         super.validate();
@@ -97,6 +128,9 @@ public class RandomProfile extends Element {
         validateElements(suggestedCapabilities, CapabilityFactory.getInstance(), "suggested capability");
         validateElements(mandatorySkills, SkillFactory.getInstance(), "mandatory skill");
         validateElements(suggestedSkills, SkillFactory.getInstance(), "suggested skill");
+        validateElements(recommendedUpbringings, UpbringingFactory.getInstance(), "recommended upbringing");
+        validateElements(recommendedFactions, FactionFactory.getInstance(), "recommended faction");
+        validateElements(recommendedCallings, CallingFactory.getInstance(), "recommended calling");
     }
 
     private void validateElements(Set<String> elementIds, com.softwaremagico.tm.xml.XmlFactory<?> factory,
