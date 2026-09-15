@@ -113,7 +113,8 @@ public class RandomFaction extends RandomSelector<Faction> implements Assignable
     @Override
     public Faction selectElementByWeight() throws InvalidRandomElementSelectedException {
         final Set<String> mandatoryFactions = getProfiles().stream()
-                .filter(profile -> profile.getMandatoryRestrictions() != null)
+                .filter(profile -> profile.getMandatoryRestrictions() != null
+                        && profile.getMandatoryRestrictions().isRestricted(getCharacterPlayer()))
                 .flatMap(profile -> profile.getMandatoryRestrictions().getRestrictedToFactions().stream())
                 .collect(java.util.stream.Collectors.toSet());
         if (!mandatoryFactions.isEmpty()) {

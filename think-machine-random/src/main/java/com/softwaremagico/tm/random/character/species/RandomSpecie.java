@@ -82,7 +82,8 @@ public class RandomSpecie extends RandomSelector<Specie> implements AssignableRa
     public Specie selectElementByWeight() throws InvalidRandomElementSelectedException {
         final Set<String> mandatorySpecies = getProfiles().stream()
                 .flatMap(profile -> Stream.concat(profile.getMandatorySpecies().stream(),
-                        profile.getMandatoryRestrictions() == null ? Stream.empty()
+                        profile.getMandatoryRestrictions() == null || !profile.getMandatoryRestrictions().isRestricted(getCharacterPlayer())
+                                ? Stream.empty()
                                 : profile.getMandatoryRestrictions().getRestrictedToSpecies().stream()))
                 .collect(Collectors.toSet());
         if (!mandatorySpecies.isEmpty()) {

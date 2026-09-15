@@ -90,6 +90,23 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
 
     @Override
     protected int getWeight(CharacteristicDefinition element) throws InvalidRandomElementSelectedException {
+        final Set<String> mandatoryCharacteristics = getProfiles().stream()
+                .flatMap(profile -> profile.getMandatoryCharacteristics().stream())
+                .collect(java.util.stream.Collectors.toSet());
+        if (!mandatoryCharacteristics.isEmpty() && !mandatoryCharacteristics.contains(element.getId())
+                && mandatoryCharacteristics.stream().anyMatch(characteristic -> getCharacterPlayer()
+                .getCharacteristicValue(CharacteristicName.get(characteristic)) == CharacteristicDefinition.INITIAL_CHARACTERISTIC_VALUE)) {
+            return 0;
+        }
+        if (!mandatoryCharacteristics.isEmpty() && !mandatoryCharacteristics.contains(element.getId())) {
+            final int maximumMandatoryCharacteristicValue = mandatoryCharacteristics.stream()
+                    .mapToInt(characteristic -> getCharacterPlayer().getCharacteristicValue(CharacteristicName.get(characteristic)))
+                    .max().orElse(CharacteristicDefinition.INITIAL_CHARACTERISTIC_VALUE);
+            if (getCharacterPlayer().getCharacteristicValue(element.getCharacteristicName()) + bonus
+                    > maximumMandatoryCharacteristicValue) {
+                return 0;
+            }
+        }
         if (element.getType() == CharacteristicType.OTHERS) {
             return 0;
         }

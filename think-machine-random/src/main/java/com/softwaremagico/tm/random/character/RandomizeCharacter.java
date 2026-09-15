@@ -125,9 +125,24 @@ public class RandomizeCharacter {
             reassignSkills();
             setLevels();
             setEquipment();
+            validateMandatoryCapabilities();
             RandomGenerationLog.info(RandomizeCharacter.class, "Character created: " + characterPlayer.toString());
         } catch (InvalidXmlElementException | MaxValueExceededException e) {
             throw new InvalidXmlElementException("Error on '" + characterPlayer + "'.", e);
+        }
+    }
+
+    private void validateMandatoryCapabilities() throws InvalidRandomElementSelectedException {
+        if (!(preferences instanceof RandomPreferences)) {
+            return;
+        }
+        for (final RandomProfile profile : ((RandomPreferences) preferences).getProfiles()) {
+            for (final String capability : profile.getMandatoryCapabilities()) {
+                if (!characterPlayer.hasCapability(capability, (String) null)) {
+                    throw new InvalidRandomElementSelectedException("Mandatory capability '" + capability
+                            + "' from profile '" + profile.getId() + "' could not be assigned.");
+                }
+            }
         }
     }
 

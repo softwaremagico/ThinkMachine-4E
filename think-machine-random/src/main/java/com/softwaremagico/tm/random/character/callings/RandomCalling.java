@@ -114,7 +114,8 @@ public class RandomCalling extends RandomSelector<Calling> implements Assignable
     @Override
     public Calling selectElementByWeight() throws InvalidRandomElementSelectedException {
         final Set<String> mandatoryCallings = getProfiles().stream()
-                .filter(profile -> profile.getMandatoryRestrictions() != null)
+                .filter(profile -> profile.getMandatoryRestrictions() != null
+                        && profile.getMandatoryRestrictions().isRestricted(getCharacterPlayer()))
                 .flatMap(profile -> profile.getMandatoryRestrictions().getRestrictedToCallings().stream())
                 .collect(java.util.stream.Collectors.toSet());
         if (!mandatoryCallings.isEmpty()) {

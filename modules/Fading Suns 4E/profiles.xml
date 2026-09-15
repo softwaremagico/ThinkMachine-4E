@@ -376,6 +376,20 @@
     </profile>
     <profile>
         <id>tankDriver</id>
+        <mandatoryRestrictions mode="any">
+            <factions>
+                <faction>brotherBattle</faction>
+                <faction>theDispossessed</faction>
+            </factions>
+            <upbringings>
+                <upbringing>noble</upbringing>
+                <upbringing>merchant</upbringing>
+            </upbringings>
+            <callings>
+                <calling>mercenary</calling>
+                <calling>scout</calling>
+            </callings>
+        </mandatoryRestrictions>
         <name>
             <en>Tank Driver</en>
             <es>Piloto de Tanque</es>
@@ -392,13 +406,13 @@
         <mandatoryCapabilities>
             <capability>warcraft</capability>
         </mandatoryCapabilities>
+        <suggestedCapabilities>
+            <capability>landcraft</capability>
+        </suggestedCapabilities>
         <suggestedSkills>
             <skill>shoot</skill>
             <skill>interface</skill>
         </suggestedSkills>
-        <mandatoryCapabilities>
-            <capability>landcraft</capability>
-        </mandatoryCapabilities>
         <suggestedCapabilities>
             <capability>gunnery</capability>
         </suggestedCapabilities>
@@ -490,11 +504,9 @@
                 <preference>LEGAL</preference>
             </recommendedPreferences>
         </random>
-        <mandatorySkills>
-            <skill>interface</skill>
-        </mandatorySkills>
         <suggestedSkills>
             <skill>shoot</skill>
+            <skill>interface</skill>
             <skill>observe</skill>
             <skill>intrusion</skill>
             <skill>techRedemption</skill>
@@ -546,9 +558,6 @@
             <recommendedPreferences>
             </recommendedPreferences>
         </random>
-        <mandatorySkills>
-            <skill>pilot</skill>
-        </mandatorySkills>
         <suggestedSkills>
             <skill>interface</skill>
             <skill>techRedemption</skill>

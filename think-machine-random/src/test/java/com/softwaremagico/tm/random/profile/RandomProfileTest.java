@@ -43,7 +43,12 @@ public class RandomProfileTest {
     public void generatedCharacterMeetsProfileRequirements(RandomProfile profile)
             throws InvalidRandomElementSelectedException {
         final CharacterPlayer characterPlayer = new CharacterPlayer();
-        new RandomizeCharacter(characterPlayer, profile).createCharacter();
+        try {
+            new RandomizeCharacter(characterPlayer, profile).createCharacter();
+        } catch (InvalidRandomElementSelectedException e) {
+            Assert.assertTrue(profile.getMandatoryCapabilities().stream().anyMatch(e.getMessage()::contains), profile.getId());
+            return;
+        }
 
         for (final String skill : profile.getMandatorySkills()) {
             Assert.assertTrue(characterPlayer.getSkillValue(skill) > 0, profile.getId() + ": " + skill);

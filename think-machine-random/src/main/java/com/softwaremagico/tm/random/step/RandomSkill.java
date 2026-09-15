@@ -87,6 +87,10 @@ public class RandomSkill extends RandomSelector<Skill> {
     protected int getWeight(Skill element) throws InvalidRandomElementSelectedException {
         final Set<String> mandatorySkills = getProfiles().stream().flatMap(profile -> profile.getMandatorySkills().stream())
                 .collect(java.util.stream.Collectors.toSet());
+        if (!mandatorySkills.isEmpty() && !mandatorySkills.contains(element.getId())
+                && mandatorySkills.stream().anyMatch(skillId -> getCharacterPlayer().getSkillValue(skillId) == 0)) {
+            return 0;
+        }
         if (!mandatorySkills.isEmpty() && !mandatorySkills.contains(element.getId())) {
             final int maximumMandatorySkillValue = mandatorySkills.stream()
                     .mapToInt(skillId -> getCharacterPlayer().getSkillValue(skillId)).max().orElse(0);

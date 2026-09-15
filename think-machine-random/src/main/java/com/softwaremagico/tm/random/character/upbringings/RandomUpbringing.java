@@ -102,7 +102,8 @@ public class RandomUpbringing extends RandomSelector<Upbringing> implements Assi
     @Override
     public Upbringing selectElementByWeight() throws InvalidRandomElementSelectedException {
         final Set<String> mandatoryUpbringings = getProfiles().stream()
-                .filter(profile -> profile.getMandatoryRestrictions() != null)
+                .filter(profile -> profile.getMandatoryRestrictions() != null
+                        && profile.getMandatoryRestrictions().isRestricted(getCharacterPlayer()))
                 .flatMap(profile -> profile.getMandatoryRestrictions().getRestrictedToUpbringing().stream())
                 .collect(java.util.stream.Collectors.toSet());
         if (!mandatoryUpbringings.isEmpty()) {
