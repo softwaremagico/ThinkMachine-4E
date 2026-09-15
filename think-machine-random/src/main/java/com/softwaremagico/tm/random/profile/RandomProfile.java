@@ -27,6 +27,7 @@ package com.softwaremagico.tm.random.profile;
 import com.softwaremagico.tm.Element;
 import com.softwaremagico.tm.character.callings.CallingFactory;
 import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
+import com.softwaremagico.tm.character.characteristics.CharacteristicsDefinitionFactory;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.skills.SkillFactory;
@@ -44,6 +45,7 @@ public class RandomProfile extends Element {
     private Set<String> mandatorySkills = Set.of();
     private Set<String> suggestedSkills = Set.of();
     private Set<String> mandatorySpecies = Set.of();
+    private Set<String> recommendedCharacteristics = Set.of();
     private Set<String> recommendedUpbringings = Set.of();
     private Set<String> recommendedFactions = Set.of();
     private Set<String> recommendedCallings = Set.of();
@@ -104,6 +106,14 @@ public class RandomProfile extends Element {
         this.mandatorySpecies = mandatorySpecies;
     }
 
+    public Set<String> getRecommendedCharacteristics() {
+        return this.recommendedCharacteristics;
+    }
+
+    public void setRecommendedCharacteristics(Set<String> recommendedCharacteristics) {
+        this.recommendedCharacteristics = recommendedCharacteristics;
+    }
+
     public Set<String> getRecommendedUpbringings() {
         return this.recommendedUpbringings;
     }
@@ -138,6 +148,7 @@ public class RandomProfile extends Element {
         validateElements(mandatorySkills, SkillFactory.getInstance(), "mandatory skill");
         validateElements(suggestedSkills, SkillFactory.getInstance(), "suggested skill");
         validateElements(mandatorySpecies, SpecieFactory.getInstance(), "mandatory specie");
+        validateElements(recommendedCharacteristics, CharacteristicsDefinitionFactory.getInstance(), "recommended characteristic");
         validateElements(recommendedUpbringings, UpbringingFactory.getInstance(), "recommended upbringing");
         validateElements(recommendedFactions, FactionFactory.getInstance(), "recommended faction");
         validateElements(recommendedCallings, CallingFactory.getInstance(), "recommended calling");

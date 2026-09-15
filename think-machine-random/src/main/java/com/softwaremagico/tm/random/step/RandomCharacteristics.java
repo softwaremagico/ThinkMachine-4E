@@ -124,6 +124,11 @@ public class RandomCharacteristics extends RandomSelector<CharacteristicDefiniti
             return FAIR_PROBABILITY;
         }
 
+        //Profile recommends this characteristic (e.g. occultist profile recommending psi/theurgy).
+        if (getProfiles().stream().anyMatch(profile -> profile.getRecommendedCharacteristics().contains(element.getId()))) {
+            return FAIR_PROBABILITY;
+        }
+
         //No occultists without points does not add extra points.
         if (element.getType() == CharacteristicType.OCCULTISM && !getCharacterPlayer().isOccultist()) {
             return EXOTIC_PROBABILITY;

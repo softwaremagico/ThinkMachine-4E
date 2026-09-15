@@ -239,6 +239,96 @@ public class PreferencesTests {
 	}
 
 	@Test
+	public void cambiadoProfileHasMandatorySpecies() {
+		final RandomProfile profile = RandomProfileFactory.getInstance().getElement("cambiado");
+
+		Assert.assertEquals(profile.getMandatorySpecies(), Set.of("animalized", "mutant", "tweaked", "clone",
+				"metonym", "grimson", "inhuman"));
+	}
+
+	@Test
+	public void cambiadoProfileHasChangedGroupSuggestedPerks() {
+		final RandomProfile profile = RandomProfileFactory.getInstance().getElement("cambiado");
+
+		Assert.assertEquals(profile.getSuggestedPerks().size(), 27);
+		Assert.assertTrue(profile.getSuggestedPerks().containsAll(Set.of("claws", "gills", "horns", "immunity")));
+	}
+
+	@Test
+	public void ocultistaProfileHasMandatoryOccultismPerks() {
+		final RandomProfile profile = RandomProfileFactory.getInstance().getElement("ocultista");
+
+		Assert.assertEquals(profile.getMandatoryPerks(), Set.of("psychicPowers", "theurgicRites"));
+	}
+
+	@Test
+	public void ocultistaProfileRecommendsPsiAndTheurgyCharacteristics() {
+		final RandomProfile profile = RandomProfileFactory.getInstance().getElement("ocultista");
+
+		Assert.assertEquals(profile.getRecommendedCharacteristics(), Set.of("theurgy", "psi"));
+	}
+
+	@Test
+	public void scoutProfileWasRenamedToWanderer() {
+		final RandomProfile profile = RandomProfileFactory.getInstance().getElement("scout");
+
+		Assert.assertEquals(profile.getName().getEnglish(), "Wanderer");
+		Assert.assertEquals(profile.getName().getSpanish(), "Errante");
+	}
+
+	@Test
+	public void loadDirectProfileMandatorySpeciesAndRecommendedCharacteristics() throws Exception {
+		final String xml = """
+				<profiles>
+				    <profile>
+				        <id>xmlSpeciesProfile</id>
+				        <group>specialization</group>
+				        <mandatorySpecies>
+				            <specie>human</specie>
+				            <specie>obun</specie>
+				        </mandatorySpecies>
+				        <recommendedCharacteristics>
+				            <characteristic>psi</characteristic>
+				            <characteristic>theurgy</characteristic>
+				        </recommendedCharacteristics>
+				        <mandatoryPerks>
+				            <perk>psychicPowers</perk>
+				            <perk>theurgicRites</perk>
+				        </mandatoryPerks>
+				    </profile>
+				</profiles>
+				""";
+
+		final List<RandomProfile> profiles = XmlFactory.getObjectMapper().readerForListOf(RandomProfile.class)
+				.readValue(xml);
+		final RandomProfile profile = profiles.get(0);
+
+		Assert.assertEquals(profile.getMandatorySpecies(), Set.of("human", "obun"));
+		Assert.assertEquals(profile.getRecommendedCharacteristics(), Set.of("psi", "theurgy"));
+		Assert.assertEquals(profile.getMandatoryPerks(), Set.of("psychicPowers", "theurgicRites"));
+	}
+
+	@Test
+	public void recommendedCharacteristicIncreasesWeight() throws InvalidRandomElementSelectedException {
+		final CharacterPlayer characterPlayer = new CharacterPlayer();
+		characterPlayer.setSpecie("human");
+		characterPlayer.setUpbringing("priest");
+
+		final RandomProfile profile = new RandomProfile();
+		profile.setId("recommendedPsiProfile");
+		profile.setRecommendedCharacteristics(Set.of("psi"));
+
+		final RandomCharacteristics baseSelector = new RandomCharacteristics(characterPlayer,
+				new RandomPreferences(Set.of(), Set.of()));
+		final RandomCharacteristics selector = new RandomCharacteristics(characterPlayer,
+				new RandomPreferences(Set.of(), Set.of(profile)));
+
+		final var psi = CharacteristicsDefinitionFactory.getInstance().getElement("psi");
+
+		Assert.assertTrue(selector.getElementWeight(psi) > baseSelector.getElementWeight(psi));
+	}
+
+	@Test
 	public void checkCharacteristicsPreferencesWeightsForPrimitive() {
 		final CharacterPlayer characterPlayer = new CharacterPlayer();
 		characterPlayer.setSpecie("human");

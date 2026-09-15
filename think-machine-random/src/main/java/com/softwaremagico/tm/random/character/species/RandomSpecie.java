@@ -38,6 +38,7 @@ import com.softwaremagico.tm.random.preferences.RandomSelector;
 import com.softwaremagico.tm.random.preferences.SpeciePreference;
 import com.softwaremagico.tm.random.step.RandomizeCharacterDefinitionStep;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -47,17 +48,6 @@ public class RandomSpecie extends RandomSelector<Specie> implements AssignableRa
 
     public RandomSpecie(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
-    }
-
-    @Override
-    protected int getWeight(Specie element) throws InvalidRandomElementSelectedException {
-        final Set<String> mandatorySpecies = getProfiles().stream()
-                .flatMap(profile -> profile.getMandatorySpecies().stream())
-                .collect(Collectors.toSet());
-        if (!mandatorySpecies.isEmpty() && !mandatorySpecies.contains(element.getId())) {
-            return 0;
-        }
-        return super.getWeight(element);
     }
 
     @Override
@@ -85,6 +75,30 @@ public class RandomSpecie extends RandomSelector<Specie> implements AssignableRa
             }
         }
         return selectElementByWeight().getId();
+    }
+
+    @Override
+    public Specie selectElementByWeight() throws InvalidRandomElementSelectedException {
+        final Set<String> mandatorySpecies = getProfiles().stream()
+                .flatMap(profile -> profile.getMandatorySpecies().stream())
+                .collect(Collectors.toSet());
+        if (!mandatorySpecies.isEmpty()) {
+            final List<Specie> candidates = new ArrayList<>();
+            try {
+                for (final Specie specie : getAllElements()) {
+                    if (mandatorySpecies.contains(specie.getId()) && getWeight(specie) > 0) {
+                        candidates.add(specie);
+                    }
+                }
+            } catch (InvalidXmlElementException e) {
+                throw new InvalidRandomElementSelectedException("No species available.", e);
+            }
+            if (!candidates.isEmpty()) {
+                return candidates.get(RANDOM.nextInt(candidates.size()));
+            }
+        }
+        // No mandatory candidate available (or none required): any specie can be chosen normally.
+        return super.selectElementByWeight();
     }
 
     @Override

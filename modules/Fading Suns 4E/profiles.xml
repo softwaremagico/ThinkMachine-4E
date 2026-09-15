@@ -923,6 +923,10 @@
             <calling>psychic</calling>
             <calling>dervish</calling>
         </recommendedCallings>
+        <recommendedCharacteristics>
+            <characteristic>theurgy</characteristic>
+            <characteristic>psi</characteristic>
+        </recommendedCharacteristics>
         <mandatorySkills>
             <skill>focus</skill>
         </mandatorySkills>
