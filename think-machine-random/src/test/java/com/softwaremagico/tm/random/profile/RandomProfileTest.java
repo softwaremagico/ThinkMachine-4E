@@ -27,11 +27,41 @@ package com.softwaremagico.tm.random.profile;
 import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.random.character.RandomizeCharacter;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
+import com.softwaremagico.tm.restrictions.RestrictionMode;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.util.Set;
+
 public class RandomProfileTest {
+
+    @Test
+    public void tankDriverMandatoryRestrictionsMatchWarcraftRequirements() throws Exception {
+        final RandomProfile profile = RandomProfileFactory.getInstance().getElements().stream()
+                .filter(candidate -> "tankDriver".equals(candidate.getId())).findFirst().orElseThrow();
+
+        Assert.assertEquals(profile.getMandatoryCapabilities(), Set.of("warcraft"));
+        Assert.assertEquals(profile.getMandatoryRestrictions().getMode(), RestrictionMode.ANY);
+        Assert.assertEquals(profile.getMandatoryRestrictions().getRestrictedToFactions(),
+                Set.of("brotherBattle", "theDispossessed"));
+        Assert.assertEquals(profile.getMandatoryRestrictions().getRestrictedToUpbringing(), Set.of("noble", "merchant"));
+        Assert.assertEquals(profile.getMandatoryRestrictions().getRestrictedToCallings(), Set.of("mercenary", "scout"));
+    }
+
+    @Test
+    public void tankDriverGeneratesWarcraftOrFailsExplicitly() throws Exception {
+        final RandomProfile profile = RandomProfileFactory.getInstance().getElements().stream()
+                .filter(candidate -> "tankDriver".equals(candidate.getId())).findFirst().orElseThrow();
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+
+        try {
+            new RandomizeCharacter(characterPlayer, profile).createCharacter();
+            Assert.assertTrue(characterPlayer.hasCapability("warcraft", (String) null));
+        } catch (InvalidRandomElementSelectedException e) {
+            Assert.assertTrue(e.getMessage().contains("Mandatory capability 'warcraft'"));
+        }
+    }
 
     @DataProvider(name = "profiles")
     public Object[][] profiles() throws Exception {
