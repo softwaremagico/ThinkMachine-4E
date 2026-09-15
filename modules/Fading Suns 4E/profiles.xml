@@ -389,6 +389,9 @@
         <mandatorySkills>
             <skill>drive</skill>
         </mandatorySkills>
+        <mandatoryCapabilities>
+            <capability>warcraft</capability>
+        </mandatoryCapabilities>
         <suggestedSkills>
             <skill>shoot</skill>
             <skill>interface</skill>
@@ -462,6 +465,10 @@
             <es>Cibernetico</es>
         </name>
         <group>specialization</group>
+        <recommendedFactions>
+            <faction>shelit</faction>
+            <faction>apothecaries</faction>
+        </recommendedFactions>
         <recommendedUpbringings>
             <id>merchant</id>
             <id>noble</id>
@@ -547,7 +554,7 @@
             <skill>techRedemption</skill>
         </suggestedSkills>
         <mandatoryCapabilities>
-            <capability>spacecraft</capability>
+            <capability>watercraft</capability>
         </mandatoryCapabilities>
         <suggestedPerks>
             <perk>mechanic</perk>
@@ -555,6 +562,14 @@
     </profile>
     <profile>
         <id>spaceFighterPilot</id>
+        <mandatoryRestrictions mode="all">
+            <upbringings>
+                <upbringing>merchant</upbringing>
+            </upbringings>
+            <callings>
+                <calling>starPilot</calling>
+            </callings>
+        </mandatoryRestrictions>
         <name>
             <en>Space Fighter Pilot</en>
             <es>Piloto de Caza Espacial</es>
@@ -586,6 +601,14 @@
     </profile>
     <profile>
         <id>combatAircraftPilot</id>
+        <mandatoryRestrictions mode="all">
+            <upbringings>
+                <upbringing>merchant</upbringing>
+            </upbringings>
+            <callings>
+                <calling>starPilot</calling>
+            </callings>
+        </mandatoryRestrictions>
         <name>
             <en>Combat Aircraft Pilot</en>
             <es>Piloto de Avion de Combate</es>
@@ -916,13 +939,14 @@
             <es>Ocultista</es>
         </name>
         <group>specialization</group>
-        <recommendedCallings>
-            <calling>occultist</calling>
-            <calling>dreamtender</calling>
-            <calling>clergy</calling>
-            <calling>psychic</calling>
-            <calling>dervish</calling>
-        </recommendedCallings>
+        <mandatoryRestrictions mode="any">
+            <callings>
+                <calling>psychic</calling>
+                <calling>dervish</calling>
+                <calling>theurgist</calling>
+                <calling>brotherBattle</calling>
+            </callings>
+        </mandatoryRestrictions>
         <recommendedCharacteristics>
             <characteristic>theurgy</characteristic>
             <characteristic>psi</characteristic>

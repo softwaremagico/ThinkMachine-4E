@@ -34,6 +34,7 @@ import com.softwaremagico.tm.character.skills.SkillFactory;
 import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
+import com.softwaremagico.tm.restrictions.Restrictions;
 
 import java.util.Set;
 
@@ -43,12 +44,22 @@ public class RandomProfile extends Element {
     private Set<String> mandatoryCapabilities = Set.of();
     private Set<String> suggestedCapabilities = Set.of();
     private Set<String> mandatorySkills = Set.of();
+    private Set<String> mandatoryCharacteristics = Set.of();
     private Set<String> suggestedSkills = Set.of();
     private Set<String> mandatorySpecies = Set.of();
     private Set<String> recommendedCharacteristics = Set.of();
     private Set<String> recommendedUpbringings = Set.of();
     private Set<String> recommendedFactions = Set.of();
     private Set<String> recommendedCallings = Set.of();
+    private Restrictions mandatoryRestrictions;
+
+    public Restrictions getMandatoryRestrictions() {
+        return this.mandatoryRestrictions;
+    }
+
+    public void setMandatoryRestrictions(Restrictions mandatoryRestrictions) {
+        this.mandatoryRestrictions = mandatoryRestrictions;
+    }
 
     public Set<String> getMandatoryPerks() {
         return this.mandatoryPerks;
@@ -88,6 +99,14 @@ public class RandomProfile extends Element {
 
     public void setMandatorySkills(Set<String> mandatorySkills) {
         this.mandatorySkills = mandatorySkills;
+    }
+
+    public Set<String> getMandatoryCharacteristics() {
+        return this.mandatoryCharacteristics;
+    }
+
+    public void setMandatoryCharacteristics(Set<String> mandatoryCharacteristics) {
+        this.mandatoryCharacteristics = mandatoryCharacteristics;
     }
 
     public Set<String> getSuggestedSkills() {
@@ -146,12 +165,16 @@ public class RandomProfile extends Element {
         validateElements(mandatoryCapabilities, CapabilityFactory.getInstance(), "mandatory capability");
         validateElements(suggestedCapabilities, CapabilityFactory.getInstance(), "suggested capability");
         validateElements(mandatorySkills, SkillFactory.getInstance(), "mandatory skill");
+        validateElements(mandatoryCharacteristics, CharacteristicsDefinitionFactory.getInstance(), "mandatory characteristic");
         validateElements(suggestedSkills, SkillFactory.getInstance(), "suggested skill");
         validateElements(mandatorySpecies, SpecieFactory.getInstance(), "mandatory specie");
         validateElements(recommendedCharacteristics, CharacteristicsDefinitionFactory.getInstance(), "recommended characteristic");
         validateElements(recommendedUpbringings, UpbringingFactory.getInstance(), "recommended upbringing");
         validateElements(recommendedFactions, FactionFactory.getInstance(), "recommended faction");
         validateElements(recommendedCallings, CallingFactory.getInstance(), "recommended calling");
+        if (mandatoryRestrictions != null) {
+            mandatoryRestrictions.validate();
+        }
     }
 
     private void validateElements(Set<String> elementIds, com.softwaremagico.tm.xml.XmlFactory<?> factory,

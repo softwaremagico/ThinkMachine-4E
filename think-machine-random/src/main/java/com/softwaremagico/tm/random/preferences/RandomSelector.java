@@ -466,7 +466,10 @@ public abstract class RandomSelector<Element extends com.softwaremagico.tm.Eleme
             }
         }
         if (keyToDelete != null) {
-            final int weightToDelete = getAssignedWeight(weightedElements.get(keyToDelete));
+            final Integer weightToDelete = getAssignedWeight(weightedElements.get(keyToDelete));
+            if (weightToDelete == null) {
+                return;
+            }
 
             // Remove desired element.
             weightedElements.remove(keyToDelete);

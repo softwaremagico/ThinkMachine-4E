@@ -459,9 +459,9 @@
                 <preference>RURAL</preference>
                 <preference>EXOTIC</preference>
             </recommendedPreferences>
-            <forbiddenPreferences>
+            <inadvisablePreferences>
                 <preference>CORE_WORLDS</preference>
-            </forbiddenPreferences>
+            </inadvisablePreferences>
         </random>
     </capability>
     <capability>

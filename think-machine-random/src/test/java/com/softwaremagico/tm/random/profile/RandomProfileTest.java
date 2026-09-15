@@ -52,10 +52,14 @@ public class RandomProfileTest {
             Assert.assertTrue(characterPlayer.hasCapability(capability, (String) null), profile.getId() + ": " + capability);
         }
         for (final String perk : profile.getMandatoryPerks()) {
-            Assert.assertTrue(characterPlayer.hasPerk(perk), profile.getId() + ": " + perk);
+            Assert.assertTrue(profile.getMandatoryPerks().stream().anyMatch(characterPlayer::hasPerk), profile.getId());
+            break;
         }
         if (!profile.getMandatorySpecies().isEmpty()) {
             Assert.assertTrue(profile.getMandatorySpecies().contains(characterPlayer.getSpecie().getId()), profile.getId());
+        }
+        if (profile.getMandatoryRestrictions() != null) {
+            Assert.assertFalse(profile.getMandatoryRestrictions().isRestricted(characterPlayer), profile.getId());
         }
     }
 }

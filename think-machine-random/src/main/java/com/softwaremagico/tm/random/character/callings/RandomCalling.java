@@ -41,6 +41,7 @@ import com.softwaremagico.tm.random.preferences.RandomSelector;
 import com.softwaremagico.tm.random.step.RandomizeCharacterDefinitionStep;
 
 import java.util.Collection;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Set;
 
@@ -108,5 +109,32 @@ public class RandomCalling extends RandomSelector<Calling> implements Assignable
             return Math.max(VERY_GOOD_PROBABILITY, weight);
         }
         return weight;
+    }
+
+    @Override
+    public Calling selectElementByWeight() throws InvalidRandomElementSelectedException {
+        final Set<String> mandatoryCallings = getProfiles().stream()
+                .filter(profile -> profile.getMandatoryRestrictions() != null)
+                .flatMap(profile -> profile.getMandatoryRestrictions().getRestrictedToCallings().stream())
+                .collect(java.util.stream.Collectors.toSet());
+        if (!mandatoryCallings.isEmpty()) {
+            final Collection<Calling> callings;
+            try {
+                callings = getAllElements();
+            } catch (InvalidXmlElementException e) {
+                throw new InvalidRandomElementSelectedException("No mandatory callings available.", e);
+            }
+            final ArrayList<Calling> candidates = new ArrayList<>();
+            for (final Calling calling : callings) {
+                if (mandatoryCallings.contains(calling.getId()) && getElementWeight(calling) > 0) {
+                    candidates.add(calling);
+                }
+            }
+            if (!candidates.isEmpty()) {
+                return candidates.get(RANDOM.nextInt(candidates.size()));
+            }
+            throw new InvalidRandomElementSelectedException("No mandatory calling available.");
+        }
+        return super.selectElementByWeight();
     }
 }

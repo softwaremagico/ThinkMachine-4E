@@ -38,6 +38,7 @@ import com.softwaremagico.tm.random.preferences.RandomSelector;
 import com.softwaremagico.tm.random.step.RandomizeCharacterDefinitionStep;
 
 import java.util.Collection;
+import java.util.ArrayList;
 import java.util.Set;
 
 public class RandomUpbringing extends RandomSelector<Upbringing> implements AssignableRandomSelector, RandomInnerStepsSelector {
@@ -96,5 +97,30 @@ public class RandomUpbringing extends RandomSelector<Upbringing> implements Assi
             weight *= HIGH_MULTIPLIER;
         }
         return weight;
+    }
+
+    @Override
+    public Upbringing selectElementByWeight() throws InvalidRandomElementSelectedException {
+        final Set<String> mandatoryUpbringings = getProfiles().stream()
+                .filter(profile -> profile.getMandatoryRestrictions() != null)
+                .flatMap(profile -> profile.getMandatoryRestrictions().getRestrictedToUpbringing().stream())
+                .collect(java.util.stream.Collectors.toSet());
+        if (!mandatoryUpbringings.isEmpty()) {
+            final ArrayList<Upbringing> candidates = new ArrayList<>();
+            try {
+                for (final Upbringing upbringing : getAllElements()) {
+                    if (mandatoryUpbringings.contains(upbringing.getId()) && getElementWeight(upbringing) > 0) {
+                        candidates.add(upbringing);
+                    }
+                }
+            } catch (InvalidXmlElementException e) {
+                throw new InvalidRandomElementSelectedException("No mandatory upbringing available.", e);
+            }
+            if (!candidates.isEmpty()) {
+                return candidates.get(RANDOM.nextInt(candidates.size()));
+            }
+            throw new InvalidRandomElementSelectedException("No mandatory upbringing available.");
+        }
+        return super.selectElementByWeight();
     }
 }

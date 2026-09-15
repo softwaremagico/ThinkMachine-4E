@@ -34,7 +34,9 @@ import com.softwaremagico.tm.log.RandomStepLog;
 import com.softwaremagico.tm.random.exceptions.InvalidRandomElementSelectedException;
 import com.softwaremagico.tm.random.preferences.IRandomPreference;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 public class RandomSkillBonusOption extends RandomSkill {
@@ -68,6 +70,30 @@ public class RandomSkillBonusOption extends RandomSkill {
             return 0;
         }
         return super.getWeight(element);
+    }
+
+    @Override
+    public Skill selectElementByWeight() throws InvalidRandomElementSelectedException {
+        try {
+            updateWeights();
+        } catch (InvalidXmlElementException e) {
+            return super.selectElementByWeight();
+        }
+        final List<Skill> mandatorySkills = new ArrayList<>();
+        for (final Skill skill : getAllElements()) {
+            try {
+                if (getProfiles().stream().anyMatch(profile -> profile.getMandatorySkills().contains(skill.getId()))
+                        && getWeight(skill) > 0) {
+                    mandatorySkills.add(skill);
+                }
+            } catch (InvalidRandomElementSelectedException e) {
+                // The mandatory skill cannot be selected from this option.
+            }
+        }
+        if (!mandatorySkills.isEmpty()) {
+            return mandatorySkills.get(RANDOM.nextInt(mandatorySkills.size()));
+        }
+        return super.selectElementByWeight();
     }
 
 }

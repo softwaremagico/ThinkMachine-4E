@@ -37,6 +37,7 @@ import com.softwaremagico.tm.random.preferences.IRandomPreference;
 import com.softwaremagico.tm.random.preferences.RandomSelector;
 import com.softwaremagico.tm.random.step.RandomizeCharacterDefinitionStep;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
 import java.util.Set;
@@ -107,5 +108,30 @@ public class RandomFaction extends RandomSelector<Faction> implements Assignable
         }
 
         return weight;
+    }
+
+    @Override
+    public Faction selectElementByWeight() throws InvalidRandomElementSelectedException {
+        final Set<String> mandatoryFactions = getProfiles().stream()
+                .filter(profile -> profile.getMandatoryRestrictions() != null)
+                .flatMap(profile -> profile.getMandatoryRestrictions().getRestrictedToFactions().stream())
+                .collect(java.util.stream.Collectors.toSet());
+        if (!mandatoryFactions.isEmpty()) {
+            final ArrayList<Faction> candidates = new ArrayList<>();
+            try {
+                for (final Faction faction : getAllElements()) {
+                    if (mandatoryFactions.contains(faction.getId()) && getElementWeight(faction) > 0) {
+                        candidates.add(faction);
+                    }
+                }
+            } catch (InvalidXmlElementException e) {
+                throw new InvalidRandomElementSelectedException("No mandatory faction available.", e);
+            }
+            if (!candidates.isEmpty()) {
+                return candidates.get(RANDOM.nextInt(candidates.size()));
+            }
+            throw new InvalidRandomElementSelectedException("No mandatory faction available.");
+        }
+        return super.selectElementByWeight();
     }
 }
