@@ -29,8 +29,13 @@ import com.softwaremagico.tm.character.CharacterPlayer;
 import com.softwaremagico.tm.character.equipment.armors.ArmorFactory;
 import com.softwaremagico.tm.character.equipment.handheldshield.HandheldShieldFactory;
 import com.softwaremagico.tm.character.equipment.weapons.WeaponFactory;
+import com.softwaremagico.tm.character.perks.PerkFactory;
+import com.softwaremagico.tm.restrictions.RestrictionMode;
+import com.softwaremagico.tm.restrictions.Restrictions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.Set;
 
 @Test(groups = "restrictions")
 public class RestrictionTests extends RulesTest {
@@ -60,5 +65,81 @@ public class RestrictionTests extends RulesTest {
     public void restrictedWarArmorByCapability() {
         final CharacterPlayer characterPlayer = new CharacterPlayer();
         Assert.assertTrue(ArmorFactory.getInstance().getElement("ceramsteelExoframe").getRestrictions().isRestricted(characterPlayer));
+    }
+
+    @Test
+    public void anyModeAllowsAnyMatchingRestriction() {
+        final Restrictions restrictions = new Restrictions();
+        restrictions.setRestrictedToSpecies(Set.of("human"));
+        restrictions.setRestrictedToFactions(Set.of("alMalik"));
+
+        Assert.assertFalse(restrictions.isRestricted(createValidCharacter()));
+    }
+
+    @Test
+    public void allModeRequiresEveryRestriction() {
+        final Restrictions restrictions = characterDefinitionRestrictions(RestrictionMode.ALL);
+
+        Assert.assertFalse(restrictions.isRestricted(createValidCharacter()));
+
+        final CharacterPlayer characterPlayer = createValidCharacter();
+        characterPlayer.setFaction("alMalik");
+        Assert.assertTrue(restrictions.isRestricted(characterPlayer));
+    }
+
+    @Test
+    public void anyFromGroupModeRequiresAMatchFromEveryGroup() {
+        final Restrictions restrictions = characterDefinitionRestrictions(RestrictionMode.ANY_FROM_GROUP);
+
+        Assert.assertFalse(restrictions.isRestricted(createValidCharacter()));
+
+        final CharacterPlayer characterPlayer = createValidCharacter();
+        characterPlayer.setCalling("commander");
+        Assert.assertTrue(restrictions.isRestricted(characterPlayer));
+    }
+
+    @Test
+    public void anyCharacterDefinitionModeAllowsAnyMatchingDefinition() {
+        final Restrictions restrictions = new Restrictions();
+        restrictions.setMode(RestrictionMode.ANY_CHARACTER_DEFINITION);
+        restrictions.setRestrictedToSpecies(Set.of("obun"));
+        restrictions.setRestrictedToUpbringing(Set.of("merchant"));
+        restrictions.setRestrictedToFactions(Set.of("alMalik"));
+        restrictions.setRestrictedToCallings(Set.of("commander"));
+
+        Assert.assertTrue(restrictions.isRestricted(createValidCharacter()));
+
+        final CharacterPlayer characterPlayer = createValidCharacter();
+        characterPlayer.setCalling("commander");
+        Assert.assertFalse(restrictions.isRestricted(characterPlayer));
+    }
+
+    @Test
+    public void wiseOneRequiresPriestUpbringingAndEligibleFaction() {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("priest");
+        characterPlayer.setFaction("gjarti");
+
+        Assert.assertFalse(PerkFactory.getInstance().getElement("wiseOne").getRestrictions().isRestricted(characterPlayer));
+    }
+
+    private Restrictions characterDefinitionRestrictions(RestrictionMode mode) {
+        final Restrictions restrictions = new Restrictions();
+        restrictions.setMode(mode);
+        restrictions.setRestrictedToSpecies(Set.of("human"));
+        restrictions.setRestrictedToUpbringing(Set.of("noble"));
+        restrictions.setRestrictedToFactions(Set.of("hawkwood"));
+        restrictions.setRestrictedToCallings(Set.of("amateur"));
+        return restrictions;
+    }
+
+    private CharacterPlayer createValidCharacter() {
+        final CharacterPlayer characterPlayer = new CharacterPlayer();
+        characterPlayer.setSpecie("human");
+        characterPlayer.setUpbringing("noble");
+        characterPlayer.setFaction("hawkwood");
+        characterPlayer.setCalling("amateur");
+        return characterPlayer;
     }
 }

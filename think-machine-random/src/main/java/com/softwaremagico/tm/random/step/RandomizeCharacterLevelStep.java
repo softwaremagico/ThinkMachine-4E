@@ -60,14 +60,15 @@ public class RandomizeCharacterLevelStep extends RandomizeCharacterDefinitionSte
                 if (perkOptions.get(i).getTotalOptions() > 0) {
                     try {
                         for (int j = levelSelector.getSelectedClassPerksOptions().get(i).getSelections().size();
-                             j < perkOptions.get(i).getTotalOptions(); j++) {
+                              j < perkOptions.get(i).getTotalOptions(); j++) {
+                            final CharacterPerkOptions currentPerkOptions = levelSelector.getNotRepeatedClassPerksOptions().get(i);
                             final RandomPerk randomPerk =
                                     new RandomPerk(getCharacterPlayer(), getPreferences(),
-                                            perkOptions.get(i),
+                                            currentPerkOptions,
                                             levelSelector.getPhase(), levelSelector.getLevel());
                             final Selection selectedPerk = randomPerk.selectElementByWeight();
                             RandomSelectorLog.debug(RandomizeCharacterLevelStep.class, "Selected perk '{}' on phase '{}' on index '{}' from options '{}'.",
-                                    selectedPerk, levelSelector.getPhase(), levelSelector.getLevel(), perkOptions.get(i).getAvailableSelections());
+                                    selectedPerk, levelSelector.getPhase(), levelSelector.getLevel(), currentPerkOptions.getAvailableSelections());
                             levelSelector.getSelectedClassPerksOptions().get(i).getSelections()
                                     .add(selectedPerk);
                         }
@@ -88,10 +89,11 @@ public class RandomizeCharacterLevelStep extends RandomizeCharacterDefinitionSte
                 if (perkOptions.get(i).getTotalOptions() > 0) {
                     try {
                         for (int j = levelSelector.getSelectedCallingPerksOptions().get(i).getSelections().size();
-                             j < perkOptions.get(i).getTotalOptions(); j++) {
+                              j < perkOptions.get(i).getTotalOptions(); j++) {
+                            final CharacterPerkOptions currentPerkOptions = levelSelector.getNotRepeatedCallingPerksOptions().get(i);
                             final RandomPerk randomPerk =
                                     new RandomPerk(getCharacterPlayer(), getPreferences(),
-                                            perkOptions.get(i),
+                                            currentPerkOptions,
                                             levelSelector.getPhase(), levelSelector.getLevel());
                             levelSelector.getSelectedCallingPerksOptions().get(i).getSelections()
                                     .add(randomPerk.selectElementByWeight());

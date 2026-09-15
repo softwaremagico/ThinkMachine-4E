@@ -9388,12 +9388,11 @@ Da limosna a quienes la pidan. • Santa Maya: Protege siempre a los débiles y 
             <upbringings>
                 <upbringing>priest</upbringing>
             </upbringings>
-            <callings>
-
-
-
-
-            </callings>
+            <factions>
+                <faction>childrenOfZuran</faction>
+                <faction>incarnates</faction>
+                <faction>gjarti</faction>
+            </factions>
         </restrictions>
     </perk>
     <perk>
