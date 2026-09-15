@@ -49,7 +49,7 @@ public class RandomProfile extends Element {
     private Set<String> recommendedCallings = Set.of();
 
     public Set<String> getMandatoryPerks() {
-        return mandatoryPerks;
+        return this.mandatoryPerks;
     }
 
     public void setMandatoryPerks(Set<String> mandatoryPerks) {
@@ -57,7 +57,7 @@ public class RandomProfile extends Element {
     }
 
     public Set<String> getSuggestedPerks() {
-        return suggestedPerks;
+        return this.suggestedPerks;
     }
 
     public void setSuggestedPerks(Set<String> suggestedPerks) {
@@ -65,7 +65,7 @@ public class RandomProfile extends Element {
     }
 
     public Set<String> getMandatoryCapabilities() {
-        return mandatoryCapabilities;
+        return this.mandatoryCapabilities;
     }
 
     public void setMandatoryCapabilities(Set<String> mandatoryCapabilities) {
@@ -73,7 +73,7 @@ public class RandomProfile extends Element {
     }
 
     public Set<String> getSuggestedCapabilities() {
-        return suggestedCapabilities;
+        return this.suggestedCapabilities;
     }
 
     public void setSuggestedCapabilities(Set<String> suggestedCapabilities) {
@@ -81,7 +81,7 @@ public class RandomProfile extends Element {
     }
 
     public Set<String> getMandatorySkills() {
-        return mandatorySkills;
+        return this.mandatorySkills;
     }
 
     public void setMandatorySkills(Set<String> mandatorySkills) {
@@ -89,7 +89,7 @@ public class RandomProfile extends Element {
     }
 
     public Set<String> getSuggestedSkills() {
-        return suggestedSkills;
+        return this.suggestedSkills;
     }
 
     public void setSuggestedSkills(Set<String> suggestedSkills) {
@@ -97,7 +97,7 @@ public class RandomProfile extends Element {
     }
 
     public Set<String> getMandatorySpecies() {
-        return mandatorySpecies;
+        return this.mandatorySpecies;
     }
 
     public void setMandatorySpecies(Set<String> mandatorySpecies) {
@@ -105,7 +105,7 @@ public class RandomProfile extends Element {
     }
 
     public Set<String> getRecommendedUpbringings() {
-        return recommendedUpbringings;
+        return this.recommendedUpbringings;
     }
 
     public void setRecommendedUpbringings(Set<String> recommendedUpbringings) {
@@ -113,7 +113,7 @@ public class RandomProfile extends Element {
     }
 
     public Set<String> getRecommendedFactions() {
-        return recommendedFactions;
+        return this.recommendedFactions;
     }
 
     public void setRecommendedFactions(Set<String> recommendedFactions) {
@@ -121,13 +121,12 @@ public class RandomProfile extends Element {
     }
 
     public Set<String> getRecommendedCallings() {
-        return recommendedCallings;
+        return this.recommendedCallings;
     }
 
     public void setRecommendedCallings(Set<String> recommendedCallings) {
         this.recommendedCallings = recommendedCallings;
     }
-
 
     @Override
     public void validate() throws InvalidXmlElementException {
@@ -145,13 +144,13 @@ public class RandomProfile extends Element {
     }
 
     private void validateElements(Set<String> elementIds, com.softwaremagico.tm.xml.XmlFactory<?> factory,
-                                  String elementType) throws InvalidXmlElementException {
+            String elementType) throws InvalidXmlElementException {
         for (final String elementId : elementIds) {
             try {
                 factory.getElement(elementId);
-            } catch (InvalidXmlElementException e) {
-                throw new InvalidXmlElementException("Unknown " + elementType + " '" + elementId
-                        + "' in profile '" + getId() + "'.", e);
+            } catch (final InvalidXmlElementException e) {
+                throw new InvalidXmlElementException(
+                        "Unknown " + elementType + " '" + elementId + "' in profile '" + this.getId() + "'.", e);
             }
         }
     }

@@ -787,8 +787,8 @@
     <profile>
         <id>scout</id>
         <name>
-            <en>Scout</en>
-            <es>Explorador</es>
+            <en>Wanderer</en>
+            <es>Errante</es>
         </name>
         <group>specialization</group>
         <recommendedUpbringings>
@@ -880,14 +880,12 @@
         <group>operationalRole</group>
         <elementType>LEADERSHIP</elementType>
         <recommendedUpbringings>
-            <id>noble</id>
             <id>merchant</id>
             <id>priest</id>
         </recommendedUpbringings>
         <recommendedFactions>
             <faction>bureaucrats</faction>
             <faction>reeves</faction>
-            <faction>engineers</faction>
             <faction>orthodox</faction>
         </recommendedFactions>
         <recommendedCallings>
@@ -928,6 +926,10 @@
         <mandatorySkills>
             <skill>focus</skill>
         </mandatorySkills>
+        <mandatoryPerks>
+            <perk>psychicPowers</perk>
+            <perk>theurgicRites</perk>
+        </mandatoryPerks>
         <suggestedSkills>
             <skill>empathy</skill>
             <skill>academia</skill>
