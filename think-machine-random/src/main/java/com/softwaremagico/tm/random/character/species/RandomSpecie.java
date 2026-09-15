@@ -41,11 +41,23 @@ import com.softwaremagico.tm.random.step.RandomizeCharacterDefinitionStep;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class RandomSpecie extends RandomSelector<Specie> implements AssignableRandomSelector, RandomInnerStepsSelector {
 
     public RandomSpecie(CharacterPlayer characterPlayer, Set<IRandomPreference> preferences) throws InvalidXmlElementException {
         super(characterPlayer, preferences);
+    }
+
+    @Override
+    protected int getWeight(Specie element) throws InvalidRandomElementSelectedException {
+        final Set<String> mandatorySpecies = getProfiles().stream()
+                .flatMap(profile -> profile.getMandatorySpecies().stream())
+                .collect(Collectors.toSet());
+        if (!mandatorySpecies.isEmpty() && !mandatorySpecies.contains(element.getId())) {
+            return 0;
+        }
+        return super.getWeight(element);
     }
 
     @Override

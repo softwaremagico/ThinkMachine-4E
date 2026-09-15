@@ -462,6 +462,21 @@
             <es>Cibernetico</es>
         </name>
         <group>specialization</group>
+        <recommendedUpbringings>
+            <id>merchant</id>
+            <id>noble</id>
+        </recommendedUpbringings>
+        <recommendedFactions>
+            <faction>engineers</faction>
+            <faction>reeves</faction>
+            <faction>musters</faction>
+            <faction>charioteers</faction>
+        </recommendedFactions>
+        <recommendedCallings>
+            <calling>scholar</calling>
+            <calling>starPilot</calling>
+            <calling>trader</calling>
+        </recommendedCallings>
         <random>
             <recommendedPreferences>
                 <preference>HI_TECH</preference>
@@ -894,6 +909,92 @@
             <perk>contact</perk>
             <perk>councilMember</perk>
             <perk>creditWorthy</perk>
+        </suggestedPerks>
+    </profile>
+    <profile>
+        <id>ocultista</id>
+        <name>
+            <en>Occultist</en>
+            <es>Ocultista</es>
+        </name>
+        <group>specialization</group>
+        <recommendedCallings>
+            <calling>occultist</calling>
+            <calling>dreamtender</calling>
+            <calling>clergy</calling>
+            <calling>psychic</calling>
+            <calling>dervish</calling>
+        </recommendedCallings>
+        <mandatorySkills>
+            <skill>focus</skill>
+        </mandatorySkills>
+        <suggestedSkills>
+            <skill>empathy</skill>
+            <skill>academia</skill>
+            <skill>observe</skill>
+        </suggestedSkills>
+        <suggestedCapabilities>
+            <capability>occultLore</capability>
+        </suggestedCapabilities>
+        <suggestedPerks>
+            <perk>enlightened</perk>
+            <perk>absolution</perk>
+            <perk>deduce</perk>
+        </suggestedPerks>
+    </profile>
+    <profile>
+        <id>cambiado</id>
+        <name>
+            <en>Changed</en>
+            <es>Cambiado</es>
+        </name>
+        <group>specialization</group>
+        <random>
+            <recommendedPreferences>
+                <preference>FRONTIER</preference>
+                <preference>WANTED</preference>
+            </recommendedPreferences>
+        </random>
+        <mandatorySkills>
+            <skill>survival</skill>
+        </mandatorySkills>
+        <mandatorySpecies>
+            <specie>animalized</specie>
+            <specie>mutant</specie>
+            <specie>tweaked</specie>
+            <specie>clone</specie>
+            <specie>metonym</specie>
+            <specie>grimson</specie>
+            <specie>inhuman</specie>
+        </mandatorySpecies>
+        <suggestedPerks>
+            <perk>alternativeRespiration</perk>
+            <perk>chameleon</perk>
+            <perk>claws</perk>
+            <perk>elongatedFingers</perk>
+            <perk>enhancedIntellect</perk>
+            <perk>enhancedPhysique</perk>
+            <perk>enhancedSenses</perk>
+            <perk>exoskeleton</perk>
+            <perk>extraLimbs</perk>
+            <perk>fangs</perk>
+            <perk>footPads</perk>
+            <perk>frogTongue</perk>
+            <perk>gills</perk>
+            <perk>gliderWings</perk>
+            <perk>hazardousBreath</perk>
+            <perk>hiddenBody</perk>
+            <perk>internalRespiration</perk>
+            <perk>longevity</perk>
+            <perk>pheromones</perk>
+            <perk>photosynthesis</perk>
+            <perk>poisonousAttack</perk>
+            <perk>roughskin</perk>
+            <perk>skunkSpray</perk>
+            <perk>tentaclesPrehensileTail</perk>
+            <perk>horns</perk>
+            <perk>immunity</perk>
+            <perk>webbedHands</perk>
         </suggestedPerks>
     </profile>
 </profiles>

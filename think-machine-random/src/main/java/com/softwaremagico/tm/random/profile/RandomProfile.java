@@ -30,6 +30,7 @@ import com.softwaremagico.tm.character.capabilities.CapabilityFactory;
 import com.softwaremagico.tm.character.factions.FactionFactory;
 import com.softwaremagico.tm.character.perks.PerkFactory;
 import com.softwaremagico.tm.character.skills.SkillFactory;
+import com.softwaremagico.tm.character.specie.SpecieFactory;
 import com.softwaremagico.tm.character.upbringing.UpbringingFactory;
 import com.softwaremagico.tm.exceptions.InvalidXmlElementException;
 
@@ -42,6 +43,7 @@ public class RandomProfile extends Element {
     private Set<String> suggestedCapabilities = Set.of();
     private Set<String> mandatorySkills = Set.of();
     private Set<String> suggestedSkills = Set.of();
+    private Set<String> mandatorySpecies = Set.of();
     private Set<String> recommendedUpbringings = Set.of();
     private Set<String> recommendedFactions = Set.of();
     private Set<String> recommendedCallings = Set.of();
@@ -94,6 +96,14 @@ public class RandomProfile extends Element {
         this.suggestedSkills = suggestedSkills;
     }
 
+    public Set<String> getMandatorySpecies() {
+        return mandatorySpecies;
+    }
+
+    public void setMandatorySpecies(Set<String> mandatorySpecies) {
+        this.mandatorySpecies = mandatorySpecies;
+    }
+
     public Set<String> getRecommendedUpbringings() {
         return recommendedUpbringings;
     }
@@ -128,6 +138,7 @@ public class RandomProfile extends Element {
         validateElements(suggestedCapabilities, CapabilityFactory.getInstance(), "suggested capability");
         validateElements(mandatorySkills, SkillFactory.getInstance(), "mandatory skill");
         validateElements(suggestedSkills, SkillFactory.getInstance(), "suggested skill");
+        validateElements(mandatorySpecies, SpecieFactory.getInstance(), "mandatory specie");
         validateElements(recommendedUpbringings, UpbringingFactory.getInstance(), "recommended upbringing");
         validateElements(recommendedFactions, FactionFactory.getInstance(), "recommended faction");
         validateElements(recommendedCallings, CallingFactory.getInstance(), "recommended calling");
